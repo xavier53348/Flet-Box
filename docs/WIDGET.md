@@ -287,7 +287,7 @@ print(screen_1.__str__())                           >>> container {'width': 240,
 print(screen_1.__repr__() )                         >>> Container(width=240, height=120, bgcolor='#44CCCC00',
 
 
-#################### ONLY WAY TO GET ATTRIBUTES CORRECTLY
+#################### ONLY WAY TO GET ATTRIBUTES CORRECTLY AND SET ATTRIBUTES
 data = {}                                           >>> {'alignment': '{"x":0,"y":0}', 'bgcolor': '#
 screen_1.copy_attrs(dest=data)                      >>> {'alignment': '{"x":0,"y":0}', 'bgcolor': '#
 ####################

@@ -407,7 +407,6 @@ class LiteMenuUpContainer(ft.Stack):
                self.phone_widget_blur_cont.update()
                self.phone_widget_container.update()
 
-
                if self.phone_widget_container.width >= 600:
                     self.menu_right_container.visible = False if self.menu_right_container.visible else True
                     self.menu_left_container.visible  = False if self.menu_right_container.visible else True
@@ -424,7 +423,6 @@ class LiteMenuUpContainer(ft.Stack):
 
 
           if action == 'SMARTPHONE':
-
 
                self.phone_widget_container.width  = 295
                self.phone_widget_blur_cont.width  = self.phone_widget_container.width

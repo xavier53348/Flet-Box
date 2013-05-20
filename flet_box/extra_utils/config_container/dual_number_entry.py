@@ -9,10 +9,10 @@ personal_configuration: dict = {
 
 
 
-                                    "radius"            : {"minimum"  : 0, "maximum"  : 360, "division" : 360, "value" : 0 },
+                                    "radius"            : {"minimum"  : 0, "maximum"  : 360, "division" : 360, "value" : 0},
                                     "margin"            : {"minimum"  : 0, "maximum"  : 300, "division" : 300, "value" : 0 },
                                     "padding"           : {"minimum"  : 0, "maximum"  : 300, "division" : 300, "value" : 0 },
-                                    "height"            : {"minimum"  : 0, "maximum"  : 4000, "division" : 4000, "value" : 0 },
+                                    "height"            : {"minimum"  : 0, "maximum"  : 4000, "division" : 4000, "value" : 50 },
                                     "size"              : {"minimum"  : 0, "maximum"  : 4000, "division" : 4000, "value" : 0 },
 }
 
@@ -128,8 +128,8 @@ class config_number_widget(ft.Stack):
                                     height        = 30,
                                     width         = 30,
                                     on_click      = lambda _:self.apply_config(
-                                                                               configuration=self.config_widget ,
-                                                                               name_id = self.widget_new,
+                                                                               configuration= self.config_widget ,
+                                                                               name_id      = self.widget_new,
                                                                                ),
                                     ink_color='red',
                                     content = ft.Icon(
@@ -193,16 +193,20 @@ class config_number_widget(ft.Stack):
 
     def apply_config(self,configuration  = "",name_id = ""):
 
+
         if name_id == "mix_container":         self.widget_to_modify = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER')
         if name_id == "mix_container_content": self.widget_to_modify = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER_CONTENT')
 
         tmp_value_configuration = personal_configuration.get(configuration).get('value')
 
-        if configuration == "padding":  self.widget_to_modify.padding  = tmp_value_configuration
-        if configuration == "margin":   self.widget_to_modify.margin   = tmp_value_configuration
-        if configuration == "radius":   self.widget_to_modify.radius   = tmp_value_configuration
-        if configuration == "border":   self.widget_to_modify.border   = tmp_value_configuration
-        if configuration == "size":     self.widget_to_modify.size     = tmp_value_configuration
+        if configuration == "padding":  self.widget_to_modify.padding       = tmp_value_configuration
+        if configuration == "margin":   self.widget_to_modify.margin        = tmp_value_configuration
+        if configuration == "radius":   self.widget_to_modify.border_radius = tmp_value_configuration
+
+        if configuration == "size":
+            self.widget_to_modify.width  = tmp_value_configuration
+            self.widget_to_modify.height = tmp_value_configuration
+
         if configuration == "offset_x" or configuration == "offset_y":
             tmp_x = personal_configuration.get("offset_x").get('value')
             tmp_y = personal_configuration.get("offset_y").get('value')
@@ -211,6 +215,7 @@ class config_number_widget(ft.Stack):
         # print(tmp_value_configuration)
         # print(self.widget_to_modify , "widget_to_edit <<<<<")
         # print(configuration)
+        # print(configuration,personal_configuration.get(configuration).get('value'))
 
         self.widget_to_modify.update()
 
@@ -246,7 +251,7 @@ class config_number_widget(ft.Stack):
 
         if  self.widget_name == "radius":
             self.widget_to_modify.border_radius    = ft.border_radius.all(slider_value)
-            personal_configuration[self.widget_name]['value']=self.widget_to_modify.border_radius
+            personal_configuration[self.widget_name]['value']=slider_value
 
         if  self.widget_name == "border":
             self.widget_to_modify.border           = slider_value
