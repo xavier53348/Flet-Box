@@ -25,6 +25,7 @@ class Icon_text(ft.UserControl):
                                         width=120,
                                     on_click=lambda _:self.copy_to_clipboard(Drop_Icon_text.content.content.controls[0].name),
                                         visible=False,
+
                                     content=ft.Column(
 
                                             controls = [

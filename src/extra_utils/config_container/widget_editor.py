@@ -31,14 +31,15 @@ class BoxConfigContainer(ft.UserControl):
                                              ft.Container(
                                                        border_radius = ft.border_radius.all(20),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                        bgcolor       = ft.colors.BLACK26,
-                                                       padding       = ft.padding.only(left=20, top=2, right=20, bottom=2),
-                                                       gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_800],),
+                                                       padding       = ft.padding.only(left=8, top=2, right=8, bottom=2),
+                                                       margin       = ft.margin.only(left=8, top=2, right=20, bottom=2),
+                                                       gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK38],),
                                                   content=ft.Text(
                                                                  value       = self.title,
                                                                  text_align  = ft.TextAlign.CENTER,                   # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
-                                                                 weight      = ft.FontWeight.BOLD,                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
+                                                                 # weight      = ft.FontWeight.BOLD,                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
                                                                  font_family = "Consolas", #"Consolas ,RobotoSlab
-                                                                 color       = ft.colors.WHITE54,
+                                                                 color       = ft.colors.WHITE,
                                                        ),
                                                   ),
                                              ft.Container(

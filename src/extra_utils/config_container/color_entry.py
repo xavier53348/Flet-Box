@@ -20,7 +20,7 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
         ColorEntry = ft.Container(
                             ##################### PROPERTY COLUMN
                             ink           = False,                                                       # click effect ripple
-                            bgcolor       = ft.colors.BLACK45,                                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                            bgcolor       = '#0c0d0e',                                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                             padding       = ft.padding.only(left=4, top=4, right=4, bottom=4),           # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
                             margin        = ft.margin.all(0),    # outside box                           # margin.only (left=8, top=8, right=8, bottom=8),
                             alignment     = ft.alignment.center,                                         # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
@@ -28,6 +28,8 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
                             border        = ft.border.all(2, ft.colors.BLACK),                           # ft.border.only(Left=8, top=8, right=8, bottom=8),
                             width         = 165,
                             height        = 80,
+                    # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
+
                             content = ft.Column(
                                         ##################### PROPERTY BOX
                                         wrap     = True,                                                 # justify in all screen
@@ -54,7 +56,8 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
                                                     width         = 152,
                                                     height        = 36,
                                                     ##################### EFFECTS
-                                                    gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLACK12, ft.colors.BLACK38 , ft.colors.BLACK54],),
+                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
+                                                    # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLACK12, ft.colors.BLACK38 , ft.colors.BLACK54],),
                                                     ##################### WIDGETS
                                                     content = ft.Row(
                                                                     ##################### PROPERTY BOX
@@ -70,7 +73,7 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
                                                                                             content = ft.TextField(
                                                                                                             hint_text = self.attribute_widget,
                                                                                                             border    = ft.InputBorder.NONE,    # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                            bgcolor   = 'dark',                 # inside box
+                                                                                                            bgcolor   = '#0e0f11',                 # inside box
                                                                                                             color     = 'YELLOW',
                                                                                                             text_size = 15,
                                                                                                             #======================= EVENTS ===========================
@@ -89,7 +92,7 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
                                                                                             bgcolor       = ft.colors.TRANSPARENT,             # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                                                             width         = 50.5,
                                                                                             height        = 30,
-                                                                                            border        = ft.border.all(1, ft.colors.RED),
+                                                                                            border        = ft.border.all(1, ft.colors.CYAN_800),
                                                                                             border_radius = ft.border_radius.all(30),          # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                             ##################### EVENTS
                                                                                             on_click      = lambda x:self.modify_right_container_attributes(data=self.attribute_widget,value = ColorEntry),   # on_hover=print('on click over'), on_long_press=print('long press'),

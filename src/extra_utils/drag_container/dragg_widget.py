@@ -28,26 +28,27 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
                                    content = ft.Container(
                                                        width         = 90,
                                                        height        = 90,
-                                                       bgcolor       = '#0c0d0e',
+                                                       # bgcolor       = '#0c0d0e',
                                                        border_radius = 16,
                                                        padding       = ft.padding.all(4),
                                                        alignment     = ft.alignment.center,
-                                                       border        = ft.border.all(0.5, ft.colors.TEAL),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                       border        = ft.border.all(1.5, '#0a1619'),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                        on_click = lambda _: self.SelectedWidget(self.widget), # on_hover=lambda _: print('on_hover'),   # on_long_press=lambda _: print('on_long_press'),
+                                                  gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLACK12, '#0c0d0e'],),
                                                   content = ft.Column(
                                                                       alignment            = ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                                                                       horizontal_alignment = ft.CrossAxisAlignment.CENTER,        # vertical       START,CENTER END
                                                             controls = [
                                                                            ft.Icon(
                                                                                      name  = self.icons,
-                                                                                     color = ft.colors.BLUE,
+                                                                                     color = ft.colors.CYAN_700,
                                                                                      size  = 50,
                                                                                      ),
                                                                            ft.Text(
                                                                                 value      = self.widget,
                                                                                 text_align = ft.TextAlign.CENTER,
                                                                                 weight     = ft.FontWeight.BOLD,
-                                                                                color      = ft.colors.BLUE,
+                                                                                color      = ft.colors.CYAN_700,
                                                                                 ),
                                                                            ]
                                                             )
@@ -66,17 +67,35 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
                                                        alignment=ft.alignment.bottom_center,
                                                        width=80,
                                                        height=80,
-                                                       bgcolor=ft.colors.BLACK45,
+                                                       bgcolor='#0c0d0e',
                                                        border=ft.border.all(0.5, ft.colors.TEAL),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
 
                                                        border_radius=13,
                                                   # image_src=f"{self.icons}",
                                                   # content=ft.Text("Drop",size=12),
-                                                    content = ft.Container(alignment=ft.alignment.center,content = ft.Icon(name=self.icons, color=ft.colors.BLUE, size=50)),
+                                                    content = ft.Column(
+                                                                 spacing=0,
+                                                                 controls = [
+                                                                      ft.Container(
+                                                                           alignment=ft.alignment.center,
+                                                                           padding       = ft.padding.all(4),
+                                                                           content = ft.Icon(name=self.icons, color=ft.colors.BLUE_300, size=50)),
+                                                                      ft.Container(
+                                                                           alignment=ft.alignment.center,
+                                                                           padding       = ft.padding.all(0),
+                                                                           margin       = ft.margin.all(0),
+                                                                           content = ft.Text(
+                                                                                               # value= self.widget,
+                                                                                               color=ft.colors.BLUE_300,
+                                                                                               size=16,
+                                                                                               weight     = ft.FontWeight.BOLD,
+                                                                                               # color      = ft.colors.CYAN_700,
+                                                                                               spans=[ft.TextSpan( self.widget, ft.TextStyle( size=16, color=ft.colors.BLUE_300),),],
+                                                                                               )),
+                                                                      ],),
                                    ),
           )# <======= coma
           return self.DropTakeDragg
-
      def SelectedWidget(self,data):
           """
           NOTE:

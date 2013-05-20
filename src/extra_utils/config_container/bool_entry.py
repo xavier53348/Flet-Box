@@ -21,7 +21,7 @@ class BoolEntry(ft.UserControl): ##################### PROPERTY
         Drop_BoolEntry =  ft.Container(
                     ##################### PROPERTY COLUMN
                     ink           = False,                                                # click effect ripple
-                    bgcolor       = ft.colors.BLACK45,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                    bgcolor       = '#0c0d0e',                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                     padding       = ft.padding.only(left=4, top=4, right=4, bottom=4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
                     margin        = ft.margin.all(0),    # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
                     alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
@@ -53,7 +53,7 @@ class BoolEntry(ft.UserControl): ##################### PROPERTY
                                                 padding       = ft.padding.all(2),    # inside box               # padding.only(left=8, top=8, right=8, bottom=8),
                                                 alignment     = ft.alignment.center,                             # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                 border_radius = ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                border        = ft.border.all(1, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                # border        = ft.border.all(0.1, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                 width         = 152,
                                                 height        = 36,
                                                 ##################### WIDGETS
@@ -63,13 +63,14 @@ class BoolEntry(ft.UserControl): ##################### PROPERTY
                                                                            ft.Container(
                                                                                     ##################### PROPERTY
                                                                                     ink           = False,                                              # click effect ripple
-                                                                                    bgcolor       = ft.colors.BLACK87,                                  # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                    # bgcolor       = ft.colors.BLACK87,                                  # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                                                     padding       = ft.padding.only(left=2, top=0, right=8, bottom=0),  # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
                                                                                     alignment     = ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                     border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                    border        = ft.border.all(1, ft.colors.BLACK38),                # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                                    border        = ft.border.all(0.1, ft.colors.BLACK38),                # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                                                     width         = 150,
                                                                                     height        = 36,
+                                                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
                                                                                     content=ft.Row(
                                                                                                     ##################### PROPERTY BOX
                                                                                                     spacing=6,                                          # space widget left right
@@ -84,7 +85,7 @@ class BoolEntry(ft.UserControl): ##################### PROPERTY
                                                                                                                                             disabled  = True,
                                                                                                                                             hint_text = self.attribute_widget,
                                                                                                                                             border    = ft.InputBorder.NONE,     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                                                            bgcolor   = 'dark',                  # inside box
+                                                                                                                                            bgcolor   = '#0e0f11',                  # inside box
                                                                                                                                             color     = 'YELLOW',
                                                                                                                                             text_size = 15,
                                                                                                                                             #======================= EVENTS ===========================

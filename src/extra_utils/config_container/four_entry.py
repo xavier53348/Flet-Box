@@ -34,7 +34,7 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
         packet_data = ft.Container(
                             ##################### PROPERTY COLUMN
                             ink           = False,                                         # click effect ripple
-                            bgcolor       = ft.colors.BLACK45,                             # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                            bgcolor       = '#0c0d0e',                             # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                             padding       = ft.padding.all(4),    # inside box             # padding.only(left=8, top=8, right=8, bottom=8),
                             margin        = ft.margin.all(0),     # outside box            # margin.only (left=8, top=8, right=8, bottom=8),
                             alignment     = ft.alignment.center,                           # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
@@ -67,8 +67,9 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                                 padding       = ft.padding.all(2),    # inside box                   # padding.only(left=8, top=8, right=8, bottom=8),
                                                 alignment     = ft.alignment.center,                                 # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                 border_radius = ft.border_radius.all(30),                            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                border        = ft.border.all(1, ft.colors.BLACK38),                 # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                border        = ft.border.all(0.1, ft.colors.BLACK38),                 # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                 height        = 36,
+                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
                                                 ##################### WIDGETS
                                                 content = ft.Row(
                                                                 ##################### PROPERTY BOX
@@ -84,7 +85,7 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_1,
                                                                                                         border    = ft.InputBorder.NONE,                # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = 'dark',                             # inside box
+                                                                                                        bgcolor   = '#0e0f11',                             # inside box
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
                                                                                                         ##################### EVENTS #####################
@@ -106,7 +107,7 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_2,
                                                                                                         border    = ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = 'dark',                                 # inside box
+                                                                                                        bgcolor   = '#0e0f11',                                 # inside box
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
                                                                                                         ##################### EVENTS #####################
@@ -126,12 +127,13 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                             ft.Container( ##################### Secon Dual Entry
                                                 ##################### PROPERTY
                                                 ink           = False,                                          # click effect ripple
-                                                bgcolor       = "#0e0f11",                                      # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                # bgcolor       = "#0e0f11",                                      # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                 padding       = ft.padding.all(2),    # inside box              # padding.only(left=8, top=8, right=8, bottom=8),
                                                 alignment     = ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                 border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                 border        = ft.border.all(1, ft.colors.BLACK38),            # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                 height        = 36,
+                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
                                                 ##################### WIDGETS
                                                 content = ft.Row(
                                                                 ##################### PROPERTY BOX
@@ -147,7 +149,7 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_3,
                                                                                                         border    = ft.InputBorder.NONE,                 # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = 'dark',                              # inside box
+                                                                                                        bgcolor   = '#0e0f11',                              # inside box
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
                                                                                                         ##################### EVENTS #####################
@@ -169,7 +171,7 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_4,
                                                                                                         border    = ft.InputBorder.NONE,                 # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = 'dark',                              # inside box
+                                                                                                        bgcolor   = '#0e0f11',                              # inside box
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
                                                                                                         #======================= EVENTS ===========================

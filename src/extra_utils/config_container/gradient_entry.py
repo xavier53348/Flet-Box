@@ -88,11 +88,11 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
         self.main_gradient_widget = ft.Container(
                                         ##################### PROPERTY
                                         ink           = False,                                   # click effect ripple
-                                        bgcolor       = "#3e4046",                               # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                        bgcolor       = "#0e0f11",                               # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                         padding       = ft.padding.all(0),    # inside box       # padding.only(left=8, top=8, right=8, bottom=8),
                                         alignment     = ft.alignment.center,                     # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                         border_radius = ft.border_radius.all(30),                # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                        border        = ft.border.all(2, '#646871'),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                        border        = ft.border.all(2, '#0e0f11'),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                         width         = 150,
                                         height        = 35,
                                         ##################### WIDGETS
@@ -117,12 +117,12 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
         Drop_GradientEntry = ft.Container(
                             ##################### PROPERTY COLUMN
                             ink           = False,                                                # click effect ripple
-                            bgcolor       = ft.colors.BLACK45,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                            bgcolor       = '#0c0d0e',                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                             padding       = ft.padding.all(4),    # inside box                    # padding.only(left=8, top=8, right=8, bottom=8),
                             margin        = ft.margin.all(0),    # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
                             alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                             border_radius = ft.border_radius.all(16),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                            border        = ft.border.all(2, ft.colors.BLACK),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                            border        = ft.border.all(2, ft.colors.BLACK ),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
                             width         = 360,
                             height        = 150,
                             ##################### WIDGETS
@@ -140,6 +140,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                             alignment     = ft.alignment.center,                 # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                             border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                             height        = 38,
+
                                                             ##################### WIDGETS
                                                             content=ft.Row(
                                                                             ##################### PROPERTY BOX
@@ -149,12 +150,16 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                         self.main_gradient_widget,
                                                                                         ft.Container(
                                                                                                     ##################### PROPERTY
-                                                                                                    ink       =False,                   # click effect ripple
+                                                                                                    ink       = True,                   # click effect ripple
                                                                                                     alignment = ft.alignment.center,    # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
                                                                                                     disabled  = True,
+                                                                                                    border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
+                                                                                                    ##################### PROPERTY
                                                                                                     content = ft.ElevatedButton(
                                                                                                                     ##################### PROPERTY
                                                                                                                     text            = f"Apply {self.attribute_widget.capitalize()}".replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
+                                                                                                                    color           = ft.colors.WHITE,
                                                                                                                     ##################### EVENTS
                                                                                                                     # on_click      = lambda _:print(screen_1.content.data),     #FloatingActionButton
                                                                                                                     # on_hover      = lambda _:print(screen_1.content.data),
@@ -180,6 +185,8 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                     border        = ft.border.all(1, ft.colors.BLACK38),          # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                     height        = 36,
                                                     disabled      = True,
+                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
+
                                                     ##################### WIDGETS
                                                     content=ft.Row(
                                                                     ##################### PROPERTY BOX
@@ -195,7 +202,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                             content = ft.TextField(
                                                                                                             hint_text = self.attribute_widget_name_1,
                                                                                                             border    = ft.InputBorder.NONE,                    # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                            bgcolor   = 'dark',                                 # inside box
+                                                                                                            bgcolor   = '#0e0f11',                                 # inside box
                                                                                                             color     = 'YELLOW',
                                                                                                             text_size = 15,
                                                                                                             #======================= EVENTS ===========================
@@ -217,7 +224,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                             content = ft.TextField(
                                                                                                             hint_text = self.attribute_widget_name_2,
                                                                                                             border    = ft.InputBorder.NONE,                # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                            bgcolor   = 'dark',                             # inside box
+                                                                                                            bgcolor   = '#0e0f11',                             # inside box
                                                                                                             color     = 'YELLOW',
                                                                                                             text_size = 15,
                                                                                                             #======================= EVENTS ===========================
@@ -235,11 +242,11 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
                                                                                             ink           = False,                                        # click effect ripple
-                                                                                            bgcolor       = "#3e4046",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                            bgcolor       = "#0e0f11",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                                                             padding       = ft.padding.all(0),    # inside box            # padding.only(left=8, top=8, right=8, bottom=8),
                                                                                             alignment     = ft.alignment.center,                          # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                             border_radius = ft.border_radius.all(30),                     # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                            border        = ft.border.all(2, '#646871'),                  # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                                            border        = ft.border.all(2, '#0e0f11'),                  # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                                                             width         = 150,
                                                                                             height        = 35,
                                                                                             ##################### WIDGETS
@@ -275,6 +282,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                     height        = 36,
                                                     disabled      = True,
                                                     ##################### WIDGETS
+                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
                                                     content=ft.Row(
                                                                     ##################### PROPERTY BOX
                                                                     spacing  = 8.7,                      # space widget left right
@@ -289,7 +297,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                         content = ft.TextField(
                                                                                                             hint_text = self.attribute_widget_name_3,
                                                                                                             border    = ft.InputBorder.NONE,                    # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                            bgcolor   = 'dark',                                 # inside box
+                                                                                                            bgcolor   = '#0e0f11',                                 # inside box
                                                                                                             color     = 'YELLOW',
                                                                                                             text_size = 15,
                                                                                                             #======================= EVENTS ===========================
@@ -311,7 +319,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_4,
                                                                                                         border    = ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = 'dark',                                  # inside box
+                                                                                                        bgcolor   = '#0e0f11',                                  # inside box
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
                                                                                                         #======================= EVENTS ===========================
@@ -326,11 +334,11 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
                                                                                             ink           = False,                                          # click effect ripple
-                                                                                            bgcolor       = "#3e4046",                                      # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                            bgcolor       = "#0e0f11",                                      # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                                                             padding       = ft.padding.all(0),    # inside box              # padding.only(left=8, top=8, right=8, bottom=8),
                                                                                             alignment     = ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                             border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                            border        = ft.border.all(2, '#646871'),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                                            border        = ft.border.all(2, '#0e0f11'),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                                                             width         = 150,
                                                                                             height        = 35,
                                                                                             ##################### WIDGETS
