@@ -24,3 +24,7 @@ from .settings_var.settings_widget                    import GLOBAL_VAR
 from .alert.alert_selected                            import AlertSelected
 #: SCREEN MANAGER
 from .screen_manager.screen_manager                   import ScreenManager ,screen_manager
+#: PALLETE COLOR
+from .color_browser.small_palette_color               import Screen_palette
+#: IMAGEN SELECTION
+from .config_container.photo_selection                import ScreenPhotoSelection

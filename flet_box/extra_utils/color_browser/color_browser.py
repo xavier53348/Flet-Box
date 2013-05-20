@@ -169,10 +169,8 @@ class ColorBrowser(ft.Stack):
             click_avalidation = False
             self.color_browser.visible = False
             self.color_browser.update()
-
         else:
             click_avalidation = True
-
 
     def build(self):
 

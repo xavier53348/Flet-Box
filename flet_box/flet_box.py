@@ -15,6 +15,8 @@ from extra_utils import GptBrowser
 from extra_utils import AboutPage            #: ABOUT CONTAINER
 from extra_utils import GLOBAL_VAR           #: CALL GLOBAL VAR  GLOBAL VARS
 from extra_utils import AlertSelected        #: ALERT DIALOG
+from extra_utils import Screen_palette
+from extra_utils import ScreenPhotoSelection
 
 from extra_utils import ScreenManager ,screen_manager  #: SCREEN MANAGER
 
@@ -128,6 +130,39 @@ def main(page: ft.Page):
           )
      GLOBAL_VAR(set_global_var={'TEXT_EDITOR_CONTAINER':TextEditorContainer})
 
+     #: COLOR EDITOR
+     ColorEditor = Screen_palette()
+
+     ColorEditorContainer = ft.Container(
+               visible= False,
+               expand = True,
+               right  = 8,
+               left   = 985,
+               top    = 70,
+               bottom = 18,
+               bgcolor= ft.colors.BLACK,
+               # blur=(16,16),
+               border_radius= ft.border_radius.only(top_left=28, top_right=28, bottom_left=28, bottom_right=28),
+          content=ColorEditor,
+          )
+     GLOBAL_VAR(set_global_var={'COLOR_EDITOR_CONTAINER':ColorEditorContainer})
+
+     #: IMAGEN EDITOR
+     ImagenEditor = ScreenPhotoSelection()
+
+     ImagenEditorContainer = ft.Container(
+               visible= False,
+               expand = True,
+               right  = 8,
+               left   = 985,
+               top    = 70,
+               bottom = 18,
+               bgcolor= ft.colors.BLACK,
+               # blur=(16,16),
+               border_radius= ft.border_radius.only(top_left=28, top_right=28, bottom_left=28, bottom_right=28),
+          content=ImagenEditor,
+          )
+     GLOBAL_VAR(set_global_var={'IMAGEN_EDITOR_CONTAINER':ImagenEditorContainer})
 
      right_config_container = ft.Container( #: RIGHT CONFIG CONTAINER
                ink             = False,
@@ -140,17 +175,6 @@ def main(page: ft.Page):
 
                # EFFECS COLORS
                border=ft.border.all(0.6, ft.colors.WHITE12),
-               # gradient=ft.LinearGradient(
-               #                            begin= ft.alignment.top_center,
-               #                            end  = ft.alignment.bottom_center,
-               #                            colors=[
-               #                                 ft.colors.with_opacity(0.02,ft.colors.WHITE12),
-               #                                 ft.colors.with_opacity(0.02,ft.colors.YELLOW_700),
-               #                                 ft.colors.with_opacity(0.02,ft.colors.PURPLE_900),
-               #                                 ft.colors.with_opacity(0.02,ft.colors.RED_900),
-               #                            ],
-               #                            ),
-               # blur= (12,12),
                shadow = ft.BoxShadow(
                        spread_radius=1,
                        blur_radius=16,
@@ -307,12 +331,12 @@ def main(page: ft.Page):
                                    AboutContainer,
                                    TextEditorContainer,
                                    ScreenContainer,
+                                   ColorEditorContainer,
+                                   ImagenEditorContainer,
                          ]
           )
 
      #: only use in production
-     # print(page.views)
-
      page.add(data_stack)
 
      # AFTER ADD TAKE ID

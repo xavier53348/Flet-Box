@@ -5,9 +5,10 @@ from .color_entry      import ColorEntry
 from .bool_entry       import BoolEntry
 from .four_entry       import FourEntry
 from .single_entry     import SingleEntry
-from .selection_entry  import SelectionEntry
 from .gradient_entry   import GradientEntry
 from .blur_color_entry import BlurColorEntry
+from .selection_entry  import SelectionEntry
+from .selection_button_entry import SelectionButtonEntry
 
 from ..settings_var.settings_widget import GLOBAL_VAR
 
@@ -123,10 +124,10 @@ class Build_Editor(ft.Stack):
           widgets_dict = {
 
                #: ESPECIAL WIDGETS ONLY FOR PHONE
+               'phone_image_src'    :SelectionButtonEntry(    config_widget='image_src'    ,widget=self.main_phone                 ,id_name_widget_dict='main_phone'),
 
                'phone_padding'      :FourEntry(      config_widget='padding'               ,widget=self.main_phone_conainer        ,id_name_widget_dict="main_phone_conainer"),
 
-               'phone_image_src'    :SingleEntry(    config_widget='image_src'             ,widget=self.main_phone                 ,id_name_widget_dict='main_phone'),
                'phone_image_opacity':SingleEntry(    config_widget='image_opacity'         ,widget=self.main_phone                 ,id_name_widget_dict='main_phone'),
               'column_phone_spacing':SingleEntry(    config_widget='spacing'               ,widget=self.main_phone_conainer_conent ,id_name_widget_dict="main_phone_conainer_conent"),
 
@@ -167,60 +168,62 @@ class Build_Editor(ft.Stack):
                'shadow_color'       :ColorEntry(     config_widget='shadow_color'          ,widget=self.container_widget),
                'container_gradient' :GradientEntry(  config_widget='gradient'              ,widget=self.container_widget),
 
-           'container_image_src'    :SingleEntry(    config_widget='image_src'             ,widget=self.container_widget),
+           'container_image_src'    :SelectionButtonEntry(    config_widget='image_src'             ,widget=self.container_widget),
            'container_image_opacity':SingleEntry(    config_widget='image_opacity'         ,widget=self.container_widget),
            'container_image_fit'    :SelectionEntry( config_widget='image_fit'             ,widget=self.container_widget),
 
                #: ESPECIAL WIDGETS ONLY FOR WIDGET
 
-               'text'                :SingleEntry(config_widget='text'             ,widget=self.container_widget_content , id_name_widget_dict='text'),
-               'name'                :SingleEntry(config_widget='name'             ,widget=self.container_widget_content , id_name_widget_dict='name'),
-               'size'                :SingleEntry(config_widget='size'             ,widget=self.container_widget_content , id_name_widget_dict='size'),
-               'label'               :SingleEntry(config_widget='label'            ,widget=self.container_widget_content , id_name_widget_dict='label'),
-               'value'               :SingleEntry(config_widget='value'            ,widget=self.container_widget_content , id_name_widget_dict='value'),
+               'text'                :SingleEntry(config_widget='text'               ,widget=self.container_widget_content , id_name_widget_dict='text'),
+               'name'                :SingleEntry(config_widget='name'               ,widget=self.container_widget_content , id_name_widget_dict='name'),
+               'size'                :SingleEntry(config_widget='size'               ,widget=self.container_widget_content , id_name_widget_dict='size'),
+               'label'               :SingleEntry(config_widget='label'              ,widget=self.container_widget_content , id_name_widget_dict='label'),
+               'value'               :SingleEntry(config_widget='value'              ,widget=self.container_widget_content , id_name_widget_dict='value'),
 
-               'hint_text'           :SingleEntry(config_widget='hint_text'        ,widget=self.container_widget_content , id_name_widget_dict='hint_text'),
-               'counter_text'        :SingleEntry(config_widget='counter_text'     ,widget=self.container_widget_content , id_name_widget_dict='counter_text'),
-               'suffix_text'         :SingleEntry(config_widget='suffix_text'      ,widget=self.container_widget_content , id_name_widget_dict='suffix_text'),
-               'url'                 :SingleEntry(config_widget='url'              ,widget=self.container_widget_content , id_name_widget_dict='url'),
-               'url_target'          :SingleEntry(config_widget='url_target'       ,widget=self.container_widget_content , id_name_widget_dict='url_target'),
-               'icon'                :SingleEntry(config_widget='icon'             ,widget=self.container_widget_content , id_name_widget_dict='icon'),
-               'tooltip'             :SingleEntry(config_widget='tooltip'          ,widget=self.container_widget_content , id_name_widget_dict='tooltip'),
-               'src'                 :SingleEntry(config_widget='src'              ,widget=self.container_widget_content , id_name_widget_dict='src'),
-               'data'                :SingleEntry(config_widget='data'             ,widget=self.container_widget_content , id_name_widget_dict='data'),
-               'semantics_label'     :SingleEntry(config_widget='semantics_label'  ,widget=self.container_widget_content , id_name_widget_dict='semantics_label'),
-               'src_base64'          :SingleEntry(config_widget='src_base64'       ,widget=self.container_widget_content , id_name_widget_dict='src_base64'),
-               'image_src'           :SingleEntry(config_widget='image_src'        ,widget=self.container_widget_content , id_name_widget_dict='image_src'),
-               'blur_radius'         :SingleEntry(config_widget='blur_radius'      ,widget=self.container_widget_content , id_name_widget_dict='blur_radius'),
-               'spread_radius'       :SingleEntry(config_widget='spread_radius'    ,widget=self.container_widget_content , id_name_widget_dict='spread_radius'),
-               'elevation'           :SingleEntry(config_widget='elevation'        ,widget=self.container_widget_content , id_name_widget_dict='elevation'),
-               'rotate'              :SingleEntry(config_widget='rotate'           ,widget=self.container_widget_content , id_name_widget_dict='rotate'),
-               'scale'               :SingleEntry(config_widget='scale'            ,widget=self.container_widget_content , id_name_widget_dict='scale'),
-               'aspect_ratio'        :SingleEntry(config_widget='aspect_ratio'     ,widget=self.container_widget_content , id_name_widget_dict='aspect_ratio'),
-               'runs_count'          :SingleEntry(config_widget='runs_count'       ,widget=self.container_widget_content , id_name_widget_dict='runs_count'),
-               'run_spacing'         :SingleEntry(config_widget='run_spacing'      ,widget=self.container_widget_content , id_name_widget_dict='run_spacing'),
-               'spacing'             :SingleEntry(config_widget='spacing'          ,widget=self.container_widget_content , id_name_widget_dict='spacing'),
+               'hint_text'           :SingleEntry(config_widget='hint_text'          ,widget=self.container_widget_content , id_name_widget_dict='hint_text'),
+               'counter_text'        :SingleEntry(config_widget='counter_text'       ,widget=self.container_widget_content , id_name_widget_dict='counter_text'),
+               'suffix_text'         :SingleEntry(config_widget='suffix_text'        ,widget=self.container_widget_content , id_name_widget_dict='suffix_text'),
+               'url'                 :SingleEntry(config_widget='url'                ,widget=self.container_widget_content , id_name_widget_dict='url'),
+               'url_target'          :SingleEntry(config_widget='url_target'         ,widget=self.container_widget_content , id_name_widget_dict='url_target'),
+               'icon'                :SingleEntry(config_widget='icon'               ,widget=self.container_widget_content , id_name_widget_dict='icon'),
+               'tooltip'             :SingleEntry(config_widget='tooltip'            ,widget=self.container_widget_content , id_name_widget_dict='tooltip'),
+               'data'                :SingleEntry(config_widget='data'               ,widget=self.container_widget_content , id_name_widget_dict='data'),
+               'semantics_label'     :SingleEntry(config_widget='semantics_label'    ,widget=self.container_widget_content , id_name_widget_dict='semantics_label'),
+               'src_base64'          :SingleEntry(config_widget='src_base64'         ,widget=self.container_widget_content , id_name_widget_dict='src_base64'),
+               'blur_radius'         :SingleEntry(config_widget='blur_radius'        ,widget=self.container_widget_content , id_name_widget_dict='blur_radius'),
+               'spread_radius'       :SingleEntry(config_widget='spread_radius'      ,widget=self.container_widget_content , id_name_widget_dict='spread_radius'),
+               'elevation'           :SingleEntry(config_widget='elevation'          ,widget=self.container_widget_content , id_name_widget_dict='elevation'),
+               'rotate'              :SingleEntry(config_widget='rotate'             ,widget=self.container_widget_content , id_name_widget_dict='rotate'),
+               'scale'               :SingleEntry(config_widget='scale'              ,widget=self.container_widget_content , id_name_widget_dict='scale'),
+               'aspect_ratio'        :SingleEntry(config_widget='aspect_ratio'       ,widget=self.container_widget_content , id_name_widget_dict='aspect_ratio'),
+               'runs_count'          :SingleEntry(config_widget='runs_count'         ,widget=self.container_widget_content , id_name_widget_dict='runs_count'),
+               'run_spacing'         :SingleEntry(config_widget='run_spacing'        ,widget=self.container_widget_content , id_name_widget_dict='run_spacing'),
+               'spacing'             :SingleEntry(config_widget='spacing'            ,widget=self.container_widget_content , id_name_widget_dict='spacing'),
                'child_aspect_ratio'  :SingleEntry(config_widget ='child_aspect_ratio',widget=self.container_widget_content , id_name_widget_dict='child_aspect_ratio'),
-               'max_extent'          :SingleEntry(config_widget='max_extent'       ,widget=self.container_widget_content , id_name_widget_dict='max_extent'),
-               'min_lines'           :SingleEntry(config_widget='min_lines'        ,widget=self.container_widget_content , id_name_widget_dict='min_lines'),
-               'max_lines'           :SingleEntry(config_widget='max_lines'        ,widget=self.container_widget_content , id_name_widget_dict='max_lines'),
-               'border_width'        :SingleEntry(config_widget='border_width'     ,widget=self.container_widget_content , id_name_widget_dict='border_width'),
-               'text_size'           :SingleEntry(config_widget='text_size'        ,widget=self.container_widget_content , id_name_widget_dict='text_size'),
-               'image_opacity'       :SingleEntry(config_widget='image_opacity'    ,widget=self.container_widget_content , id_name_widget_dict='image_opacity'),
-               'opacity'             :SingleEntry(config_widget='opacity'          ,widget=self.container_widget_content , id_name_widget_dict='opacity'),
+               'max_extent'          :SingleEntry(config_widget='max_extent'         ,widget=self.container_widget_content , id_name_widget_dict='max_extent'),
+               'min_lines'           :SingleEntry(config_widget='min_lines'          ,widget=self.container_widget_content , id_name_widget_dict='min_lines'),
+               'max_lines'           :SingleEntry(config_widget='max_lines'          ,widget=self.container_widget_content , id_name_widget_dict='max_lines'),
+               'border_width'        :SingleEntry(config_widget='border_width'       ,widget=self.container_widget_content , id_name_widget_dict='border_width'),
+               'text_size'           :SingleEntry(config_widget='text_size'          ,widget=self.container_widget_content , id_name_widget_dict='text_size'),
+               'image_opacity'       :SingleEntry(config_widget='image_opacity'      ,widget=self.container_widget_content , id_name_widget_dict='image_opacity'),
+               'opacity'             :SingleEntry(config_widget='opacity'            ,widget=self.container_widget_content , id_name_widget_dict='opacity'),
+
+               #: SELECTION BUTTOM ENTRY
+               'src'                 :SelectionButtonEntry(config_widget='src'       ,widget=self.container_widget_content , id_name_widget_dict='src'),
+               'image_src'           :SelectionButtonEntry(config_widget='image_src' ,widget=self.container_widget_content , id_name_widget_dict='image_src'),
 
                #: DOUBLE SELECTION ENTRY
 
-               'width'               :DoubleEntry(config_widget='width'            ,widget=self.container_widget_content , id_name_widget_dict='width'),
-               'border'              :DoubleEntry(config_widget='border'           ,widget=self.container_widget_content , id_name_widget_dict='border'),
-               'offset'              :DoubleEntry(config_widget='offset'           ,widget=self.container_widget_content , id_name_widget_dict='offset'),
-               'blur'                :DoubleEntry(config_widget='blur'             ,widget=self.container_widget_content , id_name_widget_dict='blur'),
+               'width'               :DoubleEntry(config_widget='width'              ,widget=self.container_widget_content , id_name_widget_dict='width'),
+               'border'              :DoubleEntry(config_widget='border'             ,widget=self.container_widget_content , id_name_widget_dict='border'),
+               'offset'              :DoubleEntry(config_widget='offset'             ,widget=self.container_widget_content , id_name_widget_dict='offset'),
+               'blur'                :DoubleEntry(config_widget='blur'               ,widget=self.container_widget_content , id_name_widget_dict='blur'),
 
                #: 4 SELECTION ENTRIE S
 
-               'padding'             :FourEntry(config_widget='padding'            ,widget=self.container_widget_content , id_name_widget_dict='padding'),
-               'margin'              :FourEntry(config_widget='margin'             ,widget=self.container_widget_content , id_name_widget_dict='margin'),
-               'border_radius'       :FourEntry(config_widget='border_radius'      ,widget=self.container_widget_content , id_name_widget_dict='border_radius'),
+               'padding'             :FourEntry(config_widget='padding'              ,widget=self.container_widget_content , id_name_widget_dict='padding'),
+               'margin'              :FourEntry(config_widget='margin'               ,widget=self.container_widget_content , id_name_widget_dict='margin'),
+               'border_radius'       :FourEntry(config_widget='border_radius'        ,widget=self.container_widget_content , id_name_widget_dict='border_radius'),
 
                #: COLOR ENTRY ['RED' ...]
 
@@ -236,24 +239,24 @@ class Build_Editor(ft.Stack):
 
                #: BOOL ENTRY [TRUE FALSE]
 
-               'expand':             BoolEntry(config_widget='expand'              ,widget=self.container_widget_content , id_name_widget_dict='expand'),
-               'ink':                BoolEntry(config_widget='ink'                 ,widget=self.container_widget_content , id_name_widget_dict='ink'),
-               'scroll':             BoolEntry(config_widget='scroll'              ,widget=self.container_widget_content , id_name_widget_dict='scroll'),
-               'wrap':               BoolEntry(config_widget='wrap'                ,widget=self.container_widget_content , id_name_widget_dict='wrap'),
-               'tight':              BoolEntry(config_widget='tight'               ,widget=self.container_widget_content , id_name_widget_dict='tight'),
-               'visible':            BoolEntry(config_widget='visible'             ,widget=self.container_widget_content , id_name_widget_dict='visible'),
-               'multiline':          BoolEntry(config_widget='multiline'           ,widget=self.container_widget_content , id_name_widget_dict='multiline'),
-               'disabled':           BoolEntry(config_widget='disabled'            ,widget=self.container_widget_content , id_name_widget_dict='disabled'),
-               'read_only':          BoolEntry(config_widget='read_only'           ,widget=self.container_widget_content , id_name_widget_dict='read_only'),
-               'password':           BoolEntry(config_widget='password'            ,widget=self.container_widget_content , id_name_widget_dict='password'),
-               'filled':             BoolEntry(config_widget='filled'              ,widget=self.container_widget_content , id_name_widget_dict='filled'),
-               'adaptive':           BoolEntry(config_widget='adaptive'            ,widget=self.container_widget_content , id_name_widget_dict='adaptive'),
-               'tristate':           BoolEntry(config_widget='tristate'            ,widget=self.container_widget_content , id_name_widget_dict='tristate'),
-               'autofocus':          BoolEntry(config_widget='autofocus'           ,widget=self.container_widget_content , id_name_widget_dict='read_only'),
-               'horizontal':         BoolEntry(config_widget='horizontal'          ,widget=self.container_widget_content , id_name_widget_dict='horizontal'),
-               'can_reveal_password':BoolEntry(config_widget='can_reveal_password' ,widget=self.container_widget_content , id_name_widget_dict='can_reveal_password'),
-               'capitalization':     BoolEntry(config_widget='capitalization'      ,widget=self.container_widget_content , id_name_widget_dict='capitalization'),
-               'gapless_playback':   BoolEntry(config_widget='gapless_playback'    ,widget=self.container_widget_content , id_name_widget_dict='gapless_playback'),
+               'expand':             BoolEntry(config_widget='expand'                 ,widget=self.container_widget_content , id_name_widget_dict='expand'),
+               'ink':                BoolEntry(config_widget='ink'                    ,widget=self.container_widget_content , id_name_widget_dict='ink'),
+               'scroll':             BoolEntry(config_widget='scroll'                 ,widget=self.container_widget_content , id_name_widget_dict='scroll'),
+               'wrap':               BoolEntry(config_widget='wrap'                   ,widget=self.container_widget_content , id_name_widget_dict='wrap'),
+               'tight':              BoolEntry(config_widget='tight'                  ,widget=self.container_widget_content , id_name_widget_dict='tight'),
+               'visible':            BoolEntry(config_widget='visible'                ,widget=self.container_widget_content , id_name_widget_dict='visible'),
+               'multiline':          BoolEntry(config_widget='multiline'              ,widget=self.container_widget_content , id_name_widget_dict='multiline'),
+               'disabled':           BoolEntry(config_widget='disabled'               ,widget=self.container_widget_content , id_name_widget_dict='disabled'),
+               'read_only':          BoolEntry(config_widget='read_only'              ,widget=self.container_widget_content , id_name_widget_dict='read_only'),
+               'password':           BoolEntry(config_widget='password'               ,widget=self.container_widget_content , id_name_widget_dict='password'),
+               'filled':             BoolEntry(config_widget='filled'                 ,widget=self.container_widget_content , id_name_widget_dict='filled'),
+               'adaptive':           BoolEntry(config_widget='adaptive'               ,widget=self.container_widget_content , id_name_widget_dict='adaptive'),
+               'tristate':           BoolEntry(config_widget='tristate'               ,widget=self.container_widget_content , id_name_widget_dict='tristate'),
+               'autofocus':          BoolEntry(config_widget='autofocus'              ,widget=self.container_widget_content , id_name_widget_dict='read_only'),
+               'horizontal':         BoolEntry(config_widget='horizontal'             ,widget=self.container_widget_content , id_name_widget_dict='horizontal'),
+               'can_reveal_password':BoolEntry(config_widget='can_reveal_password'    ,widget=self.container_widget_content , id_name_widget_dict='can_reveal_password'),
+               'capitalization':     BoolEntry(config_widget='capitalization'         ,widget=self.container_widget_content , id_name_widget_dict='capitalization'),
+               'gapless_playback':   BoolEntry(config_widget='gapless_playback'       ,widget=self.container_widget_content , id_name_widget_dict='gapless_playback'),
 
                #: SELECTION ENTRY
 
@@ -306,9 +309,10 @@ class Build_Editor(ft.Stack):
                                                        ],
                                                   ),
                                              )
+
           self.widget_container = ft.Container(
                                    padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-                                   visible=False,
+                                   visible = False,
                               content = ft.Column(
                                              scroll="HIDDEN",
                                              controls = [
@@ -358,26 +362,22 @@ class Build_Editor(ft.Stack):
           self.widget_container_content  =ft.Container(
                                    padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
                                    visible = False,
+
                               content = ft.Column(
                                              scroll="HIDDEN",
                                              controls = [
 
                                                        BoxConfigContainer(
-                                                                 title='Modification Widget',
-                                                            controls=[
-                                                                      widgets_dict.get('visible'),
-                                                                      widgets_dict.get('disabled'),
-                                                                      widgets_dict.get('read_only'),
-                                                                      widgets_dict.get('autofocus'),
-                                                                      widgets_dict.get('ink'),
-                                                                      widgets_dict.get('scroll'),
-                                                                      widgets_dict.get('tristate'),
-                                                                      widgets_dict.get('gapless_playback'),
-                                                                 ],),
-
-                                                       BoxConfigContainer(
                                                                  title='Input Text Data',
                                                             controls=[
+
+                                                                      widgets_dict.get('src'),
+                                                                      widgets_dict.get('opacity'),
+                                                                      widgets_dict.get('image_src'),
+                                                                      widgets_dict.get('image_fit'),
+                                                                      widgets_dict.get('image_opacity'),
+                                                                      widgets_dict.get('src_base64'),
+
                                                                       widgets_dict.get('text'),
                                                                       widgets_dict.get('name'),
                                                                       widgets_dict.get('label'),
@@ -385,24 +385,21 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('value'),
                                                                       widgets_dict.get('url'),
                                                                       widgets_dict.get('url_target'),
+
                                                                  ],),
 
                                                        BoxConfigContainer(
-                                                                 title='Modification Text Data',
+                                                                 title='Colors Widget in Box',
                                                             controls=[
-                                                                      widgets_dict.get('text_size'),
-                                                                      widgets_dict.get('hint_text'),
-                                                                      widgets_dict.get('min_lines'),
-                                                                      widgets_dict.get('max_lines'),
-                                                                      widgets_dict.get('counter_text'),
-                                                                      widgets_dict.get('semantics_label'),
-                                                                      widgets_dict.get('suffix_text'),
-                                                                      widgets_dict.get('text_align'),
-                                                                      widgets_dict.get('weight'),
-                                                                      widgets_dict.get('multiline'),
-                                                                      widgets_dict.get('capitalization'),
-                                                                      widgets_dict.get('password'),
-                                                                      widgets_dict.get('can_reveal_password'),
+                                                                      widgets_dict.get('color'),
+                                                                      widgets_dict.get('bgcolor'),
+                                                                      widgets_dict.get('icon_color'),
+                                                                      widgets_dict.get('check_color'),
+                                                                      widgets_dict.get('fill_color'),
+                                                                      # widgets_dict.get('shadow_color'),
+                                                                      widgets_dict.get('focused_bgcolor'),
+                                                                      widgets_dict.get('border_color'),
+                                                                      widgets_dict.get('focused_border_color'),
                                                                  ],),
 
                                                        BoxConfigContainer(
@@ -441,6 +438,37 @@ class Build_Editor(ft.Stack):
                                                                  ],),
 
                                                        BoxConfigContainer(
+                                                                 title='Modification Widget',
+                                                            controls=[
+                                                                      widgets_dict.get('visible'),
+                                                                      widgets_dict.get('disabled'),
+                                                                      widgets_dict.get('read_only'),
+                                                                      widgets_dict.get('autofocus'),
+                                                                      widgets_dict.get('ink'),
+                                                                      widgets_dict.get('scroll'),
+                                                                      widgets_dict.get('tristate'),
+                                                                      widgets_dict.get('gapless_playback'),
+                                                                 ],),
+
+                                                       BoxConfigContainer(
+                                                                 title='Modification Text Data',
+                                                            controls=[
+                                                                      widgets_dict.get('text_size'),
+                                                                      widgets_dict.get('hint_text'),
+                                                                      widgets_dict.get('min_lines'),
+                                                                      widgets_dict.get('max_lines'),
+                                                                      widgets_dict.get('counter_text'),
+                                                                      widgets_dict.get('semantics_label'),
+                                                                      widgets_dict.get('suffix_text'),
+                                                                      widgets_dict.get('text_align'),
+                                                                      widgets_dict.get('weight'),
+                                                                      widgets_dict.get('multiline'),
+                                                                      widgets_dict.get('capitalization'),
+                                                                      widgets_dict.get('password'),
+                                                                      widgets_dict.get('can_reveal_password'),
+                                                                 ],),
+
+                                                       BoxConfigContainer(
                                                                  title='Modification Border Widget Box',
                                                             controls=[
                                                                       widgets_dict.get('border'),
@@ -448,32 +476,13 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('border_width'),
                                                                  ],),
 
-                                                       BoxConfigContainer(
-                                                                 title='Colors Widget in Box',
-                                                            controls=[
-                                                                      widgets_dict.get('color'),
-                                                                      widgets_dict.get('bgcolor'),
-                                                                      widgets_dict.get('icon_color'),
-                                                                      widgets_dict.get('check_color'),
-                                                                      widgets_dict.get('fill_color'),
-                                                                      # widgets_dict.get('shadow_color'),
-                                                                      widgets_dict.get('focused_bgcolor'),
-                                                                      widgets_dict.get('border_color'),
-                                                                      widgets_dict.get('focused_border_color'),
-                                                                 ],),
 
                                                        BoxConfigContainer(
                                                                  title='Icon or Image in Box',
                                                             controls=[
                                                                       widgets_dict.get('icon'),
-                                                                      widgets_dict.get('src'),
-                                                                      widgets_dict.get('image_src'),
-                                                                      widgets_dict.get('src_base64'),
                                                                       widgets_dict.get('blur'),
                                                                       widgets_dict.get('blur_radius'),
-                                                                      widgets_dict.get('image_fit'),
-                                                                      widgets_dict.get('opacity'),
-                                                                      widgets_dict.get('image_opacity'),
                                                                  ],),
                                                        ],
                                                   ),
@@ -510,6 +519,7 @@ class Build_Editor(ft.Stack):
                                    'CONFIG_TABS_CONTAINERS':self.widget_container,
                            'CONFIG_TABS_CONTAINERS_CONTENT':self.widget_container_content,
                                       'LIST_KEYS_DICT_USED':widgets_dict.keys(),
+                              'HIDE_CONFIG_TABS_CONTAINERS':Drop_Build_Editor,
                                    } )
 
           return Drop_Build_Editor

@@ -1,7 +1,7 @@
 import flet as ft
 import os
 
-
+from ..settings_var.settings_widget import GLOBAL_VAR
 click_avalidation: bool = False
 
 class PhotoSelection(ft.Container):
@@ -10,8 +10,8 @@ class PhotoSelection(ft.Container):
         super().__init__()
 
         self.photo_selection=photo_selection
-        self.width  = 80
-        self.height = 80
+        self.width  = 86
+        self.height = 86
         self.border_radius= ft.border_radius.all(24)
 
         self.shadow = ft.BoxShadow(
@@ -34,13 +34,26 @@ class PhotoSelection(ft.Container):
                         )
 
         self.content  = self.container
-        self.on_click = lambda _:print(self.photo_selection)
+        # self.on_click = lambda _:print(self.photo_selection)
+        self.on_click = lambda _: self.modify_widget()
 
     def active_border_color(self,border_container):
         border_container.border = ft.border.all(2, ft.colors.TRANSPARENT) if border_container.border == ft.border.all(2, ft.colors.WHITE54) else ft.border.all(2, ft.colors.WHITE54)
         border_container.update()
 
-class Screen_photo_selection(ft.Container):
+    def modify_widget(self):
+        tmp_widget_selected = GLOBAL_VAR(get_global_var="WIDGET_SELECTION_EDITOR_CONTAINER")
+        self.widget_tag_name = tmp_widget_selected.get("widget_name")
+        self.widget           = tmp_widget_selected.get("attribute_to_change")
+
+        print(self.widget_tag_name)
+        #: SET ATTRIBUTES
+        if  self.widget_tag_name   == "image_src": self.widget.image_src = self.photo_selection
+        if  self.widget_tag_name   == "src":       self.widget.src       = self.photo_selection
+
+        self.widget.update()
+
+class ScreenPhotoSelection(ft.Container):
 
     def __init__(self,data='Erase this test'):
         super().__init__()
@@ -50,7 +63,6 @@ class Screen_photo_selection(ft.Container):
         self.alignment= ft.alignment.top_center
         self.width    = 600
         self.height   = 300
-        # self.bgcolor  = ft.colors.BLACK45
         self.border   = ft.border.all(1, ft.colors.WHITE38)
         self.border_radius = 30
         self.gradient = ft.LinearGradient( begin = ft.alignment.top_center,
@@ -100,15 +112,15 @@ class Screen_photo_selection(ft.Container):
     def validate_click(self):
         global click_avalidation
 
+        self.photo_editor  = GLOBAL_VAR(get_global_var='IMAGEN_EDITOR_CONTAINER')
+
         if click_avalidation:
             click_avalidation = False
-            print('do the code after leave the box')
+            self.photo_editor.visible = False
+            self.photo_editor.update()
 
         else:
             click_avalidation = True
-
-
-        print(click_avalidation)
 
     def selection_photo_files(self,path_to_check_filename: str=""):
         all_files_list = os.listdir(path_to_check_filename)
@@ -132,7 +144,7 @@ if __name__ == '__main__':
         page.window_width=800
         page.padding=0
         page.spacing=0
-        page.add(Screen_photo_selection())
+        page.add(ScreenPhotoSelection())
         page.update()
 
     ft.app(
