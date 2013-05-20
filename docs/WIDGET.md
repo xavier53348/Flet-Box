@@ -1,6 +1,10 @@
 <!-- markdownserver http://localhost:8009/WIDGET.md -->
 ### ROUTES OF ALL MODULES
 
+##### COLORS OPACITY
+```bash
+>>> ft.colors.with_opacity(0.71, "black")
+```
 ##### LEFT DRAGG CONTAINER
 ```bash
 >>> extra_utils/config_container/widget_editor       metod Build_Editor

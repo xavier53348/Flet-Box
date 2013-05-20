@@ -49,7 +49,13 @@
 ## Easy run Flet-Box
 ```bash
 
->>> flet src/flet_box.py
+>>> flet flet_box/flet_box.py
+
+```
+## Easy way run a save APP
+
+```
+>>> flet test/proyect_name/proyect_name/main.py
 
 ```
 ### Introduction

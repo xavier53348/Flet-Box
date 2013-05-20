@@ -1,0 +1,28 @@
+.
+├── assets
+│   ├── avatar.jpg
+│   ├── avatar.png
+│   ├── dragg_container3.jpg
+│   ├── dragg_container.jpg
+│   ├── image.jpg
+│   ├── img.jpg
+│   ├── logo.jpg
+│   ├── logo_mark.png
+│   ├── my_avatar.png
+│   ├── no_imagen.jpg
+│   └── splash.jpg
+├── builder
+│   └── app_manager.py
+├── controls
+│   ├── app_events_manager.py
+│   ├── app_screen_manager.py
+│   ├── app_style_manager.py
+│   └── views
+│       ├── main_screen.py
+│       ├── screen_1.py
+│       └── screen_2.py
+├── full_path.txt
+├── main.py
+└── proyect_name.zip
+
+4 directories, 21 files

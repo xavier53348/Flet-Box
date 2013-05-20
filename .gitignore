@@ -1,4 +1,5 @@
 *.pyc
+test_app/
 .venv/
 .git/
 bump-version.sh
@@ -10,7 +11,6 @@ make_path.sh
 __pycache__/
 *.py[cod]
 *$py.class
-test/
 # C extensions
 *.so
 make_path.sh

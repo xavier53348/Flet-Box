@@ -9,10 +9,27 @@ class GradientEntry(ft.Stack):
     Double_Widget(config_widget='value',widget = box_layout),
 
     """
-    color_1        = 'Black'
-    color_2        = 'Teal'
-    color_3        = None
-    color_4        = None
+    # "#94a3b8",
+    # "#64748b",
+    # "#475569",
+    # "#334155",
+    # "#1e293b",
+    # "#0f172a",
+
+    # "#14b8a6",
+    # "#0d9488",
+    # "#0f766e",
+    # "#115e59",
+    # "#134e4a",
+
+    # "#f472b6",
+    # "#ec4899",
+    # "#db2777",
+    # "#be185d",
+    color_1        = 'BLue'
+    color_2        = 'Purple'
+    color_3        = "Red"
+    color_4        = "Orange"
 
     main_gradient  = None
     start_gradient = ' bottom_center '
@@ -76,10 +93,10 @@ class GradientEntry(ft.Stack):
                                     ft.dropdown.Option(" bottom_center"),
                                     ft.dropdown.Option(" bottom_right"),
                                     ]
-            self.attribute_widget_name_1 = 'Black'
-            self.attribute_widget_name_2 = 'Teal'
-            self.attribute_widget_name_3 = 'Color'
-            self.attribute_widget_name_4 = 'Color'
+            self.attribute_widget_name_1 = self.color_1
+            self.attribute_widget_name_2 = self.color_2
+            self.attribute_widget_name_3 = self.color_3
+            self.attribute_widget_name_4 = self.color_4
 
     def build(self):
         self.main_gradient_widget = ft.Container(
@@ -317,7 +334,7 @@ class GradientEntry(ft.Stack):
                                                             colors = self.data_color,
                                                         )
         elif self.main_gradient == ' None ':
-            self.widget.gradient = None,
+            self.widget.gradient = ft.colors.TRANSPARENT,
 
 
 

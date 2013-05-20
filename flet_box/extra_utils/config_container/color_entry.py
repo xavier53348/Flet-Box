@@ -100,26 +100,35 @@ class ColorEntry(ft.Stack):
 
         #: ONLY FOR CONTAINER
         if  data   == "bgcolor":
-            self.widget.bgcolor        = value.content.controls[1].content.controls[1].bgcolor
+            self.widget.bgcolor = ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
+
         if  data   == "focused_bgcolor":
-            self.widget.focused_bgcolor= value.content.controls[1].content.controls[1].bgcolor
+            self.widget.focused_bgcolor= ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
+
         if  data   == "color":
-            self.widget.color        = value.content.controls[1].content.controls[1].bgcolor
+            self.widget.color= ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
+
         if  data   == "fill_color":
-            self.widget.fill_color   = value.content.controls[1].content.controls[1].bgcolor
+            self.widget.fill_color= ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
+
         if  data   == "icon_color":
-            self.widget.icon_color   = value.content.controls[1].content.controls[1].bgcolor
+            self.widget.icon_color= ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
+
         if  data   == "check_color":
-            self.widget.check_color  = value.content.controls[1].content.controls[1].bgcolor
+            self.widget.check_color= ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
+
         if  data   == "focused_border_color":
-            self.widget.focused_border_color = value.content.controls[1].content.controls[1].bgcolor
+            self.widget.focused_border_color= ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
+
         if  data   == "border_color":
-            self.widget.border_color   = value.content.controls[1].content.controls[1].bgcolor
+            self.widget.border_color= ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
+
         if  data   == "shadow_color":
+            self.my_color= ft.colors.TRANSPARENT if value.content.controls[1].content.controls[1].bgcolor == "" else value.content.controls[1].content.controls[1].bgcolor
             self.widget.shadow= ft.BoxShadow(
                                             spread_radius = 0,
                                             blur_radius   = 24,
-                                            color         = value.content.controls[1].content.controls[1].bgcolor,
+                                            color         = self.my_color,
                                             offset        = ft.Offset(0, 0),
                                             blur_style    = ft.ShadowBlurStyle.OUTER, # NORMAL # SOLID # OUTER # INNER
                                         )
