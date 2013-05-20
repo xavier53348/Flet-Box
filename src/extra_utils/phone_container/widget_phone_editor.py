@@ -102,13 +102,31 @@ class Build_Phone_Editor(ft.UserControl):
           # IS NECESARRY RESET SELECT_DRAGG TO NONE EVERY TIME THAT WE ADD ONE WIDGET NEW
 
           if not selectWidgetBox == None:
+               ADD_WIDGET_SELECTED = self.InfinityBox(selectWidgetBox)
                # destiny_box.content.content.content.controls.append(self.InfinityBox(selectWidgetBox))
-               self.Build_Phone_Editor.content.content.content.controls.append(self.InfinityBox(selectWidgetBox))
+               self.Build_Phone_Editor.content.content.content.controls.append(ADD_WIDGET_SELECTED)
                ########################## border
                widgetDropBox.control.content.border = True
                widgetDropBox.control.content.border=ft.border.all(7, ft.colors.BLACK)
                widgetDropBox.control.update()
                GLOBAL_VAR(set_global_var={'SELECT_DRAGG':None})
+
+               ###################### SET WIDGET DROPPED TO DICT DATABASE TO EXPORT PROYECT
+               """
+
+
+               """
+               self.id_widget   = ADD_WIDGET_SELECTED.controls[0].content.id
+               self.name_widget = ADD_WIDGET_SELECTED.controls[0].content
+               # self.name_widget = ADD_WIDGET_SELECTED.controls[0].content._get_control_name()
+
+               self.get_data_dict_to_update = GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE')
+               self.get_data_dict_to_update.update({self.id_widget:self.name_widget})
+
+               # print(self.get_data_dict_to_update)
+               ######################
+               # print(ADD_WIDGET_SELECTED.controls[0].content._get_control_name(),'<==== DROPED WIDGET')
+               # print(ADD_WIDGET_SELECTED.controls[0].content.content._get_control_name(),'<==== DROPED WIDGET')
 
           ####################################################################################
 

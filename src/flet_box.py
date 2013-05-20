@@ -1,6 +1,9 @@
 ################################################################################## LEFT DRAGG CONTAINER
 from extra_utils.config_container.widget_editor                  import Build_Editor
 from extra_utils.drag_container.widget_drag_editor               import Build_Drag_Editor
+from extra_utils.drag_container.drag_handler_container           import HandlerDraggBox
+################################################################################## TREEVIEW CONTAINER
+from extra_utils.tree_view.tree_view                             import TreeView
 ################################################################################## PHONE CONTAINER
 from extra_utils.phone_container.widget_phone_editor             import Build_Phone_Editor
 ################################################################################## TAB MENU CONTAINER
@@ -49,11 +52,12 @@ def main(page: ft.Page):
      page.window_top                = 3
      # page.window_center()
      ###################### SIZE
-     # page.window_height           = 400
-     # page.window_height             = 800
      page.window_height             = 768
      page.window_width              = 1360
-     # page.window_width            = 1200
+     ######################
+     # page.window_width            = 800
+     # page.window_height           = 400
+     ######################
      page.padding                   = 0
      page.spacing                   = 0
      # page.expand                    = True
@@ -111,6 +115,7 @@ def main(page: ft.Page):
                ##################### PROPERTY COLUMN
                ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                # expand        = True,
+               # visible=False, #<========== UNCOMMENT #####################
                ink             = False,                                                          # click effect ripple
                bgcolor         = ft.colors.BLACK38,                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                # bgcolor       = 'RED',                                                          # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
@@ -145,7 +150,7 @@ def main(page: ft.Page):
                          # run_spacing          = 8,                                              # space widget up down
                          ##################### WIDGETS
                     controls = [
-                              right_config_container,
+                                 right_config_container,
                               ],
           ),#<=== NOTE COMA [NOTE]                    # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
                ##################### EVENTS
@@ -305,11 +310,14 @@ def main(page: ft.Page):
                                                                                                                     # tight                = True,
                                                                                                                     ##################### ADAPT TO SCREEN
                                                                                                                     # wrap                 = True,                                # justify in all screen
+
                                                                                                                     spacing              = 2,                                   # space widget left right
                                                                                                                     run_spacing          = 2,                                   # space widget up down
                                                                                                                 ##################### WIDGETS
                                                                                                                 controls=[
                                                                                                                             # lite menu up phone,
+                                                                                                                            # HandlerDraggBox(),
+
                                                                                                                             ft.Container(
                                                                                                                                        padding=ft.padding.all(0),
                                                                                                                                        margin=ft.margin.all(0),
@@ -318,10 +326,12 @@ def main(page: ft.Page):
                                                                                                                                        # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
 
                                                                                                                                  content = ft.Row(
+
                                                                                                                                                  spacing=0,
                                                                                                                                                  run_spacing=0,
                                                                                                                                                 controls = [
                                                                                                                                                            space_widget_1,
+                                                                                                                                                           TreeView(),
 
                                                                                                                                                            phone_testing,
                                                                                                                                                            space_widget_1,
@@ -348,55 +358,8 @@ def main(page: ft.Page):
                                                                                                             ##################### EVENTS
                                                                                                             # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                                                 ),#<=== NOTE COMA
-                                                                                               right_config_container,
-                                                                                                # ft.Container( ###################### RIGHT CONTAINER
-                                                                                                #             ##################### PROPERTY COLUMN
-                                                                                                #             ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                                #             # expand        = True,
-                                                                                                #             ink             = False,                                                          # click effect ripple
-                                                                                                #             bgcolor         = ft.colors.BLACK38,                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                                #             # bgcolor       = 'RED',                                                          # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                                #             padding         = ft.padding.all(8),    # inside box                              # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                                                #             margin          = ft.margin.all(0),    # outside box                              # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                                                #             alignment       = ft.alignment.center,                                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                                                #             border_radius   = ft.border_radius.all(30),                                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                #             # border        = ft.border.all(2, ft.colors.BLACK),                              # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                                #             #####################
-                                                                                                #             # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                                                                                                #             # image_opacity = 0.1,
-                                                                                                #             # image_fit     = 'COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                                                                #             #####################
-                                                                                                #             width           = 370,
-                                                                                                #             # height        = 150,
-                                                                                                #             # tooltip       = 'Container',
-                                                                                                #             ##################### EFFECTS
-                                                                                                #             # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                                                                                                #             # gradient      = ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
-                                                                                                #             ##################### WIDGETS
-                                                                                                #     content=ft.Column(
-                                                                                                #                     ##################### PROPERTY BOX
-                                                                                                #                     # expand               = True,
-                                                                                                #                     # alignment            = ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                                                #                     # horizontal_alignment = ft.CrossAxisAlignment.CENTER,                   # vertical       START,CENTER END
-                                                                                                #                     ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                                                                #                     # scroll               = True,                                           # center widget
-                                                                                                #                     # tight                = True,
-                                                                                                #                     ##################### ADAPT TO SCREEN
-                                                                                                #                     # wrap                 = True,                                           # justify in all screen
-                                                                                                #                     # spacing              = 8,                                              # space widget left right
-                                                                                                #                     # run_spacing          = 8,                                              # space widget up down
-                                                                                                #                     ##################### WIDGETS
-                                                                                                #                 controls=[
-                                                                                                #                             # ft.ElevatedButton("press column",tooltip='buttom'),
-                                                                                                #                             # ft.ElevatedButton("press column",tooltip='buttom'),
-                                                                                                #                             # ft.ElevatedButton("press column",tooltip='buttom'),
-                                                                                                #                             build_config_editor,
-                                                                                                #                          ],
-                                                                                                #     ),#<=== NOTE COMA [NOTE]                    # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
-                                                                                                #             ##################### EVENTS
-                                                                                                #             # on_click=lambda _:print(_),       # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                                                # ),#<=== NOTE COMA
-
+                                                                                               # UNCOMMENT THIS
+                                                                                               right_config_container, #  <========
                                                                                              ],),
                                                                         ##################### EVENTS
                                                                         # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
@@ -487,8 +450,8 @@ if __name__ == '__main__':
      ft.app(
                # assets_dir   = "assets",
                target         = main,
-               port         = 8082,
+               # port         = 8082,
                # port         = 8080,
-               view         = ft.AppView.WEB_BROWSER, #view=ft.WEB_BROWSER,
-               web_renderer = ft.WebRenderer.HTML
+               # view         = ft.AppView.WEB_BROWSER, #view=ft.WEB_BROWSER,
+               # web_renderer = ft.WebRenderer.HTML
           )

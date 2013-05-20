@@ -114,73 +114,31 @@ class MenuUpContainer(ft.UserControl):
                                                                                                       ##################### PROPERTY
                                                                                                       ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                                                                                                       # expand=True,
-                                                                                                      tooltip='SAVE PROYECT',
-                                                                                                      ink=True,
-                                                                                                      ink_color=ft.colors.RED,                                                      # click effect ripple
-                                                                                                      bgcolor=ft.colors.RED_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                                      margin= ft.margin.only(left=2, top=2, right=8, bottom=2), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                                                      # margin = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                                                      alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                                                                      border_radius= ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                      border=ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                                      # ===================
-                                                                                                      # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                                                                                                      # image_opacity=0.1,
-                                                                                                      # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                                                                      # ===================
-                                                                                                      width=60,
-                                                                                                      # height=150,
-                                                                                                      # tooltip='Container',
+                                                                                                      tooltip       = 'SAVE PROYECT',
+                                                                                                      ink           = True,
+                                                                                                      ink_color     = ft.colors.RED,                                                      # click effect ripple
+                                                                                                      bgcolor       = ft.colors.RED_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                                      margin        = ft.margin.only(left=2, top=2, right=8, bottom=2), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                                                      # margin      = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                                                                      alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                                                                      border_radius = ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                                      border        = ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                                                      ######################
+                                                                                                      # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
+                                                                                                      # image_opacity =0.1,
+                                                                                                      # image_fit     ='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                                                                                      ######################
+                                                                                                      width         = 60,
+                                                                                                      # height        =150,
+                                                                                                      # tooltip       ='Container',
                                                                                                       ##################### EFFECTS
-                                                                                                      # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                                                                                                      # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
+                                                                                                      # gradient      =ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                                                                                      # gradient      =ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
                                                                                                       on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                                                       ##################### WIDGETS
                                                                                                       content=ft.Icon(
-                                                                                                                      ##################### PROPERTY
-                                                                                                                      # key          = 'is our id',
-                                                                                                                      # expand       = True,
-                                                                                                                      # data         = 'value of the button', # store data in the button
-                                                                                                                      # tooltip      = 'IconButton',
-                                                                                                                      ##################### COLOR
-                                                                                                                      # on_click      = lambda _: False if screen_1.content.selected else True,
                                                                                                                       name           = ft.icons.SAVE_AS_ROUNDED,
-                                                                                                                      # selected_icon  = ft.icons.BATTERY_FULL,
-                                                                                                                      # selected = False,
-                                                                                                                      #####################
-                                                                                                                      # icon_size    = 20,
-                                                                                                                      # bgcolor        ='Blue',     # back color
-                                                                                                                      ##################### ATTRIB
-                                                                                                                      # autofocus    = True,
-                                                                                                                      # visible      = False,
-                                                                                                                      # opacity      = 1,
-                                                                                                                      # disabled     = True,
-                                                                                                                      ##################### POSITION
-                                                                                                                      # rotate       = 20 ,
-                                                                                                                      # offset       = (0,1),
-                                                                                                                      # scale        = 0.9,
-                                                                                                                      #####################
-                                                                                                                      # url          ='http://hello.worlld.com',
-                                                                                                                      ##################### MULTI LABEL
-                                                                                                                      # width        = 180,
-                                                                                                                      # height       = 32,
-                                                                                                                      # content      = ft.Container(content=ft.Column(
-                                                                                                                      #                     [
-                                                                                                                      #                         ft.Text(value ="Compound button", size=10),
-                                                                                                                      #                         ft.Text(value ="This is secondary text", size=12),
-                                                                                                                      #                     ], alignment      =ft.MainAxisAlignment.CENTER,spacing=0,)),
-                                                                                                                      # content      = ft.Row(
-                                                                                                                      #     [
-                                                                                                                      #         ft.Icon(name=ft.icons.FAVORITE, color="pink"),
-                                                                                                                      #         ft.Icon(name=ft.icons.AUDIOTRACK, color="green"),
-                                                                                                                      #         ft.Icon(name=ft.icons.BEACH_ACCESS, color="blue"),
-                                                                                                                      #     ],
-                                                                                                                      #     alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                                                                                                                      # ),
-                                                                                                                      ##################### EVENTS
-                                                                                                                      # on_click      = lambda _: False if screen_1.content.selected else True,     #FloatingActionButton
-                                                                                                                      # on_focus      = lambda _:print(screen_1.content.data),
-                                                                                                                      # on_blur       = lambda _:print(screen_1.content.data),
+
                                                                                                                       #####################
                                                                                                       ##################### EVENTS
                                                                                           ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
@@ -234,7 +192,7 @@ class MenuUpContainer(ft.UserControl):
                                         title=ft.Text("Please confirm"),
                                         content=ft.Text("Do you really want to exit this app?"),
                                    actions=[
-                                          ft.ElevatedButton("Yes",on_click=lambda _:self.yes_click(data='yes',alert=confirm_dialog)),
+                                          ft.ElevatedButton("Yes",on_click=lambda _:self.yes_click(data='yes',alert=confirm_dialog),bgcolor=ft.colors.RED_900),
                                           ft.OutlinedButton("No", on_click=lambda _:self.yes_click(data='close',alert=confirm_dialog)
                                              ),
                                         ],

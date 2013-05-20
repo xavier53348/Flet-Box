@@ -1,6 +1,9 @@
 ###################### CALL GLOBAL VAR #############
 from ..settings_var.settings_widget import GLOBAL_VAR
 ####################################################
+from .. settings_var.save_export import WrapWidgetNode
+from .. tree_view.tree_view import TreeView
+####################################################
 import flet as ft
 ####################################################
 
@@ -14,6 +17,8 @@ class MenuLeftContainer(ft.UserControl):
           self.icon_browser  = GLOBAL_VAR(get_global_var='ICON_BROWSER_CONTAINER')
           self.color_browser = GLOBAL_VAR(get_global_var='COLOR_BROWSER_CONTAINER')
           self.gpt_browser   = GLOBAL_VAR(get_global_var='GPT_BROWSER_CONTAINER')
+          self.data_view = WrapWidgetNode()
+
 
      def build(self):
 
@@ -101,7 +106,7 @@ class MenuLeftContainer(ft.UserControl):
                                                                                                         width         = 45,
                                                                                                         border_radius = ft.border_radius.all(16)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='TREE'     ,content=ft.IconButton(icon=ft.icons.ACCOUNT_TREE_ROUNDED , on_click=lambda _:self.on_developing('Tree')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='TREE'     ,content=ft.IconButton(icon=ft.icons.ACCOUNT_TREE_ROUNDED , on_click=lambda _:self.show_widgets(show_widget='tree_view')),
                                                                                                         bgcolor       = ft.colors.BLACK45,
                                                                                                         height        = 45,
                                                                                                         width         = 45,
@@ -146,6 +151,13 @@ class MenuLeftContainer(ft.UserControl):
           if show_widget == "gpt_browser":
                self.gpt_browser.visible  = True if not self.gpt_browser.visible else False
                self.gpt_browser.update()
+
+          if show_widget == "tree_view":
+               # INPUT DATA IN TREEVIEW
+               # tree_view_data = self.data_view.show_tree_nodews(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
+               # TreeView.update_data(data=tree_view_data)
+               TreeView.visible_view()
+
 
      def on_developing(self,name_seccion):
           page        = GLOBAL_VAR(get_global_var='PAGE')

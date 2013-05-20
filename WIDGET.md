@@ -181,3 +181,72 @@ This will upload your package to PyPI, making it accessible to others using `pip
 
 Remember to replace `your_project_name` with your actual package name and adjust the version as needed.
 
+#### MAKE HACK TIPS
+
+#### ATTRIBUTES
+- GET SPECIFIC ATTRIBUTE PASSED
+```shell
+>>>  tmp_data = screen_1.__getattribute__('content')
+```
+- GET ATTRIBUTE OF THE WIDGET
+```shell
+>>> tmp_data = screen_1._Control__attrs
+```
+
+- GET ATTIBUTE IN DICT
+```shell
+>>> tmp_data = screen_1._wrap_attr_dict(self.data_share)
+```
+
+- GET ATTIBUTE LIKE STR
+```shell
+>>> tmp_data = screen_1.__str__()
+```
+
+- GET ATTRIBUTE LIKE A WIDGET
+```shell
+>>> tmp_data = screen_1.__repr__()
+```
+
+#### ATTRIBUTES ID
+- GET ID
+```shell
+>>> tmp_data = screen_1.uid
+```
+
+#### CHILDRENS
+- GET ONE WIDGET BEFORE
+```shell
+>>>  tmp_data = screen_1._Control__previous_children
+```
+- GET ONE WIDGET BEFORE LIST
+```shell
+>>> tmp_data = screen_1._get_children()
+>>> tmp_data = screen_1._previous_children
+```
+
+#### WRAP LIKE A DICT
+```shell
+>>> print(Drop_Make_data._wrap_attr_dict({'new_value':Drop_Make_data}))
+>>> Drop_Make_data.invoke_method('on_click')
+```
+#### GET WIDGET NAME
+- GET NAME MODULE
+```shell
+>>> tmp_data = screen_1.__module__
+```
+- GET NAME OF THE WIDGET
+```shell
+>>> tmp_data = screen_1._get_control_name()
+```
+
+#### KWON INFO ABOUT PAGE FROM EVERY WHERE
+```shell
+>>> tmp_data = Drop_Container_exemple.__dict__.get('_Control__page')    #  s.__dict__.get('_Control__page')
+>>> tmp_data._Page__next_control_id                                     ####<=== very important
+>>> tmp_data._Page__views                                               ####<=== very important
+
+>>> tmp_data._index                                             ####<=== very important DICT OF ALL WWIDGETS
+>>> tmp_data._index.get('_9')                                   ####<=== GET BY INDEX
+>>> tmp_data.get_control(id='_5').controls                      ####<=== GET BY INDEX
+```

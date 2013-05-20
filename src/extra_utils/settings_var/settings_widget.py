@@ -1,5 +1,8 @@
 
 DATA_GLOBAL =  {
+               ######################## DICT WITH ALL WIDGET IN PHONE
+                      'EXPORT_DATA_PHONE' : dict(), # <== DICT WITH ALL WIDGET IN PHONE TO EXPORT APP
+                'SELECT_DATA_ERASE_PHONE' : None,   # <== SELECTED ID WIDGET IN PHONE
                ########################
      'CHECK_CURRENT_TIME_DOBLE_CLICKS'    : 0,      # <== CURRENT PERFORMANSE TIME TO CHECK 2 CLICKS IN CONTAINER OVER CONTAINERS <== IS A ISSUE IN CONTAINERS
                ########################
@@ -31,7 +34,7 @@ DATA_GLOBAL =  {
                   'GPT_BROWSER_CONTAINER' : None,   # <== BOX CONTAINER WITH SEARCH GPT
                }
 
-def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name'):
+def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name',remove_global_var = 'var_remove'):
      """
      #### GLOBAL_VAR IS A DICT THAT COINTEN ALL DATA THAT WE WANT CALL IN ALL FLET-BOX
      #### WE MAY CALL IN ALL MOMENT IMPORTING LITE CONFIG
@@ -48,6 +51,10 @@ def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_na
 
      >>> GLOBAL_VAR(get_global_var='var_name'})
 
+     ### Remove the gloval bar by name:
+
+     >>> GLOBAL_VAR(remove_global_var='var_remove'})
+
      """
      global DATA_GLOBAL
 
@@ -57,3 +64,7 @@ def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_na
      elif not get_global_var == 'var_name':
           TMP_DATA_GLOBAL  =  DATA_GLOBAL.get(get_global_var)
           return TMP_DATA_GLOBAL
+
+     elif not remove_global_var == 'var_remove':
+          """ REMOVE SPECIFIC WIDGET FROM SELECTED WIDGET PHONE"""
+          DATA_GLOBAL.get('EXPORT_DATA_PHONE').pop(remove_global_var)

@@ -151,4 +151,3 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
 
           # print(selected_widget_clicked,'<======== from GLOBAL_VAR')
           print(data,'<=== selected DRAGG widget')
-

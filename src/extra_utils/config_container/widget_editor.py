@@ -470,9 +470,11 @@ class Build_Editor(ft.UserControl):
                                    padding       = ft.padding.all(0),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
                                    margin        = ft.margin.all(0),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
                                    border_radius = ft.border_radius.all(28),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                   image_src     = f"dragg_container3.jpg",
-                                   image_opacity = 0.03,
-                                   image_fit     ='COVER',                                                # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                   ############################
+                                   # image_src     = f"dragg_container3.jpg",
+                                   # image_opacity = 0.03,
+                                   # image_fit     ='COVER',                                                # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                   ############################
                                    # blur        = 18,
                                    width         = 372,
                                    # height        = 580,

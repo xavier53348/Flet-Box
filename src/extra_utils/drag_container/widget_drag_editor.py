@@ -130,9 +130,9 @@ class Build_Drag_Editor(ft.UserControl):
                                         # border      = ft.border.all(2, ft.colors.BLACK),                              # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                         ######################
                                         # image_src   = f"dragg_container3.jpg",
-                                        image_src     = f"dragg_container.jpg",
-                                        image_opacity = 0.03,
-                                        image_fit     = 'FILL',                                            # CONTAIN, FILL, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                        # image_src     = f"dragg_container.jpg",
+                                        # image_opacity = 0.03,
+                                        # image_fit     = 'FILL',                                            # CONTAIN, FILL, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                         ######################
                                         width         = 280,
                                         # height      = 150,

@@ -457,21 +457,37 @@ class LiteMenuUpContainer(ft.UserControl):
                CONFIG_TABS_CONTAINERS_CONTENT.update()
 
      def action_button(self,action):
-          ###############################################################
 
           if action == 'delete':
+               """
+               WE DELETE ALL WIDGETS IT'S NOT THE CORRECT WAY
+               """
                touch_widget_in_phone = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
 
                # get the corret way to delete widget <===
                if touch_widget_in_phone:
-                   page           = GLOBAL_VAR(get_global_var='PAGE')
-                   id_widget      = page.get_control(touch_widget_in_phone.uid)
+                   ######################################### ERASE DICT SELECT WIDGET #
+                   """
+                   WE GO BACK 2 PATH TO GET MAIN WIDGET STACK() AND DELETE WIDGET FROM DICT
+
+                   LIST_SELECTED_WIDGETS
+                   EXPORT_DATA_PHONE
+
+                   """
+                   id_widget      = self.main_page.get_control(touch_widget_in_phone.uid)
                    get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}" # <===== Stack()
-                   page_control   = page.get_control(get_control_id)
+                   page_control   = self.main_page.get_control(get_control_id)
                    page_control.clean()
-                   del page_control._Control__previous_children
-                   del page_control
-                   GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':[]})
+
+                   #####################################################################
+                   # CHECK IF WIDGET ID EXIST IN DATABASE IF TRUE REMOVE CURRENT WIDGET FROM MAIN DATABASE
+                   GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
+
+                   if GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE').get(touch_widget_in_phone.id):
+                       GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
+
+                   # GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':[]})
+                   #####################################################################
 
           if action == 'rotation':
                self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width

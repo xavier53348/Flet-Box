@@ -4,9 +4,117 @@ from flet import Container
 # from data_in_module import data
 
 
-# from data_in_module import data
+class wraper_widget():
+    # globalVar='Erase this test'
+    list_data = ''
+
+    def __init__(self,widget_wraper='Erase this test'):
+        super().__init__()
+        # self.title='data'
+        self.widget_wraper=widget_wraper
 
 
+        self.tree_levels ={}
+
+    def build(self):
+        # Drop_Container_exemple=
+        #       ft.Container(
+        #                     content=ft.Column(
+        #                                         controls=[
+        #                                                     ft.Container()
+        #                                                     self.data_share,
+        #                                                     ft.ElevatedButton("WRITE",tooltip='buttom',on_click=lambda _:self.write_flet_app(_)),
+                                                            # ft.Row(controls=[
+                                                                            # ft.ElevatedButton('dell')
+                                                                            # ]),
+        #                                                     ft.ElevatedButton("READ",tooltip='buttom',on_click=lambda _:self.run_comand(_)),
+        #                                                     ft.ElevatedButton("DELETE",tooltip='buttom',on_click=lambda _:self.delete(_)),
+        #                                                  ],
+
+
+        self.id   = self.widget_wraper.uid
+        self.name = self.widget_wraper._get_control_name()
+        #####################
+
+        list_controls = ['row','column','stack',]
+        for _ in range(8):
+
+            if not self.list_data == '':
+                #####################
+                # print('here')
+                # print('LAYER 1')
+                #####################
+
+                if not type(self.list_data) == type(list()):
+                    # print(self.list_data,'==============')
+                    if not self.list_data._get_control_name() in list_controls:
+
+
+                        if not self.list_data.content == None:
+                            self.list_data = self.list_data.content
+                            print('LAYER 1    ',self.list_data._get_control_name(),)
+
+                        else:
+                            break
+                            # print('data')
+                            # print('LAYER 4   sss ',self.list_data._get_control_name(),)
+                            # self.list_data = self.list_data.controls
+                            # print(self.list_data)
+                    else:
+                        self.list_data = self.list_data.controls
+
+                else:
+                    print('LAYER 2')
+                    for _ in self.list_data:
+                        # print(_._get_control_name())
+                        # self.list_data = _.content
+
+                        if not _._get_control_name() in list_controls:
+                            self.list_data = _
+                            print('LAYER 3        ',self.list_data._get_control_name(),'<=== content')
+
+                        else:
+                            self.list_data = _
+                            print('LAYER 3        ',self.list_data._get_control_name(),'<=== controls')
+                            self.list_data = _.controls
+
+                            # print(self.list_data )
+                            for _ in self.list_data:
+                                print('LAYER 4            ',_._get_control_name(),'<===')
+                                if _._get_control_name() in list_controls:
+                                    self.list_data = _.controls
+
+                                    for _ in self.list_data:
+                                        print('LAYER 5                ',_._get_control_name(),'<=== ')
+
+                                        if _._get_control_name() in list_controls:
+                                            self.list_data = _.controls
+                                            # print('LAYER 6                ',_._get_control_name(),'<===')
+
+                                            for _ in self.list_data:
+                                                self.list_data = _
+                                                print('LAYER 6                    ',_._get_control_name(),'<===')
+
+                                                if _._get_control_name() in list_controls:
+                                                    self.list_data = _.controls
+                                                    print('LAYER 7                        ',_._get_control_name(),'<===')
+
+                                                    for _ in self.list_data:
+                                                        print('LAYER 8                            ',_._get_control_name(),'<===')
+
+                                    # print(_)
+                                # self.list_data = _.content
+                                # print('LAYER 3            ',_._get_control_name(),'<<<<')
+
+            else:
+                self.list_data = self.widget_wraper
+                print('LAYER 0',self.list_data._get_control_name(),)
+
+        list_content = ['container']
+
+        return '====================='
+
+######## wraper_widget = wraper_widget(),# <======= Comma
 class Container_exemple(ft.UserControl):
     # globalVar='Erase this test'
 
@@ -21,20 +129,20 @@ class Container_exemple(ft.UserControl):
         self.data_share = ft.Container(
                     ##################### PROPERTY
                     # expand=True,
-                    ink=False,                                                # click effect ripple
-                    bgcolor="#44CCCC00",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                    padding= ft.padding.all(8),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                    margin = ft.margin.all(8),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                    alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                    # ink=False,                                                # click effect ripple
+                    # bgcolor="#44CCCC00",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                    # padding= ft.padding.all(8),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
+                    # margin = ft.margin.all(8),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
+                    # alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                     border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                     border=ft.border.all(2, ft.colors.BLACK),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                    image_src=f"/icons/icon-512.png",
+                    # image_src=f"/icons/icon-512.png",
                     width=150,
                     height=40,
-                    tooltip='Container',
+                    # tooltip='Container',
                     ##################### EFFECTS
                     # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                    gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
+                    # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
                     ##################### WIDGETS
                     content=ft.ElevatedButton("press container",tooltip='buttom'),
                     ##################### EVENTS
@@ -44,24 +152,24 @@ class Container_exemple(ft.UserControl):
         Drop_Container_exemple=ft.Container(
                     ##################### PROPERTY COLUMN
                     ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                    expand=True,
+                    # expand=True,
                     ink=False,                                                      # click effect ripple
-                    bgcolor="#3f449a",                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                    padding= ft.padding.all(8),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                    margin = ft.margin.all(8),    # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                    # bgcolor="#3f449a",                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                    # padding= ft.padding.all(8),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                    # margin = ft.margin.all(8),    # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
                     alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                    border_radius= ft.border_radius.all(30),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                    # border_radius= ft.border_radius.all(30),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                     border=ft.border.all(2, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                     # ===================
-                    image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                    image_opacity=0.1,
-                    image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                    # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
+                    # image_opacity=0.1,
+                    # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                     # ===================
                     width=320,
                     height=320,
                     tooltip='Container',
                     #################### EFFECTS
-                    gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                    # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
                     # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
                     ##################### WIDGETS
                     content=ft.Column(
@@ -114,6 +222,27 @@ class Container_exemple(ft.UserControl):
                                     ),#<=== NOTE COMA
                                     self.data_share,
                                     ft.ElevatedButton("WRITE",tooltip='buttom',on_click=lambda _:self.write_flet_app(_)),
+                                    ft.Row(controls=[
+                                                    ft.Row(controls=[ft.ElevatedButton()]),
+                                                    ft.Row(controls=[
+                                                                    ft.Row(controls=[
+                                                                                    ft.Text(),
+                                                                                    ft.Text(),
+                                                                                    ft.Text(),
+                                                                                    ft.Text(),
+                                                                                    ft.Row(controls=[
+                                                                                                    ft.Text(),
+                                                                                                    ft.Text(),
+                                                                                                    ft.Text(),
+                                                                                                    ft.Text(),
+                                                                                        ]),
+                                                                                    ])]),
+
+                                                    ft.Text('dell'),
+                                                    ft.Text('dell'),
+                                                    ft.Text('dell'),
+
+                                                    ]),
                                     ft.ElevatedButton("READ",tooltip='buttom',on_click=lambda _:self.run_comand(_)),
                                     ft.ElevatedButton("DELETE",tooltip='buttom',on_click=lambda _:self.delete(_)),
                                  ],
@@ -232,9 +361,7 @@ class Container_exemple(ft.UserControl):
         ############################################################### NAME WIDGET STR
         # WRAP LIKE A DICT
         # print(Drop_Make_data._wrap_attr_dict({'new_value':Drop_Make_data}))
-
         # Drop_Make_data.invoke_method('on_click')
-
 
         # GET NAME MODULE
         # tmp_data = screen_1.__module__
@@ -284,44 +411,48 @@ class Container_exemple(ft.UserControl):
 
         # tmp_data
 
-        if tmp_data._get_control_name() == 'container':
-            layer_0 = {'layer_0':{
-                                tmp_data.uid:{
-                                            ################## CURRENT WIDGET
-                                            'father_name':  tmp_data._get_control_name(),
-                                            'father_level':'layer_0', # cUrremt widget
-                                            'father_id':    tmp_data.uid,
+        # if tmp_data._get_control_name() == 'container':
+        #     layer_0 = {'layer_0':{
+        #                         tmp_data.uid:{
+        #                                     ################## CURRENT WIDGET
+        #                                     'father_name':  tmp_data._get_control_name(),
+        #                                     'father_level':'layer_0', # cUrremt widget
+        #                                     'father_id':    tmp_data.uid,
 
-                                            ################### NEXT WIDGET
-                                            'widget_name': tmp_data.content._get_control_name(),
-                                            'widget_level':'layer_1',
-                                            'widget_id':tmp_data.content.uid,
-                                            }
-                                  },
-                       }
-            # if layer_0.get('layer_0').get(tmp_data.uid):
+        #                                     ################### NEXT WIDGET
+        #                                     'widget_name': tmp_data.content._get_control_name(),
+        #                                     'widget_level':'layer_1',
+        #                                     'widget_id':tmp_data.content.uid,
+        #                                     }
+        #                           },
+        #                }
+        #     # if layer_0.get('layer_0').get(tmp_data.uid):
 
-            # print(layer_0.get('layer_0').get(tmp_data.uid)layer_0.get('layer_0').get(tmp_data.uid))
+        #     # print(layer_0.get('layer_0').get(tmp_data.uid)layer_0.get('layer_0').get(tmp_data.uid))
 
-            if tmp_data.content._get_control_name() == 'container':
-                ...
-            else:
-                layer_1 = {'layer_1':{
-                                    tmp_data.content.uid:{
-                                                ################## CURRENT WIDGET
-                                                'father_name': tmp_data._get_control_name(),
-                                               'father_level': 'layer_0', # cUrremt widget
-                                                  'father_id': tmp_data.uid,
+        #     if tmp_data.content._get_control_name() == 'container':
+        #         ...
+        #     else:
+        #         layer_1 = {'layer_1':{
+        #                             tmp_data.content.uid:{
+        #                                         ################## CURRENT WIDGET
+        #                                         'father_name': tmp_data._get_control_name(),
+        #                                        'father_level': 'layer_0', # cUrremt widget
+        #                                           'father_id': tmp_data.uid,
 
-                                                ################### NEXT WIDGET
-                                                'widget_name': tmp_data.content._get_control_name(),
-                                                'widget_level':'layer_1',
-                                                'widget_id':tmp_data.content.uid,
-                                                }
-                                      },
-                           }
+        #                                         ################### NEXT WIDGET
+        #                                         'widget_name': tmp_data.content._get_control_name(),
+        #                                         'widget_level':'layer_1',
+        #                                         'widget_id':tmp_data.content.uid,
+        #                                         }
+        #                               },
+        #                    }
+
+        result = wraper_widget(widget_wraper=Drop_Container_exemple)
+
+        print(result.build())
             # if layer_0.get('lay
-                print(layer_1)
+                # print(layer_1)
                 # print(tmp_data.content)
 ######## Container_exemple = Container_exemple(),# <======= Comma
 def main(page: ft.Page):

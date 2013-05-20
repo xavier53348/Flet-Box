@@ -229,12 +229,22 @@ class InfinityBoxLayerOne(ft.UserControl):
           self.infinityDropWidget[0].id      = f"{self.dataPassed}: {numWidget}"              # OUR ID
           self.infinityDropWidget[0].tooltip = f"{self.dataPassed}: {numWidget}"              # TOOLTIP ID
 
+
+          # print(self.infinityDropWidget[0].id)
+          # print(self.infinityDropWidget[0]._Control__uid)
+
+
+          ####################### SET WIDGET DROPPED TO DICT DATABASE TO EXPORT PROYECT
+          # GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':{self.infinityDropWidget[0].id:self.infinityDropWidget[0]}})
+          #######################
+
           print('============')
           print(f"""
-                    selected_widget: {self.dataPassed},
-                    ID_widget: {numWidget},
-                    ID tooltip: {self.infinityDropWidget[0].tooltip}
-                    Content: {self.infinityDropWidget}""")
+[+]             selected_widget: {self.dataPassed},
+[+]             ID_widget: {numWidget},
+[+]             UID: {self.infinityDropWidget[0].uid}
+[+]             ID tooltip: {self.infinityDropWidget[0].tooltip}
+[+]  Content: {self.infinityDropWidget}""")
           print('============')
 
           self.drag_boxs =ft.DragTarget(
@@ -334,7 +344,8 @@ class InfinityBoxLayerOne(ft.UserControl):
                     THIS MODULE CALL TO BUILD EDITOR TO CHANGE ATTRIBUTES
                     """
                     # Build_Editor.update_widget_attributes(widget_cliked=self.infinityDropWidget[0])
-                    ############################################################################
+                    ############################################################################ SET SELECTED WIDGET IN DICT TO ERASE IF PRESS REMOVE
+                    GLOBAL_VAR(set_global_var={'SELECT_DATA_ERASE_PHONE':listWidget[0].id})
 
                     # time.sleep(0.1)
 
