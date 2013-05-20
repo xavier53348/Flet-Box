@@ -43,7 +43,9 @@ class Build_Editor(ft.UserControl):
                                 image_fit     ='COVER',                                                # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                 # blur        = 18,
                                 width         = 370,
-                                height        = 580,
+                                # height        = 580,
+                                height        = 670,
+                                # expand=True,
                                 ############################
                             on_hover = lambda _:print(f'ID of the Config Container: {Drop_Build_Editor._Control__uid}'),
 
@@ -312,7 +314,7 @@ class Build_Editor(ft.UserControl):
         intersection_filter_data = { widgets_dict.get(_) for _ in check_clicked_widget_content if not _ in attrib_compare_container_dict if _ in attrib_compare_container_widget_dict }
         # ##########################################################################
         main_page_to_update = get_global_var(get_var='page')
-        tmp_                = main_page_to_update.get_control('_313')
+        tmp_                = main_page_to_update.get_control('_330')
         ######################## 4.0 - GET LIS OF BUILDER ATTRIBUTES get_attributes
         # print(tmp_,'<<<<<<<')
         tmp_.content.tabs[0].content.content.controls = get_widgets # #<<<<<<<<<<
