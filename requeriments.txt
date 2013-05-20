@@ -21,7 +21,6 @@ docutils==0.20.1
 exceptiongroup==1.2.0
 fastapi==0.110.1
 flet==0.21.2
-flet-box @ file:///home/mjay/Desktop/git_hub/dist/flet-box-0.0.1.tar.gz
 flet-core==0.21.2
 flet-runtime==0.21.2
 frozenlist==1.4.1

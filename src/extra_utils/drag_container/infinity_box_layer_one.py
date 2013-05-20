@@ -44,7 +44,7 @@ class InfinityBoxLayerOne(ft.UserControl):
 
                ####################### CONTAINERS LAYOUTS
 
-                       "Row": [    ft.Container(bgcolor=ft.colors.BLACK45,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Row',
+                       "Row": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Row',
                                    ink=True,
                                    ink_color='cyan',
                                    on_hover=lambda _:self.resetClick(),
@@ -53,7 +53,7 @@ class InfinityBoxLayerOne(ft.UserControl):
                                         controls= [
                                                        ],),),
                               ],
-                    "Column": [    ft.Container(bgcolor=ft.colors.BLACK45,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Column',
+                    "Column": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Column',
                                    ink=True,
                                    ink_color='yellow',                                   on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
@@ -61,7 +61,7 @@ class InfinityBoxLayerOne(ft.UserControl):
                                         controls= [
                                                        ],),),
                               ],
-                     "Stack": [    ft.Container(bgcolor=ft.colors.BLACK45,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Stack',
+                     "Stack": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Stack',
                                    ink=True,
                                    ink_color='purple',                                   on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
@@ -69,7 +69,7 @@ class InfinityBoxLayerOne(ft.UserControl):
                                         controls= [
                                                        ],),),
                               ],
-                  "GridView": [    ft.Container(bgcolor=ft.colors.BLACK45,alignment=ft.alignment.center,border=ft.border.all(2, ft.colors.CYAN_900),tooltip='GridView',
+                  "GridView": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,border=ft.border.all(2, ft.colors.CYAN_900),tooltip='GridView',
                                    ink=True,
                                    ink_color='green',                                   on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),

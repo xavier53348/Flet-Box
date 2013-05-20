@@ -10,7 +10,7 @@ SCREEN_APP = {'_1': View(scroll='auto', vertical_alignment='center', horizontal_
 '_8': Container(tooltip='Container', width=150, height=30, bgcolor='#44CCCC00', image_src='/icons/icon-512.png', ink=False, on_click=True, border_radius={"bl":30,"br":30,"tl":30,"tr":30}, border={"l":{"w":2,"c":"black"},"t":{"w":2,"c":"black"},"r":{"w":2,"c":"black"},"b":{"w":2,"c":"black"}}, margin={"l":8,"t":8,"r":8,"b":8}, padding={"l":8,"t":8,"r":8,"b":8}, alignment={"x":0,"y":0}, gradient={"colors":["yellow","blue"],"tile_mode":"clamp","center":{"x":0,"y":0},"radius":0.5,"focal_radius":0.0,"type":"radial"}),
 '_9': ElevatedButton(tooltip='buttom', text='press container', ),
 '_10': ElevatedButton(tooltip='buttom', text='WRITE'),
-'_11': ElevatedButton(tooltip='buttom', text='LOAD'),
+'_11': ElevatedButton(tooltip='buttom', text='DELETE'),
 '_12': None}
 
 

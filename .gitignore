@@ -9,10 +9,10 @@ make_path.sh
 __pycache__/
 *.py[cod]
 *$py.class
-
+test/
 # C extensions
 *.so
-
+make_path.sh
 # Distribution / packaging
 .Python
 build/

@@ -30,7 +30,7 @@ class Container_exemple(ft.UserControl):
                     border=ft.border.all(2, ft.colors.BLACK),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
                     image_src=f"/icons/icon-512.png",
                     width=150,
-                    height=30,
+                    height=40,
                     tooltip='Container',
                     ##################### EFFECTS
                     # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
@@ -84,8 +84,8 @@ class Container_exemple(ft.UserControl):
                                                 # expand=True,
                                                 ink=False,                                                # click effect ripple
                                                 bgcolor="red",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                padding= ft.padding.all(8),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                margin = ft.margin.all(8),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
+                                                padding= ft.padding.all(2),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
+                                                margin = ft.margin.all(2),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
                                                 alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                 border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                 border=ft.border.all(2, ft.colors.BLACK),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
@@ -114,7 +114,7 @@ class Container_exemple(ft.UserControl):
                                     ),#<=== NOTE COMA
                                     self.data_share,
                                     ft.ElevatedButton("WRITE",tooltip='buttom',on_click=lambda _:self.write_flet_app(_)),
-                                    # ft.ElevatedButton("READ",tooltip='buttom',on_click=lambda _:self.run_comand(_)),
+                                    ft.ElevatedButton("READ",tooltip='buttom',on_click=lambda _:self.run_comand(_)),
                                     ft.ElevatedButton("DELETE",tooltip='buttom',on_click=lambda _:self.delete(_)),
                                  ],
                     ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
@@ -166,10 +166,10 @@ class Container_exemple(ft.UserControl):
           # from views.building_code_traslator import write_flet_code_to_builder_screens
 
 
-          # ############################################################################################### CREATING DATABASE
+          # ################################################################################################ CREATING DATABASE
           # from views.building_code_traslator import create_index_page
           # create_index_page(module_path ='./test/views/SCREENS_DB.py',widget_screen=self.data_share)
-          # # # ################################################################################################ TRASLATING TO FLET MACHINE
+          # ################################################################################################ TRASLATING TO FLET MACHINE
           # from views.building_code_traslator import tralating_index_page
           # data_returned = tralating_index_page(
           #                                       read_module_path  = './test/views/SCREENS_DB.py',
@@ -230,6 +230,12 @@ class Container_exemple(ft.UserControl):
         # tmp_data = screen_1._get_children()
         # tmp_data = screen_1._previous_children
         ############################################################### NAME WIDGET STR
+        # WRAP LIKE A DICT
+        # print(Drop_Make_data._wrap_attr_dict({'new_value':Drop_Make_data}))
+
+        # Drop_Make_data.invoke_method('on_click')
+
+
         # GET NAME MODULE
         # tmp_data = screen_1.__module__
         # GET NAME OF THE WIDGET
@@ -242,7 +248,7 @@ class Container_exemple(ft.UserControl):
         #                                                 )
         ############################################################### GET INFO PAGE FROM A CONTAINER
         # KWON INFO ABOUT PAGE FROM EVERY WHERE
-        tmp_data = Drop_Container_exemple.__dict__.get('_Control__page')    #  s.__dict__.get('_Control__page')
+        # tmp_data = Drop_Container_exemple.__dict__.get('_Control__page')    #  s.__dict__.get('_Control__page')
         # tmp_data.route                                                    # <=== route platform platform_brightness theme_mode
         # tmp_data.window_width
         # tmp_data.window_height
@@ -263,27 +269,80 @@ class Container_exemple(ft.UserControl):
         # tmp_data.index['_5'].controls.pop()
         # tmp_data.index['_5'].update()
         # print(self.data_share._wrap_attr_dict({'data':tmp_data.index['_5']}))
-        print(tmp_data._Control__attrs)
+
+
+
+        # tmp_data = Drop_Container_exemple._get_control_name().capitalize()
+
+        filters = {
+
+                'Container':'content'
+        }
+
+        tmp_data = Drop_Container_exemple
+
+
+        # tmp_data
+
+        if tmp_data._get_control_name() == 'container':
+            layer_0 = {'layer_0':{
+                                tmp_data.uid:{
+                                            ################## CURRENT WIDGET
+                                            'father_name':  tmp_data._get_control_name(),
+                                            'father_level':'layer_0', # cUrremt widget
+                                            'father_id':    tmp_data.uid,
+
+                                            ################### NEXT WIDGET
+                                            'widget_name': tmp_data.content._get_control_name(),
+                                            'widget_level':'layer_1',
+                                            'widget_id':tmp_data.content.uid,
+                                            }
+                                  },
+                       }
+            # if layer_0.get('layer_0').get(tmp_data.uid):
+
+            # print(layer_0.get('layer_0').get(tmp_data.uid)layer_0.get('layer_0').get(tmp_data.uid))
+
+            if tmp_data.content._get_control_name() == 'container':
+                ...
+            else:
+                layer_1 = {'layer_1':{
+                                    tmp_data.content.uid:{
+                                                ################## CURRENT WIDGET
+                                                'father_name': tmp_data._get_control_name(),
+                                               'father_level': 'layer_0', # cUrremt widget
+                                                  'father_id': tmp_data.uid,
+
+                                                ################### NEXT WIDGET
+                                                'widget_name': tmp_data.content._get_control_name(),
+                                                'widget_level':'layer_1',
+                                                'widget_id':tmp_data.content.uid,
+                                                }
+                                      },
+                           }
+            # if layer_0.get('lay
+                print(layer_1)
+                # print(tmp_data.content)
 ######## Container_exemple = Container_exemple(),# <======= Comma
 def main(page: ft.Page):
     ###################### CONFIGURATION
-    page.scroll=True
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.scroll               = True
+    page.vertical_alignment   = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     ######################  COLOR
-    page.theme_mode = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
-    # page.bgcolor = ft.colors.TRANSPARENT
-    # page.window_bgcolor =  ft.colors.TRANSPARENT
+    page.theme_mode           = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
+    # page.bgcolor            = ft.colors.TRANSPARENT
+    # page.window_bgcolor     = ft.colors.TRANSPARENT
     ###################### POSITION OF SC
-    page.window_left = 8
-    page.window_top = 8
+    page.window_left          = 8
+    page.window_top           = 8
     # page.window_center()
     ###################### SIZE
-    page.window_height=420
-    page.window_width=320
-    page.padding=8
-    page.spacing=8
-    page.expand=True
+    page.window_height        = 420
+    page.window_width         = 320
+    page.padding              = 8
+    page.spacing              = 8
+    page.expand               = True
     ######################
     global screen_1
     # print(page.__dir__())
