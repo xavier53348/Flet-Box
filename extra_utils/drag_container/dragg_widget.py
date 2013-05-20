@@ -87,8 +87,7 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
                                                   'listWidgetUpdate':[],
                                                    })
 
-          page        = get_global_var(get_var='page')
-
+          # page        = get_global_var(get_var='page')
 
           # dlg = ft.AlertDialog(
           #                     title=ft.Text("Hello, you!"), on_dismiss=lambda e: print("Dialog dismissed!")

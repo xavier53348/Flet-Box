@@ -117,7 +117,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                                                    ##################### EVENTS
                                                                    # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
                                                        ),#<=== NOTE COMA
-                                                       ft.Container( ##################### DEVICES
+                                                       ft.Container( ##################### ROTATION
                                                                       ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                                                                       # expand=True,
                                                                       padding= ft.padding.only(left=8, top=0, right=8, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
