@@ -319,24 +319,16 @@ class LiteMenuUpContainer(ft.Stack):
                    #: IF TRUE REMOVE CURRENT WIDGET FROM MAIN DATABASE
                    #: GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
 
-                   # if GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE').get(touch_widget_in_phone.id):
-                   #      GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
-                   main_phone       = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
-                   edit_dict        = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')
-                   selected_widget  = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
-
+                   main_phone       = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')                   #: <===== GET CURRENT SCREEN
+                   edit_dict        = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')                #: <===== GET ALL SCREENS GET FROM MAIN PAGE
+                   selected_widget  = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')             #: <===== GET CURRENT WIDGET SELECTED
 
                    #: REMOVE FROM DICT ALL_SCREEN_IN_DICT
                    del edit_dict[main_phone.uid][selected_widget.tooltip]
-                   # print(edit_dict[main_phone.uid][selected_widget.tooltip])
-
 
                    #: BACK 2 ID BEFORE TO GET DRAGGTARGET AND CORRECTLY DELETE
                    get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}"                    #: <===== ID Stack() - 2
                    page_control   = self.main_page.get_control(get_control_id)                      #: <===== GET EXACTLY DRAG TARGET
-
-                   # del self.main_page._index[get_control_id]
-
 
                    # RUN ONLY IN PRODUCTION
                    # print(page_control,get_control_id,'simple erase')
@@ -345,10 +337,6 @@ class LiteMenuUpContainer(ft.Stack):
                    touch_widget_in_phone = GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':None})#: <===== RESET SELECTED WIDGET TO NONE
                    del main_page._index[get_control_id]                                             #: <===== DELETE INDEX IN MAIN PAGE
                    page_control.update()                                                            #: <===== UPDATE PAGE
-
-                   # self.current_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
-                   # self.edit_dict = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT').get(self.current_screen)
-                   # print(self.edit_dict,'ALLLL <<<<<<<<<')
 
           if action == 'UNSELECT':
                #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED BORDER IN PHONE CONTAINER

@@ -4,6 +4,7 @@ test_readme_pypi.py
 bump_upgrade_pypi.sh
 test_app/
 test/
+test
 .venv/
 bump-version.sh
 .git/

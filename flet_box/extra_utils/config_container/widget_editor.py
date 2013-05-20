@@ -9,6 +9,7 @@ from .gradient_entry   import GradientEntry
 from .blur_color_entry import BlurColorEntry
 from .selection_entry  import SelectionEntry
 from .selection_button_entry import SelectionButtonEntry
+from .single_number_entry    import SingleNumeberEntry
 
 from ..settings_var.settings_widget import GLOBAL_VAR
 
@@ -128,8 +129,8 @@ class Build_Editor(ft.Stack):
 
                'phone_padding'      :FourEntry(      config_widget='padding'               ,widget=self.main_phone_conainer        ,id_name_widget_dict="main_phone_conainer"),
 
-               'phone_image_opacity':SingleEntry(    config_widget='image_opacity'         ,widget=self.main_phone                 ,id_name_widget_dict='main_phone'),
-              'column_phone_spacing':SingleEntry(    config_widget='spacing'               ,widget=self.main_phone_conainer_conent ,id_name_widget_dict="main_phone_conainer_conent"),
+               'phone_image_opacity':SingleNumeberEntry( config_widget='image_opacity'         ,widget=self.main_phone                 ,id_name_widget_dict='main_phone'),
+              'column_phone_spacing':SingleNumeberEntry( config_widget='spacing'               ,widget=self.main_phone_conainer_conent ,id_name_widget_dict="main_phone_conainer_conent"),
 
                'phone_bgcolor'      :ColorEntry(     config_widget='bgcolor'               ,widget=self.main_phone_conainer        ,id_name_widget_dict="main_phone_conainer"),
 
@@ -146,15 +147,15 @@ class Build_Editor(ft.Stack):
 
                #: ESPECIAL WIDGETS ONLY FOR CONTAINERS
 
-               'container_rotate'   :SingleEntry(    config_widget='rotate'                ,widget=self.container_widget),
-               'container_scale'    :SingleEntry(    config_widget='scale'                 ,widget=self.container_widget),
+               'container_rotate'   :SingleNumeberEntry(    config_widget='rotate'                ,widget=self.container_widget),
+               'container_scale'    :SingleNumeberEntry(    config_widget='scale'                 ,widget=self.container_widget),
                'container_padding'  :FourEntry(      config_widget='padding'               ,widget=self.container_widget),
                'container_margin'   :FourEntry(      config_widget='margin'                ,widget=self.container_widget),
                'container_offset'   :DoubleEntry(    config_widget='offset'                ,widget=self.container_widget),
                'container_alignment':SelectionEntry( config_widget='alignment '            ,widget=self.container_widget),
 
                'container_width'    :DoubleEntry(    config_widget='width'                 ,widget=self.container_widget),
-               'container_scale'    :SingleEntry(    config_widget='scale'                 ,widget=self.container_widget),
+               'container_scale'    :SingleNumeberEntry(    config_widget='scale'                 ,widget=self.container_widget),
                'container_border'   :DoubleEntry(    config_widget='border'                ,widget=self.container_widget),
                'container_expand'   :BoolEntry(      config_widget='expand'                ,widget=self.container_widget),
                'container_ink'      :BoolEntry(      config_widget='ink'                   ,widget=self.container_widget),
@@ -169,14 +170,12 @@ class Build_Editor(ft.Stack):
                'container_gradient' :GradientEntry(  config_widget='gradient'              ,widget=self.container_widget),
 
            'container_image_src'    :SelectionButtonEntry(    config_widget='image_src'             ,widget=self.container_widget),
-           'container_image_opacity':SingleEntry(    config_widget='image_opacity'         ,widget=self.container_widget),
+           'container_image_opacity':SingleNumeberEntry(    config_widget='image_opacity'         ,widget=self.container_widget),
            'container_image_fit'    :SelectionEntry( config_widget='image_fit'             ,widget=self.container_widget),
 
                #: ESPECIAL WIDGETS ONLY FOR WIDGET
-
                'text'                :SingleEntry(config_widget='text'               ,widget=self.container_widget_content , id_name_widget_dict='text'),
                'name'                :SingleEntry(config_widget='name'               ,widget=self.container_widget_content , id_name_widget_dict='name'),
-               'size'                :SingleEntry(config_widget='size'               ,widget=self.container_widget_content , id_name_widget_dict='size'),
                'label'               :SingleEntry(config_widget='label'              ,widget=self.container_widget_content , id_name_widget_dict='label'),
                'value'               :SingleEntry(config_widget='value'              ,widget=self.container_widget_content , id_name_widget_dict='value'),
 
@@ -191,22 +190,25 @@ class Build_Editor(ft.Stack):
                'semantics_label'     :SingleEntry(config_widget='semantics_label'    ,widget=self.container_widget_content , id_name_widget_dict='semantics_label'),
                'src_base64'          :SingleEntry(config_widget='src_base64'         ,widget=self.container_widget_content , id_name_widget_dict='src_base64'),
                'blur_radius'         :SingleEntry(config_widget='blur_radius'        ,widget=self.container_widget_content , id_name_widget_dict='blur_radius'),
-               'spread_radius'       :SingleEntry(config_widget='spread_radius'      ,widget=self.container_widget_content , id_name_widget_dict='spread_radius'),
-               'elevation'           :SingleEntry(config_widget='elevation'          ,widget=self.container_widget_content , id_name_widget_dict='elevation'),
-               'rotate'              :SingleEntry(config_widget='rotate'             ,widget=self.container_widget_content , id_name_widget_dict='rotate'),
-               'scale'               :SingleEntry(config_widget='scale'              ,widget=self.container_widget_content , id_name_widget_dict='scale'),
-               'aspect_ratio'        :SingleEntry(config_widget='aspect_ratio'       ,widget=self.container_widget_content , id_name_widget_dict='aspect_ratio'),
-               'runs_count'          :SingleEntry(config_widget='runs_count'         ,widget=self.container_widget_content , id_name_widget_dict='runs_count'),
-               'run_spacing'         :SingleEntry(config_widget='run_spacing'        ,widget=self.container_widget_content , id_name_widget_dict='run_spacing'),
-               'spacing'             :SingleEntry(config_widget='spacing'            ,widget=self.container_widget_content , id_name_widget_dict='spacing'),
-               'child_aspect_ratio'  :SingleEntry(config_widget ='child_aspect_ratio',widget=self.container_widget_content , id_name_widget_dict='child_aspect_ratio'),
-               'max_extent'          :SingleEntry(config_widget='max_extent'         ,widget=self.container_widget_content , id_name_widget_dict='max_extent'),
-               'min_lines'           :SingleEntry(config_widget='min_lines'          ,widget=self.container_widget_content , id_name_widget_dict='min_lines'),
-               'max_lines'           :SingleEntry(config_widget='max_lines'          ,widget=self.container_widget_content , id_name_widget_dict='max_lines'),
-               'border_width'        :SingleEntry(config_widget='border_width'       ,widget=self.container_widget_content , id_name_widget_dict='border_width'),
-               'text_size'           :SingleEntry(config_widget='text_size'          ,widget=self.container_widget_content , id_name_widget_dict='text_size'),
-               'image_opacity'       :SingleEntry(config_widget='image_opacity'      ,widget=self.container_widget_content , id_name_widget_dict='image_opacity'),
-               'opacity'             :SingleEntry(config_widget='opacity'            ,widget=self.container_widget_content , id_name_widget_dict='opacity'),
+
+               #: INT AND FLOAT NUMBERS
+               'size'                :SingleNumeberEntry(config_widget='size'               ,widget=self.container_widget_content , id_name_widget_dict='size'),
+               'spread_radius'       :SingleNumeberEntry(config_widget='spread_radius'      ,widget=self.container_widget_content , id_name_widget_dict='spread_radius'),
+               'elevation'           :SingleNumeberEntry(config_widget='elevation'          ,widget=self.container_widget_content , id_name_widget_dict='elevation'),
+               'rotate'              :SingleNumeberEntry(config_widget='rotate'             ,widget=self.container_widget_content , id_name_widget_dict='rotate'),
+               'scale'               :SingleNumeberEntry(config_widget='scale'              ,widget=self.container_widget_content , id_name_widget_dict='scale'),
+               'aspect_ratio'        :SingleNumeberEntry(config_widget='aspect_ratio'       ,widget=self.container_widget_content , id_name_widget_dict='aspect_ratio'),
+               'runs_count'          :SingleNumeberEntry(config_widget='runs_count'         ,widget=self.container_widget_content , id_name_widget_dict='runs_count'),
+               'run_spacing'         :SingleNumeberEntry(config_widget='run_spacing'        ,widget=self.container_widget_content , id_name_widget_dict='run_spacing'),
+               'spacing'             :SingleNumeberEntry(config_widget='spacing'            ,widget=self.container_widget_content , id_name_widget_dict='spacing'),
+               'child_aspect_ratio'  :SingleNumeberEntry(config_widget ='child_aspect_ratio',widget=self.container_widget_content , id_name_widget_dict='child_aspect_ratio'),
+               'max_extent'          :SingleNumeberEntry(config_widget='max_extent'         ,widget=self.container_widget_content , id_name_widget_dict='max_extent'),
+               'min_lines'           :SingleNumeberEntry(config_widget='min_lines'          ,widget=self.container_widget_content , id_name_widget_dict='min_lines'),
+               'max_lines'           :SingleNumeberEntry(config_widget='max_lines'          ,widget=self.container_widget_content , id_name_widget_dict='max_lines'),
+               'border_width'        :SingleNumeberEntry(config_widget='border_width'       ,widget=self.container_widget_content , id_name_widget_dict='border_width'),
+               'text_size'           :SingleNumeberEntry(config_widget='text_size'          ,widget=self.container_widget_content , id_name_widget_dict='text_size'),
+               'image_opacity'       :SingleNumeberEntry(config_widget='image_opacity'      ,widget=self.container_widget_content , id_name_widget_dict='image_opacity'),
+               'opacity'             :SingleNumeberEntry(config_widget='opacity'            ,widget=self.container_widget_content , id_name_widget_dict='opacity'),
 
                #: SELECTION BUTTOM ENTRY
                'src'                 :SelectionButtonEntry(config_widget='src'       ,widget=self.container_widget_content , id_name_widget_dict='src'),
@@ -330,8 +332,8 @@ class Build_Editor(ft.Stack):
                                                        BoxConfigContainer(
                                                                  title='Image Container',
                                                             controls=[
-                                                                      widgets_dict.get('container_image_fit'),
                                                                       widgets_dict.get('container_image_src'),
+                                                                      widgets_dict.get('container_image_fit'),
                                                                       widgets_dict.get('container_image_opacity'),
                                                                  ],),
 

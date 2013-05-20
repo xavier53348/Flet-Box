@@ -5,6 +5,26 @@ from ..menu_tab_up_phone.skeleton_class_screens import get_skeleton
 import flet as ft
 import json
 
+REFACTORY_STRING_ATTRIBUTE_TO_FLOAT_NUMBERS: tuple = (
+                    "image_opacity",
+                    "opacity",
+                    "child_aspect_ratio",
+                    "aspect_ratio",
+                    "scale",
+                    "rotate",
+                    "size",
+                    "text_size",
+                    "min_lines",
+                    "max_lines",
+                    "runs_count",
+                    "run_spacing",
+                    "spacing",
+                    "max_extent",
+                    "border_width",
+                    "elevation",
+                    "spread_radius",
+)
+
 class WrapWidgetNode():
 
     container_string_node = ''
@@ -208,14 +228,12 @@ class MakeJasonFile():
 
         #: return {'_1':'Attributes','_2':'Attributes'}
         #: Create a copy
-
         self.attributes = {}
         self.attributes_content = {}
         self.atipic_attributes = {}
         self.atipic_attributes_2 = {}
 
         #: ID
-
         self._uid_box  = self.main_node.uid
         self._uid_con  = self.main_node.content.uid
 
@@ -248,6 +266,7 @@ class MakeJasonFile():
             # self.dict_all_attribute[self.main_node.content.leading.uid] = self.atipic_attributes_2
             ...
 
+
         #: DEL 'n':'content' from dict
         if self.attributes.get("n"):             del self.attributes['n']
         if self.attributes.get("onclick"):       del self.attributes['onclick']
@@ -262,7 +281,12 @@ class MakeJasonFile():
             del self.attributes_content['onclick']
             del self.attributes_content['onhover']
 
-        #: UPDATE DICT
+        #: UPDATE DICT removing str = "1.5" to float = 1.5
+        #: VERY IMPORTANT SWAP FROM STRIG TO FLOAT TO EXPORT CODE TO APP IF NOT
+        #: RETURN ERROR
+        for _ in REFACTORY_STRING_ATTRIBUTE_TO_FLOAT_NUMBERS:
+            if self.attributes.get(_):          self.attributes[_]= float(self.attributes.get(_))
+            if self.attributes_content.get(_):  self.attributes_content[_]= float(self.attributes_content.get(_))
 
         self.dict_all_attribute[self._uid_box] = self.attributes
         self.dict_all_attribute[self._uid_con] = self.attributes_content
@@ -272,6 +296,7 @@ class MakeJasonFile():
         # print(self.main_node.content._get_control_name())
         # print(self.main_node.content.label.uid)
         # print(self.main_node.content.label)
+
 
     def return_full_code(self,main_node,tab_one = 4 ,tab_two=4  ,tab_tree=4 ,check = True):
 
@@ -733,6 +758,8 @@ class MakeJasonFile():
 
         #: BUILDING ALL TO EXPORT DATA
 
+        print(self.dict_all_attribute)
+
         self.main_code  = '\n'.join(self.all_code_list)                      #: MAIN CODE
         self.main_code  = self.replace_main_code(code=self.main_code)
         #:
@@ -789,4 +816,6 @@ class MakeJasonFile():
         new_code = new_code.replace('urltarget','url_target').replace('semanticslabel','semantics_label').replace('srcbase64','src_base64')
         new_code = new_code.replace('blurradius','blur_radius').replace('spreadradius','spread_radius').replace('childaspect_ratio','child_aspect_ratio')
         new_code = new_code.replace('maxextent','max_extent').replace('minlines','min_lines').replace('maxlines','max_lines').replace('borderwidth','border_width')
+        new_code = new_code.replace('aspectratio','aspect_ratio')
+
         return new_code

@@ -181,14 +181,14 @@ class ColorEntry(ft.Stack):
 
     def modify_right_container_attributes(self,data,value): #: RIGHT BUTTON
         #: ONLY FOR CONTAINER
-        if  data   == "bgcolor":                self.widget.bgcolor = ft.colors.TRANSPARENT
-        if  data   == "focused_bgcolor":        self.widget.focused_bgcolor= ft.colors.TRANSPARENT
-        if  data   == "color":                  self.widget.color= ft.colors.TRANSPARENT
-        if  data   == "fill_color":             self.widget.fill_color= ft.colors.TRANSPARENT
-        if  data   == "icon_color":             self.widget.icon_color= ft.colors.TRANSPARENT
-        if  data   == "check_color":            self.widget.check_color= ft.colors.TRANSPARENT
+        if  data   == "bgcolor":                self.widget.bgcolor             = ft.colors.TRANSPARENT
+        if  data   == "focused_bgcolor":        self.widget.focused_bgcolor     = ft.colors.TRANSPARENT
+        if  data   == "color":                  self.widget.color               = ft.colors.TRANSPARENT
+        if  data   == "fill_color":             self.widget.fill_color          = ft.colors.TRANSPARENT
+        if  data   == "icon_color":             self.widget.icon_color          = ft.colors.TRANSPARENT
+        if  data   == "check_color":            self.widget.check_color         = ft.colors.TRANSPARENT
         if  data   == "focused_border_color":   self.widget.focused_border_color= ft.colors.TRANSPARENT
-        if  data   == "border_color":           self.widget.border_color= ft.colors.TRANSPARENT
+        if  data   == "border_color":           self.widget.border_color        = ft.colors.TRANSPARENT
 
         if  data   == "shadow_color":
             self.widget.shadow= ft.BoxShadow(
