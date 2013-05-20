@@ -13,6 +13,7 @@ from extra_utils.icon_browser.icon_browser import IconBrowser
 ########################################################################################
 from extra_utils.settings_var.settings_widget import global_var, get_global_var
 
+# import logging
 import flet as ft
 # 214
 def main(page: ft.Page):
@@ -45,7 +46,7 @@ def main(page: ft.Page):
      ###################### SIZE
      # page.window_height           = 400
      # page.window_height             = 800
-     page.window_height             = 770
+     page.window_height             = 768
      page.window_width              = 1360
      # page.window_width            = 1200
      page.padding                   = 0
@@ -137,7 +138,7 @@ def main(page: ft.Page):
                     # image_fit     = 'COVER',                                              # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                     #####################
                     # width         = 150,
-                    height          = 770,
+                    height          = 768,
                     # height          = 715,
                     # tooltip       = 'Container',
                     ##################### EFFECTS
@@ -146,7 +147,6 @@ def main(page: ft.Page):
                     ##################### WIDGETS
                content=ft.Row(
                               ##################### PROPERTY BOX
-                              expand             = True,
                               # alignment          = ft.MainAxisAlignment.SPACE_AROUND,  # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                               # vertical_alignment = ft.CrossAxisAlignment.CENTER,       # vertical       START,CENTER END
                               ##################### LET MAKE SCROLL IN LONG QUANTITY
@@ -403,6 +403,36 @@ def main(page: ft.Page):
           )
 
      # page.add(screen_1)
+
+     # def window_event(e):
+     #      if e.data == "close":
+     #           page.dialog = confirm_dialog
+     #           confirm_dialog.open = True
+     #           page.update()
+
+     # page.window_prevent_close = True
+     # page.on_window_event = window_event
+
+     # def yes_click(e):
+     #      ft.page.window_destroy()
+
+     # def no_click(e):
+     #      confirm_dialog.open = False
+     #      page.update()
+
+     # confirm_dialog = ft.AlertDialog(
+     #      modal=True,
+     #      title=ft.Text("Please confirm"),
+     #      content=ft.Text("Do you really want to exit this app?"),
+     #      actions=[
+     #        ft.ElevatedButton("Yes", on_click=yes_click),
+     #        ft.OutlinedButton("No", on_click=no_click),
+     #      ],
+     #      actions_alignment="end",
+     #      )
+
+
+     print(page.views)
      page.add(data_stack)
      page.update()
 
@@ -418,6 +448,8 @@ if __name__ == '__main__':
      # ft.Audio( src ="https://luan.xyz/files/audio/ambient_c_motion.mp3", autoplay=True) #lambda _: audio1.pause() #audio1.resume()) audio1.release()) audio1.seek(2000))
      # audio1.volume -= 0.1 #
      # audio1.update()
+     # logging.basicConfig(level=logging.DEBUG,
+     #                     format='%(asctime)s.%(msecs)03d %(message)s', datefmt='%H:%M:%S')
 
      ft.app(
                # assets_dir   = "assets",

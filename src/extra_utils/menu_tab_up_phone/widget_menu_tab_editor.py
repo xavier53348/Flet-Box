@@ -131,10 +131,29 @@ class MenuUpContainer(ft.UserControl):
                                                             ))
           return Drop_MenuUpContainer
 
+     def yes_click(self,data,alert):
+          if data == 'yes':
+               self.main_page.window_close()
+          elif data == 'close':
+               alert.open = False
+               self.main_page.update()
+
      def action_windows(self,action):
 
           if   action == 'Close':
-               self.main_page.window_close()
+               confirm_dialog = ft.AlertDialog(
+                                        modal=True,
+                                        title=ft.Text("Please confirm"),
+                                        content=ft.Text("Do you really want to exit this app?"),
+                                   actions=[
+                                          ft.ElevatedButton("Yes",on_click=lambda _:self.yes_click(data='yes',alert=confirm_dialog)),
+                                          ft.OutlinedButton("No", on_click=lambda _:self.yes_click(data='close',alert=confirm_dialog)
+                                             ),
+                                        ],
+                                        actions_alignment="end",
+                                        )
+               self.main_page.dialog = confirm_dialog
+               confirm_dialog.open = True
 
           elif action == 'Minimize':
                self.main_page.window_minimized   = True

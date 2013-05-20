@@ -5,102 +5,25 @@ import time
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 
 
-class Icon_text(ft.UserControl):
-    # globalVar='Erase this test'
-
-    def __init__(self,data='Erase this test'):
-        super().__init__()
-        # self.title='data'
-        self.title=data
-
-    def build(self):
-        Drop_Icon_text=ft.IconButton(
-                                # visible=True,
-                                visible=False,
-                                # height=60,
-                                # width=60,
-                            content=ft.Container(
-                                        height=120,
-                                        width=120,
-                                    on_click=lambda _:self.copy_to_clipboard(Drop_Icon_text.content.content.controls[0].name),
-                                        visible=False,
-                                    content=ft.Column(
-
-                                            controls = [
-                                                ft.Icon(
-                                                        visible=False,
-                                                        name='home',
-                                                        size=30
-                                                        ),
-                                                ft.Text(
-                                                    visible=False,
-                                                    value      = 'testing',
-                                                    size       = 12,
-                                                    width      = 100,
-                                                    no_wrap    = True,
-                                                    text_align = "center",
-                                                ),
-                                            ],
-                                            spacing              = 5,
-                                            alignment            = "center",
-                                            horizontal_alignment = "center",
-                                        ),
-                                        alignment=ft.alignment.center,
-                                    ),
-                                        )
-        return Drop_Icon_text
-
-    def copy_to_clipboard(self,e):
-        text_copy = e
-        ########################## personal scakbar
-        pyperclip.copy(text_copy)
-        alert_dialog.visible = True
-        alert_dialog.content.value = f"Copy: {text_copy} "
-        alert_dialog.update()
-        time.sleep(0.5)
-        alert_dialog.visible = False
-        alert_dialog.update()
-        ##########################
-
-######## Icon_text = Icon_text(),# <======= Comma
 class IconBrowser(ft.UserControl):
     """
     lite module to find icons by name
     """
 
-    def __init__(self,blur_effect = False, numb_widget_to_show=50):
+    def __init__(self,blur_effect = False):
         super().__init__()
 
         # preparing list with all icons inside
         self.list_icons = self.preparing_list_icons()
-        self.numb_widget_to_show = numb_widget_to_show
 
         if blur_effect:
             self.blur = 20
         else:
             self.blur = None
-        self.Icontext = Icon_text()
 
-        global alert_dialog
-        alert_dialog = ft.Container(
-                                        visible=False,
-                                        height=40,
-                                        width=240,
-                                        bgcolor='red',
-                                        offset=(0,-1.5),
-                                        alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                        border_radius = ft.border_radius.all(16),
-                                    content=ft.Text(
-                                            value='None',
-                                            # bold=True,
-                                        )
-                                        )
+    def build(self):
 
         self.Search_Gridwiew = ft.GridView(
-                        visible=False,
-                        # expand=True,
-                        # wrap=True,
-                        auto_scroll =False,
                         ##################### PROPERTY GRIDVIEW
                         runs_count         = 10, # column's number
                         run_spacing        = 5,  # space between widget
@@ -110,7 +33,8 @@ class IconBrowser(ft.UserControl):
                         child_aspect_ratio = 1,  # scale of widget
                         max_extent         = 150, # lateral_size max
                         ##################### WIDGETS
-                    controls=[ Icon_text() for _ in range(self.numb_widget_to_show) ],
+                    controls=[
+                                 ],
                         )
 
         self.Drop_IconBrowser=ft.Container(
@@ -125,7 +49,6 @@ class IconBrowser(ft.UserControl):
                         spacing              = 8,
                         alignment            = ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                         horizontal_alignment = ft.CrossAxisAlignment.CENTER,        # vertical       START,CENTER END
-                        scroll=False,
 
                         ##################### PROPERTY BOX
                         controls=[
@@ -176,14 +99,25 @@ class IconBrowser(ft.UserControl):
                                                 ##################### EVENTS
                                                 # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
                                     ),#<=== NOTE COMA
-                                    alert_dialog,
+                                    ft.Container(
+                                        visible=False,
+                                        height=40,
+                                        width=240,
+                                        bgcolor='red',
+                                        offset=(0,-1.5),
+                                        alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                        border_radius = ft.border_radius.all(16),
+                                    content=ft.Text(
+                                            value='None',
+                                            # bold=True,
+                                        )
+                                        )
                                  ],
                     ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
                     ##################### EVENTS
                     # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
         )#<=== NOTE COMA
 
-    def build(self):
 
         return self.Drop_IconBrowser
 
@@ -199,87 +133,62 @@ class IconBrowser(ft.UserControl):
 
         return icons_list
 
+    def copy_to_clipboard(self,e):
+        text_copy = e.control.content.content.controls[1].value
+
+        ########################## personal scakbar
+        pyperclip.copy(text_copy)
+        self.Drop_IconBrowser.content.controls[2].visible = True
+        self.Drop_IconBrowser.content.controls[2].content.value = f"Copy: {text_copy} "
+        self.Drop_IconBrowser.update()
+        time.sleep(0.5)
+        self.Drop_IconBrowser.content.controls[2].visible = False
+        self.Drop_IconBrowser.update()
+        ##########################
+
+        self.Drop_IconBrowser.content.controls[2].content.update()
     def search_icons(self,e):
         # print('hello',e.control.value)
         search_term = e.control.value
         # self.Search_Gridwiew.controls = list()
-        # del self.Search_Gridwiew.controls[::]
+        del self.Search_Gridwiew.controls[::]
+
         def run_upload_icons():
-            global num_count
-            num_count = 0
-
             for _ in self.list_icons:
-                if _.startswith(search_term) and num_count < len(self.Search_Gridwiew.controls):
-                    # will show all widget visible  = True
-                    # afterr pass all will be abiable
-                    self.ico_widget = self.Search_Gridwiew.controls[num_count].controls[0]
+                if _.startswith(search_term):
+                    # print(_)
+                    # yield _
+                    self.Search_Gridwiew.controls.append(
 
-                    self.ico_widget.content.content.controls[0].name    = _
-                    self.ico_widget.content.content.controls[1].value   = _
-
-                    self.ico_widget.visible                             = True
-                    self.Search_Gridwiew.visible                        = True
-                    self.Search_Gridwiew.controls[num_count].visible    = True
-                    self.ico_widget.content.content.controls[0].visible = True
-                    self.ico_widget.content.content.controls[1].visible = True
-
-
-                    self.Search_Gridwiew.update()
-                    self.ico_widget.update()
-
-                    # num_count will take all widget that apear when we call function
-                    num_count+= 1
-
-                    # self.Search_Gridwiew.update()
-                    #     ft.TextButton(
-                    #                 content=ft.Container(
-                    #                     # bgcolor=ft.color.BLACK,
-                    #                     content=ft.Column(
-                    #                         [
-                    #                             ft.Icon(name=_, size=30),
-                    #                             ft.Text(
-                    #                                 value      = _,
-                    #                                 size       = 12,
-                    #                                 width      = 100,
-                    #                                 no_wrap    = True,
-                    #                                 text_align = "center",
-                    #                             ),
-                    #                         ],
-                    #                         spacing              = 5,
-                    #                         alignment            = "center",
-                    #                         horizontal_alignment = "center",
-                    #                     ),
-                    #                     alignment=ft.alignment.center,
-                    #                 ),
-                    #                 # tooltip=f"{_}\nClick to copy to a clipboard",
-                    #                 on_click=lambda _:self.copy_to_clipboard(_),
-                    #                 # data=icon_key,
-                    #                     )
-                    #     )
-                    # print(self.Search_Gridwiew.controls)
-                    # self.Search_Gridwiew.controls[num_count].content.update()
-
-
-            # if num_count<=20:
-            for _ in range(num_count,self.numb_widget_to_show):
-                # will take all widget that no exist in search icon in mode invisible
-                self.ico_widget = self.Search_Gridwiew.controls[_].controls[0]
-
-                self.ico_widget.visible = False
-                self.Search_Gridwiew.controls[_].visible = False
-                self.ico_widget.content.content.controls[0].visible = False
-                self.ico_widget.content.content.controls[1].visible = False
-
-                self.ico_widget.update()
-                self.Search_Gridwiew.controls[_].update()
-                # print(self.Search_Gridwiew.controls[_],'<<<<<<< update view',_)
+                        ft.TextButton(
+                                    content=ft.Container(
+                                        # bgcolor=ft.color.BLACK,
+                                        content=ft.Column(
+                                            [
+                                                ft.Icon(name=_, size=30),
+                                                ft.Text(
+                                                    value      = _,
+                                                    size       = 12,
+                                                    width      = 100,
+                                                    no_wrap    = True,
+                                                    text_align = "center",
+                                                ),
+                                            ],
+                                            spacing              = 5,
+                                            alignment            = "center",
+                                            horizontal_alignment = "center",
+                                        ),
+                                        alignment=ft.alignment.center,
+                                    ),
+                                    # tooltip=f"{_}\nClick to copy to a clipboard",
+                                    on_click=lambda _:self.copy_to_clipboard(_),
+                                    # data=icon_key,
+                                        )
+                        )
 
         run_upload_icons()
-        # self.Search_Gridwiew.update()
-        # self.Search_Gridwiew.update()
 
-        # self.Search_Gridwiew.update()
-        # self.Drop_IconBrowser.update()
+        self.Drop_IconBrowser.update()
 
 ######## IconBrowser = IconBrowser(),# <======= Comma
 

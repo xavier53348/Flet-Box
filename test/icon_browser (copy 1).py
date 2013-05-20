@@ -14,17 +14,13 @@ class Icon_text(ft.UserControl):
         self.title=data
 
     def build(self):
-        Drop_Icon_text=ft.IconButton(
+        Drop_Icon_text=ft.TextButton(
                                 # visible=True,
                                 visible=False,
-                                # height=60,
-                                # width=60,
                             content=ft.Container(
-                                        height=120,
-                                        width=120,
-                                    on_click=lambda _:self.copy_to_clipboard(Drop_Icon_text.content.content.controls[0].name),
                                         visible=False,
-                                    content=ft.Column(
+                                        # bgcolor=ft.color.BLACK,
+                                        content=ft.Column(
 
                                             controls = [
                                                 ft.Icon(
@@ -47,20 +43,26 @@ class Icon_text(ft.UserControl):
                                         ),
                                         alignment=ft.alignment.center,
                                     ),
+                                    # tooltip=f"{_}\nClick to copy to a clipboard",
+                                    on_click=lambda _:self.copy_to_clipboard(Drop_Icon_text.content.content.controls[0].name),
+                                    # data=icon_key,
                                         )
         return Drop_Icon_text
 
     def copy_to_clipboard(self,e):
+        # text_copy = e.control.content.content.controls[1].value
         text_copy = e
         ########################## personal scakbar
         pyperclip.copy(text_copy)
-        alert_dialog.visible = True
-        alert_dialog.content.value = f"Copy: {text_copy} "
-        alert_dialog.update()
-        time.sleep(0.5)
-        alert_dialog.visible = False
-        alert_dialog.update()
+        # self.Drop_IconBrowser.content.controls[2].visible = True
+        # self.Drop_IconBrowser.content.controls[2].content.value = f"Copy: {text_copy} "
+        # self.Drop_IconBrowser.update()
+        # time.sleep(0.5)
+        # self.Drop_IconBrowser.content.controls[2].visible = False
+        # self.Drop_IconBrowser.update()
         ##########################
+
+        # self.Drop_IconBrowser.content.controls[2].content.update()
 
 ######## Icon_text = Icon_text(),# <======= Comma
 class IconBrowser(ft.UserControl):
@@ -68,12 +70,11 @@ class IconBrowser(ft.UserControl):
     lite module to find icons by name
     """
 
-    def __init__(self,blur_effect = False, numb_widget_to_show=50):
+    def __init__(self,blur_effect = False):
         super().__init__()
 
         # preparing list with all icons inside
         self.list_icons = self.preparing_list_icons()
-        self.numb_widget_to_show = numb_widget_to_show
 
         if blur_effect:
             self.blur = 20
@@ -81,26 +82,9 @@ class IconBrowser(ft.UserControl):
             self.blur = None
         self.Icontext = Icon_text()
 
-        global alert_dialog
-        alert_dialog = ft.Container(
-                                        visible=False,
-                                        height=40,
-                                        width=240,
-                                        bgcolor='red',
-                                        offset=(0,-1.5),
-                                        alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                        border_radius = ft.border_radius.all(16),
-                                    content=ft.Text(
-                                            value='None',
-                                            # bold=True,
-                                        )
-                                        )
 
         self.Search_Gridwiew = ft.GridView(
-                        visible=False,
-                        # expand=True,
-                        # wrap=True,
-                        auto_scroll =False,
+                        # visible=False,
                         ##################### PROPERTY GRIDVIEW
                         runs_count         = 10, # column's number
                         run_spacing        = 5,  # space between widget
@@ -110,7 +94,7 @@ class IconBrowser(ft.UserControl):
                         child_aspect_ratio = 1,  # scale of widget
                         max_extent         = 150, # lateral_size max
                         ##################### WIDGETS
-                    controls=[ Icon_text() for _ in range(self.numb_widget_to_show) ],
+                    controls=[ Icon_text() for _ in range(50) ],
                         )
 
         self.Drop_IconBrowser=ft.Container(
@@ -176,7 +160,19 @@ class IconBrowser(ft.UserControl):
                                                 ##################### EVENTS
                                                 # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
                                     ),#<=== NOTE COMA
-                                    alert_dialog,
+                                    ft.Container(
+                                        visible=False,
+                                        height=40,
+                                        width=240,
+                                        bgcolor='red',
+                                        offset=(0,-1.5),
+                                        alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                        border_radius = ft.border_radius.all(16),
+                                    content=ft.Text(
+                                            value='None',
+                                            # bold=True,
+                                        )
+                                        )
                                  ],
                     ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
                     ##################### EVENTS
@@ -207,27 +203,63 @@ class IconBrowser(ft.UserControl):
         def run_upload_icons():
             global num_count
             num_count = 0
-
+            self.ico_widget =''
+            # self.Search_Gridwiew.visible=True
+            # self.Search_Gridwiew.controls[0].content.content.controls[0].visible=True
+            # self.Search_Gridwiew.controls[0].content.content.controls[1].visible=True
             for _ in self.list_icons:
                 if _.startswith(search_term) and num_count < len(self.Search_Gridwiew.controls):
-                    # will show all widget visible  = True
-                    # afterr pass all will be abiable
+                    # self.Search_Gridwiew.controls[num_count].visible= True
+                    # print(self.Search_Gridwiew.controls[num_count])
+                    # self.Search_Gridwiew.controls[num_count].visible= True
+                    # self.Search_Gridwiew.controls[num_count].content.visible = True
+
+                    # self.Search_Gridwiew.controls[num_count].content.content.controls[0].visible=True
+                    # self.Search_Gridwiew.controls[num_count].content.content.controls[1].visible=True
+                    # self.Search_Gridwiew.controls[num_count].content.content.controls[0].name=_
+                    # self.Search_Gridwiew.controls[num_count].content.content.controls[1].value=_
                     self.ico_widget = self.Search_Gridwiew.controls[num_count].controls[0]
+                    # self.ico_widget = self.Search_Gridwiew.controls[num_count].controls[0].visible=True
 
-                    self.ico_widget.content.content.controls[0].name    = _
-                    self.ico_widget.content.content.controls[1].value   = _
+                    # print(len(self.Search_Gridwiew.controls),len(self.list_icons),self.ico_widget.content.content.controls[1].value)
+                    self.ico_widget.visible         = True
+                    self.ico_widget.content.visible = True
+                    # text button
+                    self.ico_widget.visible         = True
+                    # self.Search_Gridwiew.controls[num_count].controls[0].disable=True
+                    print(self.ico_widget)
 
-                    self.ico_widget.visible                             = True
-                    self.Search_Gridwiew.visible                        = True
-                    self.Search_Gridwiew.controls[num_count].visible    = True
+                    self.ico_widget.content.content.visible             = True
                     self.ico_widget.content.content.controls[0].visible = True
                     self.ico_widget.content.content.controls[1].visible = True
+                    # self.ico_widget.content.content.controls[1].autofocus=False
+
+                    self.ico_widget.content.content.controls[0].name=_
+                    self.ico_widget.content.content.controls[1].value=_
+
+                    # print(_,num_count)
 
 
-                    self.Search_Gridwiew.update()
+
+                    # print(self.ico_widget.content.content.controls[1].value,'<======')
+                    # if not str(self.ico_widget.content.content.controls[1].value) == 'testing':
+                        # self.ico_widget.update()
                     self.ico_widget.update()
+                    # else:
+                    #     self.ico_widget.content.content.controls[0].visible=False
+                    #     self.ico_widget.content.content.controls[1].visible=False
+                    #     self.ico_widget.update()
 
-                    # num_count will take all widget that apear when we call function
+
+                        # break
+                    # data.update()
+                    # data.content.content.controls[1].value=_
+                    # self.Search_Gridwiew.controls[0].content.content.controls[1].value=_
+                    # self.Search_Gridwiew.controls[1].content.content.controls[1].value=_
+
+                    # print(self.Search_Gridwiew.controls[num_count],'==============',_,num_count)
+                    # yield _
+                    # self.Search_Gridwiew.controls.append(
                     num_count+= 1
 
                     # self.Search_Gridwiew.update()
@@ -258,21 +290,35 @@ class IconBrowser(ft.UserControl):
                     #     )
                     # print(self.Search_Gridwiew.controls)
                     # self.Search_Gridwiew.controls[num_count].content.update()
+                # else:
+                #     # num_count+= 1
+                #     if num_count <= 12:
+
+                #         print(num_count)
+                #         break
+                #     # self.ico_widget = self.Search_Gridwiew.controls[num_count].controls[0]
+                #     num_count+= 1
+
+                    # self.ico_widget.visible=False
+                    # self.ico_widget.content.visible=False
+                    # self.ico_widget.content.content.visible=False
+                    # self.ico_widget.content.content.controls[0].visible=False
+                    # self.ico_widget.content.content.controls[1].visible=False
+                    # self.ico_widget.update()
+            print(num_count)
+
+            if num_count<=50:
+                for _ in range(num_count,50):
+                    self.ico_widget = self.Search_Gridwiew.controls[_].controls[0]
+
+                    self.ico_widget.content.content.controls[0].disabled=True
+                    self.ico_widget.content.content.controls[1].disabled=True
+                    self.ico_widget.content.content.controls[0].visible=False
+                    # self.ico_widget.content.content.controls[0].hint=False
+                    self.ico_widget.content.content.controls[1].visible=False
 
 
-            # if num_count<=20:
-            for _ in range(num_count,self.numb_widget_to_show):
-                # will take all widget that no exist in search icon in mode invisible
-                self.ico_widget = self.Search_Gridwiew.controls[_].controls[0]
-
-                self.ico_widget.visible = False
-                self.Search_Gridwiew.controls[_].visible = False
-                self.ico_widget.content.content.controls[0].visible = False
-                self.ico_widget.content.content.controls[1].visible = False
-
-                self.ico_widget.update()
-                self.Search_Gridwiew.controls[_].update()
-                # print(self.Search_Gridwiew.controls[_],'<<<<<<< update view',_)
+                    self.ico_widget.update()
 
         run_upload_icons()
         # self.Search_Gridwiew.update()

@@ -216,6 +216,7 @@ class LiteMenuUpContainer(ft.UserControl):
 
                    page_control.clean()
                    del page_control._Control__previous_children
+                   del page_control
                    global_var(data_global={'listWidgetUpdate':[]})
                    # print(page_control.widgets)
 

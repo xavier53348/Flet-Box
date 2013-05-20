@@ -22,11 +22,14 @@ class DropDragg(ft.UserControl):
                                         padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),     # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
                                         margin        = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
                                         alignment     = ft.alignment.center,                                   # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right
-                                        border_radius = ft.border_radius.all(36),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                        border        = ft.border.all(6, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                        border_radius = ft.border_radius.all(40),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                        border        = ft.border.all(0.8, ft.colors.WHITE),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                         width         = 260,
                                         height        = 525,
+                                        # bgcolor       = ft.colors.BLACK,
                                         bgcolor       = '#070707',
+                                        # image_src               = f"iphone.png",
+                                        # image_fit               = ft.ImageFit.COVER,                      # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                         ##################### EFFECTS
                                         # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK45],),
                                         ##################### WIDGETS
@@ -35,9 +38,10 @@ class DropDragg(ft.UserControl):
                                                        ################# Traslate Container
                                                        group   = "GroupDragg",
                                                        content = ft.Container(
-                                                                      border_radius = ft.border_radius.all(30),# ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                      border_radius = ft.border_radius.all(40),# ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                      border        = ft.border.all(7.5, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                                       padding       = 0,
-                                                                      margin        = -0.3,
+                                                                      # margin        = -0.3,
                                                                       alignment     = ft.alignment.center,     # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                       #################
                                                                  content = ft.Column(
@@ -64,8 +68,9 @@ class DropDragg(ft.UserControl):
                                         # self.DropDragg.controls.update()
                                         # self.controls
                                         )
-          # print(self.DropDragg._remove_control_recursively)
+
           return self.DropDragg
+          # return self.my_cover_flow
 
      def drag_accept(self,widgetDropBox):
           self.InfinityBox = InfinityBoxLayerOne
@@ -81,15 +86,15 @@ class DropDragg(ft.UserControl):
 
           ########################## border
           widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border=ft.border.all(2, ft.colors.BLACK)
+          widgetDropBox.control.content.border=ft.border.all(7, ft.colors.BLACK)
           widgetDropBox.control.update()
 
      def drag_will_accept(self,widgetDropBox):
           widgetDropBox.control.content.border = None
-          widgetDropBox.control.content.border=ft.border.all(2, ft.colors.RED)
+          widgetDropBox.control.content.border=ft.border.all(4, ft.colors.RED)
           widgetDropBox.control.update()
 
      def drag_leave(self,widgetDropBox):
           widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border=ft.border.all(2, ft.colors.BLACK)
+          widgetDropBox.control.content.border=ft.border.all(7, ft.colors.BLACK)
           widgetDropBox.control.update()

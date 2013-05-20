@@ -80,7 +80,7 @@ class MenuLeftContainer(ft.UserControl):
                                                                                         # run_spacing=8,                                            # space widget up down
                                                                                         ##################### WIDGETS
                                                                                         controls=[
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Find Icons'     ,content=ft.IconButton(icon=ft.icons.FIND_REPLACE_OUTLINED , on_click=lambda _:self.show_widgets(show_widget='icon_browser')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Find Icons',content=ft.IconButton(icon=ft.icons.FIND_REPLACE_OUTLINED , on_click=lambda _:self.show_widgets(show_widget='icon_browser')),
                                                                                                         bgcolor=ft.colors.BLACK45,
                                                                                                         height=45,
                                                                                                         width=45,
