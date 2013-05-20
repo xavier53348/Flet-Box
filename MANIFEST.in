@@ -1,4 +1,3 @@
 include LICENSE
 include README.md
-include src/assets/*
-include setup.py
+include flet_box/assets/*
