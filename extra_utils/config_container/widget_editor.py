@@ -298,9 +298,7 @@ class Build_Editor(ft.UserControl):
         attrib_compare_container_widget_dict = set(widgets_dict.keys())                     # ATTRIBUTES TO COMPARE 'Container.content'
         # ALL DOWN WORK
         ########################
-        main_page_to_update = get_global_var(get_var='page')
-        tmp_                = main_page_to_update.get_control('_299')
-        ######################## 4.0 - GET LIS OF BUILDER ATTRIBUTES get_attributes
+
         get_widgets         = {widgets_dict.get(_) for _ in attrib_compare_container_dict}
         ########################
 
@@ -311,11 +309,13 @@ class Build_Editor(ft.UserControl):
         # data_ =  [ _ for _ in attrib_compare_container_widget_dict if _ in data_ ]
         print(widget_cliked.content)
         ######################### set making error in intersection solved with personal set
-
-
         intersection_filter_data = { widgets_dict.get(_) for _ in check_clicked_widget_content if not _ in attrib_compare_container_dict if _ in attrib_compare_container_widget_dict }
         # ##########################################################################
-        tmp_.content.tabs[0].content.content.controls = get_widgets
+        main_page_to_update = get_global_var(get_var='page')
+        tmp_                = main_page_to_update.get_control('_313')
+        ######################## 4.0 - GET LIS OF BUILDER ATTRIBUTES get_attributes
+        # print(tmp_,'<<<<<<<')
+        tmp_.content.tabs[0].content.content.controls = get_widgets # #<<<<<<<<<<
         # ######################### 5.0 - ADD TO TAB WIDGET
         tmp_.content.tabs[1].content.content.controls = intersection_filter_data
         # ##########################################################################
