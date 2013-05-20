@@ -119,8 +119,8 @@ class ColorEntry(ft.Stack):
         #: SET WIDGET SELETED TO EDIT IN REAL TIME
         GLOBAL_VAR(set_global_var={
                    'WIDGET_SELECTION_EDITOR_CONTAINER':{
-                                                       "widget_name":widget_name,
-                                               "attribute_to_change":attribute_to_change,
+                                                       "widget_name": widget_name,
+                                               "attribute_to_change": attribute_to_change,
                                                        }
                    })
 
@@ -157,14 +157,14 @@ class ColorEntry(ft.Stack):
         # print(self.selected_button,'self.selected_button')
         ...
         #: SET ATTRIBUTES
-        if  self.widget_name   == "bgcolor":               self.widget.bgcolor              = self.selected_button
-        if  self.widget_name   == "focused_bgcolor":       self.widget.focused_bgcolor      = self.selected_button
-        if  self.widget_name   == "border_color":          self.widget.border_color         = self.selected_button
-        if  self.widget_name   == "focused_border_color":  self.widget.focused_border_color = self.selected_button
-        if  self.widget_name   == "color":                 self.widget.color                = self.selected_button
-        if  self.widget_name   == "icon_color":            self.widget.icon_color           = self.selected_button
-        if  self.widget_name   == "check_color":           self.widget.check_color          = self.selected_button
-        if  self.widget_name   == "fill_color":            self.widget.fill_color           = self.selected_button
+        if  self.widget_name   == "bgcolor":             self.widget.bgcolor              = self.selected_button
+        if  self.widget_name   == "focused_bgcolor":     self.widget.focused_bgcolor      = self.selected_button
+        if  self.widget_name   == "border_color":        self.widget.border_color         = self.selected_button
+        if  self.widget_name   == "focused_border_color":self.widget.focused_border_color = self.selected_button
+        if  self.widget_name   == "color":               self.widget.color                = self.selected_button
+        if  self.widget_name   == "icon_color":          self.widget.icon_color           = self.selected_button
+        if  self.widget_name   == "check_color":         self.widget.check_color          = self.selected_button
+        if  self.widget_name   == "fill_color":          self.widget.fill_color           = self.selected_button
 
         if  self.widget_name   == "shadow_color":
             self.widget.shadow= ft.BoxShadow(

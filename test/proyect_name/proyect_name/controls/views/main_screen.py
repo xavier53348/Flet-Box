@@ -11,14 +11,11 @@ phone_style_widget = {
         "height": "566",
         "margin": {"l":0,"t":0,"r":0,"b":0},
         "padding": {"l":0,"t":0,"r":0,"b":0},
-        "width": "295",
-        "image_src": "test/proyect_name/proyect_name/assets/dragg_container3 (copy 1).jpg",
-        "image_fit": "cover"
+        "width": "295"
     },
     "MAIN_EFFECTS_CONTAINER": {
         "alignment": {"x":0,"y":0},
         "bgcolor": "transparent",
-        "blur": {"sigma_x":8,"sigma_y":8,"tile_mode":"mirror"},
         "padding": {"l":0,"t":0,"r":0,"b":0}
     },
     "COLUMN_CONTAINER": {
@@ -40,25 +37,25 @@ class main_screen(ft.Container):
         self.content_box = [ 
 
 		ft.Container(  # Container_Column
-			**self.dict_style('_3702'),
+			**self.dict_style('_3717'),
 			content= ft.Column( # Column
-					**self.dict_style('_3703'),
+					**self.dict_style('_3718'),
 					controls= [
 
 						ft.Container( # Image
-								**self.dict_style('_3706'),
-								on_click= lambda _: event_3707(data='_3707'),
+								**self.dict_style('_3721'),
+								on_click= lambda _: event_3722(data='_3722'),
 								content= ft.Image(
-										**self.dict_style('_3707'),
-										# on_click= lambda _: event_3707(data='_3707'),
+										**self.dict_style('_3722'),
+										# on_click= lambda _: event_3722(data='_3722'),
 								),),
 
-						ft.Container( # Text
-								**self.dict_style('_3710'),
-								# on_click= lambda _: event_3711(data='_3711'),
-								content= ft.Text(
-										**self.dict_style('_3711'),
-										# on_click= lambda _: event_3711(data='_3711'),
+						ft.Container( # Image
+								**self.dict_style('_3725'),
+								on_click= lambda _: event_3726(data='_3726'),
+								content= ft.Image(
+										**self.dict_style('_3726'),
+										# on_click= lambda _: event_3726(data='_3726'),
 								),),
 
 		],),),  
