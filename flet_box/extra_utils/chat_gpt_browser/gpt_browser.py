@@ -1,8 +1,6 @@
 
 import flet as ft
 import os
-import pyperclip
-import time
 
 from .library_chatgpt import ChatGpt
 

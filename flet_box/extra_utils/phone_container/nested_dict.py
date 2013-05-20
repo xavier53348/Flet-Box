@@ -52,8 +52,6 @@ def create_nested_dict(data_1:str="",data_2:str="",value: str="",nested_dict: di
             # print(new_dict,'he')
 
 
-
-
 if __name__ == '__main__':
     personal_dict: dict={}
 

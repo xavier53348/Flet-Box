@@ -2,7 +2,6 @@ import flet as ft
 
 from ..settings_var.settings_widget import GLOBAL_VAR
 
-
 class AlertSelected(ft.Stack):
     # globalVar='Erase this test'
 

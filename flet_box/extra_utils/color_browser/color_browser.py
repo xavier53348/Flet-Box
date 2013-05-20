@@ -1,7 +1,7 @@
 
 import flet as ft
 import os
-import pyperclip
+import pyperclip # type: ignore
 import time
 
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"

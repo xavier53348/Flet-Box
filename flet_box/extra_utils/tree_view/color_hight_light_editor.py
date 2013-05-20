@@ -3,7 +3,6 @@ import re
 
 from dataclasses import dataclass
 
-
 @dataclass
 class GitHubDark:
     editor_bg:       str = "#001000"

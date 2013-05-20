@@ -59,6 +59,7 @@ REQUIRED       = [
 ]
 PAKAGES_IMAGES = {
 'assets':['*'],
+'extra_utils':['*'],
 }
 RUN_IN_CONSOLE ={
 "console_scripts": [

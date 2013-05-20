@@ -763,10 +763,12 @@ class MakeJasonFile():
         return {'main_code': f"\n\n{self.main_code}",'index_code': f"\n\n{self.index_code}",'style_code':f"\n\nstyles={self.style_code}",'event_code':f"\n\n{self.event_code}"}
 
     def replace_main_code(self,code=''):
-
         #: new_code = new_code.replace('','')
-
         new_code = code.replace('Textfield', 'TextField')
+
+        return self.refactoring_widget_code(new_code)
+
+    def refactoring_widget_code(self, new_code):
         new_code = new_code.replace('Elevatedbutton', 'ElevatedButton').replace('Textbutton', 'TextButton').replace('Iconbutton', 'IconButton').replace('Gridview', 'GridView')
         new_code = new_code.replace('Cupertinocheckbox','CupertinoCheckbox').replace('Cupertinoslider','CupertinoSlider').replace('Cupertinoradio','CupertinoRadio')
         new_code = new_code.replace('Circleavatar','CircleAvatar').replace('Outlinedbutton','OutlinedButton').replace('Verticaldivider','VerticalDivider')
@@ -775,12 +777,13 @@ class MakeJasonFile():
         return new_code
 
     def recode_style_json(self,code=''):
-
         #: new_code = new_code.replace('','')
-
         new_code = code.replace('\\', '').replace('"{', '{').replace('}"', '}').replace('"[', '[').replace(']"', ']')
 
         #: This line of code is delete in build_json_file
+        return self.refactoring_attributes_code(new_code)
+
+    def refactoring_attributes_code(self, new_code):
         # new_code = new_code.replace('"n":', '# "n":').replace('"on_hover": "true",','# "on_hover": "false",').replace('"on_click": "true"','# "on_click": "false"').replace('"style"','# "style"')
         new_code = new_code.replace('"onclick":','# "onclick"')
         new_code = new_code.replace('"WIDGET_NAME','# "WIDGET_NAME').replace('"on', '"on_').replace('inkcolor', 'ink_color').replace('"style"','# "style"')

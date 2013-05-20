@@ -1,6 +1,4 @@
-
 import flet as ft
-
 
 class BoolEntry(ft.Stack):
     """

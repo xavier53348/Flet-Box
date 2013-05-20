@@ -2,7 +2,7 @@ import flet as ft
 
 from .color_hight_light_editor import apply_syntax_highlighting
 from ..settings_var.save_export import MakeJasonFile
-from extra_utils.settings_var.settings_widget import GLOBAL_VAR
+from ..settings_var.settings_widget import GLOBAL_VAR
 
 visible = False
 

@@ -1,5 +1,5 @@
 from ..settings_var.save_export import WrapWidgetNode
-from extra_utils.settings_var.settings_widget import GLOBAL_VAR
+from ..settings_var.settings_widget import GLOBAL_VAR
 
 import flet as ft
 visible = False
@@ -54,16 +54,20 @@ class TreeView(ft.Stack):
 
         # ========================================================================================
         #: CREATE NEW SCREEN IN ALL SCREENS DICT VERY IMPORTATN CONTAIN ALL SCREENS IN
-        current_screen_id = GLOBAL_VAR(get_global_var ='SELECTED_SCREEN').uid
-        data_to_treview   = GLOBAL_VAR(get_global_var ='ALL_SCREEN_IN_DICT').get(current_screen_id)
-        if not data_to_treview: data_to_treview = dict()
-        tree_view_data    = widget.show_tree_nodews(widget_show = data_to_treview)
+        tree_view_data = self.new_treview_screen(widget)
         # ========================================================================================
 
         Drop_TreeView.content.controls[0].value      = tree_view_data
         Drop_TreeView.content.controls[0].size       = 11
         Drop_TreeView.content.controls[0].text_align = ft.TextAlign.LEFT
         Drop_TreeView.content.update()
+
+    def new_treview_screen(self, widget):
+        current_screen_id = GLOBAL_VAR(get_global_var ='SELECTED_SCREEN').uid
+        data_to_treview   = GLOBAL_VAR(get_global_var ='ALL_SCREEN_IN_DICT').get(current_screen_id)
+        if not data_to_treview: data_to_treview = dict()
+        tree_view_data    = widget.show_tree_nodews(widget_show = data_to_treview)
+        return tree_view_data
 
         # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'),'ALL SCREENS')
 

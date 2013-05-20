@@ -1,12 +1,8 @@
 import os
-import pyperclip
 import flet as ft
-import time
-
-os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
-
 from ..settings_var.settings_widget import GLOBAL_VAR
 
+os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 
 class FlowlowMe(ft.Stack):
 
@@ -275,7 +271,7 @@ class AboutPage(ft.Stack):
             self.about_page.visible  = True if not self.about_page.visible else False
             self.about_page.update()
 
-#######
+
 if __name__ == '__main__':
     def main(page: ft.Page):
 

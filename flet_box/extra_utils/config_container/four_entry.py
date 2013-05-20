@@ -1,4 +1,3 @@
-
 import flet as ft
 
 class FourEntry(ft.Stack):

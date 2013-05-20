@@ -2,26 +2,13 @@ import flet as ft
 import os
 import json
 
-from .settings_screens import SCREEN_GLOBAL_VAR
-from ..settings_var.settings_widget import GLOBAL_VAR
+from screen_manager.settings_screens import SCREEN_GLOBAL_VAR
+from settings_var.settings_widget import GLOBAL_VAR
 
 #: VERY IMPORTANT IT'S MAIN PHONE THAT WILL CONTENT ALL SCREENS
-from extra_utils.phone_container.widget_phone_editor import Build_Phone_Editor
+from phone_container.widget_phone_editor import Build_Phone_Editor
 
-all_screens_in_app: dict = {
-
-                            }
-
-
-# tmp_screen = Build_Phone_Editor(color_data='Blue')
-
-# row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
-# tmp_new_phone = Build_Phone_Editor(color_data=ft.colors.TRANSPARENT).build()        #: ADD SCREEN PHONE IN DICT all_screens_in_app
-# row_box_content_phone.controls.append(tmp_new_phone)                    #: ADD PHONE inside row_box_content_phone
-# GLOBAL_VAR(set_global_var= {'main_screen':row_box_content_phone.controls[0]})
-
-# print(row_box_content_phone)
-
+all_screens_in_app: dict = {}
 
 def screen_manager(
                    add_screen:    str = "",
@@ -197,9 +184,6 @@ class NameScreen(ft.Container):
         self.left   = 0
         self.top    = 0
         self.bottom = 0
-
-
-
 
     def build(self):
 
@@ -658,9 +642,10 @@ class ScreenManager(ft.Stack):
                                              ],
                         ))
 
-        #: LOAD JSON FILE
-        self.load_json(controls_list= self.gird_view.content)
+        #: LOAD JSON FILE __INIT__
+        # self.load_json(controls_list= self.gird_view.content)
 
+        #: EXTRA FOOTER BAR NO IMPLEMENTED
         # self.footer_bar = ft.Container( #: FOOTER BAR
         #                     ink           = False,
         #                     bgcolor       = ft.colors.BLUE_900,
