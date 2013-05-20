@@ -58,11 +58,13 @@ class DropDragg(ft.UserControl):
                                                        on_leave       = self.drag_leave,                 # Leafing Drop Line Border
                                                        on_accept      = lambda _:self.drag_accept(_),    # Accept Drop
                                                     ##################################
-                                        )#<========comma # DragTarget.content.controls.append() # DragTarget.content.controls.remove()
+                                        ),#<========comma # DragTarget.content.controls.append() # DragTarget.content.controls.remove()
+
+                                        # on_hover=lambda _: print(_.control.uid),
                                         # self.DropDragg.controls.update()
                                         # self.controls
                                         )
-
+          # print(self.DropDragg._remove_control_recursively)
           return self.DropDragg
 
      def drag_accept(self,widgetDropBox):

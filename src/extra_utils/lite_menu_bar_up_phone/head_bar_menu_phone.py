@@ -201,17 +201,34 @@ class LiteMenuUpContainer(ft.UserControl):
 
           if action == 'delete':
                touch_widget_in_phone = get_global_var(get_var='listWidgetUpdate')
+
                # get the corret way to delete widget <===
-               page = get_global_var(get_var='page')
-               id_widget = page.get_control(touch_widget_in_phone.uid)
+               if touch_widget_in_phone:
+                   page           = get_global_var(get_var='page')
+                   id_widget      = page.get_control(touch_widget_in_phone.uid)
+                   get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}" # <===== Stack()
+                   page_control   = page.get_control(get_control_id)
 
-               get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}"
+                   ################################ delete all selected controls in selected widget
+                   # page_control.controls.clear()
+                   # page_control.controls=[]
+                   # print(get_control_id ,page_control._Control__previous_children ,'<<<<<<')
 
-               page_control = page.get_control(get_control_id)
-               page_control.controls=[]
-               page_control.update()
+                   page_control.clean()
+                   del page_control._Control__previous_children
+                   global_var(data_global={'listWidgetUpdate':[]})
+                   # print(page_control.widgets)
+
+                   ################################ delete all selected controls in selected widget
+                   # updata_widget = page.get_control('_317')
+                   # updata_widget.content = None
+                   # updata_widget.bgcolor = 'red'
+                   # updata_widget.update()
 
           if action == 'rotation':
+               # page           = get_global_var(get_var='page')
+               # id_widget      = page.get_control('_382')
+               # print(id_widget,'<<<<<,')
 
                self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
                self.phone_widget_container.controls[0].update()
