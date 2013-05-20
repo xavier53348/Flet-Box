@@ -198,7 +198,7 @@ class BoolEntry(ft.UserControl): ##################### PROPERTY
                                                                                                                             ##################### EVENTS
                                                                                                                             content= ft.CupertinoSwitch(
                                                                                                                                     # label="Cupertino Switch",
-                                                                                                                                    value=False,
+                                                                                                                                    value=True if self.attribute_widget == "visible " or  self.attribute_widget == "visible" else False,
                                                                                                                                     # thumb_color=ft.colors.BLUE,
                                                                                                                                     track_color='Black',
                                                                                                                                     active_color ='yellow',

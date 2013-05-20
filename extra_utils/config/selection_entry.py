@@ -15,7 +15,6 @@ class SelectionEntry(ft.UserControl): ##################### PROPERTY
         self.attribute_widget = config_widget # <=== widget attribute
 
         # will change name of entry points
-
         ######################################################## ONLY FOR CONTAINER
 
         if self.attribute_widget == "image_fit ":
@@ -152,12 +151,7 @@ class SelectionEntry(ft.UserControl): ##################### PROPERTY
                                     ft.dropdown.Option(" Weight W_900"),
                                     # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900 # weight          = ft.FontWeight.BOLD,
                                     ]
-
-
-
-
-
-        print(self.attribute_widget)
+        # print(self.attribute_widget)
     def build(self):
         Drop_SelectionEntry =  ft.Container(
                     ##################### PROPERTY COLUMN

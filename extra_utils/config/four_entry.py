@@ -109,7 +109,7 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                                             # key             = 'is our id',
                                                             # expand          = True,
                                                             # data            = 'value of the button',                                  # store data in the button
-                                                            value             = self.attribute_widget.capitalize(), # content = ft.Text(value="Compound button", size=12,),
+                                                            value             = self.attribute_widget.capitalize().replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
                                                             # tooltip         = 'ElevatedButton',
                                                             # text_align        = ft.TextAlign.CENTER,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
                                                             # style           = ft.TextStyle(decoration=ft.TextDecoration.UNDERLINE ), # OVERLINE,
