@@ -223,6 +223,8 @@ class LiteMenuUpContainer(ft.UserControl):
           """
           BOOL_SHOW_SELECTED = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
           ############################
+          LIST_KEYS_DICT_USED = GLOBAL_VAR(get_global_var='LIST_KEYS_DICT_USED')
+          ############################
           CONFIG_TABS_CONTAINERS                = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS')
           CONFIG_TABS_CONTAINERS_CONTENT        = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
           ############################
@@ -254,49 +256,143 @@ class LiteMenuUpContainer(ft.UserControl):
           ############################ TAB 2
 
 
-          def add_values_in_widget(tabs):
+          def insert_data_in_box_container(column_tab):
                """
-               THIS METOD WALK IN #2 TABS EACH COLUMN WITH WIDGETS INSIDE
+               THIS METOD WALK IN TABS number #2 EACH COLUMN WITH WIDGETS INSIDE 4 COLUMNS
 
                """
-               if tabs == 0:
+               ############################ TAB 2 ############################
+               if column_tab == '2_0':
                     control_2_inside = control_tab_2[0]  ## <==== MAIN_CONTROLS IN EACH TAB
                     tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
 
-               if tabs == 1:
+               if column_tab == '2_1':
                     control_2_inside = control_tab_2[1]  ## <==== MAIN_CONTROLS IN EACH TAB
                     tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
 
-               if tabs == 2:
+               if column_tab == '2_2':
                     control_2_inside = control_tab_2[2]  ## <==== MAIN_CONTROLS IN EACH TAB
                     tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
 
-               if tabs == 3:
+               if column_tab == '2_3':
                     control_2_inside = control_tab_2[3]  ## <==== MAIN_CONTROLS IN EACH TAB
                     tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
-
+               ############################ FINISH ############################
                for _ in tmp_value:
-                    # print(_)
+                    # WALK ALL TABS TO INSERT THE VALUE THAT WE
                     _.controls[0].visible = True
                     _.widget  = SELECT_DROPP_WIDGET_CONTAINER
 
+          def insert_data_in_box_container_content(column_tab):
+               """
+               THIS METOD WALK IN TABS number #3 EACH COLUMN WITH WIDGETS INSIDE 4 COLUMNS
+
+               """
+               ############################ TAB 3 ############################
+               if column_tab == '3_0':
+                    control_3_inside = control_tab_3[0]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls
+
+               if column_tab == '3_1':
+                    control_3_inside = control_tab_3[1]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls
+
+               if column_tab == '3_2':
+                    control_3_inside = control_tab_3[2]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls
+
+               if column_tab == '3_3':
+                    control_3_inside = control_tab_3[3]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls
+
+               if column_tab == '3_4':
+                    control_3_inside = control_tab_3[4]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls
+
+               if column_tab == '3_5':
+                    control_3_inside = control_tab_3[5]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls
+
+               if column_tab == '3_6':
+                    control_3_inside = control_tab_3[6]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls
+
+               if column_tab == '3_7':
+                    control_3_inside = control_tab_3[7]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls
+               ############################ FINISH ############################
+               # NEED CHECK IF THE WIDGET IT'S IN LIST_KEYS_DICT_USED
+               # IF IS TRUE THE CONTAINER CONFIG
+               #
+               # WILL PUT          VISIBLE TRUE
+               # IF NOT WILL PUT   VISIBLE OFF
+               # print(LIST_KEYS_DICT_USED)
+
+               for _ in tmp_value_tab_widget:
+                    # WALK ALL TABS TO INSERT THE VALUE THAT WE
+
+                    # if _.id_name_widget_dict in LIST_KEYS_DICT_USED:
+                    if _.id_name_widget_dict in SELECT_DROPP_WIDGET_CONTAINER_CONTENT.__dir__():
+                         data = _.id_name_widget_dict in SELECT_DROPP_WIDGET_CONTAINER_CONTENT.__dir__()
+
+                         # print(_.id_name_widget_dict,data)
+
+                         # print(SELECT_DROPP_WIDGET_CONTAINER_CONTENT._wrap_attr_dict('name')  )
+                         # print(SELECT_DROPP_WIDGET_CONTAINER_CONTENT._Control__attrs  )
+
+
+                         # FILTER THAT IS USE TO COMPARE WIDGET SELECTED
+                         # if _.id_name_widget_dict in LIST_KEYS_DICT_USED or dict of all widget inside widget_editor.py
+
+                         _.controls[0].visible = True
+                         _.widget  = SELECT_DROPP_WIDGET_CONTAINER_CONTENT
+                         _.update()  #<==== update exactly widget
+                         # print(_.id_name_widget_dict,'<======== widget')
+                    else:
+                         _.controls[0].visible = False
+                         _.widget  = SELECT_DROPP_WIDGET_CONTAINER_CONTENT
+                         _.update()  #<==== update exactly widget
+
+               # control_3_inside = control_tab_3[0]  ## <==== MAIN_CONTROLS IN EACH TAB
+               # tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls[0].update()
+
           if BOOL_SHOW_SELECTED:
+               ############################ TAB 2
+
                CONFIG_TABS_CONTAINERS.visible = True
                CONFIG_TABS_CONTAINERS.update()
 
-               add_values_in_widget(tabs=0)
-               add_values_in_widget(tabs=1)
-               add_values_in_widget(tabs=2)
-               add_values_in_widget(tabs=3)
+               insert_data_in_box_container(column_tab='2_0')
+               insert_data_in_box_container(column_tab='2_1')
+               insert_data_in_box_container(column_tab='2_2')
+               insert_data_in_box_container(column_tab='2_3')
 
-               ############################ TAB 2
+               ############################ TAB 3
+               CONFIG_TABS_CONTAINERS_CONTENT.visible = True
+               CONFIG_TABS_CONTAINERS_CONTENT.update()
+
+               insert_data_in_box_container_content(column_tab='3_0')
+               insert_data_in_box_container_content(column_tab='3_1')
+               insert_data_in_box_container_content(column_tab='3_2')
+               insert_data_in_box_container_content(column_tab='3_3')
+               insert_data_in_box_container_content(column_tab='3_4')
+               insert_data_in_box_container_content(column_tab='3_5')
+               insert_data_in_box_container_content(column_tab='3_6')
+               insert_data_in_box_container_content(column_tab='3_7')
+
           else:
                # tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
+               ############################ TAB 2
                CONFIG_TABS_CONTAINERS.visible = False
                CONFIG_TABS_CONTAINERS.update()
-               # for _ in tmp_value:
-                    # _.controls[0].visible = False
-                    # _.update()
+               ############################ TAB 3
+               CONFIG_TABS_CONTAINERS_CONTENT.visible = False
+               CONFIG_TABS_CONTAINERS_CONTENT.update()
+
+
+
+
+
           # control_2_inside.controls[0].content.controls[1].content.update()
           # control_2_inside.controls[0].content.controls[1].update()
           # control_2_inside.controls[0].content.update()

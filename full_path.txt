@@ -1,8 +1,11 @@
 .
+├── activate_venv.sh
 ├── LICENSE
 ├── README.md
 ├── src
 │   ├── assets
+│   │   ├── avatar.jpg
+│   │   ├── avatar.png
 │   │   ├── dragg_container3.jpg
 │   │   ├── dragg_container.jpg
 │   │   ├── image.jpg
@@ -48,4 +51,4 @@
 ├── WIDGET.md
 └── workflows
 
-14 directories, 34 files
+14 directories, 37 files

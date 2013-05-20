@@ -98,9 +98,9 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
                #################################################################################### HIDE TAB 3
                # HIDE TABS IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
                #
-               # CONFIG_TABS_CONTAINERS_CONTENT         = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
-               # CONFIG_TABS_CONTAINERS_CONTENT.visible = False
-               # CONFIG_TABS_CONTAINERS_CONTENT.update()
+               CONFIG_TABS_CONTAINERS_CONTENT         = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
+               CONFIG_TABS_CONTAINERS_CONTENT.visible = False
+               CONFIG_TABS_CONTAINERS_CONTENT.update()
 
           ################################## SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
           selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')

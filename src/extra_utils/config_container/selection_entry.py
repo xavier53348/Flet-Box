@@ -11,10 +11,11 @@ class SelectionEntry(ft.UserControl): ##################### PROPERTY
 
     """
 
-    def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget=''):
+    def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget='',id_name_widget_dict=None):
         super().__init__()
         self.widget           = widget        # <=== widget
         self.attribute_widget = config_widget # <=== widget attribute
+        self.id_name_widget_dict = id_name_widget_dict
 
         # will change name of entry points
         ######################################################## ONLY FOR CONTAINER

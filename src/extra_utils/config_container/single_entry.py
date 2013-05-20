@@ -11,12 +11,26 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
 
     """
     widget_content = 'data'
-    def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget=''):
+    def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget='',id_name_widget_dict=None):
         super().__init__()
 
         self.widget           = widget        # <=== widget
-        self.attribute_widget = config_widget # <=== widget attribute
         self.widget_content   = self.widget_content
+        self.id_name_widget_dict = id_name_widget_dict
+
+        # WE SET NEW NAME
+        if config_widget == 'width':
+            self.new_name = 'Width - Height'
+            self.attribute_widget = config_widget # <=== widget attribute
+
+
+        if config_widget == 'name':
+            self.new_name = 'Icon Name'
+            self.attribute_widget = config_widget # <=== widget attribute
+
+        else:
+            self.attribute_widget = config_widget # <=== widget attribute
+            self.new_name = self.attribute_widget
 
     def build(self):
         SingleEntry = ft.Container(
@@ -50,7 +64,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                             ##################### WIDGETS
                                             content = ft.Text(
                                                         ##################### PROPERTY
-                                                        value       = 'width - height' if self.attribute_widget == 'width' else self.attribute_widget.capitalize().replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
+                                                        value       = self.new_name, # content = ft.Text(value="Compound button", size=12,),
                                                         font_family = "Consolas", #"Consolas ,RobotoSlab
                                             ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
                                         ft.Container(
@@ -77,7 +91,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                                                                     border_radius= ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
 
                                                                                     content=ft.TextField(
-                                                                                                    hint_text=self.attribute_widget.capitalize().replace('_',' '),
+                                                                                                    hint_text=self.new_name,
                                                                                                     border=ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
                                                                                                     bgcolor='dark',                                 # inside box
                                                                                                     color='YELLOW',
@@ -133,6 +147,8 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
          'theme_mode', 'theme',
         """
         ################ CONTAINER STR
+        if  config_widget   == "name":
+            self.widget.name           = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
         if  config_widget   == "text":
             self.widget.text           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "tooltip":

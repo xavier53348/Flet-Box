@@ -26,6 +26,19 @@
 >>> extra_utils / icon_browser / icon_browser         metod IconBrowser
 >>> extra_utils / color_browser / color_browser       metod ColorBrowser
 ```
+##### MORE USED PATH
+
+**It's the widget that we dropp inside phone and on method on_accept itself drop a new widget inside it**
+
+- infitiy_box_layer_one.py
+
+**It's a box that content all widget to dropp and is necesary to make new widgets**
+
+- Build_Drag_Editor
+
+**It's a box builder that contain all widgets to modify selected widget's properties**
+
+- Build_Editor
 
 ##### [Parh more datail to make own modules ](https://github.com/xavier53348/Flet-Box/blob/features/new_features/full_path.txt)
 
