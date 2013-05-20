@@ -1,8 +1,10 @@
-
 import flet as ft
 import os
 import pyperclip # type: ignore
 import time
+
+from ..settings_var.settings_widget import GLOBAL_VAR
+click_avalidation: bool = False
 
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 
@@ -112,6 +114,9 @@ class ColorBrowser(ft.Stack):
                     margin    = ft.margin.all(8),
                     alignment = ft.alignment.center,
 
+                    # CLOSE CONTAINER IF GO OUT
+                    on_hover= lambda _: self.validate_click(),
+
                     content   = ft.Column(
                         spacing              = 8,
                         alignment            = ft.MainAxisAlignment.SPACE_AROUND,
@@ -156,6 +161,18 @@ class ColorBrowser(ft.Stack):
                                  ],
                     ),#<=== NOTE COMA [NOTE]
         )#<=== NOTE COMA
+    def validate_click(self):
+        global click_avalidation
+        self.color_browser  = GLOBAL_VAR(get_global_var='COLOR_BROWSER_CONTAINER')
+
+        if click_avalidation:
+            click_avalidation = False
+            self.color_browser.visible = False
+            self.color_browser.update()
+
+        else:
+            click_avalidation = True
+
 
     def build(self):
 

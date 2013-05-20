@@ -5,22 +5,28 @@ class SmallPaleteColor(ft.Container):
 
     def __init__(self,pallete_color: str=''):
         super().__init__()
-
         self.pallete_color=pallete_color
-        self.width = 24
+        self.width  = 24
         self.height = 24
+
     def build(self):
-        self.content=ft.Container(
-                                ink=False,
-                                bgcolor=self.pallete_color,
-                                padding= ft.padding.all(0),
-                                margin = ft.margin.all(0),
-                                alignment=ft.alignment.center,
+        self.container = ft.Container(
+                                ink          = False,
+                                bgcolor      = self.pallete_color,
+                                padding      = ft.padding.all(0),
+                                margin       = ft.margin.all(0),
+                                alignment    = ft.alignment.center,
                                 border_radius= ft.border_radius.all(6),
-                                border=ft.border.all(1.6, ft.colors.BLACK54),
+                                border       = ft.border.all(1.6, ft.colors.WHITE12),
+                                on_hover     = lambda _: self.active_border_color(border_container = self.container),
                         )
+        self.content= self.container
 
         self.on_click = lambda _:print(self.pallete_color)
+
+    def active_border_color(self,border_container):
+        border_container.border = ft.border.all(2, ft.colors.TRANSPARENT) if border_container.border == ft.border.all(2, ft.colors.WHITE) else ft.border.all(2, ft.colors.WHITE)
+        border_container.update()
 
 class Screen_palette(ft.Container):
 
@@ -30,10 +36,10 @@ class Screen_palette(ft.Container):
         self.padding  = ft.padding.all(8)
         self.margin   = ft.margin.all(0)    #outside box
         self.alignment= ft.alignment.center
-        self.width    = 280
+        self.width    = 282
         self.border_radius = 20
-        self.gradient=ft.LinearGradient( begin=ft.alignment.top_center,
-                                        end=ft.alignment.bottom_center,
+        self.gradient=ft.LinearGradient( begin= ft.alignment.top_center,
+                                        end   = ft.alignment.bottom_center,
                                         colors=[
                                                 ft.colors.BLACK12,
                                                 ft.colors.BLUE_900,
@@ -41,20 +47,20 @@ class Screen_palette(ft.Container):
                                                 ft.colors.RED_900,
                                         ],)
         self.shadow = ft.BoxShadow(
-                   spread_radius=1,
-                   blur_radius=8,
-                   color=ft.colors.BLACK26,
-                   offset=ft.Offset(0, 0),
-                   blur_style=ft.ShadowBlurStyle.OUTER,
+                   spread_radius= 1,
+                   blur_radius  = 8,
+                   color        = ft.colors.BLACK12,
+                   offset       = ft.Offset(0, 0),
+                   blur_style   = ft.ShadowBlurStyle.OUTER,
              )
     def build(self):
         list_started = False
 
         screen_1=ft.Row(
-                        scroll=True,
-                        wrap=True,
-                        spacing=0,
-                        run_spacing=0,
+                        scroll     = True,
+                        wrap       = True,
+                        spacing    = 0.08,
+                        run_spacing= 0.08,
                         controls=[
                                  ],)
         self.content=screen_1

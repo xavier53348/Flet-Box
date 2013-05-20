@@ -55,7 +55,7 @@ class MenuUpContainer(ft.Stack):
                                                                                                               ft.colors.CYAN,
                                                                                                               ft.colors.PURPLE_600,
                                                                                                               ft.colors.PURPLE_200,
-                                                                                                              ft.colors.RED_500,
+                                                                                                              ft.colors.RED_900,
                                                                                                     ],
                                                                                               ),
                                                                       shadow = ft.BoxShadow(
@@ -64,7 +64,6 @@ class MenuUpContainer(ft.Stack):
                                                                                          color=ft.colors.with_opacity(0.1,ft.colors.WHITE12),
                                                                                          offset=ft.Offset(0, 0),
                                                                                          blur_style=ft.ShadowBlurStyle.OUTER,
-
                                                                                     ),
                                                                       content = ft.Row(
                                                                                 controls=[
@@ -95,12 +94,11 @@ class MenuUpContainer(ft.Stack):
                                                                                                                      padding       = ft.padding.only(left=8, top=0, right=8, bottom=0),
                                                                                                                      border_radius   = ft.border_radius.all(8),
                                                                                                                      content=ft.Text(
-                                                                                                                             weight      = ft.FontWeight.BOLD,
-                                                                                                                             value='FLET BOX',
-                                                                                                                             size=17,
-                                                                                                                             color=ft.colors.WHITE,
-                                                                                                                            #########
-                                                                                                                            style           = ft.TextThemeStyle.DISPLAY_LARGE,                                                                                                                             ),
+                                                                                                                             weight = ft.FontWeight.BOLD,
+                                                                                                                             value  = 'FLET BOX',
+                                                                                                                             size   = 17,
+                                                                                                                             color  = ft.colors.WHITE,
+                                                                                                                            ),
                                                                                                                      ),
                                                                                                          ft.Container(
                                                                                                                      # bgcolor=ft.colors.BLACK38,
@@ -111,10 +109,10 @@ class MenuUpContainer(ft.Stack):
                                                                                                                      gradient=ft.LinearGradient(   begin = ft.alignment.top_center,
                                                                                                                              end   = ft.alignment.center_right,
                                                                                                                              colors= [
-                                                                                                                                       ft.colors.BLUE_600,
-                                                                                                                                       ft.colors.PURPLE_600,
-                                                                                                                                       ft.colors.PURPLE_200,
+                                                                                                                                       # ft.colors.BLUE_600,
+                                                                                                                                       # ft.colors.PURPLE_200,
                                                                                                                                        ft.colors.CYAN,
+                                                                                                                                       ft.colors.PURPLE_600,
                                                                                                                              ],
                                                                                                                        ),
                                                                                                                      # blur=(15,15),

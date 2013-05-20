@@ -114,14 +114,42 @@ class MenuLeftContainer(ft.Stack):
 
           if show_widget == "icon_browser":
                self.icon_browser.visible  = True if not self.icon_browser.visible else False
+
+               self.gpt_browser.visible   = False
+               self.color_browser.visible = False
+               self.text_editor.visible   = False
+
+               self.gpt_browser.update()
+               self.color_browser.update()
+               self.text_editor.update()
+
                self.icon_browser.update()
 
           if show_widget == "color_browser":
                self.color_browser.visible  = True if not self.color_browser.visible else False
+
+               self.icon_browser.visible  = False
+               self.text_editor.visible   = False
+               self.gpt_browser.visible   = False
+
+
+               self.icon_browser.update()
+               self.text_editor.update()
+               self.gpt_browser.update()
+
                self.color_browser.update()
 
           if show_widget == "gpt_browser":
                self.gpt_browser.visible  = True if not self.gpt_browser.visible else False
+
+               self.icon_browser.visible  = False
+               self.color_browser.visible = False
+               self.text_editor.visible   = False
+
+               self.icon_browser.update()
+               self.color_browser.update()
+               self.text_editor.update()
+
                self.gpt_browser.update()
 
           if show_widget == "tree_view":
@@ -132,8 +160,17 @@ class MenuLeftContainer(ft.Stack):
                TreeView.visible_view()
 
           if show_widget == "text_editor":
-            self.text_editor.visible = True if not self.text_editor.visible else False
-            self.text_editor.update()
+               self.text_editor.visible = True if not self.text_editor.visible else False
+
+               self.icon_browser.visible  = False
+               self.gpt_browser.visible   = False
+               self.color_browser.visible = False
+
+               self.icon_browser.update()
+               self.gpt_browser.update()
+               self.color_browser.update()
+
+               self.text_editor.update()
 
      def on_developing(self,name_seccion):
 

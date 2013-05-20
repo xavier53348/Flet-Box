@@ -1,8 +1,10 @@
-
 import flet as ft
 import os
 
 from .library_chatgpt import ChatGpt
+
+from ..settings_var.settings_widget import GLOBAL_VAR
+click_avalidation: bool = False
 
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 
@@ -105,6 +107,7 @@ class GptBrowser(ft.Stack):
                                         offset        = (0,-1.5),
                                         alignment     = ft.alignment.center,
                                         border_radius = ft.border_radius.all(16),
+
                                     content = ft.Text(
                                                         value = 'None',
                                                         )
@@ -142,6 +145,7 @@ Join me and let's embark on a journey of discovery together!...
                     padding   = ft.padding.all(8),
                     margin    = ft.margin.all(8),
                     alignment = ft.alignment.center,
+                    on_hover= lambda _: self.validate_click(),
 
                     content   = ft.Column(
                         spacing              = 8,
@@ -204,6 +208,18 @@ Join me and let's embark on a journey of discovery together!...
                                  ],
                     ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
         )#<=== NOTE COMA
+
+    def validate_click(self):
+        global click_avalidation
+        self.gpt_browser  = GLOBAL_VAR(get_global_var='GPT_BROWSER_CONTAINER')
+
+        if click_avalidation:
+            click_avalidation = False
+            self.gpt_browser.visible = False
+            self.gpt_browser.update()
+
+        else:
+            click_avalidation = True
 
     def build(self):
         return self.Drop_GptBrowser
