@@ -6,7 +6,6 @@ import flet as ft
 
 class LiteMenuUpContainer(ft.UserControl):
     # globalVar='Erase this test'
-
      def __init__(self,main_page= None , phone_widget_container= None,menu_left_container= None , menu_right_container= None, space_widget = None):
           super().__init__()
           self.main_page = main_page
@@ -283,7 +282,8 @@ class LiteMenuUpContainer(ft.UserControl):
                     _.controls[0].visible = True
                     _.widget  = SELECT_DROPP_WIDGET_CONTAINER
 
-          def insert_data_in_box_container_content(column_tab):
+
+          def insert_data_in_box_container_content(column_tab,column=0):
                """
                THIS METOD WALK IN TABS number #3 EACH COLUMN WITH WIDGETS INSIDE 4 COLUMNS
 
@@ -336,7 +336,6 @@ class LiteMenuUpContainer(ft.UserControl):
                          data = _.id_name_widget_dict in SELECT_DROPP_WIDGET_CONTAINER_CONTENT.__dir__()
 
                          # print(_.id_name_widget_dict,data)
-
                          # print(SELECT_DROPP_WIDGET_CONTAINER_CONTENT._wrap_attr_dict('name')  )
                          # print(SELECT_DROPP_WIDGET_CONTAINER_CONTENT._Control__attrs  )
 
@@ -344,20 +343,89 @@ class LiteMenuUpContainer(ft.UserControl):
                          # FILTER THAT IS USE TO COMPARE WIDGET SELECTED
                          # if _.id_name_widget_dict in LIST_KEYS_DICT_USED or dict of all widget inside widget_editor.py
 
-                         _.controls[0].visible = True
+                         _.visible = True
+                         # _.controls[0].visible = True
                          _.widget  = SELECT_DROPP_WIDGET_CONTAINER_CONTENT
-                         _.update()  #<==== update exactly widget
-                         # print(_.id_name_widget_dict,'<======== widget')
+                         # _.update()  #<==== update exactly widget <<<
                     else:
-                         _.controls[0].visible = False
+                         _.visible = False
+                         # _.controls[0].visible = False
                          _.widget  = SELECT_DROPP_WIDGET_CONTAINER_CONTENT
-                         _.update()  #<==== update exactly widget
+                         # _.update()  #<==== update exactly widget <<<
 
+               ############################
                # control_3_inside = control_tab_3[0]  ## <==== MAIN_CONTROLS IN EACH TAB
                # tmp_value_tab_widget = control_3_inside.controls[0].content.controls[1].content.controls[0].update()
+               ############################
+               # EXEMPLE TO PUT VISIBLE OFF IN BOXES COLUMN 0 CONTENT = VISIBLE OFF   <=== all box
+               # NUM_BOX_COLUMN = 0
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.visible = False
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.update()
+               ############################
+               # EXEMPLE TO PUT VISIBLE OFF IN BOXES COLUMN 0 CONTENT = VISIBLE OFF
+               # control_tab_3[0].controls[0].content.controls[1].content.visible = False
+               # control_tab_3[0].controls[0].content.controls[1].content.update()
+               # for tmp_path in tmp_value_tab_widget:
+               #      tmp_path.update()
+               ############################
+               # tmp_value_tab_widget = control_tab_3[0].controls[0].content.controls[1].content.controls #<===  BOX CONTAINER IN ROW NUMB 0
+               # tmp_value_tab_widget = control_tab_3[1].controls[0].content.controls[1].content.controls #<===  BOX CONTAINER IN ROW NUMB 1
+               # tmp_value_tab_widget = control_tab_3[2].controls[0].content.controls[1].content.controls #<===  BOX CONTAINER IN ROW NUMB 2
+               # tmp_value_tab_widget = control_tab_3[3].controls[0].content.controls[1].content.controls #<===  BOX CONTAINER IN ROW NUMB 3
+               # tmp_value_tab_widget = control_tab_3[4].controls[0].content.controls[1].content.controls #<===  BOX CONTAINER IN ROW NUMB 4
+               # tmp_value_tab_widget = control_tab_3[5].controls[0].content.controls[1].content.controls #<===  BOX CONTAINER IN ROW NUMB 5
+               # tmp_value_tab_widget = control_tab_3[6].controls[0].content.controls[1].content.controls #<===  BOX CONTAINER IN ROW NUMB 6
+               # tmp_value_tab_widget = control_tab_3[7].controls[0].content.controls[1].content.controls #<===  BOX CONTAINER IN ROW NUMB 7
+               ############################
+
+               # NUM_BOX_COLUMN = 0
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[0].update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[1].update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[2].update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[3].update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[4].update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[5].update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[6].update()
+
+               # tmp_value_tab_widget = control_tab_3[0].controls[0].content.controls[1].content.update()
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[0].controls[0].visible=False
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[1].controls[0].visible=False
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[2].controls[0].visible=False
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[3].controls[0].visible=False
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[4].controls[0].visible=False
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[5].controls[0].visible=False
+               # control_tab_3[NUM_BOX_COLUMN].controls[0].content.controls[1].content.controls[6].controls[0].visible=False
+
+               ############################
+               # WE GET A LIS WITH ALL WIDGET IN EACH BOX IN TAB 3
+               # AFTER WE FILTER ALL DATA LIST TO A EVOID DUPLICATES FALSE OR TRUE
+               # RETURNING { False } OR { False , True }
+               # IF DATA SET RETURNING HAVE 2 CONTENT INSIDE THE SET
+               # IS TRUE IS VISEBLE ALL CONTENT BOX
+               # IF NOT NO APEAR IN BOX
+               is_visible = set()
+               make_visible_on_off = control_tab_3[column].controls[0].content.controls[1].content.controls
+
+               visible = [is_visible.add(_.visible) for _ in make_visible_on_off]
+               ############################
+
+               if len(is_visible) == 2:
+                    control_tab_3[column].visible = True
+                    control_tab_3[column].update()
+
+               else:
+                    control_tab_3[column].visible = False
+                    control_tab_3[column].update()
+               ############################
+
+               for _ in make_visible_on_off:
+                    _.update()
 
           if BOOL_SHOW_SELECTED:
-               ############################ TAB 2
+               ############################ TAB 2 <== CALLING METHOD VISIBLE OR ONT VISIBLE
 
                CONFIG_TABS_CONTAINERS.visible = True
                CONFIG_TABS_CONTAINERS.update()
@@ -367,21 +435,20 @@ class LiteMenuUpContainer(ft.UserControl):
                insert_data_in_box_container(column_tab='2_2')
                insert_data_in_box_container(column_tab='2_3')
 
-               ############################ TAB 3
+               ############################ TAB 3 <== CALLING METHOD VISIBLE OR ONT VISIBLE
                CONFIG_TABS_CONTAINERS_CONTENT.visible = True
                CONFIG_TABS_CONTAINERS_CONTENT.update()
 
-               insert_data_in_box_container_content(column_tab='3_0')
-               insert_data_in_box_container_content(column_tab='3_1')
-               insert_data_in_box_container_content(column_tab='3_2')
-               insert_data_in_box_container_content(column_tab='3_3')
-               insert_data_in_box_container_content(column_tab='3_4')
-               insert_data_in_box_container_content(column_tab='3_5')
-               insert_data_in_box_container_content(column_tab='3_6')
-               insert_data_in_box_container_content(column_tab='3_7')
+               insert_data_in_box_container_content(column_tab='3_0',column=0)
+               insert_data_in_box_container_content(column_tab='3_1',column=1)
+               insert_data_in_box_container_content(column_tab='3_2',column=2)
+               insert_data_in_box_container_content(column_tab='3_3',column=3)
+               insert_data_in_box_container_content(column_tab='3_4',column=4)
+               insert_data_in_box_container_content(column_tab='3_5',column=5)
+               insert_data_in_box_container_content(column_tab='3_6',column=6)
+               insert_data_in_box_container_content(column_tab='3_7',column=7)
 
           else:
-               # tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
                ############################ TAB 2
                CONFIG_TABS_CONTAINERS.visible = False
                CONFIG_TABS_CONTAINERS.update()
@@ -389,31 +456,7 @@ class LiteMenuUpContainer(ft.UserControl):
                CONFIG_TABS_CONTAINERS_CONTENT.visible = False
                CONFIG_TABS_CONTAINERS_CONTENT.update()
 
-
-
-
-
-          # control_2_inside.controls[0].content.controls[1].content.update()
-          # control_2_inside.controls[0].content.controls[1].update()
-          # control_2_inside.controls[0].content.update()
-
-
-          # print(control_tab_2)
-          # for index_main , value in enumerate(control_tab_2):
-          #      # WALK TROUGHT TAB2 CONTAINERS
-          #      all_cantainers = control_tab_2[index_main].controls[0]
-          #      # tmp_value = control_2_inside.controls[ index_main ].content.controls[1].content.controls
-          #      # for _ in tmp_value:
-          #           # _.widget = SELECT_DROPP_WIDGET_CONTAINER
-          #      # print(value.controls[index_main])
-          #      print(all_cantainers)
-
-
-          # print(tmp_value)
-          # CONFIG_TABS_CONTAINERS.update()
-
      def action_button(self,action):
-
           ###############################################################
 
           if action == 'delete':
@@ -447,13 +490,11 @@ class LiteMenuUpContainer(ft.UserControl):
                self.phone_widget_container.controls[0].bgcolor = ft.colors.WHITE  if self.phone_widget_container.controls[0].bgcolor == '#070707' else '#070707'
                self.phone_widget_container.controls[0].update()
 
-
           ###############################################################
           if action == 'SMARTPHONE':
                self.phone_widget_container.controls[0].width  = 295
                self.phone_widget_container.controls[0].height = 566
                self.phone_widget_container.controls[0].update()
-
 
                self.menu_left_container.visible  = True
                self.menu_right_container.visible = True
@@ -512,7 +553,6 @@ class LiteMenuUpContainer(ft.UserControl):
      def action_windows(self,action):
           self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
           self.phone_widget_container.controls[0].update()
-
 
 if __name__ == '__main__':
      #####################

@@ -24,9 +24,9 @@ import flet as ft
 def main(page: ft.Page):
      ###################### CONFIGURATION
      # page.title                   = "Containers - clickable and not"
-     page.window_title_bar_hidden   = True
+     page.window_title_bar_hidden         = True
      page.window_title_bar_buttons_hidden = True
-     page.window_focused            = True
+     page.window_focused                  = True
      # page.window_skip_task_bar    = True
      # page.window_frameless
      # print(dir(page))

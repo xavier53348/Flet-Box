@@ -39,6 +39,7 @@
 
 >>> source .venv/bin/activate
 >>> pip install flet
+>>> pip install -r requirements.txt
 >>> git clone https://github.com/xavier53348/Flet-Box.git
 
 ```
