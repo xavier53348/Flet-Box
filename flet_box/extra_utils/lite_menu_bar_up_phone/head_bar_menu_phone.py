@@ -5,11 +5,15 @@ class LiteMenuUpContainer(ft.Stack):
 
      def __init__(self,main_page= None , phone_widget_container= None,menu_left_container= None , menu_right_container= None, space_widget = None):
           super().__init__()
-          self.main_page = main_page
+          self.main_page              = main_page
           self.menu_left_container    = menu_left_container
           self.phone_widget_container = phone_widget_container
           self.menu_right_container   = menu_right_container
-          self.space_widget_1 , self.space_widget_2  = space_widget
+
+          # HEIGHT
+          self.height                 = 500
+
+          self.space_widget_1 , self.space_widget_2 = space_widget
 
           #: only in production
           #: print(self.space_widget_1)
@@ -17,20 +21,20 @@ class LiteMenuUpContainer(ft.Stack):
      def build(self):
 
           self.Drop_LiteMenuUpContainer = ft.Container(
-                                        offset=(0.1,0),
+                                        # offset=(0.1,0),
                                         ink             = False,
                                         padding         = ft.padding.all(2),
                                         margin          = ft.margin.only (left=2, top=0, right=0, bottom=0),
                                         alignment       = ft.alignment.center,
                                         border_radius   = ft.border_radius.all(30),
-                                        height        = 410,
+                                        # height        = 450,
                                         gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK12],),
                                    content=ft.Column(
                                              controls=[
                                                        ft.Container(
                                                                  ink           = False,
                                                                  bgcolor       = ft.colors.BLACK26,
-                                                                 padding       = ft.padding.only(left=0, top=8, right=0, bottom=8),
+                                                                 padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
                                                                  alignment     = ft.alignment.center,
                                                                  border_radius = ft.border_radius.all(30),
                                                                  border        = ft.border.all(2, ft.colors.BLACK12),
@@ -53,13 +57,13 @@ class LiteMenuUpContainer(ft.Stack):
                                                                       border_radius = ft.border_radius.all(30),
                                                                       border        = ft.border.all(2, ft.colors.BLACK12),
                                                                  content=ft.Column(
-                                                                                expand  = True,
                                                                                 spacing = 8,
                                                                            controls=[
-                                                                                     ft.IconButton(icon=ft.icons.DELETE_SWEEP_OUTLINED,tooltip='DELETE_',     on_click=lambda _:self.action_button(action='delete')),
                                                                                      ft.IconButton(icon=ft.icons.SCREEN_ROTATION,      tooltip='ROTATE',      on_click=lambda _:self.action_button(action='rotation')),
                                                                                      ft.IconButton(icon=ft.icons.DEBLUR,               tooltip='LIGHT / DARK',on_click=lambda _:self.action_button(action='LIGHT / DARK')),
                                                                                      ft.IconButton(icon=ft.icons.SCHEMA,               tooltip='TREE',        on_click=lambda _:self.action_button(action='TREE')),
+                                                                                     ft.IconButton(icon=ft.icons.DELETE_SWEEP_OUTLINED,tooltip='DELETE_',     on_click=lambda _:self.action_button(action='delete')),
+                                                                                     ft.IconButton(icon=ft.icons.RECYCLING,            tooltip='CLEAR',       on_click=lambda _:self.action_button(action='clear')  ,bgcolor=ft.colors.RED_900),
                                                                                   ],),
 
                                                                  ),#<===

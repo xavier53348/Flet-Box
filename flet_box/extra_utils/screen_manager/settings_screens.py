@@ -1,9 +1,11 @@
+
 DATA_GLOBAL =  {
-                      'user_name' : dict(), # <== DICT WITH ALL WIDGET IN PHONE TO EXPORT APP
-                      'list': ['no erase','main_screen'],       # <== LIST WITH INDEX LIST
+                     'user_name' : dict(),                           # <== DICT WITH ALL WIDGET IN PHONE TO EXPORT APP
+                           'list': ['no erase','main_screen'],       # <== LIST WITH INDEX LIST
+                'widget_selected': 'widget_object',                  # <== WIDGET OBGET CHANGE COLOR
                }
 
-def GLOBAL_VAR(
+def SCREEN_GLOBAL_VAR(
                set_global_var:    dict = {'var_name':'value_in'},
                get_global_var:     str = 'var_name',
                remove_global_var: dict = {'user_name':'screen_name'},
@@ -14,24 +16,24 @@ def GLOBAL_VAR(
                empty_list:        bool = False,
                ):
      """
-     #### GLOBAL_VAR IS A DICT THAT COINTEN ALL DATA THAT WE WANT CALL IN ALL FLET-BOX
+     #### SCREEN_GLOBAL_VAR IS A DICT THAT COINTEN ALL DATA THAT WE WANT CALL IN ALL FLET-BOX
      #### WE MAY CALL IN ALL MOMENT IMPORTING LITE CONFIG
 
      ### EXEMPLE:
 
-     >>> from ..settings_var.settings_widget import GLOBAL_VAR
+     >>> from ..settings_var.settings_widget import SCREEN_GLOBAL_VAR
 
      ### Set the global var by Name and Value:
 
-     >>> GLOBAL_VAR(set_global_var={'var_name':'value_in'})
+     >>> SCREEN_GLOBAL_VAR(set_global_var={'var_name':'value_in'})
 
      ### Get the gloval bar by name:
 
-     >>> GLOBAL_VAR(get_global_var='var_name'})
+     >>> SCREEN_GLOBAL_VAR(get_global_var='var_name'})
 
      ### Remove the gloval bar by name:
 
-     >>> GLOBAL_VAR(remove_global_var='var_remove'})
+     >>> SCREEN_GLOBAL_VAR(remove_global_var='var_remove'})
 
      """
      global DATA_GLOBAL

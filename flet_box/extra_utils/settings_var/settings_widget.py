@@ -39,6 +39,9 @@ DATA_GLOBAL =  {
                   'TEXT_EDITOR_CONTAINER' : None,   # <== BOX CONTAINER WITH TEXT EDITOR LIKE SUBL
 
                           'ALERT_WIDGET ' : None,   # <== GREEN ALERT SELECTED WIDGET
+
+                      'SCREEN_CONTAINER ' : None,   # <== SCREEN_MANAGER BOX CONTAINER
+
                }
 
 def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name',remove_global_var = 'var_remove'):

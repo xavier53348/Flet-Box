@@ -1,10 +1,11 @@
-from settings_screens import GLOBAL_VAR
+from .settings_screens import SCREEN_GLOBAL_VAR
+from ..settings_var.settings_widget import GLOBAL_VAR
+
 import flet as ft
 import os
 import json
 
 CURRENT_PATH = os.path.join('./flet_box/extra_utils/screen_manager','screens.js')
-
 main_screen_dict = dict()
 
 class NameScreen(ft.Container):
@@ -24,7 +25,6 @@ class NameScreen(ft.Container):
         self.left   = 0
         self.top    = 0
         self.bottom = 0
-
 
     def build(self):
 
@@ -131,24 +131,24 @@ class NameScreen(ft.Container):
 
         if screen_name:
             # IF NOT EMPTY INPUT SCREEN NAME
-            GLOBAL_VAR(set_global_var={'screen_name':{'widget':screen_name,'value':screen_name.value}})
+            SCREEN_GLOBAL_VAR(set_global_var={'screen_name':{'widget':screen_name,'value':screen_name.value}})
 
         if description:
             # IF NOT EMPTY INPUT SCREEN DESCRIPTION
 
-            GLOBAL_VAR(set_global_var={'description':{'widget':description,'value':description.value}})
+            SCREEN_GLOBAL_VAR(set_global_var={'description':{'widget':description,'value':description.value}})
 
         if check_data:
 
             #: WIDGET NAME
-            self.widget_name  = GLOBAL_VAR(get_global_var='screen_name')
+            self.widget_name  = SCREEN_GLOBAL_VAR(get_global_var='screen_name')
             if self.widget_name:
 
                 #: SCREEN NAME
                 self.data_name    = self.widget_name.get('value')
 
                 #: SCREEN VALUE
-                self.widget_value = GLOBAL_VAR(get_global_var='description')
+                self.widget_value = SCREEN_GLOBAL_VAR(get_global_var='description')
 
                 #: IF IS EMPTY DESCRIPTION
                 description = 'description' if self.widget_value == None else self.widget_value.get('value')
@@ -159,15 +159,15 @@ class NameScreen(ft.Container):
                 name_screen.update()
 
                 #: ADDING WIDGETS TO GRIDVIEW
-                data = GLOBAL_VAR(get_global_var='javier').get('GridView')
+                data = SCREEN_GLOBAL_VAR(get_global_var='javier').get('GridView')
                 data.controls.append(ScreenContainer(
-                                                    id_name = self.data_name,
+                                                    id_name        = self.data_name,
                                                     id_description = description,
                                                     ))
                 data.update()
 
                 #: ADD TO LIST TO GET INDEX OF SELECTED TO ERASE
-                update_list = GLOBAL_VAR(add_list=self.data_name)
+                update_list = SCREEN_GLOBAL_VAR(add_list=self.data_name)
                 main_screen_dict.update({self.data_name:description})
 
                 # #: READ AND DELETE AND UPDATE
@@ -192,9 +192,10 @@ class NameScreen(ft.Container):
 
 class ScreenContainer(ft.Container):
     def __init__(   self,
-                    id_name: str           =' screen_1',
-                    id_description: str    = 'description',
-                    container_editor: bool = False
+                    id_name:          str  = ' screen_1',
+                    id_description:   str  = 'description',
+                    container_editor: bool = False,
+                    main_screen_color:bool = False,
                     ):
         super().__init__()
 
@@ -202,6 +203,12 @@ class ScreenContainer(ft.Container):
         self.container_editor = container_editor
         self.id_name          = id_name
         self.id_description   = id_description
+
+        #: MAIN SCREEN COLOR
+        self.main_screen_color= main_screen_color
+
+        #: GLOBAL VAR SCREEN MANAGER
+        self.show_screen_manager = GLOBAL_VAR(get_global_var='SCREEN_CONTAINER')
 
         self.border_radius = ft.border_radius.all(30)
         self.ink           = True
@@ -222,81 +229,111 @@ class ScreenContainer(ft.Container):
         self.height        = 170
 
     def build(self):
-        #: EVENT
-
-        if not self.container_editor:
-            self.content  = ft.Column(
-                                controls = [
-
-                                ft.Container(
-                                        alignment = ft.alignment.top_right,
-                                        padding   = ft.padding.only(left=0,right=4,bottom=0,top=6),
-                                        margin    = ft.margin.only(left=0,right=4,bottom=0,top=6),
-
-                                        content   = ft.IconButton(
-                                                                icon       = ft.icons.RECYCLING,
-                                                                icon_size  = 19,
-                                                                icon_color = ft.colors.RED_600,
-                                                                bgcolor    = ft.colors.BLACK54,
-                                                                on_click   = lambda _:self.delete_id_name(self.id_name),
-                                                             ),
-                                            ),
-
-                                ft.Container(
-                                        padding   = ft.padding.all(0),
-                                        margin    = ft.margin.only(left=12,right=8,top=0,bottom=0),
-                                        alignment = ft.alignment.top_left,
-                                        content   = ft.Text(
-                                                            value       = self.id_name,
-                                                            color       = ft.colors.YELLOW_900,
-                                                            size        = 16,
-                                                            text_align  = ft.TextAlign.LEFT,
-                                                            weight      = ft.FontWeight.BOLD,
-                                                            font_family = "Consolas",
-                                                             ),
-                                            ),
-
-                                ft.Container(
-
-                                        padding   = ft.padding.all(0),
-                                        margin    = ft.margin.only(left=12,right=8,top=0,bottom=0),
-                                        alignment = ft.alignment.top_left,
-                                        content   = ft.Text(
-                                                            value       = self.id_description,
-                                                            color       = ft.colors.BLUE_ACCENT_200,
-                                                            size        = 12,
-                                                            text_align  = ft.TextAlign.LEFT,
-                                                            weight      = ft.FontWeight.BOLD,
-                                                            font_family = "Consolas",
-                                                             ),
-                                            ),
-                                        ]
-                            )
-        else:
+        #: ADD AND CLEAN BUTTON SCREEN
+        if self.container_editor:
             self.content  = ft.Container(
-                                        alignment = ft.alignment.center,
-                                        padding=ft.padding.all(8),
-                                        content = ft.Column(
-                                                # scroll="HIDDEN",
-                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                                controls = [
-                                                            ft.Container(height=24),
-                                                            ft.Icon(
-                                                                    name=ft.icons.ADD,
-                                                                    color=ft.colors.BLUE_900,
+                                alignment = ft.alignment.center,
+                                padding   = ft.padding.all(8),
+                                content   = ft.Column(
+                                        # scroll="HIDDEN",
+                                        alignment= ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                        controls= [
+                                                    ft.Container(height=24),
+                                                    ft.Icon(
+                                                            name=ft.icons.ADD,
+                                                            color=ft.colors.BLUE_900,
 
+                                                            ),
+
+                                                    ft.ElevatedButton(
+                                                                    text='CLEAN',
+                                                                    bgcolor=ft.colors.RED_900,
+                                                                    on_click=lambda _:self.remove_all(),
                                                                     ),
-
-                                                            ft.ElevatedButton(
-                                                                            text='CLEAN',
-                                                                            bgcolor=ft.colors.RED_900,
-                                                                            on_click=lambda _:self.remove_all(),
-                                                                            ),
-                                                            ],
-                                                ),
-                                        )
+                                                    ],
+                                        ),
+                                )
             self.on_click = lambda _:self.show_screen_name()
+
+        else:
+            #: ALL NEW SCREEN
+            self.screen_selected =ft.Container(
+                            on_click      = lambda _:self.selected_widget_to_edit(),
+                            ink_color     = ft.colors.RED_900,
+                            ink           = True,
+                            border_radius = ft.border_radius.all(30),
+                            bgcolor       = ft.colors.RED_900 if self.main_screen_color else ft.colors.TRANSPARENT,
+
+                            content = ft.Column(
+                                            controls = [
+
+                                            ft.Container(
+                                                    alignment = ft.alignment.top_right,
+                                                    padding   = ft.padding.only(left= 0,right= 4,bottom= 0,top= 6),
+                                                    margin    = ft.margin.only( left= 0,right= 4,bottom= 0,top= 6),
+
+                                                    content   = ft.IconButton(
+                                                                            icon       = ft.icons.RECYCLING,
+                                                                            icon_size  = 19,
+                                                                            icon_color = ft.colors.RED_600,
+                                                                            bgcolor    = ft.colors.BLACK54,
+                                                                            on_click   = lambda _:self.delete_id_name(self.id_name),
+                                                                         ),
+                                                        ),
+
+                                            ft.Container(
+                                                    padding   = ft.padding.all(0),
+                                                    margin    = ft.margin.only(left=12,right=8,top=0,bottom=0),
+                                                    alignment = ft.alignment.top_left,
+                                                    content   = ft.Text(
+                                                                        value       = self.id_name,
+                                                                        color       = ft.colors.YELLOW_900,
+                                                                        size        = 16,
+                                                                        text_align  = ft.TextAlign.LEFT,
+                                                                        weight      = ft.FontWeight.BOLD,
+                                                                        font_family = "Consolas",
+                                                                         ),
+                                                        ),
+
+                                            ft.Container(
+
+                                                    padding   = ft.padding.all(0),
+                                                    margin    = ft.margin.only(left=12,right=8,top=0,bottom=0),
+                                                    alignment = ft.alignment.top_left,
+                                                    content   = ft.Text(
+                                                                        value       = self.id_description,
+                                                                        color       = ft.colors.BLUE_ACCENT_200,
+                                                                        size        = 12,
+                                                                        text_align  = ft.TextAlign.LEFT,
+                                                                        weight      = ft.FontWeight.BOLD,
+                                                                        font_family = "Consolas",
+                                                                         ),
+                                                        ),
+
+                                                    ]
+                                        ))
+
+            self.content = self.screen_selected
+
+            if self.main_screen_color:
+                SCREEN_GLOBAL_VAR(set_global_var= {'widget_selected':self.screen_selected})
+                SCREEN_GLOBAL_VAR(set_global_var= {'reset':self.screen_selected})
+
+    def selected_widget_to_edit(self):
+        # ACTION CONTAINER BOX OF ALL NEW SCREENS
+        # RESTART TRANSPARENT
+        old_selected         = SCREEN_GLOBAL_VAR(get_global_var= 'widget_selected')
+        old_selected.bgcolor = ft.colors.TRANSPARENT
+        old_selected.update()
+
+        SCREEN_GLOBAL_VAR(set_global_var    = {'widget_selected':self.screen_selected})
+        self.screen_selected.bgcolor = ft.colors.RED_900
+        self.screen_selected.update()
+
+        #: HIDE SCREEN MANAGER
+        self.show_screen_manager.visible = False
+        self.show_screen_manager.update()
 
     def show_screen_name(self):
         # ONLY FUNCTIONALITY IS SHOW BOX INPUT DIALOG
@@ -310,60 +347,76 @@ class ScreenContainer(ft.Container):
         with open(CURRENT_PATH,'w') as f:
             f.write('{}')
 
-        # GLOBAL_VAR(empty_list=True)
-        data = GLOBAL_VAR(get_global_var='javier').get('GridView')
+        # SCREEN_GLOBAL_VAR(empty_list=True)
+        data = SCREEN_GLOBAL_VAR(get_global_var='javier').get('GridView')
         data_ = data.controls
         data.controls = data_[:2]
         data.update()
 
-        # RUN ONLY IN PRODUCTION
-        # print(data_)
+        #: RESET MAIN SCREEN COLOR
+        defauld_color = SCREEN_GLOBAL_VAR(get_global_var='reset')
+        SCREEN_GLOBAL_VAR(set_global_var = {'widget_selected':defauld_color})
+        defauld_color.bgcolor     = ft.colors.RED_900
+        defauld_color.update()
 
     def delete_id_name(self,id_name):
         # GET INDEX NUMBER FROM LIST TO DELETE IN CONTROLS
-        my_list = GLOBAL_VAR(get_index_list=id_name)
+        my_list = SCREEN_GLOBAL_VAR(get_index_list=id_name)
 
-        # EVOIT ERASE MAIN SCREEN
-        if id_name == 'main_screen':
+
+        if id_name == 'main_screen': # EVOIT ERASE MAIN SCREEN
             return
 
+        defauld_color = SCREEN_GLOBAL_VAR(get_global_var= 'widget_selected')
+
         # ERASE FROM CONTROL WITH CURRENT SELECTED WIDGET
-        data = GLOBAL_VAR(get_global_var='javier').get('GridView')
+        data = SCREEN_GLOBAL_VAR(get_global_var='javier').get('GridView')
         data.controls.pop(my_list.index(id_name))
         data.update()
 
         # UPDATE LIST
-        my_list = GLOBAL_VAR(remove_list=my_list.index(id_name))
+        my_list = SCREEN_GLOBAL_VAR(remove_list=my_list.index(id_name))
 
-        #: READ AND DELETE AND UPDATE
         def crud_data(type_file: str='read_update'):
+            #: READ AND DELETE AND UPDATE
             with open(CURRENT_PATH,'r') as f:
                 load_data = json.loads(f.read())
                 # DELETE FROM JSON FILE
                 del load_data[id_name]
                 # UPDATE NEW DATA
                 with open(CURRENT_PATH,'w') as new:
-                    data = json.dumps(load_data,indent=4 )
+                    data = json.dumps(load_data, indent= 4 )
                     new.write(data)
-                # print(load_data)
 
-        crud_data(type_file='read_update')
+        def reset_main_screen():
+            #: RESET MAIN SCREEN COLOR
+            defauld_color = SCREEN_GLOBAL_VAR(get_global_var='reset')
+            SCREEN_GLOBAL_VAR(set_global_var = {'widget_selected': defauld_color})
+            defauld_color.bgcolor     = ft.colors.RED_900
+            defauld_color.update()
+            crud_data(type_file= 'read_update')
 
-        #: RUN ONLY IN PRODUCTION
-        #: CHECK ALL LIST
-        # data = GLOBAL_VAR(get_list= True)
-        # print(data)
+        if defauld_color.bgcolor == ft.colors.RED_900:
+
+            # VERY IMPORTANT if name_screen == selected_screen pass exemple screen_1 == screen_1
+            # THIS EVOID ERASE SAME SELECTED WIDGET AND RETURN ERROR NO EXIST IN MAIN WIDGET
+            if id_name == defauld_color.content.controls[1].content.value:
+
+                #: RESET MAIN SCREEN COLOR
+                reset_main_screen()
+                return
+
+            defauld_color.bgcolor = ft.colors.TRANSPARENT
+            defauld_color.update()
+
+            #: RESET MAIN SCREEN COLOR
+            reset_main_screen()
 
 class ScreenManager(ft.Stack):
     def __init__(self,data='Erase this test'):
         super().__init__()
-        self.ink           = False
-        self.bgcolor       = ft.colors.BLACK45
-        self.padding       = ft.padding.all(8)
-        self.margin        = ft.margin.all(8)
-        self.alignment     = ft.alignment.center
-        self.border_radius = ft.border_radius.all(30)
-        self.border        = ft.border.all(2, ft.colors.BLACK)
+
+        self.fit    = ft.StackFit.EXPAND
 
         # REMEMBER SAVE IN DATABASE
         global name_screen
@@ -371,12 +424,15 @@ class ScreenManager(ft.Stack):
         name_screen = NameScreen()
     def build(self):
         self.gird_view = ft.Container( #: GRID VIEW
-                                    bgcolor       = ft.colors.BLACK54,
-                                    height        = 520,
-                                    width         = 1185,
-                                    border_radius = ft.border_radius.all(30),
-                                    border        = ft.border.all(2, ft.colors.BLACK),
-                                    padding       = ft.padding.only(
+                                bgcolor       = ft.colors.WHITE10,
+                                height      = 750,
+                                width       = 1185,
+                                # expand        = True,
+                                blur          = (24,24),
+                                # alignment   = ft.alignment.center,
+                                border_radius = ft.border_radius.all(30),
+                                border        = ft.border.all(2, ft.colors.WHITE24),
+                                padding       = ft.padding.only(
                                                                     left   = 12,
                                                                     right  = 12,
                                                                     top    = 0,
@@ -390,10 +446,10 @@ class ScreenManager(ft.Stack):
 
                                    controls = [
                                                 #: ADD CONTAINER EDITOR
-                                                ScreenContainer(id_name='screen_editor' ,container_editor=True),
+                                                ScreenContainer(id_name= 'screen_editor' ,container_editor=  True),
 
                                                 #: MAIN SCREEN
-                                                ScreenContainer(id_name='main_screen'),
+                                                ScreenContainer(id_name= 'main_screen'   ,main_screen_color= True),
                                              ],
                         ))
 
@@ -405,10 +461,9 @@ class ScreenManager(ft.Stack):
                 controls_list.controls += [ ScreenContainer(id_name=_ ) for _ in load_data]
 
                 for _ in load_data:
-                    GLOBAL_VAR(add_list=_)
+                    SCREEN_GLOBAL_VAR(add_list=_)
 
-        load_json(controls_list=self.gird_view.content)
-
+        load_json(controls_list= self.gird_view.content)
 
         self.footer_bar = ft.Container( #: FOOTER BAR
                             ink           = False,
@@ -449,11 +504,10 @@ class ScreenManager(ft.Stack):
                         name_screen,
                         ]
 
-        GLOBAL_VAR(set_global_var={
+        SCREEN_GLOBAL_VAR(set_global_var={
                                     'javier':{
                                             'GridView':self.gird_view.content
                                   }})
-
 
 if __name__ == '__main__':
     def main(page: ft.Page):

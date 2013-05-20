@@ -8,6 +8,9 @@ class LiteMenuDownContainer(ft.Stack):
         super().__init__()
         main_page = main_page
 
+        #: SHOW SCREEN MANAGER
+        self.show_screen_manager = GLOBAL_VAR(get_global_var='SCREEN_CONTAINER')
+
     def build(self):
         Selected_Widget_in_dragg_container = SelectedWidget(widget_selected='SHOW_TEXT_SELECTED_DRAGG_WIDGET',type_widget = 'DRAGG BOX',icon_widget='drag_indicator')
         Selected_Widget_in_phone_container = SelectedWidget(widget_selected='SHOW_TEXT_SELECTED_PHONE_WIDGET',type_widget = 'PHONE BOX',icon_widget='phone_iphone')
@@ -17,7 +20,7 @@ class LiteMenuDownContainer(ft.Stack):
         Drop_LiteMenuDownContainer = ft.Container(
                                         ink             = False,
                                         bgcolor         = ft.colors.BLACK26,
-                                        padding         = ft.padding.all(0),
+                                        padding         = ft.padding.all(4),
                                         margin          = ft.margin.all(0),    #outside box
                                         alignment       = ft.alignment.center,
                                         border_radius   = ft.border_radius.all(30),
@@ -33,7 +36,7 @@ class LiteMenuDownContainer(ft.Stack):
                                                                            alignment     = ft.alignment.center,
                                                                            border_radius = ft.border_radius.all(30),
                                                                            border        = ft.border.all(2, ft.colors.BLACK12),
-                                                                           width         = 150,
+                                                                           # width         = 150,
                                                                       content=ft.Row(
                                                                                 expand=True,
                                                                                 alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
@@ -44,8 +47,8 @@ class LiteMenuDownContainer(ft.Stack):
                                                                                                padding       = ft.padding.all(0),
                                                                                                alignment     = ft.alignment.center,
                                                                                                border_radius = ft.border_radius.all(30),
-                                                                                               border        = ft.border.all(2, ft.colors.BLACK12),
-                                                                                               height        = 35,
+                                                                                               border        = ft.border.all(2, ft.colors.TEAL_900),
+                                                                                               height        = 38,
                                                                                            content = ft.Dropdown(
                                                                                                                hint_text       = '   Screen 1',
                                                                                                                width           = 140,
@@ -62,60 +65,30 @@ class LiteMenuDownContainer(ft.Stack):
                                                                                                                ],
                                                                                                    ),
                                                                                      ),
-                                                                 ],
+                                                                                    ft.Container(
+                                                                                        padding = ft.padding.only(left=4, top=0, right=2, bottom=0),
+                                                                                        content = ft.IconButton(
+                                                                                                     icon          = ft.icons.PLUS_ONE,
+                                                                                                     selected_icon = ft.icons.BATTERY_FULL,
+                                                                                                     highlight_color='Red',
+                                                                                                     icon_color    = ft.colors.BLACK,
+                                                                                                     selected      = False,
+                                                                                                     bgcolor       = ft.colors.TEAL,
+                                                                                                     on_click=lambda _: self.action_buttons(action='show'),
+                                                                                                 ),
+                                                                                        ),
+                                                                                    ],
                                                                  ),),
                                                             Selected_Widget_in_dragg_container,
                                                             Selected_Widget_in_phone_container,
-                                                            ft.Container(
-                                                                           ink           = False,
-                                                                           bgcolor       = ft.colors.BLACK26,
-                                                                           padding       = ft.padding.only(left=4, top=0, right=2, bottom=0),
-                                                                           margin        = ft.margin.all(0),    #outside box
-                                                                           alignment     = ft.alignment.center,
-                                                                           border_radius = ft.border_radius.all(30),
-                                                                           border        = ft.border.all(2, ft.colors.BLACK12),
-                                                                           width         = 150,
-                                                                      content=ft.Row(
-                                                                                expand               = True,
-                                                                                alignment            = ft.MainAxisAlignment.SPACE_BETWEEN,
-                                                                                spacing              = 8,
-                                                                           controls=[
-                                                                                     ft.Container(
-                                                                                                 ink           = False,
-                                                                                                 width         = 95,
-                                                                                                 height        = 30,
-                                                                                                 border_radius = ft.border_radius.all(30),
-                                                                                                 content = ft.TextField(
-                                                                                                                 hint_text ='Name Scr',
-                                                                                                                 border    = ft.InputBorder.NONE,
-                                                                                                                 bgcolor   = ft.colors.BLACK12,
-                                                                                                                 color     = 'White',
-                                                                                                                 text_size = 15,
-                                                                                                                 ),
-                                                                                     ),
-                                                                                     ft.IconButton(
-                                                                                             icon          = ft.icons.PLUS_ONE,
-                                                                                             selected_icon = ft.icons.BATTERY_FULL,
-                                                                                             icon_color    = ft.colors.TEAL,
-                                                                                             selected      = False,
-                                                                                             bgcolor       = ft.colors.BLACK12,
-                                                                                     ),],
-                                                                 ),),
                                                               ],),
                             )#<=== NOTE COMA
         return Drop_LiteMenuDownContainer
 
-    def action_windows(self,action):
-
-        if action == 'Close':
-            self.main_page.window_close()
-
-        elif action == 'Minimize':
-            self.main_page.window_minimized = True
-
-        elif action == 'Resize':
-            self.main_page.window_maximizable =True
-        self.main_page.update()
+    def action_buttons(self,action):
+        if action == 'show':
+            self.show_screen_manager.visible = True
+            self.show_screen_manager.update()
 
 if __name__ == '__main__':
 
