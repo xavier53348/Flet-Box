@@ -19,7 +19,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                         ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                                         # expand=True,
                                         ink             = False,                                         # click effect ripple
-                                        bgcolor         = ft.colors.BLACK26,                             # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                        # bgcolor         = ft.colors.BLACK26,                             # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                         padding         = ft.padding.all(2),    # inside box             # padding.only(left=8, top=8, right=8, bottom=8),
                                         margin          = ft.margin.all(2),    #outside box              # margin.only (left=8, top=8, right=8, bottom=8),
                                         alignment       = ft.alignment.center,                           # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
@@ -34,7 +34,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                         # height        = 150,
                                         # tooltip       = 'Container',
                                         ##################### EFFECTS
-                                        # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                        gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK12],),
                                         # gradient      = ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
                                         ##################### WIDGETS
                                 content=ft.Row(
@@ -57,7 +57,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                                                         # expand=True,
 
                                                                         ink=False,                                                # click effect ripple
-                                                                        # bgcolor="#44CCCC00",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                        bgcolor=ft.colors.BLACK26,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                                         padding= ft.padding.only(left=8, top=0, right=8, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
                                                                         # margin = ft.margin.all(8),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
                                                                         alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
@@ -122,7 +122,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                                                         ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                                                                         # expand=True,
                                                                         padding= ft.padding.only(left=8, top=0, right=8, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-
+                                                                        bgcolor=ft.colors.BLACK26,
                                                                         ink=False,                                                # click effect ripple
                                                                         # bgcolor="#44CCCC00",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                                         # padding= ft.padding.all(8),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),

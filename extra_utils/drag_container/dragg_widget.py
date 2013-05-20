@@ -29,7 +29,7 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
                                                        border_radius = 16,
                                                        padding       = ft.padding.all(4),
                                                        alignment     = ft.alignment.center,
-                                                       border        = ft.border.all(0.5, "#131926"),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                       border        = ft.border.all(0.5, ft.colors.TEAL),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                        on_click = lambda _: self.SelectedWidget(self.widget), # on_hover=lambda _: print('on_hover'),   # on_long_press=lambda _: print('on_long_press'),
                                                   content = ft.Column(
                                                                       alignment            = ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
@@ -64,7 +64,7 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
                                                        width=80,
                                                        height=80,
                                                        bgcolor=ft.colors.BLACK45,
-                                                       border=ft.border.all(0.5, "#131926"),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                       border=ft.border.all(0.5, ft.colors.TEAL),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
 
                                                        border_radius=13,
                                                   # image_src=f"{self.icons}",
