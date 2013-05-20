@@ -88,11 +88,13 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
                                                   'selectWidgetBox':data,
                                                   'listWidgetUpdate':[],
                                                    })
+          # if selected_widget_clicked is true each time that we press dragg box widget set border none
+          # each witdget inside drop_dragg.py or Phone container will be a dragg_widget.py
 
           if selected_widget_clicked:
                selected_widget_clicked.border = None
                selected_widget_clicked.update()
-               print(selected_widget_clicked ,'<=== reset widget')
+               # print(selected_widget_clicked ,'<=== reset widget')
 
 
           # dlg = ft.AlertDialog(
@@ -101,4 +103,4 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
           # page.dialog = dlg
           # dlg.open = True
 
-          print(data,'<=== selected widget')
+          print(data,'<=== selected DRAGG widget')

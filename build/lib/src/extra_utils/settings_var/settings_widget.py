@@ -7,10 +7,11 @@
 ########################
 
 selectWidgetBox= {
-                    'selectWidgetBox':None,
+                    'selectWidgetBox':"None",
                     'numClick':1,
                     'numWidget':1,
                     'listWidgetUpdate':list(),
+                    'text_widget_selected':'widget Text',
                     # 'page': 'is_defined'
                     }
 

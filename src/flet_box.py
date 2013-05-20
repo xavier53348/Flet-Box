@@ -5,10 +5,11 @@ from extra_utils.drag_container.widget_drag_editor import Build_Drag_Editor
 from extra_utils.menu_tab_up_phone.widget_menu_tab_editor import MenuUpContainer
 from extra_utils.menu_tab_left_phone.widget_menu_left_editor import MenuLeftContainer
 ########################################################################################
+from extra_utils.lite_menu_bar_up_phone.head_bar_menu_phone import LiteMenuUpContainer
 from extra_utils.lite_menu_bar_down_phone.footer_bar_menu_phone import LiteMenuDownContainer
 from extra_utils.lite_menu_bar_down_phone.selected_widget import SelectedWidget
-
-from extra_utils.lite_menu_bar_up_phone.head_bar_menu_phone import LiteMenuUpContainer
+########################################################################################
+from extra_utils.icon_browser.icon_browser import IconBrowser
 ########################################################################################
 from extra_utils.settings_var.settings_widget import global_var, get_global_var
 
@@ -365,8 +366,29 @@ def main(page: ft.Page):
             ##################### EVENTS
                 # on_click=lambda _:print(_),                                                        # on_hover=print('on click over'), on_long_press=print('long press'),
      )#<=== NOTE COMA
+     # right  = 350,
+     # left   = 350,
+     # bottom = 100,
+     # top    = 100,
+     Icon_Browser = IconBrowser(blur_effect=True)
+     my_container = ft.Container(
+               # visible= False,
+               right  = 350,
+               left   = 350,
+               top    = 100,
+               bottom = 100,
+          content=Icon_Browser,
+          )
+     data_stack = ft.Stack(
 
-     page.add(screen_1)
+                    controls=[
+                         screen_1,      # <=== main page
+                         my_container,
+                         ]
+          )
+
+     # page.add(screen_1)
+     page.add(data_stack)
      page.update()
 
 if __name__ == '__main__':
