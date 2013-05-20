@@ -1,6 +1,7 @@
+from extra_utils.lite_menu_bar_down_phone.selected_widget import SelectedWidget
+from extra_utils.settings_var.settings_widget import global_var, get_global_var
+
 import flet as ft
-
-
 
 class LiteMenuDownContainer(ft.UserControl):
     # globalVar='Erase this test'
@@ -12,6 +13,10 @@ class LiteMenuDownContainer(ft.UserControl):
 
         main_page = main_page
     def build(self):
+
+        Selected_Widget = SelectedWidget()
+        global_var(data_global={'text_widget_selected':Selected_Widget})
+
         Drop_LiteMenuDownContainer = ft.Container(
                                         # expand=True,
                                         ink             = False,                                         # click effect ripple
@@ -35,19 +40,19 @@ class LiteMenuDownContainer(ft.UserControl):
                                         ##################### WIDGETS
                                    content=ft.Row(
                                                   ##################### PROPERTY BOX
-                                                  # expand=True,
-                                                  alignment=ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                  vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
+                                                  # expand           = True,
+                                                  alignment          = ft.MainAxisAlignment.SPACE_BETWEEN,    # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                  vertical_alignment = ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
                                                   ##################### LET MAKE SCROLL IN LONG QUANTITY
                                                   # scroll=True,                                              # center widget
                                                   # tight=True,
                                                   ##################### ADAPT TO SCREEN
-                                                  # wrap=True,                                                  # justify in all screen
+                                                  # wrap=True,                                                # justify in all screen
                                                   # spacing=8,                                                # space widget left right
                                                   # run_spacing=8,                                            # space widget up down
                                                   ##################### WIDGETS
                                                   ##################### ADAPT TO SCREEN
-                                                  # wrap=True,                                                  # justify in all screen
+                                                  # wrap=True,                                                # justify in all screen
                                                   # spacing=8,                                                # space widget left right
                                                   # run_spacing=8,                                            # space widget up down
                                                   ##################### WIDGETS
@@ -56,25 +61,25 @@ class LiteMenuDownContainer(ft.UserControl):
                                                                         ##################### PROPERTY
                                                                         ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                                                                         # expand=True,
-                                                                           ink=False,                                                # click effect ripple
-                                                                           bgcolor=ft.colors.BLACK12,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                           padding= ft.padding.only(left=4, top=0, right=2, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                           margin = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                           alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                           border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                           border=ft.border.all(2, ft.colors.BLACK12),
-                                                                           width=150,
+                                                                           ink           = False,                                                # click effect ripple
+                                                                           bgcolor       = ft.colors.BLACK12,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                           padding       = ft.padding.only(left=4, top=0, right=2, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                           margin        = ft.margin.all(0),    #outside box                     # margin.only (left=8, top=8, right=8, bottom=8),
+                                                                           alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                           border_radius = ft.border_radius.all(30),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                           border        = ft.border.all(2, ft.colors.BLACK12),
+                                                                           width         = 150,
                                                                       content=ft.Row(
                                                                                 ##################### PROPERTY BOX
                                                                                 expand=True,
-                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,               # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                                                                                 # vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
                                                                                 ##################### LET MAKE SCROLL IN LONG QUANTITY
                                                                                 # scroll=True,                                              # center widget
                                                                                 # tight=True,
                                                                                 ##################### ADAPT TO SCREEN
-                                                                                # wrap=True,                                                  # justify in all screen
-                                                                                spacing=8,                                                # space widget left right
+                                                                                # wrap=True,                                                # justify in all screen
+                                                                                spacing=8,                                                  # space widget left right
                                                                                 # run_spacing=8,                                            # space widget up down
                                                                                 ##################### WIDGETS
                                                                            controls=[
@@ -82,11 +87,11 @@ class LiteMenuDownContainer(ft.UserControl):
                                                                                      ft.Container(
                                                                                                  ##################### PROPERTY
                                                                                                ink           = False,                                   # click effect ripple
-                                                                                               # bgcolor       = ft.colors.BLACK12,                             # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                               # bgcolor     = ft.colors.BLACK12,                       # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                                                                padding       = ft.padding.all(0),    # inside box       # padding.only(left=8, top=8, right=8, bottom=8),
                                                                                                alignment     = ft.alignment.center,                     # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                                border_radius = ft.border_radius.all(30),                # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                               border        = ft.border.all(2, ft.colors.BLACK12),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                                               border        = ft.border.all(2, ft.colors.BLACK12),     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                                                                # width         = 150,
                                                                                                height        = 35,
                                                                                            content = ft.Dropdown(
@@ -102,8 +107,6 @@ class LiteMenuDownContainer(ft.UserControl):
                                                                                                                                   ft.dropdown.Option("   Screen 3"),
                                                                                                                                   ft.dropdown.Option("   Screen 4"),
                                                                                                                                   ft.dropdown.Option("   Screen 5"),
-
-
                                                                                                                ],
                                                                                                                ##################### EVENTS
                                                                                                        # on_change = lambda _: _.__dict__.get('value') if _.__dict__.get('data') == "green" else  _.__dict__.get('data'),
@@ -117,30 +120,35 @@ class LiteMenuDownContainer(ft.UserControl):
                                                                  ],
                                                                  ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
 
+                                                            #############################################################
+                                                            # widget selected text that change each time that we selected
+                                                            Selected_Widget,
+                                                            #############################################################
+
                                                             ft.Container( ############ NAME SCREEN
                                                                         ##################### PROPERTY
                                                                         ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                                                                         # expand=True,
-                                                                           ink=False,                                                # click effect ripple
-                                                                           bgcolor=ft.colors.BLACK26,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                           padding= ft.padding.only(left=4, top=0, right=2, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                           margin = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                           alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                           border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                           border=ft.border.all(2, ft.colors.BLACK12),
-                                                                           width=150,
+                                                                           ink           = False,                                                     # click effect ripple
+                                                                           bgcolor       = ft.colors.BLACK26,                                     # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                           padding       = ft.padding.only(left=4, top=0, right=2, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                           margin        = ft.margin.all(0),    #outside box                     # margin.only (left=8, top=8, right=8, bottom=8),
+                                                                           alignment     = ft.alignment.center,                                 # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                           border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                           border        = ft.border.all(2, ft.colors.BLACK12),
+                                                                           width         = 150,
                                                                       content=ft.Row(
                                                                                 ##################### PROPERTY BOX
-                                                                                expand=True,
-                                                                                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                                # vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
+                                                                                expand               = True,
+                                                                                alignment            = ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                                                # vertical_alignment = ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
                                                                                 ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                                                # scroll=True,                                              # center widget
-                                                                                # tight=True,
+                                                                                # scroll             = True,                                              # center widget
+                                                                                # tight              = True,
                                                                                 ##################### ADAPT TO SCREEN
-                                                                                # wrap=True,                                                  # justify in all screen
-                                                                                spacing=8,                                                # space widget left right
-                                                                                # run_spacing=8,                                            # space widget up down
+                                                                                # wrap               = True,                                                  # justify in all screen
+                                                                                spacing              = 8,                                                # space widget left right
+                                                                                # run_spacing        = 8,                                            # space widget up down
                                                                                 ##################### WIDGETS
                                                                            controls=[
 
@@ -176,76 +184,41 @@ class LiteMenuDownContainer(ft.UserControl):
                                                                                      ),],
                                                                  ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
 
-                                                            ft.Container( ##################### VIEWS WIDGET
-                                                                        ink=False,                                                # click effect ripple
-                                                                        bgcolor=ft.colors.BLACK12,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                        padding= ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                        margin = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                        alignment=ft.alignment.center_left,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                        border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                        border=ft.border.all(2, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                        width=95,
-                                                                        ##################### WIDGETS
-                                                                        content=ft.Row(
-                                                                                # alignment=ft.MainAxisAlignment.START,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                                # vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                                                                                controls = [
+                                                            # ft.Container( ##################### SELECTED WIDGET
+                                                            #             ink           = False,                                                # click effect ripple
+                                                            #             bgcolor       = ft.colors.BLACK12,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                            #             padding       = ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
+                                                            #             margin        = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
+                                                            #             alignment     = ft.alignment.center_left,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                            #             border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                            #             border        = ft.border.all(2, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                            #             width         = 160,
+                                                            #             ##################### WIDGETS
+                                                            #             content=ft.Row(
+                                                            #                     # alignment          = ft.MainAxisAlignment.START,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                            #                     # vertical_alignment = ft.CrossAxisAlignment.CENTER,
+                                                            #                     controls = [
 
-                                                                                     ft.Container(
-                                                                                               height=32,
-                                                                                               margin=ft.margin.only (left=8, top=0, right=0, bottom=0),
-                                                                                               # expand=True,
-                                                                                               content=ft.Icon(name=ft.icons.SCHEMA),
-                                                                                          ),
-                                                                                     ft.Text(
-                                                                                         ##################### PROPERTY
-                                                                                         value           = "View", # content = ft.Text(value="Compound button", size=12,),
-                                                                                         text_align      = ft.TextAlign.LEFT,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
-                                                                                         weight          = ft.FontWeight.BOLD,                                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
-                                                                                         font_family     = "Consolas", #"Consolas ,RobotoSlab
-                                                                                         ##################### COLOR
-                                                                                         # width           = 120,
-                                                                                         size=15,
-                                                                                         #####################
-                                                                           ),]),
-                                                                        ##################### EVENTS
-                                                                        # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                            ),#<=== NOTE COMA
-                                                            ft.Container( ##################### SELECTED WIDGET
-                                                                        ink=False,                                                # click effect ripple
-                                                                        bgcolor=ft.colors.BLACK12,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                        padding= ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                        margin = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                        alignment=ft.alignment.center_left,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                        border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                        border=ft.border.all(2, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                        width=160,
-                                                                        ##################### WIDGETS
-                                                                        content=ft.Row(
-                                                                                # alignment=ft.MainAxisAlignment.START,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                                # vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                                                                                controls = [
-
-                                                                                     ft.Container(
-                                                                                               margin=ft.margin.only (left=8, top=0, right=0, bottom=0),
-                                                                                               # expand=True,
-                                                                                               content=ft.Icon(name=ft.icons.SELECT_ALL_ROUNDED),
-                                                                                          ),
-                                                                                     ft.Text(
-                                                                                         ##################### PROPERTY
-                                                                                         value           = "Selected:\n", # content = ft.Text(value="Compound button", size=12,),
-                                                                                         text_align      = ft.TextAlign.LEFT,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
-                                                                                         weight          = ft.FontWeight.BOLD,                                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
-                                                                                         font_family     = "Consolas", #"Consolas ,RobotoSlab
-                                                                                         ##################### COLOR
-                                                                                         # width           = 120,
-                                                                                         size=10,
-                                                                                         #####################
-                                                                                         spans=[ft.TextSpan( "Image", ft.TextStyle( size=20, color=ft.colors.BLUE,weight=ft.FontWeight.BOLD),),],
-                                                                           ),]),
-                                                                        ##################### EVENTS
-                                                                        # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                            ),#<=== NOTE COMA
+                                                            #                          ft.Container(
+                                                            #                                    margin   = ft.margin.only (left=8, top=0, right=0, bottom=0),
+                                                            #                                    # expand = True,
+                                                            #                                    content  = ft.Icon(name=ft.icons.SELECT_ALL_ROUNDED),
+                                                            #                               ),
+                                                            #                          ft.Text(
+                                                            #                              ##################### PROPERTY
+                                                            #                              value           = "Selected:\n", # content = ft.Text(value="Compound button", size=12,),
+                                                            #                              text_align      = ft.TextAlign.LEFT,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
+                                                            #                              weight          = ft.FontWeight.BOLD,                                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
+                                                            #                              font_family     = "Consolas", #"Consolas ,RobotoSlab
+                                                            #                              ##################### COLOR
+                                                            #                              # width           = 120,
+                                                            #                              size=10,
+                                                            #                              #####################
+                                                            #                              spans=[ft.TextSpan( "Image", ft.TextStyle( size=20, color=ft.colors.BLUE,weight=ft.FontWeight.BOLD),),],
+                                                            #                ),]),
+                                                            #             ##################### EVENTS
+                                                            #             # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
+                                                            # ),#<=== NOTE COMA
                                                          ],),
                                 ##################### EVENTS
                                 # on_click=lambda _:print(_),                                           # on_hover=print('on click over'), on_long_press=print('long press'),
@@ -272,7 +245,7 @@ class LiteMenuDownContainer(ft.UserControl):
 
 if __name__ == '__main__':
 
-     def main(page: ft.Page):
+    def main(page: ft.Page):
          ###################### CONFIGURATION
          # page.title                   = "Containers - clickable and not"
          # page.window_title_bar_hidden   = True
@@ -325,7 +298,7 @@ if __name__ == '__main__':
      # audio1.volume -= 0.1 #
      # audio1.update()
 
-     ft.app(
+    ft.app(
             # assets_dir   = "assets",
             target         = main,
             # port         = 8080,

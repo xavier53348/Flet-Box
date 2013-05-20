@@ -111,7 +111,7 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
         │   │   ├── dragg_widget.py           <====== [BUILDER] DRAGG BOX     == LEFT LITE BOXES
         │   │   ├── drop_dragg.py             <====== PHONE
         │   │   ├── infinity_box_layer_one.py <====== [BUILDER] LOOP DRAGG CONTAINER TAKE IT FROM [DRAGG BOX]
-        │   │   └── widget_drag_editor.py     <====== [BUILDER] ALL APP CONTAINER
+        │   │   └── widget_drag_editor.py     <====== [BUILDER] ALL DROP CONTAINER
         │   ├── phone_container
         │   └── settings_var
         │       └── settings_widget.py        <====== [BUILDER] GLOBAL VARIABLES
