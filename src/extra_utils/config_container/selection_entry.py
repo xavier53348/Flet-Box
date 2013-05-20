@@ -184,7 +184,7 @@ class SelectionEntry(ft.UserControl): ##################### PROPERTY
                                                                                 alignment     = ft.alignment.center,                     # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                 border_radius = ft.border_radius.all(30),                # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                 # border        = ft.border.all(2, '#0e0f11'),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                width         = 150,
+                                                                                width         = 147,
                                                                                 height        = 35,
                                                                                 ##################### WIDGETS
                                                                             content = ft.Dropdown(

@@ -14,29 +14,29 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
     def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget='',id_name_widget_dict=None):
         super().__init__()
 
-        self.widget           = widget        # <=== widget
-        self.widget_content   = self.widget_content
+        self.widget              = widget        # <=== widget
+        self.widget_content      = self.widget_content
         self.id_name_widget_dict = id_name_widget_dict
 
         # WE SET NEW NAME
         if config_widget == 'width':
-            self.new_name = 'Width - Height'
+            self.new_name         = 'Width - Height'
             self.attribute_widget = config_widget # <=== widget attribute
 
 
         if config_widget == 'name':
-            self.new_name = 'Icon Name'
+            self.new_name         = 'Icon Name'
             self.attribute_widget = config_widget # <=== widget attribute
 
         else:
             self.attribute_widget = config_widget # <=== widget attribute
-            self.new_name = self.attribute_widget
+            self.new_name         = self.attribute_widget
 
     def build(self):
         SingleEntry = ft.Container(
                     ##################### PROPERTY COLUMN
                     ink           = False,                                                # click effect ripple
-                    bgcolor       = '#0c0d0e',                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                    bgcolor       = '#0c0d0e',                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                     padding       = ft.padding.only(left=4, top=4, right=4, bottom=4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
                     margin        = ft.margin.all(0),    # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
                     alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
@@ -51,7 +51,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                     content = ft.Column(
                                 ##################### PROPERTY BOX
                                 ##################### ADAPT TO SCREEN
-                                wrap=True,                                                # justify in all screen
+                                wrap=True,                                                                        # justify in all screen
                                 ##################### WIDGETS
                                 controls = [
                                         ft.Container( ##################### Text label
@@ -59,7 +59,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                             bgcolor       = "#0e0f11",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                             padding       = ft.padding.only(left=12, top=0, right=12, bottom=0),  # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
                                             alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                            border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                            border_radius = ft.border_radius.all(30),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                             height        = 20,
                                             ##################### WIDGETS
                                             content = ft.Text(
@@ -74,7 +74,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                             padding       = ft.padding.all(2),    # inside box              # padding.only(left=8, top=8, right=8, bottom=8),
                                             alignment     = ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                             border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                            border        = ft.border.all(1, ft.colors.BLACK),            # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                            border        = ft.border.all(1, ft.colors.BLACK),              # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                             width         = 152,
                                             height        = 36,
                                         gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
@@ -86,18 +86,18 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                                             controls=[
                                                                         ft.Container(
                                                                                     ##################### PROPERTY
-                                                                                    ink=False,                                                      # click effect ripple
-                                                                                    bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                    width=146,
-                                                                                    height=30,
-                                                                                    border_radius= ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                    ink           = False,                                                      # click effect ripple
+                                                                                    bgcolor       = "#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                    width         = 146,
+                                                                                    height        = 30,
+                                                                                    border_radius = ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
 
                                                                                     content=ft.TextField(
-                                                                                                    hint_text=self.new_name,
-                                                                                                    border=ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                    bgcolor='#0e0f11',                                 # inside box
-                                                                                                    color='YELLOW',
-                                                                                                    text_size=15,
+                                                                                                    hint_text = self.new_name,
+                                                                                                    border    = ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
+                                                                                                    bgcolor   = '#0e0f11',                                 # inside box
+                                                                                                    color     = 'YELLOW',
+                                                                                                    text_size = 15,
                                                                                                     #======================= EVENTS ===========================
                                                                                             on_change   = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = SingleEntry),
                                                                                             # on_change = lambda x:print('Pressed [< Write inside > ]'),

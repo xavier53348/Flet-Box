@@ -196,7 +196,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
                                                                                             ink           = False,                                              # click effect ripple
-                                                                                            width         = 68,
+                                                                                            width         = 64,
                                                                                             height        = 35,
                                                                                             border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                             content = ft.TextField(
@@ -218,7 +218,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
                                                                                             ink           = False,                                          # click effect ripple
-                                                                                            width         = 68,
+                                                                                            width         = 64,
                                                                                             height        = 35,
                                                                                             border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                             content = ft.TextField(
@@ -291,7 +291,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
                                                                                             ink           = False,                                              # click effect ripple
-                                                                                            width         = 68,
+                                                                                            width         = 64,
                                                                                             height        = 30,
                                                                                             border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                         content = ft.TextField(
@@ -313,7 +313,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
                                                                                             ink           = False,                                           # click effect ripple
-                                                                                            width         = 68,
+                                                                                            width         = 64,
                                                                                             height        = 30,
                                                                                             border_radius = ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                         content = ft.TextField(
