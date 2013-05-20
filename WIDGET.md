@@ -257,7 +257,7 @@ Remember to replace `your_project_name` with your actual package name and adjust
 
 #### KWON INFO ABOUT PAGE FROM EVERY WHERE
 ```shell
->>> tmp_data = Drop_Container_exemple.__dict__.get('_Control__page')    #  s.__dict__.get('_Control__page')
+>>> tmp_data = Drop_Container_exemple.__dict__.get('_Control__page')    #  s.__dict__.get('_Control__page') ####<=== GET MAIN PAGE
 >>> tmp_data._Page__next_control_id                                     ####<=== very important
 >>> tmp_data._Page__views                                               ####<=== very important
 

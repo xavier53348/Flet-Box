@@ -224,7 +224,7 @@ class FourEntry(ft.Stack): ##################### PROPERTY
                                                     top    = int(top),
                                                     right  = int(right),
                                                     bottom = int(bottom),
-                                                  )
+                                                )
         if  config_widget   == "margin":
             """ all values in Box Container """
 
@@ -248,11 +248,11 @@ class FourEntry(ft.Stack): ##################### PROPERTY
             bottom_right= value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
 
             self.widget.border_radius = ft.border_radius.only(
-                                                    top_left     = int(top_left),
-                                                    top_right    = int(top_right),
-                                                    bottom_left  = int(bottom_left),
-                                                    bottom_right = int(bottom_right),
-                                                )
+                                                        top_left     = int(top_left),
+                                                        top_right    = int(top_right),
+                                                        bottom_left  = int(bottom_left),
+                                                        bottom_right = int(bottom_right),
+                                                    )
         self.widget.update()
 
 ######## Double_Widget = FourEntry(),# <======= Comma

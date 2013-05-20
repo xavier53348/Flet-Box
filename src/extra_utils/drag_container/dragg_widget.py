@@ -144,7 +144,6 @@ class DraggWidget(ft.Stack): # <======= dragg widget
           TEXT_DRAGG_WIDGET.controls[0].update()
 
          ####################################################################################
-
           if selected_widget_clicked:
                selected_widget_clicked.border = None
                selected_widget_clicked.update()

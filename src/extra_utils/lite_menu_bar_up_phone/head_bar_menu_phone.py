@@ -235,7 +235,7 @@ class LiteMenuUpContainer(ft.Stack):
           ######################################
           control_tab_3 = CONFIG_TABS_CONTAINERS_CONTENT.content.controls
           ######################################
-          # control_2_inside = control_tab_2[0]                                   ## <==== MAIN_CONTROLS IN EACH TAB
+          # control_2_inside = control_tab_2[0]                                 ## <==== MAIN_CONTROLS IN EACH TAB
           # control_2_inside.controls[0].content.controls[0]                    ## <==== MAIN_CONTROLS / NAME_OF_BOX
           # control_2_inside.controls[0].content.controls[1]                    ## <==== MAIN_CONTROLS / BLACK BOX  <=  with the input inside
           # control_2_inside.controls[0].content.controls[1].content.controls   ## <==== all controls inside BLACK BOX
@@ -463,6 +463,7 @@ class LiteMenuUpContainer(ft.Stack):
                WE DELETE ALL WIDGETS IT'S NOT THE CORRECT WAY
                """
                touch_widget_in_phone = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
+               main_page = GLOBAL_VAR(get_global_var='PAGE')
 
                # get the corret way to delete widget <===
                if touch_widget_in_phone:
@@ -476,29 +477,23 @@ class LiteMenuUpContainer(ft.Stack):
                    """
                    id_widget      = self.main_page.get_control(touch_widget_in_phone.uid)
 
-                   ########## erase
-                   get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}" # <===== Stack()
-                   page_control   = self.main_page.get_control(get_control_id)
-
-                   print(page_control)
-                   page_control=[]
-                   print(page_control)
-
-                   # page_control.update()
-                   ########### erase
-
-                   # get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}" # <===== Stack()
-                   # page_control   = self.main_page.get_control(get_control_id)
-                   # page_control.clean()
-
-                   #####################################################################
-                   # CHECK IF WIDGET ID EXIST IN DATABASE IF TRUE REMOVE CURRENT WIDGET FROM MAIN DATABASE
+                   ######################################### CHECK DATA TO ERASE PHONE WIDGET
+                   # CHECK IF WIDGET ID EXIST IN DATABASE [LIST_SELECTED_WIDGETS]
+                   # IF TRUE REMOVE CURRENT WIDGET FROM MAIN DATABASE
                    # GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
 
-                   # if GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE').get(touch_widget_in_phone.id):
-                   #     GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
+                   if GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE').get(touch_widget_in_phone.id):
+                        GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
+                   ##################################################################################
+                   ########## BACK 2 ID BEFORE TO GET DRAGGTARGET AND CORRECTLY DELETE
+                   get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}"                    # <===== ID Stack() - 2
+                   page_control   = self.main_page.get_control(get_control_id)                      # <===== GET EXACTLY DRAG TARGET
+                   page_control.controls.pop()                                                      # <===== ERASE CONTROL WIDGET
+                   touch_widget_in_phone = GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':None})# <===== RESET SELECTED WIDGET TO NONE
+                   del main_page._index[get_control_id]                                             # <===== DELETE INDEX IN MAIN PAGE
+                   page_control.update()                                                            # <===== UPDATE PAGE
+                   ##################################################################################
 
-                   #####################################################################
 
           if action == 'rotation':
                self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
@@ -596,18 +591,6 @@ if __name__ == '__main__':
 
      def main(page: ft.Page):
           ###################### CONFIGURATION
-          # page.title                   = "Containers - clickable and not"
-          # page.window_title_bar_hidden   = True
-          # page.window_title_bar_buttons_hidden = True
-          # page.window_focused            = True
-          # page.window_skip_task_bar    = True
-          # page.window_frameless
-          # print(dir(page))
-          # page.window_frameless        = True
-          # page.auto_scroll             = True #scroll_to()
-          # page.fonts                   = {"RobotoSlab": "https://github.com/google/fonts/raw/main/apache/robotoslab/RobotoSlab%5Bwght%5D.ttf"}
-          # page.splash                  = ft.Image(src=f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg")
-          # page.splash                    = True
           page.scroll                    = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
           page.vertical_alignment        = ft.MainAxisAlignment.CENTER
           page.horizontal_alignment      = ft.CrossAxisAlignment.CENTER
