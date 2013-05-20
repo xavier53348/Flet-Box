@@ -4,6 +4,7 @@ from extra_utils.drag_container.widget_drag_editor               import Build_Dr
 from extra_utils.drag_container.drag_handler_container           import HandlerDraggBox
 ################################################################################## TREEVIEW CONTAINER
 from extra_utils.tree_view.tree_view                             import TreeView
+from extra_utils.tree_view.tree_view_text_editor                 import TreeViewTextEditor
 ################################################################################## PHONE CONTAINER
 from extra_utils.phone_container.widget_phone_editor             import Build_Phone_Editor
 ################################################################################## TAB MENU CONTAINER
@@ -125,6 +126,23 @@ def main(page: ft.Page):
           )
      GLOBAL_VAR(set_global_var={'ABOUT_CONTAINER':AboutContainer})
 
+     ############################################ TEXT EDITOR
+     TextEditor = TreeViewTextEditor()
+
+     TextEditorContainer = ft.Container(
+               visible= False,
+               expand=True,
+               right  = 0,
+               left   = 0,
+               top    = 0,
+               bottom = 0,
+               # bgcolor='red',
+               # blur = (12,12),
+
+          content=TextEditor,
+          )
+     GLOBAL_VAR(set_global_var={'TEXT_EDITOR_CONTAINER':TextEditorContainer})
+
      ############################################
      right_config_container = ft.Container( ###################### RIGHT CONFIG CONTAINER
                ##################### PROPERTY COLUMN
@@ -181,7 +199,7 @@ def main(page: ft.Page):
                     margin          = ft.margin.all(0),    #outside box                     # margin.only (left=8, top=8, right=8, bottom=8),
                     alignment       = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                     # border_radius = ft.border_radius.all(30),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                    border        = ft.border.all(6, ft.colors.BLACK12),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                    border          = ft.border.all(6, ft.colors.BLACK12),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
                     #####################
                     # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
                     # image_opacity = 0.1,
@@ -347,8 +365,9 @@ def main(page: ft.Page):
                                                                                                                                                 controls = [
                                                                                                                                                            space_widget_1,
                                                                                                                                                            TreeView(),
-
                                                                                                                                                            phone_testing,
+                                                                                                                                                           # TreeViewTextEditor(),
+
                                                                                                                                                            space_widget_1,
 
                                                                                                                                                            LiteMenuUpContainer(
@@ -373,8 +392,10 @@ def main(page: ft.Page):
                                                                                                             ##################### EVENTS
                                                                                                             # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                                                 ),#<=== NOTE COMA
-                                                                                               # UNCOMMENT THIS
-                                                                                               right_config_container, #  <========
+
+
+                                                                                               # UNCOMMENT THIS <<<<<<>>>>>>>>
+                                                                                               right_config_container, #  <======== UNCOMENT
                                                                                              ],),
                                                                         ##################### EVENTS
                                                                         # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
@@ -406,11 +427,12 @@ def main(page: ft.Page):
      data_stack = ft.Stack(
 
                     controls=[
-                         screen_1,      # <=== main page
-                         IconBrowserContainer,
-                         ColorBrowserContainer,
+                         screen_1,                 #  <=== main page
+                         IconBrowserContainer,   #  <======== UNCOMENT
+                         ColorBrowserContainer,  #  <======== UNCOMENT
                          GptBrowserContainer,
-                         AboutContainer,
+                         AboutContainer,         #  <======== UNCOMENT
+                         TextEditorContainer,
                          ]
           )
 

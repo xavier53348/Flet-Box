@@ -269,3 +269,25 @@ Remember to replace `your_project_name` with your actual package name and adjust
 >>> tmp_data._index.get('_9')                                   ####<=== GET BY INDEX
 >>> tmp_data.get_control(id='_5').controls                      ####<=== GET BY INDEX
 ```
+
+#### DIFERENTS WAYS TO GET ATTRIBUTES
+```shell
+
+print(screen_1._Control__attrs)                     >>> {'width': (240, False), 'height': (120, False),
+print(screen_1._Container__content)                 >>> row {'wrap': True, 'n': 'content'}
+print(screen_1._get_control_name())                 >>> container
+print(screen_1._get_attr('width'))                  >>> 240
+
+print(screen_1._wrap_attr_dict({'hello':screen_1})) >>> {'hello': Container(width=240, height=120,
+print(screen_1.__str__())                           >>> container {'width': 240, 'height': 120, 'bgcolor': '#44CCCC00' <<< +++++
+print(screen_1.__repr__() )                         >>> Container(width=240, height=120, bgcolor='#44CCCC00',
+
+
+#################### ONLY WAY TO GET ATTRIBUTES CORRECTLY
+data = {}                                           >>> {'alignment': '{"x":0,"y":0}', 'bgcolor': '#
+screen_1.copy_attrs(dest=data)                      >>> {'alignment': '{"x":0,"y":0}', 'bgcolor': '#
+####################
+screen_1._set_attr('width',10)                      >>> 10
+screen_1.update()
+####################
+```

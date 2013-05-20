@@ -34,7 +34,8 @@ DATA_GLOBAL =  {
                   'GPT_BROWSER_CONTAINER' : None,   # <== BOX CONTAINER WITH SEARCH GPT
                ########################
                         'ABOUT_CONTAINER' : None,   # <== BOX CONTAINER WITH ABOUT PAGE
-
+               ########################
+                  'TEXT_EDITOR_CONTAINER' : None,   # <== BOX CONTAINER WITH TEXT EDITOR LIKE SUBL
                }
 
 def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name',remove_global_var = 'var_remove'):

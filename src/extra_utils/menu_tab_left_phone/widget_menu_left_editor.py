@@ -17,6 +17,8 @@ class MenuLeftContainer(ft.Stack):
           self.icon_browser  = GLOBAL_VAR(get_global_var='ICON_BROWSER_CONTAINER')
           self.color_browser = GLOBAL_VAR(get_global_var='COLOR_BROWSER_CONTAINER')
           self.gpt_browser   = GLOBAL_VAR(get_global_var='GPT_BROWSER_CONTAINER')
+          self.text_editor   = GLOBAL_VAR(get_global_var='TEXT_EDITOR_CONTAINER')
+
           self.data_view = WrapWidgetNode()
 
 
@@ -100,7 +102,7 @@ class MenuLeftContainer(ft.Stack):
                                                                                                         width         = 45,
                                                                                                         border_radius = ft.border_radius.all(16)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='CODE'     ,content=ft.IconButton(icon=ft.icons.CODE_ROUNDED , on_click=lambda _:self.on_developing('Code')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='CODE'     ,content=ft.IconButton(icon=ft.icons.CODE_ROUNDED , on_click=lambda _:self.show_widgets(show_widget='text_editor')),
                                                                                                         bgcolor       = ft.colors.BLACK45,
                                                                                                         height        = 45,
                                                                                                         width         = 45,
@@ -158,6 +160,9 @@ class MenuLeftContainer(ft.Stack):
                # TreeView.update_data(data=tree_view_data)
                TreeView.visible_view()
 
+          if show_widget == "text_editor":
+            self.text_editor.visible = True if not self.text_editor.visible else False
+            self.text_editor.update()
 
      def on_developing(self,name_seccion):
           page        = GLOBAL_VAR(get_global_var='PAGE')

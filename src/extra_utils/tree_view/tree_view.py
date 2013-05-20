@@ -14,7 +14,6 @@ class TreeView(ft.Stack):
     def __init__(self,tree_view='  CLICK OVER TO UPDATE TREEVIEW'):
         super().__init__()
         self.tree_view = tree_view
-
         self.data_view = WrapWidgetNode()
 
     def build(self):
