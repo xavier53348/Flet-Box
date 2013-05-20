@@ -32,7 +32,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                         # image_fit     = 'COVER',                                       # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                         #               ===================
                                         # width         = 150,
-                                        height        = 360,
+                                        height        = 410,
                                         # tooltip       = 'Container',
                                         ##################### EFFECTS
                                         gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK12],),
@@ -158,6 +158,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                                                                      ft.IconButton(icon=ft.icons.DELETE_SWEEP_OUTLINED,tooltip='DELETE_',     on_click=lambda _:self.action_button(action='delete')),
                                                                                      ft.IconButton(icon=ft.icons.SCREEN_ROTATION,      tooltip='ROTATE',      on_click=lambda _:self.action_button(action='rotation')),
                                                                                      ft.IconButton(icon=ft.icons.DEBLUR,               tooltip='LIGHT / DARK',on_click=lambda _:self.action_button(action='LIGHT / DARK')),
+                                                                                     ft.IconButton(icon=ft.icons.SCHEMA,               tooltip='TREE',        on_click=lambda _:self.action_button(action='TREE')),
                                                                                   ],),
                                                                    ##################### EVENTS
                                                                    # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),

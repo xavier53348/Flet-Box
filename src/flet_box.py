@@ -182,6 +182,7 @@ def main(page: ft.Page):
                                                             ##################### WIDGETS
                                                         controls=[
                                                                     MenuUpContainer(main_page = page),
+
                                                                     ft.Container( ###################### CENTER MAIN CONTAINER THAT HAVE ['LEFT DRAG', 'MIDDLE PHONE' ,'RIGHT CONFIG']
                                                                                 ##################### PROPERTY
                                                                                 ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
@@ -263,7 +264,6 @@ def main(page: ft.Page):
                                                                                                                 ##################### WIDGETS
                                                                                                                 controls=[
                                                                                                                             # lite menu up phone,
-
                                                                                                                             ft.Container(
                                                                                                                                        padding=ft.padding.all(0),
                                                                                                                                        margin=ft.margin.all(0),
@@ -293,6 +293,7 @@ def main(page: ft.Page):
                                                                                                                                                           # lite menu Down phone
                                                                                                                                                           ],),
                                                                                                                                                 ),
+
                                                                                                                             LiteMenuDownContainer(),
 
                                                                                                                          ],
