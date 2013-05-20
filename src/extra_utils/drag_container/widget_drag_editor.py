@@ -131,6 +131,7 @@ class Build_Drag_Editor(ft.Stack):
                                    content = ft.Column(
                                         scroll                 = 'HIDDEN',
                                         controls = [
+
                                                   ft.Container( #: CONTAINERS LAYOUTS
                                                             ink             = False,
                                                             bgcolor         = ft.colors.BLACK26,
@@ -145,7 +146,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                font_family = "Consolas", #"Consolas ,RobotoSlab
                                                                color       = ft.colors.BLUE,
                                                            ),),
-
                                                   ft.Container( #: CONTAINERS LAYOUTS
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -166,10 +166,7 @@ class Build_Drag_Editor(ft.Stack):
                                                                                            self.StaDragg,
                                                                                         ],
                                                            ),
-
-
                                                   ),
-
                                                   ft.Container( #: SPACE LAYOUTS
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -203,7 +200,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                                 ],
                                                            ),
                                                   ),
-
                                                   ft.Container( #: IMAGE WIDGET
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -218,7 +214,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                    font_family = "Consolas", #"Consolas ,RobotoSlab
                                                                    color=ft.colors.BLUE,
                                                        ),),
-
                                                   ft.Container( #: IMAGE WIDGET
                                                            ink=False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -239,7 +234,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                             ],
                                                        ),
                                                   ),
-
                                                   ft.Container( #: TEXT WIDGET
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -254,7 +248,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                        font_family = "Consolas", #"Consolas ,RobotoSlab
                                                                        color       = ft.colors.BLUE,
                                                            ),),
-
                                                   ft.Container( #: TEXT WIDGET
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -274,7 +267,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                         ],
                                                            ),
                                                   ),
-
                                                   ft.Container( #: BUTTONS WIDGETS
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -289,7 +281,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                    font_family = "Consolas", #"Consolas ,RobotoSlab
                                                                    color       = ft.colors.BLUE,
                                                        ),),
-
                                                   ft.Container( #: BUTTONS WIDGETS
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -314,7 +305,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                         ],
                                                    ),
                                                   ),
-
                                                   ft.Container( #: SELECTION WIDGET
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -329,7 +319,6 @@ class Build_Drag_Editor(ft.Stack):
                                                                font_family = "Consolas", #"Consolas ,RobotoSlab
                                                                color       = ft.colors.BLUE,
                                                    ),),
-
                                                   ft.Container( #: SELECTION WIDGET
                                                            ink             = False,
                                                            bgcolor         = ft.colors.BLACK26,
@@ -356,4 +345,5 @@ class Build_Drag_Editor(ft.Stack):
                                                  ],
                                     ),
                         )
+
           return drag_container_to_phone

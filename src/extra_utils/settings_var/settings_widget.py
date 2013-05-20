@@ -23,7 +23,8 @@ DATA_GLOBAL =  {
                  'CONFIG_TABS_CONTAINERS' : None,   # <== CONFIGURATION CONTAINER BOX THAT CONTAIN ALL WIDGET TO MODIFY PROPERTY
          'CONFIG_TABS_CONTAINERS_CONTENT' : None,   # <== CONFIGURATION CONTENT   BOX THAT CONTAIN ALL WIDGET TO MODIFY PROPERTY
 
-                        'PHONE_CONTAINER' : None,   # <== PHONE
+                             'PHONE_MAIN' : None,   # <== PHONE MAIN CONTAINER ONLY APPLY IMAGEN
+                        'PHONE_CONTAINER' : None,   # <== PHONE MAIN CONTENT CONTAINER TO APPLY BLUR COLOR
                 'PHONE_CONTAINER_CONTENT' : None,   # <== PHONE CONTENT
 
           'SELECT_DROPP_WIDGET_CONTAINER' : None,   # <== SELECTED WIDGET IN PHONE
@@ -36,6 +37,8 @@ DATA_GLOBAL =  {
                         'ABOUT_CONTAINER' : None,   # <== BOX CONTAINER WITH ABOUT PAGE
 
                   'TEXT_EDITOR_CONTAINER' : None,   # <== BOX CONTAINER WITH TEXT EDITOR LIKE SUBL
+
+                          'ALERT_WIDGET ' : None,   # <== GREEN ALERT SELECTED WIDGET
                }
 
 def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name',remove_global_var = 'var_remove'):

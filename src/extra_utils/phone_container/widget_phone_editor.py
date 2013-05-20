@@ -17,23 +17,32 @@ class Build_Phone_Editor(ft.Stack):
      def build(self):
 
           self.Build_Phone_Editor=ft.Container(
-                                        ink           = False,
-                                        padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
-                                        margin        = ft.margin.all(0),
-                                        alignment     = ft.alignment.center,
+                                        # ink           = False,
+                                        # padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
+                                        # margin        = ft.margin.all(0),
+                                        # alignment     = ft.alignment.center,
                                         border_radius = ft.border_radius.all(42),
-                                        border        = ft.border.all(2.5, ft.colors.WHITE),
+                                        # border        = ft.border.all(0, ft.colors.WHITE),
                                         width         = 295,
                                         height        = 566,
-                                        bgcolor       = '#070707',
+                                        alignment     = ft.alignment.center,
+                                        # bgcolor       = '#070707', #070707
+                                        # image_src     = 'logo.jpg',
+                                        # image_fit     = "COVER",
+                                        # blur          = (12,12),
+                                        # expand=True,
+
                                    content = ft.DragTarget(
                                                        group   = "GroupDragg",
                                                        content = ft.Container(
                                                                       border_radius = ft.border_radius.all(40),
                                                                       border        = ft.border.all(7.5, ft.colors.BLACK),
-                                                                      padding       = 0,
+                                                                      padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
                                                                       alignment     = ft.alignment.center,
-
+                                                                      bgcolor       = ft.colors.BLACK38, #07070   7
+                                                                      # blur          = (8,8),
+                                                                      # image_src     = 'logo.jpg',
+                                                                      # image_fit     = "COVER",
                                                                  content = ft.Column(
                                                                                 scroll   = 'HIDDEN',
                                                                                 spacing  = 2,
@@ -47,14 +56,32 @@ class Build_Phone_Editor(ft.Stack):
                                         ),#<========comma
                                    )
 
+          self.phone = ft.Container(
+                            ink           = False,
+                            padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
+                            margin        = ft.margin.all(0),
+                            alignment     = ft.alignment.center,
+                            border_radius = ft.border_radius.all(42),
+                            border        = ft.border.all(2.5, ft.colors.WHITE),
+                            width         = 295,
+                            height        = 566,
+                            content=self.Build_Phone_Editor,
+            )
+
+
+          self.phone_main              = self.Build_Phone_Editor
           self.phone_container         = self.Build_Phone_Editor.content.content
           self.phone_container_content = self.Build_Phone_Editor.content.content.content
+          # self.Build_Phone_Editor
 
+          GLOBAL_VAR(set_global_var={'PHONE_MAIN':self.phone_main})
+          GLOBAL_VAR(set_global_var={'PHONE_CONTAINER':self.phone_container})
           GLOBAL_VAR(set_global_var={'PHONE_CONTAINER':self.phone_container})
           GLOBAL_VAR(set_global_var={'PHONE_CONTAINER_CONTENT':self.phone_container_content})
 
 
-          return self.Build_Phone_Editor
+          return self.phone
+          # return self.Build_Phone_Editor
           #: return self.my_cover_flow
 
      def drag_accept(self,widgetDropBox):

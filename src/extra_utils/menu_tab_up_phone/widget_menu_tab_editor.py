@@ -1,4 +1,9 @@
 from ..menu_tab_up_phone.basic_menu_tab_up import BasicMenuUp
+from ..settings_var.save_export import MakeJasonFile
+from ..settings_var.settings_widget import GLOBAL_VAR
+
+import time
+import json
 import flet as ft
 
 class MenuUpContainer(ft.Stack):
@@ -7,6 +12,7 @@ class MenuUpContainer(ft.Stack):
           super().__init__()
 
           self.main_page=main_page
+          self.widget = MakeJasonFile()
 
      def build(self):
 
@@ -58,7 +64,7 @@ class MenuUpContainer(ft.Stack):
                                                                                                                         color    = ft.colors.TEAL,
                                                                                                                         weight   = ft.FontWeight.BOLD,
                                                                                                                         ),),],
-                                                                ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
+                                                                ),),
                                                                  ],),
 
                                                                  ft.Container(
@@ -87,11 +93,9 @@ class MenuUpContainer(ft.Stack):
                                                                                                       border_radius = ft.border_radius.all(30),
                                                                                                       border        = ft.border.all(2, ft.colors.BLACK12),
                                                                                                       width         = 60,
-                                                                                                      on_click=lambda _:print(_),
-                                                                                                      content=ft.Icon(
-                                                                                                                      name           = ft.icons.SAVE_AS_ROUNDED,
-
-                                                                                          ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
+                                                                                               on_click=lambda _: self.save_proyect(),
+                                                                                               content=ft.Icon(name = ft.icons.SAVE_AS_ROUNDED,),
+                                                                                          ),
 
                                                                                           ft.IconButton(
                                                                                                         ft.icons.CIRCLE,
@@ -158,4 +162,115 @@ class MenuUpContainer(ft.Stack):
 
           self.main_page.update()
 
-#######
+     def save_proyect(self):
+
+          # #: MIX ALL DATA FROM WITGETS
+          build_json_file  = self.widget.build_json_file(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
+          PHONE_MAIN       = GLOBAL_VAR(get_global_var='PHONE_MAIN')
+          PHONE_CONTAINER  = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
+          COLUMN_CONTAINER = PHONE_CONTAINER.content
+
+          # all_data , tmp_data = dict() ,dict()
+
+          # #: NEW COPY ATTRIBUTES
+          # PHONE_MAIN.copy_attrs(dest=tmp_data)
+          # del tmp_data['n']
+
+          # #: UPDATE DATA
+          # all_data[PHONE_MAIN.uid]=tmp_data
+
+          # #: NEW COPY ATTRIBUTES
+          # PHONE_CONTAINER.copy_attrs(dest=tmp_data)
+          # del tmp_data['n']
+
+          # #: UPDATE DATA
+          # all_data[PHONE_CONTAINER.uid]=tmp_data
+          # # main_pone_style = json.dumps(all_data, indent=4 ).replace('\\', '').replace('borderradius', 'border_radius')
+
+          # print(all_data.keys())
+
+          app_skeleton ={
+
+'app_event_manager':f'''
+
+"""
+NOTE: This is a global event that all events will be refer to this event_manager
+
+Exemple:
+
+is_gloval = 'hello world'     #: Global scope
+
+def event_2933(data):
+     global is_local          #: Set a local scope to global
+
+     is_local = 'hello world'
+"""
+
+from builder.app_manager import got_to_screen
+
+          {build_json_file.get('event_code')}''',
+
+'app_style': build_json_file.get('style_code'),
+
+'main_code': """
+
+from .app_style import styles
+from .app_events_manager import *
+import flet as ft
+
+def json_style(code):
+    return styles.get(code)
+
+#: only edit this seccion
+
+screens = {
+
+'main_screen':
+
+ft.Container(
+    **json_style('MAIN_STYLE'),
+
+    content = ft.Container(
+        **json_style('CONTAINER_STYLE'),
+
+        content = ft.Column(
+            **json_style('COLUMN_STYLE'),
+            controls = [
+
+REPLACE_THIS
+
+                  ]),
+),),
+}
+
+""".replace('MAIN_STYLE',PHONE_MAIN.uid).replace('CONTAINER_STYLE',PHONE_CONTAINER.uid).replace('COLUMN_STYLE',COLUMN_CONTAINER.uid).replace('REPLACE_THIS',build_json_file.get('main_code').strip('\n\n')),
+
+          }
+          # CONTAINER_STYLE
+          app_screens        = '/home/mjay/Desktop/git_hub/flet_box/__PROYECT__/proyect_name/proyect_name/controls/app_screens.py'
+          app_style          = '/home/mjay/Desktop/git_hub/flet_box/__PROYECT__/proyect_name/proyect_name/controls/app_style.py'
+          app_events_manager = '/home/mjay/Desktop/git_hub/flet_box/__PROYECT__/proyect_name/proyect_name/controls/app_events_manager.py'
+
+          with open(app_screens,'w') as f:
+               f.write(app_skeleton.get('main_code'))
+
+          with open(app_style,'w') as f:
+               f.write(app_skeleton.get('app_style'))
+
+          with open(app_events_manager,'w') as f:
+               f.write(app_skeleton.get('app_event_manager'))
+
+
+          #: run only in production
+          # print(app_skeleton.get('app_event_manager'))
+          # print(app_skeleton.get('app_style'))
+          # print(app_skeleton.get('main_code'))
+
+          #: NEED ACTIVATE ALER OF SELECTED WIDGET
+          selected_widget         = GLOBAL_VAR( get_global_var='ALERT_WIDGET')
+          selected_widget.offset  = (1.59,-7.5)
+          selected_widget.visible = True
+          selected_widget.update()
+          time.sleep(1)
+          selected_widget.visible = False
+          selected_widget.update()

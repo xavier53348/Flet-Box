@@ -80,6 +80,7 @@ class Build_Editor(ft.Stack):
           """
           global Drop_Build_Editor
 
+          self.main_phone                 = GLOBAL_VAR(get_global_var='PHONE_MAIN')
           self.main_phone_conainer        = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
           self.main_phone_conainer_conent = GLOBAL_VAR(get_global_var='PHONE_CONTAINER_CONTENT')
 
@@ -89,24 +90,25 @@ class Build_Editor(ft.Stack):
           widgets_dict = {
 
                #: ESPECIAL WIDGETS ONLY FOR PHONE
-                  'phone_margin'   :FourEntry(      config_widget = 'padding'                ,widget = self.main_phone_conainer),
 
-              'phone_image_src'     :SingleEntry(    config_widget = 'image_src'             ,widget = self.main_phone_conainer),
-              'phone_image_opacity' :SingleEntry(    config_widget = 'image_opacity'         ,widget = self.main_phone_conainer),
+               'phone_margin'       :FourEntry(      config_widget = 'padding'                ,widget = self.main_phone_conainer),
+
+               'phone_image_src'    :SingleEntry(    config_widget = 'image_src'             ,widget = self.main_phone),
+               'phone_image_opacity':SingleEntry(    config_widget = 'image_opacity'         ,widget = self.main_phone),
               'column_phone_spacing':SingleEntry(    config_widget = 'spacing'               ,widget = self.main_phone_conainer_conent),
 
-              'phone_bgcolor'       :ColorEntry(     config_widget = 'bgcolor'               ,widget = self.main_phone_conainer),
+               'phone_bgcolor'      :ColorEntry(     config_widget = 'bgcolor'               ,widget = self.main_phone_conainer),
 
-              'column_phone_wrap'   :BoolEntry(      config_widget = 'wrap'                  ,widget = self.main_phone_conainer_conent),
-              'column_phone_tight'  :BoolEntry(      config_widget = 'tight'                 ,widget = self.main_phone_conainer_conent),
-              'column_phone_scroll' :BoolEntry(      config_widget = 'scroll'                ,widget = self.main_phone_conainer_conent),
+               'column_phone_wrap'  :BoolEntry(      config_widget = 'wrap'                  ,widget = self.main_phone_conainer_conent),
+               'column_phone_tight' :BoolEntry(      config_widget = 'tight'                 ,widget = self.main_phone_conainer_conent),
+               'column_phone_scroll':BoolEntry(      config_widget = 'scroll'                ,widget = self.main_phone_conainer_conent),
 
-              'phone_image_fit'     :SelectionEntry( config_widget = 'image_fit'             ,widget = self.main_phone_conainer),
+               'phone_image_fit'    :SelectionEntry( config_widget = 'image_fit'             ,widget = self.main_phone),
            'column_phone_alignment' :SelectionEntry( config_widget = 'alignment'             ,widget = self.main_phone_conainer_conent),
 'column_phone_horizontal_alignment' :SelectionEntry( config_widget = 'horizontal_alignment'  ,widget = self.main_phone_conainer_conent),
 
-                   'phone_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.main_phone_conainer),
-                  'phone_blur'      :DoubleEntry(    config_widget = 'blur'                  ,widget = self.main_phone_conainer),
+               'phone_gradient'     :GradientEntry(  config_widget = 'gradient'              ,widget = self.main_phone),
+               'phone_blur'         :DoubleEntry(    config_widget = 'blur'                  ,widget = self.main_phone_conainer),
 
                #: ESPECIAL WIDGETS ONLY FOR CONTAINERS
 

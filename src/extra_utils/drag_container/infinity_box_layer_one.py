@@ -71,7 +71,7 @@ class InfinityBoxLayerOne(ft.Stack):
                                    ink=True,
                                    ink_color='green',                                   on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.GridView(runs_count=2,run_spacing=4,padding=8, spacing=4,
+                                   content=ft.GridView(runs_count=2,run_spacing=4,padding=ft.padding.all(6), spacing=4,
                                         controls= [
                                                        ],),),
                               ],

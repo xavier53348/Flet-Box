@@ -22,6 +22,9 @@ from extra_utils.chat_gpt_browser.gpt_browser                    import GptBrows
 from extra_utils.about.about                                     import AboutPage
 #:  CALL GLOBAL VAR  GLOBAL VARS
 from extra_utils.settings_var.settings_widget                    import GLOBAL_VAR
+#:  ALERT DIALOG
+from extra_utils.alert.alert_selected                            import AlertSelected
+
 
 import flet as ft
 
@@ -138,6 +141,7 @@ def main(page: ft.Page):
                               ),
                           )
 
+     GLOBAL_VAR()
      screen_1 = ft.Container(
                     ink             = False,
                     bgcolor         = ft.colors.BLACK54,
@@ -160,6 +164,7 @@ def main(page: ft.Page):
                                               controls=[
 
                                                      MenuUpContainer(main_page = page),
+
                                                      ft.Container( #: CENTER MAIN CONTAINER THAT HAVE ['LEFT DRAG', 'MIDDLE PHONE' ,'RIGHT CONFIG']
                                                                  ink       = False,
                                                                  padding   = ft.padding.all(0),
@@ -209,6 +214,7 @@ def main(page: ft.Page):
                                                                                 right_config_container,
                                                                               ],),
                                                           ),
+                                                      AlertSelected(),
                                                        ],
                                               ),
                                   ),

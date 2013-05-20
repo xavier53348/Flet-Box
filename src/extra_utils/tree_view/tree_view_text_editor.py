@@ -5,13 +5,14 @@ import flet as ft
 visible = False
 
 class TextEditorTextStream(ft.Stack):
-    def __init__(self,data_stream='Erase this test',width_stream=None ,header_code='' ,text_size= 12):
+    def __init__(self,data_stream='Erase this test',height_stream=720,width_stream=None ,header_code='' ,text_size= 12 ,):
         super().__init__()
 
-        self.data_stream  = data_stream
-        self.width_stream = width_stream
-        self.header_code  = header_code
-        self.text_size    = text_size
+        self.data_stream   = data_stream
+        self.width_stream  = width_stream
+        self.header_code   = header_code
+        self.text_size     = text_size
+        self.height_stream = height_stream
 
     def build(self):
 
@@ -28,7 +29,7 @@ class TextEditorTextStream(ft.Stack):
                                     border_radius = ft.border_radius.all(12),
                                     border        = ft.border.all(2, ft.colors.BLACK),
                                     width         = self.width_stream,
-                                    height        = 720,
+                                    height        = self.height_stream,
                                 content=ft.Column(
                                             expand               = True,
                                             expand_loose         = True,
@@ -110,7 +111,7 @@ class TreeViewTextEditor(ft.Stack):
                                                                                         height        = 30,
                                                                                         content       = ft.Icon(name=ft.icons.UPDATE_OUTLINED),
 
-                                                                                    on_click=lambda _:self.update_text_editor(self.widget),
+                                                                                    on_click = lambda _:self.update_text_editor(self.widget),
                                                                             ),
                                                                             ft.Container(
                                                                                         tooltip       = 'EXIT',
@@ -124,36 +125,49 @@ class TreeViewTextEditor(ft.Stack):
                                                                                         height        = 250,
                                                                                         content       = ft.Icon(name=ft.icons.ARROW_LEFT),
 
-                                                                                    on_click=lambda _:self.show_text_editor(),
+                                                                                    on_click = lambda _:self.show_text_editor(),
                                                                             ),
                                                             ])),),
                                                 ft.Container(
-                                                        bgcolor=ft.colors.BLACK45,
-                                                    content = ft.Column(
-                                                                    controls=[
+                                                        bgcolor = ft.colors.BLACK45,
+                                                        content = ft.Column(
+                                                                controls = [
 
-                                                                            TextEditorTextStream(data_stream=self.data_stream,width_stream=180 , header_code = "\tIndex Code",text_size=11),
-                                                                                ],
-                                                                        ),
-                                                            ),
-                                                ft.Container(
-                                                        bgcolor=ft.colors.BLACK45,
-                                                    content = ft.Column(
-                                                                    controls=[
-
-                                                                            TextEditorTextStream(data_stream=self.data_stream,width_stream=800 , header_code = "\tAll code box" ,text_size=14),
-                                                                                ],
-                                                                        ),
-                                                            ),
-                                                ft.Container(
-                                                        bgcolor=ft.colors.BLACK45,
-                                                    content = ft.Column(
-                                                                    controls=[
-
-                                                                            TextEditorTextStream(data_stream=self.data_stream,width_stream=340 , header_code = "\tJson style box",text_size=11),
-                                                                                ],
-                                                                        ),
-                                                            ),
+                                                                        TextEditorTextStream(data_stream=self.data_stream,width_stream=820 , header_code = "\tCode Box",text_size=11),
+                                                                            ],
+                                                                    ),
+                                                        ),
+                                                ft.Column(
+                                                        scroll      = True,
+                                                        spacing     = 0,
+                                                        run_spacing = 0,
+                                                        controls = [
+                                                            ft.Container(
+                                                                bgcolor = ft.colors.BLACK45,
+                                                                content = ft.Column(
+                                                                            controls=[
+                                                                                    TextEditorTextStream(
+                                                                                                            data_stream   = self.data_stream,
+                                                                                                            width_stream  = 500 ,
+                                                                                                            height_stream = 360,
+                                                                                                            header_code   = "\tStyle Box" ,
+                                                                                                            text_size     = 12),
+                                                                                    ],
+                                                                            ),
+                                                                    ),
+                                                            ft.Container(
+                                                                bgcolor = ft.colors.BLACK45,
+                                                                content = ft.Column(
+                                                                            controls=[
+                                                                                    TextEditorTextStream(
+                                                                                                            data_stream   = self.data_stream,
+                                                                                                            width_stream  = 500,
+                                                                                                            height_stream = 360,
+                                                                                                            header_code   = "\tEvents Box",
+                                                                                                            text_size     = 11),
+                                                                                    ],
+                                                                            ),
+                                                                    ),],)
                                              ],),
         )
 
@@ -172,17 +186,17 @@ class TreeViewTextEditor(ft.Stack):
         #: print(Drop_TextEditor.content.controls[1].content.controls[0].data_stream)
 
         #: FIRST
-        Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('second')
+        Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('main_code')
         Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls[0].update()
 
-        #: SECOND
-        #: Drop_TextEditor.content.controls[2].content.controls[0].controls[0].content.controls[0]
-        Drop_TextEditor.content.controls[2].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('main_code')
-        Drop_TextEditor.content.controls[2].content.controls[0].controls[0].content.controls[0].update()
+        # #: SECOND
+        # Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('index_code')
+        Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('style_code').replace('styles=', '')
+        Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls[0].update()
 
-        #: SECOND
-        Drop_TextEditor.content.controls[3].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('thirds')
-        Drop_TextEditor.content.controls[3].content.controls[0].controls[0].content.controls[0].update()
+        # #: SECOND
+        Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('event_code')
+        Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls[0].update()
 
 
 if __name__ == '__main__':
