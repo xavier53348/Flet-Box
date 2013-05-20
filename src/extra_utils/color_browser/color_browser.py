@@ -5,7 +5,7 @@ import time
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 
 
-class Icon_text(ft.UserControl):
+class Color_text(ft.UserControl):
     # globalVar='Erase this test'
 
     def __init__(self,data='Erase this test'):
@@ -13,7 +13,7 @@ class Icon_text(ft.UserControl):
         self.TMP=data
 
     def build(self):
-        Drop_Icon_text=ft.IconButton(
+        Drop_Color_text=ft.IconButton(
                                 # visible=True,
                                 visible=False,
                                 # height=60,
@@ -21,16 +21,28 @@ class Icon_text(ft.UserControl):
                             content=ft.Container(
                                         height=120,
                                         width=120,
-                                    on_click=lambda _:self.copy_to_clipboard(Drop_Icon_text.content.content.controls[0].name),
+                                    on_click=lambda _:self.copy_to_clipboard(Drop_Color_text.content.content.controls[0].bgcolor),
                                         visible=False,
                                     content=ft.Column(
 
                                             controls = [
-                                                ft.Icon(
-                                                        visible=False,
-                                                        name='home',
-                                                        size=30
-                                                        ),
+                                                # ft.Icon(
+                                                        # visible=False,
+                                                        # name='Square',
+                                                        # size=30
+                                                        # ),
+                                                ft.Container(
+                                                        height=120,
+                                                        width=120,
+                                                        ink           = False,                                                # click effect ripple
+                                                        bgcolor       = ft.colors.BLACK38,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                        padding       = ft.padding.all(8),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
+                                                        margin        = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
+                                                        alignment     = ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                        border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                        border        = ft.border.all(2, ft.colors.BLACK12),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                        # blur          = 20,
+                                                ),
                                                 ft.Text(
                                                     visible=False,
                                                     value      = 'testing',
@@ -47,7 +59,7 @@ class Icon_text(ft.UserControl):
                                         alignment=ft.alignment.center,
                                     ),
                                         )
-        return Drop_Icon_text
+        return Drop_Color_text
 
     def copy_to_clipboard(self,e):
         text_copy = e
@@ -61,10 +73,10 @@ class Icon_text(ft.UserControl):
         alert_dialog.update()
         ##########################
 
-######## Icon_text = Icon_text(),# <======= Comma
-class IconBrowser(ft.UserControl):
+######## Color_text = Color_text(),# <======= Comma
+class ColorBrowser(ft.UserControl):
     """
-    lite module to find icons by name
+    lite module to find colors by name
     """
 
     def __init__(self,blur_effect = False, numb_widget_to_show=50):
@@ -72,14 +84,14 @@ class IconBrowser(ft.UserControl):
         global alert_dialog
 
         # PREPARING THE LIST THAT WILL CONTENT ALL INCON INSIDE
-        self.list_icons = self.preparing_list_icons()
+        self.list_colors = self.preparing_list_colors()
         self.numb_widget_to_show = numb_widget_to_show
 
         if blur_effect:
             self.blur = 20
         else:
             self.blur = None
-        self.Icontext = Icon_text()
+        self.Icontext = Color_text()
 
         # BARNER THAT WILL SHOW AFTER MAKE CLICK OVER THE WIDGET
         alert_dialog = ft.Container(
@@ -96,24 +108,26 @@ class IconBrowser(ft.UserControl):
                                                         )
                                         )
         # GRID VIEW INSIDE THE MAIN LAYOUT
-        self.Search_Gridwiew = ft.GridView(
-                        visible     = False,
-                        # expand    = True,
+        self.Search_Gridwiew = ft.Row(
+                        visible  = False,
+                        wrap     = True,
+                        scroll='HIDDEN',
+                        # expand = True,
                         # wrap      = True,
-                        auto_scroll = False,
-                        ##################### PROPERTY GRIDVIEW
-                        runs_count         = 10, # column's number
-                        run_spacing        = 5,  # space between widget
-                        padding            = 8,
-                        spacing            = 5,  # space widget left right
-                        expand             = 1,
-                        child_aspect_ratio = 1,  # scale of widget
-                        max_extent         = 150, # lateral_size max
+                        # auto_scroll = False,
+                        # ##################### PROPERTY GRIDVIEW
+                        # runs_count         = 10, # column's number
+                        # run_spacing        = 5,  # space between widget
+                        # padding            = 8,
+                        # spacing            = 5,  # space widget left right
+                        # expand             = 1,
+                        # child_aspect_ratio = 1,  # scale of widget
+                        # max_extent         = 150, # lateral_size max
                         ##################### WIDGETS
-                    controls=[ Icon_text() for _ in range(self.numb_widget_to_show) ],
+                    controls=[ Color_text() for _ in range(self.numb_widget_to_show) ],
                         )
         # MAIN CONTAINER SKELETON OF THE WIDGET OR MAIN LAYOUT
-        self.Drop_IconBrowser=ft.Container(
+        self.Drop_ColorBrowser=ft.Container(
                     ##################### PROPERTY COLUMN
                     expand    = True,
                     ink       = False,                                                      # click effect ripple
@@ -140,7 +154,7 @@ class IconBrowser(ft.UserControl):
                                                 height        = 50,
                                                 ##################### WIDGETS
                                             content=ft.TextField(
-                                                                label                = " Search Icon name",
+                                                                label                = "  Search Colors by name",
                                                                 border               = ft.InputBorder.OUTLINE,              # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
                                                                 bgcolor              = ft.colors.BLACK12,                               # inside box
                                                                 focused_bgcolor      = ft.colors.BLACK12,                     # inside box after click
@@ -185,48 +199,50 @@ class IconBrowser(ft.UserControl):
 
     def build(self):
 
-        return self.Drop_IconBrowser
+        return self.Drop_ColorBrowser
 
-    def preparing_list_icons(self):
+    def preparing_list_colors(self):
         #########################################################
         # WE CALL ALL ICONS TO SAVE IN ICON_LIST TO MAKE ALOOP OVERIT
         # AND EXTRACT EXATCLY THE ICO THAT WE ARE FINDING
-        icons_list   = list()
+        colors_list   = list()
         list_started = False
 
-        for key, value in vars(ft.icons).items():
-            if key == "TEN_K":
+        for key, value in vars(ft.colors).items():
+            # print(key)
+            # time.sleep(0.2)
+            if key == "PRIMARY":
                 list_started = True
             if list_started:
-                icons_list.append(value)
+                colors_list.append(value)
 
-        return icons_list
+        return colors_list
 
     def search_icons(self,e):
         # ALL DATA THAT WE PASE BY TEXT_INPUT WILL BE IN LOWER CASE
         search_term = e.control.value.lower()
 
-        def run_upload_icons():
+        def run_upload_colors():
             global num_count
             num_count = 0
 
-            for _ in self.list_icons:
+            for _ in self.list_colors:
                 if _.startswith(search_term) and num_count < len(self.Search_Gridwiew.controls):
                     #########################################################
                     # ONLY SHOW IN SCREEN THE AMOUNT THAT WE FIND BY OUR SEARCH
                     # THE REST WILL NOW SHOW IN THE NEXT CODE
-                    self.ico_widget = self.Search_Gridwiew.controls[num_count].controls[0]
+                    self.color_widget = self.Search_Gridwiew.controls[num_count].controls[0]
 
                     # CHANGE ICO AND NAME ICO PROPERTY
-                    self.ico_widget.content.content.controls[0].name    = _
-                    self.ico_widget.content.content.controls[1].value   = _
+                    self.color_widget.content.content.controls[0].bgcolor = _
+                    self.color_widget.content.content.controls[1].value   = _
 
                     # CHANGE PROPERTY VISIBLE
-                    self.ico_widget.visible                             = True
+                    self.color_widget.visible                             = True
                     self.Search_Gridwiew.visible                        = True
                     self.Search_Gridwiew.controls[num_count].visible    = True
-                    self.ico_widget.content.content.controls[0].visible = True
-                    self.ico_widget.content.content.controls[1].visible = True
+                    self.color_widget.content.content.controls[0].visible = True
+                    self.color_widget.content.content.controls[1].visible = True
 
                     # NUMBER OF COUNT WIDGET WILL INCREASE TO HAVE CONTROL OF ALL DRAW WIDGETS
                     num_count+= 1
@@ -238,12 +254,12 @@ class IconBrowser(ft.UserControl):
 
             for _ in range(num_count,self.numb_widget_to_show):
                 # will take all widget that no exist in search icon in mode invisible
-                self.ico_widget = self.Search_Gridwiew.controls[_].controls[0]
+                self.color_widget = self.Search_Gridwiew.controls[_].controls[0]
 
-                self.ico_widget.visible = False
+                self.color_widget.visible = False
                 self.Search_Gridwiew.controls[_].visible = False
-                self.ico_widget.content.content.controls[0].visible = False
-                self.ico_widget.content.content.controls[1].visible = False
+                self.color_widget.content.content.controls[0].visible = False
+                self.color_widget.content.content.controls[1].visible = False
 
             #########################################################
             # UPDATE ALL WIDGETS INSIDE BOX JUST ONE TIME
@@ -252,9 +268,9 @@ class IconBrowser(ft.UserControl):
             self.Search_Gridwiew.update()
             #########################################################
 
-        run_upload_icons()
+        run_upload_colors()
 
-######## IconBrowser = IconBrowser(),# <======= Comma
+######## ColorBrowser = ColorBrowser(),# <======= Comma
 
 if __name__ == '__main__':
     def main(page: ft.Page):
@@ -272,6 +288,6 @@ if __name__ == '__main__':
         page.window_width              = 400
         page.padding                   = 0
         page.spacing                   = 0
-        page.add(IconBrowser())
+        page.add(ColorBrowser())
         ######################
     ft.app(target=main)

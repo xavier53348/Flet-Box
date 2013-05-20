@@ -10,6 +10,7 @@ from extra_utils.lite_menu_bar_down_phone.footer_bar_menu_phone import LiteMenuD
 from extra_utils.lite_menu_bar_down_phone.selected_widget import SelectedWidget
 ########################################################################################
 from extra_utils.icon_browser.icon_browser import IconBrowser
+from extra_utils.color_browser.color_browser import ColorBrowser
 ########################################################################################
 from extra_utils.settings_var.settings_widget import global_var, get_global_var
 
@@ -75,8 +76,21 @@ def main(page: ft.Page):
           content=Icon_Browser,
           )
      global_var(data_global={'Icon_Browser':IconBrowserContainer})
-     ############################################
+     ############################################ COLOR BROWSER
+     Color_Browser = ColorBrowser(blur_effect=True)
 
+     ColorBrowserContainer = ft.Container(
+               visible= False,
+               right  = 240,
+               left   = 240,
+               top    = 80,
+               bottom = 80,
+          content=Color_Browser,
+          )
+     ############################################ COLOR BROWSER
+     global_var(data_global={'Color_Browser':ColorBrowserContainer})
+
+     ############################################
      right_config_container = ft.Container( ###################### RIGHT CONFIG CONTAINER
                ##################### PROPERTY COLUMN
                ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
@@ -399,6 +413,7 @@ def main(page: ft.Page):
                     controls=[
                          screen_1,      # <=== main page
                          IconBrowserContainer,
+                         ColorBrowserContainer,
                          ]
           )
 

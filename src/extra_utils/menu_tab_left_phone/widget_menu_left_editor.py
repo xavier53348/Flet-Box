@@ -10,7 +10,8 @@ class MenuLeftContainer(ft.UserControl):
           super().__init__()
           # self.title='data'
           self.main_page=main_page
-          self.icon_browser = get_global_var(get_var='Icon_Browser')
+          self.icon_browser  = get_global_var(get_var='Icon_Browser')
+          self.color_browser = get_global_var(get_var='Color_Browser')
 
      def build(self):
 
@@ -80,37 +81,37 @@ class MenuLeftContainer(ft.UserControl):
                                                                                         # run_spacing=8,                                            # space widget up down
                                                                                         ##################### WIDGETS
                                                                                         controls=[
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Find Icons',content=ft.IconButton(icon=ft.icons.FIND_REPLACE_OUTLINED , on_click=lambda _:self.show_widgets(show_widget='icon_browser')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='ICONS',content=ft.IconButton(icon=ft.icons.SHAPE_LINE_ROUNDED , on_click=lambda _:self.show_widgets(show_widget='icon_browser')),
                                                                                                         bgcolor=ft.colors.BLACK45,
                                                                                                         height=45,
                                                                                                         width=45,
                                                                                                         border_radius=ft.border_radius.all(16)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Code'     ,content=ft.IconButton(icon=ft.icons.CODE_ROUNDED , on_click=lambda _:self.on_developing('Code')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='COLORS',content=ft.IconButton(icon=ft.icons.IMAGESEARCH_ROLLER_ROUNDED , on_click=lambda _:self.show_widgets(show_widget='color_browser')),
                                                                                                         bgcolor=ft.colors.BLACK45,
                                                                                                         height=45,
                                                                                                         width=45,
                                                                                                         border_radius=ft.border_radius.all(16)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Tree'     ,content=ft.IconButton(icon=ft.icons.ACCOUNT_TREE_ROUNDED , on_click=lambda _:self.on_developing('Tree')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='CODE'     ,content=ft.IconButton(icon=ft.icons.CODE_ROUNDED , on_click=lambda _:self.on_developing('Code')),
                                                                                                         bgcolor=ft.colors.BLACK45,
                                                                                                         height=45,
                                                                                                         width=45,
                                                                                                         border_radius=ft.border_radius.all(16)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Git-Hub'  ,content=ft.IconButton(icon=ft.icons.ENGINEERING_SHARP , on_click=lambda _:self.on_developing('Git-Hub')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='TREE'     ,content=ft.IconButton(icon=ft.icons.ACCOUNT_TREE_ROUNDED , on_click=lambda _:self.on_developing('Tree')),
                                                                                                         bgcolor=ft.colors.BLACK45,
                                                                                                         height=45,
                                                                                                         width=45,
                                                                                                         border_radius=ft.border_radius.all(16)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Drive'    ,content=ft.IconButton(icon=ft.icons.ADD_TO_DRIVE_SHARP , on_click=lambda _:self.on_developing('Drive')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='GIT-HUB'  ,content=ft.IconButton(icon=ft.icons.ENGINEERING_SHARP , on_click=lambda _:self.on_developing('Git-Hub')),
                                                                                                         bgcolor=ft.colors.BLACK45,
                                                                                                         height=45,
                                                                                                         width=45,
                                                                                                         border_radius=ft.border_radius.all(16)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Chat-Gpt' ,content=ft.IconButton(icon=ft.icons.SMART_TOY , on_click=lambda _:self.on_developing('Chat-Gpt')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='CHAT-GPT' ,content=ft.IconButton(icon=ft.icons.SMART_TOY , on_click=lambda _:self.on_developing('Chat-Gpt')),
                                                                                                         bgcolor=ft.colors.BLACK45,
                                                                                                         height=45,
                                                                                                         width=45,
@@ -135,6 +136,10 @@ class MenuLeftContainer(ft.UserControl):
           if show_widget == "icon_browser":
                self.icon_browser.visible  = True if not self.icon_browser.visible else False
                self.icon_browser.update()
+
+          if show_widget == "color_browser":
+               self.color_browser.visible  = True if not self.color_browser.visible else False
+               self.color_browser.update()
 
      def on_developing(self,name_seccion):
           page        = get_global_var(get_var='page')
