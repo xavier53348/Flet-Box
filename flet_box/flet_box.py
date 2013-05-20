@@ -13,6 +13,7 @@ from extra_utils import LiteMenuDownContainer
 from extra_utils import IconBrowser          #: ICON AND COLOR BROWSER CONTAINER
 from extra_utils import ColorBrowser
 from extra_utils import GptBrowser
+from extra_utils import SponsorPage          #: ABOUT DONATIONS CONTAINER
 from extra_utils import AboutPage            #: ABOUT CONTAINER
 from extra_utils import GLOBAL_VAR           #: CALL GLOBAL VAR  GLOBAL VARS
 from extra_utils import AlertSelected        #: ALERT DIALOG
@@ -68,6 +69,17 @@ def main(page: ft.Page):
      GLOBAL_VAR(set_global_var= {'build_Editor':right_config_container})
 
 
+     #: DONATION SCREEN
+     Sponsor_Browser = SponsorPage()#blur_effect=True
+     SponsorBrowserContainer = ft.Container(
+               visible= False,
+               right  = 60,
+               left   = 60,
+               top    = 40,
+               bottom = 40,
+          content=Sponsor_Browser,
+          )
+     GLOBAL_VAR(set_global_var={'DONATION_BROWSER_CONTAINER':SponsorBrowserContainer})
 
      #: ICON BROWSER
      Icon_Browser = IconBrowser(blur_effect=True)
@@ -260,7 +272,6 @@ def main(page: ft.Page):
                               MenuLeftContainer(),
                               ft.Container(
                                         expand    = True,
-                                        ink       = False,
                                         padding   = ft.padding.only(left=0, top=4, right=0, bottom=4),
                                         margin    = ft.margin.all(0),
                                         alignment = ft.alignment.center,
@@ -271,7 +282,6 @@ def main(page: ft.Page):
                                                      MenuUpContainer(main_page = page),
 
                                                      ft.Container( #: CENTER MAIN CONTAINER THAT HAVE ['LEFT DRAG', 'MIDDLE PHONE' ,'RIGHT CONFIG']
-                                                            ink       = False,
                                                             padding   = ft.padding.all(0),
                                                             margin    = ft.margin.all(0),    #outside box
                                                             alignment = ft.alignment.center,
@@ -281,7 +291,6 @@ def main(page: ft.Page):
                                                                        drag_container_to_phone,
                                                                        ft.Container( #: MIDDLE CONTAINER
                                                                                 expand    = True,
-                                                                                ink       = False,
                                                                                 padding   = ft.padding.all(0),
                                                                                 margin    = ft.margin.all(0),
                                                                                 alignment = ft.alignment.center,
@@ -334,6 +343,7 @@ def main(page: ft.Page):
      data_stack = ft.Stack(
                     controls = [
                                    screen_1,
+                                   SponsorBrowserContainer,
                                    IconBrowserContainer,
                                    ColorBrowserContainer,
                                    GptBrowserContainer,
@@ -371,8 +381,10 @@ if __name__ == '__main__':
 
      ft.app(
             target=main,
-            port=8080,
-            # view=ft.AppView.WEB_BROWSER, #view=ft.WEB_BROWSER,
+            assets_dir="assets",
+            # port=8080,
+            # view=ft.AppView.WEB_BROWSER, #
+            # view=ft.WEB_BROWSER,
             # web_renderer=ft.WebRenderer.HTML
           )
 

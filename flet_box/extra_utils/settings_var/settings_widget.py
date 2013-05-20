@@ -35,6 +35,8 @@ DATA_GLOBAL = {
                 'COLOR_BROWSER_CONTAINER' : None,   # <== BOX CONTAINER WITH SEARCH COLORS
                   'GPT_BROWSER_CONTAINER' : None,   # <== BOX CONTAINER WITH SEARCH GPT
 
+             'DONATION_BROWSER_CONTAINER' : None,   # <== DONATION PAGE
+
                         'ABOUT_CONTAINER' : None,   # <== BOX CONTAINER WITH ABOUT PAGE
 
                   'TEXT_EDITOR_CONTAINER' : None,   # <== BOX CONTAINER WITH TEXT  EDITOR LIKE SUBL

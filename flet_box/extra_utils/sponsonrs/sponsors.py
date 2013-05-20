@@ -2,8 +2,55 @@ import os
 import flet as ft
 # from ..settings_var.settings_widget import GLOBAL_VAR
 
+click_avalidation: bool = False
 
-class InfoPrices(ft.Container):
+
+
+
+
+
+
+dictionary_contribution: dict= {
+
+"header":"""
+▎Flet-Box: The Future of Development, Built on Freedom""",
+"body":"""\
+The software landscape is changing.
+
+While many powerful tools are locked behind expensive paywalls, Flet-Box stands as a beacon of open-source innovation, accessible to everyone.
+But the reality is, free and open-source projects like ours face constant challenges.  We rely on the generosity of our community to keep our doors open and continue to empower developers of all levels.
+Join us in building a future where innovation is truly free.  Contribute today and help us keep Flet-Box alive.  Every contribution, big or small, makes a difference.
+
+We accept donations in the following cryptocurrencies:
+
+             • MATIC    • BNB    • TRON    • ETH
+
+Together, we can ensure that Flet-Box remains a vital resource for the future of development, accessible to everyone, regardless of budget.
+
+""",
+"crypto":{
+        "Matic":{
+                "address":"0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA",
+                "path_image":"",
+            },
+
+        "Tron":{
+                "address":"THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ",
+                "path_image":"",
+            },
+        "Bnb":{
+                "address":"bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr",
+                "path_image":"",
+            },
+        "Sol":{
+                "address":"0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA",
+                "path_image":"",
+            },
+            }
+
+}
+
+class InfoProyect(ft.Container):
     # globalVar='Erase this test'
 
     def __init__(self,data='Erase this test'):
@@ -15,22 +62,177 @@ class InfoPrices(ft.Container):
         self.content=ft.Container(
                                 # expand=True,
                                 ink=False,                                                      # click effect ripple
-                                bgcolor="#3f9a64",                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                padding= ft.padding.all(0),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
+                                bgcolor=ft.colors.BLACK45,                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                padding= ft.padding.all(8),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
                                 margin = ft.margin.all(0),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
-                                alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                # border_radius= ft.border_radius.all(30),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                alignment=ft.alignment.top_center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                border_radius= ft.border_radius.all(36),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                 border=ft.border.all(2, ft.colors.BLACK),                       # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                shadow = ft.BoxShadow(
+                                           spread_radius=0,
+                                           blur_radius=18,
+                                           color=ft.colors.with_opacity(0.8,ft.colors.BLACK),
+                                           offset=ft.Offset(0, 0),
+                                           blur_style=ft.ShadowBlurStyle.OUTER,
+                                     ),
+                                gradient=ft.LinearGradient( begin = ft.alignment.top_center,
+                                                            end   = ft.alignment.bottom_left,
+                                                            colors= [
+                                                                     ft.colors.BLACK,
+                                                                     ft.colors.BLACK12 ,
+                                                                     ft.colors.BLACK,
+                                                                     ],),
+                                width=360,
+                                # height=600,
+                                # tooltip='Container',
+                                ############################
+                            content=ft.Column(
+                                           controls = [
+                                                        # ft.Text(value=dictionary_contribution.get("header")),
+                                                        # ft.Text(value=dictionary_contribution.get("body")),
+                                                        ft.Text(
+                                                                spans=[
+                                                                ft.TextSpan( f"{dictionary_contribution.get('header')}\n\n",
+                                                                ft.TextStyle(size=18,
+                                                                             color = ft.colors.RED,
+                                                                             weight= ft.FontWeight.BOLD,
+                                                                             ),),
+                                                                ft.TextSpan( dictionary_contribution.get("body"),
+                                                                ft.TextStyle(size=15,
+                                                                             color=ft.colors.WHITE,
+                                                                             # decoration= ft.TextDecoration.LINE_THROUGH,
+                                                                             ),),
+                                                                ],),
+                                           ]
+                                           )
+                        )
+
+class CardPrice(ft.Container):
+    # globalVar='Erase this test'
+
+    def __init__(self,card_color: bool=False,card_plan: int=1,card_price: int=1,card_type: str=""):
+        super().__init__()
+        # self.title='data'
+        self.card_color=card_color
+        self.card_plan = card_plan
+        self.card_type = card_type
+        self.card_price = card_price
+        self.gold_color = ft.colors.YELLOW_ACCENT_400 if self.card_color else ft.colors.BLUE_900
+
+
+        if self.card_plan == 1: self.buy_card = [ True, False, False, False, False ]
+        if self.card_plan == 2: self.buy_card = [ True, True,  False, False, False ]
+        if self.card_plan == 3: self.buy_card = [ True, True,  True,  True,  True  ]
+
+    def build(self):
+        self.content=ft.Container(
+                                expand=True,
+                                ink=False,                                                      # click effect ripple
+                                bgcolor=ft.colors.BLACK45,                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                padding= ft.padding.all(8),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
+                                margin = ft.margin.all(8),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
+                                alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                border_radius= ft.border_radius.all(30),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                border=ft.border.all(6, ft.colors.BLACK45),                       # ft.border.only(Left=8, top=8, right=8, bottom=8),
+
+                                shadow = ft.BoxShadow(
+                                       spread_radius=0,
+                                       blur_radius=16,
+                                       color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
+                                       offset=ft.Offset(0, 0),
+                                       blur_style=ft.ShadowBlurStyle.OUTER,
+                                 ),
+
+                                gradient=ft.LinearGradient( begin = ft.alignment.top_center,
+                                                            end   = ft.alignment.bottom_left,
+                                                            colors= [
+                                                                     ft.colors.BLACK,
+                                                                     self.gold_color ,
+                                                                     ft.colors.BLACK,
+                                                                     ],),
                                 # ===================
                                 # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
                                 # image_opacity=0.1,
                                 # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                 # ===================
-                                width=150,
+                                width=240,
+                                height=360,
+                                # tooltip='Container',
+                                ############################
+                            content=ft.Column(
+                                                    alignment=ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,        # vertical       START,CENTER END
+                                                    spacing=0,
+                                                    run_spacing=0,
+                                                    controls=[
+                                                        ft.Text(value=self.card_type,size=16, weight = ft.FontWeight.BOLD),
+                                                        ft.Text(spans=[
+                                                                        ft.TextSpan( f"${self.card_price}",
+                                                                        ft.TextStyle(size=24,
+                                                                                     color=ft.colors.WHITE38,
+                                                                                     weight= ft.FontWeight.BOLD,
+                                                                                     decoration= ft.TextDecoration.LINE_THROUGH,
+                                                                                     ),),
+                                                                        ft.TextSpan( f"${self.card_price//2} ",
+                                                                        ft.TextStyle(size=45,
+                                                                                     color=ft.colors.WHITE,
+                                                                                     weight= ft.FontWeight.BOLD,
+                                                                                     # decoration= ft.TextDecoration.LINE_THROUGH,
+                                                                                     ),),],
+
+
+                                                        ),
+                                                        ft.Text(value="Per Month",size=16, weight = ft.FontWeight.BOLD,),
+
+                                                        ft.Checkbox(label="Core Plataform Features", value=self.buy_card[0]),
+                                                        ft.Checkbox(label="Unlimit Compilate App",   value=self.buy_card[1]),
+                                                        ft.Checkbox(label="Code Download",           value=self.buy_card[2]),
+                                                        ft.Checkbox(label="GitHub Integration",      value=self.buy_card[3]),
+                                                        ft.Checkbox(label="App & Play Store Dev",    value=self.buy_card[4]),
+                                                        ft.ElevatedButton(
+                                                                          text="FREE",
+                                                                          bgcolor=ft.colors.BLACK45,
+                                                                          )
+                                               ]
+                                              )
+                        )
+######## CardPrice = CardPrice(),# <======= Comma
+
+
+class InfoPrices(ft.Container):
+    # globalVar='Erase this test'
+
+    def __init__(self,data='Erase this test'):
+        super().__init__()
+        # self.title='data'
+        self.title=data
+
+    def build(self):
+        self.content=ft.Container(
+                                expand=True,
+                                ink=False,                                                      # click effect ripple
+                                bgcolor  = ft.colors.BLACK26,                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                padding  = ft.padding.all(0),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
+                                margin   = ft.margin.all(0),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
+                                alignment= ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                border_radius= ft.border_radius.all(36),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                border = ft.border.all(2, ft.colors.BLACK),                       # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                # ===================
+                                # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
+                                # image_opacity=0.1,
+                                # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                # ===================
+                                # width=150,
                                 # height=150,
                                 # tooltip='Container',
                                 ############################
-                            content=ft.Text(f"{self.title}")
+                            content = ft.Row(
+                                           controls = [
+                                           CardPrice(card_plan=1, card_price=110 ,card_type="Standar"),
+                                           CardPrice(card_plan=3 ,card_price=200 ,card_type="Pro" ,card_color=True),
+                                           CardPrice(card_plan=2, card_price=160 ,card_type="Teams"),
+                                           ]
+                                           )
                         )
 ######## InfoPrices = InfoPrices(),# <======= Comma
 
@@ -52,25 +254,33 @@ class WalletDirection(ft.Container):
                             border_radius= ft.border_radius.all(30),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                             border       = ft.border.all(2, ft.colors.BLACK),                       # ft.border.only(Left=8, top=8, right=8, bottom=8),
                             # ===================
-                            # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                            # image_opacity=0.1,
-                            # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                            image_src = f"/home/mjay/Desktop/testing_create_package/flet_box/assets/.cripto.webp",
+                            image_opacity=0.05,
+                            image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                             # ===================
-                            width    = 320,
-                            height   = 320,
+                            # width    = 220,
+                            # height   = 220,
                             # tooltip='Container',
+                            expand=True,
                             ############################
-                            content=ft.Column(
+                            content=ft.Row(
                                        controls=[
                                             ft.Container(
                                                         ink=False,                                                      # click effect ripple
-                                                        # bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                        bgcolor  = ft.colors.BLACK45,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                                         padding  = ft.padding.all(8), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                        margin   = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                        margin   = ft.margin.all(8),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
                                                         alignment= ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                        width    = 320,
-                                                        height   = 320,
+                                                        width    = 190,
+                                                        height   = 190,
                                                         border_radius= ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                        shadow = ft.BoxShadow(
+                                                                   spread_radius=0,
+                                                                   blur_radius=18,
+                                                                   color=ft.colors.with_opacity(0.8,ft.colors.BLACK),
+                                                                   offset=ft.Offset(0, 0),
+                                                                   blur_style=ft.ShadowBlurStyle.OUTER,
+                                                             ),
                                                         content=ft.Image(
                                                                     ##################### PROPERTY
                                                                     # img most be inside assets /name_imagen.png
@@ -78,36 +288,69 @@ class WalletDirection(ft.Container):
                                                                     fit               = ft.ImageFit.COVER,                      # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                                                     # repeat          = ft.ImageRepeat.NO_REPEAT,
                                                                     border_radius   = ft.border_radius.all(30),               # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                    # key             = 'is our id',
-                                                                    # expand          = True,
-                                                                    # data            = 'value of the button',                  # store data in the button
-                                                                    # tooltip         = 'Image',
-                                                                    ##################### COLOR
-                                                                    # color           = 'yellow',                               # text color
-                                                                    ##################### ATTRIB
-                                                                    # visible         = False,
-                                                                    # opacity         = 1,
-                                                                    # disabled        = True,
-                                                                    # semantics_label = "Double dollars",
-                                                                    ##################### POSITION
-                                                                    # rotate          = 20 ,
-                                                                    # offset          = (0,1),
-                                                                    # scale           = 0.9,
-                                                                    # aspect_ratio    = 2,
-                                                                    ##################### MULTI LABEL
-                                                                    # width           = 240,
-                                                                    # height          = 32,
-                                                                    ##################### STYLES TEXT
-                                                                    # src_base64      = "iVBORw0KGgoAAAANSUhEUgAAAOYAAAA7CAYAAABvyvZKAAAAGXRFWHRTb2Z0d2FyZQB"),
-                                                                    # base64 -i <image.png> -o <image-base64.txt>
-                                                                    #####################
-                                                                    # src_base64       = data_base64.data_imagen,
-                                                                    # CLEAR ,COLOR ,COLOR_BURN ,COLOR_DODGE ,DARKEN ,DIFFERENCE ,DST ,DST_A_TOP ,DST_IN ,DST_OUT ,DST_OVER ,EXCLUSION  HARD_LIGHT ,HUE ,LIGHTEN
-                                                                    # LUMINOSITY , MODULATE (default) ,MULTIPLY ,OVERLAY ,PLUS ,SATURATION ,SCREEN ,SOFT_LIGHT ,SRC ,SRC_A_TOP ,SRC_IN ,SRC_OUT ,SRC_OVER ,VALUES ,XOR
-                                                                    # color_blend_mode = ft.BlendMode.COLOR_BURN,
-                                                                    # gapless_playback = True,
-                                                        ##################### EVENTS
-                                                        # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
+                                            ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
+                                            ft.Container(
+                                                        ink=False,                                                      # click effect ripple
+                                                        # bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                        padding  = ft.padding.all(8), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                        margin   = ft.margin.all(8),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                        alignment= ft.alignment.center_left,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                        # width    = 555,
+                                                        # height   = 220,
+                                                        border_radius= ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                        content=ft.Column(
+                                                                          controls=[
+
+                                                                          ft.ElevatedButton(text="Solana",elevation=12,bgcolor=ft.colors.RED_800),
+                                                                          ft.ElevatedButton(text="Matic" ,elevation=12,bgcolor=ft.colors.BLUE_800),
+                                                                          ft.ElevatedButton(text="Bnb"   ,elevation=12,bgcolor=ft.colors.CYAN_900),
+                                                                          ft.ElevatedButton(text="Tron"  ,elevation=12,bgcolor=ft.colors.PURPLE_900),
+
+                                                                          ]
+                                            ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
+
+                                            ft.Container(
+                                                        # ink=False,                                                      # click effect ripple
+                                                        bgcolor  =ft.colors.BLACK26,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                        padding  = ft.padding.only(left=12, top=24, right=8, bottom=8), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                        margin   = ft.margin.all(8),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                        # alignment= ft.alignment.center_left,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                        width    = 450,
+                                                        # height   = 220,
+                                                        border_radius= ft.border_radius.all(24),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                        content=ft.Column(
+                                                                          run_spacing=8,
+                                                                          spacing =8,
+                                                                          controls=[
+
+
+                                                                          ft.Row(
+                                                                                controls=[
+                                                                                        ft.Text(value="Matic:   TRC20 ",size=24, weight = ft.FontWeight.BOLD),
+                                                                                        ],
+                                                                                 ),
+
+                                                                          ft.Row(
+                                                                                 run_spacing=0,
+                                                                                 spacing    =4,
+                                                                                 controls=[
+                                                                                 ft.ElevatedButton(text="Copy",elevation=12,bgcolor=ft.colors.RED_800),
+                                                                                 ft.TextButton(
+                                                                                          text="0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA",
+                                                                                          ),
+                                                                                 ]),
+                                                                          ft.Text(
+                                                                                    spans=[
+
+                                                                                    ft.TextSpan( "Hello Dev:   You may invite me a beer ;)\n",
+                                                                                    ft.TextStyle(size=20,
+                                                                                                 weight= ft.FontWeight.BOLD,
+                                                                                                 color=ft.colors.BLUE_ACCENT_200,
+                                                                                                 ),),
+                                                                                    ],
+                                                                                        ),
+
+                                                                          ]
                                             ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
 
                                        ]
@@ -116,10 +359,7 @@ class WalletDirection(ft.Container):
 ######## InfoPrices = InfoPrices(),# <======= Comma
 
 class SponsorPage(ft.Stack):
-    data_dev = {
-        'profile':"""Experienced software developer with a passion for creating intuitive graphical user interfaces (GUIs) across multiple platforms. Dedicated to delivering high-quality, user-centric applications tailored to meet specific client needs.
-        """
-    }
+
     def __init__(self,data='Erase this test'):
         super().__init__()
         self.title=data
@@ -161,29 +401,40 @@ class SponsorPage(ft.Stack):
                     alignment     = ft.alignment.center,
                     border_radius = ft.border_radius.all(30),
                     border        = ft.border.all(1, ft.colors.TEAL_900),
-                    height        = 650,
-                    width=1200,
-                    blur=(20,20),
+                    # height        = 650,
+                    # width=950,
+                    expand        = True,
+                    blur=(60,60),
                     ###################
-                on_click  = lambda _:self.show_widgets(show_widget='about_page'),
+                # on_hover= lambda _: self.validate_click(),
                 content=ft.Row(
-                                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                                    vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                                    # alignment=ft.MainAxisAlignment.CENTER,
+                                    # vertical_alignment=ft.CrossAxisAlignment.CENTER,
                                     controls=[
                                                 # self.left_column,
-                                                InfoPrices(),
-                                                WalletDirection(),
+                                                ft.Container(
+                                                             content=ft.Column(
+                                                                    controls=[
+                                                                            InfoPrices(),
+                                                                            WalletDirection(),
+                                                                    ] )
+                                                             ),
+                                                InfoProyect(),
                                                 # self.right_column,
                                              ],),
         )#<=== NOTE COMA
         return Drop_SponsorPage
 
-    def show_widgets(self,show_widget):
-        """SHOW PAGES"""
-        if show_widget == "about_page":
-            self.about_page  = GLOBAL_VAR(get_global_var='ABOUT_CONTAINER')
-            self.about_page.visible  = True if not self.about_page.visible else False
-            self.about_page.update()
+    def validate_click(self):
+        global click_avalidation
+        self.donation_page_browser  = GLOBAL_VAR(get_global_var='DONATION_BROWSER_CONTAINER')
+
+        if click_avalidation:
+            click_avalidation = False
+            self.donation_page_browser.visible = False
+            self.donation_page_browser.update()
+        else:
+            click_avalidation = True
 
 
 if __name__ == '__main__':
@@ -199,7 +450,7 @@ if __name__ == '__main__':
         page.window_left               = 3
         page.window_top                = 3
         page.window_height             = 700
-        page.window_width              = 800
+        # page.window_width              = 1200
         page.padding                   = 0
         page.spacing                   = 0
         page.add(SponsorPage())

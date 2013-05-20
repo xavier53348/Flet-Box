@@ -7,7 +7,8 @@ class BasicMenuUp(ft.Stack):
     def __init__(self):
         super().__init__()
 
-        self.about_page  = GLOBAL_VAR(get_global_var='ABOUT_CONTAINER')
+        self.about_page    = GLOBAL_VAR(get_global_var='ABOUT_CONTAINER')
+        self.sponsor_page  = GLOBAL_VAR(get_global_var='DONATION_BROWSER_CONTAINER')
 
     def build(self):
         Drop_BasicMenuUp = ft.Container(
@@ -66,8 +67,10 @@ class BasicMenuUp(ft.Stack):
                                                     border          = ft.border.all(2, ft.colors.BLACK12),
                                                     gradient        = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
                                                     content=ft.TextButton(
-                                                            text = 'Sponsor',
+                                                            text = 'Activation',
                                                             icon = 'data_thresholding',
+                                                            icon_color=ft.colors.YELLOW_700,
+                                                            on_click  = lambda _:self.show_widgets(show_widget='Sponsor_page'),
                                                 ),
                                         ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
 
@@ -109,6 +112,11 @@ class BasicMenuUp(ft.Stack):
         if show_widget == "about_page":
             self.about_page.visible  = True if not self.about_page.visible else False
             self.about_page.update()
+
+        if show_widget == "Sponsor_page":
+            self.sponsor_page.visible  = True if not self.sponsor_page.visible else False
+            self.sponsor_page.update()
+
 
 if __name__ == '__main__':
 

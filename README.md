@@ -41,6 +41,7 @@
 ```bash
 
 >>> source .venv/bin/activate
+>>> pip install --upgrade pip
 >>> pip install flet
 >>> pip install -r requirements.txt
 

@@ -28,3 +28,5 @@ from .screen_manager.screen_manager                   import ScreenManager ,scre
 from .color_browser.small_palette_color               import Screen_palette
 #: IMAGEN SELECTION
 from .config_container.photo_selection                import ScreenPhotoSelection
+#: SPONSOR DONATION PAGE
+from .sponsonrs.sponsors                              import SponsorPage
