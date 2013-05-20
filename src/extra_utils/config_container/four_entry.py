@@ -12,10 +12,11 @@ class FourEntry(ft.Stack): ##################### PROPERTY
     def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget='',id_name_widget_dict=None):
         super().__init__()
         """ Is neccesary make a filter that will contain name of the widget to use"""
-        self.widget           = widget        # <=== widget
-        self.attribute_widget = config_widget # <=== widget attribute
+        self.widget              = widget        # <=== widget
+        self.attribute_widget    = config_widget # <=== widget attribute
         self.id_name_widget_dict = id_name_widget_dict
 
+        # print(self.attribute_widget)
         # will change name of entry points
         ##################### ONLY FOR CONTAINER
         if  self.attribute_widget == "padding" or self.attribute_widget == "margin":
@@ -213,48 +214,45 @@ class FourEntry(ft.Stack): ##################### PROPERTY
         ########################################## ONLY FOR CONTENT
         if  config_widget   == "padding":
             """ all values in Box Container """
-
-            self.left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
-            self.top    = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
-            self.right  = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
-            self.bottom = value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
+            left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
+            top    = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
+            right  = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
+            bottom = value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
 
             self.widget.padding = ft.padding.only(
-                                                    left   = self.left,
-                                                    top    = self.top,
-                                                    right  = self.right,
-                                                    bottom = self.bottom
+                                                    left   = int(left),
+                                                    top    = int(top),
+                                                    right  = int(right),
+                                                    bottom = int(bottom),
                                                   )
         if  config_widget   == "margin":
             """ all values in Box Container """
 
-            self.left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
-            self.top    = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
-            self.right  = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
-            self.bottom = value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
+            left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
+            top    = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
+            right  = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
+            bottom = value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
 
             self.widget.margin = ft.margin.only(
-                                                    left   = self.left,
-                                                    top    = self.top,
-                                                    right  = self.right,
-                                                    bottom = self.bottom
+                                                    left   = int(left),
+                                                    top    = int(top),
+                                                    right  = int(right),
+                                                    bottom = int(bottom),
                                                 )
         if  config_widget   == "border_radius":
             """ all values in Box Container """
 
-            self.top_left    = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
-            self.top_right   = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
-            self.bottom_left = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
-            self.bottom_right= value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
+            top_left    = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
+            top_right   = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
+            bottom_left = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
+            bottom_right= value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
 
             self.widget.border_radius = ft.border_radius.only(
-                                                    top_left   = self.top_left,
-                                                    top_right    = self.top_right,
-                                                    bottom_left  = self.bottom_left,
-                                                    bottom_right = self.bottom_right
+                                                    top_left     = int(top_left),
+                                                    top_right    = int(top_right),
+                                                    bottom_left  = int(bottom_left),
+                                                    bottom_right = int(bottom_right),
                                                 )
-        # print(self.widget)
-        # print(self.widget.uid)
         self.widget.update()
 
 ######## Double_Widget = FourEntry(),# <======= Comma

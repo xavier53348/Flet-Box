@@ -475,18 +475,29 @@ class LiteMenuUpContainer(ft.Stack):
 
                    """
                    id_widget      = self.main_page.get_control(touch_widget_in_phone.uid)
+
+                   ########## erase
                    get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}" # <===== Stack()
                    page_control   = self.main_page.get_control(get_control_id)
-                   page_control.clean()
+
+                   print(page_control)
+                   page_control=[]
+                   print(page_control)
+
+                   # page_control.update()
+                   ########### erase
+
+                   # get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}" # <===== Stack()
+                   # page_control   = self.main_page.get_control(get_control_id)
+                   # page_control.clean()
 
                    #####################################################################
                    # CHECK IF WIDGET ID EXIST IN DATABASE IF TRUE REMOVE CURRENT WIDGET FROM MAIN DATABASE
-                   GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
+                   # GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
 
-                   if GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE').get(touch_widget_in_phone.id):
-                       GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
+                   # if GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE').get(touch_widget_in_phone.id):
+                   #     GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
 
-                   # GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':[]})
                    #####################################################################
 
           if action == 'rotation':

@@ -11,10 +11,11 @@ class DoubleEntry(ft.Stack): ##################### PROPERTY
     """
     def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget='',id_name_widget_dict=None):
         super().__init__()
-        self.widget           = widget        # <=== widget
-        self.attribute_widget = config_widget # <=== widget attribute
+        self.widget              = widget        # <=== widget
+        self.attribute_widget    = config_widget # <=== widget attribute
         self.id_name_widget_dict = id_name_widget_dict
 
+        # print(self.attribute_widget)
         ################# CONTAINER STR
         if self.attribute_widget == "width ":
             self.attribute_widget_name_1 = 'Width'

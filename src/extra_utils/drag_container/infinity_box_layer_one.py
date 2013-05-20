@@ -32,7 +32,8 @@ class InfinityBoxLayerOne(ft.Stack):
           super().__init__()
           # assd=''
           self.dataPassed = dataPassed
-          # self.InstanceNewWidget = NewWidget()
+          self.clip_behavior = ft.ClipBehavior.NONE
+
      def build(self):
           global numWidget
           # self.tmp=ft.Container()
