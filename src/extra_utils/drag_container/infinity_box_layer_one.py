@@ -89,7 +89,7 @@ class InfinityBoxLayerOne(ft.UserControl):
                      "Image": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Image',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.Image(src=f'logo.jpg',fit=ft.ImageFit.FILL,width=110,height=110,tooltip='Image'),),
+                                   content=ft.Image(src=f'no_imagen.jpg',fit=ft.ImageFit.FILL,width=110,height=110,tooltip='Image'),),
                               ],
                     "Avatar": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Avatar',
                                    on_hover=lambda _:self.resetClick(),

@@ -549,3 +549,23 @@ class Build_Editor(ft.UserControl):
           # tmp_.content.update()
 
           ######## BuildEditor = Build_Editor(),# <======= Comma
+
+if __name__ == '__main__':
+    def main(page: ft.Page):
+        ######################
+        page.scroll                    = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
+        page.vertical_alignment        = ft.MainAxisAlignment.CENTER
+        page.horizontal_alignment      = ft.CrossAxisAlignment.CENTER
+        ######################  COLOR
+        page.theme_mode                = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
+        page.window_bgcolor            = ft.colors.RED_100
+        ###################### POSITION OF SC
+        page.window_left               = 3
+        page.window_top                = 3
+        page.window_height             = 680
+        page.window_width              = 360
+        page.padding                   = 0
+        page.spacing                   = 0
+        page.add(Build_Editor(widget=ft.Container()))
+        ######################
+    ft.app(target=main)
