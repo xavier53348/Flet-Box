@@ -80,7 +80,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                                         # key             = 'is our id',
                                                         # expand          = True,
                                                         # data            = 'value of the button',                                  # store data in the button
-                                                        value             = 'width - height' if self.attribute_widget == 'width' else self.attribute_widget.capitalize(), # content = ft.Text(value="Compound button", size=12,),
+                                                        value             = 'width - height' if self.attribute_widget == 'width' else self.attribute_widget.capitalize().replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
                                                         # tooltip         = 'ElevatedButton',
                                                         # text_align        = ft.TextAlign.CENTER,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
                                                         # style           = ft.TextStyle(decoration=ft.TextDecoration.UNDERLINE ), # OVERLINE,
@@ -137,7 +137,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                                                                     border_radius= ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
 
                                                                                     content=ft.TextField(
-                                                                                                    hint_text=self.attribute_widget,
+                                                                                                    hint_text=self.attribute_widget.capitalize().replace('_',' '),
                                                                                                     border=ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
                                                                                                     bgcolor='dark',                                 # inside box
                                                                                                     color='YELLOW',
@@ -201,26 +201,37 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
          'image_repeat', 'image_src', 'image_src_base64', 'blend_mode', 'ink', 'rtl', 'shadow', 'shape',
          'theme_mode', 'theme',
         """
+
+
+        ################ CONTAINER STR
+
+        if  config_widget   == "image_src ":
+            self.widget.image_src     = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+        if  config_widget   == "tooltip ":
+            self.widget.tooltip       = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+        if  config_widget   == "rotate ":
+            self.widget.rotate        = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
+        if  config_widget   == "scale ":
+            self.widget.scale         = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
+        if  config_widget   == "image_opacity ":
+            self.widget.image_opacity = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         ################ CONTAINER STR
         if  config_widget   == "tooltip":
-            self.widget.tooltip      =value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.tooltip      =value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "image_src":
-            self.widget.image_src    =f"{value.content.controls[1].content.controls[0].content.value }"# <=== Atribute 0 ['width']
-            # self.widget.update()
+            self.widget.content.image_src    =f"{value.content.controls[1].content.controls[0].content.value }"# <=== Atribute 0 ['width']
         if  config_widget   == "url":
-            self.widget.url          =value.content.controls[1].content.controls[0].content.value  # <=== Atribute 0 ['width']
+            self.widget.content.url          =value.content.controls[1].content.controls[0].content.value  # <=== Atribute 0 ['width']
         if  config_widget   == "url_target":
-            self.widget.url_target   =value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
-        ######################################## INT
+            self.widget.content.url_target   =value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "blur_radius":
-            self.widget.blur_radius  =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0# <=== Atribute 0 ['width']
+            self.widget.content.blur_radius  =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0# <=== Atribute 0 ['width']
         if  config_widget   == "image_opacity":
-            self.widget.image_opacity=float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
+            self.widget.content.image_opacity=float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
         if  config_widget   == "rotate":
-            self.widget.rotate       =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
+            self.widget.content.rotate       =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
         if  config_widget   == "scale":
-            self.widget.scale        =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
-        ################################################################################ CONTAINER.content = WIDGET
+            self.widget.content.scale        =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "label":
             self.widget.content.label=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "value":

@@ -80,7 +80,7 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
                                                             # key             = 'is our id',
                                                             # expand          = True,
                                                             # data            = 'value of the button',                                  # store data in the button
-                                                            value             = 'width - height' if self.attribute_widget == 'width' else self.attribute_widget.capitalize(), # content = ft.Text(value="Compound button", size=12,),
+                                                            value             = 'width - height' if self.attribute_widget == 'width' else self.attribute_widget.capitalize().replace("_"," "), # content = ft.Text(value="Compound button", size=12,),
                                                             # tooltip         = 'ElevatedButton',
                                                             # text_align        = ft.TextAlign.CENTER,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
                                                             # style           = ft.TextStyle(decoration=ft.TextDecoration.UNDERLINE ), # OVERLINE,
@@ -191,18 +191,18 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
     def modify_right_container_attributes(self,data,value):
         """will activate main widget color when press right Conteiner color box"""
         # print(data)
-        ################ CONTAINER STR
-        if  data   == "bgcolor":
+        ################ ONLY FOR CONTAINER
+        if  data   == "bgcolor ":
             self.widget.bgcolor        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+
+        ################################  CONTAINER.content = WIDGET
+
+        if  data   == "bgcolor":
+            self.widget.content.bgcolor        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "focused_bgcolor":
-            self.widget.focused_bgcolor= value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
-
+            self.widget.content.focused_bgcolor= value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "shadow_color":
-            self.widget.shadow_color = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
-
-
-        ################################################################################ CONTAINER.content = WIDGET
-
+            self.widget.content.shadow_color = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "color":
             self.widget.content.color        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "fill_color":
@@ -239,7 +239,11 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
         # self.widget.content.value = value if config_widget  == "value" else None
         # will modify attributes of the widget class in real time
         # change circle right color in streaming
-
+        ########################################### ONLY FOR CONTAINER
+        if  self.attribute_widget   == "bgcolor ":
+            value.content.controls[1].content.controls[1].bgcolor=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            value.content.controls[1].update()
+        ########################################### ONLY FOR CONTENT
         if  self.attribute_widget   == "bgcolor":
             value.content.controls[1].content.controls[1].bgcolor=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
             value.content.controls[1].update()
