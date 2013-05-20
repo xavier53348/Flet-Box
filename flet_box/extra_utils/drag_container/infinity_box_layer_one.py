@@ -93,17 +93,17 @@ class InfinityBoxLayerOne(ft.Stack):
 
                #: IMAGE WIDGET
 
-                     "Image": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Image',
+                     "Image": [    ft.Container(alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Image',
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.Image(src=f'no_imagen.jpg',fit=ft.ImageFit.FILL,width=110,height=110,tooltip='Image'),),
+                                   content=ft.Image(src=f'.no_image.jpg',fit=ft.ImageFit.FILL,width=110,height=110,tooltip='Image'),),
                               ],
                     "Avatar": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Avatar',
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.CircleAvatar(background_image_src='avatar.jpg'),),
+                                   content=ft.CircleAvatar(background_image_src='.avatar.jpg'),),
                               ],
                       "Icon": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Icon',
                                    ink=True,

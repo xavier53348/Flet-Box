@@ -131,6 +131,7 @@ class SingleNumeberEntry(ft.Stack):
     def modify_widget_attributes(self,slider_value,slider_widget):
         slider_widget.label = f"{slider_value:.2f}"
         slider_widget.update()
+        print(self.widget,'single')
 
         #:
         if self.widget_name == "image_opacity":      self.widget.image_opacity     = 1 - slider_value

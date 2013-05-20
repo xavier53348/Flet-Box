@@ -161,7 +161,7 @@ class LiteMenuUpContainer(ft.Stack):
 
                     _.controls[0].visible = True
                     _.widget  = SELECT_DROPP_WIDGET_CONTAINER
-
+                    # print(_.widget)
 
           def insert_data_in_box_container_content(column_tab,column=0):
                """
@@ -323,8 +323,41 @@ class LiteMenuUpContainer(ft.Stack):
                    edit_dict        = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')                #: <===== GET ALL SCREENS GET FROM MAIN PAGE
                    selected_widget  = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')             #: <===== GET CURRENT WIDGET SELECTED
 
+                   SELECT_DROPP_WIDGET_CONTAINER  = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER')             #: <===== GET CURRENT WIDGET SELECTED
+
+
                    #: REMOVE FROM DICT ALL_SCREEN_IN_DICT
-                   del edit_dict[main_phone.uid][selected_widget.tooltip]
+                   if edit_dict.get(main_phone.uid).get(selected_widget.tooltip):
+                       del edit_dict[main_phone.uid][selected_widget.tooltip]
+
+                   else:
+                       for tmp_key in edit_dict[main_phone.uid]:
+
+                          """
+                          Fixed middle anywhere widget lost in middle of the screen phone Container
+                          """
+                          the_widget = edit_dict[main_phone.uid][tmp_key]
+                          selected_control_id = f"_{int(selected_widget.uid.replace('_','')) - 2}"                    #: <===== ID Stack() - 2
+                          only_recursive = ['column','row','gridview','stack']
+
+                          def recursive_erase(data):
+                               #: PERSONALLY DONT LIKE RECURSIVE BECOUSE NEED LOT CPU AND MEMORY MORE THAN NORMAL NESTED LOOPS
+                               #: BUT NO LIKE MAKE LOT CODE NOW THIS ON FUTURE MAY CHANGE IF APP GET LOST HAVY
+
+                               for index ,_ in enumerate(data):
+                                   # data.pop()
+                                   if _.uid == selected_control_id:
+                                         data.pop(index)
+                                         return
+
+                                   if _.controls[0].content.content._get_control_name() in only_recursive:
+                                        recursive_erase(data=_.controls[0].content.content.controls)
+
+                          # print(the_widget.content.controls) #[InfinityBoxLayerOne(clipbehavior='none')]
+                          recursive_erase(data = the_widget.content.controls)
+
+                   # ===================
+                   del main_page._index[selected_widget.uid]                                             #: <===== DELETE INDEX IN MAIN PAGE
 
                    #: BACK 2 ID BEFORE TO GET DRAGGTARGET AND CORRECTLY DELETE
                    get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}"                    #: <===== ID Stack() - 2
@@ -337,6 +370,8 @@ class LiteMenuUpContainer(ft.Stack):
                    touch_widget_in_phone = GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':None})#: <===== RESET SELECTED WIDGET TO NONE
                    del main_page._index[get_control_id]                                             #: <===== DELETE INDEX IN MAIN PAGE
                    page_control.update()                                                            #: <===== UPDATE PAGE
+                   # print(edit_dict[main_phone.uid]['Column: 1'].content.controls)
+
 
           if action == 'UNSELECT':
                #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED BORDER IN PHONE CONTAINER

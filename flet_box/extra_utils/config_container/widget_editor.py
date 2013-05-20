@@ -10,6 +10,7 @@ from .blur_color_entry import BlurColorEntry
 from .selection_entry  import SelectionEntry
 from .selection_button_entry import SelectionButtonEntry
 from .single_number_entry    import SingleNumeberEntry
+from .dual_number_entry      import DualNumeberEntry
 
 from ..settings_var.settings_widget import GLOBAL_VAR
 
@@ -162,7 +163,7 @@ class Build_Editor(ft.Stack):
                'container_visible'  :BoolEntry(      config_widget='visible'               ,widget=self.container_widget),
            'container_border_radius':FourEntry(      config_widget='border_radius'         ,widget=self.container_widget),
 
-               # 'container_blur'     :DoubleEntry(    config_widget='blur'                  ,widget=self.container_widget),
+               'container_blur'     :DoubleEntry(    config_widget='blur'                  ,widget=self.container_widget),
                'container_bgcolor'  :ColorEntry(     config_widget='bgcolor'               ,widget=self.container_widget),
                'BlurColorEntry'     :BlurColorEntry( config_widget='blur'                  ,widget=self.container_widget),
 
@@ -172,6 +173,9 @@ class Build_Editor(ft.Stack):
            'container_image_src'    :SelectionButtonEntry(    config_widget='image_src'             ,widget=self.container_widget),
            'container_image_opacity':SingleNumeberEntry(    config_widget='image_opacity'         ,widget=self.container_widget),
            'container_image_fit'    :SelectionEntry( config_widget='image_fit'             ,widget=self.container_widget),
+
+                       'mix_widget' :DualNumeberEntry( config_widget='mix_container'            ,widget=self.container_widget ,         id_name_widget_dict='width'),
+               'mix_widget_content' :DualNumeberEntry( config_widget='mix_container_content'    ,widget=self.container_widget_content , id_name_widget_dict='offset'),
 
                #: ESPECIAL WIDGETS ONLY FOR WIDGET
                'text'                :SingleEntry(config_widget='text'               ,widget=self.container_widget_content , id_name_widget_dict='text'),
@@ -323,10 +327,13 @@ class Build_Editor(ft.Stack):
                                                                  title='Color Container',
                                                             controls=[
                                                                       widgets_dict.get('BlurColorEntry'),
+                                                                      widgets_dict.get('mix_widget'),
                                                                       widgets_dict.get('container_gradient'),
                                                                       widgets_dict.get('container_ink'),
                                                                       widgets_dict.get('container_bgcolor'),
                                                                       widgets_dict.get('shadow_color'),
+
+
                                                                  ],),
 
                                                        BoxConfigContainer(
@@ -335,6 +342,7 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('container_image_src'),
                                                                       widgets_dict.get('container_image_fit'),
                                                                       widgets_dict.get('container_image_opacity'),
+
                                                                  ],),
 
                                                        BoxConfigContainer(
@@ -373,6 +381,7 @@ class Build_Editor(ft.Stack):
                                                        BoxConfigContainer(
                                                                  title='Input Text Data',
                                                             controls=[
+                                                                      widgets_dict.get('mix_widget_content'),
 
                                                                       widgets_dict.get('src'),
                                                                       widgets_dict.get('image_fit_src'),
@@ -400,7 +409,7 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('icon_color'),
                                                                       widgets_dict.get('check_color'),
                                                                       widgets_dict.get('fill_color'),
-                                                                      # widgets_dict.get('shadow_color'),
+                                                                      widgets_dict.get('shadow_color'),
                                                                       widgets_dict.get('focused_bgcolor'),
                                                                       widgets_dict.get('border_color'),
                                                                       widgets_dict.get('focused_border_color'),

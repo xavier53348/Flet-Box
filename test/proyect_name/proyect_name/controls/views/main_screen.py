@@ -36,14 +36,29 @@ class main_screen(ft.Container):
         #: MAIN PHONE CONTAINER
         self.content_box = [ 
 
-		ft.Container( # Image
-			**self.dict_style('_3717'),
-			on_click= lambda _: event_3718(data='_3718'),
-			content= ft.Image(
-					**self.dict_style('_3718'),
-					# on_click= lambda _: event_3718(data='_3718'),
-			),),
+		ft.Container(  # Container_Column
+			**self.dict_style('_3871'),
+			content= ft.Column( # Column
+					**self.dict_style('_3872'),
+					controls= [
 
+				],
+		),), #// CLOSE LAYER 0
+		ft.Container(  # Container_Column
+			**self.dict_style('_3879'),
+			content= ft.Column( # Column
+					**self.dict_style('_3880'),
+					controls= [
+
+						ft.Container(  # Container_Column
+								**self.dict_style('_3883'),
+								content= ft.Column( # Column
+										**self.dict_style('_3884'),
+										controls= [
+
+										],
+								),), #// CLOSE LAYER 1
+		],),),  
         ]
 
         #: MAIN PHONE CONTAINER

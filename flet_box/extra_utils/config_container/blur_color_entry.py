@@ -147,7 +147,7 @@ class BlurColorEntry(ft.Stack):
                                                                         ft.Container(
 
                                                                                     ink           = False,
-                                                                                    bgcolor       = ft.colors.TRANSPARENT,
+                                                                                    bgcolor       = ft.colors.BLACK12,
                                                                                     width         = 50.5,
                                                                                     height        = 30,
                                                                                     border        = ft.border.all(1, ft.colors.CYAN_800),
@@ -185,7 +185,7 @@ class BlurColorEntry(ft.Stack):
 
         #: ONLY FOR CONTAINER
         if  data   == "blur":
-            self.widget.bgcolor = ft.colors.with_opacity(0.08, value.content.controls[1].content.controls[1].bgcolor)
+            self.widget.bgcolor = ft.colors.with_opacity(0.14, value.content.controls[1].content.controls[1].bgcolor)
 
         if  data == "blur_effect":
             self.widget.blur = (
