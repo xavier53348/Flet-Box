@@ -85,16 +85,33 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
           2. RESET THE LIST listWidgetUpdate
 
           """
+          ####################################################################################
+          CHECK_DATA = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
+
+          if CHECK_DATA:
+               #################################################################################### HIDE TAB 2
+               # HIDE TABS IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
+               #
+               CONFIG_TABS_CONTAINERS                 = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS')
+               CONFIG_TABS_CONTAINERS.visible         = False
+               CONFIG_TABS_CONTAINERS.update()
+               #################################################################################### HIDE TAB 3
+               # HIDE TABS IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
+               #
+               # CONFIG_TABS_CONTAINERS_CONTENT         = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
+               # CONFIG_TABS_CONTAINERS_CONTENT.visible = False
+               # CONFIG_TABS_CONTAINERS_CONTENT.update()
+
           ################################## SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
-          selected_widget_clicked = GLOBAL_VAR(
-                                                  get_global_var='LIST_SELECTED_WIDGETS')
+          selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
 
           ################################## SET GLOBAL VAR // SELECTED_WIDGET // IN DRAGG_DROPP BOX
-          widget_selected         = GLOBAL_VAR(
-                                                  set_global_var={
+          widget_selected         = GLOBAL_VAR( set_global_var={
                                                        'SELECT_DRAGG' :data,
                                                        'LIST_SELECTED_WIDGETS':[]  ,
                                                         })
+          GLOBAL_VAR(set_global_var={'BOOL_SHOW_SELECTED':False})
+
           ####################################################################################
           # if selected_widget_clicked is true each time that we press dragg box widget set border none
           # each witdget inside drop_dragg.py or Phone container will be a dragg_widget.py
@@ -106,6 +123,8 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
           TEXT_DRAGG_WIDGET.controls[0].content.controls[1].spans[0].text = data
           TEXT_DRAGG_WIDGET.controls[0].bgcolor = ft.colors.BLUE_GREY_900
           TEXT_DRAGG_WIDGET.controls[0].update()
+
+         ####################################################################################
 
           if selected_widget_clicked:
                selected_widget_clicked.border = None

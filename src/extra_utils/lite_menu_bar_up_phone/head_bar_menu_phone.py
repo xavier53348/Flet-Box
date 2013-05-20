@@ -92,6 +92,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                                                            # run_spacing        = 8,                                     # space widget up down
                                                                            ##################### WIDGETS
                                                                       controls=[
+                                                                           ft.IconButton(icon = ft.icons.EDIT_SQUARE,                tooltip='EDIT WIDGET',on_click=lambda _:self.modify_widget_in_phone_container(),bgcolor='Blue',icon_color='White'),
                                                                            ft.IconButton(icon = ft.icons.SMARTPHONE,                 tooltip='SMARTPHONE', on_click=lambda _:self.action_button( action = 'SMARTPHONE')),
                                                                            ft.IconButton(icon = ft.icons.TABLET_ANDROID,             tooltip='TABLET',     on_click=lambda _:self.action_button( action = 'TABLET')),
                                                                            ft.IconButton(icon = ft.icons.TV_OUTLINED,                tooltip='PC',         on_click=lambda _:self.action_button( action = 'PC')),
@@ -198,6 +199,123 @@ class LiteMenuUpContainer(ft.UserControl):
                             )#<=== NOTE COMA
           return self.Drop_LiteMenuUpContainer
 
+     def modify_widget_in_phone_container(self):
+          print('Im modificating....')
+
+          """
+          GLOBAL VARS:
+                         CONFIG_TABS_CONTAINERS
+                         CONFIG_TABS_CONTAINERS_CONTENT
+
+          NOTE:
+               IS NECESSARY ADD THIS 2 GLOVAL VAR TO CALL TAB MENU AND MAKE CHANGES IN STRAMING
+
+          GLOBAL VARS:
+                         SELECT_DROPP_WIDGET_CONTAINER
+                         SELECT_DROPP_WIDGET_CONTAINER_CONTENT
+
+          NOTE:
+               EVERY TIME THAT IS SELECTED WIDGET INSIDE THE PHONE.
+               THIS 2 VAR ARE CHANGE EVERY TIME THAT DETECT ONE CLICK
+               AND AFTER PERES BUTTON EDIT WILL CALL THIS METOD TO
+               CHANGE PROPERTY
+
+          """
+          BOOL_SHOW_SELECTED = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
+          ############################
+          CONFIG_TABS_CONTAINERS                = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS')
+          CONFIG_TABS_CONTAINERS_CONTENT        = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
+          ############################
+          SELECT_DROPP_WIDGET_CONTAINER         = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER')
+          SELECT_DROPP_WIDGET_CONTAINER_CONTENT = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER_CONTENT')
+
+          ###################################### 'Position','Modification','Color','Image',
+          control_tab_2 = CONFIG_TABS_CONTAINERS.content.controls
+          ######################################
+          control_tab_3 = CONFIG_TABS_CONTAINERS_CONTENT.content.controls
+          ######################################
+          # control_2_inside = control_tab_2[0]                                   ## <==== MAIN_CONTROLS IN EACH TAB
+          # control_2_inside.controls[0].content.controls[0]                    ## <==== MAIN_CONTROLS / NAME_OF_BOX
+          # control_2_inside.controls[0].content.controls[1]                    ## <==== MAIN_CONTROLS / BLACK BOX  <=  with the input inside
+          # control_2_inside.controls[0].content.controls[1].content.controls   ## <==== all controls inside BLACK BOX
+          ############################ main black box
+          # control_2_inside.controls[0].content.controls[1].visible = False
+          # control_2_inside.controls[0].content.controls[1].update()
+          ############################ widgets in main black box
+          # control_2_inside.controls[0].content.controls[1].content.controls[0].visible = False
+          # control_2_inside.controls[0].content.controls[1].content.controls[1].visible = False
+          # control_2_inside.controls[0].content.controls[1].update()
+          ############################ VALUES CHANGE IN EXEMPLE
+          # tmp_value = control_2_inside.controls[0].content.controls[1].content.controls[0].widget = SELECT_DROPP_WIDGET_CONTAINER
+          # tmp_value = control_2_inside.controls[0].content.controls[1].content.controls[1].widget = SELECT_DROPP_WIDGET_CONTAINER
+          ############################ VALUES in main black box
+          # control_tab_2                                                       <===== LIST OF ALL BOXES IN TAB2
+          # control_2_inside.controls[0].content.controls[1].content.controls   <===== LIST OF ALL BOXES IN TAB2 WITH controls[0] INDEX 0 SELECTED
+          ############################ TAB 2
+
+
+          def add_values_in_widget(tabs):
+               """
+               THIS METOD WALK IN #2 TABS EACH COLUMN WITH WIDGETS INSIDE
+
+               """
+               if tabs == 0:
+                    control_2_inside = control_tab_2[0]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
+
+               if tabs == 1:
+                    control_2_inside = control_tab_2[1]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
+
+               if tabs == 2:
+                    control_2_inside = control_tab_2[2]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
+
+               if tabs == 3:
+                    control_2_inside = control_tab_2[3]  ## <==== MAIN_CONTROLS IN EACH TAB
+                    tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
+
+               for _ in tmp_value:
+                    # print(_)
+                    _.controls[0].visible = True
+                    _.widget  = SELECT_DROPP_WIDGET_CONTAINER
+
+          if BOOL_SHOW_SELECTED:
+               CONFIG_TABS_CONTAINERS.visible = True
+               CONFIG_TABS_CONTAINERS.update()
+
+               add_values_in_widget(tabs=0)
+               add_values_in_widget(tabs=1)
+               add_values_in_widget(tabs=2)
+               add_values_in_widget(tabs=3)
+
+               ############################ TAB 2
+          else:
+               # tmp_value = control_2_inside.controls[0].content.controls[1].content.controls
+               CONFIG_TABS_CONTAINERS.visible = False
+               CONFIG_TABS_CONTAINERS.update()
+               # for _ in tmp_value:
+                    # _.controls[0].visible = False
+                    # _.update()
+          # control_2_inside.controls[0].content.controls[1].content.update()
+          # control_2_inside.controls[0].content.controls[1].update()
+          # control_2_inside.controls[0].content.update()
+
+
+          # print(control_tab_2)
+          # for index_main , value in enumerate(control_tab_2):
+          #      # WALK TROUGHT TAB2 CONTAINERS
+          #      all_cantainers = control_tab_2[index_main].controls[0]
+          #      # tmp_value = control_2_inside.controls[ index_main ].content.controls[1].content.controls
+          #      # for _ in tmp_value:
+          #           # _.widget = SELECT_DROPP_WIDGET_CONTAINER
+          #      # print(value.controls[index_main])
+          #      print(all_cantainers)
+
+
+          # print(tmp_value)
+          # CONFIG_TABS_CONTAINERS.update()
+
      def action_button(self,action):
 
           ###############################################################
@@ -211,29 +329,12 @@ class LiteMenuUpContainer(ft.UserControl):
                    id_widget      = page.get_control(touch_widget_in_phone.uid)
                    get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}" # <===== Stack()
                    page_control   = page.get_control(get_control_id)
-
-                   ################################ delete all selected controls in selected widget
-                   # page_control.controls.clear()
-                   # page_control.controls=[]
-                   # print(get_control_id ,page_control._Control__previous_children ,'<<<<<<')
-
                    page_control.clean()
                    del page_control._Control__previous_children
                    del page_control
                    GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':[]})
-                   # print(page_control.widgets)
-
-                   ################################ delete all selected controls in selected widget
-                   # updata_widget = page.get_control('_317')
-                   # updata_widget.content = None
-                   # updata_widget.bgcolor = 'red'
-                   # updata_widget.update()
 
           if action == 'rotation':
-               # page           = GLOBAL_VAR(get_global_var='page')
-               # id_widget      = page.get_control('_382')
-               # print(id_widget,'<<<<<,')
-
                self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
                self.phone_widget_container.controls[0].update()
 
@@ -244,7 +345,6 @@ class LiteMenuUpContainer(ft.UserControl):
                     self.menu_right_container.update()
 
                else:
-                    # self.Drop_LiteMenuUpContainer.offset = 0,0
                     self.Drop_LiteMenuUpContainer.update()
 
           if action == 'LIGHT / DARK':
@@ -287,7 +387,6 @@ class LiteMenuUpContainer(ft.UserControl):
                self.menu_right_container.update()
 
           if action == 'SHOW PC':
-
                self.width_  = 780
 
                if self.menu_left_container.visible and self.menu_right_container.visible:
@@ -315,45 +414,9 @@ class LiteMenuUpContainer(ft.UserControl):
                self.menu_right_container.update()
 
      def action_windows(self,action):
-
           self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
-          # self.menu_left_container.controls[0].bgcolor    = 'red' if not self.menu_left_container.controls[0].bgcolor == 'red' else 'black'
-          # self.phone_widget_container.controls[0].bgcolor = 'red' if not self.phone_widget_container.controls[0].bgcolor == 'red' else 'black'
-          # self.menu_right_container.controls[0].bgcolor   = 'red' if not self.menu_right_container.controls[0].bgcolor == 'red' else 'black'
-          # print(self.phone_widget_container.controls[0])
-
-
-          # self.menu_left_container.controls[0].update()
           self.phone_widget_container.controls[0].update()
-          # self.menu_right_container.controls[0].update()
 
-          # icons
-          # icons.WEBHOOK <=== chat gpt
-          # icons.WIDTH_NORMAL
-          # icons.VISIBILITY
-          # icons.VISIBILITY_OFF
-          # icons.VOLUNTEER_ACTIVISM
-          # icons.VRPANO_SHARP
-          # icons.VIDEO_LABEL
-          # icons.VIEW_CAROUSEL_ROUNDED
-          # icons.TRAVEL_EXPLORE_OUTLINED
-
-          # icons.TABLET_ANDROID
-          # icons.TABLET_ROUNDED
-          # icons.TABLET_MAC
-          # icons.TOKEN
-          # icons.TV_OUTLINED
-          # icons.SCREENSHOT_ROUNDED
-          # icons.SCREENSHOT_MONITOR
-          # icons.SENSOR_OCCUPIED
-          # icons.SELECT_ALL
-          # icons.SCREEN_ROTATION
-
-          # icons.SCREEN_SHARE
-          # icons.SCHEMA
-          # icons.SUNNY_SNOWING
-          # icons.LAPTOP_CHROMEBOOK_SHARP
-          # icons.DISCORD
 
 if __name__ == '__main__':
      #####################

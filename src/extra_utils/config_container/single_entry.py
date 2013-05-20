@@ -13,9 +13,11 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
     widget_content = 'data'
     def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget=''):
         super().__init__()
+
         self.widget           = widget        # <=== widget
         self.attribute_widget = config_widget # <=== widget attribute
         self.widget_content   = self.widget_content
+
     def build(self):
         SingleEntry = ft.Container(
                     ##################### PROPERTY COLUMN
@@ -28,6 +30,9 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                     border        = ft.border.all(2, ft.colors.BLACK),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
                     width         = 165,
                     height        = 80,
+                    # tooltip='hello world',
+                    # visible=True,
+                    # visible=False,
                     ##################### WIDGETS
                     content = ft.Column(
                                 ##################### PROPERTY BOX
@@ -48,7 +53,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                                         value       = 'width - height' if self.attribute_widget == 'width' else self.attribute_widget.capitalize().replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
                                                         font_family = "Consolas", #"Consolas ,RobotoSlab
                                             ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-                                    ft.Container(
+                                        ft.Container(
                                             ##################### PROPERTY
                                             ink           = False,                                          # click effect ripple
                                             bgcolor       = ft.colors.BLACK38,                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL

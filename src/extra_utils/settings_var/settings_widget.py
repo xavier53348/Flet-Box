@@ -8,9 +8,15 @@ DATA_GLOBAL = {
                ########################
                  'PAGE'                   : None,
                  'SELECT_DRAGG'           : None,   #<== LITE BOX DRAGG_DROP BOX
+                 'BOOL_SHOW_SELECTED'     : False,  #<== ONLY SHOW TRUE O FALSE IN SELECTED IN PHONE
                ########################
          'SHOW_TEXT_SELECTED_PHONE_WIDGET': 'None',   #<== LITE CONTAINER THAT SHOW SELECTED PHONE WIDGET TO CONFIG
          'SHOW_TEXT_SELECTED_DRAGG_WIDGET': 'None',   #<== LITE CONTAINER THAT SHOW SELECTED DRAGG WIDGET TO CONFIG
+               ########################
+                      'CONFIG_TABS_PHONE' : None,   #<== CONFIGURATION PHONE     BOX THAT CONTAIN ALL WIDGET TO MODIFY PROPERTY
+                 'CONFIG_TABS_CONTAINERS' : None,   #<== CONFIGURATION CONTAINER BOX THAT CONTAIN ALL WIDGET TO MODIFY PROPERTY
+         'CONFIG_TABS_CONTAINERS_CONTENT' : None,   #<== CONFIGURATION CONTENT   BOX THAT CONTAIN ALL WIDGET TO MODIFY PROPERTY
+               ########################
                         'PHONE_CONTAINER' : None,   #<== PHONE
                 'PHONE_CONTAINER_CONTENT' : None,   #<== PHONE CONTENT
 

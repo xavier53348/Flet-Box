@@ -243,6 +243,23 @@ class InfinityBoxLayerOne(ft.UserControl):
 
           """
           global numClick
+          ####################################################################################
+          CHECK_DATA = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
+
+          if CHECK_DATA:
+               #################################################################################### HIDE TAB 2
+               # HIDE TABS IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
+               #
+               CONFIG_TABS_CONTAINERS                 = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS')
+               CONFIG_TABS_CONTAINERS.visible         = False
+               CONFIG_TABS_CONTAINERS.update()
+               #################################################################################### HIDE TAB 3
+               # HIDE TABS IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
+               #
+               # CONFIG_TABS_CONTAINERS_CONTENT         = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
+               # CONFIG_TABS_CONTAINERS_CONTENT.visible = False
+               # CONFIG_TABS_CONTAINERS_CONTENT.update()
+               #################################################################################### HIDE TAB 3
 
 
           if numClick == 1:
@@ -280,6 +297,8 @@ class InfinityBoxLayerOne(ft.UserControl):
                ####################################################################################
 
                GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':listWidget[0]})
+               GLOBAL_VAR(set_global_var={'BOOL_SHOW_SELECTED':True})
+
                widgetConfig[0].border = ft.border.all(0.03, ft.colors.CYAN_ACCENT_700)
                widgetConfig[0].update()
 
