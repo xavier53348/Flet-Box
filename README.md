@@ -50,8 +50,8 @@ $ git commit -m 'COMMENT'    # <=== UPDATE
 
 $ git add README test.rb LICENSE
 $ git add .
-$ git commit -m 'COMMENT'    # <===S
-$ git commit -a -m 'COMMENT' # <===S es un add y commit al mismo tiempo
+$ git commit -m 'COMMENT'    # <===
+$ git commit -a -m 'COMMENT' # <=== es un add y commit al mismo tiempo
 =============================================================================
 #///  CREATE A NEW BRANCH AND CHANGE BETWEEN BRANCHS
 
