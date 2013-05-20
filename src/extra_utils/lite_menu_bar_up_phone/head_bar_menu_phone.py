@@ -21,10 +21,11 @@ class LiteMenuUpContainer(ft.UserControl):
                                         ##################### PROPERTY
                                         ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                                         # expand=True,
+                                        offset=(0.1,0),
                                         ink             = False,                                         # click effect ripple
                                         # bgcolor         = ft.colors.BLACK26,                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
                                         padding         = ft.padding.all(2),    # inside box             # padding.only(left=8, top=8, right=8, bottom=8),
-                                        margin          = ft.margin.all(2),     # outside box            # margin.only (left=8, top=8, right=8, bottom=8),
+                                        margin          = ft.margin.only (left=2, top=0, right=0, bottom=0),     # outside box            # margin.only (left=8, top=8, right=8, bottom=8),
                                         alignment       = ft.alignment.center,                           # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                         border_radius   = ft.border_radius.all(30),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                         # border        = ft.border.all(2, ft.colors.BLACK),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
@@ -253,8 +254,8 @@ class LiteMenuUpContainer(ft.UserControl):
 
           ###############################################################
           if action == 'SMARTPHONE':
-               self.phone_widget_container.controls[0].width  = 260
-               self.phone_widget_container.controls[0].height = 525
+               self.phone_widget_container.controls[0].width  = 295
+               self.phone_widget_container.controls[0].height = 566
                self.phone_widget_container.controls[0].update()
 
 

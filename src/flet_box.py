@@ -265,7 +265,7 @@ def main(page: ft.Page):
                                                                                                             margin          = ft.margin.all(0),    # outside box                  # margin.only (left=8, top=8, right=8, bottom=8),
                                                                                                             alignment       = ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                                             # border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                            # border        = ft.border.all(2, ft.colors.BLACK),                  # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                                                            # border        = ft.border.all(2, ft.colors.BLACK12),                  # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                                                                             #####################
                                                                                                             # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
                                                                                                             # image_opacity = 0.1,
@@ -275,7 +275,7 @@ def main(page: ft.Page):
                                                                                                             height        = 675,
                                                                                                             # tooltip       = 'Container',
                                                                                                             ##################### EFFECTS
-                                                                                                            # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                                                                                            # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.GREY_900, ft.colors.BLACK87],),
                                                                                                             # gradient      = ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
                                                                                                             ##################### WIDGETS
                                                                                                     content=ft.Column(
@@ -292,8 +292,8 @@ def main(page: ft.Page):
                                                                                                                     # tight                = True,
                                                                                                                     ##################### ADAPT TO SCREEN
                                                                                                                     # wrap                 = True,                                # justify in all screen
-                                                                                                                    # spacing              = 8,                                   # space widget left right
-                                                                                                                    # run_spacing          = 8,                                   # space widget up down
+                                                                                                                    spacing              = 2,                                   # space widget left right
+                                                                                                                    run_spacing          = 2,                                   # space widget up down
                                                                                                                 ##################### WIDGETS
                                                                                                                 controls=[
                                                                                                                             # lite menu up phone,
@@ -305,7 +305,8 @@ def main(page: ft.Page):
                                                                                                                                        # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
 
                                                                                                                                  content = ft.Row(
-
+                                                                                                                                                 spacing=0,
+                                                                                                                                                 run_spacing=0,
                                                                                                                                                 controls = [
                                                                                                                                                            space_widget_1,
 

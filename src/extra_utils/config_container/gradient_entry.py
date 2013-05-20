@@ -16,8 +16,8 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
     color_4        = None
 
     main_gradient  = None
-    start_gradient = ' center_left '
-    end_gradient   = ' top_right '
+    start_gradient = ' bottom_center '
+    end_gradient   = ' top_center '
     data_color = list()
     effects_gradients = {
                             # " Linear ": ft.LinearGradient,
@@ -243,7 +243,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                             height        = 35,
                                                                                             ##################### WIDGETS
                                                                                             content=ft.Dropdown(
-                                                                                                                hint_text       = " center_left ",
+                                                                                                                hint_text       = " bottom_center ",
                                                                                                                 width           = 140,
                                                                                                                 content_padding = ft.padding.only(left=0, top=0, right=8, bottom=14),
                                                                                                                 alignment       = ft.alignment.center_left,            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
@@ -334,7 +334,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                             height        = 35,
                                                                                             ##################### WIDGETS
                                                                                             content=ft.Dropdown(
-                                                                                                                hint_text       = " top_right ",
+                                                                                                                hint_text       = " top_center ",
                                                                                                                 width           = 140,
                                                                                                                 content_padding = ft.padding.only(left=0, top=0, right=8, bottom=14),
                                                                                                                 alignment       = ft.alignment.center_left,            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget

@@ -110,7 +110,7 @@ class InfinityBoxLayerOne(ft.UserControl):
                 "Text Field": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='TextField',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.TextField(label="email",tooltip='TextField',border_radius= ft.border_radius.all(30),height=40, cursor_height=20,content_padding= ft.padding.all(16),border_color=ft.colors.WHITE,focused_border_color=ft.colors.RED,),),
+                                   content=ft.TextField(label="what's your name ?",tooltip='TextField',border_radius= ft.border_radius.all(30),height=40, cursor_height=20,content_padding= ft.padding.all(16),border_color=ft.colors.WHITE,focused_border_color=ft.colors.RED,),),
                               ],
 
                ####################### BUTTONS WIDGET
