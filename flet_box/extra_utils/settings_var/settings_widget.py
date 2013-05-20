@@ -26,6 +26,7 @@ DATA_GLOBAL = {
              'HIDE_CONFIG_TABS_CONTAINERS': None,   # <== HIDE CONTAINER          BOX THAT CONTAIN ALL WIDGET TO MODIFY PROPERTY
 
                         'SELECTED_SCREEN' : None,   # <== SELECTED PHONE SCREEN
+                'GENERIC_CONTAINER_PHONE' : None,   # <== GENERIC SELECTED PHONE SCREEN BLUR FRAMEWORK
 
           'SELECT_DROPP_WIDGET_CONTAINER' : None,   # <== SELECTED WIDGET IN PHONE
   'SELECT_DROPP_WIDGET_CONTAINER_CONTENT' : None,   # <== SELECTED WIDGET IN PHONE CONTENT
@@ -47,6 +48,10 @@ DATA_GLOBAL = {
 
                        'SCREEN_CONTAINER' : None,   # <== SCREEN_MANAGER BOX CONTAINER
                               'TREE_VIEW' : None,   # <== TREE_VIEW BOX CONTAINER
+
+
+                              'DRAGG_SHOW': None,   # <== BOX DRAGG
+                              'CONFI_SHOW': None,   # <== BOX CONFIG
 
 
                      'ALL_SCREEN_IN_DICT' : dict(),   # <== ALL SCREENS IN SCREEN MANAGER

@@ -1,4 +1,5 @@
 import flet as ft
+import warnings
 
 from extra_utils import Build_Editor         #: LEFT DRAGG CONTAINER
 from extra_utils import Build_Drag_Editor
@@ -65,6 +66,8 @@ def main(page: ft.Page):
      #: ITS VERY IMPORTANT GET WIDGET INSIDE BECOUSE WILL MODIFY MAIN PHONE BOX CONTAINER
      right_config_container  = Build_Editor()
      GLOBAL_VAR(set_global_var= {'build_Editor':right_config_container})
+
+
 
      #: ICON BROWSER
      Icon_Browser = IconBrowser(blur_effect=True)
@@ -235,6 +238,12 @@ def main(page: ft.Page):
 
                          content=row_phone
                                     )
+     GLOBAL_VAR(set_global_var={"GENERIC_CONTAINER_PHONE":container_phone})
+
+     #: SHOW DRAGG AND CONFIG DEPENDIG SWITCH VISIBLE ON OFF
+     GLOBAL_VAR(set_global_var= {'DRAGG_SHOW':drag_container_to_phone})
+     GLOBAL_VAR(set_global_var= {'CONFI_SHOW':right_config_container})
+
      #: WE SET AS GLOBAL VAR
      GLOBAL_VAR(set_global_var={"row_phone":row_phone})
 
@@ -358,6 +367,8 @@ def run_app():
           )
 
 if __name__ == '__main__':
+     warnings.simplefilter('ignore',DeprecationWarning)
+
      ft.app(
                target = main,
           )

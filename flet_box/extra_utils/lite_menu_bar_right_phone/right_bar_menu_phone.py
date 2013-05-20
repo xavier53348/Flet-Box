@@ -14,12 +14,6 @@ class LiteMenuUpContainer(ft.Stack):
           self.main_page              = GLOBAL_VAR(get_global_var='PAGE')
           self.menu_left_container    = menu_left_container
 
-          #: SET IN MAIN_SCREEN WIDGET TO EDIT STREAMING
-          self.widget_to_edit         = GLOBAL_VAR(get_global_var='main_screen')
-
-          self.phone_widget_container = self.widget_to_edit
-          self.menu_right_container   = self.widget_to_edit.build()
-
           # HEIGHT
           self.height                 = 542
 
@@ -64,10 +58,10 @@ class LiteMenuUpContainer(ft.Stack):
 
                                                                            ft.IconButton(icon = ft.icons.EDIT_SQUARE,                tooltip='EDIT WIDGET',on_click=lambda _:self.modify_widget_in_phone_container(),bgcolor='Blue',icon_color='White'),
                                                                            ft.IconButton(icon = ft.icons.TOUCH_APP,                  tooltip='UN SELECT\nBORDER WIDGET',  on_click=lambda _:self.action_button(action = 'UNSELECT'),bgcolor=ft.colors.WHITE24,icon_color='White'),
-                                                                           ft.IconButton(icon = ft.icons.SMARTPHONE,                 disabled=True, tooltip='SMARTPHONE', on_click=lambda _:self.action_button( action = 'SMARTPHONE')),
-                                                                           ft.IconButton(icon = ft.icons.TABLET_ANDROID,             disabled=True,tooltip='TABLET',     on_click=lambda _:self.action_button( action = 'TABLET')),
-                                                                           ft.IconButton(icon = ft.icons.TV_OUTLINED,                disabled=True,tooltip='PC',         on_click=lambda _:self.action_button( action = 'PC')),
-                                                                           ft.IconButton(icon = ft.icons.FEATURED_PLAY_LIST_OUTLINED,disabled=True,tooltip='SHOW PC',    on_click=lambda _:self.action_button( action = 'SHOW PC')),
+                                                                           ft.IconButton(icon = ft.icons.SMARTPHONE,                 tooltip='SMARTPHONE', on_click=lambda _:self.action_button( action = 'SMARTPHONE')),
+                                                                           ft.IconButton(icon = ft.icons.TABLET_ANDROID,             tooltip='TABLET',     on_click=lambda _:self.action_button( action = 'TABLET')),
+                                                                           ft.IconButton(icon = ft.icons.TV_OUTLINED,                tooltip='PC',         on_click=lambda _:self.action_button( action = 'PC')),
+                                                                           ft.IconButton(icon = ft.icons.SCREENSHOT_MONITOR,         tooltip='FULL SCREEN',on_click=lambda _:self.action_button( action = 'SHOW PC')),
                                                                         ],),
                                                        ),#<=== NOTE COMA
                                                        ft.Container(
@@ -293,6 +287,12 @@ class LiteMenuUpContainer(ft.Stack):
                CONFIG_TABS_CONTAINERS_CONTENT.update()
 
      def action_button(self,action):
+          self.phone_widget_blur_cont = GLOBAL_VAR(get_global_var='GENERIC_CONTAINER_PHONE')
+          self.phone_widget_container = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
+
+          self.menu_left_container  = GLOBAL_VAR(get_global_var='DRAGG_SHOW')
+          self.menu_right_container = GLOBAL_VAR(get_global_var='CONFI_SHOW')
+
 
           if action == 'delete':
                """
@@ -355,9 +355,8 @@ class LiteMenuUpContainer(ft.Stack):
 
                           # print(the_widget.content.controls) #[InfinityBoxLayerOne(clipbehavior='none')]
                           recursive_erase(data = the_widget.content.controls)
-
                    # ===================
-                   del main_page._index[selected_widget.uid]                                             #: <===== DELETE INDEX IN MAIN PAGE
+                   del main_page._index[selected_widget.uid]                                        #: <===== DELETE INDEX IN MAIN PAGE
 
                    #: BACK 2 ID BEFORE TO GET DRAGGTARGET AND CORRECTLY DELETE
                    get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}"                    #: <===== ID Stack() - 2
@@ -370,8 +369,9 @@ class LiteMenuUpContainer(ft.Stack):
                    touch_widget_in_phone = GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':None})#: <===== RESET SELECTED WIDGET TO NONE
                    del main_page._index[get_control_id]                                             #: <===== DELETE INDEX IN MAIN PAGE
                    page_control.update()                                                            #: <===== UPDATE PAGE
-                   # print(edit_dict[main_phone.uid]['Column: 1'].content.controls)
 
+                   # print(edit_dict[main_phone.uid]['Column: 1'].content.controls)
+                   for tmp_key in edit_dict[main_phone.uid]: edit_dict[main_phone.uid].get(tmp_key).update()
 
           if action == 'UNSELECT':
                #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED BORDER IN PHONE CONTAINER
@@ -402,10 +402,13 @@ class LiteMenuUpContainer(ft.Stack):
                TreeView.visible_view()
 
           if action == 'rotation':
-               self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
-               self.phone_widget_container.controls[0].update()
+               self.phone_widget_blur_cont.width , self.phone_widget_blur_cont.height = self.phone_widget_blur_cont.height , self.phone_widget_blur_cont.width
+               self.phone_widget_container.width , self.phone_widget_container.height = self.phone_widget_container.height , self.phone_widget_container.width
+               self.phone_widget_blur_cont.update()
+               self.phone_widget_container.update()
 
-               if self.phone_widget_container.controls[0].width >= 600:
+
+               if self.phone_widget_container.width >= 600:
                     self.menu_right_container.visible = False if self.menu_right_container.visible else True
                     self.menu_left_container.visible  = False if self.menu_right_container.visible else True
                     self.menu_left_container.update()
@@ -415,14 +418,20 @@ class LiteMenuUpContainer(ft.Stack):
                     self.Drop_LiteMenuUpContainer.update()
 
           if action == 'LIGHT / DARK':
-               self.phone_widget_container.controls[0].bgcolor = ft.colors.WHITE  if self.phone_widget_container.controls[0].bgcolor == '#070707' else '#070707'
-               self.phone_widget_container.controls[0].update()
+
+               self.phone_widget_container.bgcolor = ft.colors.WHITE  if self.phone_widget_container.bgcolor == '#070707' else '#070707'
+               self.phone_widget_container.update()
 
 
           if action == 'SMARTPHONE':
-               self.phone_widget_container.controls[0].width  = 295
-               self.phone_widget_container.controls[0].height = 566
-               self.phone_widget_container.controls[0].update()
+
+
+               self.phone_widget_container.width  = 295
+               self.phone_widget_blur_cont.width  = self.phone_widget_container.width
+               self.phone_widget_container.height = 566
+               self.phone_widget_blur_cont.height = self.phone_widget_container.height
+               self.phone_widget_blur_cont.update()
+               self.phone_widget_container.update()
 
                self.menu_left_container.visible  = True
                self.menu_right_container.visible = True
@@ -432,9 +441,13 @@ class LiteMenuUpContainer(ft.Stack):
           if action == 'TABLET':
 
                #: Phone Container offset
-               self.phone_widget_container.controls[0].width  = 460
-               self.phone_widget_container.controls[0].height = 625
-               self.phone_widget_container.controls[0].update()
+               self.phone_widget_container.width  = 460
+               self.phone_widget_blur_cont.width  = self.phone_widget_container.width
+               self.phone_widget_container.height = 625
+               self.phone_widget_blur_cont.height = self.phone_widget_container.height
+
+               self.phone_widget_blur_cont.update()
+               self.phone_widget_container.update()
 
                self.menu_left_container.visible  = True
                self.menu_right_container.visible = True
@@ -442,9 +455,13 @@ class LiteMenuUpContainer(ft.Stack):
                self.menu_right_container.update()
 
           if action == 'PC':
-               self.phone_widget_container.controls[0].width  = 780
-               self.phone_widget_container.controls[0].height = 525
-               self.phone_widget_container.controls[0].update()
+
+               self.phone_widget_container.width  = 780
+               self.phone_widget_blur_cont.width  = self.phone_widget_container.width
+               self.phone_widget_container.height = 525
+               self.phone_widget_blur_cont.height = self.phone_widget_container.height
+               self.phone_widget_blur_cont.update()
+               self.phone_widget_container.update()
 
                self.menu_right_container.visible = False if self.menu_right_container.visible else True
                self.menu_left_container.visible  = False if self.menu_right_container.visible else True
@@ -459,10 +476,16 @@ class LiteMenuUpContainer(ft.Stack):
                     self.menu_right_container.visible = False
 
                elif not self.menu_left_container.visible and not self.menu_right_container.visible:
-                    if self.phone_widget_container.controls[0].width >= 500:
-                         self.phone_widget_container.controls[0].width  = 460
-                         self.phone_widget_container.controls[0].height = 625
-                         self.phone_widget_container.controls[0].update()
+                    if self.phone_widget_container.width >= 500:
+
+                         self.phone_widget_container.width  = 460
+                         self.phone_widget_blur_cont.width  = self.phone_widget_container.width
+
+                         self.phone_widget_container.height = 625
+                         self.phone_widget_blur_cont.height  = self.phone_widget_container.height
+
+                         self.phone_widget_blur_cont.update()
+                         self.phone_widget_container.update()
 
                     self.menu_left_container.visible  = True
                     self.menu_right_container.visible = True
@@ -479,8 +502,8 @@ class LiteMenuUpContainer(ft.Stack):
                self.menu_right_container.update()
 
      def action_windows(self,action):
-          self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
-          self.phone_widget_container.controls[0].update()
+          self.phone_widget_container.width , self.phone_widget_container.height = self.phone_widget_container.height , self.phone_widget_container.width
+          self.phone_widget_container.update()
 
 if __name__ == '__main__':
 

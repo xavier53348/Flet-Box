@@ -100,6 +100,8 @@ def screen_manager(
         if screen_to_delete.get(select_name_to_get_id):
             GLOBAL_VAR(remove_screen_var=select_name_to_get_id)
 
+
+
     elif selected_screen:
         #: ROW_PHONE IT'S MAIN ROW THAT HAVE PHONE WIDGET INSIDE WILL BE HOT RELOAD EVERY TIME WE CALL
         #: THAT'S WHY I WILL PAS TO A GLOVAL VAR NAME "SCREEN_CONTAINER"
@@ -107,7 +109,7 @@ def screen_manager(
         #: ROW_PHONE IT'S MAIN ROW THAT HAVE PHONE WIDGET INSIDE WILL BE HOT RELOAD EVERY TIME WE CALL
         #: THAT'S WHY I WILL PAS TO A G
         # GLOVAL VAR NAME "SCREEN_CONTAINER"
-        print(all_screens_in_app)
+        print(all_screens_in_app,'SELECTED SCREEN')
 
         row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
         tmp_new_screen_name = selected_screen
@@ -115,6 +117,11 @@ def screen_manager(
         #: HIDE OLD SCREEN CONTAINER BOX
         old_selected_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
         new_selected_screen = GLOBAL_VAR(get_global_var=tmp_new_screen_name)
+
+
+        #: UPDATE BLUR CONTAINEROUT PHONE
+        update_screen_effect_blur(screen_name=new_selected_screen)
+
 
         #: SWITCH VISIBLE ON OFF BETEWNS SCREENS
         old_selected_screen.visible, new_selected_screen.visible = new_selected_screen.visible ,old_selected_screen.visible
@@ -161,7 +168,13 @@ def screen_manager(
                                        widget_update  = column_phone_controls.controls,
                                        widget_to_edit = new_selected_screen
                                        )
-        old_selected_screen.update()
+        try:
+            #: IF NO WXITIN MAIN SCREEN PASS
+            # print(old_selected_screen)
+            old_selected_screen.update()
+        except:
+            pass
+
         new_selected_screen.update()
         row_box_content_phone.update()
 
@@ -197,17 +210,25 @@ def screen_manager(
         }
 
         #: WALK THROUGHT MAIN SCREEN TO GET ALL WIDGET ADDED IN TREVIEW
-        for _ in  content_of_main_screen:
+        for index , _ in  enumerate(content_of_main_screen):
             content = _.controls[0].content
             name_id = content.tooltip
             update_all_screen.update({name_id:content})
 
         #: UPDATE CONTROLS AND NESTED DICTIONARY
-        secundary_update.update({id_main_screen:update_all_screen})
+        secundary_update = {id_main_screen:update_all_screen}
         row_box_content_phone.update()
+
+        # print(data)
+        # print(secundary_update)
+        # print(all_screens_in_app,'SELECTED SCREEN')
 
         GLOBAL_VAR(set_global_var={'ALL_SCREEN_IN_DICT':secundary_update})
         GLOBAL_VAR(set_global_var={'SELECTED_SCREEN':data})
+
+        #: COMMENT IF MAKE ANY ERROR
+        all_screens_in_app={'main_screen':id_main_screen}
+
 
     elif set_screen:
         all_screens_in_app["main_screen"]=set_screen
@@ -216,6 +237,29 @@ def screen_manager(
         return all_screens_in_app.get(get_screen)
 
     # print(all_screens_in_app)
+
+
+def update_screen_effect_blur(screen_name):
+    #: UPDATE BLUR CONTAINEROUT PHONE
+    blur_frame_phone     = GLOBAL_VAR(get_global_var='GENERIC_CONTAINER_PHONE')
+    menu_left_container  = GLOBAL_VAR(get_global_var='DRAGG_SHOW')
+    menu_right_container = GLOBAL_VAR(get_global_var='CONFI_SHOW')
+
+
+    blur_frame_phone.width  = screen_name.width
+    blur_frame_phone.height = screen_name.height
+    blur_frame_phone.update()
+
+
+    # print(blur_frame_phone.width)
+    # menu_left_container.visble = True
+    # menu_right_container.visble = True
+    # menu_right_container.update()
+    # menu_left_container.update()
+    if blur_frame_phone.width >= 500:
+
+        menu_left_container.visible = False
+        menu_left_container.update()
 
 CURRENT_PATH: str = os.path.join('./flet_box/extra_utils/screen_manager','screens.js')
 main_screen_dict: dict = {}
