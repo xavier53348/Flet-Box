@@ -1,5 +1,7 @@
 from extra_utils.settings_var.settings_widget import global_var, get_global_var
 from extra_utils.config_container.widget_editor import Build_Editor
+from extra_utils.lite_menu_bar_down_phone.selected_widget import SelectedWidget
+
 #####################
 import flet as ft
 import time
@@ -71,41 +73,41 @@ class InfinityBoxLayerOne(ft.UserControl):
                                                        ],),),
                               ],
                ####################### SPACE LAYOUTS
-                   "Divider": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Divider',
+                   "Divider": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Divider',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.Divider(),),
                               ],
                               # VerticalDivider most set propertie [container height ] becouse no work onVerticalDivider
-                  "Vertical": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),height=25,margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='VerticalDivider',
+                  "Vertical": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),height=25,margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='VerticalDivider',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.VerticalDivider(width=1, color="white"),),
                               ],
 
                ####################### IMAGE WIDGET
-                     "Image": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Image',
+                     "Image": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Image',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.Image(src=f'logo.jpg',fit=ft.ImageFit.FILL,width=110,height=110,tooltip='Image'),),
                               ],
-                    "Avatar": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Avatar',
+                    "Avatar": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Avatar',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.CircleAvatar(content=ft.Image(src=f'img.jpg',fit=ft.ImageFit.FILL,width=110,height=110,tooltip='Avatar',border_radius= ft.border_radius.all(36)),),),
                               ],
-                      "Icon": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Icon',
+                      "Icon": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Icon',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.Icon(name=ft.icons.ADD_REACTION_OUTLINED,tooltip='Icon'),),
                               ],
                ####################### TEXT  WIDGET
-                     "Text":  [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Text',
+                     "Text":  [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Text',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.Text(value="Text",tooltip='Text'),),
                               ],
-                "Text Field": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(4),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='TextField',
+                "Text Field": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(4),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='TextField',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.TextField(label="TextField",tooltip='TextField',border_radius= ft.border_radius.all(30),height=40, cursor_height=20,content_padding= ft.padding.all(16),border_color=ft.colors.WHITE,focused_border_color=ft.colors.RED,),),
@@ -113,74 +115,74 @@ class InfinityBoxLayerOne(ft.UserControl):
 
                ####################### BUTTONS WIDGET
 
-           "Elevated Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='ElevatedButton',
+           "Elevated Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='ElevatedButton',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.ElevatedButton("Elevated Button",tooltip='ElevatedButton'),),
                               ],
-               "Text Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='TextButton',
+               "Text Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='TextButton',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.TextButton("Text Button",tooltip='TextButton'),),
                               ],
-               "Icon Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='IconButton',
+               "Icon Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='IconButton',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.IconButton(tooltip='Icon Button',icon=ft.icons.ADD_LINK_SHARP),),
                               ],
-                    "Filled": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='FilledButton',
+                    "Filled": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='FilledButton',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.FilledButton("Filled Button",tooltip='FilledButton'),),
                               ],
-                     "Tonal": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='FilledTonalButton',
+                     "Tonal": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='FilledTonalButton',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.FilledTonalButton("Filled Tonal Button",tooltip='FilledTonalButton'),),
                               ],
-                   "Outline": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='OutlinedButton',
+                   "Outline": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='OutlinedButton',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.OutlinedButton("Outlined Button",tooltip='OutlinedButton'),),
                               ],
 
                ####################### SELECTIONS WIDGET
-                 "Checkbox":  [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Checkbox',
+                 "Checkbox":  [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Checkbox',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.Checkbox(label="  Checkbox",tooltip='Checkbox',value=False),),
                               ],
-                 "Cupertino": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='CupertinoCheckbox',
+                 "Cupertino": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='CupertinoCheckbox',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.CupertinoCheckbox(label="Cupertino Checkbox",tooltip='CupertinoCheckbox',value=False),),
                               ],
-                    "Switch": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Switch',
+                    "Switch": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Switch',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.Switch(label="    Cupertino Switch",tooltip='Switch',value=False),),
                               ],
 
-                      "Chip": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Chip',
+                      "Chip": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Chip',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.Chip(label=ft.Text("Chip"), leading=ft.Icon(ft.icons.CAMERA_ROUNDED),tooltip='Chip'),),
                               ],
 
-                    "Slider": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='CupertinoRadio',
+                    "Slider": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(0),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='CupertinoRadio',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.CupertinoSlider(value=50,tooltip='CupertinoSlider',max=100),),
                               ],
 
                  # RadioGroup <==== need solve that issue
-                 "Cup Radio": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='CupertinoRadio',
+                 "Cup Radio": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='CupertinoRadio',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.RadioGroup(content=ft.CupertinoRadio(label="    Cupertino Radio",tooltip='CupertinoRadio',value=False),),),
                               ],
 
-                     "Radio": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0.8, ft.colors.BLACK12),tooltip='Radio',
+                     "Radio": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
                                    on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.RadioGroup(content=ft.Radio(label="    Radio",tooltip='Radio',value='False'),),),
@@ -194,7 +196,6 @@ class InfinityBoxLayerOne(ft.UserControl):
           ####################### ESPECIAL WIDGET
 
           ####################### CHARTS LAYOUTS
-
           selectWidgetBox                    = get_global_var(get_var='selectWidgetBox')
           self.infinityDropWidget            = self.widgets.get(selectWidgetBox)
           self.infinityDropWidget[0].id      = f"{self.dataPassed}: {numWidget}"              # OUR ID
@@ -253,7 +254,7 @@ class InfinityBoxLayerOne(ft.UserControl):
 
                if tmp_list:
                     if not tmp_list.tooltip == listWidgetUpdate[0].tooltip:
-                         tmp_list.border = ft.border.all(2, ft.colors.BLACK12)
+                         tmp_list.border = ft.border.all(0, ft.colors.TRANSPARENT)
                          tmp_list.update()
 
                widgetConfig = listWidgetUpdate
@@ -270,6 +271,12 @@ class InfinityBoxLayerOne(ft.UserControl):
                # print(get_global_var(get_var='page'))
                ############################################################################
                # on click over widget <===
+               data_widget = get_global_var(get_var='text_widget_selected')
+               data_widget.controls[0].content.controls[1].spans[0].text = listWidget[0].tooltip
+               data_widget.controls[0].update()
+
+               print(data_widget.controls[0].content.controls[1].spans[0].text)
+
                print(listWidget[0].uid ,'selected_widget BOX IN PHONE listWidgetUpdate')
 
                # listWidget[0].content = None
@@ -277,7 +284,7 @@ class InfinityBoxLayerOne(ft.UserControl):
                # print(self.infinityDropWidget[0] ,'selected_widget BOX IN PHONE listWidgetUpdate')
 
                global_var(data_global={'listWidgetUpdate':listWidget[0]})
-               widgetConfig[0].border = ft.border.all(0.2, ft.colors.RED)
+               widgetConfig[0].border = ft.border.all(0.03, ft.colors.CYAN)
                widgetConfig[0].update()
                # print(widgetConfig[0].uid,'<<<<,')
                # listWidgetUpdate=[]
@@ -328,7 +335,7 @@ class InfinityBoxLayerOne(ft.UserControl):
 
           ################################## UPDATE WIDGET ###########################
           widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border = ft.border.all(2, ft.colors.TRANSPARENT)
+          widgetDropBox.control.content.border = ft.border.all(0, ft.colors.TRANSPARENT)
           widgetDropBox.control.update()
           self.page.update()
           ############################################################################
@@ -341,6 +348,6 @@ class InfinityBoxLayerOne(ft.UserControl):
 
      def drag_leave(self,widgetDropBox):
           widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border = ft.border.all(2, ft.colors.TRANSPARENT)
+          widgetDropBox.control.content.border = ft.border.all(0, ft.colors.TRANSPARENT)
           widgetDropBox.control.update()
           self.page.update()
