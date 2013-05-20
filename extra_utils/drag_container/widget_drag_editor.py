@@ -1,5 +1,6 @@
 from extra_utils.drag_container.dragg_widget import DraggWidget
 
+
 import flet as ft
 
 class Build_Drag_Editor(ft.UserControl):
@@ -12,6 +13,20 @@ class Build_Drag_Editor(ft.UserControl):
           # self.dropDragg= DropDragg()
 
      def build(self):
+        ####################### CONTROLS
+        # VIEW_COLUMN_ROUNDED
+        # TABLE_ROWS_ROUNDED
+        # WIDGETS_ROUNDED
+        # WEB_STORIES_ROUNDED
+        self.RowDragg = DraggWidget('Row'         ,'BLUE'   ,ft.icons.VIEW_COLUMN_SHARP )
+        self.ColDragg = DraggWidget('Column'      ,'RED'    ,ft.icons.TABLE_ROWS_OUTLINED)
+        self.GriDragg = DraggWidget('GridView'    ,'PURPLE' ,ft.icons.WIDGETS_OUTLINED)
+        self.StaDragg = DraggWidget('Stack'       ,'YELLOW' ,ft.icons.WEB_STORIES_OUTLINED)
+        ####################### CONTENT
+        self.EleDragg = DraggWidget('Elevated'    ,'CYAN'   ,ft.icons.APPS)
+
+        # self.EleDragg = DraggWidget('Elevated'    ,'CYAN'   ,'assets/06_btn.png')
+
         drag_container_to_phone =ft.Container( ###################### LEFT DROP CONTAINER
                                     ##################### PROPERTY COLUMN
                                     ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
@@ -87,36 +102,17 @@ class Build_Drag_Editor(ft.UserControl):
                                                                                     # horizontal=False,
                                                                                     # max_extent=150,                                         # lateral_size max
                                                                                     ##################### WIDGETS
-                                                                                    controls=[
-                                                                                                DraggWidget(),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
-                                                                                                # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
+                                                                                    controls=[  ##################### CONTROLS
+                                                                                                self.RowDragg,
+                                                                                                self.ColDragg,
+                                                                                                self.GriDragg,
+                                                                                                self.StaDragg,
+                                                                                                ##################### CONTENT
+                                                                                                self.EleDragg,
+                                                                                                # DraggWidget(group='datos'),
+                                                                                                # DraggWidget(),
+                                                                                                # DraggWidget(),
+                                                                                                # DraggWidget(),
                                                                                                 # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
                                                                                                 # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),
                                                                                                 # ft.Container(width=50,height=50,border_radius=ft.border_radius.all(16),bgcolor='black',tooltip='buttom'),

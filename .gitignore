@@ -1,5 +1,6 @@
 *.txt
+*.pyc
 .venv
 .git
-.cpython-39.pyc
 __pycache__
+drag_drop_proyect

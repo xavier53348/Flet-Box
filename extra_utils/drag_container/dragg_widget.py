@@ -1,38 +1,72 @@
+from extra_utils.settings_var.settings_widget import global_var
 import flet as ft
 
+class DraggWidget(ft.UserControl): # <======= dragg widget
+     """
+     NOTE:
 
+     1. ONLY FUNCTION IS TAKE DRAGGABLE WIDGET AND TRASLATE TO DRAGGABLE_PHONE
+     2. SET IN VARIABLE GLOBAL THE SELECTED DRAGGABLE WIDGET
+     3. CLEAN THE LIST listWidgetUpdate
+     """
+     def __init__(self,data='Erase this test',color='BLACK',icons='/icons/icon-512.png'):
+          super().__init__()
+          # self.title='data'
+          self.widget    = data
+          self.takeClick = False
+          self.myColor   = color
+          self.icons     = icons
 
-class DraggWidget(ft.UserControl):
-    # globalVar='Erase this test'
+     def build(self):
 
-    def __init__(self,data='Erase this test'):
-        super().__init__()
-        # self.title='data'
-        self.title=data
+          self.DropTakeDragg=ft.Draggable(
+                                   ################# FRON CONTAINER
+                                   group   = "GroupDragg",
+                                   content = ft.Container(
+                                                       width=80,
+                                                       height=80,
+                                                       bgcolor=self.myColor,
+                                                       border_radius=13,
+                                                       # image_src=f"{self.icons}",
+                                                       tooltip=self.widget,
+                                                       border=ft.border.all(0.5, "#131926"),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                       gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ "#0d0e0e",'#08142c'], ),
+                                                  on_click=lambda _: self.SelectedWidget(self.widget), # on_hover=lambda _: print('on_hover'),   # on_long_press=lambda _: print('on_long_press'),
+                                                  content= ft.Icon(name=self.icons, color=ft.colors.BLUE, size=50),
+                                   ),
+                                   ################# BACK CONTAINER
+                                   content_when_dragging=ft.Container(
+                                                       padding=2,
+                                                       width=80,
+                                                       height=80,
+                                                       bgcolor='#131926',   # ft.colors.BLACK,
+                                                       border_radius=13,
+                                                    # content=ft.Text("Back"),
+                                   ),
+                                   ################# TRASLATE CONTAINER
+                                   content_feedback=ft.Container(
+                                                       alignment=ft.alignment.bottom_center,
+                                                       width=70,
+                                                       height=70,
+                                                       bgcolor=self.myColor,
+                                                       border_radius=13,
+                                                       # image_src=f"{self.icons}",
+                                                    # content=ft.Text("Drop",size=12),
+                                                    content = ft.Container(alignment=ft.alignment.center,content = ft.Icon(name=self.icons, color=ft.colors.BLUE, size=25)),
+                                   ),
+          )# <======= coma
+          return self.DropTakeDragg
 
-    def build(self):
-        Drop_DraggWidget=ft.Container(
-                                ##################### PROPERTY ROW
-                                ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                # expand=True,
-                                ink=False,                                                      # click effect ripple
-                                bgcolor="#3f9a64",                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                padding= ft.padding.all(8),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
-                                margin = ft.margin.all(8),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
-                                alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                # border_radius= ft.border_radius.all(30),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                border=ft.border.all(2, ft.colors.BLACK),                       # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                # ===================
-                                # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                                # image_opacity=0.1,
-                                # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                # ===================
-                                width=50,
-                                height=50,
-                                # tooltip='Container',
-                                ############################
-                            content=ft.Text(f"solor")
-                        )
+     def SelectedWidget(self,data):
+          """
+          NOTE:
 
-        return Drop_DraggWidget
-######## DraggWidget = DraggWidget(),# <======= Comma
+          1. SET IN GLOBAL VAR THE SELECTED WIDGET
+          2. RESET THE LIST listWidgetUpdate
+
+          """
+          widget_selected = global_var(data_global={
+                                                  'selectWidgetBox':data,
+                                                  'listWidgetUpdate':[],
+                                                   })
+          print(data)

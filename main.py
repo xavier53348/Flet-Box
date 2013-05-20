@@ -1,8 +1,9 @@
 
 # from extra_utils.config_container.widget_editor import Build_Editor
-from extra_utils.phone_container.widget_phone_editor import Build_Phone_Editor
+from extra_utils.phone_container.widget_phone_editor import DropDragg
 from extra_utils.drag_container.widget_drag_editor import Build_Drag_Editor
 
+from extra_utils.settings_var.settings_widget import global_var, get_global_var
 
 import flet as ft
 
@@ -26,12 +27,14 @@ def main(page: ft.Page):
     page.window_top = 8
     # page.window_center()
     ###################### SIZE
-    page.window_height=700
+    page.window_height=400
+    # page.window_height=700
     page.window_width=600
     # page.window_width=1200
     page.padding=0
     page.spacing=0
     page.expand=True
+    global_var(data_global={'page':page})
     ######################
     # phone_screen =  ft.Container( ###################### PHONE CONTAINER
     #                     ##################### PROPERTY COLUMN
@@ -202,7 +205,7 @@ def main(page: ft.Page):
 
     drag_container_to_phone = Build_Drag_Editor()
 
-    phone_testing = Build_Phone_Editor()
+    phone_testing = DropDragg(page)
     # build_config_editor =  Build_Editor(widget=phone_testing.build())
     screen_1 = ft.Container(
                 ##################### PROPERTY
