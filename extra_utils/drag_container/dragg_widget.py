@@ -1,4 +1,4 @@
-from extra_utils.settings_var.settings_widget import global_var
+from extra_utils.settings_var.settings_widget import global_var ,get_global_var
 import flet as ft
 
 class DraggWidget(ft.UserControl): # <======= dragg widget
@@ -86,4 +86,16 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
                                                   'selectWidgetBox':data,
                                                   'listWidgetUpdate':[],
                                                    })
-          print(data)
+
+          page        = get_global_var(get_var='page')
+
+
+          # dlg = ft.AlertDialog(
+          #                     title=ft.Text("Hello, you!"), on_dismiss=lambda e: print("Dialog dismissed!")
+          #                     )
+          # page.dialog = dlg
+          # dlg.open = True
+          # page.update()
+
+
+          print(data,'<=== selected widget')

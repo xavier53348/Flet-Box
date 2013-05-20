@@ -47,14 +47,13 @@ class Build_Editor(ft.UserControl):
                                    height        = 670,
                                    # expand=True,
                                    ############################
-                            on_hover = lambda _:print(f'ID of the Config Container: {Drop_Build_Editor._Control__uid}'),
-
-                            content = ft.Tabs(
-                                            label_color             = 'BLUE',
-                                            indicator_border_radius = ft.border_radius.all(20),
-                                            tabs = [
-                                                    ft.Tab( text = "Container",
-                                                            # icon='',
+                              # on_hover = lambda _:print(f'ID of the Config Container: {Drop_Build_Editor._Control__uid}'),
+                              content  = ft.Tabs(
+                                             label_color             = 'BLUE',
+                                             indicator_border_radius = ft.border_radius.all(20),
+                                             tabs = [
+                                                       ft.Tab(
+                                                            text    = "Container",
                                                             content = ft.Container(
                                                                       ##################### PROPERTY COLUMN
                                                                       padding = ft.padding.all(4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
@@ -75,8 +74,9 @@ class Build_Editor(ft.UserControl):
                                                                            # controls=[],
                                                             ),#<=== NOTE COMA
                                                     ),
-                                                    ft.Tab(text="Widget",
-                                                            content=ft.Container(
+                                                    ft.Tab(
+                                                            text    = "Widget",
+                                                            content = ft.Container(
                                                                       ##################### PROPERTY COLUMN
                                                                       padding = ft.padding.all(4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
                                                                       margin  = ft.margin.all(0),     # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
@@ -94,10 +94,10 @@ class Build_Editor(ft.UserControl):
                                                                                 spacing     = 0,                                             # space widget left right
                                                                                 run_spacing = 8,                                             # space widget up down
                                                                                 ##################### WIDGETS
-                                                                            ),#<=== NOTE COMA [NOTE]                                         # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
-                                                                            ##################### EVENTS
-                                                                            # on_click = lambda _:print(_),                                  # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                            # controls = [ ],
+                                                                           ),#<=== NOTE COMA [NOTE]                                         # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
+                                                                           ##################### EVENTS
+                                                                           # on_click = lambda _:print(_),                                  # on_hover=print('on click over'), on_long_press=print('long press'),
+                                                                           # controls = [ ],
                                                             ),#<=== NOTE COMA
                                                             ),
                                                     ]
@@ -249,7 +249,7 @@ class Build_Editor(ft.UserControl):
                'gradient':            GradientEntry(config_widget   = 'gradient',widget = widget_cliked),
                #############################################################################################
 
-        }
+          }
 
           get_attributes = {
                          'container':{

@@ -103,8 +103,8 @@ def main(page: ft.Page):
                                                 expand          = True,
                                                 ink             = False,                                                # click effect ripple
                                                 # bgcolor       = "#3f449a",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                padding         = ft.padding.only(left=4, top=8, right=4, bottom=8),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                margin          = ft.margin.all(4),    # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
+                                                padding         = ft.padding.only(left=0, top=4, right=0, bottom=4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                margin          = ft.margin.all(0),    # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
                                                 alignment       = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                 border_radius   = ft.border_radius.all(24),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                 # border        = ft.border.all(2, ft.colors.BLACK),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
@@ -180,7 +180,7 @@ def main(page: ft.Page):
                                                                                                             expand          = True,
                                                                                                             ink             = False,                                              # click effect ripple
                                                                                                             # bgcolor       = "red",                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                                            padding         = ft.padding.all(8),    # inside box                  # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                                                            padding         = ft.padding.all(0),    # inside box                  # padding.only(left=8, top=8, right=8, bottom=8),
                                                                                                             margin          = ft.margin.all(0),    # outside box                  # margin.only (left=8, top=8, right=8, bottom=8),
                                                                                                             alignment       = ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                                             # border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),

@@ -340,7 +340,7 @@ class InfinityBoxLayerOne(ft.UserControl):
 
           ################################## UPDATE WIDGET ###########################
           widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border = ft.border.all(2, ft.colors.BLACK12)
+          widgetDropBox.control.content.border = ft.border.all(2, ft.colors.TRANSPARENT)
           widgetDropBox.control.update()
           self.page.update()
           ############################################################################
@@ -353,6 +353,6 @@ class InfinityBoxLayerOne(ft.UserControl):
 
      def drag_leave(self,widgetDropBox):
           widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border = ft.border.all(2, ft.colors.BLACK12)
+          widgetDropBox.control.content.border = ft.border.all(2, ft.colors.TRANSPARENT)
           widgetDropBox.control.update()
           self.page.update()
