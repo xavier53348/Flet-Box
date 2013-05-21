@@ -37,10 +37,10 @@ class Build_Editor(ft.UserControl):
                                 ##################### PROPERTY ROW
                                 padding       = ft.padding.all(0),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
                                 margin        = ft.margin.all(0),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
-                                border_radius = ft.border_radius.all(28),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                border_radius = ft.border_radius.all(28),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                 image_src     = f"dragg_container3.jpg",
                                 image_opacity = 0.03,
-                                image_fit     ='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                image_fit     ='COVER',                                                # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                 # blur        = 18,
                                 width         = 370,
                                 height        = 580,
@@ -56,20 +56,20 @@ class Build_Editor(ft.UserControl):
                                                             content = ft.Container(
                                                                         ##################### PROPERTY COLUMN
                                                                         padding = ft.padding.all(4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                        margin  = ft.margin.all(0),    # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                                        margin  = ft.margin.all(0),     # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
                                                                         ##################### WIDGETS
                                                                         content = ft.Row(
                                                                                 ##################### PROPERTY BOX
-                                                                                alignment   = ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                                scroll      = 'HIDDEN',                                              # center widget
+                                                                                alignment   = ft.MainAxisAlignment.SPACE_BETWEEN,           # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                                                scroll      = 'HIDDEN',                                     # center widget
                                                                                 tight       = True,
-                                                                                wrap        = True,                                                  # justify in all screen
-                                                                                spacing     = 0,                                                # space widget left right
+                                                                                wrap        = True,                                         # justify in all screen
+                                                                                spacing     = 0,                                            # space widget left right
                                                                                 run_spacing = 8,                                            # space widget up down
                                                                                 ##################### WIDGETS
-                                                                            ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
+                                                                            ),#<=== NOTE COMA [NOTE]                                        # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
                                                                             ##################### EVENTS
-                                                                            # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
+                                                                            # on_click=lambda _:print(_),                                   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                             # controls=[],
                                                             ),#<=== NOTE COMA
                                                     ),
@@ -77,7 +77,7 @@ class Build_Editor(ft.UserControl):
                                                             content=ft.Container(
                                                                         ##################### PROPERTY COLUMN
                                                                         padding = ft.padding.all(4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                        margin  = ft.margin.all(0),    # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                                        margin  = ft.margin.all(0),     # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
                                                                         ##################### WIDGETS
                                                                     content = ft.Row(
                                                                                 ##################### PROPERTY BOX
@@ -85,16 +85,16 @@ class Build_Editor(ft.UserControl):
                                                                                 alignment = ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                                                                                 # horizontal_alignment =ft.CrossAxisAlignment.CENTER,        # vertical       START,CENTER END
                                                                                 ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                                                scroll      = 'HIDDEN',                                              # center widget
+                                                                                scroll      = 'HIDDEN',                                      # center widget
                                                                                 tight       = True,
                                                                                 ##################### ADAPT TO SCREEN
-                                                                                wrap        = True,                                                  # justify in all screen
-                                                                                spacing     = 0,                                                # space widget left right
-                                                                                run_spacing = 8,                                            # space widget up down
+                                                                                wrap        = True,                                          # justify in all screen
+                                                                                spacing     = 0,                                             # space widget left right
+                                                                                run_spacing = 8,                                             # space widget up down
                                                                                 ##################### WIDGETS
-                                                                            ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
+                                                                            ),#<=== NOTE COMA [NOTE]                                         # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
                                                                             ##################### EVENTS
-                                                                            # on_click = lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
+                                                                            # on_click = lambda _:print(_),                                  # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                             # controls = [ ],
                                                             ),#<=== NOTE COMA
                                                             ),
@@ -289,10 +289,10 @@ class Build_Editor(ft.UserControl):
 
         ##################################################
         ######################### TAKE NAME IN STR OF THE WIDGET DRAGG AND CONTENT NAME
-        tmp_clicked_widget                   = widget_cliked._get_control_name()          # NAME 'Container'
+        tmp_clicked_widget                   = widget_cliked._get_control_name()            # NAME 'Container'
         ######################### 2.0 -SET ALL KEYS INSIDE widgets_dict TO COMPARE WITH tmp_widget_clicked TO GET INTERSECTION BETWEEN [tmp_widget_clicked] AND [widgets_dict.KEYS]
-        # check_clicked_widget               = set(widget_cliked.__dir__())          # ATTRIBUTES TO COMPARE 'Widget Container'
-        check_clicked_widget_content         = set(widget_cliked.content.__dir__())    # ATTRIBUTES TO COMPARE 'Widget Container.content'
+        # check_clicked_widget               = set(widget_cliked.__dir__())                 # ATTRIBUTES TO COMPARE 'Widget Container'
+        check_clicked_widget_content         = set(widget_cliked.content.__dir__())         # ATTRIBUTES TO COMPARE 'Widget Container.content'
         # our dictionaries
         attrib_compare_container_dict        = set(get_attributes.get(tmp_clicked_widget))  # ATTRIBUTES TO COMPARE 'Container'
         attrib_compare_container_widget_dict = set(widgets_dict.keys())                     # ATTRIBUTES TO COMPARE 'Container.content'

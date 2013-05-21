@@ -26,6 +26,7 @@ class DropDragg(ft.UserControl):
                                         border        = ft.border.all(6, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                         width         = 260,
                                         height        = 525,
+                                        bgcolor       = '#070707',
                                         ##################### EFFECTS
                                         # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK45],),
                                         ##################### WIDGETS
