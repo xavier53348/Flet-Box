@@ -1,12 +1,11 @@
 ######################
-from extra_utils.config.double_entry import DoubleEntry
-from extra_utils.config.color_entry  import ColorEntry
-from extra_utils.config.bool_entry import BoolEntry
-from extra_utils.config.four_entry import FourEntry
-from extra_utils.config.single_entry import SingleEntry
-from extra_utils.config.selection_entry import SelectionEntry
-from extra_utils.config.gradient_entry import GradientEntry
-
+from extra_utils.config_container.double_entry import DoubleEntry
+from extra_utils.config_container.color_entry  import ColorEntry
+from extra_utils.config_container.bool_entry import BoolEntry
+from extra_utils.config_container.four_entry import FourEntry
+from extra_utils.config_container.single_entry import SingleEntry
+from extra_utils.config_container.selection_entry import SelectionEntry
+from extra_utils.config_container.gradient_entry import GradientEntry
 
 ######################
 import flet as ft
@@ -25,7 +24,6 @@ class Build_Editor(ft.UserControl):
     NOTE:
         Is necessary put class widget of the widget to edit Attributes
     """
-
     def __init__(self,widget='Erase this test'):
         super().__init__()
         self.widget = widget
@@ -334,6 +332,11 @@ class Build_Editor(ft.UserControl):
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('scale'))
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('opacity'))
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('tooltip'))
+        ######################### GRADIEN CONTAINER
+        # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('gradient '))
+
+
+
         ###########################################################################
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('key'))
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('hint_text'))
@@ -366,7 +369,7 @@ class Build_Editor(ft.UserControl):
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('border'))
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('offset'))
         # ######################### 4 SELECTION ENTRIES  #########################
-        Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('padding'))
+        # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('padding'))
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('margin'))
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('border_radius'))
         # # ######################### COLOR ENTRY ['RED' ...] #########################
@@ -407,7 +410,7 @@ class Build_Editor(ft.UserControl):
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('image_fit'))
         # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('weight'))
         # # ######################### GRADIEN ENTRY #########################
-        Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('gradient'))
+        # Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('gradient '))
 
         ########################################################################################
         # """
@@ -457,13 +460,13 @@ class Build_Editor(ft.UserControl):
                                             'image_opacity ',
                                             'expand ',
                                             'alignment ',
+                                            'gradient ',
 
                                             # 'animate ',
                                             # 'url_target ',
                                             # 'url ',
                                             # 'clip_behavior ',
                                             # 'content ',
-                                            # 'gradient ',
                                             # 'image_repeat ',
                                             # 'image_src_base64 ',
                                             # 'blend_mode ',
@@ -476,27 +479,27 @@ class Build_Editor(ft.UserControl):
         }
 
         # ######################## 1.0 -  WE GET NAME OF THE WIDGET
-        # self.widget_name       = 'Container'
-        # # self.widget_name     = self.widget.content._get_control_name()    # <<<==== widget name
-        # ######################### 2.0 -  WE MAKE widgets_dict A SET TO GET INTERSECTION BETWEEN [widget_name] AND [widgets_dict.KEYS]
-        # self.my_builder_widget = set(self.widgets_dict.keys())
-        # ######################### 3.0 -  GET ATTRIBUTES AVIABLES INTERSECTION
-        # # self.get_attributes_from_my_builder_widget       = set(self.widget.__dir__())                #  <=== DEFAULD dict attrib CONTAINER
-        # self.get_attributes_from_my_builder_widget         = self.get_attributes.get(self.widget_name) #  <=== personal dict attrib CONTAINER
+        self.widget_name       = 'Container'
+        # self.widget_name     = self.widget.content._get_control_name()    # <<<==== widget name
+        ######################### 2.0 -  WE MAKE widgets_dict A SET TO GET INTERSECTION BETWEEN [widget_name] AND [widgets_dict.KEYS]
+        self.my_builder_widget = set(self.widgets_dict.keys())
+        ######################### 3.0 -  GET ATTRIBUTES AVIABLES INTERSECTION
+        # self.get_attributes_from_my_builder_widget       = set(self.widget.__dir__())                #  <=== DEFAULD dict attrib CONTAINER
+        self.get_attributes_from_my_builder_widget         = self.get_attributes.get(self.widget_name) #  <=== personal dict attrib CONTAINER
 
-        # self.get_attributes_from_my_builder_widget_content = set(self.widget.content.__dir__())        #  <=== personal dict attrib CONTAINER CONTENT
-        # ######################### 4.0 -  GET ONLY INTERSECTION TO GET SPECIFIC BUILDER ATRRIBUTES
-        # self.compare_intersection         = self.get_attributes_from_my_builder_widget.intersection(self.my_builder_widget)           #  <=== personal CONTAINER || WIDGET_SELECTED coindences point
-        # self.compare_intersection_content = self.get_attributes_from_my_builder_widget_content.intersection(self.my_builder_widget)   #  <=== personal WIDGET_SELECTED coindences point
+        self.get_attributes_from_my_builder_widget_content = set(self.widget.content.__dir__())        #  <=== personal dict attrib CONTAINER CONTENT
+        ######################### 4.0 -  GET ONLY INTERSECTION TO GET SPECIFIC BUILDER ATRRIBUTES
+        self.compare_intersection         = self.get_attributes_from_my_builder_widget.intersection(self.my_builder_widget)           #  <=== personal CONTAINER || WIDGET_SELECTED coindences point
+        self.compare_intersection_content = self.get_attributes_from_my_builder_widget_content.intersection(self.my_builder_widget)   #  <=== personal WIDGET_SELECTED coindences point
 
-        # # self.compare_intersection_content = self.compare_intersection_content.difference(self.get_attributes.get('Container'))        #  <=== personal get diference CONTAINER and WIDGET_SELECTED to use only Container attib and no repeat in WIDGET_SELECTED attributes
-        # ######################### 4.0 - GET LIS OF BUILDER ATTRIBUTES
-        # self.get_widgets         = [self.widgets_dict.get(_) for _ in self.compare_intersection]
-        # self.get_widgets_content = [self.widgets_dict.get(_) for _ in self.compare_intersection_content]
-        # ######################### 5.0 - ADD TO TAB CONTAINER
-        # Drop_Build_Editor.content.tabs[0].content.content.controls = self.get_widgets
-        # ######################### 5.0 - ADD TO TAB WIDGET
-        # Drop_Build_Editor.content.tabs[1].content.content.controls = self.get_widgets_content
+        # self.compare_intersection_content = self.compare_intersection_content.difference(self.get_attributes.get('Container'))        #  <=== personal get diference CONTAINER and WIDGET_SELECTED to use only Container attib and no repeat in WIDGET_SELECTED attributes
+        ######################### 4.0 - GET LIS OF BUILDER ATTRIBUTES
+        self.get_widgets         = [self.widgets_dict.get(_) for _ in self.compare_intersection]
+        self.get_widgets_content = [self.widgets_dict.get(_) for _ in self.compare_intersection_content]
+        ######################### 5.0 - ADD TO TAB CONTAINER
+        Drop_Build_Editor.content.tabs[0].content.content.controls = self.get_widgets
+        ######################### 5.0 - ADD TO TAB WIDGET
+        Drop_Build_Editor.content.tabs[1].content.content.controls = self.get_widgets_content
         # # ##########################################################################
 
 

@@ -298,6 +298,7 @@ class BoolEntry(ft.UserControl): ##################### PROPERTY
             self.widget.content.gapless_playback = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
 
         # print(self.widget.uid)
+        # print(data_usage)
         self.widget.update()
 
 ######## Double_Widget = BoolEntry(),# <======= Comma
