@@ -1,6 +1,11 @@
 import flet as ft
 import time
-# from controls.app_style_manager   import styles
+
+from .loading_animation import LoadingAnimation
+# from controls.views.screen_1_styles   import styles
+# from controls.app_screen_manager import show_screen
+
+
 
 DATA_GLOBAL: dict = {
                 'screen_size' : {'width':720,'height':600},
@@ -52,7 +57,7 @@ def builder_app(screen, main_page):
     # print(screen)
     return tmp_data
 
-def got_to_screen(to_screen: str, style: str='bar', time_style: float=0.8 ):
+def got_to_screen(to_screen: str, style: str='bar', time_style: float=10 ):
     """
     Clean the view and add and update new view
 
@@ -68,14 +73,25 @@ def got_to_screen(to_screen: str, style: str='bar', time_style: float=0.8 ):
 
     from_screen: dict = all_screens.get(current_screen)
     next_screen: dict = all_screens.get(to_screen)
+    if not time_style == 0.0 or time_style == 0:
+        if style == "burble":
+            animated = LoadingAnimation()
+            main_page.splash = ft.Container(
+                                            # content   = ft.ProgressRing(),
+                                            content = animated,
+                                            alignment = ft.alignment.center,
+                                           )
 
-    if style == "ring":
-        main_page.splash = ft.Container(
-                                        content   = ft.ProgressRing(),
-                                        alignment = ft.alignment.center,
-                                       )
-    elif style == "bar":
-        main_page.splash = ft.ProgressBar()
+            main_page.add(animated)
+            animated.animate_loader(time_app=time_style)
+        elif style == "ring":
+            main_page.splash = ft.Container(
+                                            content   = ft.ProgressRing(),
+                                            alignment = ft.alignment.center,
+                                           )
+
+        elif style == "bar":
+            main_page.splash = ft.ProgressBar()
 
     #: UPDATE COLOR STREAMING
     # ITS NECESSARY MARK MAIN WIDGET index 0 "BECAUSE MARK ALL COLOR BY DEFAULD"
@@ -91,10 +107,14 @@ def got_to_screen(to_screen: str, style: str='bar', time_style: float=0.8 ):
 
     #: UPDATE SIZE STREAMING
     next_screen.height , next_screen.width  = main_page.height , main_page.width
-
     next_screen.update()
-    main_page.splash = None
-    main_page.update()
+
+    if not time_style == 0.0 or time_style == 0:
+        main_page.splash = None
+        main_page.update()
+
+    else:
+        main_page.update()
 
     #: GLOBAL_VAR(set_global_var={'to_screen':to_screen})
     GLOBAL_VAR(set_global_var={'current_screen':to_screen})

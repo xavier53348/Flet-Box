@@ -1,5 +1,5 @@
 from builder.app_manager  import builder_app ,GLOBAL_VAR
-# from controls.app_style_manager   import styles
+# from controls.app_style_manager import styles
 from controls.app_screen_manager import screens
 import flet as ft
 

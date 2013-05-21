@@ -1,12 +1,14 @@
+import time
+import json
+import os
+import flet as ft
+
 from ..menu_tab_up_phone.basic_menu_tab_up import BasicMenuUp
 from ..settings_var.save_export import MakeJasonFile
 from .skeleton_class_screens import get_skeleton
 from ..settings_var.settings_widget import GLOBAL_VAR
-from ..screen_manager.write_file_proyect import write_file
+from ..screen_manager.write_file_proyect import write_file, file_saved
 
-import time
-import json
-import flet as ft
 
 class MenuUpContainer(ft.Stack):
 
@@ -191,7 +193,6 @@ class MenuUpContainer(ft.Stack):
                if dict_to_edit.get(_):
                     #: GET NEW NAME
                     new_name = attributes_to_change.get(_)
-
                     # RENAME OLD BY NEW KEY
                     dict_to_edit[new_name]=dict_to_edit.get(_)
 
@@ -235,6 +236,10 @@ class MenuUpContainer(ft.Stack):
                               "borderradius",
                               "border",
                               "ink",
+                              "n",
+                              "onhover",
+                              "visible",
+                              "onclick",
                               ]
           atributes_to_rename = [
                               "borderradius",
@@ -252,7 +257,8 @@ class MenuUpContainer(ft.Stack):
                                           )
           #: =========================================================================
           #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [1]
-          # print(tmp_data)
+          # print(tmp_data,' DATA PHONE: [1]')
+          if tmp_data.get('n'): del tmp_data['n']
 
           #: SET NEW DATA OF CONTAIER
           all_data["MAIN_CONTAINER"] = tmp_data
@@ -266,6 +272,8 @@ class MenuUpContainer(ft.Stack):
                               "borderradius",
                               "border",
                               'n'
+                              "onclick",
+                              "onhover",
                               ]
           # atributes_to_rename = [
           #                     # "borderradius",
@@ -284,7 +292,8 @@ class MenuUpContainer(ft.Stack):
 
           #: =========================================================================
           #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [2]
-          # print(tmp_data)
+          # print(tmp_data,' DATA PHONE: [2]')
+          if tmp_data.get('n'): del tmp_data['n']
 
           #: SET NEW DATA OF CONTAIER
           all_data["MAIN_EFFECTS_CONTAINER"] = tmp_data
@@ -296,6 +305,8 @@ class MenuUpContainer(ft.Stack):
           #: MAIN PHONE
           atributes_to_delete = [
                               'n'
+                              "onhover",
+                              "onclick",
                               ]
           atributes_to_rename = [
                               "horizontalalignment",
@@ -311,7 +322,8 @@ class MenuUpContainer(ft.Stack):
 
           #: =========================================================================
           #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [3]
-          # print(tmp_data)
+          # print(tmp_data,' DATA PHONE: [2]')
+          if tmp_data.get('n'): del tmp_data['n']
 
           #: SET NEW DATA OF CONTAIER
           all_data["COLUMN_CONTAINER"] = tmp_data
@@ -364,10 +376,20 @@ class MenuUpContainer(ft.Stack):
                     id_name,
                     )
 
+          #: RESET COLOR
+          # if selected_widget_clicked:
+          #      selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
+          #      selected_widget_clicked.update()
+
+
      def save_proyect_app(self):
 
           #: GET LIST WITH ALL SCREENS
           self.get_row_screens = GLOBAL_VAR(get_global_var='row_phone').controls
+          self.names_screens: list = []
+
+          #: WRITE APP IN REAL TIME
+          self.app_events_manager  = f'test/proyect_name/proyect_name/controls/'
 
           #: LIST SCREENS
           for tmp_widgets in self.get_row_screens:
@@ -377,12 +399,9 @@ class MenuUpContainer(ft.Stack):
                                                                                            main_node_phone_id = tmp_widgets.uid
                                                                                            )
 
-               #: WRITE APP IN REAL TIME
-               app_events_manager  = f'test/proyect_name/proyect_name/controls/'
-
                #: IF NO EXITS [ CREATE ] IF EXIST    [ OVERWRITE]
                write_file(
-                         path_name  = app_events_manager,
+                         path_name  = self.app_events_manager,
                          file_name  = id_name,
 
                          main_code  = streaming_phone_data,
@@ -390,18 +409,70 @@ class MenuUpContainer(ft.Stack):
                          event_code = main_event_code,
                           )
 
-
+               self.names_screens.append(id_name)
                #: RUN ONLY IN PRODUCTION
                # print(streaming_phone_data)
                # print(style_code)
                # print(main_event_code)
                # print(id_name)
 
+
+               # #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
+               selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
+
+               #: RESET COLOR
+               if selected_widget_clicked:
+                    selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
+                    selected_widget_clicked.update()
+
+          #: NEED MAKE SCREEN BUILDER MANAGER APP
+          self.write_screen_managet_app(screens_list_name=self.names_screens,
+                                        path_to_write    =self.app_events_manager)
+
           #: NEED ACTIVATE ALER OF SELECTED WIDGET
-          selected_widget         = GLOBAL_VAR( get_global_var='ALERT_WIDGET')
-          selected_widget.offset  = (1.59,-7.5)
-          selected_widget.visible = True
-          selected_widget.update()
-          time.sleep(1)
-          selected_widget.visible = False
-          selected_widget.update()
+          self.show_info_complete()
+
+     def write_screen_managet_app(
+                                   self,
+                                   screens_list_name:  list=[],
+                                   path_to_write:      list=[]
+                                   ):
+
+         list_screens = screens_list_name
+         all_dict_imports = list()
+         all_data = "#: ALL SCREENS IN APP\n"
+
+         for _ in list_screens:
+              #: SAVE ALL IMPORT PATH
+             tmp_screen_data = f"from .views.{_} import {_}\n"
+             tmp_events_data = f"from .views.{_}_events import *\n\n"
+
+              #: ADD STR TO MIX DATA
+             all_data+=tmp_screen_data+tmp_events_data
+
+              #: SAVE ALL IMPORT SCREENS
+             tmp_data = f"'{_}': {_}(),\n"
+             all_dict_imports.append(tmp_data)
+
+          #: ADD STR TO MIX DATA
+         tabulation = "\t"*4
+         all_data += "screens: dict={\n"
+         for _ in all_dict_imports: all_data += f"{tabulation}{_}"
+         all_data += tabulation +"}"
+
+         full_screen_path = os.path.join(path_to_write,"app_screen_manager.py")
+
+         file_saved(
+                    full_path = full_screen_path,
+                    data_code = all_data,
+                    )
+
+
+     def show_info_complete(self):
+         selected_widget         = GLOBAL_VAR( get_global_var='ALERT_WIDGET')
+         selected_widget.offset  = (1.59,-7.5)
+         selected_widget.visible = True
+         selected_widget.update()
+         time.sleep(1)
+         selected_widget.visible = False
+         selected_widget.update()

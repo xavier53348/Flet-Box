@@ -283,7 +283,6 @@ def main(page: ft.Page):
      #: only use in production
      # print(page.views)
 
-
      page.add(data_stack)
 
      # AFTER ADD TAKE ID

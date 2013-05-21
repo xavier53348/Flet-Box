@@ -250,8 +250,8 @@ class MakeJasonFile():
 
         #: DEL 'n':'content' from dict
         if self.attributes.get("n"):             del self.attributes['n']
-        if self.attributes.get("n"):             del self.attributes['onclick']
-        if self.attributes.get("n"):             del self.attributes['onhover']
+        if self.attributes.get("onclick"):       del self.attributes['onclick']
+        if self.attributes.get("onhover"):       del self.attributes['onhover']
         if self.attributes_content.get("n"):     del self.attributes_content['n']
 
         if self.attributes.get('style'):         del self.attributes['style']

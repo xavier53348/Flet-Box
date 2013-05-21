@@ -1,14 +1,11 @@
-import flet as ft
-from .app_events_manager import *
+#: ALL SCREENS IN APP
+from .views.main_screen import main_screen
+from .views.main_screen_events import *
 
-from .views.main_screen import CustomPage
-# from .views.screen_1 import Screen1
-# from .views.screen_2 import Screen2
-
+from .views.screen_1 import screen_1
+from .views.screen_1_events import *
 
 screens: dict={
-
-		'main_screen': CustomPage(),
-        # 'screen_1':    Screen1(),
-		# 'screen_2':    Screen2(),
-}
+				'main_screen': main_screen(),
+				'screen_1': screen_1(),
+				}

@@ -9,10 +9,7 @@ numWidget        = GLOBAL_VAR(get_global_var='NUM_WIDGETS_DROPPED')
 numClick         = GLOBAL_VAR(get_global_var='NUM_CLICKS')
 listWidgetUpdate = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
 
-PRESENTATION_TEXT: str = """
-Ready to make your first app!!
-Begin your journey...
-"""
+PRESENTATION_TEXT: str = """Ready to make your first app!!"""
 
 class InfinityBoxLayerOne(ft.Stack):
      """

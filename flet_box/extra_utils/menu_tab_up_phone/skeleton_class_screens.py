@@ -3,8 +3,8 @@ skeleton_data: dict = {
 'class_flet_box':'''#: MAIN WIDGET SCREEN CLASS
 import flet as ft
 
-from ..views.SYTLE_RENAME import styles
-from ..app_events_manager import *
+from .SYTLE_RENAME_styles import styles
+from .EVENT_RENAME_events import *
 
 #: STYLE TO MAIN SCREEN WIDGET
 phone_style_widget = CHANGE_STYLE
