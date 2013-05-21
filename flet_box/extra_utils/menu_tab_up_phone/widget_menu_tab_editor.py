@@ -30,11 +30,11 @@ class MenuUpContainer(ft.Stack):
                                    alignment       = ft.alignment.center,
                                    border_radius   = ft.border_radius.all(30),
                                    height          = 50,
-                                   border=ft.border.all(0.6, ft.colors.with_opacity(0.1,ft.colors.BLACK87),),
+                                   border=ft.border.all(0.6, ft.colors.with_opacity(0.1,ft.colors.CYAN_800),),
                                    shadow = ft.BoxShadow(
                                                       spread_radius=1,
-                                                      blur_radius=16,
-                                                      color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
+                                                      blur_radius=8,
+                                                      color=ft.colors.with_opacity(0.8,ft.colors.BLACK12),
                                                       offset=ft.Offset(0, 0),
                                                       blur_style=ft.ShadowBlurStyle.OUTER,
                                                  ),
@@ -42,45 +42,102 @@ class MenuUpContainer(ft.Stack):
                                              content  = ft.Row(
                                                             expand   = True,
                                                             spacing  = 0,
+                                                            run_spacing=0,
                                                             controls = [
-                                                                 ft.Row(
-                                                                      controls=[
+                                                                ft.Container(
+                                                                      border_radius   = ft.border_radius.all(42),
+                                                                      border=ft.border.all(0.1, ft.colors.with_opacity(0.4,ft.colors.CYAN_800),),
+                                                                      margin=2,
+                                                                      # bgcolor=ft.colors.with_opacity(0.4,ft.colors.CYAN_800),
+                                                                      gradient=ft.LinearGradient(   begin = ft.alignment.top_center,
+                                                                                                    end   = ft.alignment.center_right,
+                                                                                                    colors= [
+                                                                                                              ft.colors.CYAN,
+                                                                                                              ft.colors.PURPLE_600,
+                                                                                                              ft.colors.PURPLE_200,
+                                                                                                              ft.colors.RED_500,
+                                                                                                    ],
+                                                                                              ),
+                                                                      shadow = ft.BoxShadow(
+                                                                                         spread_radius=1,
+                                                                                         blur_radius=18,
+                                                                                         color=ft.colors.with_opacity(0.1,ft.colors.WHITE12),
+                                                                                         offset=ft.Offset(0, 0),
+                                                                                         blur_style=ft.ShadowBlurStyle.OUTER,
+
+                                                                                    ),
+                                                                      content = ft.Row(
+                                                                                controls=[
 
                                                                                 ft.Container(
-                                                                                          padding =  ft.padding.only(left=16, top=0, right=0, bottom=0),
-                                                                                          height  = 40 ,
-                                                                                          bgcolor = 'Black',
-                                                                                          content = ft.Image(
-                                                                                                         src           = 'logo.jpg',
-                                                                                                         border_radius = ft.border_radius.all(0),
-                                                                                                         fit           = ft.ImageFit.CONTAIN,
-                                                                                                         )
+                                                                                          margin =  ft.padding.only(left=12, top=1, right=0, bottom=1),
+                                                                                          padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
+                                                                                          # height  = 40 ,
+                                                                                          image_src='logo.jpg',
+                                                                                          border=ft.border.all(1, ft.colors.with_opacity(0.8,ft.colors.CYAN),),
+
+                                                                                          image_fit = 'COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                                                                          width     = 60,
+                                                                                          border_radius   = ft.border_radius.all(2),
                                                                                            ),
                                                                                 ft.Container(
                                                                                           ink           = False,
-                                                                                          bgcolor       = ft.colors.BLACK26,
-                                                                                          padding       = ft.padding.only(left=2, top=0, right=16, bottom=0),
-                                                                                          margin        = ft.margin.all(0),
-                                                                                          alignment     = ft.alignment.center,
-                                                                                          border_radius = ft.border_radius.only(top_left=0, top_right=30, bottom_left=0, bottom_right=30),
-                                                                                          content = ft.Text(
-                                                                                                         value       = "LET BOX\n",
-                                                                                                         text_align  = ft.TextAlign.LEFT,
-                                                                                                         weight      = ft.FontWeight.BOLD,
-                                                                                                         font_family = "Consolas", #"Consolas ,RobotoSlab
-                                                                                                         size        = 20,
-                                                                                                         spans = [ ft.TextSpan( "Powered by Flet Framework",
-                                                                                                                             ft.TextStyle(
+                                                                                          padding       = ft.padding.only(left=0, top=0, right=16, bottom=0),
+                                                                                          alignment     = ft.alignment.center_left,
+                                                                                          content = ft.Column(
+                                                                                                    run_spacing=0,
+                                                                                                    spacing=0,
+                                                                                                         controls=[
 
-                                                                                                                                       size     = 10,
-                                                                                                                                       color    = ft.colors.TEAL,
-                                                                                                                                       weight   = ft.FontWeight.BOLD,
-                                                                                                                                       ),),],
-                                                                               ),),
-                                                                 ],),
+                                                                                                         ft.Container(
+                                                                                                                     # bgcolor=ft.colors.BLACK12,
+                                                                                                                     margin       = ft.margin.only(left=0, top=0, right=0, bottom=0),
+                                                                                                                     padding       = ft.padding.only(left=8, top=0, right=8, bottom=0),
+                                                                                                                     border_radius   = ft.border_radius.all(8),
+                                                                                                                     content=ft.Text(
+                                                                                                                             weight      = ft.FontWeight.BOLD,
+                                                                                                                             value='FLET BOX',
+                                                                                                                             size=17,
+                                                                                                                             color=ft.colors.WHITE,
+                                                                                                                            #########
+                                                                                                                            style           = ft.TextThemeStyle.DISPLAY_LARGE,                                                                                                                             ),
+                                                                                                                     ),
+                                                                                                         ft.Container(
+                                                                                                                     # bgcolor=ft.colors.BLACK38,
+                                                                                                                     margin       = ft.margin.only(left=0, top=0, right=0, bottom=0),
+                                                                                                                     padding       = ft.padding.only(left=8, top=2, right=8, bottom=0),
+                                                                                                                     border_radius   = ft.border_radius.all(8),
+                                                                                                                     border=ft.border.all(1, ft.colors.with_opacity(0.5,ft.colors.WHITE12),),
+                                                                                                                     gradient=ft.LinearGradient(   begin = ft.alignment.top_center,
+                                                                                                                             end   = ft.alignment.center_right,
+                                                                                                                             colors= [
+                                                                                                                                       ft.colors.BLUE_600,
+                                                                                                                                       ft.colors.PURPLE_600,
+                                                                                                                                       ft.colors.PURPLE_200,
+                                                                                                                                       ft.colors.CYAN,
+                                                                                                                             ],
+                                                                                                                       ),
+                                                                                                                     # blur=(15,15),
+                                                                                                                     shadow = ft.BoxShadow(
+                                                                                                                            spread_radius=1,
+                                                                                                                            blur_radius=16,
+                                                                                                                            color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
+                                                                                                                            offset=ft.Offset(0, 0),
+                                                                                                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                                                                       ),
+                                                                                                                     content=ft.Text(
+                                                                                                                             value='Powered by Flet Framework',
+                                                                                                                             weight      = ft.FontWeight.BOLD,
+                                                                                                                             size=12,
+                                                                                                                             ),
+                                                                                                                     ),
+                                                                                                                   ],
+                                                                                                                   ),
+                                                                                ),],
+                                                                          ),),
 
                                                                  ft.Container(
-                                                                      width=125,
+                                                                      width=60,
                                                                  ),#<=== NOTE COMA
 
                                                                  Basic_MenuUp,

@@ -61,40 +61,46 @@ class MenuLeftContainer(ft.Stack):
                                                                                         spacing              = 8,
                                                                                         controls=[
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='ICONS',content=ft.IconButton(icon=ft.icons.ADD_REACTION_OUTLINED , on_click=lambda _:self.show_widgets(show_widget='icon_browser')),
+                                                                                                        border        = ft.border.all(1, ft.colors.CYAN_800 ),
                                                                                                         bgcolor       = ft.colors.BLACK45,
-                                                                                                        height        = 45,
-                                                                                                        width         = 45,
-                                                                                                        border_radius = ft.border_radius.all(16)
+                                                                                                        height        = 52,
+                                                                                                        width         = 52,
+                                                                                                        border_radius = ft.border_radius.all(42)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='COLORS',content=ft.IconButton(icon=ft.icons.COLOR_LENS_OUTLINED , on_click=lambda _:self.show_widgets(show_widget='color_browser')),
+                                                                                                        border        = ft.border.all(1, ft.colors.CYAN_800 ),
                                                                                                         bgcolor       = ft.colors.BLACK45,
-                                                                                                        height        = 45,
-                                                                                                        width         = 45,
-                                                                                                        border_radius = ft.border_radius.all(16)
+                                                                                                        height        = 52,
+                                                                                                        width         = 52,
+                                                                                                        border_radius = ft.border_radius.all(42)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='CODE'     ,content=ft.IconButton(icon=ft.icons.CODE_ROUNDED , on_click=lambda _:self.show_widgets(show_widget='text_editor')),
+                                                                                                        border        = ft.border.all(1, ft.colors.CYAN_800 ),
                                                                                                         bgcolor       = ft.colors.BLACK45,
-                                                                                                        height        = 45,
-                                                                                                        width         = 45,
-                                                                                                        border_radius = ft.border_radius.all(16)
+                                                                                                        height        = 52,
+                                                                                                        width         = 52,
+                                                                                                        border_radius = ft.border_radius.all(42)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='TREE'     ,content=ft.IconButton(icon=ft.icons.ACCOUNT_TREE_ROUNDED , on_click=lambda _:self.show_widgets(show_widget='tree_view')),
+                                                                                                        border        = ft.border.all(1, ft.colors.CYAN_800 ),
                                                                                                         bgcolor       = ft.colors.BLACK45,
-                                                                                                        height        = 45,
-                                                                                                        width         = 45,
-                                                                                                        border_radius = ft.border_radius.all(16)
+                                                                                                        height        = 52,
+                                                                                                        width         = 52,
+                                                                                                        border_radius = ft.border_radius.all(42)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='GIT-HUB'  ,content=ft.IconButton(icon=ft.icons.DEVELOPER_MODE , on_click=lambda _:self.on_developing('Git-Hub')),
+                                                                                                        border        = ft.border.all(1, ft.colors.CYAN_800 ),
                                                                                                         bgcolor       = ft.colors.BLACK45,
-                                                                                                        height        = 45,
-                                                                                                        width         = 45,
-                                                                                                        border_radius = ft.border_radius.all(16)
+                                                                                                        height        = 52,
+                                                                                                        width         = 52,
+                                                                                                        border_radius = ft.border_radius.all(42)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='CHAT-GPT' ,content=ft.IconButton(icon=ft.icons.DATA_OBJECT_OUTLINED ,  on_click=lambda _:self.show_widgets(show_widget='gpt_browser')),
+                                                                                                        border        = ft.border.all(1, ft.colors.CYAN_800 ),
                                                                                                         bgcolor       = ft.colors.BLACK45,
-                                                                                                        height        = 45,
-                                                                                                        width         = 45,
-                                                                                                        border_radius = ft.border_radius.all(16)
+                                                                                                        height        = 52,
+                                                                                                        width         = 52,
+                                                                                                        border_radius = ft.border_radius.all(42)
                                                                                                         ),
                                                                                                  ],
                                                                                     ),

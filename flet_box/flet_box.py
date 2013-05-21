@@ -136,7 +136,7 @@ def main(page: ft.Page):
                margin          = ft.margin.all(0),
                alignment       = ft.alignment.center,
                border_radius   = ft.border_radius.all(30),
-               width           = 368,
+               width           = 375,
 
                # EFFECS COLORS
                border=ft.border.all(0.6, ft.colors.WHITE12),
@@ -164,7 +164,6 @@ def main(page: ft.Page):
                                    ],
                               ),
                           )
-
 
      #: SCREEN MANAGER
      Screen_Manager = ScreenManager()
@@ -204,7 +203,7 @@ def main(page: ft.Page):
                                     alignment = ft.alignment.center,
                                     shadow = ft.BoxShadow(
                                            spread_radius=1,
-                                           blur_radius=8,
+                                           blur_radius=18,
                                            color=ft.colors.with_opacity(0.4,ft.colors.BLUE_900),
                                            offset=ft.Offset(0, 0),
                                            blur_style=ft.ShadowBlurStyle.OUTER,

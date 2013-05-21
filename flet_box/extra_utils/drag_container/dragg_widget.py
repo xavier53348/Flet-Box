@@ -147,6 +147,7 @@ class DraggWidget(ft.Stack):
 
      def unselect_widget_border(self):
          selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
+
          if selected_widget_clicked:
               selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
               selected_widget_clicked.update()

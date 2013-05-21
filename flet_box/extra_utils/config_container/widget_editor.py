@@ -26,7 +26,11 @@ class BoxConfigContainer(ft.Stack):
 
     def build(self):
         Drop_BoxConfigContainer = ft.Container(
-                              padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
+                              padding = ft.padding.only(
+                                                        left   = 4,
+                                                        top    = 4,
+                                                        right  = 4,
+                                                        bottom = 4),
                          content = ft.Column(
                                    controls = [
 
@@ -36,9 +40,9 @@ class BoxConfigContainer(ft.Stack):
                                                        padding       = ft.padding.only(left=8, top=2, right=8, bottom=2),
                                                        margin        = ft.margin.only( left=8, top=2, right=20, bottom=2),
                                                        gradient      = ft.LinearGradient(
-                                                                                          begin = ft.alignment.top_center,
-                                                                                          end   = ft.alignment.bottom_center,
-                                                                                          colors= [ft.colors.TEAL, ft.colors.BLACK38],),
+                                                                                          begin  = ft.alignment.top_center,
+                                                                                          end    = ft.alignment.bottom_center,
+                                                                                          colors = [ft.colors.TEAL, ft.colors.BLACK38],),
                                                   content=ft.Text(
                                                                  value       = self.title,
                                                                  text_align  = ft.TextAlign.CENTER,

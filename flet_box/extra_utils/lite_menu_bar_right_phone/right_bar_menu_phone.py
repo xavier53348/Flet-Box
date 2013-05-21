@@ -64,10 +64,10 @@ class LiteMenuUpContainer(ft.Stack):
 
                                                                            ft.IconButton(icon = ft.icons.EDIT_SQUARE,                tooltip='EDIT WIDGET',on_click=lambda _:self.modify_widget_in_phone_container(),bgcolor='Blue',icon_color='White'),
                                                                            ft.IconButton(icon = ft.icons.TOUCH_APP,                  tooltip='UN SELECT\nBORDER WIDGET',  on_click=lambda _:self.action_button(action = 'UNSELECT'),bgcolor=ft.colors.WHITE24,icon_color='White'),
-                                                                           ft.IconButton(icon = ft.icons.SMARTPHONE,                 tooltip='SMARTPHONE', on_click=lambda _:self.action_button( action = 'SMARTPHONE')),
-                                                                           ft.IconButton(icon = ft.icons.TABLET_ANDROID,             tooltip='TABLET',     on_click=lambda _:self.action_button( action = 'TABLET')),
-                                                                           ft.IconButton(icon = ft.icons.TV_OUTLINED,                tooltip='PC',         on_click=lambda _:self.action_button( action = 'PC')),
-                                                                           ft.IconButton(icon = ft.icons.FEATURED_PLAY_LIST_OUTLINED,tooltip='SHOW PC',    on_click=lambda _:self.action_button( action = 'SHOW PC')),
+                                                                           ft.IconButton(icon = ft.icons.SMARTPHONE,                 disabled=True, tooltip='SMARTPHONE', on_click=lambda _:self.action_button( action = 'SMARTPHONE')),
+                                                                           ft.IconButton(icon = ft.icons.TABLET_ANDROID,             disabled=True,tooltip='TABLET',     on_click=lambda _:self.action_button( action = 'TABLET')),
+                                                                           ft.IconButton(icon = ft.icons.TV_OUTLINED,                disabled=True,tooltip='PC',         on_click=lambda _:self.action_button( action = 'PC')),
+                                                                           ft.IconButton(icon = ft.icons.FEATURED_PLAY_LIST_OUTLINED,disabled=True,tooltip='SHOW PC',    on_click=lambda _:self.action_button( action = 'SHOW PC')),
                                                                         ],),
                                                        ),#<=== NOTE COMA
                                                        ft.Container(
@@ -359,6 +359,9 @@ class LiteMenuUpContainer(ft.Stack):
 
                #: RUN ONLY IN PRODUCTION
                # print(self.edit_dict )
+
+               #: RESET SELECTED WIDGET
+               GLOBAL_VAR( set_global_var={'LIST_SELECTED_WIDGETS':[]})
 
           if action == 'TREE':
                TreeView.visible_view()
