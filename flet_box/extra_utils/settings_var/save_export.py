@@ -249,16 +249,14 @@ class MakeJasonFile():
             ...
 
         #: DEL 'n':'content' from dict
-        del self.attributes['n']
-        del self.attributes['onclick']
-        del self.attributes['onhover']
-        del self.attributes_content['n']
+        if self.attributes.get("n"):             del self.attributes['n']
+        if self.attributes.get("n"):             del self.attributes['onclick']
+        if self.attributes.get("n"):             del self.attributes['onhover']
+        if self.attributes_content.get("n"):     del self.attributes_content['n']
 
-        if self.attributes.get('style'):
-            del self.attributes['style']
+        if self.attributes.get('style'):         del self.attributes['style']
+        if self.attributes_content.get('style'): del self.attributes_content['style']
 
-        if self.attributes_content.get('style'):
-            del self.attributes_content['style']
 
         if self.main_node._get_control_name() not in ['container','row','column','stack','gridview']:
             del self.attributes_content['onclick']
@@ -433,7 +431,7 @@ class MakeJasonFile():
         # print( self.dict_all_attribute)
 
 
-        #: IF ALL_SCREEN_IN_DICT IN GLOBAL VAR IS NONE 
+        #: IF ALL_SCREEN_IN_DICT IN GLOBAL VAR IS NONE
         # RETURN ERROR ITERABLE MOSTBE A DICT WILL CHANGE NONE TO DICT()
         if self.all_widgets == None: self.all_widgets: dict ={}
 

@@ -135,23 +135,8 @@ class Build_Phone_Editor(ft.Stack):
                # self.get_data_dict_to_update[self.current_screen]={self.id_widget:{}}
                # self.get_data_dict_to_update[self.current_screen][self.id_widget]=self.name_widget
                # print(self.get_data_dict_to_update)
-
-
-
-
-
-
-               #: UPDATE EXPORT DATA TO CURRENT WIDGET TO WORK WITH TRREVIEW
-               # self.get_data_dict_to_update.update(
-               #                                     {
-               #                                     # NAME ID:        WIDGET
-               #                                     self.id_widget : self.name_widget
-               #                                     }
-               #                                     )
                # ============================== SCREEN PHONE IN DICT ====================================
                # GET SELECTED SCREEN ID
-
-
                create_nested_dict(
                                   nested_dict = all_widget,
                                   data_1      = self.current_screen,
@@ -161,45 +146,6 @@ class Build_Phone_Editor(ft.Stack):
                # self.get_data_dict_to_update.update(all_widget)
                # GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':all_widget})
                GLOBAL_VAR(set_global_var={'ALL_SCREEN_IN_DICT':all_widget})
-
-
-
-               # self.current_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
-
-               # self.get_data_dict_to_update.update(
-               #                                     {
-               #                                     # NAME ID:        WIDGET
-               #                                     # self.current_screen : ft.Text()
-               #                                     self.id_widget : self.name_widget
-               #                                     }
-               #                                     )
-
-               # print(self.get_data_dict_to_update)
-
-               # self.get_data_dict_to_update.update(
-               #                                     {
-               #                                     # NAME ID:        WIDGET
-               #                                     self.id_widget : ft.Text()
-               #                                     # self.id_widget : self.name_widget
-               #                                     })
-
-
-               # GLOBAL_VAR(set_global_var={
-               #                                                  # CURRENT SCREEN ID    # NAME ID:      # ALL WIDGETS INSIDE
-               #                            # 'ALL_SCREEN_IN_DICT': {self.current_screen: {self.id_widget:ft.Container(content=ft.Text())} },
-               #                            'ALL_SCREEN_IN_DICT': {self.current_screen: self.get_data_dict_to_update },
-               #                          }
-               #            )
-               # ========================================================================================
-               # self.all_screens_id = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')
-               # self.all_screens_id.update(
-               #                            {
-               #                            self.current_screen:{
-               #                                                     self.id_widget:self.get_data_dict_to_update
-               #                                              }
-               #                            }
-               #                            )
-
 
                # print(self.all_screens_id)
 

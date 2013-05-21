@@ -36,37 +36,37 @@ class MenuUpContainer(ft.Stack):
                                                                  ft.Row(
                                                                       controls=[
 
-                                                                 ft.Container(
-                                                                           padding =  ft.padding.only(left=16, top=0, right=0, bottom=0),
-                                                                           height  = 32 ,
-                                                                           bgcolor = 'Black',
-                                                                           content = ft.Image(
-                                                                                          src           = 'logo.jpg',
-                                                                                          border_radius = ft.border_radius.all(0),
-                                                                                          fit           = ft.ImageFit.CONTAIN,
-                                                                                          )
-                                                                            ),
-                                                                 ft.Container(
-                                                                           ink           = False,
-                                                                           bgcolor       = ft.colors.BLACK26,
-                                                                           padding       = ft.padding.only(left=2, top=0, right=16, bottom=0),
-                                                                           margin        = ft.margin.all(0),
-                                                                           alignment     = ft.alignment.center,
-                                                                           border_radius = ft.border_radius.only(top_left=0, top_right=30, bottom_left=0, bottom_right=30),
-                                                                           content = ft.Text(
-                                                                                          value       = "LET BOX\n",
-                                                                                          text_align  = ft.TextAlign.LEFT,
-                                                                                          weight      = ft.FontWeight.BOLD,
-                                                                                          font_family = "Consolas", #"Consolas ,RobotoSlab
-                                                                                          size        = 20,
-                                                                                          spans = [ ft.TextSpan( "Powered by Flet Framework",
-                                                                                                              ft.TextStyle(
+                                                                                ft.Container(
+                                                                                          padding =  ft.padding.only(left=16, top=0, right=0, bottom=0),
+                                                                                          height  = 32 ,
+                                                                                          bgcolor = 'Black',
+                                                                                          content = ft.Image(
+                                                                                                         src           = 'logo.jpg',
+                                                                                                         border_radius = ft.border_radius.all(0),
+                                                                                                         fit           = ft.ImageFit.CONTAIN,
+                                                                                                         )
+                                                                                           ),
+                                                                                ft.Container(
+                                                                                          ink           = False,
+                                                                                          bgcolor       = ft.colors.BLACK26,
+                                                                                          padding       = ft.padding.only(left=2, top=0, right=16, bottom=0),
+                                                                                          margin        = ft.margin.all(0),
+                                                                                          alignment     = ft.alignment.center,
+                                                                                          border_radius = ft.border_radius.only(top_left=0, top_right=30, bottom_left=0, bottom_right=30),
+                                                                                          content = ft.Text(
+                                                                                                         value       = "LET BOX\n",
+                                                                                                         text_align  = ft.TextAlign.LEFT,
+                                                                                                         weight      = ft.FontWeight.BOLD,
+                                                                                                         font_family = "Consolas", #"Consolas ,RobotoSlab
+                                                                                                         size        = 20,
+                                                                                                         spans = [ ft.TextSpan( "Powered by Flet Framework",
+                                                                                                                             ft.TextStyle(
 
-                                                                                                                        size     = 10,
-                                                                                                                        color    = ft.colors.TEAL,
-                                                                                                                        weight   = ft.FontWeight.BOLD,
-                                                                                                                        ),),],
-                                                                ),),
+                                                                                                                                       size     = 10,
+                                                                                                                                       color    = ft.colors.TEAL,
+                                                                                                                                       weight   = ft.FontWeight.BOLD,
+                                                                                                                                       ),),],
+                                                                               ),),
                                                                  ],),
 
                                                                  ft.Container(
@@ -164,181 +164,244 @@ class MenuUpContainer(ft.Stack):
 
           self.main_page.update()
 
+
+
+     def delete_attributes(self,list_atributes: list=[],dict_to_edit: dict={}):
+          for _ in list_atributes:
+               #: IF EXIST DATA or DATA == ""
+               if dict_to_edit.get(_):
+                    del dict_to_edit[_]
+
+          return dict_to_edit
+
+
+     def rename_dict_key(self,list_atributes: list="",dict_to_edit: dict={} , attributes_to_change: dict ={}):
+          #: RENAME KEYS FROM DICT EG:
+          #: imagesrc image_src
+
+          attributes_to_change = {
+                         "imagesrc":"image_src",
+                     "imageopacity":"image_opacity",
+                         "imagefit":"image_fit",
+                     "borderradius":"border_radius",
+              "horizontalalignment":"horizontal_alignment"
+          }
+
+          for _ in list_atributes:
+               if dict_to_edit.get(_):
+                    #: GET NEW NAME
+                    new_name = attributes_to_change.get(_)
+
+                    # RENAME OLD BY NEW KEY
+                    dict_to_edit[new_name]=dict_to_edit.get(_)
+
+                    #: DELETE OLD KEY
+                    del dict_to_edit[_]
+
+               else:
+                    if dict_to_edit.get(_) == "":
+                         del dict_to_edit[_]
+
+          return dict_to_edit
+
+     def create_frame_app(self,main_node_phone: str="OBJECT WIDGET",main_node_phone_id: str="ID OBJECT WIDGET"):
+
+          # tmp_data_dict_attributes: dict={}
+
+          all_data: dict = {
+
+                         "MAIN_CONTAINER":str(),
+                 "MAIN_EFFECTS_CONTAINER":str(),
+                       "COLUMN_CONTAINER":str(),
+
+                         }
+          tmp_data: dict = {}
+
+          #: INSTANCE MAIN PHONE
+          self.main_phone = main_node_phone
+
+          #: BUILD FRAME PHONE
+          PHONE_MAIN         = self.main_phone
+          PHONE_CONTAINER    = self.main_phone.content.content.content
+          COLUMN_CONTAINER   = self.main_phone.content.content.content.content
+          ALL_SCREEN_IN_DICT = self.main_phone.content.content.content.content.controls
+
+          #: =========================================================================
+          #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [1]
+          PHONE_MAIN.copy_attrs(dest=tmp_data)
+
+          #: MAIN PHONE
+          atributes_to_delete = [
+                              "borderradius",
+                              "border",
+                              "ink",
+                              ]
+          atributes_to_rename = [
+                              "borderradius",
+                              "imagesrc",
+                              "imageopacity",
+                              "imagefit",
+                              ]
+          tmp_data = self.delete_attributes(
+                                             list_atributes  = atributes_to_delete,
+                                             dict_to_edit    = tmp_data
+                                             )
+          tmp_data = self.rename_dict_key(
+                                               list_atributes= atributes_to_rename,
+                                               dict_to_edit  = tmp_data
+                                          )
+          #: =========================================================================
+          #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [1]
+          # print(tmp_data)
+
+          #: SET NEW DATA OF CONTAIER
+          all_data["MAIN_CONTAINER"] = tmp_data
+          tmp_data: dict = {}          #: RESET TO EMPTY
+          #: =========================================================================
+          #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [2]
+          PHONE_CONTAINER.copy_attrs(dest=tmp_data)
+
+          #: MAIN PHONE
+          atributes_to_delete = [
+                              "borderradius",
+                              "border",
+                              'n'
+                              ]
+          # atributes_to_rename = [
+          #                     # "borderradius",
+          #                     # "imagesrc",
+          #                     # "imageopacity",
+          #                     # "imagefit",
+          #                     ]
+          tmp_data = self.delete_attributes(
+                                             list_atributes  = atributes_to_delete,
+                                             dict_to_edit    = tmp_data
+                                             )
+          # tmp_data = self.rename_dict_key(
+          #                                      list_atributes= atributes_to_rename,
+          #                                      dict_to_edit  = tmp_data
+          #                                 )
+
+          #: =========================================================================
+          #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [2]
+          # print(tmp_data)
+
+          #: SET NEW DATA OF CONTAIER
+          all_data["MAIN_EFFECTS_CONTAINER"] = tmp_data
+          tmp_data: dict = {}          #: RESET TO EMPTY
+          #: =========================================================================
+          #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [3]
+          COLUMN_CONTAINER.copy_attrs(dest=tmp_data)
+
+          #: MAIN PHONE
+          atributes_to_delete = [
+                              'n'
+                              ]
+          atributes_to_rename = [
+                              "horizontalalignment",
+                              ]
+          tmp_data = self.delete_attributes(
+                                             list_atributes  = atributes_to_delete,
+                                             dict_to_edit    = tmp_data
+                                             )
+          tmp_data = self.rename_dict_key(
+                                               list_atributes= atributes_to_rename,
+                                               dict_to_edit  = tmp_data
+                                          )
+
+          #: =========================================================================
+          #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [3]
+          # print(tmp_data)
+
+          #: SET NEW DATA OF CONTAIER
+          all_data["COLUMN_CONTAINER"] = tmp_data
+          tmp_data: dict = {}          #: RESET TO EMPTY
+          #: =========================================================================
+
+          #: BUILD ALL DATA TO EXPORT
+          main_pone_style = json.dumps(all_data, indent=4 ).replace('\\', '').replace('borderradius', 'border_radius').replace('horizontalalignment', 'horizontal_alignment')
+          main_screen_attributes: str = f"{main_pone_style}".replace('"{',"{").replace('}"',"}")
+
+          #: RECODING TO MAKE MAIN SCREEN FROM SKELETON CLASS SCREEN THIS IS MAIN_SCREEN_BUILDER
+          main_widget_form_skeleton: str = get_skeleton(name='class_flet_box')
+          main_widget_form_skeleton = main_widget_form_skeleton.replace('CHANGE_STYLE', main_screen_attributes)                 #: SET ATRIBUTES
+
+          #: CONTENT OF THE PHONE WILL WALK THOUGH HONE TO GET ALL DATA
+          data_to_treview   = GLOBAL_VAR(get_global_var ='ALL_SCREEN_IN_DICT').get(main_node_phone_id)
+          build_json_file   = self.widget.build_json_file(widget_show=data_to_treview)
+
+          #: WILL RELACE [ CHANGE_ATTRIBUTES ] BY NEW ATTRIBUTES
+          main_widget_form_skeleton  = main_widget_form_skeleton.replace('CHANGE_ATTRIBUTES',build_json_file.get('main_code'))    #: SET BOX CONTENT
+
+          # #: RECODING TO MAKE STYLE SCREEN FROM SKELETON CLASS SCREEN
+          main_style_code = f"#: THIS IS NOT JSON FILE IT'S PYTHON DICTIONARY{build_json_file.get('style_code')}"
+
+          # #: RECODING TO MAKE EVENT MANAGER SCREEN FROM SKELETON CLASS SCREEN
+          event_manager: str = get_skeleton(name='event_manager')
+          main_event_code = f"{event_manager}{build_json_file.get('event_code')}"
+
+
+          #: GET CURRENT NAME ID FOT EACH PROYECT
+          id_name = GLOBAL_VAR(get_global_var=main_node_phone_id)
+          # print(f"name id: {self.current_name}")
+
+
+          #: RUN ONLY PRODUCTON
+          # print(all_data)
+          # print(f'ID: {self.main_phone.uid} PHONE_MAIN 1')
+          # print(f'ID: {self.main_phone.content.content.content.uid } PHONE_CONTAINER 2')
+          # print(f'ID: {self.main_phone.content.content.content.content.uid } PHONE_CONTAINER 4')
+
+          # print(build_json_file.get('main_code'))
+          # print(build_json_file.get('event_code'))
+          # print(build_json_file.get('style_code'))
+          # print(build_json_file)
+
+          return    (
+                    main_widget_form_skeleton ,
+                    main_style_code ,
+                    main_event_code ,
+                    id_name,
+                    )
+
      def save_proyect_app(self):
 
           #: GET LIST WITH ALL SCREENS
-
           self.get_row_screens = GLOBAL_VAR(get_global_var='row_phone').controls
 
           #: LIST SCREENS
-          for _ in self.get_row_screens:
-               print(_.uid)
-          print(self.get_row_screens)
-          # #: RESET DATA AND COLOR
+          for tmp_widgets in self.get_row_screens:
+               #: ALL FRAME OF PHONE    ALL CODE     ALL EVENT         ID SCREEN
+               ( streaming_phone_data , style_code , main_event_code , id_name )= self.create_frame_app(
+                                                                                           main_node_phone    = tmp_widgets,
+                                                                                           main_node_phone_id = tmp_widgets.uid
+                                                                                           )
 
-          # #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
-          # selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
+               #: WRITE APP IN REAL TIME
+               app_events_manager  = f'test/proyect_name/proyect_name/controls/'
 
-          # #: SET GLOBAL VAR // SELECTED_WIDGET // IN DRAGG_DROPP BOX
-          # widget_selected = GLOBAL_VAR( set_global_var={
-          #                                               # 'SELECT_DRAGG' :data,
-          #                                               'LIST_SELECTED_WIDGETS':[]  ,
-          #                                               })
+               #: IF NO EXITS [ CREATE ] IF EXIST    [ OVERWRITE]
+               write_file(
+                         path_name  = app_events_manager,
+                         file_name  = id_name,
 
-
-          # #: RESET COLOR
-          # if selected_widget_clicked:
-          #      selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
-          #      selected_widget_clicked.update()
-
-          # #: MIX ALL DATA FROM WITGETS
-          # build_json_file  = self.widget.build_json_file(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
-          # PHONE_MAIN       = GLOBAL_VAR(get_global_var='PHONE_MAIN')
-          # PHONE_CONTAINER  = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
-          # COLUMN_CONTAINER = PHONE_CONTAINER.content
-
-          # all_data: dict = {
-
-          #                "MAIN_CONTAINER":str(),
-          #        "MAIN_EFFECTS_CONTAINER":str(),
-          #              "COLUMN_CONTAINER":str(),
-
-          #                }
-          # tmp_data: dict = {}
-
-          # def rename_dict_key(old_key_name: str ="",new_key_name: str=""):
-          #      #: RENAME KEYS FROM DICT EG:
-          #      #: imagesrc image_src
-          #      if tmp_data.get(old_key_name) == "" :
-          #           del tmp_data[old_key_name]
-          #      else:
-          #           if not tmp_data.get(old_key_name) == None:
-          #                tmp_data[new_key_name] = tmp_data[old_key_name]
-          #                del tmp_data[old_key_name]
-
-          # #: // NEW COPY ATTRIBUTES PHONE_MAIN
-          # PHONE_MAIN.copy_attrs(dest=tmp_data)
-          # del tmp_data['n']
-          # del tmp_data['borderradius']
+                         main_code  = streaming_phone_data,
+                         style_code = style_code,
+                         event_code = main_event_code,
+                          )
 
 
-          # if tmp_data.get('gradient') == "": del tmp_data['gradient']
-          # rename_dict_key(old_key_name="imagesrc",    new_key_name= "image_src")
-          # rename_dict_key(old_key_name="imageopacity",new_key_name= "image_opacity")
-          # rename_dict_key(old_key_name="imagefit",    new_key_name= "image_fit")
+               #: RUN ONLY IN PRODUCTION
+               # print(streaming_phone_data)
+               # print(style_code)
+               # print(main_event_code)
+               # print(id_name)
 
-          # #: UPDATE DATA TO MAIN PHONE
-          # all_data["MAIN_CONTAINER"]=tmp_data
-          # tmp_data: dict = {}         #: RESET TO EMPTY
-
-          # #: // NEW COPY ATTRIBUTES PHONE_CONTAINER
-          # PHONE_CONTAINER.copy_attrs(dest=tmp_data)
-          # del tmp_data['n']
-          # del tmp_data['border']
-          # del tmp_data['borderradius']
-
-          # #: DELETE EMPTY DATA
-          # if tmp_data.get('padding')   == "": del tmp_data['padding']
-          # elif tmp_data.get('bgcolor') == "": del tmp_data['bgcolor']
-          # elif tmp_data.get('blur')    == "": del tmp_data['blur']
-
-          # #: UPDATE DATA
-          # all_data["MAIN_EFFECTS_CONTAINER"]=tmp_data
-          # tmp_data: dict = {}         #: RESET TO EMPTY
-
-          # #: // NEW COPY ATTRIBUTES COLUMN_CONTAINER
-          # COLUMN_CONTAINER.copy_attrs(dest=tmp_data)
-          # del tmp_data['n']
-
-          # #: DELETE EMPTY DATA
-          # if tmp_data.get('spacing')     == "": del tmp_data['spacing']
-          # elif tmp_data.get('wrap')      == "": del tmp_data['wrap']
-          # elif tmp_data.get('tight')     == "": del tmp_data['tight']
-          # elif tmp_data.get('scroll')    == "": del tmp_data['scroll']
-          # elif tmp_data.get('alignment') == "": del tmp_data['alignment']
-          # rename_dict_key(old_key_name="horizontalalignment",new_key_name="horizontal_alignment")
-
-          # #: UPDATE DATA
-          # all_data["COLUMN_CONTAINER"]=tmp_data
-          # tmp_data: dict = {}         #: RESET TO EMPTY
-
-          # #:REREFACTORING STRINGS TO MAKE CLEAN ATTRIBUTES CODE
-          # main_pone_style = json.dumps(all_data, indent=4 ).replace('\\', '').replace('borderradius', 'border_radius').replace('horizontalalignment', 'horizontal_alignment')
-          # main_screen_attributes: str = f"{main_pone_style}".replace('"{',"{").replace('}"',"}")
-
-          # #: RECODING TO MAKE MAIN SCREEN FROM SKELETON CLASS SCREEN
-          # main_widget_form: str = get_skeleton(name='class_flet_box')
-          # main_widget_form = main_widget_form.replace('CHANGE_STYLE', main_screen_attributes)                 #: SET ATRIBUTES
-          # main_widget_form = main_widget_form.replace('CHANGE_ATTRIBUTES',build_json_file.get('main_code'))    #: SET BOX CONTENT
-
-          # #: RECODING TO MAKE STYLE SCREEN FROM SKELETON CLASS SCREEN
-          # main_style_code = f"#: THIS IS NOT JSON FILE IT'S PYTHON DICTIONARY{build_json_file.get('style_code')}"
-
-          # #: RECODING TO MAKE EVENT MANAGER SCREEN FROM SKELETON CLASS SCREEN
-          # event_manager: str = get_skeleton(name='event_manager')
-          # main_event_code = f"{event_manager}{build_json_file.get('event_code')}"
-
-          # #: RUN ONY IN PRODUCTION
-          # # print(all_data)
-          # # print(all_data.keys())
-          # # print(build_json_file.get('main_code'))
-          # # print(build_json_file.get('event_code'))
-          # # print(build_json_file.get('style_code'))
-
-          # # print(main_widget_form)
-          # # print(main_event_code)
-          # # print(main_style_code)
-
-          # # CONTAINER_STYLE
-          # path_screens        = 'test/proyect_name/proyect_name/controls/views'
-          # app_events_manager  = 'test/proyect_name/proyect_name/controls/'
-
-          # #: WRITE STYLE CODE
-          # main_widget_form = main_widget_form.replace('SYTLE_RENAME', 'main_screen_style') #: SET name_syle_attributes
-          # write_file(
-          #           file_path     = path_screens,
-          #           file_name     = "main_screen_style.py",
-          #           data_to_write = main_style_code
-          #           )
-
-          # #: WRITE SCREEN CODE
-          # write_file(
-          #           file_path     = path_screens,
-          #           file_name     = "main_screen.py",
-          #           data_to_write = main_widget_form
-          #           )
-
-          # #: WRITE EVENT CODE
-          # write_file(
-          #           file_path     = app_events_manager,
-          #           file_name     = "app_events_manager.py",
-          #           data_to_write = main_event_code
-          #           )
-
-
-
-          # # with open(app_screens,'w') as f:
-          # #      f.write(app_skeleton.get('main_code'))
-
-          # # with open(app_style,'w') as f:
-          # #      f.write(app_skeleton.get('app_style'))
-
-          # # with open(app_events_manager,'w') as f:
-          # #      f.write(app_skeleton.get('app_event_manager'))
-
-
-          # #: run only in production
-          # # print(app_skeleton.get('app_event_manager'))
-          # # print(app_skeleton.get('app_style'))
-          # # print(app_skeleton.get('main_code'))
-
-          # #: NEED ACTIVATE ALER OF SELECTED WIDGET
-          # selected_widget         = GLOBAL_VAR( get_global_var='ALERT_WIDGET')
-          # selected_widget.offset  = (1.59,-7.5)
-          # selected_widget.visible = True
-          # selected_widget.update()
-          # time.sleep(1)
-          # selected_widget.visible = False
-          # selected_widget.update()
-
-
+          #: NEED ACTIVATE ALER OF SELECTED WIDGET
+          selected_widget         = GLOBAL_VAR( get_global_var='ALERT_WIDGET')
+          selected_widget.offset  = (1.59,-7.5)
+          selected_widget.visible = True
+          selected_widget.update()
+          time.sleep(1)
+          selected_widget.visible = False
+          selected_widget.update()

@@ -25,7 +25,7 @@ class GradientEntry(ft.Stack):
     # "#ec4899",
     # "#db2777",
     # "#be185d",
-    color_1        = 'BLue'
+    color_1        = 'Blue'
     color_2        = 'Purple'
     color_3        = "Red"
     color_4        = "Orange"

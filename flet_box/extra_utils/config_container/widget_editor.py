@@ -120,7 +120,7 @@ class Build_Editor(ft.Stack):
 
                #: ESPECIAL WIDGETS ONLY FOR PHONE
 
-               'phone_margin'       :FourEntry(      config_widget='padding'               ,widget=self.main_phone_conainer        ,id_name_widget_dict="main_phone_conainer"),
+               'phone_padding'      :FourEntry(      config_widget='padding'               ,widget=self.main_phone_conainer        ,id_name_widget_dict="main_phone_conainer"),
 
                'phone_image_src'    :SingleEntry(    config_widget='image_src'             ,widget=self.main_phone                 ,id_name_widget_dict='main_phone'),
                'phone_image_opacity':SingleEntry(    config_widget='image_opacity'         ,widget=self.main_phone                 ,id_name_widget_dict='main_phone'),
@@ -291,7 +291,7 @@ class Build_Editor(ft.Stack):
                                                        BoxConfigContainer(
                                                                  title='Column Phone Property',
                                                             controls=[
-                                                                      widgets_dict.get('phone_margin'),
+                                                                      widgets_dict.get('phone_padding'),
                                                                       widgets_dict.get('column_phone_tight'),
                                                                       widgets_dict.get('column_phone_wrap'),
                                                                       widgets_dict.get('column_phone_scroll'),

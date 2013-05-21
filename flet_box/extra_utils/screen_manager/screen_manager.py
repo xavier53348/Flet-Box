@@ -76,6 +76,8 @@ def screen_manager(
         # all_screens_in_app['main_screen']=current_main_screen_id
         all_screens_in_app[tmp_new_screen_name]=tmp_new_phone.uid
 
+        #: SET NAME SCREEN
+        GLOBAL_VAR(set_global_var={tmp_new_phone.uid: tmp_new_screen_name})
 
     elif delete_screen:
         #: DELETE SCREEN PHONE IN DICT SCREENS
