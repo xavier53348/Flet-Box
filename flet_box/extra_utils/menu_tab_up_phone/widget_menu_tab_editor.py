@@ -29,7 +29,15 @@ class MenuUpContainer(ft.Stack):
                                    margin          = ft.margin.all(0),
                                    alignment       = ft.alignment.center,
                                    border_radius   = ft.border_radius.all(30),
-                                   height          = 40,
+                                   height          = 50,
+                                   border=ft.border.all(0.6, ft.colors.with_opacity(0.1,ft.colors.BLACK87),),
+                                   shadow = ft.BoxShadow(
+                                                      spread_radius=1,
+                                                      blur_radius=16,
+                                                      color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
+                                                      offset=ft.Offset(0, 0),
+                                                      blur_style=ft.ShadowBlurStyle.OUTER,
+                                                 ),
                               content = ft.WindowDragArea(
                                              content  = ft.Row(
                                                             expand   = True,
@@ -40,7 +48,7 @@ class MenuUpContainer(ft.Stack):
 
                                                                                 ft.Container(
                                                                                           padding =  ft.padding.only(left=16, top=0, right=0, bottom=0),
-                                                                                          height  = 32 ,
+                                                                                          height  = 40 ,
                                                                                           bgcolor = 'Black',
                                                                                           content = ft.Image(
                                                                                                          src           = 'logo.jpg',

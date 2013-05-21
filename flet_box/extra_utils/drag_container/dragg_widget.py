@@ -91,10 +91,11 @@ class DraggWidget(ft.Stack):
           2. RESET THE LIST listWidgetUpdate
 
           """
+          #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED BORDER IN PHONE CONTAINER
+          self.unselect_widget_border()
 
           CHECK_DATA = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
           GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':[]})
-
 
           if CHECK_DATA:
 
@@ -143,4 +144,10 @@ class DraggWidget(ft.Stack):
           time.sleep(0.5)
           selected_widget.visible = False
           selected_widget.update()
+
+     def unselect_widget_border(self):
+         selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
+         if selected_widget_clicked:
+              selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
+              selected_widget_clicked.update()
 

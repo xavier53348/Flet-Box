@@ -21,7 +21,7 @@ class MenuLeftContainer(ft.Stack):
      def build(self):
 
           Drop_MenuLeftContainer =  ft.Container(
-
+                                             border_radius= ft.border_radius.all(30),
                                              expand          = True,
                                              ink             = False,
                                              bgcolor         = ft.colors.BLACK38,
@@ -29,8 +29,21 @@ class MenuLeftContainer(ft.Stack):
                                              margin          = ft.margin.all(0),
                                              alignment       = ft.alignment.center,
                                              width           = 60,
-                                             gradient        = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLACK12,ft.colors.CYAN, ft.colors.BLACK12],),
-
+                                             gradient        = ft.LinearGradient(
+                                                                                 begin=ft.alignment.top_center,
+                                                                                 end=ft.alignment.bottom_center,
+                                                                                 colors=[
+                                                                                         ft.colors.BLACK12,ft.colors.CYAN,
+                                                                                         ft.colors.BLACK12],
+                                                                                         ),
+                                             border=ft.border.all(0.8, ft.colors.with_opacity(0.05,ft.colors.CYAN),),
+                                             shadow = ft.BoxShadow(
+                                                                spread_radius=1,
+                                                                blur_radius=16,
+                                                                color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
+                                                                offset=ft.Offset(0, 0),
+                                                                blur_style=ft.ShadowBlurStyle.OUTER,
+                                                           ),
                                         content=ft.Column(
                                                             horizontal_alignment = ft.CrossAxisAlignment.CENTER,
                                                             controls =[

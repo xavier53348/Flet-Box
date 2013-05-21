@@ -123,6 +123,15 @@ class Build_Drag_Editor(ft.Stack):
                                         alignment     = ft.alignment.center,
                                         border_radius = ft.border_radius.all(30),
                                         width         = 280,
+
+                                        border =ft.border.all(0.6, ft.colors.WHITE12),
+                                        shadow = ft.BoxShadow(
+                                             spread_radius=1,
+                                             blur_radius=16,
+                                             color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
+                                             offset=ft.Offset(0, 0),
+                                             blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
                                    content = ft.Column(
                                         scroll                 = 'HIDDEN',
                                         controls = [

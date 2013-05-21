@@ -128,6 +128,7 @@ def main(page: ft.Page):
           )
      GLOBAL_VAR(set_global_var={'TEXT_EDITOR_CONTAINER':TextEditorContainer})
 
+
      right_config_container = ft.Container( #: RIGHT CONFIG CONTAINER
                ink             = False,
                bgcolor         = ft.colors.BLACK38,
@@ -136,6 +137,27 @@ def main(page: ft.Page):
                alignment       = ft.alignment.center,
                border_radius   = ft.border_radius.all(30),
                width           = 368,
+
+               # EFFECS COLORS
+               border=ft.border.all(0.6, ft.colors.WHITE12),
+               # gradient=ft.LinearGradient(
+               #                            begin= ft.alignment.top_center,
+               #                            end  = ft.alignment.bottom_center,
+               #                            colors=[
+               #                                 ft.colors.with_opacity(0.02,ft.colors.WHITE12),
+               #                                 ft.colors.with_opacity(0.02,ft.colors.YELLOW_700),
+               #                                 ft.colors.with_opacity(0.02,ft.colors.PURPLE_900),
+               #                                 ft.colors.with_opacity(0.02,ft.colors.RED_900),
+               #                            ],
+               #                            ),
+               # blur= (12,12),
+               shadow = ft.BoxShadow(
+                       spread_radius=1,
+                       blur_radius=16,
+                       color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
+                       offset=ft.Offset(0, 0),
+                       blur_style=ft.ShadowBlurStyle.OUTER,
+                 ),
           content=ft.Column(
                     controls = [
                                  right_config_container,
@@ -175,10 +197,19 @@ def main(page: ft.Page):
 
      container_phone = ft.Container(
                                     # bgcolor="red",
+                                    # width=295,
                                     width=295,
-                                    # width=560,
-                                    # height=620,
+                                    height=566,
+                                    border_radius = ft.border_radius.all(42),
                                     alignment = ft.alignment.center,
+                                    shadow = ft.BoxShadow(
+                                           spread_radius=1,
+                                           blur_radius=8,
+                                           color=ft.colors.with_opacity(0.4,ft.colors.BLUE_900),
+                                           offset=ft.Offset(0, 0),
+                                           blur_style=ft.ShadowBlurStyle.OUTER,
+                                     ),
+
                          content=row_phone
                                     )
      #: WE SET AS GLOBAL VAR

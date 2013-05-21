@@ -27,6 +27,14 @@ class LiteMenuDownContainer(ft.Stack):
                                         margin          = ft.margin.all(0),    #outside box
                                         alignment       = ft.alignment.center,
                                         border_radius   = ft.border_radius.all(30),
+                                        border =ft.border.all(0.2, ft.colors.WHITE12),
+                                        shadow = ft.BoxShadow(
+                                             spread_radius=1,
+                                             blur_radius=4,
+                                             color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
+                                             offset=ft.Offset(0, 0),
+                                             blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
                                    content=ft.Row(
                                                   alignment          = ft.MainAxisAlignment.SPACE_BETWEEN,
                                                   vertical_alignment = ft.CrossAxisAlignment.CENTER,

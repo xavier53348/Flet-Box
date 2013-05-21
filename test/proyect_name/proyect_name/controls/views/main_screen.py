@@ -37,11 +37,19 @@ class main_screen(ft.Container):
         self.content_box = [ 
 
 		ft.Container( # Image
-			**self.dict_style('_2943'),
-			on_click= lambda _: event_2944(data='_2944'),
+			**self.dict_style('_2944'),
+			on_click= lambda _: event_2945(data='_2945'),
 			content= ft.Image(
-					**self.dict_style('_2944'),
-					# on_click= lambda _: event_2944(data='_2944'),
+					**self.dict_style('_2945'),
+					# on_click= lambda _: event_2945(data='_2945'),
+			),),
+
+		ft.Container( # CircleAvatar
+			**self.dict_style('_3308'),
+			on_click= lambda _: event_3309(data='_3309'),
+			content= ft.CircleAvatar(
+					**self.dict_style('_3309'),
+					# on_click= lambda _: event_3309(data='_3309'),
 			),),
 
         ]
