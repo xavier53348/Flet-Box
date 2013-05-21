@@ -108,8 +108,7 @@ class DraggWidget(ft.Stack):
                CONFIG_TABS_CONTAINERS_CONTENT.visible = False
                CONFIG_TABS_CONTAINERS_CONTENT.update()
 
-          #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
-          selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
+
 
           #: SET GLOBAL VAR // SELECTED_WIDGET // IN DRAGG_DROPP BOX
           widget_selected = GLOBAL_VAR( set_global_var={
@@ -130,9 +129,8 @@ class DraggWidget(ft.Stack):
           TEXT_DRAGG_WIDGET.controls[0].bgcolor = ft.colors.BLUE_GREY_900
           TEXT_DRAGG_WIDGET.controls[0].update()
 
-          if selected_widget_clicked:
-               selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
-               selected_widget_clicked.update()
+
+
 
           #: run  only in production
           print(data,'<=== SELECTED DRAG WIDGET: file drag_widget.py')

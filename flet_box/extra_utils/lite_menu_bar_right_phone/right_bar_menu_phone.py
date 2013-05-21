@@ -21,7 +21,7 @@ class LiteMenuUpContainer(ft.Stack):
           self.menu_right_container   = self.widget_to_edit.build()
 
           # HEIGHT
-          self.height                 = 500
+          self.height                 = 542
 
           self.space_widget_1 , self.space_widget_2 = space_widget
 
@@ -53,6 +53,7 @@ class LiteMenuUpContainer(ft.Stack):
                                                                       controls=[
 
                                                                            ft.IconButton(icon = ft.icons.EDIT_SQUARE,                tooltip='EDIT WIDGET',on_click=lambda _:self.modify_widget_in_phone_container(),bgcolor='Blue',icon_color='White'),
+                                                                           ft.IconButton(icon = ft.icons.TOUCH_APP,                  tooltip='UN SELECT\nBORDER WIDGET',  on_click=lambda _:self.action_button(action = 'UNSELECT'),bgcolor=ft.colors.WHITE24,icon_color='White'),
                                                                            ft.IconButton(icon = ft.icons.SMARTPHONE,                 tooltip='SMARTPHONE', on_click=lambda _:self.action_button( action = 'SMARTPHONE')),
                                                                            ft.IconButton(icon = ft.icons.TABLET_ANDROID,             tooltip='TABLET',     on_click=lambda _:self.action_button( action = 'TABLET')),
                                                                            ft.IconButton(icon = ft.icons.TV_OUTLINED,                tooltip='PC',         on_click=lambda _:self.action_button( action = 'PC')),
@@ -327,6 +328,13 @@ class LiteMenuUpContainer(ft.Stack):
                    # self.edit_dict = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT').get(self.current_screen)
                    # print(self.edit_dict,'ALLLL <<<<<<<<<')
 
+          if action == 'UNSELECT':
+               #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED BORDER IN PHONE CONTAINER
+               selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
+               if selected_widget_clicked:
+                    selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
+                    selected_widget_clicked.update()
+
           if action == 'clear':
                #: GET BLOVAL VAR
                main_phone = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
@@ -336,7 +344,7 @@ class LiteMenuUpContainer(ft.Stack):
                main_phone.content.content.content.content.controls.clear()
                main_phone.update()                                                                  #: <===== UPDATE PAGE
 
-               #: SET DEFAULD EMPTY PHONE 
+               #: SET DEFAULD EMPTY PHONE
                edit_dict[main_phone.uid]=dict()
 
                #: RUN ONLY IN PRODUCTION

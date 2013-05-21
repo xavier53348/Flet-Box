@@ -8,7 +8,6 @@ from .main_screen_events import *
 phone_style_widget = {
     "MAIN_CONTAINER": {
         "alignment": {"x":0,"y":0},
-        "gradient": {"colors":["Blue","Purple","Red","Orange"],"tile_mode":"clamp","begin":{"x":0,"y":1},"end":{"x":0,"y":-1},"type":"linear"},
         "height": "566",
         "margin": {"l":0,"t":0,"r":0,"b":0},
         "padding": {"l":0,"t":0,"r":0,"b":0},
@@ -37,29 +36,14 @@ class main_screen(ft.Container):
         #: MAIN PHONE CONTAINER
         self.content_box = [ 
 
-		ft.Container(  # Container_GridView
+		ft.Container( # Image
 			**self.dict_style('_2943'),
-			content= ft.GridView( # GridView
+			on_click= lambda _: event_2944(data='_2944'),
+			content= ft.Image(
 					**self.dict_style('_2944'),
-					controls= [
+					# on_click= lambda _: event_2944(data='_2944'),
+			),),
 
-						ft.Container( # Image
-								**self.dict_style('_2947'),
-								on_click= lambda _: event_2948(data='_2948'),
-								content= ft.Image(
-										**self.dict_style('_2948'),
-										# on_click= lambda _: event_2948(data='_2948'),
-								),),
-
-						ft.Container( # Image
-								**self.dict_style('_2951'),
-								on_click= lambda _: event_2952(data='_2952'),
-								content= ft.Image(
-										**self.dict_style('_2952'),
-										# on_click= lambda _: event_2952(data='_2952'),
-								),),
-
-		],),),  
         ]
 
         #: MAIN PHONE CONTAINER

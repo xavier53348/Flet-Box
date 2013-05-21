@@ -383,6 +383,13 @@ class MenuUpContainer(ft.Stack):
 
 
      def save_proyect_app(self):
+          # #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
+          # selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
+
+          # #: RESET COLOR
+          # if selected_widget_clicked.border:
+          #      selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
+          #      selected_widget_clicked.update()
 
           #: GET LIST WITH ALL SCREENS
           self.get_row_screens = GLOBAL_VAR(get_global_var='row_phone').controls
@@ -417,13 +424,7 @@ class MenuUpContainer(ft.Stack):
                # print(id_name)
 
 
-               # #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
-               selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
 
-               #: RESET COLOR
-               if selected_widget_clicked:
-                    selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
-                    selected_widget_clicked.update()
 
           #: NEED MAKE SCREEN BUILDER MANAGER APP
           self.write_screen_managet_app(screens_list_name=self.names_screens,
