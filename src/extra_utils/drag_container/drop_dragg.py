@@ -71,8 +71,8 @@ class DropDragg(ft.UserControl):
           selectWidgetBox  = get_global_var(get_var='selectWidgetBox')
 
           ######################### filter if drag make fake cat no add WIDGET
-          # destiny_box = self.page.get_control(self.DropDragg.uid)
-          # print(f'destiny_box: {destiny_box} <<<<<<')
+          destiny_box = self.page.get_control(self.DropDragg.uid)
+          # print(f'destiny_box: {destiny_box.uid} <<<<<<')
           if selectWidgetBox:
                # destiny_box.content.content.content.controls.append(self.InfinityBox(selectWidgetBox))
                self.DropDragg.content.content.content.controls.append(self.InfinityBox(selectWidgetBox))

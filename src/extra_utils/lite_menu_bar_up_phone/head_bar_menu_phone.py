@@ -41,67 +41,66 @@ class LiteMenuUpContainer(ft.UserControl):
                                         ##################### WIDGETS
                                    content=ft.Row(
                                                   ##################### PROPERTY BOX
-                                                  expand=True,
-                                                  alignment=ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                  vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
+                                                  expand             = True,
+                                                  alignment          = ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                  vertical_alignment = ft.CrossAxisAlignment.CENTER,                    # vertical       START,CENTER END
                                                   ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                  # scroll=True,                                              # center widget
-                                                  # tight=True,
+                                                  # scroll           = True,                                            # center widget
+                                                  # tight            = True,
                                                   ##################### ADAPT TO SCREEN
-                                                  # wrap=True,                                                  # justify in all screen
-                                                  # spacing=8,                                                # space widget left right
-                                                  # run_spacing=8,                                            # space widget up down
+                                                  # wrap             = True,                                            # justify in all screen
+                                                  # spacing          = 8,                                               # space widget left right
+                                                  # run_spacing      = 8,                                               # space widget up down
                                                   ##################### WIDGETS
                                              controls=[
                                                        ft.Container( ##################### DEVICES
                                                                  ##################### PROPERTY
                                                                  ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                                                                  # expand=True,
-
-                                                                 ink=False,                                                # click effect ripple
-                                                                 bgcolor=ft.colors.BLACK26,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                 padding= ft.padding.only(left=8, top=0, right=8, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                 # margin = ft.margin.all(8),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                 alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                 border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                 border=ft.border.all(2, ft.colors.BLACK12),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                 # ===================
-                                                                 # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                                                                 # image_opacity=0.1,
-                                                                 # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                                 # ===================
-                                                                 # width=150,
-                                                                 # height=150,
-                                                                 # tooltip='Container',
+                                                                 ink           = False,                                                # click effect ripple
+                                                                 bgcolor       = ft.colors.BLACK26,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                 padding       = ft.padding.only(left=8, top=0, right=8, bottom=0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                 # margin      = ft.margin.all(8),    #outside box                     # margin.only (left=8, top=8, right=8, bottom=8),
+                                                                 alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                 border_radius = ft.border_radius.all(30),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                 border        = ft.border.all(2, ft.colors.BLACK12),                  # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                 #####################
+                                                                 # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
+                                                                 # image_opacity = 0.1,
+                                                                 # image_fit     = 'COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                                                 #####################
+                                                                 # width         = 150,
+                                                                 # height        = 150,
+                                                                 # tooltip       = 'Container',
                                                                  ##################### EFFECTS
-                                                                 # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                                                                 # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
+                                                                 # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                                                 # gradient      = ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
                                                                  ##################### WIDGETS
                                                             content=ft.Row(
                                                                            ##################### PROPERTY BOX
-                                                                           # expand=True,
-                                                                           # alignment=ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                           # vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
+                                                                           # expand             = True,
+                                                                           # alignment          = ft.MainAxisAlignment.SPACE_BETWEEN,    # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                                           # vertical_alignment = ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
                                                                            ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                                           # scroll=True,                                              # center widget
-                                                                           # tight=True,
+                                                                           # scroll             = True,                                  # center widget
+                                                                           # tight              = True,
                                                                            ##################### ADAPT TO SCREEN
-                                                                           # wrap=True,                                                  # justify in all screen
-                                                                           spacing=8,                                                # space widget left right
-                                                                           # run_spacing=8,                                            # space widget up down
+                                                                           # wrap               = True,                                  # justify in all screen
+                                                                           spacing              = 8,                                     # space widget left right
+                                                                           # run_spacing        = 8,                                     # space widget up down
                                                                            ##################### WIDGETS
                                                                       controls=[
-                                                                           ft.IconButton(icon=ft.icons.SMARTPHONE,tooltip='SMARTPHONE',),
-                                                                           ft.IconButton(icon=ft.icons.TABLET_ANDROID,tooltip='TABLET'),
-                                                                           ft.IconButton(icon=ft.icons.TV_OUTLINED,tooltip='PC'),
-                                                                           ft.IconButton(icon=ft.icons.FEATURED_PLAY_LIST_OUTLINED,tooltip='BROWSER'),
+                                                                           ft.IconButton(icon = ft.icons.SMARTPHONE,tooltip='SMARTPHONE',),
+                                                                           ft.IconButton(icon = ft.icons.TABLET_ANDROID,tooltip='TABLET'),
+                                                                           ft.IconButton(icon = ft.icons.TV_OUTLINED,tooltip='PC'),
+                                                                           ft.IconButton(icon = ft.icons.FEATURED_PLAY_LIST_OUTLINED,tooltip='BROWSER'),
                                                                            ft.Container( ##################### NAME DEVICE
                                                                                           ##################### PROPERTY
-                                                                                          ink=False,                                                      # click effect ripple
-                                                                                          # bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                          padding= ft.padding.all(8), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                                          margin = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                                          alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                                                          ink       = False,                                                # click effect ripple
+                                                                                          # bgcolor = "#44CCCC00",                                          # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                          padding   = ft.padding.all(8), # inside box                       # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                                          margin    = ft.margin.all(0),  # outside box                      # margin.only (left=8, top=8, right=8, bottom=8),
+                                                                                          alignment = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
                                                                                           ##################### WIDGETS
                                                                                      content=ft.Text(
                                                                                                     ##################### PROPERTY
@@ -158,7 +157,7 @@ class LiteMenuUpContainer(ft.UserControl):
                                                                                 ##################### WIDGETS
                                                                            controls=[
                                                                                      ft.IconButton(icon=ft.icons.DELETE_SWEEP_OUTLINED,tooltip='DELETE_',on_click=lambda _:self.action_button(action='delete')),
-                                                                                     ft.IconButton(icon=ft.icons.SCREEN_ROTATION,tooltip='ROTATE',),
+                                                                                     ft.IconButton(icon=ft.icons.SCREEN_ROTATION,tooltip='ROTATE',on_click=lambda _:self.action_button(action='rotation')),
                                                                                      ft.IconButton(icon=ft.icons.DEBLUR,tooltip='LIGHT / DARK',),
                                                                                   ],),
                                                                    ##################### EVENTS
@@ -180,8 +179,21 @@ class LiteMenuUpContainer(ft.UserControl):
      def action_button(self,action):
 
           if action == 'delete':
-               tmp_list         = get_global_var(get_var='listWidgetUpdate')
-               print(tmp_list.__dir__())
+               touch_widget_in_phone = get_global_var(get_var='listWidgetUpdate')
+
+               # get the corret way to delete widget <===
+               page = get_global_var(get_var='page')
+               id_widget = page.get_control(touch_widget_in_phone.uid)
+
+               get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}"
+
+               page_control = page.get_control(get_control_id)
+               page_control.controls=[]
+               page_control.update()
+
+          if action == 'rotation':
+               self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
+               self.phone_widget_container.controls[0].update()
 
      def action_windows(self,action):
 
@@ -195,35 +207,34 @@ class LiteMenuUpContainer(ft.UserControl):
           # self.menu_left_container.controls[0].update()
           self.phone_widget_container.controls[0].update()
           # self.menu_right_container.controls[0].update()
-######## LiteMenuUpContainer = LiteMenuUpContainer(),# <======= Comma
 
+          # icons
+          # icons.WEBHOOK <=== chat gpt
+          # icons.WIDTH_NORMAL
+          # icons.VISIBILITY
+          # icons.VISIBILITY_OFF
+          # icons.VOLUNTEER_ACTIVISM
+          # icons.VRPANO_SHARP
+          # icons.VIDEO_LABEL
+          # icons.VIEW_CAROUSEL_ROUNDED
+          # icons.TRAVEL_EXPLORE_OUTLINED
 
-# icons.WEBHOOK <=== chat gpt
-# icons.WIDTH_NORMAL
-# icons.VISIBILITY
-# icons.VISIBILITY_OFF
-# icons.VOLUNTEER_ACTIVISM
-# icons.VRPANO_SHARP
-# icons.VIDEO_LABEL
-# icons.VIEW_CAROUSEL_ROUNDED
-# icons.TRAVEL_EXPLORE_OUTLINED
+          # icons.TABLET_ANDROID
+          # icons.TABLET_ROUNDED
+          # icons.TABLET_MAC
+          # icons.TOKEN
+          # icons.TV_OUTLINED
+          # icons.SCREENSHOT_ROUNDED
+          # icons.SCREENSHOT_MONITOR
+          # icons.SENSOR_OCCUPIED
+          # icons.SELECT_ALL
+          # icons.SCREEN_ROTATION
 
-# icons.TABLET_ANDROID
-# icons.TABLET_ROUNDED
-# icons.TABLET_MAC
-# icons.TOKEN
-# icons.TV_OUTLINED
-# icons.SCREENSHOT_ROUNDED
-# icons.SCREENSHOT_MONITOR
-# icons.SENSOR_OCCUPIED
-# icons.SELECT_ALL
-# icons.SCREEN_ROTATION
-
-# icons.SCREEN_SHARE
-# icons.SCHEMA
-# icons.SUNNY_SNOWING
-# icons.LAPTOP_CHROMEBOOK_SHARP
-# icons.DISCORD
+          # icons.SCREEN_SHARE
+          # icons.SCHEMA
+          # icons.SUNNY_SNOWING
+          # icons.LAPTOP_CHROMEBOOK_SHARP
+          # icons.DISCORD
 
 if __name__ == '__main__':
      #####################

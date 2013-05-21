@@ -68,11 +68,11 @@ def main(page: ft.Page):
                 alignment       = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                 # border_radius = ft.border_radius.all(30),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                 border        = ft.border.all(6, ft.colors.BLACK12),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                #               ===================
+                #####################
                 # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
                 # image_opacity = 0.1,
                 # image_fit     = 'COVER',                                              # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                #               ===================
+                #####################
                 # width         = 150,
                 height          = 765,
                 # height          = 715,
@@ -108,11 +108,11 @@ def main(page: ft.Page):
                                                 alignment       = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                 border_radius   = ft.border_radius.all(24),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                 # border        = ft.border.all(2, ft.colors.BLACK),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                #               ===================
+                                                #####################
                                                 # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
                                                 # image_opacity = 0.1,
                                                 # image_fit     = 'COVER',                                              # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                #               ===================
+                                                #####################
                                                 # width         = 1100,
                                                 # height        = 150,
                                                 # tooltip       = 'Container',
@@ -146,11 +146,11 @@ def main(page: ft.Page):
                                                                                 alignment       = ft.alignment.center,                                    # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                 # border_radius = ft.border_radius.all(30),                               # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                 # border        = ft.border.all(2, ft.colors.BLACK),                      # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                #               ===================
+                                                                                #####################
                                                                                 # image_src     = f"oriental_dragg.jpg",
                                                                                 # image_opacity = 0.1,
                                                                                 # image_fit     = 'COVER',                                                # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                                                #               ===================
+                                                                                #####################
                                                                                 # width         = 900,
                                                                                 height          = 680,
                                                                                 # tooltip       = 'Container',
@@ -185,11 +185,11 @@ def main(page: ft.Page):
                                                                                                             alignment       = ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                                             # border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                                             # border        = ft.border.all(2, ft.colors.BLACK),                  # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                                            #               ===================
+                                                                                                            #####################
                                                                                                             # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
                                                                                                             # image_opacity = 0.1,
                                                                                                             # image_fit     = 'COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                                                                            #               ===================
+                                                                                                            #####################
                                                                                                             # width         = 520,
                                                                                                             # height        = 150,
                                                                                                             # tooltip       = 'Container',
@@ -247,11 +247,11 @@ def main(page: ft.Page):
                                                                                                             alignment       = ft.alignment.center,                                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                                             border_radius   = ft.border_radius.all(30),                                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                                                             # border        = ft.border.all(2, ft.colors.BLACK),                              # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                                            #               ===================
+                                                                                                            #####################
                                                                                                             # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
                                                                                                             # image_opacity = 0.1,
                                                                                                             # image_fit     = 'COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                                                                            #               ===================
+                                                                                                            #####################
                                                                                                             width           = 370,
                                                                                                             # height        = 150,
                                                                                                             # tooltip       = 'Container',

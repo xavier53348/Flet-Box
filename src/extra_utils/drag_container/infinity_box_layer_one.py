@@ -10,25 +10,6 @@ numClick         = get_global_var(get_var='numClick')
 listWidgetUpdate = get_global_var(get_var='listWidgetUpdate')
 #####################
 
-# widgetConfig =[ ft.Container(
-#                     ##################### PROPERTY ROW
-#                     expand    = True,
-#                     ink       = False,                                                # click effect ripple
-#                     bgcolor   = "#3f9a64",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-#                     padding   = ft.padding.all(8), # inside box                       # padding.only(left=8, top=8, right=8, bottom=8),
-#                     margin    = ft.margin.all(8),  # outside box                      # margin.only (left=8, top=8, right=8, bottom=8),
-#                     alignment = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right
-#                     ##################### EFFECTS
-#                     # blur     = (4, 4),              # (Vertical,Horizontal)             # blur=ft.Blur(10, 0, ft.BlurTileMode.MIRROR)
-#                     # gradient = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-#                     # gradient = ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
-#                     ##################### WIDGETS
-#                # content  = ft.ElevatedButton("press container",tooltip='buttom'),
-#                ##################### EVENTS
-#                # on_click = lambda _:print(_),                                   # on_hover=print('on click over'), on_long_press=print('long press'),
-#                )#<=== NOTE COMA
-#                ]
-
 class InfinityBoxLayerOne(ft.UserControl):
      """
      NOTE:
@@ -221,12 +202,11 @@ class InfinityBoxLayerOne(ft.UserControl):
 
           print('============')
           print(f"""
-                     selected_widget: {self.dataPassed},
-                     ID_widget: {numWidget},
-                     ID tooltip: {self.infinityDropWidget[0].tooltip}
-                     Content: {self.infinityDropWidget}""")
+     selected_widget: {self.dataPassed},
+     ID_widget: {numWidget},
+     ID tooltip: {self.infinityDropWidget[0].tooltip}
+     Content: {self.infinityDropWidget}""")
           print('============')
-
 
           self.drag_boxs =ft.DragTarget(
                                              group     = "GroupDragg",
@@ -290,8 +270,13 @@ class InfinityBoxLayerOne(ft.UserControl):
                # print(get_global_var(get_var='page'))
                ############################################################################
                # on click over widget <===
-               global_var(data_global={'listWidgetUpdate':listWidget[0]})
+               print(listWidget[0].uid ,'selected_widget BOX IN PHONE listWidgetUpdate')
 
+               # listWidget[0].content = None
+               # print(listWidget[0] ,'selected_widget BOX IN PHONE listWidgetUpdate')
+               # print(self.infinityDropWidget[0] ,'selected_widget BOX IN PHONE listWidgetUpdate')
+
+               global_var(data_global={'listWidgetUpdate':listWidget[0]})
                widgetConfig[0].border = ft.border.all(0.2, ft.colors.RED)
                widgetConfig[0].update()
                # print(widgetConfig[0].uid,'<<<<,')
@@ -330,6 +315,8 @@ class InfinityBoxLayerOne(ft.UserControl):
                     """
                          IF WIDGET TO DROP_WIDGET IS A CONTROLS APPEND 'Row',"GridView","Column","Stack"
                     """
+
+                    # print(widgetDropBox.control.content.content.uid,'-----------------')
                     widgetDropBox.control.content.content.controls.append(self.InstanceNewWidget)
 
                else:

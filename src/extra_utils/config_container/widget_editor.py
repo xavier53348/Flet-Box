@@ -300,6 +300,10 @@ class Build_Editor(ft.UserControl):
           attrib_compare_container_widget_dict = set(widgets_dict.keys())                     # ATTRIBUTES TO COMPARE 'Container.content'
           # ALL DOWN WORK
           ########################
+
+          # print(widget_cliked.uid,'>>>>>>>><<<MMM<<')
+          # print(widget_cliked.__dict__,'>>>>>>>><<<MMM<<')
+          # print(widget_cliked._get_children(),'>>>>>>>><<<MMM<<')
           get_widgets         = {widgets_dict.get(_) for _ in attrib_compare_container_dict}
 
           ######################### set making error in intersection solved with personal set
