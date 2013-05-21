@@ -48,7 +48,7 @@ def screen_manager(
         #: ADD SCREEN PHONE IN DICT DATA_GLOBAL
         #: PATH extra_utils/settings_var/settings_widget.py
         #: WIDGET AFTER PASS TO ROW GET ID
-        #                              screen_name       
+        #                              screen_name
         GLOBAL_VAR( set_global_var= {tmp_new_screen_name:tmp_new_phone}) # NECESARY TO VISIBLE ON OFF
         # print(tmp_new_screen_name,'tmp_new_screen_name')
 
@@ -63,7 +63,7 @@ def screen_manager(
 
         # ========================================================================================
         #: CREATE NEW SCREEN IN ALL SCREENS DICT VERY IMPORTATN CONTAIN ALL SCREENS IN
-        current_main_screen_id = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
+        # current_main_screen_id = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
         # GLOBAL_VAR(set_global_var = {'ALL_SCREEN_IN_DICT':{current_main_screen_id: dict() }})
         # # ========================================================================================
 
@@ -73,7 +73,7 @@ def screen_manager(
         # SET NAME TO ID TO ERASE IN ALL DICT SCREENS
         # return {'main_screen': '_421', 'datadaa': '_3006'}
 
-        all_screens_in_app['main_screen']=current_main_screen_id
+        # all_screens_in_app['main_screen']=current_main_screen_id
         all_screens_in_app[tmp_new_screen_name]=tmp_new_phone.uid
 
 
@@ -89,7 +89,7 @@ def screen_manager(
         for index,_ in enumerate(all_screen.controls):
             if _.uid == all_screens_in_app.get(delete_screen):
                 del all_screen.controls[index]
-        
+
 
         #: REMOVE FROM INTERNAL DICT
         select_name_to_get_id = all_screens_in_app.pop(delete_screen)
@@ -181,14 +181,14 @@ def screen_manager(
         data = row_box_content_phone.controls.pop(0)
         row_box_content_phone.controls=[data]
         row_box_content_phone.controls[0].visible = True
-        
+
         #: GET ID AND  CONTROLS FROM MAIN SCREEN
         id_main_screen = data.uid
         content_of_main_screen = data.content.content.content.content.controls
 
         #: IS NECCESARY CREATE A NESTED DICT WITH ALL CONTENT
         # {'_421': {'Avatar: 1': Container(tooltip='Avatar: 1', bgcolor='transparent', ink=True, inkcolor='red', onclick=True, onhover=True, n='content', border='{"l":{"w":0,"c":"transparent"},"t":{"w":0,"c":"transparent"},"r":{"w":0,"c":"transparent"},"b":{"w":0,"c":"transparent"}}', margin='{"l":0,"t":0,"r":0,"b":0}', padding='{"l":6,"t":6,"r":6,"b":6}', alignment='{"x":0,"y":0}')}}
-        
+
         update_all_screen: dict = {}
         secundary_update:  dict = {
                     id_main_screen:{}
@@ -200,7 +200,7 @@ def screen_manager(
             name_id = content.tooltip
             update_all_screen.update({name_id:content})
 
-        #: UPDATE CONTROLS AND NESTED DICTIONARY 
+        #: UPDATE CONTROLS AND NESTED DICTIONARY
         secundary_update.update({id_main_screen:update_all_screen})
         row_box_content_phone.update()
 
@@ -208,7 +208,7 @@ def screen_manager(
         GLOBAL_VAR(set_global_var={'SELECTED_SCREEN':data})
 
     elif set_screen:
-        all_screens_in_app["main_screen"]= GLOBAL_VAR(get_global_var="main_screen")
+        all_screens_in_app["main_screen"]=set_screen
 
     elif get_screen:
         return all_screens_in_app.get(get_screen)
@@ -232,7 +232,7 @@ class NameScreen(ft.Container):
         self.blur          = (12,12)
 
         # self.on_click    = lambda _:self.escape_data_in_sqlite()
-        
+
         self.right  = 0
         self.left   = 0
         self.top    = 0
@@ -662,10 +662,10 @@ class ScreenManager(ft.Stack):
 
         # REMEMBER SAVE IN DATABASE
         global name_screen
-        
+
         #ERASE IF MAKE SAVE SCREENS DATA
         self.remove_json_file()
-        
+
         name_screen = NameScreen()
 
     def remove_json_file(self):

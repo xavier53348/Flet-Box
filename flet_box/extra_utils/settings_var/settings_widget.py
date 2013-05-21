@@ -40,13 +40,17 @@ DATA_GLOBAL =  {
 
                        'SCREEN_CONTAINER' : None,   # <== SCREEN_MANAGER BOX CONTAINER
                               'TREE_VIEW' : None,   # <== TREE_VIEW BOX CONTAINER
-                     
 
-                     'ALL_SCREEN_IN_DICT' : dict(),   # <== SLL SCREENSIN SCREEN MANAGER
+
+                     'ALL_SCREEN_IN_DICT' : dict(),   # <== ALL SCREENS IN SCREEN MANAGER
+
+                              'row_phone' : dict(),   # <== ALL SCREENS IN ROW TO SAVE DATA
+
+
                }
 
 def GLOBAL_VAR(
-               set_global_var:     dict = {'var_name':'value_in'}, 
+               set_global_var:     dict = {'var_name':'value_in'},
                get_global_var:     str  = 'var_name',
                remove_global_var:  str  = 'var_remove',
                remove_screen_var:  str  = 'var_screen_remove',

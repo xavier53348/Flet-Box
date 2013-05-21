@@ -55,6 +55,7 @@ def main(page: ft.Page):
      # print(phone_testing.build().content)
 
      GLOBAL_VAR(set_global_var= {'main_screen':phone_testing})
+
      GLOBAL_VAR(set_global_var= {'SELECTED_SCREEN':phone_testing})
 
 
@@ -172,7 +173,7 @@ def main(page: ft.Page):
                     phone_testing,
                     ],
                   )
-     
+
      container_phone = ft.Container(
                                     # bgcolor="red",
                                     width=295,
@@ -291,6 +292,10 @@ def main(page: ft.Page):
      # print(phone_testing.uid,'<<<<<')
      GLOBAL_VAR(set_global_var= {'ALL_SCREEN_IN_DICT':{phone_testing.uid:dict()}})
      # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'))
+     # print(GLOBAL_VAR(get_global_var='main_screen').uid,'UID')
+     # GLOBAL_VAR(set_global_var={'main_screen_uid':GLOBAL_VAR(get_global_var='main_screen').uid})
+     screen_manager(set_screen=row_phone.controls[0].uid)
+     # print(GLOBAL_VAR(get_global_var='main_screen'))
 
      page.update()
 
