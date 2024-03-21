@@ -56,13 +56,14 @@ $ git commit -m 'COMMENT'    # <=== UPDATE
 
 $ git add README test.rb LICENSE
 $ git add .
+$ git add -A                 # <=== USE THIS
 $ git commit -m 'COMMENT'    # <===
 $ git commit -a -m 'COMMENT' # <=== es un add y commit al mismo tiempo
 =============================================================================
 #///  CREATE A NEW BRANCH AND CHANGE BETWEEN BRANCHS
 
 $ git branch                 # <=== SABER las ramas git branch --no-merged
-$ git branch testing         # <=== CREAMOS la nueva rama TESTING
+$ git branch testing         # <=== CREAMOS la nueva rama TESTING   pro [git branch features/menu_phone]
 $ git checkout testing       # <=== NOS MOVEMOS de la rama master que es por defecto a la rama testing
 $ git checkout -b testing    # <=== es branch and checkout <== creamos y apuntamos a la rama
 =============================================================================

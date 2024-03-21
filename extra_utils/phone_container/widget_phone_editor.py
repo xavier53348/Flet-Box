@@ -31,7 +31,7 @@ class Build_Phone_Editor(ft.UserControl):
                                                             border_radius= ft.border_radius.all(30),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                             border=ft.border.all(4, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                             # ===================
-                                                            # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
+                                                            # image_src = f"splash.jpg",
                                                             # image_opacity=0.1,
                                                             # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                                             # ===================

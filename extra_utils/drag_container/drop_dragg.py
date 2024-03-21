@@ -27,13 +27,13 @@ class DropDragg(ft.UserControl):
                                         width         = 260,
                                         height        = 525,
                                         ##################### EFFECTS
-                                        gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK45],),
+                                        # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK45],),
                                         ##################### WIDGETS
                                    content = ft.DragTarget(
-                                                    ######################################
-                                                    ################# Traslate Container
-                                                    group   = "GroupDragg",
-                                                    content = ft.Container(
+                                                       ######################################
+                                                       ################# Traslate Container
+                                                       group   = "GroupDragg",
+                                                       content = ft.Container(
                                                                       border_radius = ft.border_radius.all(30),# ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                       padding       = 0,
                                                                       margin        = -0.3,
@@ -52,10 +52,10 @@ class DropDragg(ft.UserControl):
                                                                  # on_long_press = print('long press'),
                                                                  ##################################
                                                             ),
-                                                    ################# EVENTS  DragTarget
-                                                    on_will_accept = self.drag_will_accept,           # Traslate Drop
-                                                    on_leave       = self.drag_leave,                 # Leafing Drop Line Border
-                                                    on_accept      = lambda _:self.drag_accept(_),    # Accept Drop
+                                                       ################# EVENTS  DragTarget
+                                                       on_will_accept = self.drag_will_accept,           # Traslate Drop
+                                                       on_leave       = self.drag_leave,                 # Leafing Drop Line Border
+                                                       on_accept      = lambda _:self.drag_accept(_),    # Accept Drop
                                                     ##################################
                                         )#<========comma # DragTarget.content.controls.append() # DragTarget.content.controls.remove()
                                         # self.DropDragg.controls.update()

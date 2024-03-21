@@ -1,6 +1,6 @@
 *.txt
 *.pyc
-.venv
-.git
-__pycache__
-drag_drop_proyect
+.venv/
+.git/
+__pycache/__
+drag_drop_proyect/
