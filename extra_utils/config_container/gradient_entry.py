@@ -84,39 +84,28 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
     def build(self):
         self.main_gradient_widget = ft.Container(
                                         ##################### PROPERTY
-                                        ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                        # expand=True,
-                                        ink=False,                                                # click effect ripple
-                                        bgcolor="#3e4046",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                        padding= ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                        alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                        border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                        border=ft.border.all(2, '#646871'),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                        width=150,
-                                        height=35,
-                                        # tooltip='Container',
-                                        ##################### EFFECTS
-                                        # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                        ink           = False,                                   # click effect ripple
+                                        bgcolor       = "#3e4046",                               # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                        padding       = ft.padding.all(0),    # inside box       # padding.only(left=8, top=8, right=8, bottom=8),
+                                        alignment     = ft.alignment.center,                     # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                        border_radius = ft.border_radius.all(30),                # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                        border        = ft.border.all(2, '#646871'),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                        width         = 150,
+                                        height        = 35,
                                         ##################### WIDGETS
                                         content=ft.Dropdown(
-                                                            # label='width',
-                                                            hint_text=" None ",
-                                                            width=140,
-                                                            # border_width=1,
-                                                            # dense=120,
-                                                            content_padding=ft.padding.only(left=0, top=0, right=8, bottom=14),
-                                                            alignment=ft.alignment.center_left,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                            border_radius= ft.border_radius.all(15),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-
-                                                            # autofocus=True,
-                                                            border=ft.InputBorder.NONE,
-
-                                                            options=self.options_tmp,
+                                                            hint_text       = " None ",
+                                                            width           = 140,
+                                                            content_padding = ft.padding.only(left=0, top=0, right=8, bottom=14),
+                                                            alignment       = ft.alignment.center_left,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                            border_radius   = ft.border_radius.all(15),                            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                            border          = ft.InputBorder.NONE,
+                                                            options         = self.options_tmp,
                                                             ##################### EVENTS
-                                                            # on_change=lambda _: _.__dict__.get('value') if _.__dict__.get('data') == "green" else  _.__dict__.get('data'),
-                                                            on_change=lambda _:self.modify_widget_attributes(config_widget=_.__dict__.get('data'),value='form_gradient',widget=Drop_GradientEntry),
-                                                            # on_change=lambda _:print(_.__dict__.get('data')),
-                                                            # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
+                                                    # on_change = lambda _: _.__dict__.get('value') if _.__dict__.get('data') == "green" else  _.__dict__.get('data'),
+                                                    on_change   = lambda _:self.modify_widget_attributes(config_widget=_.__dict__.get('data'),value='form_gradient',widget=Drop_GradientEntry),
+                                                    # on_change = lambda _:print(_.__dict__.get('data')),
+                                                    # on_click  = lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                 ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
 
                                         ##################### EVENTS
@@ -124,149 +113,45 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                 )#<=== NOTE COMA,
         Drop_GradientEntry = ft.Container(
                             ##################### PROPERTY COLUMN
-                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                            # expand=True,
-                            ink=False,                                                      # click effect ripple
-                            bgcolor=ft.colors.BLACK45,                                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                            padding= ft.padding.all(4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                            margin = ft.margin.all(0),    # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                            alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                            border_radius= ft.border_radius.all(16),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                            border=ft.border.all(2, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                            # ===================
-                            # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                            # image_opacity=0.1,
-                            # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                            # ===================
-                            # rotate=-29,
-                            width=360,
-                            height=150,
-                            # height=128,
-                            # tooltip='Container',
-                            ##################### EFFECTS
-                            # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                            # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
+                            ink           = False,                                                # click effect ripple
+                            bgcolor       = ft.colors.BLACK45,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                            padding       = ft.padding.all(4),    # inside box                    # padding.only(left=8, top=8, right=8, bottom=8),
+                            margin        = ft.margin.all(0),    # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
+                            alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                            border_radius = ft.border_radius.all(16),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                            border        = ft.border.all(2, ft.colors.BLACK),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                            width         = 360,
+                            height        = 150,
                             ##################### WIDGETS
                             content=ft.Column(
                                         ##################### PROPERTY BOX
-                                        # expand=True,
-                                        alignment=ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                        # horizontal_alignment=ft.CrossAxisAlignment.CENTER,        # vertical       START,CENTER END
-                                        ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                        # scroll=True,                                              # center widget
-                                        # tight=True,
-                                        ##################### ADAPT TO SCREEN
-                                        # wrap=True,                                                  # justify in all screen
-                                        # spacing=8,                                                # space widget left right
-                                        # run_spacing=8,                                            # space widget up down
+                                        alignment = ft.MainAxisAlignment.SPACE_AROUND,            # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                                         ##################### WIDGETS
                                         controls=[
                                                 ft.Container(
                                                             ##################### PROPERTY
-                                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                            # expand=True,
-                                                            ink=False,                                                # click effect ripple
-                                                            bgcolor=ft.colors.BLACK38,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                            padding= ft.padding.all(4),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                            margin = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                                                            alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                            border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                            # border=ft.border.all(2, ft.colors.BLACK),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                            # ===================
-                                                            # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                                                            # image_opacity=0.1,
-                                                            # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                            # ===================
-                                                            # width=150,
-                                                            height=38,
-                                                            # tooltip='Container',
-                                                            ##################### EFFECTS
-                                                            # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                                                            # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
+                                                            ink           = False,                               # click effect ripple
+                                                            bgcolor       = ft.colors.BLACK38,                   # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                            padding       = ft.padding.all(4),    # inside box   # padding.only(left=8, top=8, right=8, bottom=8),
+                                                            margin        = ft.margin.all(0),     # outside box  # margin.only (left=8, top=8, right=8, bottom=8),
+                                                            alignment     = ft.alignment.center,                 # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                            border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                            height        = 38,
                                                             ##################### WIDGETS
                                                             content=ft.Row(
                                                                             ##################### PROPERTY BOX
-                                                                            # expand=True,
-                                                                            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                            # vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
-                                                                            ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                                            # scroll=True,                                              # center widget
-                                                                            # tight=True,
-                                                                            ##################### ADAPT TO SCREEN
-                                                                            # wrap=True,                                                  # justify in all screen
-                                                                            # spacing=8,                                                # space widget left right
-                                                                            # run_spacing=8,                                            # space widget up down
+                                                                            alignment = ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                                                                             ##################### WIDGETS
-                                                                            controls=[
+                                                                            controls  = [
                                                                                         self.main_gradient_widget,
                                                                                         ft.Container(
                                                                                                     ##################### PROPERTY
-                                                                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                                    # expand=True,
-                                                                                                    ink=False,                                                      # click effect ripple
-                                                                                                    # bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                                    # padding= ft.padding.all(8), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                                                    # margin = ft.margin.all(8),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                                                    alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                                                                    # border_radius= ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                    # border=ft.border.all(2, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                                    # ===================
-                                                                                                    # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                                                                                                    # image_opacity=0.1,
-                                                                                                    # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                                                                    # ===================
-                                                                                                    # width=150,
-                                                                                                    # height=150,
-                                                                                                    # tooltip='Container',
-                                                                                                    ##################### EFFECTS
-                                                                                                    # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                                                                                                    # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
-                                                                                                    ##################### WIDGETS
-                                                                                                    # disabled = True ,
-                                                                                                    disabled      = True,
-
-                                                                                                    content=ft.ElevatedButton(
+                                                                                                    ink       =False,                   # click effect ripple
+                                                                                                    alignment = ft.alignment.center,    # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                                                                    disabled  = True,
+                                                                                                    content = ft.ElevatedButton(
                                                                                                                     ##################### PROPERTY
-                                                                                                                    # key          = 'is our id',
-                                                                                                                    # expand       = True,
-                                                                                                                    # data         = 'value of the button', # store data in the button
-                                                                                                                    text           = f"Apply {self.attribute_widget.capitalize()}".replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
-                                                                                                                    # tooltip        = 'ElevatedButton',
-                                                                                                                    ##################### COLOR
-                                                                                                                    # icon         ='home',
-                                                                                                                    # icon_color   ='black',
-                                                                                                                    # color        ='yellow',  # text color
-                                                                                                                    # bgcolor      ='red',     # back color
-                                                                                                                    ##################### ATTRIB
-                                                                                                                    # autofocus    = True,
-                                                                                                                    # visible      = False,
-                                                                                                                    # opacity      = 1,
-                                                                                                                    # disabled     = True,
-                                                                                                                    # elevation    = 20,
-                                                                                                                    ##################### POSITION
-                                                                                                                    # rotate       = 20 ,
-                                                                                                                    # offset       = (0,1),
-                                                                                                                    # scale        = 0.9,
-                                                                                                                    # aspect_ratio = 2,
-                                                                                                                    #####################
-                                                                                                                    # url          ='http://hello.worlld.com',
-                                                                                                                    # url_target   ='http://hello.worlld.com',
-                                                                                                                    ##################### MULTI LABEL
-                                                                                                                    # width        = 180,
-                                                                                                                    # height       = 32,
-                                                                                                                    # content      = ft.Container(content=ft.Column(
-                                                                                                                    #                     [
-                                                                                                                    #                         ft.Text(value ="Compound button", size=10),
-                                                                                                                    #                         ft.Text(value ="This is secondary text", size=12),
-                                                                                                                    #                     ], alignment      =ft.MainAxisAlignment.CENTER,spacing=0,)),
-                                                                                                                    # content      = ft.Row(
-                                                                                                                    #     [
-                                                                                                                    #         ft.Icon(name=ft.icons.FAVORITE, color="pink"),
-                                                                                                                    #         ft.Icon(name=ft.icons.AUDIOTRACK, color="green"),
-                                                                                                                    #         ft.Icon(name=ft.icons.BEACH_ACCESS, color="blue"),
-                                                                                                                    #     ],
-                                                                                                                    #     alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                                                                                                                    # ),
+                                                                                                                    text            = f"Apply {self.attribute_widget.capitalize()}".replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
                                                                                                                     ##################### EVENTS
                                                                                                                     # on_click      = lambda _:print(screen_1.content.data),     #FloatingActionButton
                                                                                                                     # on_hover      = lambda _:print(screen_1.content.data),
@@ -275,9 +160,8 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                                                                     # on_blur       = lambda _:print(screen_1.content.data),
                                                                                                                     # on_focus      = lambda _:print(screen_1.content.data),
                                                                                                     ##################### EVENTS
-                                                                                                    on_click=lambda _:self.apply_gradient(),   # on_hover=print('on click over'), on_long_press=print('long press'),
+                                                                                                    on_click = lambda _:self.apply_gradient(),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                                         ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
-
                                                                                      ],),
                                                             ##################### EVENTS
                                                             # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
@@ -285,87 +169,60 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
 
                                                 ft.Container( ##################### First Dual Entry
                                                     ##################### PROPERTY
-                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                    # expand=True,
-                                                    ink           = False,                                                # click effect ripple
+                                                    ink           = False,                                        # click effect ripple
                                                     bgcolor       = "#0e0f11",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                    # bgcolor       = 'red',                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                    padding       = ft.padding.all(2),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                    alignment     = ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                    border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                    border        = ft.border.all(1, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                    # width       = 304,
+                                                    padding       = ft.padding.all(2),    # inside box            # padding.only(left=8, top=8, right=8, bottom=8),
+                                                    alignment     = ft.alignment.center,                          # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                    border_radius = ft.border_radius.all(30),                     # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                    border        = ft.border.all(1, ft.colors.BLACK38),          # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                     height        = 36,
-                                                    # tooltip     = 'Container',
                                                     disabled      = True,
-                                                    ##################### EFFECTS
-                                                    # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
                                                     ##################### WIDGETS
                                                     content=ft.Row(
                                                                     ##################### PROPERTY BOX
-                                                                    # expand=True,
-                                                                    # alignment=ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                    # vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
-                                                                    ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                                    # scroll = True,                                              # center widget
-                                                                    # tight  = True,
-                                                                    ##################### ADAPT TO SCREEN
-                                                                    # wrap=True,                                                  # justify in all screen
-                                                                    spacing=8.7,                                                # space widget left right
-                                                                    # run_spacing=8,                                            # space widget up down
+                                                                    spacing=8.7,                                  # space widget left right
                                                                     ##################### WIDGETS
                                                                     controls=[
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
-                                                                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                            # expand=True,
-                                                                                            ink=False,                                                      # click effect ripple
-                                                                                            # bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                            # alignment=ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                                                            width=68,
-                                                                                            height=35,
-                                                                                            border_radius= ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                            # disabled = True ,
-                                                                                            content=ft.TextField(
-                                                                                                            hint_text=self.attribute_widget_name_1,
-                                                                                                            border=ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                            bgcolor='dark',                                 # inside box
-                                                                                                            color='YELLOW',
-                                                                                                            text_size=15,
+                                                                                            ink           = False,                                              # click effect ripple
+                                                                                            width         = 68,
+                                                                                            height        = 35,
+                                                                                            border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                            content = ft.TextField(
+                                                                                                            hint_text = self.attribute_widget_name_1,
+                                                                                                            border    = ft.InputBorder.NONE,                    # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
+                                                                                                            bgcolor   = 'dark',                                 # inside box
+                                                                                                            color     = 'YELLOW',
+                                                                                                            text_size = 15,
                                                                                                             #======================= EVENTS ===========================
-                                                                                                        on_change= lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = 'color_1',widget=Drop_GradientEntry),
-                                                                                                        # on_change= lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                        # on_submit= lambda x:print('Pressed [< Enter > ]'),
-                                                                                                        # on_focus = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                        # on_blur  = lambda x:print('Pressed [< click click and outside > ]'),
+                                                                                                    on_change   = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = 'color_1',widget=Drop_GradientEntry),
+                                                                                                    # on_change = lambda x:print('Pressed [< Write inside > ]'),
+                                                                                                    # on_submit = lambda x:print('Pressed [< Enter > ]'),
+                                                                                                    # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
+                                                                                                    # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                             ),
                                                                                             ##################### EVENTS
                                                                                             # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                                 ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
-                                                                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                            # expand=True,
-                                                                                            ink=False,                                                      # click effect ripple
-                                                                                            # bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                            # alignment=ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                                                            width=68,
-                                                                                            height=35,
-                                                                                            border_radius= ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                            # disabled = True ,
-                                                                                            content=ft.TextField(
-                                                                                                            # icon='home',
-                                                                                                            hint_text=self.attribute_widget_name_2,
-                                                                                                            border=ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                            bgcolor='dark',                                 # inside box
-                                                                                                            color='YELLOW',
-                                                                                                            text_size=15,
+                                                                                            ink           = False,                                          # click effect ripple
+                                                                                            width         = 68,
+                                                                                            height        = 35,
+                                                                                            border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                            content = ft.TextField(
+                                                                                                            hint_text = self.attribute_widget_name_2,
+                                                                                                            border    = ft.InputBorder.NONE,                # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
+                                                                                                            bgcolor   = 'dark',                             # inside box
+                                                                                                            color     = 'YELLOW',
+                                                                                                            text_size = 15,
                                                                                                             #======================= EVENTS ===========================
-                                                                                                        on_change= lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = 'color_2',widget=Drop_GradientEntry),
-                                                                                                        # on_change= lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                        # on_submit= lambda x:print('Pressed [< Enter > ]'),
-                                                                                                        # on_focus = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                        # on_blur  = lambda x:print('Pressed [< click click and outside > ]'),
+                                                                                                    on_change   = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = 'color_2',widget=Drop_GradientEntry),
+                                                                                                    # on_change = lambda x:print('Pressed [< Write inside > ]'),
+                                                                                                    # on_submit = lambda x:print('Pressed [< Enter > ]'),
+                                                                                                    # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
+                                                                                                    # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                             ),
                                                                                             ##################### EVENTS
                                                                                             # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
@@ -374,39 +231,28 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
 
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
-                                                                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                            # expand=True,
-                                                                                            ink=False,                                                # click effect ripple
-                                                                                            bgcolor="#3e4046",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                            padding= ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                                            alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                                            border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                            border=ft.border.all(2, '#646871'),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                            width=150,
-                                                                                            height=35,
-                                                                                            # tooltip='Container',
-                                                                                            ##################### EFFECTS
-                                                                                            # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                                                                            ink           = False,                                        # click effect ripple
+                                                                                            bgcolor       = "#3e4046",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                            padding       = ft.padding.all(0),    # inside box            # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                                            alignment     = ft.alignment.center,                          # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                                            border_radius = ft.border_radius.all(30),                     # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                            border        = ft.border.all(2, '#646871'),                  # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                                            width         = 150,
+                                                                                            height        = 35,
                                                                                             ##################### WIDGETS
                                                                                             content=ft.Dropdown(
-                                                                                                                # label='width',
-                                                                                                                hint_text=" center_left ",
-                                                                                                                width=140,
-                                                                                                                # border_width=1,
-                                                                                                                # dense=120,
-                                                                                                                content_padding=ft.padding.only(left=0, top=0, right=8, bottom=14),
-                                                                                                                alignment=ft.alignment.center_left,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                                                                border_radius= ft.border_radius.all(15),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                                # disabled = True,
-                                                                                                                # autofocus=True,
-                                                                                                                border=ft.InputBorder.NONE,
-
-                                                                                                                options=self.options_tmp_1,
+                                                                                                                hint_text       = " center_left ",
+                                                                                                                width           = 140,
+                                                                                                                content_padding = ft.padding.only(left=0, top=0, right=8, bottom=14),
+                                                                                                                alignment       = ft.alignment.center_left,            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                                                                border_radius   = ft.border_radius.all(15),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                                                border          = ft.InputBorder.NONE,
+                                                                                                                options         = self.options_tmp_1,
                                                                                                                 ##################### EVENTS
-                                                                                                                # on_change=lambda _: _.__dict__.get('value') if _.__dict__.get('data') == "green" else  _.__dict__.get('data'),
-                                                                                                                on_change=lambda _:self.modify_widget_attributes(config_widget=_.__dict__.get('data'),value="begin gradient",widget=Drop_GradientEntry),
-                                                                                                                # on_change=lambda _:print(_.__dict__.get('data')),
-                                                                                                                # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
+                                                                                                        # on_change = lambda _: _.__dict__.get('value') if _.__dict__.get('data') == "green" else  _.__dict__.get('data'),
+                                                                                                        on_change   = lambda _:self.modify_widget_attributes(config_widget=_.__dict__.get('data'),value="begin gradient",widget=Drop_GradientEntry),
+                                                                                                        # on_change = lambda _:print(_.__dict__.get('data')),
+                                                                                                        # on_click  = lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                                                     ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
 
                                                                                             ##################### EVENTS
@@ -417,127 +263,87 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                         # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                         ),#<=== NOTE COMA,
                                                 ft.Container( ##################### Secon Dual Entry
-                                                    ##################### PROPERTY
-                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                    # expand=True,
-                                                    ink=False,                                                # click effect ripple
-                                                    bgcolor="#0e0f11",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                    padding= ft.padding.all(2),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                    alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                    border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                    border=ft.border.all(1, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                    # width=304,
-                                                    height=36,
-                                                    # tooltip='Container',
+                                                    ink           = False,                               # click effect ripple
+                                                    bgcolor       = "#0e0f11",                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                    padding       = ft.padding.all(2),    # inside box   # padding.only(left=8, top=8, right=8, bottom=8),
+                                                    alignment     = ft.alignment.center,                 # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                    border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                    border        = ft.border.all(1, ft.colors.BLACK38), # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                    height        = 36,
                                                     disabled      = True,
-                                                    ##################### EFFECTS
-                                                    # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
                                                     ##################### WIDGETS
                                                     content=ft.Row(
                                                                     ##################### PROPERTY BOX
-                                                                    # expand=True,
-                                                                    # alignment=ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                    # vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
-                                                                    ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                                    # scroll=True,                                              # center widget
-                                                                    # tight=True,
-                                                                    ##################### ADAPT TO SCREEN
-                                                                    # wrap=True,                                                  # justify in all screen
-                                                                    spacing=8.7,                                                # space widget left right
-                                                                    # run_spacing=8,                                            # space widget up down
+                                                                    spacing  = 8.7,                      # space widget left right
                                                                     ##################### WIDGETS
-                                                                    controls=[
+                                                                    controls = [
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
-                                                                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                            # expand=True,
-                                                                                            ink=False,                                                      # click effect ripple
-                                                                                            # bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                            # alignment=ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                                                            width=68,
-                                                                                            height=30,
-                                                                                            border_radius= ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                            # disabled = True ,
-                                                                                            content=ft.TextField(
-                                                                                                            hint_text=self.attribute_widget_name_3,
-                                                                                                            border=ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                            bgcolor='dark',                                 # inside box
-                                                                                                            color='YELLOW',
-                                                                                                            text_size=15,
+                                                                                            ink           = False,                                              # click effect ripple
+                                                                                            width         = 68,
+                                                                                            height        = 30,
+                                                                                            border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                        content = ft.TextField(
+                                                                                                            hint_text = self.attribute_widget_name_3,
+                                                                                                            border    = ft.InputBorder.NONE,                    # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
+                                                                                                            bgcolor   = 'dark',                                 # inside box
+                                                                                                            color     = 'YELLOW',
+                                                                                                            text_size = 15,
                                                                                                             #======================= EVENTS ===========================
-                                                                                                        on_change= lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = 'color_3',widget=Drop_GradientEntry),
-                                                                                                        # on_change= lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                        # on_submit= lambda x:print('Pressed [< Enter > ]'),
-                                                                                                        # on_focus = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                        # on_blur  = lambda x:print('Pressed [< click click and outside > ]'),
+                                                                                                    on_change   = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = 'color_3',widget=Drop_GradientEntry),
+                                                                                                    # on_change = lambda x:print('Pressed [< Write inside > ]'),
+                                                                                                    # on_submit = lambda x:print('Pressed [< Enter > ]'),
+                                                                                                    # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
+                                                                                                    # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                             ),
                                                                                             ##################### EVENTS
                                                                                             # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                                 ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
-                                                                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                            # expand=True,
-                                                                                            ink=False,                                                      # click effect ripple
-                                                                                            # bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                            # alignment=ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                                                            width=68,
-                                                                                            height=30,
-                                                                                            border_radius= ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                            # disabled = True,
-                                                                                            content=ft.TextField(
-                                                                                                            hint_text=self.attribute_widget_name_4,
-                                                                                                            border=ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                            bgcolor='dark',                                 # inside box
-                                                                                                            color='YELLOW',
-                                                                                                            text_size=15,
-                                                                                                            #======================= EVENTS ===========================
-                                                                                                        on_change= lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = 'color_4',widget=Drop_GradientEntry),
-                                                                                                        # on_change= lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                        # on_submit= lambda x:print('Pressed [< Enter > ]'),
-                                                                                                        # on_focus = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                        # on_blur  = lambda x:print('Pressed [< click click and outside > ]'),
+                                                                                            ink           = False,                                           # click effect ripple
+                                                                                            width         = 68,
+                                                                                            height        = 30,
+                                                                                            border_radius = ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                        content = ft.TextField(
+                                                                                                        hint_text = self.attribute_widget_name_4,
+                                                                                                        border    = ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
+                                                                                                        bgcolor   = 'dark',                                  # inside box
+                                                                                                        color     = 'YELLOW',
+                                                                                                        text_size = 15,
+                                                                                                        #======================= EVENTS ===========================
+                                                                                                on_change   = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = 'color_4',widget=Drop_GradientEntry),
+                                                                                                # on_change = lambda x:print('Pressed [< Write inside > ]'),
+                                                                                                # on_submit = lambda x:print('Pressed [< Enter > ]'),
+                                                                                                # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
+                                                                                                # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                             ),
                                                                                 ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
                                                                                 ft.Container(width=18),
                                                                                 ft.Container(
                                                                                             ##################### PROPERTY
-                                                                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                            # expand=True,
-                                                                                            ink=False,                                                # click effect ripple
-                                                                                            bgcolor="#3e4046",                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                            padding= ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                                            alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                                            border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                            border=ft.border.all(2, '#646871'),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                            width=150,
-                                                                                            height=35,
-                                                                                            # tooltip='Container',
-                                                                                            ##################### EFFECTS
-                                                                                            # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                                                                                            # disabled = True ,
+                                                                                            ink           = False,                                          # click effect ripple
+                                                                                            bgcolor       = "#3e4046",                                      # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                            padding       = ft.padding.all(0),    # inside box              # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                                            alignment     = ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                                            border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                            border        = ft.border.all(2, '#646871'),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                                            width         = 150,
+                                                                                            height        = 35,
                                                                                             ##################### WIDGETS
                                                                                             content=ft.Dropdown(
-                                                                                                                # label='width',
-                                                                                                                hint_text=" top_right ",
-                                                                                                                width=140,
-                                                                                                                # border_width=1,
-                                                                                                                # dense=120,
-                                                                                                                # disabled=True if self.main_gradient_widget.content.value == None else False,
-
-                                                                                                                content_padding=ft.padding.only(left=0, top=0, right=8, bottom=14),
-                                                                                                                alignment=ft.alignment.center_left,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                                                                border_radius= ft.border_radius.all(15),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-
-                                                                                                                # autofocus=True,
-                                                                                                                border=ft.InputBorder.NONE,
-
-                                                                                                                options=self.options_tmp_2,
+                                                                                                                hint_text       = " top_right ",
+                                                                                                                width           = 140,
+                                                                                                                content_padding = ft.padding.only(left=0, top=0, right=8, bottom=14),
+                                                                                                                alignment       = ft.alignment.center_left,            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                                                                border_radius   = ft.border_radius.all(15),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                                                border          = ft.InputBorder.NONE,
+                                                                                                                options         = self.options_tmp_2,
                                                                                                                 ##################### EVENTS
-                                                                                                                # on_change=lambda _: _.__dict__.get('value') if _.__dict__.get('data') == "green" else  _.__dict__.get('data'),
-                                                                                                                on_change=lambda _:self.modify_widget_attributes(config_widget=_.__dict__.get('data'),value="end gradient",widget=Drop_GradientEntry),
-                                                                                                                # on_change=lambda _:print(_.__dict__.get('data')),
-                                                                                                                # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
+                                                                                                        # on_change = lambda _: _.__dict__.get('value') if _.__dict__.get('data') == "green" else  _.__dict__.get('data'),
+                                                                                                        on_change   = lambda _:self.modify_widget_attributes(config_widget=_.__dict__.get('data'),value="end gradient",widget=Drop_GradientEntry),
+                                                                                                        # on_change = lambda _:print(_.__dict__.get('data')),
+                                                                                                        # on_click  = lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                                                     ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
 
                                                                                             ##################### EVENTS
@@ -546,7 +352,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                                                                              ],),
                                                                     ),#<=== NOTE COMA,
                                                 ],
-                                    ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
+                                    ),#<=== NOTE COMA [NOTE]                     # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
                             )#<=== NOTE COMA
         return Drop_GradientEntry
     def apply_gradient(self):
@@ -574,7 +380,6 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                 else:
                     self.data_color = [self.color_1, self.color_2]
 
-
                 self.widget.gradient = ft.LinearGradient(
                                                             begin  = self.effects_gradients.get(self.start_gradient),
                                                             end    = self.effects_gradients.get(self.end_gradient),
@@ -596,9 +401,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
         elif self.main_gradient == ' None ':
             self.widget.gradient = None,
 
-
         # if self.color_1 and self.color_2
-
 
         self.widget.update()
     def modify_widget_attributes(self,config_widget,value,widget):
@@ -665,9 +468,8 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
                 self.start_gradient = config_widget
             if value == 'end gradient':
                 self.end_gradient = config_widget
+
         ################################# ONLY FOR CONTAINER content
-
-
         self.widget.update()
 
 ######## Double_Widget = GradientEntry(),# <======= Comma

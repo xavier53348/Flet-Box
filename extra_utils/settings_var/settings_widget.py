@@ -11,6 +11,7 @@ selectWidgetBox= {
                     'numClick':1,
                     'numWidget':1,
                     'listWidgetUpdate':list(),
+                    # 'page': 'is_defined'
                     }
 
 def global_var(data_global):

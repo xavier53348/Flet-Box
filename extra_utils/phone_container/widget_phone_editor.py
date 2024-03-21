@@ -100,45 +100,6 @@ class Build_Phone_Editor(ft.UserControl):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # class Build_Phone_Editor(ft.UserControl):
 #      """Center Box that contain the phone to add Widget"""
 

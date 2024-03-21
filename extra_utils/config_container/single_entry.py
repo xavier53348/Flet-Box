@@ -17,121 +17,54 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
     def build(self):
         SingleEntry = ft.Container(
                     ##################### PROPERTY COLUMN
-                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                    # expand=True,
-                    ink=False,                                                      # click effect ripple
-                    bgcolor=ft.colors.BLACK45,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                    padding= ft.padding.only(left=4, top=4, right=4, bottom=4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                    margin = ft.margin.all(0),    # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                    alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                    border_radius= ft.border_radius.all(16),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                    border=ft.border.all(2, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                    # ===================
-                    # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                    # image_opacity=0.1,
-                    # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                    # ===================
-                    width=165,
-                    height=80,
-                    # tooltip='Container',
-                    ##################### EFFECTS
-                    # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                    # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
+                    ink           = False,                                                # click effect ripple
+                    bgcolor       = ft.colors.BLACK45,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                    padding       = ft.padding.only(left=4, top=4, right=4, bottom=4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                    margin        = ft.margin.all(0),    # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
+                    alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                    border_radius = ft.border_radius.all(16),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                    border        = ft.border.all(2, ft.colors.BLACK),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                    width         = 165,
+                    height        = 80,
                     ##################### WIDGETS
-                    content=ft.Column(
+                    content = ft.Column(
                                 ##################### PROPERTY BOX
-                                # expand=True,
-                                # alignment=ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                # horizontal_alignment=ft.CrossAxisAlignment.CENTER,        # vertical       START,CENTER END
-                                ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                # scroll=True,                                              # center widget
-                                # tight=True,
                                 ##################### ADAPT TO SCREEN
-                                wrap=True,                                                  # justify in all screen
-                                # spacing=8,                                                # space widget left right
-                                # run_spacing=8,                                            # space widget up down
+                                wrap=True,                                                # justify in all screen
                                 ##################### WIDGETS
-                                controls=[
+                                controls = [
                                         ft.Container( ##################### Text label
-                                            ##################### PROPERTY
-                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                            # expand=True,
-                                            ink=False,                                                      # click effect ripple
-                                            bgcolor="#0e0f11",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                            padding= ft.padding.only(left=12, top=0, right=12, bottom=0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                            # margin = ft.margin.all(1),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                            alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                            border_radius= ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                            # border=ft.border.all(2, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                            # ===================
-                                            # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                                            # image_opacity=0.1,
-                                            # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                            # ===================
-                                            # width=150,
-                                            height=20,
-                                            # tooltip='Container',
-                                            ##################### EFFECTS
-                                            # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
-                                            # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
+                                            ink           = False,                                                # click effect ripple
+                                            bgcolor       = "#0e0f11",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                            padding       = ft.padding.only(left=12, top=0, right=12, bottom=0),  # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                            alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                            border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                            height        = 20,
                                             ##################### WIDGETS
-                                            content=ft.Text(
+                                            content = ft.Text(
                                                         ##################### PROPERTY
-                                                        # key             = 'is our id',
-                                                        # expand          = True,
-                                                        # data            = 'value of the button',                                  # store data in the button
-                                                        value             = 'width - height' if self.attribute_widget == 'width' else self.attribute_widget.capitalize().replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
-                                                        # tooltip         = 'ElevatedButton',
-                                                        # text_align        = ft.TextAlign.CENTER,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
-                                                        # style           = ft.TextStyle(decoration=ft.TextDecoration.UNDERLINE ), # OVERLINE,
-                                                        # weight          = ft.FontWeight.BOLD,                                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_630, W_800,W_900
-                                                        # italic          = True,
-                                                        font_family     = "Consolas", #"Consolas ,RobotoSlab
-                                                        ##################### COLOR
-                                                        # color           = 'yellow',  # text color
-                                                        # bgcolor         = 'red',     # back color
-                                                        ##################### ATTRIB
-                                                        # visible         = False,
-                                                        # opacity         = 0.1,
+                                                        value       = 'width - height' if self.attribute_widget == 'width' else self.attribute_widget.capitalize().replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
+                                                        font_family = "Consolas", #"Consolas ,RobotoSlab
                                             ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
                                     ft.Container(
                                             ##################### PROPERTY
-                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                            # expand=True,
-                                            ink=False,                                                # click effect ripple
-                                            bgcolor=ft.colors.BLACK38,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                            padding= ft.padding.all(2),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                            alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                            border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                            border=ft.border.all(1, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                            width=152,
-                                            height=36,
-                                            # tooltip='Container',
-                                            ##################### EFFECTS
-                                            # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                            ink           = False,                                          # click effect ripple
+                                            bgcolor       = ft.colors.BLACK38,                              # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                            padding       = ft.padding.all(2),    # inside box              # padding.only(left=8, top=8, right=8, bottom=8),
+                                            alignment     = ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                            border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                            border        = ft.border.all(1, ft.colors.BLACK38),            # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                            width         = 152,
+                                            height        = 36,
                                             ##################### WIDGETS
                                             content=ft.Row(
                                                             ##################### PROPERTY BOX
-                                                            # expand=True,
-                                                            # alignment=ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                            # vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
-                                                            ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                            # scroll=True,                                              # center widget
-                                                            # tight=True,
-
-                                                            ##################### ADAPT TO SCREEN
-                                                            # wrap=True,                                                  # justify in all screen
-                                                            # spacing=8,                                                # space widget left right
-                                                            # run_spacing=8,                                            # space widget up down
                                                             ##################### WIDGETS
                                                             controls=[
                                                                         ft.Container(
                                                                                     ##################### PROPERTY
-                                                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                    # expand=True,
                                                                                     ink=False,                                                      # click effect ripple
                                                                                     bgcolor="#44CCCC00",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                    # alignment=ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
                                                                                     width=146,
                                                                                     height=30,
                                                                                     border_radius= ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
@@ -143,19 +76,16 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                                                                                                     color='YELLOW',
                                                                                                     text_size=15,
                                                                                                     #======================= EVENTS ===========================
-                                                                                                on_change= lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = SingleEntry),
-
-                                                                                                # on_change= lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                # on_submit= lambda x:print('Pressed [< Enter > ]'),
-                                                                                                # on_focus = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                # on_blur  = lambda x:print('Pressed [< click click and outside > ]'),
+                                                                                            on_change   = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = SingleEntry),
+                                                                                            # on_change = lambda x:print('Pressed [< Write inside > ]'),
+                                                                                            # on_submit = lambda x:print('Pressed [< Enter > ]'),
+                                                                                            # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
+                                                                                            # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                     ),
                                                                                     ##################### EVENTS
                                                                                     # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                                                         ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-
                                                                      ],),
-
                                             ##################### EVENTS
                                             # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
                                 )#<=== NOTE COMA,
@@ -165,13 +95,7 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
                     # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
         )#<=== NOTE COMA
 
-
-
-
-
-
         return SingleEntry
-
 
     def modify_widget_attributes(self,config_widget,value,):
         """
@@ -201,86 +125,88 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
          'image_repeat', 'image_src', 'image_src_base64', 'blend_mode', 'ink', 'rtl', 'shadow', 'shape',
          'theme_mode', 'theme',
         """
-
-
         ################ CONTAINER STR
 
         if  config_widget   == "image_src ":
-            self.widget.image_src     = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.image_src              = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "tooltip ":
-            self.widget.tooltip       = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.tooltip                = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "rotate ":
-            self.widget.rotate        = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
+            self.widget.rotate                    = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
         if  config_widget   == "scale ":
-            self.widget.scale         = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
+            self.widget.scale                     = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
         if  config_widget   == "image_opacity ":
-            self.widget.image_opacity = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.image_opacity             = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         ################ CONTAINER STR
+        if  config_widget   == "text":
+            self.widget.content.text           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "tooltip":
-            self.widget.content.tooltip      =value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.tooltip        = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "image_src":
-            self.widget.content.image_src    =f"{value.content.controls[1].content.controls[0].content.value }"# <=== Atribute 0 ['width']
+            self.widget.content.image_src    = f"{value.content.controls[1].content.controls[0].content.value }"# <=== Atribute 0 ['width']
         if  config_widget   == "url":
-            self.widget.content.url          =value.content.controls[1].content.controls[0].content.value  # <=== Atribute 0 ['width']
+            self.widget.content.url            = value.content.controls[1].content.controls[0].content.value  # <=== Atribute 0 ['width']
         if  config_widget   == "url_target":
-            self.widget.content.url_target   =value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.url_target     = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "blur_radius":
-            self.widget.content.blur_radius  =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0# <=== Atribute 0 ['width']
+            self.widget.content.blur_radius       = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0# <=== Atribute 0 ['width']
         if  config_widget   == "image_opacity":
-            self.widget.content.image_opacity=float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
+            self.widget.content.image_opacity     = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
         if  config_widget   == "rotate":
-            self.widget.content.rotate       =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
+            self.widget.content.rotate            = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
         if  config_widget   == "scale":
-            self.widget.content.scale        =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.scale             = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "label":
-            self.widget.content.label=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.label          = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "value":
-            self.widget.content.value=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.value          = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "key":
-            self.widget.content.key=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.key            = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "hint_text":
-            self.widget.content.hint_text=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.hint_text      = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "counter_text":
-            self.widget.content.counter_text=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.counter_text   = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "suffix_text":
-            self.widget.content.suffix_text=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.suffix_text    = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "icon":
-            self.widget.content.icon=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.icon           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "src":
-            self.widget.content.src=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.src            = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "data":
-            self.widget.content.data=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.data           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "semantics_label":
-            self.widget.content.semantics_label=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.semantics_label= value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "src_base64":
-            self.widget.content.src_base64=value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.content.src_base64     = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         ######################################## INT
         if  config_widget   == "spread_radius":
-            self.widget.content.spread_radius=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.spread_radius     = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+        if  config_widget   == "size":
+            self.widget.content.size              = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "elevation":
-            self.widget.content.elevation=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.elevation         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "aspect_ratio":
-            self.widget.content.aspect_ratio=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.aspect_ratio      = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "runs_count":
-            self.widget.content.runs_count=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.runs_count        = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "run_spacing":
-            self.widget.content.run_spacing=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.run_spacing       = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "spacing":
-            self.widget.content.spacing=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.spacing           = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "child_aspect_ratio":
-            self.widget.content.child_aspect_ratio=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.child_aspect_ratio= float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "max_extent":
-            self.widget.content.max_extent=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.max_extent        = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "min_lines":
-            self.widget.content.min_lines=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.min_lines         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "max_lines":
-            self.widget.content.max_lines=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.max_lines         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "border_width":
-            self.widget.content.border_width=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.border_width      = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "text_size":
-            self.widget.content.text_size=float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.content.text_size         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "opacity":
-            self.widget.content.opacity      =float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
+            self.widget.content.opacity           = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
 
         ########################################
         # print(self.widget.uid)
