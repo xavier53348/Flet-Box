@@ -56,7 +56,7 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 <!-- ![Dragg widgets](https://i.ibb.co/dJ0hssX/img.png) -->
 
 | **SPACE LAYOUTS**        |   | **IMAGE WIDGET**         |   | **ALERTS STATUS**        |   |
-|--------------------------|   |--------------------------|   |--------------------------|   |
+|--------------------------|---|--------------------------|---|--------------------------|---|
 | ft.divider               | ✔ | ft.image                 | ✔ | ft.snackbar              | ✘ |
 | ft.verticaldivider       | + | ft.circleavatar          | + | ft.tooltip               | ✔ |
 |                          |   | ft.icon                  | ✔ | ft.cupertinoalertdialog  | ✘ |
@@ -140,10 +140,8 @@ If you're passionate about shaping the future of frameworks and contributing to 
     2. **Donate**: Visit the Flet-box donation page and contribute MATIC directly. Every donation counts!
 
     **MATIC WALLET**
-    <!-- ![wallet matic](/home/mjay/Desktop/git_hub/docs/assets/matics_wallet.jpeg) -->
     <img src="docs/assets/matics_wallet.jpeg" style="width:60px" align="Center">
-    <!-- ![wallet matic](https://i.ibb.co/PQqLDNS/Wallet.jpg ) -->
-    #### 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA
+    0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA
 
     - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 
