@@ -132,16 +132,23 @@ If you're passionate about shaping the future of frameworks and contributing to 
 
     - If you're passionate about supporting open-source projects and want to contribute to the **Flet-box Framework**, here's a simple invitation for you:
 
-    **You may Donate in MATIC Tokens?**
-    1. **Low Fees**: MATIC transactions have extremely low fees, making it ideal for micro-donations.
+    **You may contribute Donating tokens to give suppor to the proyect in  MATIC , BINANCE or TRX Tokens**
 
-    **How to Donate MATIC:**
-    1. **Get MATIC**: Purchase MATIC on platforms like Binance, Coinbase, or Uniswap.
-    2. **Donate**: Visit the Flet-box donation page and contribute MATIC directly. Every donation counts!
+    - **Low Fees**: In transactions have extremely low fees, making it ideal for micro-donations.
+    - Invite me a **COFFE** or a **BEER** ..
+
+    **How to Donate Tokens:**
+    - **Get Token**: Purchase MATIC , BINANCE or TRX on platforms like Binance, Coinbase, or Uniswap.
+    - **Donate**: Visit the Flet-box page and contribute directly. **Every donation counts!**
 
     **MATIC WALLET**
-    <img src="docs/assets/matics_wallet.jpeg" style="width:60px" align="Center">
-    0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA
+
+| **SPACE LAYOUTS**                                                                         |    **ADDRESS**                                            |
+|-------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| <img src="docs/assets/matics_wallet.jpeg" style="width:60px" align="Center">              | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
+| <img src="docs/assets/trx_wallet.jpeg" style="width:60px" align="Center">                 | THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ                        |
+| <img src="docs/assets/bnb_wallet.jpeg" style="width:60px" align="Center">                 | bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr                |
+
 
     - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 
