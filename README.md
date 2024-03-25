@@ -1,7 +1,7 @@
 ## Flet-Box:
 ### It's a Python GUI Framework for Multi-Platform Apps
 
-![Flet-Box Preview](https://i.ibb.co/VJHNdbm/flet-box.png)
+![Flet-Box Preview](https://i.ibb.co/PwMYJH0/Flet-box.png)
 
 **Certainly!** Let's create a documentation for **Flet-Box**, a GUI framework that simplifies building multi-platform apps using drag-and-drop widgets in the Python language.
 
