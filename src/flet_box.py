@@ -63,6 +63,19 @@ def main(page: ft.Page):
      space_widget_1 = ft.Container( expand = True)
      space_widget_2 = ft.Container( expand = True)
 
+     ############################################ ICON BROWSER
+     Icon_Browser = IconBrowser(blur_effect=True)
+     IconBrowserContainer = ft.Container(
+               visible= False,
+               right  = 240,
+               left   = 240,
+               top    = 100,
+               bottom = 100,
+          content=Icon_Browser,
+          )
+     global_var(data_global={'Icon_Browser':IconBrowserContainer})
+     ############################################
+
      right_config_container = ft.Container( ###################### RIGHT CONFIG CONTAINER
                ##################### PROPERTY COLUMN
                ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
@@ -370,20 +383,22 @@ def main(page: ft.Page):
      # left   = 350,
      # bottom = 100,
      # top    = 100,
-     Icon_Browser = IconBrowser(blur_effect=True)
-     my_container = ft.Container(
-               # visible= False,
-               right  = 350,
-               left   = 350,
-               top    = 100,
-               bottom = 100,
-          content=Icon_Browser,
-          )
+     # Icon_Browser = IconBrowser(blur_effect=True)
+     # IconBrowserContainer = ft.Container(
+     #           visible= False,
+     #           right  = 340,
+     #           left   = 340,
+     #           top    = 100,
+     #           bottom = 100,
+     #      content=Icon_Browser,
+     #      )
+     # global_var(data_global={'Icon_Browser':IconBrowserContainer})
+
      data_stack = ft.Stack(
 
                     controls=[
                          screen_1,      # <=== main page
-                         my_container,
+                         IconBrowserContainer,
                          ]
           )
 
