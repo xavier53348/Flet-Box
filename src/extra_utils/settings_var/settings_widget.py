@@ -13,6 +13,7 @@ selectWidgetBox= {
                     'listWidgetUpdate':list(),
                     'text_widget_selected':'widget Text',
                     # 'page': 'is_defined'
+                    # 'Icon_Browser': 'is_defined'
                     }
 
 def global_var(data_global):

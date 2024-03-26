@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 # Note: To use the 'upload' functionality of this file, you must:
-#   $ pipenv install twine --dev
+# >>> $ pipenv install twine --dev
+# >>> make wheel
+# >>> python3 setup.py sdist bdist_wheel
 
 import io
 import os
@@ -18,8 +20,8 @@ URL             = 'https://github.com/xavier53348/Flet-Box'
 EMAIL           = 'javier53348@gmail.com'
 AUTHOR          = 'javier53348'
 REQUIRES_PYTHON = '>=3.8'
-VERSION         = '0.0.1'
-DATA_FILES      = [ 'assets']
+VERSION         = '0.0.2'
+DATA_FILES      = [ 'src']
 # What packages are required for this module to be executed?
 REQUIRED = [
     # 'requests', 'maya', 'records',
@@ -95,29 +97,29 @@ class UploadCommand(Command):
 
 # Where the magic happens:
 setup(
-    name=NAME,
-    version=about['__version__'],
-    description=DESCRIPTION,
-    long_description=long_description,
-    long_description_content_type='text/markdown',
-    author=AUTHOR,
-    author_email=EMAIL,
-    python_requires=REQUIRES_PYTHON,
-    url=URL,
-    packages=find_packages(),
+    name                             = NAME,
+    version                          = about['__version__'],
+    description                      = DESCRIPTION,
+    long_description                 = long_description,
+    long_description_content_type    = 'WIDGET.md',
+    author                           = AUTHOR,
+    author_email                     = EMAIL,
+    python_requires                  = REQUIRES_PYTHON,
+    url                              = URL,
+    packages                         = find_packages(),
     # If your package is a single module, use this instead of 'packages':
-    # py_modules=['mypackage'],
+    # py_modules                     =['mypackage'],
 
-    # entry_points={
-    #     'console_scripts': ['mycli=mymodule:cli'],
+    # entry_points                   ={
+    #     'console_scripts': ['mycli =mymodule:cli'],
     # },
-    install_requires=REQUIRED,
-    extras_require=EXTRAS,
-    data_files=DATA_FILES,
-    include_package_data=True,
-    package_data={'': ['src/assets/*']},
-    license='apache-2.0',
-    classifiers=[
+    install_requires                 = REQUIRED,
+    extras_require                   = EXTRAS,
+    data_files                       = DATA_FILES,
+    include_package_data             = True,
+    package_data                     = {'assets': ['src/assets/*']},
+    license                          = 'apache-2.0',
+    classifiers                      = [
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Development Status :: 5 - Production/Untable',
@@ -132,7 +134,7 @@ setup(
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
     # $ setup.py publish support.
-    cmdclass={
+    cmdclass                         = {
         'upload': UploadCommand,
     },
 )

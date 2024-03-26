@@ -1,6 +1,8 @@
 from extra_utils.settings_var.settings_widget import global_var, get_global_var
 import flet as ft
 
+
+
 class MenuLeftContainer(ft.UserControl):
     # globalVar='Erase this test'
 
@@ -8,8 +10,10 @@ class MenuLeftContainer(ft.UserControl):
           super().__init__()
           # self.title='data'
           self.main_page=main_page
+          self.icon_browser = get_global_var(get_var='Icon_Browser')
 
      def build(self):
+
 
           Drop_MenuLeftContainer =  ft.Container( ###################### MENU LEFT CONTAINER
                                              ##################### PROPERTY
@@ -76,7 +80,7 @@ class MenuLeftContainer(ft.UserControl):
                                                                                         # run_spacing=8,                                            # space widget up down
                                                                                         ##################### WIDGETS
                                                                                         controls=[
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Find'     ,content=ft.IconButton(icon=ft.icons.FIND_REPLACE_OUTLINED , on_click=lambda _:self.on_developing('Find')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='Find Icons'     ,content=ft.IconButton(icon=ft.icons.FIND_REPLACE_OUTLINED , on_click=lambda _:self.show_widgets(show_widget='icon_browser')),
                                                                                                         bgcolor=ft.colors.BLACK45,
                                                                                                         height=45,
                                                                                                         width=45,
@@ -125,6 +129,12 @@ class MenuLeftContainer(ft.UserControl):
                                             # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
                                         )#<=== NOTE COMA
           return Drop_MenuLeftContainer
+
+     def show_widgets(self,show_widget):
+
+          if show_widget == "icon_browser":
+               self.icon_browser.visible  = True if not self.icon_browser.visible else False
+               self.icon_browser.update()
 
      def on_developing(self,name_seccion):
           page        = get_global_var(get_var='page')

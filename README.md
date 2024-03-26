@@ -97,27 +97,53 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 ### Path Flet-Box Modules
 
 ```bash
-        ├── extra_utils
-        │   ├── config_container
-        │   │   ├── bool_entry.py
-        │   │   ├── color_entry.py
-        │   │   ├── double_entry.py
-        │   │   ├── four_entry.py
-        │   │   ├── gradient_entry.py
-        │   │   ├── selection_entry.py
-        │   │   ├── single_entry.py
-        │   │   └── widget_editor.py          <====== [BUILDER] RIGHT TAB BOX == CONFIG CONTAINER ATRIBUTES
-        │   ├── drag_container
-        │   │   ├── dragg_widget.py           <====== [BUILDER] DRAGG BOX     == LEFT LITE BOXES
-        │   │   ├── drop_dragg.py             <====== PHONE
-        │   │   ├── infinity_box_layer_one.py <====== [BUILDER] LOOP DRAGG CONTAINER TAKE IT FROM [DRAGG BOX]
-        │   │   └── widget_drag_editor.py     <====== [BUILDER] ALL DROP CONTAINER
-        │   ├── phone_container
-        │   └── settings_var
-        │       └── settings_widget.py        <====== [BUILDER] GLOBAL VARIABLES
-        ├── help_git.md
-        ├── main.py
-        └── README.md
+.
+├── LICENSE
+├── README.md
+├── src
+│   ├── assets
+│   │   ├── dragg_container3.jpg
+│   │   ├── dragg_container.jpg
+│   │   ├── image.jpg
+│   │   ├── img.jpg
+│   │   ├── logo.jpg
+│   │   ├── logo_mark.png
+│   │   └── splash.jpg
+│   ├── extra_utils
+│   │   ├── config_container
+│   │   │   ├── bool_entry.py
+│   │   │   ├── color_entry.py
+│   │   │   ├── double_entry.py
+│   │   │   ├── four_entry.py
+│   │   │   ├── gradient_entry.py
+│   │   │   ├── selection_entry.py
+│   │   │   ├── single_entry.py
+│   │   │   └── widget_editor.py
+│   │   ├── drag_container
+│   │   │   ├── dragg_widget.py
+│   │   │   ├── drop_dragg.py
+│   │   │   ├── infinity_box_layer_one.py
+│   │   │   └── widget_drag_editor.py
+│   │   ├── icon_browser
+│   │   │   └── icon_browser.py
+│   │   ├── lite_menu_bar_down_phone
+│   │   │   ├── footer_bar_menu_phone.py
+│   │   │   └── selected_widget.py
+│   │   ├── lite_menu_bar_up_phone
+│   │   │   └── head_bar_menu_phone.py
+│   │   ├── menu_tab_left_phone
+│   │   │   └── widget_menu_left_editor.py
+│   │   ├── menu_tab_up_phone
+│   │   │   └── widget_menu_tab_editor.py
+│   │   ├── phone_container
+│   │   │   └── widget_phone_editor.py
+│   │   └── settings_var
+│   │       └── settings_widget.py
+│   └── flet_box.py
+└── WIDGET.md
+
+12 directories, 31 files
+
 ```
 
 ### Certainly!

@@ -5,10 +5,11 @@ from extra_utils.drag_container.widget_drag_editor import Build_Drag_Editor
 from extra_utils.menu_tab_up_phone.widget_menu_tab_editor import MenuUpContainer
 from extra_utils.menu_tab_left_phone.widget_menu_left_editor import MenuLeftContainer
 ########################################################################################
+from extra_utils.lite_menu_bar_up_phone.head_bar_menu_phone import LiteMenuUpContainer
 from extra_utils.lite_menu_bar_down_phone.footer_bar_menu_phone import LiteMenuDownContainer
 from extra_utils.lite_menu_bar_down_phone.selected_widget import SelectedWidget
-
-from extra_utils.lite_menu_bar_up_phone.head_bar_menu_phone import LiteMenuUpContainer
+########################################################################################
+from extra_utils.icon_browser.icon_browser import IconBrowser
 ########################################################################################
 from extra_utils.settings_var.settings_widget import global_var, get_global_var
 
@@ -61,6 +62,19 @@ def main(page: ft.Page):
 
      space_widget_1 = ft.Container( expand = True)
      space_widget_2 = ft.Container( expand = True)
+
+     ############################################ ICON BROWSER
+     Icon_Browser = IconBrowser(blur_effect=True)
+     IconBrowserContainer = ft.Container(
+               visible= False,
+               right  = 240,
+               left   = 240,
+               top    = 100,
+               bottom = 100,
+          content=Icon_Browser,
+          )
+     global_var(data_global={'Icon_Browser':IconBrowserContainer})
+     ############################################
 
      right_config_container = ft.Container( ###################### RIGHT CONFIG CONTAINER
                ##################### PROPERTY COLUMN
@@ -365,8 +379,31 @@ def main(page: ft.Page):
             ##################### EVENTS
                 # on_click=lambda _:print(_),                                                        # on_hover=print('on click over'), on_long_press=print('long press'),
      )#<=== NOTE COMA
+     # right  = 350,
+     # left   = 350,
+     # bottom = 100,
+     # top    = 100,
+     # Icon_Browser = IconBrowser(blur_effect=True)
+     # IconBrowserContainer = ft.Container(
+     #           visible= False,
+     #           right  = 340,
+     #           left   = 340,
+     #           top    = 100,
+     #           bottom = 100,
+     #      content=Icon_Browser,
+     #      )
+     # global_var(data_global={'Icon_Browser':IconBrowserContainer})
 
-     page.add(screen_1)
+     data_stack = ft.Stack(
+
+                    controls=[
+                         screen_1,      # <=== main page
+                         IconBrowserContainer,
+                         ]
+          )
+
+     # page.add(screen_1)
+     page.add(data_stack)
      page.update()
 
 if __name__ == '__main__':

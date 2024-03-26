@@ -61,8 +61,8 @@ class Build_Phone_Editor(ft.UserControl):
      def drag_accept(self,widgetDropBox):
           # global selectWidgetBox
 
-          selectWidgetBox  = get_global_var(get_var='selectWidgetBox')
-          self.InfinityBox = InfinityBoxLayerOne(dataPassed=selectWidgetBox)
+          selectWidgetBox  = get_global_var(get_var = 'selectWidgetBox')
+          self.InfinityBox = InfinityBoxLayerOne(dataPassed = selectWidgetBox)
           destiny_box      = self.page.get_control(self.dropDragg.uid)
 
           # print(f"selectWidgetBox: {selectWidgetBox}")
