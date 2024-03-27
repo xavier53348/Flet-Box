@@ -3,4 +3,5 @@
 .venv/
 .git/
 __pycache/__
+help_git.md
 drag_drop_proyect/

@@ -1,0 +1,1 @@
+from src.flet_box import __main__

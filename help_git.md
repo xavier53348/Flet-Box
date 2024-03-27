@@ -151,3 +151,14 @@ multy line code
 <!-- imagen -->
 ![viual studio logo](http://place.logo.imagen)
 ![viual studio logo](imagen.png 'title of the imagen')
+
+
+git structure
+docs
+src
+test
+.gitignore
+
+
+make wheel
+python3 setup.py sdist bdist_wheel
