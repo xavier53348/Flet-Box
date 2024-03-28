@@ -10,22 +10,26 @@
 
 >>> mkdir My_app
 >>> cd My_app
+
 ```
 ## Run one time
 ```bash
 
 >>> python3 -m venv .venv
+
 ```
 ## Activate virtual env
 ```bash
 
 >>> source .venv/bin/activate
 >>> pip install flet-box flet
+
 ```
 ## Easy run Flet-Box
 ```bash
 
->>> flet run main.py -r -d
+>>> flet src/flet_box.py
+
 ```
 ### Introduction
 **Flet-Box** is a powerful framework that enables developers to create interactive multi-user web, desktop, and mobile applications. Whether you're a seasoned developer or just starting out, **Flet-Box** makes frontend development accessible without prior experience. Here are the key features:
@@ -52,8 +56,6 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 
 ## Widgets will be Updating ...
 #### You mey use now the currents widgets that are marked
-
-<!-- ![Dragg widgets](https://i.ibb.co/dJ0hssX/img.png) -->
 
 | **SPACE LAYOUTS**        |   | **IMAGE WIDGET**         |   | **ALERTS STATUS**        |   |
 |--------------------------|---|--------------------------|---|--------------------------|---|
@@ -95,27 +97,27 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 ### Path Flet-Box Modules
 
 ```bash
-                    ├── extra_utils
-                    │   ├── config_container
-                    │   │   ├── bool_entry.py
-                    │   │   ├── color_entry.py
-                    │   │   ├── double_entry.py
-                    │   │   ├── four_entry.py
-                    │   │   ├── gradient_entry.py
-                    │   │   ├── selection_entry.py
-                    │   │   ├── single_entry.py
-                    │   │   └── widget_editor.py
-                    │   ├── drag_container
-                    │   │   ├── dragg_widget.py
-                    │   │   ├── drop_dragg.py             <====== PHONE
-                    │   │   ├── infinity_box_layer_one.py
-                    │   │   └── widget_drag_editor.py
-                    │   ├── phone_container
-                    │   └── settings_var
-                    │       └── settings_widget.py
-                    ├── help_git.md
-                    ├── main.py
-                    └── README.md
+        ├── extra_utils
+        │   ├── config_container
+        │   │   ├── bool_entry.py
+        │   │   ├── color_entry.py
+        │   │   ├── double_entry.py
+        │   │   ├── four_entry.py
+        │   │   ├── gradient_entry.py
+        │   │   ├── selection_entry.py
+        │   │   ├── single_entry.py
+        │   │   └── widget_editor.py          <====== [BUILDER] RIGHT TAB BOX == CONFIG CONTAINER ATRIBUTES
+        │   ├── drag_container
+        │   │   ├── dragg_widget.py           <====== [BUILDER] DRAGG BOX     == LEFT LITE BOXES
+        │   │   ├── drop_dragg.py             <====== PHONE
+        │   │   ├── infinity_box_layer_one.py <====== [BUILDER] LOOP DRAGG CONTAINER TAKE IT FROM [DRAGG BOX]
+        │   │   └── widget_drag_editor.py     <====== [BUILDER] ALL APP CONTAINER
+        │   ├── phone_container
+        │   └── settings_var
+        │       └── settings_widget.py        <====== [BUILDER] GLOBAL VARIABLES
+        ├── help_git.md
+        ├── main.py
+        └── README.md
 ```
 
 ### Certainly!
@@ -149,7 +151,6 @@ If you're passionate about shaping the future of frameworks and contributing to 
 | <img src="docs/assets/trx_wallet.jpeg" style="width:60px" align="Center">                 | THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ                        |
 | <img src="docs/assets/bnb_wallet.jpeg" style="width:60px" align="Center">                 | bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr                |
 
-
     - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 
 3. **Collaboration and Feedback**:
@@ -160,15 +161,16 @@ If you're passionate about shaping the future of frameworks and contributing to 
 * Reach out to our team via the provided contact details if you have specific questions or want to contribute directly.
 * Remember, every contribution counts! Let's build a robust and forward-looking framework that fosters innovation while safeguarding financial stability.
 
-
 ##  How contribute to build Widget dragg in flet-Box
-
 
 1.  Build left take dragg selection widgets.
 
 **Exemple:**
+
 ```python
+
 self.RowDragg  = DraggWidget( widget='Row' ,color='BLUE' ,icons= ft.icons.BURST_MODE_ROUNDED)
+
 ```
     **Properties:**
 
@@ -183,6 +185,7 @@ self.RowDragg  = DraggWidget( widget='Row' ,color='BLUE' ,icons= ft.icons.BURST_
 2.  Exemple build left take dragg selection widgets inside drag_container_to_phone.
 
 ```python
+
 ft.Container(
         content=ft.GridView(
                             runs_count=3,
@@ -193,6 +196,7 @@ ft.Container(
                         controls=[
                                     self.RowDragg, # <============= add inside
                                  ],
+
 ```
 
 3.  Go to infinity_box_layer_one.py and add Manually.
@@ -206,6 +210,7 @@ ft.Container(
 **Exemple how will be**
 
 ```python
+
 "Row": [
             ft.Container(bgcolor='blue',alignment=ft.alignment.center,padding=ft.padding.all(4),border=ft.border.all(0.8, ft.colors.BLACK),tooltip='Row',
         on_hover=lambda _:self.resetClick(),
@@ -214,4 +219,5 @@ ft.Container(
             controls= [
                            ],),),
   ],
+
 ```
