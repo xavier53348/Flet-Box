@@ -90,10 +90,10 @@ class LiteMenuUpContainer(ft.UserControl):
                                                                            # run_spacing        = 8,                                     # space widget up down
                                                                            ##################### WIDGETS
                                                                       controls=[
-                                                                           ft.IconButton(icon = ft.icons.SMARTPHONE,tooltip='SMARTPHONE',),
-                                                                           ft.IconButton(icon = ft.icons.TABLET_ANDROID,tooltip='TABLET'),
-                                                                           ft.IconButton(icon = ft.icons.TV_OUTLINED,tooltip='PC'),
-                                                                           ft.IconButton(icon = ft.icons.FEATURED_PLAY_LIST_OUTLINED,tooltip='BROWSER'),
+                                                                           ft.IconButton(icon = ft.icons.SMARTPHONE,    tooltip='SMARTPHONE',          on_click=lambda _:self.action_button(action='SMARTPHONE')),
+                                                                           ft.IconButton(icon = ft.icons.TABLET_ANDROID,tooltip='TABLET',              on_click=lambda _:self.action_button(action='TABLET')),
+                                                                           ft.IconButton(icon = ft.icons.TV_OUTLINED,   tooltip='PC',                  on_click=lambda _:self.action_button(action='PC')),
+                                                                           ft.IconButton(icon = ft.icons.FEATURED_PLAY_LIST_OUTLINED,tooltip='BROWSER',on_click=lambda _:self.action_button(action='PC')),
                                                                            ft.Container( ##################### NAME DEVICE
                                                                                           ##################### PROPERTY
                                                                                           ink       = False,                                                # click effect ripple
@@ -156,9 +156,9 @@ class LiteMenuUpContainer(ft.UserControl):
                                                                                 # run_spacing=8,                                            # space widget up down
                                                                                 ##################### WIDGETS
                                                                            controls=[
-                                                                                     ft.IconButton(icon=ft.icons.DELETE_SWEEP_OUTLINED,tooltip='DELETE_',on_click=lambda _:self.action_button(action='delete')),
-                                                                                     ft.IconButton(icon=ft.icons.SCREEN_ROTATION,tooltip='ROTATE',on_click=lambda _:self.action_button(action='rotation')),
-                                                                                     ft.IconButton(icon=ft.icons.DEBLUR,tooltip='LIGHT / DARK',),
+                                                                                     ft.IconButton(icon=ft.icons.DELETE_SWEEP_OUTLINED,tooltip='DELETE_',     on_click=lambda _:self.action_button(action='delete')),
+                                                                                     ft.IconButton(icon=ft.icons.SCREEN_ROTATION,      tooltip='ROTATE',      on_click=lambda _:self.action_button(action='rotation')),
+                                                                                     ft.IconButton(icon=ft.icons.DEBLUR,               tooltip='LIGHT / DARK',on_click=lambda _:self.action_button(action='LIGHT / DARK')),
                                                                                   ],),
                                                                    ##################### EVENTS
                                                                    # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
@@ -178,9 +178,10 @@ class LiteMenuUpContainer(ft.UserControl):
 
      def action_button(self,action):
 
+          ###############################################################
+
           if action == 'delete':
                touch_widget_in_phone = get_global_var(get_var='listWidgetUpdate')
-
                # get the corret way to delete widget <===
                page = get_global_var(get_var='page')
                id_widget = page.get_control(touch_widget_in_phone.uid)
@@ -193,6 +194,31 @@ class LiteMenuUpContainer(ft.UserControl):
 
           if action == 'rotation':
                self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
+               self.phone_widget_container.controls[0].update()
+
+          if action == 'LIGHT / DARK':
+               self.phone_widget_container.controls[0].bgcolor = ft.colors.WHITE  if self.phone_widget_container.controls[0].bgcolor == '#070707' else '#070707'
+               self.phone_widget_container.controls[0].update()
+
+
+          ###############################################################
+          if action == 'SMARTPHONE':
+               self.phone_widget_container.controls[0].width  = 260
+               self.phone_widget_container.controls[0].height = 525
+               self.phone_widget_container.controls[0].update()
+
+          if action == 'TABLET':
+               self.phone_widget_container.controls[0].width  = 260+400
+               self.phone_widget_container.controls[0].height = 525+20
+               self.phone_widget_container.controls[0].update()
+          if action == 'PC':
+               self.phone_widget_container.controls[0].width  = 260+520
+               self.phone_widget_container.controls[0].height = 525
+               self.phone_widget_container.controls[0].update()
+
+          if action == 'BROWSER':
+               self.phone_widget_container.controls[0].width  = 260+500
+               self.phone_widget_container.controls[0].height = 525
                self.phone_widget_container.controls[0].update()
 
      def action_windows(self,action):

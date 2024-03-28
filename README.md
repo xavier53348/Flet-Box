@@ -150,7 +150,6 @@ If you're passionate about shaping the future of frameworks and contributing to 
 | <img src="docs/assets/matics_wallet.jpeg" style="width:60px" align="Center">              | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
 | <img src="docs/assets/trx_wallet.jpeg" style="width:60px" align="Center">                 | THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ                        |
 | <img src="docs/assets/bnb_wallet.jpeg" style="width:60px" align="Center">                 | bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr                |
-|-------------------------------------------------------------------------------------------|-----------------------------------------------------------|
 
     - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 

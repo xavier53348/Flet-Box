@@ -49,7 +49,7 @@ we may manipulate attributes we find the selected widget by ID and make a CRUD c
 
 ```python3
 >>> id_widget = page.get_control(id='_5')
->>> id_widget.controls = ft.Widget(attributes)
+>>> id_widget.controls = [ft.Widget(attributes)]
 >>> id_widget.update()
 
 ```
