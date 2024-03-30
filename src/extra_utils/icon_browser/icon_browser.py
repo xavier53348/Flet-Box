@@ -46,6 +46,7 @@ class IconBrowser(ft.UserControl):
                     alignment = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
 
                     content   = ft.Column(
+                        spacing              = 8,
                         alignment            = ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                         horizontal_alignment = ft.CrossAxisAlignment.CENTER,        # vertical       START,CENTER END
 

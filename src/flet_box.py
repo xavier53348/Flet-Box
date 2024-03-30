@@ -69,8 +69,8 @@ def main(page: ft.Page):
                visible= False,
                right  = 240,
                left   = 240,
-               top    = 100,
-               bottom = 100,
+               top    = 80,
+               bottom = 80,
           content=Icon_Browser,
           )
      global_var(data_global={'Icon_Browser':IconBrowserContainer})
