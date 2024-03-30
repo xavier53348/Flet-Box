@@ -22,7 +22,8 @@
 ```bash
 
 >>> source .venv/bin/activate
->>> pip install flet-box flet
+>>> pip install flet
+>>> pip install https://github.com/xavier53348/Flet-Box.git
 
 ```
 ## Easy run Flet-Box
