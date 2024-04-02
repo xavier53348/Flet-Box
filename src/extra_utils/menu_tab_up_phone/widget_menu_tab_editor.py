@@ -1,3 +1,5 @@
+from extra_utils.menu_tab_up_phone.basic_menu_tab_up import BasicMenuUp
+
 import flet as ft
 
 class MenuUpContainer(ft.UserControl):
@@ -10,6 +12,7 @@ class MenuUpContainer(ft.UserControl):
 
      def build(self):
           # ft.Container
+          Basic_MenuUp = BasicMenuUp()
           Drop_MenuUpContainer = ft.Container(
                                    ##################### PROPERTY
                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
@@ -36,7 +39,7 @@ class MenuUpContainer(ft.UserControl):
                                    ##################### WIDGETS
                               content = ft.WindowDragArea(
                                              content  = ft.Row(
-                                                            alignment          = ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                            # alignment          = ft.MainAxisAlignment.SPACE_BETWEEN,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                                                             # horizontal_alignment = ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
 
                                                             expand             = True,
@@ -86,6 +89,16 @@ class MenuUpContainer(ft.UserControl):
                                                                 ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
                                                                  ],),
                                                                  # ft.Container(expand = True),
+                                                                 #
+                                                                 ft.Container(
+                                                                      ##################### PROPERTY
+                                                                      width=125,
+                                                                 ),#<=== NOTE COMA
+                                                                 Basic_MenuUp,
+                                                                 ft.Container(
+                                                                             ##################### PROPERTY
+                                                                             expand=True,
+                                                                 ),#<=== NOTE COMA
                                                                  ft.Container( ##################### ICONS MAXIMIZE CLOSE MINIMIZE
                                                                       border_radius   = ft.border_radius.all(30),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                                       bgcolor=ft.colors.BLACK38,

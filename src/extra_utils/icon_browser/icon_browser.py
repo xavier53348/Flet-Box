@@ -67,7 +67,7 @@ class IconBrowser(ft.UserControl):
     lite module to find icons by name
     """
 
-    def __init__(self,blur_effect = False, numb_widget_to_show=50):
+    def __init__(self,blur_effect = False, numb_widget_to_show=100):
         super().__init__()
         global alert_dialog
 
