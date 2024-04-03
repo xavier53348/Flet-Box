@@ -5,7 +5,7 @@
 ### It's a Python GUI Framework for Multi-Platform Apps
 
 <video width="620" height="320" controls>
-  <source src="Docs/video/demo_concept_app.mp4" type="video/mp4">
+  <source src="https://youtu.be/15DDAACb0Hw?si=JNifwkNYHqroS5LZ" type="video/mp4">
 </video>
 
 <details>
