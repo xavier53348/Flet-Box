@@ -4,12 +4,11 @@
 ## Flet-Box:
 ### It's a Python GUI Framework for Multi-Platform Apps
 
-<video width="620" height="320" controls>
-  <source src="https://youtu.be/15DDAACb0Hw?si=JNifwkNYHqroS5LZ" type="video/mp4">
-</video>
+[Gallery Preview FLET-BOX](https://www.youtube.com/watch?v=15DDAACb0Hw)
 
 <details>
     <summary>Gallery Preview FLET-BOX</summary>
+    <img src="docs/gallery/full_screen.png" alt="Imagen Flet-Box">
     <img src="docs/gallery/icons.png"               alt="Icons Flet-Box">
     <img src="docs/gallery/colors.png"              alt="Colors Flet-Box">
     <img src="docs/gallery/pc_mode.png"             alt="Colors Flet-Box">
