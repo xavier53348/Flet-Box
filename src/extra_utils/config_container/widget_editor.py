@@ -32,12 +32,13 @@ class BoxConfigContainer(ft.UserControl):
                                                        border_radius = ft.border_radius.all(20),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                        bgcolor       = ft.colors.BLACK26,
                                                        padding       = ft.padding.only(left=20, top=2, right=20, bottom=2),
+                                                       gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_800],),
                                                   content=ft.Text(
                                                                  value       = self.title,
                                                                  text_align  = ft.TextAlign.CENTER,                   # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
                                                                  weight      = ft.FontWeight.BOLD,                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
                                                                  font_family = "Consolas", #"Consolas ,RobotoSlab
-                                                                 color       = ft.colors.BLUE,
+                                                                 color       = ft.colors.WHITE54,
                                                        ),
                                                   ),
                                              ft.Container(
@@ -221,6 +222,7 @@ class Build_Editor(ft.UserControl):
                                         tabs = [
                                                        ft.Tab(   ########################################## MAIN LAYOUT
                                                                  text    = "Box Phone",
+
                                                             content = ft.Container(
                                                                                 padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
                                                                            content = ft.Column(
@@ -246,7 +248,7 @@ class Build_Editor(ft.UserControl):
 
                                                                                                     ##########################################
                                                                                                     BoxConfigContainer(
-                                                                                                              title='Column Phone properties',
+                                                                                                              title='Column Phone Property',
                                                                                                          controls=[
                                                                                                                    widgets_dict.get('tight'),
                                                                                                                    widgets_dict.get('wrap'),
@@ -261,7 +263,7 @@ class Build_Editor(ft.UserControl):
                                                                                           ),           # <<<< container
                                                        ),
                                                        ft.Tab(   ########################################## CONTAINER SELECTED LAYOUT
-                                                                 text    = "Container Box",
+                                                                 text    = "Box Container",
                                                             content = ft.Container(
                                                                                 padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
                                                                            content = ft.Column(
@@ -312,7 +314,7 @@ class Build_Editor(ft.UserControl):
                                                                                           ),           # <<<< container
                                                        ),
                                                        ft.Tab(   ########################################## CONTENT SELECTED WIDGET
-                                                                 text    = "Container Box",
+                                                                 text    = "Box Widget",
                                                             content = ft.Container(
                                                                                 padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
                                                                            content = ft.Column(
@@ -336,7 +338,7 @@ class Build_Editor(ft.UserControl):
                                                                                                     ##########################################
 
                                                                                                     BoxConfigContainer(
-                                                                                                              title='Input Data',
+                                                                                                              title='Input Text Data',
                                                                                                          controls=[
                                                                                                                    widgets_dict.get('text'),
                                                                                                                    widgets_dict.get('label'),
@@ -349,7 +351,7 @@ class Build_Editor(ft.UserControl):
                                                                                                     ##########################################
 
                                                                                                     BoxConfigContainer(
-                                                                                                              title='Modification Text',
+                                                                                                              title='Modification Text Data',
                                                                                                          controls=[
                                                                                                                    widgets_dict.get('text_size'),
                                                                                                                    widgets_dict.get('hint_text'),
@@ -369,7 +371,7 @@ class Build_Editor(ft.UserControl):
                                                                                                     ##########################################
 
                                                                                                     BoxConfigContainer(
-                                                                                                              title='Position Widget',
+                                                                                                              title='Position Widget in Box',
                                                                                                          controls=[
                                                                                                                    widgets_dict.get('padding'),
                                                                                                                    widgets_dict.get('margin'),
@@ -407,7 +409,7 @@ class Build_Editor(ft.UserControl):
                                                                                                     ##########################################
 
                                                                                                     BoxConfigContainer(
-                                                                                                              title='Modification Border Widget',
+                                                                                                              title='Modification Border Widget Box',
                                                                                                          controls=[
                                                                                                                    widgets_dict.get('border'),
                                                                                                                    widgets_dict.get('border_radius'),
@@ -418,7 +420,7 @@ class Build_Editor(ft.UserControl):
                                                                                                     ##########################################                                                                                                    BoxConfigContainer(
 
                                                                                                     BoxConfigContainer(
-                                                                                                              title='Colors Widget',
+                                                                                                              title='Colors Widget in Box',
                                                                                                          controls=[
                                                                                                                    widgets_dict.get('color'),
                                                                                                                    widgets_dict.get('bgcolor'),
@@ -433,7 +435,7 @@ class Build_Editor(ft.UserControl):
                                                                                                     ##########################################
 
                                                                                                     BoxConfigContainer(
-                                                                                                              title='Icon and Image',
+                                                                                                              title='Icon or Image in Box',
                                                                                                          controls=[
                                                                                                                    widgets_dict.get('icon'),
                                                                                                                    widgets_dict.get('src'),
