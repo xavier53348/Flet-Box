@@ -4,7 +4,9 @@
 ## Flet-Box:
 ### It's a Python GUI Framework for Multi-Platform Apps
 
-<video src="ocs/video/demo_concept_app.mp4"> DEMO CONCEPT APP FLET-BOX </video>
+<video width="620" height="320" controls>
+  <source src="Docs/video/demo_concept_app.mp4" type="video/mp4">
+</video>
 
 <details>
     <summary>Gallery Preview FLET-BOX</summary>
