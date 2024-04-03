@@ -219,98 +219,98 @@ class Build_Editor(ft.UserControl):
                                              label_color             = 'BLUE',
                                              indicator_border_radius = ft.border_radius.all(20),
                                         tabs = [
-                                                       # ft.Tab(   ########################################## MAIN LAYOUT
-                                                       #           text    = "Box Phone",
-                                                       #      content = ft.Container(
-                                                       #                          padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-                                                       #                     content = ft.Column(
-                                                       #                                    scroll="HIDDEN",
-                                                       #                                    controls = [ ##################### CONTROLS IN PHONE BOX
+                                                       ft.Tab(   ########################################## MAIN LAYOUT
+                                                                 text    = "Box Phone",
+                                                            content = ft.Container(
+                                                                                padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
+                                                                           content = ft.Column(
+                                                                                          scroll="HIDDEN",
+                                                                                          controls = [ ##################### CONTROLS IN PHONE BOX
 
-                                                       #                                              ##########################################
-                                                       #                                              BoxConfigContainer(
-                                                       #                                                        title='Color Phone Container',
-                                                       #                                                   controls=[
-                                                       #                                                             widgets_dict.get('blur'),
-                                                       #                                                             widgets_dict.get('bgcolor'),
-                                                       #                                                             widgets_dict.get('gradient '),
-                                                       #                                                        ],),
-                                                       #                                              ##########################################
-                                                       #                                              BoxConfigContainer(
-                                                       #                                                        title='Image Phone Container',
-                                                       #                                                   controls=[
-                                                       #                                                             widgets_dict.get('image_src'),
-                                                       #                                                             widgets_dict.get('image_fit'),
-                                                       #                                                             widgets_dict.get('image_opacity'),
-                                                       #                                                        ],),
+                                                                                                    ##########################################
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Color Phone Container',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('blur'),
+                                                                                                                   widgets_dict.get('bgcolor'),
+                                                                                                                   widgets_dict.get('gradient '),
+                                                                                                              ],),
+                                                                                                    ##########################################
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Image Phone Container',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('image_src'),
+                                                                                                                   widgets_dict.get('image_fit'),
+                                                                                                                   widgets_dict.get('image_opacity'),
+                                                                                                              ],),
 
-                                                       #                                              ##########################################
-                                                       #                                              BoxConfigContainer(
-                                                       #                                                        title='Column Phone properties',
-                                                       #                                                   controls=[
-                                                       #                                                             widgets_dict.get('tight'),
-                                                       #                                                             widgets_dict.get('wrap'),
-                                                       #                                                             widgets_dict.get('scroll'),
-                                                       #                                                             widgets_dict.get('spacing'),
-                                                       #                                                             widgets_dict.get('alignment'),
-                                                       #                                                             widgets_dict.get('horizontal_alignment'),
-                                                       #                                                        ],),
-                                                       #                                              ##########################################
-                                                       #                                              ], # <<<< controls
-                                                       #                                         ),      # <<<< column
-                                                       #                                    ),           # <<<< container
-                                                       # ),
-                                                       # ft.Tab(   ########################################## CONTAINER SELECTED LAYOUT
-                                                       #           text    = "Container Box",
-                                                       #      content = ft.Container(
-                                                       #                          padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-                                                       #                     content = ft.Column(
-                                                       #                                    scroll="HIDDEN",
-                                                       #                                    controls = [ ##################### CONTROLS IN PHONE BOX
-                                                       #                                              ##########################################
-                                                       #                                              BoxConfigContainer(
-                                                       #                                                        title='Position Container',
-                                                       #                                                   controls=[
-                                                       #                                                             widgets_dict.get('margin'),
-                                                       #                                                             widgets_dict.get('padding'),
-                                                       #                                                             widgets_dict.get('rotate'),
-                                                       #                                                             widgets_dict.get('offset'),
-                                                       #                                                             widgets_dict.get('alignment'),
-                                                       #                                                        ],),
+                                                                                                    ##########################################
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Column Phone properties',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('tight'),
+                                                                                                                   widgets_dict.get('wrap'),
+                                                                                                                   widgets_dict.get('scroll'),
+                                                                                                                   widgets_dict.get('spacing'),
+                                                                                                                   widgets_dict.get('alignment'),
+                                                                                                                   widgets_dict.get('horizontal_alignment'),
+                                                                                                              ],),
+                                                                                                    ##########################################
+                                                                                                    ], # <<<< controls
+                                                                                               ),      # <<<< column
+                                                                                          ),           # <<<< container
+                                                       ),
+                                                       ft.Tab(   ########################################## CONTAINER SELECTED LAYOUT
+                                                                 text    = "Container Box",
+                                                            content = ft.Container(
+                                                                                padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
+                                                                           content = ft.Column(
+                                                                                          scroll="HIDDEN",
+                                                                                          controls = [ ##################### CONTROLS IN PHONE BOX
+                                                                                                    ##########################################
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Position Container',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('margin'),
+                                                                                                                   widgets_dict.get('padding'),
+                                                                                                                   widgets_dict.get('rotate'),
+                                                                                                                   widgets_dict.get('offset'),
+                                                                                                                   widgets_dict.get('alignment'),
+                                                                                                              ],),
 
-                                                       #                                              ##########################################
-                                                       #                                              BoxConfigContainer(
-                                                       #                                                        title='Modification Container',
-                                                       #                                                   controls=[
-                                                       #                                                             widgets_dict.get('width'),
-                                                       #                                                             widgets_dict.get('border'),
-                                                       #                                                             widgets_dict.get('expand'),
-                                                       #                                                             widgets_dict.get('scale'),
-                                                       #                                                             widgets_dict.get('ink'),
-                                                       #                                                             widgets_dict.get('visible'),
-                                                       #                                                             widgets_dict.get('border_radius'),
-                                                       #                                                        ],),
-                                                       #                                              ##########################################
-                                                       #                                              BoxConfigContainer(
-                                                       #                                                        title='Color Container',
-                                                       #                                                   controls=[
-                                                       #                                                             widgets_dict.get('bgcolor'),
-                                                       #                                                             widgets_dict.get('blur'),
-                                                       #                                                             widgets_dict.get('gradient '),
-                                                       #                                                        ],),
-                                                       #                                              ##########################################
-                                                       #                                              BoxConfigContainer(
-                                                       #                                                        title='Image Container',
-                                                       #                                                   controls=[
-                                                       #                                                             widgets_dict.get('image_fit'),
-                                                       #                                                             widgets_dict.get('image_src'),
-                                                       #                                                             widgets_dict.get('image_opacity'),
-                                                       #                                                        ],),
-                                                       #                                              ##########################################
-                                                       #                                              ], # <<<< controls
-                                                       #                                         ),      # <<<< column
-                                                       #                                    ),           # <<<< container
-                                                       # ),
+                                                                                                    ##########################################
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Modification Container',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('width'),
+                                                                                                                   widgets_dict.get('border'),
+                                                                                                                   widgets_dict.get('expand'),
+                                                                                                                   widgets_dict.get('scale'),
+                                                                                                                   widgets_dict.get('ink'),
+                                                                                                                   widgets_dict.get('visible'),
+                                                                                                                   widgets_dict.get('border_radius'),
+                                                                                                              ],),
+                                                                                                    ##########################################
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Color Container',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('bgcolor'),
+                                                                                                                   widgets_dict.get('blur'),
+                                                                                                                   widgets_dict.get('gradient '),
+                                                                                                              ],),
+                                                                                                    ##########################################
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Image Container',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('image_fit'),
+                                                                                                                   widgets_dict.get('image_src'),
+                                                                                                                   widgets_dict.get('image_opacity'),
+                                                                                                              ],),
+                                                                                                    ##########################################
+                                                                                                    ], # <<<< controls
+                                                                                               ),      # <<<< column
+                                                                                          ),           # <<<< container
+                                                       ),
                                                        ft.Tab(   ########################################## CONTENT SELECTED WIDGET
                                                                  text    = "Container Box",
                                                             content = ft.Container(

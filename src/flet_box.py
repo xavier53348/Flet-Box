@@ -109,7 +109,7 @@ def main(page: ft.Page):
                # image_opacity = 0.1,
                # image_fit     = 'COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                #####################
-               width           = 360,
+               width           = 368,
                # height        = 150,
                # tooltip       = 'Container',
                ##################### EFFECTS
