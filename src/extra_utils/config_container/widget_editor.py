@@ -12,6 +12,51 @@ from extra_utils.settings_var.settings_widget import global_var, get_global_var
 import flet as ft
 ######################
 
+class BoxConfigContainer(ft.UserControl):
+    # globalVar='Erase this test'
+
+    def __init__(self,title=str(),controls=list()):
+        super().__init__()
+        self.title    = title
+        self.controls = controls
+
+
+    def build(self):
+        Drop_BoxConfigContainer = ft.Container(
+                              padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
+
+                         content = ft.Column(
+                                   controls = [ ##################### CONTROLS INSIDE THE BOX
+                                             ##########################################
+                                             ft.Container(
+                                                       border_radius = ft.border_radius.all(20),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                       bgcolor       = ft.colors.BLACK26,
+                                                       padding       = ft.padding.only(left=20, top=2, right=20, bottom=2),
+                                                  content=ft.Text(
+                                                                 value       = self.title,
+                                                                 text_align  = ft.TextAlign.CENTER,                   # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
+                                                                 weight      = ft.FontWeight.BOLD,                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
+                                                                 font_family = "Consolas", #"Consolas ,RobotoSlab
+                                                                 color       = ft.colors.BLUE,
+                                                       ),
+                                                  ),
+                                             ft.Container(
+                                                       bgcolor       = ft.colors.BLACK38,
+                                                       padding       = ft.padding.only(left=6, top=6, right=6, bottom=6),
+                                                       border_radius = ft.border_radius.all(20),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+
+                                                  content=ft.Row(
+                                                                 wrap= True,
+
+                                                            controls = self.controls
+                                                       ,),),
+                                             ##########################################
+                                                  ], # <<<< controls
+                                             ),      # <<<< column
+                                        )            # <<<< container
+        return Drop_BoxConfigContainer
+######## BoxConfigContainer = BoxConfigContainer(),# <======= Comma
+
 class Build_Editor(ft.UserControl):
      """
      Builder editor is a Row Container that will content all widgets editors inside
@@ -31,6 +76,11 @@ class Build_Editor(ft.UserControl):
           self.widget = widget
 
      def build(self):
+          """
+          ALL IN THIS APP IS A MODULE THAT'S WAY YOU MAY TAKE THE PART THAT YOU WANT REBUILD
+
+          widgets_dict <= IS A DICT THAT CONTAIN ALL WIDGET THAT ARE WATING TO SHOW BECOUS BY DEFAULD ARE VISIBLE = OFF
+          """
           global Drop_Build_Editor
 
           widgets_dict = {
@@ -168,355 +218,426 @@ class Build_Editor(ft.UserControl):
                               content  = ft.Tabs(
                                              label_color             = 'BLUE',
                                              indicator_border_radius = ft.border_radius.all(20),
-                                             tabs = [
-                                                       ft.Tab(   ########################################## MAIN LAYOUT
-                                                            text    = "Main Box",
+                                        tabs = [
+                                                       # ft.Tab(   ########################################## MAIN LAYOUT
+                                                       #           text    = "Box Phone",
+                                                       #      content = ft.Container(
+                                                       #                          padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
+                                                       #                     content = ft.Column(
+                                                       #                                    scroll="HIDDEN",
+                                                       #                                    controls = [ ##################### CONTROLS IN PHONE BOX
+
+                                                       #                                              ##########################################
+                                                       #                                              BoxConfigContainer(
+                                                       #                                                        title='Color Phone Container',
+                                                       #                                                   controls=[
+                                                       #                                                             widgets_dict.get('blur'),
+                                                       #                                                             widgets_dict.get('bgcolor'),
+                                                       #                                                             widgets_dict.get('gradient '),
+                                                       #                                                        ],),
+                                                       #                                              ##########################################
+                                                       #                                              BoxConfigContainer(
+                                                       #                                                        title='Image Phone Container',
+                                                       #                                                   controls=[
+                                                       #                                                             widgets_dict.get('image_src'),
+                                                       #                                                             widgets_dict.get('image_fit'),
+                                                       #                                                             widgets_dict.get('image_opacity'),
+                                                       #                                                        ],),
+
+                                                       #                                              ##########################################
+                                                       #                                              BoxConfigContainer(
+                                                       #                                                        title='Column Phone properties',
+                                                       #                                                   controls=[
+                                                       #                                                             widgets_dict.get('tight'),
+                                                       #                                                             widgets_dict.get('wrap'),
+                                                       #                                                             widgets_dict.get('scroll'),
+                                                       #                                                             widgets_dict.get('spacing'),
+                                                       #                                                             widgets_dict.get('alignment'),
+                                                       #                                                             widgets_dict.get('horizontal_alignment'),
+                                                       #                                                        ],),
+                                                       #                                              ##########################################
+                                                       #                                              ], # <<<< controls
+                                                       #                                         ),      # <<<< column
+                                                       #                                    ),           # <<<< container
+                                                       # ),
+                                                       # ft.Tab(   ########################################## CONTAINER SELECTED LAYOUT
+                                                       #           text    = "Container Box",
+                                                       #      content = ft.Container(
+                                                       #                          padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
+                                                       #                     content = ft.Column(
+                                                       #                                    scroll="HIDDEN",
+                                                       #                                    controls = [ ##################### CONTROLS IN PHONE BOX
+                                                       #                                              ##########################################
+                                                       #                                              BoxConfigContainer(
+                                                       #                                                        title='Position Container',
+                                                       #                                                   controls=[
+                                                       #                                                             widgets_dict.get('margin'),
+                                                       #                                                             widgets_dict.get('padding'),
+                                                       #                                                             widgets_dict.get('rotate'),
+                                                       #                                                             widgets_dict.get('offset'),
+                                                       #                                                             widgets_dict.get('alignment'),
+                                                       #                                                        ],),
+
+                                                       #                                              ##########################################
+                                                       #                                              BoxConfigContainer(
+                                                       #                                                        title='Modification Container',
+                                                       #                                                   controls=[
+                                                       #                                                             widgets_dict.get('width'),
+                                                       #                                                             widgets_dict.get('border'),
+                                                       #                                                             widgets_dict.get('expand'),
+                                                       #                                                             widgets_dict.get('scale'),
+                                                       #                                                             widgets_dict.get('ink'),
+                                                       #                                                             widgets_dict.get('visible'),
+                                                       #                                                             widgets_dict.get('border_radius'),
+                                                       #                                                        ],),
+                                                       #                                              ##########################################
+                                                       #                                              BoxConfigContainer(
+                                                       #                                                        title='Color Container',
+                                                       #                                                   controls=[
+                                                       #                                                             widgets_dict.get('bgcolor'),
+                                                       #                                                             widgets_dict.get('blur'),
+                                                       #                                                             widgets_dict.get('gradient '),
+                                                       #                                                        ],),
+                                                       #                                              ##########################################
+                                                       #                                              BoxConfigContainer(
+                                                       #                                                        title='Image Container',
+                                                       #                                                   controls=[
+                                                       #                                                             widgets_dict.get('image_fit'),
+                                                       #                                                             widgets_dict.get('image_src'),
+                                                       #                                                             widgets_dict.get('image_opacity'),
+                                                       #                                                        ],),
+                                                       #                                              ##########################################
+                                                       #                                              ], # <<<< controls
+                                                       #                                         ),      # <<<< column
+                                                       #                                    ),           # <<<< container
+                                                       # ),
+                                                       ft.Tab(   ########################################## CONTENT SELECTED WIDGET
+                                                                 text    = "Container Box",
                                                             content = ft.Container(
                                                                                 padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-
                                                                            content = ft.Column(
                                                                                           scroll="HIDDEN",
-                                                                                          controls = [ ##################### controls inside config box
+                                                                                          controls = [ ##################### CONTROLS IN PHONE BOX
                                                                                                     ##########################################
-                                                                                                    ft.Container(
-                                                                                                              border_radius = ft.border_radius.all(30),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                              bgcolor=ft.colors.BLACK26,
-                                                                                                              padding = ft.padding.only(left=20, top=2, right=20, bottom=2),
-                                                                                                         content=ft.Text(
-                                                                                                                        value       = "Main Container",
-                                                                                                                        text_align  = ft.TextAlign.CENTER,                   # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
-                                                                                                                        weight      = ft.FontWeight.BOLD,                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
-                                                                                                                        font_family = "Consolas", #"Consolas ,RobotoSlab
-                                                                                                                        color       = ft.colors.BLUE,
-                                                                                                              ),
-                                                                                                         ),
-                                                                                                    ft.Container(
-                                                                                                              bgcolor=ft.colors.BLACK38,
-                                                                                                              padding = ft.padding.only(left=6, top=6, right=6, bottom=6),
-                                                                                                              border_radius = ft.border_radius.all(30),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
 
-                                                                                                         content=ft.Row(
-                                                                                                                   wrap=True,
-                                                                                                              controls=[
-                                                                                                                   widgets_dict.get('text'),
-                                                                                                                   widgets_dict.get('image_src'),
-                                                                                                                   widgets_dict.get('padding'),
-                                                                                                                   widgets_dict.get('expand'),
-                                                                                                                   widgets_dict.get('text'),
-                                                                                                                   ],),),
-                                                                                                    ##########################################
-                                                                                                    ft.Container(
-                                                                                                              border_radius = ft.border_radius.all(30),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                              bgcolor=ft.colors.BLACK26,
-                                                                                                              padding = ft.padding.only(left=20, top=2, right=20, bottom=2),
-                                                                                                         content=ft.Text(
-                                                                                                                        value       = "Main Column",
-                                                                                                                        text_align  = ft.TextAlign.CENTER,                   # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
-                                                                                                                        weight      = ft.FontWeight.BOLD,                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
-                                                                                                                        font_family = "Consolas", #"Consolas ,RobotoSlab
-                                                                                                                        color       = ft.colors.BLUE,
-                                                                                                              ),
-                                                                                                         ),
-                                                                                                    ft.Container(
-                                                                                                              bgcolor=ft.colors.BLACK38,
-                                                                                                              padding = ft.padding.only(left=6, top=6, right=6, bottom=6),
-                                                                                                              border_radius = ft.border_radius.all(30),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Modification Widget',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('visible'),
+                                                                                                                   widgets_dict.get('disabled'),
+                                                                                                                   widgets_dict.get('read_only'),
+                                                                                                                   widgets_dict.get('autofocus'),
+                                                                                                                   widgets_dict.get('ink'),
+                                                                                                                   widgets_dict.get('scroll'),
+                                                                                                                   widgets_dict.get('tristate'),
+                                                                                                                   widgets_dict.get('gapless_playback'),
+                                                                                                              ],),
 
-                                                                                                         content=ft.Row(
-                                                                                                                   wrap=True,
-                                                                                                              controls=[
+                                                                                                    ##########################################
+
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Input Data',
+                                                                                                         controls=[
                                                                                                                    widgets_dict.get('text'),
-                                                                                                                   widgets_dict.get('image_src'),
+                                                                                                                   widgets_dict.get('label'),
+                                                                                                                   widgets_dict.get('data'),
+                                                                                                                   widgets_dict.get('value'),
+                                                                                                                   widgets_dict.get('url'),
+                                                                                                                   widgets_dict.get('url_target'),
+                                                                                                              ],),
+
+                                                                                                    ##########################################
+
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Modification Text',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('text_size'),
+                                                                                                                   widgets_dict.get('hint_text'),
+                                                                                                                   widgets_dict.get('min_lines'),
+                                                                                                                   widgets_dict.get('max_lines'),
+                                                                                                                   widgets_dict.get('counter_text'),
+                                                                                                                   widgets_dict.get('semantics_label'),
+                                                                                                                   widgets_dict.get('suffix_text'),
+                                                                                                                   widgets_dict.get('text_align'),
+                                                                                                                   widgets_dict.get('weight'),
+                                                                                                                   widgets_dict.get('multiline'),
+                                                                                                                   widgets_dict.get('capitalization'),
+                                                                                                                   widgets_dict.get('password'),
+                                                                                                                   widgets_dict.get('can_reveal_password'),
+                                                                                                              ],),
+
+                                                                                                    ##########################################
+
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Position Widget',
+                                                                                                         controls=[
                                                                                                                    widgets_dict.get('padding'),
+                                                                                                                   widgets_dict.get('margin'),
+                                                                                                                   widgets_dict.get('spacing'),
+                                                                                                                   widgets_dict.get('offset'),
+                                                                                                                   widgets_dict.get('rotate'),
+                                                                                                                   widgets_dict.get('runs_count'),
+                                                                                                                   widgets_dict.get('run_spacing'),
+                                                                                                                   widgets_dict.get('elevation'),
+                                                                                                                   widgets_dict.get('keyboard_type'),
+                                                                                                                   widgets_dict.get('alignment'),
+                                                                                                                   # widgets_dict.get('content_alignment'), # <==== ERROR CHECK
+                                                                                                                   widgets_dict.get('vertical_alignment'),
+                                                                                                                   widgets_dict.get('horizontal_alignment'),
+                                                                                                                   widgets_dict.get('horizontal'),
+                                                                                                                   widgets_dict.get('filled'),
+                                                                                                              ],),
+
+                                                                                                    ##########################################
+
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Modification Size Widget',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('width'),
+                                                                                                                   widgets_dict.get('size'),
+                                                                                                                   widgets_dict.get('scale'),
+                                                                                                                   widgets_dict.get('aspect_ratio'),
+                                                                                                                   widgets_dict.get('child_aspect_ratio'),
+                                                                                                                   widgets_dict.get('max_extent'),
+                                                                                                                   widgets_dict.get('wrap'),
+                                                                                                                   widgets_dict.get('adaptive'),
                                                                                                                    widgets_dict.get('expand'),
-                                                                                                                   widgets_dict.get('text'),
-                                                                                                                   ],),),
+                                                                                                                   widgets_dict.get('tight'),
+                                                                                                              ],),
                                                                                                     ##########################################
+
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Modification Border Widget',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('border'),
+                                                                                                                   widgets_dict.get('border_radius'),
+                                                                                                                   widgets_dict.get('spread_radius'),
+                                                                                                                   widgets_dict.get('border_width'),
+                                                                                                              ],),
+
+                                                                                                    ##########################################                                                                                                    BoxConfigContainer(
+
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Colors Widget',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('color'),
+                                                                                                                   widgets_dict.get('bgcolor'),
+                                                                                                                   widgets_dict.get('icon_color'),
+                                                                                                                   widgets_dict.get('check_color'),
+                                                                                                                   widgets_dict.get('fill_color'),
+                                                                                                                   widgets_dict.get('shadow_color'),
+                                                                                                                   widgets_dict.get('focused_bgcolor'),
+                                                                                                                   widgets_dict.get('border_color'),
+                                                                                                                   widgets_dict.get('focused_border_color'),
+                                                                                                              ],),
                                                                                                     ##########################################
-                                                                                                    ##########################################
+
+                                                                                                    BoxConfigContainer(
+                                                                                                              title='Icon and Image',
+                                                                                                         controls=[
+                                                                                                                   widgets_dict.get('icon'),
+                                                                                                                   widgets_dict.get('src'),
+                                                                                                                   widgets_dict.get('image_src'),
+                                                                                                                   widgets_dict.get('src_base64'),
+                                                                                                                   widgets_dict.get('blur'),
+                                                                                                                   widgets_dict.get('blur_radius'),
+                                                                                                                   widgets_dict.get('image_fit'),
+                                                                                                                   widgets_dict.get('opacity'),
+                                                                                                                   widgets_dict.get('image_opacity'),
+                                                                                                              ],),
                                                                                                     ##########################################
                                                                                                     ], # <<<< controls
                                                                                                ),      # <<<< column
                                                                                           ),           # <<<< container
                                                        ),
-                                                       ft.Tab(   ########################################## CONTAINER SELECTED LAYOUT
-                                                            text    = "Box Select",
-                                                            content = ft.Container(
-                                                                                padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-
-                                                                           content = ft.Column(
-                                                                                          controls = [ ##################### controls inside config box
-                                                                                               ##########################################
-                                                                                                    ft.Container(
-                                                                                                              border_radius = ft.border_radius.all(30),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                              bgcolor=ft.colors.BLACK26,
-                                                                                                              padding = ft.padding.only(left=20, top=2, right=20, bottom=2),
-                                                                                                         content=ft.Text(
-                                                                                                                        value       = "Containers Layouts",
-                                                                                                                        text_align  = ft.TextAlign.CENTER,                   # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
-                                                                                                                        weight      = ft.FontWeight.BOLD,                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
-                                                                                                                        font_family = "Consolas", #"Consolas ,RobotoSlab
-                                                                                                                        color       = ft.colors.BLUE,
-                                                                                                              ),
-                                                                                                         ),
-                                                                                                    ft.Container(
-                                                                                                              bgcolor=ft.colors.BLACK38,
-                                                                                                              padding = ft.padding.only(left=6, top=6, right=6, bottom=6),
-                                                                                                              border_radius = ft.border_radius.all(30),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-
-                                                                                                         content=ft.Row(
-                                                                                                                   wrap=True,
-                                                                                                              controls=[
-                                                                                                                   widgets_dict.get('text'),
-                                                                                                                   widgets_dict.get('image_src'),
-                                                                                                                   widgets_dict.get('padding'),
-                                                                                                                   widgets_dict.get('expand'),
-                                                                                                                   widgets_dict.get('text'),
-                                                                                                                   ],),),
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ], # <<<< controls
-                                                                                               ),      # <<<< column
-                                                                                          ),           # <<<< container
-                                                    ),
-                                                    ft.Tab(   ########################################## CONTENT SELECTED WIDGET
-                                                            text    = "Widget Select",
-                                                            content = ft.Container(
-                                                                                padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-
-                                                                           content = ft.Column(
-                                                                                          controls = [ ##################### controls inside config box
-                                                                                               ##########################################
-                                                                                                    ft.Container(
-                                                                                                              border_radius = ft.border_radius.all(28),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                              bgcolor=ft.colors.BLACK38,
-                                                                                                              padding = ft.padding.only(left=20, top=2, right=20, bottom=2),
-                                                                                                         content=ft.Text(value='Texting')
-                                                                                                         ),
-                                                                                                    ft.Container(
-                                                                                                              bgcolor=ft.colors.BLACK38,
-                                                                                                              padding = ft.padding.only(left=6, top=6, right=6, bottom=6),
-                                                                                                              border_radius = ft.border_radius.all(28),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-
-                                                                                                         content=ft.Row(
-                                                                                                                   wrap=True,
-                                                                                                              controls=[
-                                                                                                                   # widgets_dict.get('text'),
-                                                                                                                   # widgets_dict.get('image_src'),
-                                                                                                                   # widgets_dict.get('padding'),
-                                                                                                                   # widgets_dict.get('expand'),
-                                                                                                                   widgets_dict.get('text'),
-                                                                                                                   ],),),
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ##########################################
-                                                                                                    ], # <<<< controls
-                                                                                               ),      # <<<< column
-                                                                                          ),           # <<<< container
-
-                                                                           ##################### EVENTS
-                                                                           # on_click = lambda _:print(_),                                  # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                           # controls = [ ],
-                                                            ),
-                                                    ],
+                                             ],
                                             ),
-                        )
+                              )
 
           # Drop_Build_Editor.content.tabs[0].content.content.controls = None
 
           return Drop_Build_Editor
 
-     def update_widget_attributes(widget_cliked):
-          """
-          We call the widget specific made in /extra_utils/config/
+     # def update_widget_attributes(widget_cliked):
+     #      """
+     #      We call the widget specific made in /extra_utils/config/
 
-                  name_widget  attributes              widget_to_modify_attrib
-          ==================================================================
-          'height' :DoubleEntry(config_widget = 'height',widget=self.widget),
-          ==================================================================
+     #              name_widget  attributes              widget_to_modify_attrib
+     #      ==================================================================
+     #      'height' :DoubleEntry(config_widget = 'height',widget=self.widget),
+     #      ==================================================================
 
-                                tab[0]=Container               add_to_tab[0]                     add_specific_widget
-          ==============================================================================================================
-          Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('width'))
-          ==============================================================================================================
+     #                            tab[0]=Container               add_to_tab[0]                     add_specific_widget
+     #      ==============================================================================================================
+     #      Drop_Build_Editor.content.tabs[0].content.content.controls.append(self.widgets_dict.get('width'))
+     #      ==============================================================================================================
 
-          Note:
+     #      Note:
 
-          1. we need have builder attribute widget
-          2. we need get all attribute from selected widget
-          3. we need compara to get similitudes betwen [ builder attribute widget ] and [ self.attribute_widget ]
-          4. add to Tab 1 ==>> Container attributes
-          4. add to Tab 2 ==>> Selected widget attributes
+     #      1. we need have builder attribute widget
+     #      2. we need get all attribute from selected widget
+     #      3. we need compara to get similitudes betwen [ builder attribute widget ] and [ self.attribute_widget ]
+     #      4. add to Tab 1 ==>> Container attributes
+     #      4. add to Tab 2 ==>> Selected widget attributes
 
-          self.widgets_dict     <=== Contain all builder attribute widget
-          self.attribute_widget <=== Contain all attributes from selected widget  == ft.Container().__dir__()
+     #      self.widgets_dict     <=== Contain all builder attribute widget
+     #      self.attribute_widget <=== Contain all attributes from selected widget  == ft.Container().__dir__()
 
-          """
-          widgets_dict = {
-               ######################### ESPECIAL WIDGETS ONLY FOR CONTAINERS
-               # SINGLE SELECTION ENTRY
-               'image_opacity ':SingleEntry(config_widget = 'image_opacity ',widget = widget_cliked),  # <=== this take width and hight in same time
-               'image_src '    :SingleEntry(config_widget = 'image_src '    ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'tooltip '      :SingleEntry(config_widget = 'tooltip '      ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'rotate '       :SingleEntry(config_widget = 'rotate '       ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'scale '        :SingleEntry(config_widget = 'scale '        ,widget = widget_cliked),  # <=== this take width and hight in same time
-               # DOUBLE SELECTION ENTRY
-               'border '       :DoubleEntry(config_widget = 'border '       ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'offset '       :DoubleEntry(config_widget = 'offset '       ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'width '        :DoubleEntry(config_widget = 'width '        ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'blur '         :DoubleEntry(config_widget = 'blur '         ,widget = widget_cliked),  # <=== this take width and hight in same time
-               # 4 SELECTION ENTRIES
-               'padding '      :FourEntry(config_widget   = 'padding '      ,widget = widget_cliked),
-               'margin '       :FourEntry(config_widget   = 'margin '       ,widget = widget_cliked),
-               'border_radius ':FourEntry(config_widget   = 'border_radius ',widget = widget_cliked),
-               # COLOR ENTRY ['RED' ...]
-               'bgcolor '      :ColorEntry(config_widget  = 'bgcolor '      ,widget = widget_cliked),
-               # BOOL ENTRY [TRUE FALSE]
-               'visible '      :BoolEntry(config_widget   = 'visible '      ,widget = widget_cliked),
-               'expand '       :BoolEntry(config_widget   = 'expand '       ,widget = widget_cliked),
-               'ink '          :BoolEntry(config_widget   = 'ink '          ,widget = widget_cliked),
-               # SELECTION ENTRY
-               'image_fit '    :SelectionEntry(config_widget = 'image_fit ' ,widget = widget_cliked),
-               'alignment '    :SelectionEntry(config_widget = 'alignment ' ,widget = widget_cliked),
-               # SELECTION GRADIENT
-               'gradient '     :GradientEntry(config_widget  = 'gradient '  ,widget = widget_cliked),
-               ##################################################################################################
-               ######################### SINGLE SELECTION ENTRY
-               'text'                :SingleEntry(config_widget = 'text'             ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'size'                :SingleEntry(config_widget = 'size'             ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'label'               :SingleEntry(config_widget = 'label'            ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'value'               :SingleEntry(config_widget = 'value'            ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'key'                 :SingleEntry(config_widget = 'key'              ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'hint_text'           :SingleEntry(config_widget = 'hint_text'        ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'counter_text'        :SingleEntry(config_widget = 'counter_text'     ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'suffix_text'         :SingleEntry(config_widget = 'suffix_text'      ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'url'                 :SingleEntry(config_widget = 'url'              ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'url_target'          :SingleEntry(config_widget = 'url_target'       ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'icon'                :SingleEntry(config_widget = 'icon'             ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'tooltip'             :SingleEntry(config_widget = 'tooltip'          ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'src'                 :SingleEntry(config_widget = 'src'              ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'data'                :SingleEntry(config_widget = 'data'             ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'semantics_label'     :SingleEntry(config_widget = 'semantics_label'  ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'src_base64'          :SingleEntry(config_widget = 'src_base64'       ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'image_src'           :SingleEntry(config_widget = 'image_src'        ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'blur_radius'         :SingleEntry(config_widget = 'blur_radius'      ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'spread_radius'       :SingleEntry(config_widget = 'spread_radius'    ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'elevation'           :SingleEntry(config_widget = 'elevation'        ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'rotate'              :SingleEntry(config_widget = 'rotate'           ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'scale'               :SingleEntry(config_widget = 'scale'            ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'aspect_ratio'        :SingleEntry(config_widget = 'aspect_ratio'     ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'runs_count'          :SingleEntry(config_widget = 'runs_count'       ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'run_spacing'         :SingleEntry(config_widget = 'run_spacing'      ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'spacing'             :SingleEntry(config_widget = 'spacing'          ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'child_aspect_ratio'  :SingleEntry(config_widget = 'child_aspect_ratio',widget = widget_cliked), # <=== this take width and hight in same time
-               'max_extent'          :SingleEntry(config_widget = 'max_extent'       ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'min_lines'           :SingleEntry(config_widget = 'min_lines'        ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'max_lines'           :SingleEntry(config_widget = 'max_lines'        ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'border_width'        :SingleEntry(config_widget = 'border_width'     ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'text_size'           :SingleEntry(config_widget = 'text_size'        ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'image_opacity'       :SingleEntry(config_widget = 'image_opacity'    ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'opacity'             :SingleEntry(config_widget = 'opacity'          ,widget = widget_cliked),  # <=== this take width and hight in same time
-               ######################### DOUBLE SELECTION ENTRY
-               'width'               :DoubleEntry(config_widget = 'width'            ,widget = widget_cliked),  # <=== this take width and hight in same time
-               'border'              :DoubleEntry(config_widget = 'border'           ,widget = widget_cliked),
-               'offset'              :DoubleEntry(config_widget = 'offset'           ,widget = widget_cliked),
-               'blur'                :DoubleEntry(config_widget = 'blur'             ,widget = widget_cliked),
-               ######################### 4 SELECTION ENTRIE S
-               'padding'             :FourEntry(config_widget = 'padding'            ,widget = widget_cliked),
-               'margin'              :FourEntry(config_widget = 'margin'             ,widget = widget_cliked),
-               'border_radius'       :FourEntry(config_widget = 'border_radius'      ,widget = widget_cliked),
-               ######################### COLOR ENTRY ['RED' ...]
-               'bgcolor'             :ColorEntry(config_widget= 'bgcolor'            ,widget = widget_cliked),
-               'color'               :ColorEntry(config_widget= 'color'              ,widget = widget_cliked),
-               'shadow_color'        :ColorEntry(config_widget= 'shadow_color'       ,widget = widget_cliked),
-               'icon_color'          :ColorEntry(config_widget= 'icon_color'         ,widget = widget_cliked),
-               'check_color'         :ColorEntry(config_widget= 'check_color'        ,widget = widget_cliked),
-               'fill_color'          :ColorEntry(config_widget= 'fill_color'         ,widget = widget_cliked),
-               'border_color'        :ColorEntry(config_widget= 'border_color'       ,widget = widget_cliked),
-               'focused_bgcolor'     :ColorEntry(config_widget= 'focused_bgcolor'    ,widget = widget_cliked),
-               'focused_border_color':ColorEntry(config_widget= 'focused_border_color',widget= widget_cliked),
-               ######################### BOOL ENTRY [TRUE FALSE]
-               'expand':             BoolEntry(config_widget = 'expand'              ,widget = widget_cliked),
-               'ink':                BoolEntry(config_widget = 'ink'                 ,widget = widget_cliked),
-               'scroll':             BoolEntry(config_widget = 'scroll'              ,widget = widget_cliked),
-               'wrap':               BoolEntry(config_widget = 'wrap'                ,widget = widget_cliked),
-               'tight':              BoolEntry(config_widget = 'tight'               ,widget = widget_cliked),
-               'visible':            BoolEntry(config_widget = 'visible'             ,widget = widget_cliked),
-               'multiline':          BoolEntry(config_widget = 'multiline'           ,widget = widget_cliked),
-               'disabled':           BoolEntry(config_widget = 'disabled'            ,widget = widget_cliked),
-               'read_only':          BoolEntry(config_widget = 'read_only'           ,widget = widget_cliked),
-               'password':           BoolEntry(config_widget = 'password'            ,widget = widget_cliked),
-               'filled':             BoolEntry(config_widget = 'filled'              ,widget = widget_cliked),
-               'adaptive':           BoolEntry(config_widget = 'adaptive'            ,widget = widget_cliked),
-               'tristate':           BoolEntry(config_widget = 'tristate'            ,widget = widget_cliked),
-               'autofocus':          BoolEntry(config_widget = 'autofocus'           ,widget = widget_cliked),
-               'horizontal':         BoolEntry(config_widget = 'horizontal'          ,widget = widget_cliked),
-               'can_reveal_password':BoolEntry(config_widget = 'can_reveal_password' ,widget = widget_cliked),
-               'capitalization':     BoolEntry(config_widget = 'capitalization'      ,widget = widget_cliked),
-               'gapless_playback':   BoolEntry(config_widget = 'gapless_playback'    ,widget = widget_cliked),
-               ######################### SELECTION ENTRY
-               'image_fit':          SelectionEntry(config_widget = 'image_fit'      ,widget = widget_cliked),
-               'weight':             SelectionEntry(config_widget = 'weight'         ,widget = widget_cliked),
-               'keyboard_type':      SelectionEntry(config_widget = 'keyboard_type'  ,widget = widget_cliked),
-               'text_align':         SelectionEntry(config_widget = 'text_align'     ,widget = widget_cliked),
-               'alignment':          SelectionEntry(config_widget = 'alignment'      ,widget = widget_cliked),
-               'content_alignment':  SelectionEntry(config_widget = 'content_alignment' ,widget = widget_cliked),
-               'vertical_alignment' :SelectionEntry(config_widget = 'vertical_alignment',widget = widget_cliked),
-               'horizontal_alignment':SelectionEntry(config_widget = 'horizontal_alignment',widget = widget_cliked),
-               ######################### GRADIEN ENTRY
-               'gradient':            GradientEntry(config_widget   = 'gradient',widget = widget_cliked),
-               #############################################################################################
+     #      """
+     #      widgets_dict = {
+     #           ######################### ESPECIAL WIDGETS ONLY FOR CONTAINERS
+     #           # SINGLE SELECTION ENTRY
+     #           'image_opacity ':SingleEntry(config_widget = 'image_opacity ',widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'image_src '    :SingleEntry(config_widget = 'image_src '    ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'tooltip '      :SingleEntry(config_widget = 'tooltip '      ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'rotate '       :SingleEntry(config_widget = 'rotate '       ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'scale '        :SingleEntry(config_widget = 'scale '        ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           # DOUBLE SELECTION ENTRY
+     #           'border '       :DoubleEntry(config_widget = 'border '       ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'offset '       :DoubleEntry(config_widget = 'offset '       ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'width '        :DoubleEntry(config_widget = 'width '        ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'blur '         :DoubleEntry(config_widget = 'blur '         ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           # 4 SELECTION ENTRIES
+     #           'padding '      :FourEntry(config_widget   = 'padding '      ,widget = widget_cliked),
+     #           'margin '       :FourEntry(config_widget   = 'margin '       ,widget = widget_cliked),
+     #           'border_radius ':FourEntry(config_widget   = 'border_radius ',widget = widget_cliked),
+     #           # COLOR ENTRY ['RED' ...]
+     #           'bgcolor '      :ColorEntry(config_widget  = 'bgcolor '      ,widget = widget_cliked),
+     #           # BOOL ENTRY [TRUE FALSE]
+     #           'visible '      :BoolEntry(config_widget   = 'visible '      ,widget = widget_cliked),
+     #           'expand '       :BoolEntry(config_widget   = 'expand '       ,widget = widget_cliked),
+     #           'ink '          :BoolEntry(config_widget   = 'ink '          ,widget = widget_cliked),
+     #           # SELECTION ENTRY
+     #           'image_fit '    :SelectionEntry(config_widget = 'image_fit ' ,widget = widget_cliked),
+     #           'alignment '    :SelectionEntry(config_widget = 'alignment ' ,widget = widget_cliked),
+     #           # SELECTION GRADIENT
+     #           'gradient '     :GradientEntry(config_widget  = 'gradient '  ,widget = widget_cliked),
+     #           ##################################################################################################
+     #           ######################### SINGLE SELECTION ENTRY
+     #           'text'                :SingleEntry(config_widget = 'text'             ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'size'                :SingleEntry(config_widget = 'size'             ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'label'               :SingleEntry(config_widget = 'label'            ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'value'               :SingleEntry(config_widget = 'value'            ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'key'                 :SingleEntry(config_widget = 'key'              ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'hint_text'           :SingleEntry(config_widget = 'hint_text'        ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'counter_text'        :SingleEntry(config_widget = 'counter_text'     ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'suffix_text'         :SingleEntry(config_widget = 'suffix_text'      ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'url'                 :SingleEntry(config_widget = 'url'              ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'url_target'          :SingleEntry(config_widget = 'url_target'       ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'icon'                :SingleEntry(config_widget = 'icon'             ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'tooltip'             :SingleEntry(config_widget = 'tooltip'          ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'src'                 :SingleEntry(config_widget = 'src'              ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'data'                :SingleEntry(config_widget = 'data'             ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'semantics_label'     :SingleEntry(config_widget = 'semantics_label'  ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'src_base64'          :SingleEntry(config_widget = 'src_base64'       ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'image_src'           :SingleEntry(config_widget = 'image_src'        ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'blur_radius'         :SingleEntry(config_widget = 'blur_radius'      ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'spread_radius'       :SingleEntry(config_widget = 'spread_radius'    ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'elevation'           :SingleEntry(config_widget = 'elevation'        ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'rotate'              :SingleEntry(config_widget = 'rotate'           ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'scale'               :SingleEntry(config_widget = 'scale'            ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'aspect_ratio'        :SingleEntry(config_widget = 'aspect_ratio'     ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'runs_count'          :SingleEntry(config_widget = 'runs_count'       ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'run_spacing'         :SingleEntry(config_widget = 'run_spacing'      ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'spacing'             :SingleEntry(config_widget = 'spacing'          ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'child_aspect_ratio'  :SingleEntry(config_widget = 'child_aspect_ratio',widget = widget_cliked), # <=== this take width and hight in same time
+     #           'max_extent'          :SingleEntry(config_widget = 'max_extent'       ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'min_lines'           :SingleEntry(config_widget = 'min_lines'        ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'max_lines'           :SingleEntry(config_widget = 'max_lines'        ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'border_width'        :SingleEntry(config_widget = 'border_width'     ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'text_size'           :SingleEntry(config_widget = 'text_size'        ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'image_opacity'       :SingleEntry(config_widget = 'image_opacity'    ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'opacity'             :SingleEntry(config_widget = 'opacity'          ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           ######################### DOUBLE SELECTION ENTRY
+     #           'width'               :DoubleEntry(config_widget = 'width'            ,widget = widget_cliked),  # <=== this take width and hight in same time
+     #           'border'              :DoubleEntry(config_widget = 'border'           ,widget = widget_cliked),
+     #           'offset'              :DoubleEntry(config_widget = 'offset'           ,widget = widget_cliked),
+     #           'blur'                :DoubleEntry(config_widget = 'blur'             ,widget = widget_cliked),
+     #           ######################### 4 SELECTION ENTRIE S
+     #           'padding'             :FourEntry(config_widget = 'padding'            ,widget = widget_cliked),
+     #           'margin'              :FourEntry(config_widget = 'margin'             ,widget = widget_cliked),
+     #           'border_radius'       :FourEntry(config_widget = 'border_radius'      ,widget = widget_cliked),
+     #           ######################### COLOR ENTRY ['RED' ...]
+     #           'bgcolor'             :ColorEntry(config_widget= 'bgcolor'            ,widget = widget_cliked),
+     #           'color'               :ColorEntry(config_widget= 'color'              ,widget = widget_cliked),
+     #           'shadow_color'        :ColorEntry(config_widget= 'shadow_color'       ,widget = widget_cliked),
+     #           'icon_color'          :ColorEntry(config_widget= 'icon_color'         ,widget = widget_cliked),
+     #           'check_color'         :ColorEntry(config_widget= 'check_color'        ,widget = widget_cliked),
+     #           'fill_color'          :ColorEntry(config_widget= 'fill_color'         ,widget = widget_cliked),
+     #           'border_color'        :ColorEntry(config_widget= 'border_color'       ,widget = widget_cliked),
+     #           'focused_bgcolor'     :ColorEntry(config_widget= 'focused_bgcolor'    ,widget = widget_cliked),
+     #           'focused_border_color':ColorEntry(config_widget= 'focused_border_color',widget= widget_cliked),
+     #           ######################### BOOL ENTRY [TRUE FALSE]
+     #           'expand':             BoolEntry(config_widget = 'expand'              ,widget = widget_cliked),
+     #           'ink':                BoolEntry(config_widget = 'ink'                 ,widget = widget_cliked),
+     #           'scroll':             BoolEntry(config_widget = 'scroll'              ,widget = widget_cliked),
+     #           'wrap':               BoolEntry(config_widget = 'wrap'                ,widget = widget_cliked),
+     #           'tight':              BoolEntry(config_widget = 'tight'               ,widget = widget_cliked),
+     #           'visible':            BoolEntry(config_widget = 'visible'             ,widget = widget_cliked),
+     #           'multiline':          BoolEntry(config_widget = 'multiline'           ,widget = widget_cliked),
+     #           'disabled':           BoolEntry(config_widget = 'disabled'            ,widget = widget_cliked),
+     #           'read_only':          BoolEntry(config_widget = 'read_only'           ,widget = widget_cliked),
+     #           'password':           BoolEntry(config_widget = 'password'            ,widget = widget_cliked),
+     #           'filled':             BoolEntry(config_widget = 'filled'              ,widget = widget_cliked),
+     #           'adaptive':           BoolEntry(config_widget = 'adaptive'            ,widget = widget_cliked),
+     #           'tristate':           BoolEntry(config_widget = 'tristate'            ,widget = widget_cliked),
+     #           'autofocus':          BoolEntry(config_widget = 'autofocus'           ,widget = widget_cliked),
+     #           'horizontal':         BoolEntry(config_widget = 'horizontal'          ,widget = widget_cliked),
+     #           'can_reveal_password':BoolEntry(config_widget = 'can_reveal_password' ,widget = widget_cliked),
+     #           'capitalization':     BoolEntry(config_widget = 'capitalization'      ,widget = widget_cliked),
+     #           'gapless_playback':   BoolEntry(config_widget = 'gapless_playback'    ,widget = widget_cliked),
+     #           ######################### SELECTION ENTRY
+     #           'image_fit':          SelectionEntry(config_widget = 'image_fit'      ,widget = widget_cliked),
+     #           'weight':             SelectionEntry(config_widget = 'weight'         ,widget = widget_cliked),
+     #           'keyboard_type':      SelectionEntry(config_widget = 'keyboard_type'  ,widget = widget_cliked),
+     #           'text_align':         SelectionEntry(config_widget = 'text_align'     ,widget = widget_cliked),
+     #           'alignment':          SelectionEntry(config_widget = 'alignment'      ,widget = widget_cliked),
+     #           'content_alignment':  SelectionEntry(config_widget = 'content_alignment' ,widget = widget_cliked),
+     #           'vertical_alignment' :SelectionEntry(config_widget = 'vertical_alignment',widget = widget_cliked),
+     #           'horizontal_alignment':SelectionEntry(config_widget = 'horizontal_alignment',widget = widget_cliked),
+     #           ######################### GRADIEN ENTRY
+     #           'gradient':            GradientEntry(config_widget   = 'gradient',widget = widget_cliked),
+     #           #############################################################################################
 
-          }
+     #      }
 
-          get_attributes = {
-                         'container':{
-                                   'width ',  # <==== Height is implicited
-                                   'scale ',
-                                   'rotate ',
-                                   'offset ',
-                                   'bgcolor ',
-                                   'visible ',
-                                   'padding ',
-                                   'blur ',
-                                   'margin ',
-                                   'border ',
-                                   'tooltip ',
-                                   'border_radius ',
-                                   'ink ',
-                                   'image_fit ',
-                                   'image_src ',
-                                   'image_opacity ',
-                                   'expand ',
-                                   'alignment ',
-                                   'gradient ',
+     #      get_attributes = {
+     #                     'container':{
+     #                               'width ',  # <==== Height is implicited
+     #                               'scale ',
+     #                               'rotate ',
+     #                               'offset ',
+     #                               'bgcolor ',
+     #                               'visible ',
+     #                               'padding ',
+     #                               'blur ',
+     #                               'margin ',
+     #                               'border ',
+     #                               'tooltip ',
+     #                               'border_radius ',
+     #                               'ink ',
+     #                               'image_fit ',
+     #                               'image_src ',
+     #                               'image_opacity ',
+     #                               'expand ',
+     #                               'alignment ',
+     #                               'gradient ',
 
-                                   # 'animate ',
-                                   # 'url_target ',
-                                   # 'url ',
-                                   # 'clip_behavior ',
-                                   # 'content ',
-                                   # 'image_repeat ',
-                                   # 'image_src_base64 ',
-                                   # 'blend_mode ',
-                                   # 'rtl ',
-                                   # 'shadow ',
-                                   # 'shape ',
-                                   # 'theme_mode ',
-                                   # 'theme ',
-                                   }
-        }
+     #                               # 'animate ',
+     #                               # 'url_target ',
+     #                               # 'url ',
+     #                               # 'clip_behavior ',
+     #                               # 'content ',
+     #                               # 'image_repeat ',
+     #                               # 'image_src_base64 ',
+     #                               # 'blend_mode ',
+     #                               # 'rtl ',
+     #                               # 'shadow ',
+     #                               # 'shape ',
+     #                               # 'theme_mode ',
+     #                               # 'theme ',
+     #                               }
+     #    }
 
           # ##################################################
           # ######################### TAKE NAME IN STR OF THE WIDGET DRAGG AND CONTENT NAME
@@ -563,7 +684,7 @@ if __name__ == '__main__':
         page.window_left               = 3
         page.window_top                = 3
         page.window_height             = 680
-        page.window_width              = 360
+        page.window_width              = 370
         page.padding                   = 0
         page.spacing                   = 0
         page.add(Build_Editor(widget=ft.Container()))

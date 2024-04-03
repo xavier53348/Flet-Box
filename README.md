@@ -103,22 +103,28 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 | ft.alertdialog           | ✘ |
 | ft.rangeslider           | ✘ |
 
-### Path Flet-Box Modules
+<!-- make tree -->
+<!-- tree -I '__pycache__|__init__.py|test|drag_drop_proyect|flet_box.egg-info|docs|.|build|dist|LICENSE|MANIFEST.in|requeriments.txt|README.md|pyproject.toml|setup.py' > full_path.txt-->
 
+### Path Flet-Box Modules
 ```bash
 .
-├── LICENSE
-├── README.md
+├── full_path.txt
+├── make_path.sh
 ├── src
 │   ├── assets
 │   │   ├── dragg_container3.jpg
 │   │   ├── dragg_container.jpg
 │   │   ├── image.jpg
 │   │   ├── img.jpg
+│   │   ├── iphone.png
 │   │   ├── logo.jpg
 │   │   ├── logo_mark.png
+│   │   ├── no_imagen.jpg
 │   │   └── splash.jpg
 │   ├── extra_utils
+│   │   ├── color_browser
+│   │   │   └── color_browser.py
 │   │   ├── config_container
 │   │   │   ├── bool_entry.py
 │   │   │   ├── color_entry.py
@@ -143,6 +149,7 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   ├── menu_tab_left_phone
 │   │   │   └── widget_menu_left_editor.py
 │   │   ├── menu_tab_up_phone
+│   │   │   ├── basic_menu_tab_up.py
 │   │   │   └── widget_menu_tab_editor.py
 │   │   ├── phone_container
 │   │   │   └── widget_phone_editor.py
@@ -151,7 +158,7 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   └── flet_box.py
 └── WIDGET.md
 
-12 directories, 31 files
+13 directories, 35 files
 
 ```
 
