@@ -4,8 +4,7 @@
 ## Flet-Box:
 ### It's a Python GUI Framework for Multi-Platform Apps
 
-<!-- [Gallery Preview FLET-BOX](https://www.youtube.com/watch?v=15DDAACb0Hw) -->
-[![Gallery Preview FLET-BOX](docs/gallery/full_screen.png)](https://www.youtube.com/watch?v=15DDAACb0Hw)
+[![Gallery Preview FLET-BOX](docs/gallery/youtube.png)](https://www.youtube.com/watch?v=15DDAACb0Hw)
 
 <details>
     <summary>Gallery Preview FLET-BOX</summary>
