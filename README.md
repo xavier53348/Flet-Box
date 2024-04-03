@@ -5,11 +5,11 @@
 ### It's a Python GUI Framework for Multi-Platform Apps
 
 <!-- [Gallery Preview FLET-BOX](https://www.youtube.com/watch?v=15DDAACb0Hw) -->
-<iframe width="320" height="180" src="https://www.youtube.com/watch?v=15DDAACb0Hw" title="Gallery Preview FLET-BOX" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="1"></iframe>
+[![Gallery Preview FLET-BOX](docs/gallery/full_screen.png)](https://www.youtube.com/watch?v=15DDAACb0Hw)
 
 <details>
     <summary>Gallery Preview FLET-BOX</summary>
-    <img src="docs/gallery/full_screen.png" alt="Imagen Flet-Box">
+    <img src="docs/gallery/full_screen.png"         alt="Imagen Flet-Box">
     <img src="docs/gallery/icons.png"               alt="Icons Flet-Box">
     <img src="docs/gallery/colors.png"              alt="Colors Flet-Box">
     <img src="docs/gallery/pc_mode.png"             alt="Colors Flet-Box">
