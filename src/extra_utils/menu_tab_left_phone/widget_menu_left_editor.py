@@ -1,7 +1,8 @@
-from ..settings_var.settings_widget import global_var, get_global_var
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
 import flet as ft
-
-
+####################################################
 
 class MenuLeftContainer(ft.UserControl):
     # globalVar='Erase this test'
@@ -10,8 +11,8 @@ class MenuLeftContainer(ft.UserControl):
           super().__init__()
           # self.title='data'
           self.main_page=main_page
-          self.icon_browser  = get_global_var(get_var='Icon_Browser')
-          self.color_browser = get_global_var(get_var='Color_Browser')
+          self.icon_browser  = GLOBAL_VAR(get_global_var='ICON_BROWSER_CONTAINER')
+          self.color_browser = GLOBAL_VAR(get_global_var='COLOR_BROWSE_CONTAINER')
 
      def build(self):
 
@@ -58,64 +59,64 @@ class MenuLeftContainer(ft.UserControl):
                                                                         ft.Container(
                                                                                     ##################### PROPERTY COLUMN
                                                                                     ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                                                    expand=True,
-                                                                                    ink=False,                                                      # click effect ripple
-                                                                                    # bgcolor="#3f449a",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                    padding= ft.padding.all(0),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                                    margin = ft.margin.all(0),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
-                                                                                    alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                                    expand    = True,
+                                                                                    ink       = False,                                                      # click effect ripple
+                                                                                    # bgcolor = "#3f449a",                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                                                    padding   = ft.padding.all(0),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
+                                                                                    margin    = ft.margin.all(0),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
+                                                                                    alignment = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
                                                                                     ##################### EFFECTS
                                                                                     # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
                                                                                     ##################### WIDGETS
                                                                                     content=ft.Column(
                                                                                         ##################### PROPERTY BOX
-                                                                                        # expand=True,
-                                                                                        alignment=ft.MainAxisAlignment.CENTER,                      # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
+                                                                                        # expand             = True,
+                                                                                        alignment            = ft.MainAxisAlignment.CENTER,                      # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
+                                                                                        horizontal_alignment = ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
                                                                                         ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                                                                        # scroll=True,                                              # center widget
-                                                                                        # tight=True,
+                                                                                        # scroll             = True,                                              # center widget
+                                                                                        # tight              = True,
                                                                                         ##################### ADAPT TO SCREEN
-                                                                                        # wrap=True,                                                # justify in all screen
-                                                                                        spacing=8,                                                  # space widget left right
-                                                                                        # run_spacing=8,                                            # space widget up down
+                                                                                        # wrap               = True,                                                # justify in all screen
+                                                                                        spacing              = 8,                                                  # space widget left right
+                                                                                        # run_spacing        = 8,                                            # space widget up down
                                                                                         ##################### WIDGETS
                                                                                         controls=[
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='ICONS',content=ft.IconButton(icon=ft.icons.DELIVERY_DINING_ROUNDED , on_click=lambda _:self.show_widgets(show_widget='icon_browser')),
-                                                                                                        bgcolor=ft.colors.BLACK45,
-                                                                                                        height=45,
-                                                                                                        width=45,
-                                                                                                        border_radius=ft.border_radius.all(16)
+                                                                                                        bgcolor       = ft.colors.BLACK45,
+                                                                                                        height        = 45,
+                                                                                                        width         = 45,
+                                                                                                        border_radius = ft.border_radius.all(16)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='COLORS',content=ft.IconButton(icon=ft.icons.IMAGESEARCH_ROLLER_ROUNDED , on_click=lambda _:self.show_widgets(show_widget='color_browser')),
-                                                                                                        bgcolor=ft.colors.BLACK45,
-                                                                                                        height=45,
-                                                                                                        width=45,
-                                                                                                        border_radius=ft.border_radius.all(16)
+                                                                                                        bgcolor       = ft.colors.BLACK45,
+                                                                                                        height        = 45,
+                                                                                                        width         = 45,
+                                                                                                        border_radius = ft.border_radius.all(16)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='CODE'     ,content=ft.IconButton(icon=ft.icons.CODE_ROUNDED , on_click=lambda _:self.on_developing('Code')),
-                                                                                                        bgcolor=ft.colors.BLACK45,
-                                                                                                        height=45,
-                                                                                                        width=45,
-                                                                                                        border_radius=ft.border_radius.all(16)
+                                                                                                        bgcolor       = ft.colors.BLACK45,
+                                                                                                        height        = 45,
+                                                                                                        width         = 45,
+                                                                                                        border_radius = ft.border_radius.all(16)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='TREE'     ,content=ft.IconButton(icon=ft.icons.ACCOUNT_TREE_ROUNDED , on_click=lambda _:self.on_developing('Tree')),
-                                                                                                        bgcolor=ft.colors.BLACK45,
-                                                                                                        height=45,
-                                                                                                        width=45,
-                                                                                                        border_radius=ft.border_radius.all(16)
+                                                                                                        bgcolor       = ft.colors.BLACK45,
+                                                                                                        height        = 45,
+                                                                                                        width         = 45,
+                                                                                                        border_radius = ft.border_radius.all(16)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='GIT-HUB'  ,content=ft.IconButton(icon=ft.icons.ENGINEERING_SHARP , on_click=lambda _:self.on_developing('Git-Hub')),
-                                                                                                        bgcolor=ft.colors.BLACK45,
-                                                                                                        height=45,
-                                                                                                        width=45,
-                                                                                                        border_radius=ft.border_radius.all(16)
+                                                                                                        bgcolor       = ft.colors.BLACK45,
+                                                                                                        height        = 45,
+                                                                                                        width         = 45,
+                                                                                                        border_radius = ft.border_radius.all(16)
                                                                                                         ),
                                                                                                     ft.Container(alignment=ft.alignment.center,tooltip='CHAT-GPT' ,content=ft.IconButton(icon=ft.icons.SMART_TOY , on_click=lambda _:self.on_developing('Chat-Gpt')),
-                                                                                                        bgcolor=ft.colors.BLACK45,
-                                                                                                        height=45,
-                                                                                                        width=45,
-                                                                                                        border_radius=ft.border_radius.all(16)
+                                                                                                        bgcolor       = ft.colors.BLACK45,
+                                                                                                        height        = 45,
+                                                                                                        width         = 45,
+                                                                                                        border_radius = ft.border_radius.all(16)
                                                                                                         ),
                                                                                                  ],
                                                                                     ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
@@ -142,7 +143,7 @@ class MenuLeftContainer(ft.UserControl):
                self.color_browser.update()
 
      def on_developing(self,name_seccion):
-          page        = get_global_var(get_var='page')
+          page        = GLOBAL_VAR(get_global_var='PAGE')
 
           self.data = f"""
           Hello, User!

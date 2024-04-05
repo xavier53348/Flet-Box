@@ -1,6 +1,8 @@
-from ..settings_var.settings_widget import global_var, get_global_var
-
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
 import flet as ft
+####################################################
 
 class LiteMenuUpContainer(ft.UserControl):
     # globalVar='Erase this test'
@@ -200,11 +202,11 @@ class LiteMenuUpContainer(ft.UserControl):
           ###############################################################
 
           if action == 'delete':
-               touch_widget_in_phone = get_global_var(get_var='listWidgetUpdate')
+               touch_widget_in_phone = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
 
                # get the corret way to delete widget <===
                if touch_widget_in_phone:
-                   page           = get_global_var(get_var='page')
+                   page           = GLOBAL_VAR(get_global_var='PAGE')
                    id_widget      = page.get_control(touch_widget_in_phone.uid)
                    get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}" # <===== Stack()
                    page_control   = page.get_control(get_control_id)
@@ -217,7 +219,7 @@ class LiteMenuUpContainer(ft.UserControl):
                    page_control.clean()
                    del page_control._Control__previous_children
                    del page_control
-                   global_var(data_global={'listWidgetUpdate':[]})
+                   GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':[]})
                    # print(page_control.widgets)
 
                    ################################ delete all selected controls in selected widget
@@ -227,7 +229,7 @@ class LiteMenuUpContainer(ft.UserControl):
                    # updata_widget.update()
 
           if action == 'rotation':
-               # page           = get_global_var(get_var='page')
+               # page           = GLOBAL_VAR(get_global_var='page')
                # id_widget      = page.get_control('_382')
                # print(id_widget,'<<<<<,')
 

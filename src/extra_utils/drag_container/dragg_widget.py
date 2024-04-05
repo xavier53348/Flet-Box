@@ -1,5 +1,8 @@
-from ..settings_var.settings_widget import global_var ,get_global_var
+####################################################
 import flet as ft
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
 
 class DraggWidget(ft.UserControl): # <======= dragg widget
      """
@@ -82,25 +85,24 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
           2. RESET THE LIST listWidgetUpdate
 
           """
-          selected_widget_clicked = get_global_var(get_var='listWidgetUpdate')
+          ################################## SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
+          selected_widget_clicked = GLOBAL_VAR(
+                                                  get_global_var='LIST_SELECTED_WIDGETS')
 
-          widget_selected = global_var(data_global={
-                                                  'selectWidgetBox':data,
-                                                  'listWidgetUpdate':[],
-                                                   })
+          ################################## SET GLOBAL VAR // SELECTED_WIDGET // IN DRAGG_DROPP BOX
+          widget_selected         = GLOBAL_VAR(
+                                                  set_global_var={
+                                                       'SELECT_DRAGG' :data,
+                                                       'LIST_SELECTED_WIDGETS':[]  ,
+                                                        })
+          ####################################################################################
           # if selected_widget_clicked is true each time that we press dragg box widget set border none
           # each witdget inside drop_dragg.py or Phone container will be a dragg_widget.py
 
           if selected_widget_clicked:
                selected_widget_clicked.border = None
                selected_widget_clicked.update()
-               # print(selected_widget_clicked ,'<=== reset widget')
 
-
-          # dlg = ft.AlertDialog(
-          #                     title=ft.Text("Hello, you!"), on_dismiss=lambda e: print("Dialog dismissed!")
-          #                     )
-          # page.dialog = dlg
-          # dlg.open = True
-
+          # print(selected_widget_clicked,'<======== from GLOBAL_VAR')
           print(data,'<=== selected DRAGG widget')
+

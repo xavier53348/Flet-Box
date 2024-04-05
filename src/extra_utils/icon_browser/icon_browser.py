@@ -1,9 +1,11 @@
+####################################################
 import os
 import pyperclip
 import flet as ft
 import time
-
+####################################################
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
+####################################################
 
 class Icon_text(ft.UserControl):
     # globalVar='Erase this test'

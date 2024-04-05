@@ -115,8 +115,8 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 ### Path Flet-Box Modules
 ```bash
 .
-├── full_path.txt
-├── make_path.sh
+├── LICENSE
+├── README.md
 ├── src
 │   ├── assets
 │   │   ├── dragg_container3.jpg
@@ -142,7 +142,6 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   │   └── widget_editor.py
 │   │   ├── drag_container
 │   │   │   ├── dragg_widget.py
-│   │   │   ├── drop_dragg.py
 │   │   │   ├── infinity_box_layer_one.py
 │   │   │   └── widget_drag_editor.py
 │   │   ├── icon_browser
@@ -162,9 +161,8 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   └── settings_var
 │   │       └── settings_widget.py
 │   └── flet_box.py
-└── WIDGET.md
-
-13 directories, 35 files
+├── WIDGET.md
+└── workflows
 
 ```
 

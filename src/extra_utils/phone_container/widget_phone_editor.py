@@ -1,98 +1,123 @@
-from ..drag_container.dragg_widget import DraggWidget
+####################################################
 from ..drag_container.infinity_box_layer_one import InfinityBoxLayerOne
-from ..drag_container.drop_dragg import DropDragg
-from ..settings_var.settings_widget import global_var, get_global_var
-
+####################################################
 import flet as ft
-
-selectWidgetBox = get_global_var('selectWidgetBox')
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
 
 class Build_Phone_Editor(ft.UserControl):
-     """Center Box that contain the phone to add Widget"""
+     """
+     NOTE:
 
-     def __init__(self,group='GroupDragg',main_page='a'):
+     ONLY FUNCTION OF THIS MODULE
+     - ADD TO PHONE_SCREEN A DRAGABLE WIDGET THAT WILL BE A DRAGABLE_LOOP
+     """
+
+     def __init__(self,data='Erase this test'):
           super().__init__()
-          self.group = group
-          self.dropDragg= DropDragg()
-          self.main_page = main_page
-     def build(self):
-          self.Drop_Build_Phone_Editor = ft.DragTarget(
-                                             group='GroupDragg',
+          # self.title='data'
+          self.title=data
 
-                                             content=ft.Container( ###################### PHONE CONTAINER
-                                                            ##################### PROPERTY COLUMN
-                                                            ink             = False,                                            # click effect ripple
-                                                            bgcolor         = ft.colors.TEAL,                                   # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                            padding         = ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                            margin          = ft.margin.all(0),    # outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                                                            alignment       = ft.alignment.center,                              # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                            border_radius   = ft.border_radius.all(30),                         # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                            border          = ft.border.all(4, ft.colors.BLACK),                # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                            #               ===================
-                                                            # image_src     = f"splash.jpg",
-                                                            # image_opacity = 0.1,
-                                                            # image_fit     = 'COVER',                                          # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                            #               ===================
-                                                            width           = 260,
-                                                            height          = 525,
-                                                            # tooltip       = 'Container',
-                                                            ##################### EFFECTS
-                                                            # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN, ft.colors.BLACK],),
-                                                            # gradient      = ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
-                                                            ##################### WIDGETS
-                                                            content=ft.Column(
-                                                                           ##################### PROPERTY BOX
-                                                                           # expand=True,
-                                                                           # alignment=ft.MainAxisAlignment.SPACE_AROUND,       # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
-                                                                           horizontal_alignment = ft.CrossAxisAlignment.CENTER, # vertical       START,CENTER END
-                                                                           controls=[
-                                                                           ],
-                                                                           ),#<=== NOTE COMA [NOTE]                     # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
-                                                            ##################### EVENTS
-                                                            # on_click=lambda _:print(_),                               # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                            ),#<=== NOTE COMA
-                                             ##################### EVENTS
-                                             on_will_accept = self.drag_will_accept,           # Traslate Drop
-                                             on_leave       = self.drag_leave,                 # Leafing Drop Line Border
-                                             on_accept      = lambda _:self.drag_accept(_),    # Accept Drop
-                                                  )
-          return self.Drop_Build_Phone_Editor
+     def build(self):
+          self.Build_Phone_Editor=ft.Container(
+                                        ##################### PROPERTY ROW
+                                        ink           = False,                                                 # click effect ripple
+                                        padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),     # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                        margin        = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                        alignment     = ft.alignment.center,                                   # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right
+                                        border_radius = ft.border_radius.all(40),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                        border        = ft.border.all(2, ft.colors.WHITE),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                        width         = 260,
+                                        height        = 525,
+                                        # bgcolor       = ft.colors.BLACK,
+                                        bgcolor       = '#070707',
+                                        # image_src               = f"iphone.png",
+                                        # image_fit               = ft.ImageFit.COVER,                      # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                        ##################### EFFECTS
+                                        # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK45],),
+                                        ##################### WIDGETS
+                                   content = ft.DragTarget(
+                                                       ######################################
+                                                       ################# Traslate Container
+                                                       group   = "GroupDragg",
+                                                       content = ft.Container(
+                                                                      border_radius = ft.border_radius.all(40),# ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                      border        = ft.border.all(7.5, ft.colors.BLACK),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                      padding       = 0,
+                                                                      # margin        = -0.3,
+                                                                      alignment     = ft.alignment.center,     # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                                      #################
+                                                                 content = ft.Column(
+                                                                                scroll   = 'HIDDEN',
+                                                                                spacing  = 2,
+                                                                                controls = [
+                                                                                           # ft.ElevatedButton(),
+                                                                                           ],
+                                                                           ),# <=== Row(),Stack(),Grid() # BoxWidget to drop inside
+                                                                 #################  EVENTS Container
+                                                                 # on_click      = lambda _:print(_),
+                                                                 # on_hover      = print('on click over'),
+                                                                 # on_long_press = print('long press'),
+                                                                 ##################################
+                                                            ),
+                                                       ################# EVENTS  DragTarget
+                                                       on_will_accept = self.drag_will_accept,           # Traslate Drop
+                                                       on_leave       = self.drag_leave,                 # Leafing Drop Line Border
+                                                       on_accept      = lambda _:self.drag_accept(_),    # Accept Drop
+                                                    ##################################
+                                        ),#<========comma # DragTarget.content.controls.append() # DragTarget.content.controls.remove()
+
+                                        # on_hover=lambda _: print(_.control.uid),
+                                        # self.Build_Phone_Editor.controls.update()
+                                        # self.controls
+
+                                        )
+
+          ################################## SET GLOBAL VAR // PHONE CONTAINER AND PHONE CONTENT //
+          self.phone_container         = self.Build_Phone_Editor.content.content
+          self.phone_container_content = self.Build_Phone_Editor.content.content.content
+
+          GLOBAL_VAR(set_global_var={'PHONE_CONTAINER':self.phone_container})
+          GLOBAL_VAR(set_global_var={'PHONE_CONTAINER_CONTENT':self.phone_container_content})
+          ####################################################################################
+
+          return self.Build_Phone_Editor
+          # return self.my_cover_flow
 
      def drag_accept(self,widgetDropBox):
-          # global selectWidgetBox
+          self.InfinityBox = InfinityBoxLayerOne
+          self.page        = GLOBAL_VAR(get_global_var = 'PAGE')
+          selectWidgetBox  = GLOBAL_VAR(get_global_var = 'SELECT_DRAGG')
 
-          selectWidgetBox  = get_global_var(get_var = 'selectWidgetBox')
-          self.InfinityBox = InfinityBoxLayerOne(dataPassed = selectWidgetBox)
-          destiny_box      = self.page.get_control(self.dropDragg.uid)
 
-          # print(f"selectWidgetBox: {selectWidgetBox}")
-          # print(f"InfinityBox: {self.InfinityBox.build()}")
-          # print(self.dropDragg)
-          # ######################### filter if drag make fake cat no add WIDGET
-          if selectWidgetBox:
-               # self.select = self.widgets.get(selectWidgetBox)
-               destiny_box.content.content.controls.append(self.InfinityBox(selectWidgetBox))
-               selectWidgetBox = None         # get back natural state
+          ######################### filter if drag make fake cat no add WIDGET
+          destiny_box = self.page.get_control(self.Build_Phone_Editor.uid)
+          # print(f'destiny_box: {destiny_box.uid} <<<<<<')
 
-          # ########################## border
-          widgetDropBox.control.content.border  = True
-          widgetDropBox.control.content.border  = ft.border.all(2, ft.colors.BLACK)
-          # widgetDropBox.control.update()
-          # ########################## reset
-          # source_box.content_feedback.content = None            # reset widghet source original state
-          # self.page.update()
+          ####################################################################################
+          # IF SELECT_DRAGG WIDGET IS FAKE SELECTED WILL BE SET IN GLOVAL VAR NONE
+          # RETURNING NONE
+          # WITH THIS CONDITION WE EVOID ADD FAKE WIDGETS EMPY
+          # IS NECESARRY RESET SELECT_DRAGG TO NONE EVERY TIME THAT WE ADD ONE WIDGET NEW
+
+          if not selectWidgetBox == None:
+               # destiny_box.content.content.content.controls.append(self.InfinityBox(selectWidgetBox))
+               self.Build_Phone_Editor.content.content.content.controls.append(self.InfinityBox(selectWidgetBox))
+               ########################## border
+               widgetDropBox.control.content.border = True
+               widgetDropBox.control.content.border=ft.border.all(7, ft.colors.BLACK)
+               widgetDropBox.control.update()
+               GLOBAL_VAR(set_global_var={'SELECT_DRAGG':None})
+
+          ####################################################################################
 
      def drag_will_accept(self,widgetDropBox):
-          # print('hello')
-          # ource_box  = self.page.get_control(widgetDropBox.src_id)
-
           widgetDropBox.control.content.border = None
-          widgetDropBox.control.content.border = ft.border.all(2, ft.colors.RED)
+          widgetDropBox.control.content.border=ft.border.all(4, ft.colors.RED)
           widgetDropBox.control.update()
-          self.page.update()
 
      def drag_leave(self,widgetDropBox):
           widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border = ft.border.all(2, ft.colors.BLACK)
+          widgetDropBox.control.content.border=ft.border.all(7, ft.colors.BLACK)
           widgetDropBox.control.update()
-          self.page.update()

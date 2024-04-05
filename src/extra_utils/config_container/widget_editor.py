@@ -1,4 +1,4 @@
-######################
+####################################################
 from .double_entry    import DoubleEntry
 from .color_entry     import ColorEntry
 from .bool_entry      import BoolEntry
@@ -6,11 +6,11 @@ from .four_entry      import FourEntry
 from .single_entry    import SingleEntry
 from .selection_entry import SelectionEntry
 from .gradient_entry  import GradientEntry
-
-from ..settings_var.settings_widget import global_var, get_global_var
-######################
+####################################################
 import flet as ft
-######################
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
 
 class BoxConfigContainer(ft.UserControl):
     # globalVar='Erase this test'

@@ -1,11 +1,13 @@
-from ..settings_var.settings_widget import global_var, get_global_var
-
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
 import flet as ft
+####################################################
 
 class SelectedWidget(ft.UserControl):
     # globalVar='Erase this test'
 
-     def __init__(self,widget_selected=get_global_var(get_var='selectWidgetBox')):
+     def __init__(self,widget_selected=GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')):
           super().__init__()
           # self.title='widget_selected'
           self.widget_selected = widget_selected

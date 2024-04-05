@@ -1,7 +1,10 @@
+####################################################
 from .selected_widget import SelectedWidget
-from ..settings_var.settings_widget import global_var, get_global_var
-
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
 import flet as ft
+####################################################
 
 class LiteMenuDownContainer(ft.UserControl):
     # globalVar='Erase this test'
@@ -15,7 +18,7 @@ class LiteMenuDownContainer(ft.UserControl):
     def build(self):
 
         Selected_Widget = SelectedWidget()
-        global_var(data_global={'text_widget_selected':Selected_Widget})
+        GLOBAL_VAR(set_global_var={'SHOW_TEXT_SELECTED_WIDGET':Selected_Widget})
 
         Drop_LiteMenuDownContainer = ft.Container(
                                         # expand=True,

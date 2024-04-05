@@ -1,24 +1,25 @@
-from extra_utils.config_container.widget_editor import Build_Editor
-from extra_utils.phone_container.widget_phone_editor import DropDragg
-from extra_utils.drag_container.widget_drag_editor import Build_Drag_Editor
-#######################################################################################
-from extra_utils.menu_tab_up_phone.widget_menu_tab_editor import MenuUpContainer
+################################################################################## LEFT DRAGG CONTAINER
+from extra_utils.config_container.widget_editor                  import Build_Editor
+from extra_utils.drag_container.widget_drag_editor               import Build_Drag_Editor
+################################################################################## PHONE CONTAINER
+from extra_utils.phone_container.widget_phone_editor             import Build_Phone_Editor
+################################################################################## TAB MENU CONTAINER
+from extra_utils.menu_tab_up_phone.widget_menu_tab_editor        import MenuUpContainer
+from extra_utils.menu_tab_left_phone.widget_menu_left_editor     import MenuLeftContainer
+################################################################################### LITE MENU RIGHT PHONE AND DOWN
+from extra_utils.lite_menu_bar_up_phone.head_bar_menu_phone      import LiteMenuUpContainer
+from extra_utils.lite_menu_bar_down_phone.footer_bar_menu_phone  import LiteMenuDownContainer
+from extra_utils.lite_menu_bar_down_phone.selected_widget        import SelectedWidget
+################################################################################### ICON AND COLOR BROWSER CONTAINER
+from extra_utils.icon_browser.icon_browser                       import IconBrowser
+from extra_utils.color_browser.color_browser                     import ColorBrowser
+###################### CALL GLOBAL VAR ############################################ GLOBAL VARS
+from extra_utils.settings_var.settings_widget                    import GLOBAL_VAR
+###################################################################################
 
-from extra_utils.menu_tab_left_phone.widget_menu_left_editor import MenuLeftContainer
-#######################################################################################
-from extra_utils.lite_menu_bar_up_phone.head_bar_menu_phone import LiteMenuUpContainer
-from extra_utils.lite_menu_bar_down_phone.footer_bar_menu_phone import LiteMenuDownContainer
-from extra_utils.lite_menu_bar_down_phone.selected_widget import SelectedWidget
-#######################################################################################
-from extra_utils.icon_browser.icon_browser import IconBrowser
-from extra_utils.color_browser.color_browser import ColorBrowser
-#######################################################################################
-from extra_utils.settings_var.settings_widget import global_var, get_global_var
 # import logging
 import flet as ft
 
-# import unittest
-# 214
 def main(page: ft.Page):
      ###################### CONFIGURATION
      # page.title                   = "Containers - clickable and not"
@@ -56,12 +57,12 @@ def main(page: ft.Page):
      page.spacing                   = 0
      # page.expand                    = True
 
-     ###################### global_var PAGE
-     global_var(data_global={'page':page})
-     ###################### global_var PAGE
+     ###################### GLOBAL_VAR PAGE
+     GLOBAL_VAR(set_global_var={'PAGE':page})
+     ###################### GLOBAL_VAR PAGE
 
      drag_container_to_phone = Build_Drag_Editor()
-     phone_testing           = DropDragg(page)
+     phone_testing           = Build_Phone_Editor(page)
      right_config_container  = Build_Editor(widget=phone_testing.build())
 
      space_widget_1 = ft.Container( expand = True)
@@ -77,7 +78,7 @@ def main(page: ft.Page):
                bottom = 80,
           content=Icon_Browser,
           )
-     global_var(data_global={'Icon_Browser':IconBrowserContainer})
+     GLOBAL_VAR(set_global_var={'ICON_BROWSER_CONTAINER':IconBrowserContainer})
      ############################################ COLOR BROWSER
      Color_Browser = ColorBrowser(blur_effect=True)
 
@@ -90,7 +91,7 @@ def main(page: ft.Page):
           content=Color_Browser,
           )
      ############################################ COLOR BROWSER
-     global_var(data_global={'Color_Browser':ColorBrowserContainer})
+     GLOBAL_VAR(set_global_var={'COLOR_BROWSER_CONTAINER':ColorBrowserContainer})
 
      ############################################
      right_config_container = ft.Container( ###################### RIGHT CONFIG CONTAINER
@@ -408,7 +409,7 @@ def main(page: ft.Page):
      #           bottom = 100,
      #      content=Icon_Browser,
      #      )
-     # global_var(data_global={'Icon_Browser':IconBrowserContainer})
+     # GLOBAL_VAR(set_global_var={'Icon_Browser':IconBrowserContainer})
 
      data_stack = ft.Stack(
 

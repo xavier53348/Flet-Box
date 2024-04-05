@@ -1,15 +1,15 @@
-from ..settings_var.settings_widget import global_var, get_global_var
+####################################################
 from ..config_container.widget_editor import Build_Editor
 from ..lite_menu_bar_down_phone.selected_widget import SelectedWidget
-
-#####################
+####################################################
 import flet as ft
 import time
-
-#####################
-numWidget        = get_global_var(get_var='numWidget')
-numClick         = get_global_var(get_var='numClick')
-listWidgetUpdate = get_global_var(get_var='listWidgetUpdate')
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
+numWidget        = GLOBAL_VAR(get_global_var='NUM_WIDGETS_DROPPED')
+numClick         = GLOBAL_VAR(get_global_var='NUM_CLICKS')
+listWidgetUpdate = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
 #####################
 
 class InfinityBoxLayerOne(ft.UserControl):
@@ -196,7 +196,7 @@ class InfinityBoxLayerOne(ft.UserControl):
           ####################### ESPECIAL WIDGET
 
           ####################### CHARTS LAYOUTS
-          selectWidgetBox                    = get_global_var(get_var='selectWidgetBox')
+          selectWidgetBox                    = GLOBAL_VAR(get_global_var='SELECT_DRAGG')
           self.infinityDropWidget            = self.widgets.get(selectWidgetBox)
           self.infinityDropWidget[0].id      = f"{self.dataPassed}: {numWidget}"              # OUR ID
           self.infinityDropWidget[0].tooltip = f"{self.dataPassed}: {numWidget}"              # TOOLTIP ID
@@ -246,10 +246,7 @@ class InfinityBoxLayerOne(ft.UserControl):
 
 
           if numClick == 1:
-               # listWidgetUpdate.append(listWidget[0])
-               # time.sleep(0.3)
-
-               tmp_list         = get_global_var(get_var='listWidgetUpdate')
+               tmp_list         = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
                listWidgetUpdate = listWidget
 
                if tmp_list:
@@ -259,35 +256,26 @@ class InfinityBoxLayerOne(ft.UserControl):
 
                widgetConfig = listWidgetUpdate
                #############################################################################
-               # this function will update right box attribute
-               # print(f'Widget New number: {listWidgetUpdate[0].tooltip} and ID: {listWidgetUpdate[0].uid}')
-               # print(f"all list {listWidgetUpdate}")
-
-               # self.infinityDropWidget[0]  #<<<<<<<<<<<<<<< CLICKED WIDGET
-               Build_Editor.update_widget_attributes(widget_cliked=self.infinityDropWidget[0])
+               """
+               THIS MODULE CALL TO BUILD EDITOR TO CHANGE ATTRIBUTES
+               """
+               # Build_Editor.update_widget_attributes(widget_cliked=self.infinityDropWidget[0])
                ############################################################################
-               time.sleep(0.1)
 
-               # print(get_global_var(get_var='page'))
-               ############################################################################
-               # on click over widget <===
-               data_widget = get_global_var(get_var='text_widget_selected')
+               # time.sleep(0.1)
+
+               ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+               data_widget = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_WIDGET')
                data_widget.controls[0].content.controls[1].spans[0].text = listWidget[0].tooltip
                data_widget.controls[0].update()
+               ################################## SET GLOBAL VAR // SELECTED_WIDGET // IN PHONE_CONTAINER AND PHONE CONTENT
+               GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER':listWidget[0]})
+               GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER_CONTENT':listWidget[0].content})
+               ####################################################################################
 
-               print(data_widget.controls[0].content.controls[1].spans[0].text)
-
-               print(listWidget[0].uid ,'selected_widget BOX IN PHONE listWidgetUpdate')
-
-               # listWidget[0].content = None
-               # print(listWidget[0] ,'selected_widget BOX IN PHONE listWidgetUpdate')
-               # print(self.infinityDropWidget[0] ,'selected_widget BOX IN PHONE listWidgetUpdate')
-
-               global_var(data_global={'listWidgetUpdate':listWidget[0]})
+               GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':listWidget[0]})
                widgetConfig[0].border = ft.border.all(0.03, ft.colors.CYAN)
                widgetConfig[0].update()
-               # print(widgetConfig[0].uid,'<<<<,')
-               # listWidgetUpdate=[]
 
           numClick+=1
 
@@ -303,13 +291,16 @@ class InfinityBoxLayerOne(ft.UserControl):
           self.widgetFilter      = ['Row',"GridView","Column","Stack",]
           self.widget_Filter     = ['row',"gridview","column","stack",]
 
-          selectWidgetBox        = get_global_var(get_var='selectWidgetBox')
+          selectWidgetBox        = GLOBAL_VAR(get_global_var='SELECT_DRAGG')
 
           self.InstanceNewWidget = InfinityBoxLayerOne(selectWidgetBox)
           right_content          = widgetDropBox.control.content.content._get_control_name()
 
           if selectWidgetBox in self.widgetFilter:
-               """ IF WIDGET TO DROP_WIDGET IS A  Row , GridView , Column, Stack  will add to control """
+               ############################################################################
+               #
+               # IF DROPPED WIDGET HAS CONTENT ROW , GRIDVIEW,COLUMN,STACK WILL APPEND TO CONTROLS
+               #
                if right_content in self.widget_Filter:
                     # AVOID COLLIDE CONTROLS WITH CONTENT
                     # print(right_content,'---------',selectWidgetBox.lower())
@@ -322,7 +313,10 @@ class InfinityBoxLayerOne(ft.UserControl):
                     """
                          IF WIDGET TO DROP_WIDGET IS A CONTROLS APPEND 'Row',"GridView","Column","Stack"
                     """
-
+                    ############################################################################
+                    #
+                    # IF DROPPED WIDGET HAS CONTENT ROW , GRIDVIEW,COLUMN,STACK WILL APPEND TO CONTROLS
+                    #
                     # print(widgetDropBox.control.content.content.uid,'-----------------')
                     widgetDropBox.control.content.content.controls.append(self.InstanceNewWidget)
 

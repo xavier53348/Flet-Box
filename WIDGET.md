@@ -1,4 +1,31 @@
 <!-- markdownserver http://localhost:8009/WIDGET.md -->
+### ROUTES OF ALL MODULES
+
+##### LEFT DRAGG CONTAINER
+```bash
+>>> extra_utils/config_container/widget_editor       metod Build_Editor
+>>> extra_utils/drag_container  /widget_drag_editor  metod Build_Drag_Editor
+```
+##### PHONE CONTAINER
+```bash
+>>> extra_utils/phone_container/widget_phone_editor  metod Build_Phone_Editor
+```
+##### TAB MENU CONTAINER
+```bash
+>>> extra_utils/menu_tab_up_phone/widget_menu_tab_editor       metod MenuUpContainer
+>>> extra_utils/menu_tab_left_phone/widget_menu_left_editor    metod MenuLeftContainer
+```
+##### LITE MENU RIGHT PHONE AND DOWN
+```bash
+>>> extra_utils/lite_menu_bar_up_phone/head_bar_menu_phone     metod LiteMenuUpContainer
+>>> extra_utils/lite_menu_bar_down_phone/footer_bar_menu_phone metod LiteMenuDownContainer
+>>> extra_utils/lite_menu_bar_down_phone/selected_widget       metod SelectedWidget
+```
+##### ICON AND COLOR BROWSER CONTAINER
+```bash
+>>> extra_utils / icon_browser / icon_browser         metod IconBrowser
+>>> extra_utils / color_browser / color_browser       metod ColorBrowser
+```
 
 ## Widgets Flet-Box:
 **All widget** in flet-box are Stack() container that have inside a container with the selected widget

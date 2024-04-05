@@ -1,7 +1,10 @@
+####################################################
 from .dragg_widget import DraggWidget
-from ..settings_var.settings_widget import global_var, get_global_var
-
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
+####################################################
 import flet as ft
+####################################################
 
 class Build_Drag_Editor(ft.UserControl):
      """
