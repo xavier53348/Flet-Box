@@ -17,18 +17,6 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
 
         # will change name of entry points
         ##################### ONLY FOR CONTAINER
-        if  self.attribute_widget == "padding " or self.attribute_widget == "margin ":
-            self.attribute_widget_name_1 = 'Left'
-            self.attribute_widget_name_2 = 'Top'
-            self.attribute_widget_name_3 = 'Right'
-            self.attribute_widget_name_4 = 'Bottom'
-
-        if  self.attribute_widget == "border_radius ":
-            self.attribute_widget_name_1 = '⌜ BL'
-            self.attribute_widget_name_2 = '  BR ⌝'
-            self.attribute_widget_name_3 = '⌞ TL'
-            self.attribute_widget_name_4 = '  TR ⌟'
-        #####################
         if  self.attribute_widget == "padding" or self.attribute_widget == "margin":
             self.attribute_widget_name_1 = 'Left'
             self.attribute_widget_name_2 = 'Top'
@@ -219,8 +207,8 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
 
         # self.widget.content.value = value if config_widget  == "value" else None
         # will modify attributes of the widget class in real time
-        ########################################## ONLY FOR CONTAINER
-        if  config_widget   == "padding ":
+        ########################################## ONLY FOR CONTENT
+        if  config_widget   == "padding":
             """ all values in Box Container """
 
             self.left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
@@ -234,7 +222,7 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                                     right  = self.right,
                                                     bottom = self.bottom
                                                   )
-        if  config_widget   == "margin ":
+        if  config_widget   == "margin":
             """ all values in Box Container """
 
             self.left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
@@ -248,49 +236,6 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
                                                     right  = self.right,
                                                     bottom = self.bottom
                                                 )
-        if  config_widget   == "border_radius ":
-            """ all values in Box Container """
-
-            self.top_left    = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
-            self.top_right   = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
-            self.bottom_left = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
-            self.bottom_right= value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
-
-            self.widget.border_radius = ft.border_radius.only(
-                                                    top_left   = self.top_left,
-                                                    top_right    = self.top_right,
-                                                    bottom_left  = self.bottom_left,
-                                                    bottom_right = self.bottom_right
-                                                )
-        ########################################## ONLY FOR CONTENT
-        if  config_widget   == "padding":
-            """ all values in Box Container """
-
-            self.left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
-            self.top    = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
-            self.right  = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
-            self.bottom = value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
-
-            self.widget.content.padding = ft.padding.only(
-                                                    left   = self.left,
-                                                    top    = self.top,
-                                                    right  = self.right,
-                                                    bottom = self.bottom
-                                                  )
-        if  config_widget   == "margin":
-            """ all values in Box Container """
-
-            self.left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
-            self.top    = value.content.controls[1].content.controls[1].content.value if value.content.controls[1].content.controls[1].content.value else 0
-            self.right  = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
-            self.bottom = value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
-
-            self.widget.content.margin = ft.margin.only(
-                                                    left   = self.left,
-                                                    top    = self.top,
-                                                    right  = self.right,
-                                                    bottom = self.bottom
-                                                )
         if  config_widget   == "border_radius":
             """ all values in Box Container """
 
@@ -299,7 +244,7 @@ class FourEntry(ft.UserControl): ##################### PROPERTY
             self.bottom_left = value.content.controls[2].content.controls[0].content.value if value.content.controls[2].content.controls[0].content.value else 0
             self.bottom_right= value.content.controls[2].content.controls[1].content.value if value.content.controls[2].content.controls[1].content.value else 0
 
-            self.widget.content.border_radius = ft.border_radius.only(
+            self.widget.border_radius = ft.border_radius.only(
                                                     top_left   = self.top_left,
                                                     top_right    = self.top_right,
                                                     bottom_left  = self.bottom_left,

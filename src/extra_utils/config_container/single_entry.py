@@ -128,87 +128,75 @@ class SingleEntry(ft.UserControl): ##################### PROPERTY
          'theme_mode', 'theme',
         """
         ################ CONTAINER STR
-
-        if  config_widget   == "image_src ":
-            self.widget.image_src              = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
-        if  config_widget   == "tooltip ":
-            self.widget.tooltip                = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
-        if  config_widget   == "rotate ":
-            self.widget.rotate                    = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
-        if  config_widget   == "scale ":
-            self.widget.scale                     = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
-        if  config_widget   == "image_opacity ":
-            self.widget.image_opacity             = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
-        ################ CONTAINER STR
         if  config_widget   == "text":
-            self.widget.content.text           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.text           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "tooltip":
-            self.widget.content.tooltip        = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.tooltip        = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "image_src":
-            self.widget.content.image_src    = f"{value.content.controls[1].content.controls[0].content.value }"# <=== Atribute 0 ['width']
+            self.widget.image_src    = f"{value.content.controls[1].content.controls[0].content.value }"# <=== Atribute 0 ['width']
         if  config_widget   == "url":
-            self.widget.content.url            = value.content.controls[1].content.controls[0].content.value  # <=== Atribute 0 ['width']
+            self.widget.url            = value.content.controls[1].content.controls[0].content.value  # <=== Atribute 0 ['width']
         if  config_widget   == "url_target":
-            self.widget.content.url_target     = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.url_target     = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "blur_radius":
-            self.widget.content.blur_radius       = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0# <=== Atribute 0 ['width']
+            self.widget.blur_radius       = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0# <=== Atribute 0 ['width']
         if  config_widget   == "image_opacity":
-            self.widget.content.image_opacity     = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
+            self.widget.image_opacity     = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
         if  config_widget   == "rotate":
-            self.widget.content.rotate            = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
+            self.widget.rotate            = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0 # <=== Atribute 0 ['width']
         if  config_widget   == "scale":
-            self.widget.content.scale             = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.scale             = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "label":
-            self.widget.content.label          = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.label          = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "value":
-            self.widget.content.value          = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.value          = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "key":
-            self.widget.content.key            = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.key            = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "hint_text":
-            self.widget.content.hint_text      = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.hint_text      = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "counter_text":
-            self.widget.content.counter_text   = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.counter_text   = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "suffix_text":
-            self.widget.content.suffix_text    = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.suffix_text    = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "icon":
-            self.widget.content.icon           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.icon           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "src":
-            self.widget.content.src            = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.src            = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "data":
-            self.widget.content.data           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.data           = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "semantics_label":
-            self.widget.content.semantics_label= value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.semantics_label= value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         if  config_widget   == "src_base64":
-            self.widget.content.src_base64     = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.src_base64     = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
         ######################################## INT
         if  config_widget   == "spread_radius":
-            self.widget.content.spread_radius     = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.spread_radius     = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "size":
-            self.widget.content.size              = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.size              = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "elevation":
-            self.widget.content.elevation         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.elevation         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "aspect_ratio":
-            self.widget.content.aspect_ratio      = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.aspect_ratio      = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "runs_count":
-            self.widget.content.runs_count        = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.runs_count        = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "run_spacing":
-            self.widget.content.run_spacing       = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.run_spacing       = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "spacing":
-            self.widget.content.spacing           = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.spacing           = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "child_aspect_ratio":
-            self.widget.content.child_aspect_ratio= float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.child_aspect_ratio= float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "max_extent":
-            self.widget.content.max_extent        = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.max_extent        = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "min_lines":
-            self.widget.content.min_lines         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.min_lines         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "max_lines":
-            self.widget.content.max_lines         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.max_lines         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "border_width":
-            self.widget.content.border_width      = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.border_width      = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "text_size":
-            self.widget.content.text_size         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
+            self.widget.text_size         = float(value.content.controls[1].content.controls[0].content.value)  if value.content.controls[1].content.controls[0].content.value else 1 # <=== Atribute 0 ['width']
         if  config_widget   == "opacity":
-            self.widget.content.opacity           = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
+            self.widget.opacity           = float(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 1# <=== Atribute 0 ['width']
 
         ########################################
         # print(self.widget.uid)

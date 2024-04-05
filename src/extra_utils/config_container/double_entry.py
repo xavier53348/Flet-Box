@@ -172,7 +172,6 @@ class DoubleEntry(ft.UserControl): ##################### PROPERTY
 
         # self.widget.content.value = value if config_widget  == "value" else None
         # will modify attributes of the widget class in real time
-        ################################# ONLY FOR CONTAINER
 
         if  config_widget == "width " or config_widget == "height ":
             self.widget.width   = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
@@ -194,24 +193,23 @@ class DoubleEntry(ft.UserControl): ##################### PROPERTY
                                  value.content.controls[1].content.controls[0].content.value ,
                                  value.content.controls[1].content.controls[1].content.value ,
                                  ) # <=== Atribute 0 ['width']
-        #################################
         if  config_widget == "width" or config_widget == "height":
-            self.widget.content.width   = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
-            self.widget.content.height  = value.content.controls[1].content.controls[1].content.value # <=== Atribute 1 ['height']
+            self.widget.width   = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+            self.widget.height  = value.content.controls[1].content.controls[1].content.value # <=== Atribute 1 ['height']
 
         if  config_widget == "blur":
-            self.widget.content.blur    =  ft.Blur(
+            self.widget.blur    =  ft.Blur(
                                             int(value.content.controls[1].content.controls[0].content.value) if value.content.controls[1].content.controls[0].content.value else 0,
                                             int(value.content.controls[1].content.controls[1].content.value) if value.content.controls[1].content.controls[1].content.value else 0,
                                             ft.BlurTileMode.MIRROR,
                                             )# <=== Atribute 0 ['width']
         if  config_widget == "border":
-            self.widget.content.border = ft.border.all(
+            self.widget.border = ft.border.all(
                                                 value.content.controls[1].content.controls[0].content.value ,
                                                 value.content.controls[1].content.controls[1].content.value ,
                                                 ) # <=== Atribute 0 ['width']
         if  config_widget == "offset":
-            self.widget.content.offset =(
+            self.widget.offset =(
                                  value.content.controls[1].content.controls[0].content.value ,
                                  value.content.controls[1].content.controls[1].content.value ,
                                  ) # <=== Atribute 0 ['width']

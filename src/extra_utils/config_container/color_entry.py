@@ -111,27 +111,24 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
         """will activate main widget color when press right Conteiner color box"""
         # print(data)
         ################ ONLY FOR CONTAINER
-        if  data   == "bgcolor ":
-            self.widget.bgcolor        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
-        ################################  CONTAINER.content = WIDGET
         if  data   == "bgcolor":
-            self.widget.content.bgcolor        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.bgcolor        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "focused_bgcolor":
-            self.widget.content.focused_bgcolor= value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.focused_bgcolor= value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "shadow_color":
-            self.widget.content.shadow_color = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.shadow_color = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "color":
-            self.widget.content.color        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.color        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "fill_color":
-            self.widget.content.fill_color   = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.fill_color   = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "icon_color":
-            self.widget.content.icon_color   = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.icon_color   = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "check_color":
-            self.widget.content.check_color  = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.check_color  = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "focused_border_color":
-            self.widget.content.focused_border_color = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.focused_border_color = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "border_color":
-            self.widget.content.border_color   = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
+            self.widget.border_color   = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
 
         ####################
         self.widget.update()
@@ -156,13 +153,15 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
         change circle right color in streaming
         """
         ########################################### ONLY FOR CONTAINER
-        if  self.attribute_widget   == "bgcolor ":
-            value.content.controls[1].content.controls[1].bgcolor = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
-            value.content.controls[1].update()
+        # if  self.attribute_widget   == "bgcolor ":
+        #     value.content.controls[1].content.controls[1].bgcolor = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
+        #     value.content.controls[1].update()
         ########################################### ONLY FOR CONTENT CONTAINER
+        # colors inside de box rounded
         if  self.attribute_widget   == "bgcolor":
             value.content.controls[1].content.controls[1].bgcolor = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
             value.content.controls[1].update()
+
         if  self.attribute_widget   == "focused_bgcolor":
             value.content.controls[1].content.controls[1].bgcolor = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
             value.content.controls[1].update()

@@ -157,41 +157,41 @@ class BoolEntry(ft.UserControl): ##################### PROPERTY
 
         ############################################################################### CONTAINER.content = WIDGET
         if  config_widget   == "expand":
-            self.widget.content.expand = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.expand = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "ink":
-            self.widget.content.ink =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.ink =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "visible":
-            self.widget.content.visible =bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.visible =bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "scroll":
-            self.widget.content.scroll = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.scroll = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "wrap":
-            self.widget.content.wrap =   bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.wrap =   bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "tight":
-            self.widget.content.tight =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.tight =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "multiline":
-            self.widget.content.multiline = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['multiline']
+            self.widget.multiline = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['multiline']
         if  config_widget   == "disabled":
-            self.widget.content.disabled  = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['disabled']
+            self.widget.disabled  = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['disabled']
         if  config_widget   == "read_only":
-            self.widget.content.read_only = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['read_only']
+            self.widget.read_only = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['read_only']
         if  config_widget   == "password":
-            self.widget.content.password  = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.password  = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "filled":
-            self.widget.content.filled =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.filled =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "adaptive":
-            self.widget.content.adaptive =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.adaptive =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "tristate":
-            self.widget.content.tristate =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.tristate =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "autofocus":
-            self.widget.content.autofocus = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.autofocus = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "horizontal":
-            self.widget.content.horizontal = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.horizontal = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "can_reveal_password":
-            self.widget.content.can_reveal_password = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.can_reveal_password = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "capitalization":
-            self.widget.content.capitalization = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.capitalization = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
         if  config_widget   == "gapless_playback":
-            self.widget.content.gapless_playback = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.gapless_playback = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
 
         # print(self.widget.uid)
         # print(data_usage)

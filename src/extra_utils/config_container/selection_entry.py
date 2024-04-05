@@ -18,18 +18,6 @@ class SelectionEntry(ft.UserControl): ##################### PROPERTY
 
         # will change name of entry points
         ######################################################## ONLY FOR CONTAINER
-
-        if self.attribute_widget == "image_fit ":
-            self.alignment_tmp_name =" Contain "
-            self.alignment_tmp = [
-                                    ft.dropdown.Option(" Contain "),
-                                    ft.dropdown.Option(" Cover "),
-                                    ft.dropdown.Option(" Fill "),
-                                    ft.dropdown.Option(" Fit Height "),
-                                    ft.dropdown.Option(" Fit Width "),
-                                    ft.dropdown.Option(" Scale Down "),
-                                    #  CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                    ]
         if self.attribute_widget == "alignment ":
             self.alignment_tmp_name = " Center "
             self.alignment_tmp = [
@@ -48,21 +36,6 @@ class SelectionEntry(ft.UserControl): ##################### PROPERTY
         ############## alignment
 
         if self.attribute_widget == "alignment":
-            # if not self.widget.content._get_control_name() == "Row":
-            #     self.alignment_tmp_name = " Center"
-            #     self.alignment_tmp = [
-            #                             ft.dropdown.Option(" Top Left"),
-            #                             ft.dropdown.Option(" Top Center"),
-            #                             ft.dropdown.Option(" Top Right"),
-            #                             ft.dropdown.Option(" Center Left"),
-            #                             ft.dropdown.Option(" Center"),
-            #                             ft.dropdown.Option(" Center Right"),
-            #                             ft.dropdown.Option(" Bottom Left"),
-            #                             ft.dropdown.Option(" Bottom Center"),
-            #                             ft.dropdown.Option(" Bottom Right"),
-            #                             # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.
-            #                             ]
-            # else:
             self.alignment_tmp_name = " Start"
             self.alignment_tmp = [
                                     ft.dropdown.Option(" Start"),
@@ -267,19 +240,6 @@ class SelectionEntry(ft.UserControl): ##################### PROPERTY
 
         ############################################################# ONLY FOR CONTAINER
         ############## IMAGE_FIT CONTAINER               #  CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-        if config_widget == " Contain ":
-            self.widget.image_fit             = ft.ImageFit.CONTAIN
-        if config_widget == " Cover "  :
-            self.widget.image_fit             = ft.ImageFit.COVER
-        if config_widget == " Fill "   :
-            self.widget.image_fit             = ft.ImageFit.FILL
-        if config_widget == " Fit Height ":
-            self.widget.image_fit             = ft.ImageFit.FIT_HEIGHT
-        if config_widget == " Fit Width ":
-            self.widget.image_fit             = ft.ImageFit.FIT_WIDTH
-        if config_widget == " Scale Down ":
-            self.widget.image_fit             = ft.ImageFit.SCALE_DOWN
-        ############## ALIGMENT CONTAINER               #  CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
         if config_widget == " Top Left ":
             self.widget.alignment      = ft.alignment.top_left
         if config_widget == " Top Center ":
@@ -300,130 +260,110 @@ class SelectionEntry(ft.UserControl): ##################### PROPERTY
             self.widget.alignment      = ft.alignment.bottom_right
 
         ############################################################# ONLY FOR CONTENT
-        ############## ALIGMENT                #  top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.
-
-        if config_widget == " Top Left":
-            self.widget.content.alignment              = ft.alignment.top_left
-        if config_widget == " Top Center"  :
-            self.widget.content.alignment              = ft.alignment.top_center
-        if config_widget == " Top Right"   :
-            self.widget.content.alignment              = ft.alignment.top_right
-        if config_widget == " Center Left":
-            self.widget.content.alignment              = ft.alignment.center_left
-        if config_widget == " Center":
-            self.widget.content.alignment              = ft.alignment.center
-        if config_widget == " Center Right":
-            self.widget.content.alignment              = ft.alignment.center_right
-        if config_widget == " Bottom Left":
-            self.widget.content.alignment              = ft.alignment.bottom_left
-        if config_widget == " Bottom Center":
-            self.widget.content.alignment              = ft.alignment.bottom_center
-        if config_widget == " Bottom Right":
-            self.widget.content.alignment              = ft.alignment.bottom_right
         ############## IMAGE FIT                #  CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
         if config_widget == " Contain":
-            self.widget.content.image_fit              = ft.ImageFit.CONTAIN
+            self.widget.image_fit              = ft.ImageFit.CONTAIN
         if config_widget == " Cover"  :
-            self.widget.content.image_fit              = ft.ImageFit.COVER
+            self.widget.image_fit              = ft.ImageFit.COVER
         if config_widget == " Fill"   :
-            self.widget.content.image_fit              = ft.ImageFit.FILL
+            self.widget.image_fit              = ft.ImageFit.FILL
         if config_widget == " Fit Height":
-            self.widget.content.image_fit              = ft.ImageFit.FIT_HEIGHT
+            self.widget.image_fit              = ft.ImageFit.FIT_HEIGHT
         if config_widget == " Fit Width":
-            self.widget.content.image_fit              = ft.ImageFit.FIT_WIDTH
+            self.widget.image_fit              = ft.ImageFit.FIT_WIDTH
         if config_widget == " Scale Down":
-            self.widget.content.image_fit              = ft.ImageFit.SCALE_DOWN
+            self.widget.image_fit              = ft.ImageFit.SCALE_DOWN
         ############################################################# CONTAINER.content = ft.Widget()
         ############## VERTICAL ALIGMENT # START,CENTER,END
         if config_widget == " Vertical Start":
-            self.widget.content.vertical_alignment   = ft.CrossAxisAlignment.START
+            self.widget.vertical_alignment   = ft.CrossAxisAlignment.START
         if config_widget == " Vertical Center":
-            self.widget.content.vertical_alignment   = ft.CrossAxisAlignment.CENTER
+            self.widget.vertical_alignment   = ft.CrossAxisAlignment.CENTER
         if config_widget == " Vertical End":
-            self.widget.content.vertical_alignment   = ft.CrossAxisAlignment.END
+            self.widget.vertical_alignment   = ft.CrossAxisAlignment.END
 
         ############## HORIZONTAL ALIGMENT # START,CENTER,END
         if config_widget == " Horizontal Start":
-            self.widget.content.horizontal_alignment = ft.CrossAxisAlignment.START
+            self.widget.horizontal_alignment = ft.CrossAxisAlignment.START
         if config_widget == " Horizontal Center":
-            self.widget.content.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+            self.widget.horizontal_alignment = ft.CrossAxisAlignment.CENTER
         if config_widget == " Horizontal End":
-            self.widget.content.horizontal_alignment = ft.CrossAxisAlignment.END
+            self.widget.horizontal_alignment = ft.CrossAxisAlignment.END
 
         ############## ALIGMENT  # START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
         if config_widget == " Start":
-            self.widget.content.alignment     = ft.MainAxisAlignment.START
+            self.widget.alignment     = ft.MainAxisAlignment.START
         if config_widget == " Center":
-            self.widget.content.alignment     = ft.MainAxisAlignment.CENTER
+            self.widget.alignment     = ft.MainAxisAlignment.CENTER
         if config_widget == " End":
-            self.widget.content.alignment     = ft.MainAxisAlignment.END
+            self.widget.alignment     = ft.MainAxisAlignment.END
         if config_widget == " Space Between":
-            self.widget.content.alignment     = ft.MainAxisAlignment.SPACE_BETWEEN
+            self.widget.alignment     = ft.MainAxisAlignment.SPACE_BETWEEN
         if config_widget == " Space Around":
-            self.widget.content.alignment     = ft.MainAxisAlignment.SPACE_AROUND
+            self.widget.alignment     = ft.MainAxisAlignment.SPACE_AROUND
         if config_widget == " Space Evenly":
-            self.widget.content.alignment     = ft.MainAxisAlignment.SPACE_EVENLY
+            self.widget.alignment     = ft.MainAxisAlignment.SPACE_EVENLY
 
         ############## KEYBOARD TYPE        #  MULTILINE,NUMBER,PHONE,DATETIME,EMAIL,URL,VISIBLE_PASSWORD,NAME,STREET_ADDRESS,NONE
         if config_widget == " Multiline":
-            self.widget.content.keyboard_type = ft.KeyboardType.MULTILINE
+            self.widget.keyboard_type = ft.KeyboardType.MULTILINE
         if config_widget == " Number":
-            self.widget.content.keyboard_type = ft.KeyboardType.NUMBER
+            self.widget.keyboard_type = ft.KeyboardType.NUMBER
         if config_widget == " Phone":
-            self.widget.content.keyboard_type = ft.KeyboardType.PHONE
+            self.widget.keyboard_type = ft.KeyboardType.PHONE
         if config_widget == " Datetime":
-            self.widget.content.keyboard_type = ft.KeyboardType.DATETIME
+            self.widget.keyboard_type = ft.KeyboardType.DATETIME
         if config_widget == " Email":
-            self.widget.content.keyboard_type = ft.KeyboardType.EMAIL
+            self.widget.keyboard_type = ft.KeyboardType.EMAIL
         if config_widget == " Url":
-            self.widget.content.keyboard_type = ft.KeyboardType.URL
+            self.widget.keyboard_type = ft.KeyboardType.URL
         if config_widget == " Show Password":
-            self.widget.content.keyboard_type = ft.KeyboardType.VISIBLE_PASSWORD
+            self.widget.keyboard_type = ft.KeyboardType.VISIBLE_PASSWORD
         if config_widget == " Name":
-            self.widget.content.keyboard_type = ft.KeyboardType.NAME
+            self.widget.keyboard_type = ft.KeyboardType.NAME
         if config_widget == " Street Address":
-            self.widget.content.keyboard_type = ft.KeyboardType.STREET_ADDRESS
+            self.widget.keyboard_type = ft.KeyboardType.STREET_ADDRESS
         if config_widget == " None":
-            self.widget.content.keyboard_type = ft.KeyboardType.NONE
+            self.widget.keyboard_type = ft.KeyboardType.NONE
 
         ############## LABEL POSITION       # LEFT,RIGHT,CENTER,JUSTIFY,START,END
         if config_widget == " Text Left":
-            self.widget.content.text_align    = ft.TextAlign.LEFT
+            self.widget.text_align    = ft.TextAlign.LEFT
         if config_widget == " Text Right":
-            self.widget.content.text_align    = ft.TextAlign.RIGHT
+            self.widget.text_align    = ft.TextAlign.RIGHT
         if config_widget == " Text Center":
-            self.widget.content.text_align    = ft.TextAlign.CENTER
+            self.widget.text_align    = ft.TextAlign.CENTER
         if config_widget == " Text Justify":
-            self.widget.content.text_align    = ft.TextAlign.JUSTIFY
+            self.widget.text_align    = ft.TextAlign.JUSTIFY
         if config_widget == " Text Start":
-            self.widget.content.text_align    = ft.TextAlign.START
+            self.widget.text_align    = ft.TextAlign.START
         if config_widget == " Text End":
-            self.widget.content.text_align    = ft.TextAlign.END
+            self.widget.text_align    = ft.TextAlign.END
 
         ############################################################# CONTAINER.content = ft.Widget()
                                     # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900 # weight          = ft.FontWeight.BOLD,
         if config_widget == " Weight NORMAL":
-            self.widget.content.weight    = ft.FontWeight.NORMAL
+            self.widget.weight    = ft.FontWeight.NORMAL
         if config_widget == " Weight BOLD":
-            self.widget.content.weight    = ft.FontWeight.BOLD
+            self.widget.weight    = ft.FontWeight.BOLD
         if config_widget == " Weight W_100":
-            self.widget.content.weight    = ft.FontWeight.W_100
+            self.widget.weight    = ft.FontWeight.W_100
         if config_widget == " Weight W_200":
-            self.widget.content.weight    = ft.FontWeight.W_200
+            self.widget.weight    = ft.FontWeight.W_200
         if config_widget == " Weight W_300":
-            self.widget.content.weight    = ft.FontWeight.W_300
+            self.widget.weight    = ft.FontWeight.W_300
         if config_widget == " Weight W_400":
-            self.widget.content.weight    = ft.FontWeight.W_400
+            self.widget.weight    = ft.FontWeight.W_400
         if config_widget == " Weight W_500":
-            self.widget.content.weight    = ft.FontWeight.W_500
+            self.widget.weight    = ft.FontWeight.W_500
         if config_widget == " Weight W_600":
-            self.widget.content.weight    = ft.FontWeight.W_600
+            self.widget.weight    = ft.FontWeight.W_600
         if config_widget == " Weight W_700":
-            self.widget.content.weight    = ft.FontWeight.W_700
+            self.widget.weight    = ft.FontWeight.W_700
         if config_widget == " Weight W_800":
-            self.widget.content.weight    = ft.FontWeight.W_800
+            self.widget.weight    = ft.FontWeight.W_800
         if config_widget == " Weight W_900":
-            self.widget.content.weight    = ft.FontWeight.W_900
+            self.widget.weight    = ft.FontWeight.W_900
 
         # print(self.widget.uid)
         self.widget.update()
