@@ -1,4 +1,4 @@
-from extra_utils.settings_var.settings_widget import global_var, get_global_var
+from ..settings_var.settings_widget import global_var, get_global_var
 import flet as ft
 
 

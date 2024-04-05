@@ -62,3 +62,30 @@ we may manipulate attributes we find the selected widget by ID and make a CRUD c
 >>> id_widget.update()
 
 ```
+
+#### UNIQ Class
+
+```python
+
+class InfinityObjects(ft.Controls):
+    pass
+
+unique_object = InfinityObjects()
+
+
+>>>  EXEMPLE = ft.Row(
+>>>                controls = [
+>>>                            ################################################################
+>>>                            unique_object,       # <=== SAME OBJECT IF MODIFY MODIFY ALL SAME TIME
+>>>                            unique_object,       # <=== SAME OBJECT IF MODIFY MODIFY ALL SAME TIME
+>>>                            unique_object,       # <=== SAME OBJECT IF MODIFY MODIFY ALL SAME TIME
+>>>                            ################################################################
+>>>                            InfinityObjects(),   # <=== NEW  OBJECT IF MODIFY MODIFY ALL DIFERENTS PROPERTIES
+>>>                            InfinityObjects(),   # <=== NEW  OBJECT IF MODIFY MODIFY ALL DIFERENTS PROPERTIES
+>>>                            InfinityObjects(),   # <=== NEW  OBJECT IF MODIFY MODIFY ALL DIFERENTS PROPERTIES
+>>>                            ################################################################
+>>>                ]
+>>>
+>>>    )
+
+```

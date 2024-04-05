@@ -1,4 +1,4 @@
-from extra_utils.menu_tab_up_phone.basic_menu_tab_up import BasicMenuUp
+from ..menu_tab_up_phone.basic_menu_tab_up import BasicMenuUp
 
 import flet as ft
 

@@ -1,7 +1,7 @@
-from extra_utils.drag_container.dragg_widget import DraggWidget
-from extra_utils.drag_container.infinity_box_layer_one import InfinityBoxLayerOne
-from extra_utils.drag_container.drop_dragg import DropDragg
-from extra_utils.settings_var.settings_widget import global_var, get_global_var
+from ..drag_container.dragg_widget import DraggWidget
+from ..drag_container.infinity_box_layer_one import InfinityBoxLayerOne
+from ..drag_container.drop_dragg import DropDragg
+from ..settings_var.settings_widget import global_var, get_global_var
 
 import flet as ft
 

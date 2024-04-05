@@ -1,5 +1,5 @@
-from extra_utils.drag_container.dragg_widget import DraggWidget
-from extra_utils.settings_var.settings_widget import global_var, get_global_var
+from .dragg_widget import DraggWidget
+from ..settings_var.settings_widget import global_var, get_global_var
 
 import flet as ft
 

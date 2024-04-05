@@ -1,13 +1,13 @@
 ######################
-from extra_utils.config_container.double_entry import DoubleEntry
-from extra_utils.config_container.color_entry  import ColorEntry
-from extra_utils.config_container.bool_entry   import BoolEntry
-from extra_utils.config_container.four_entry   import FourEntry
-from extra_utils.config_container.single_entry import SingleEntry
-from extra_utils.config_container.selection_entry import SelectionEntry
-from extra_utils.config_container.gradient_entry  import GradientEntry
+from .double_entry    import DoubleEntry
+from .color_entry     import ColorEntry
+from .bool_entry      import BoolEntry
+from .four_entry      import FourEntry
+from .single_entry    import SingleEntry
+from .selection_entry import SelectionEntry
+from .gradient_entry  import GradientEntry
 
-from extra_utils.settings_var.settings_widget import global_var, get_global_var
+from ..settings_var.settings_widget import global_var, get_global_var
 ######################
 import flet as ft
 ######################

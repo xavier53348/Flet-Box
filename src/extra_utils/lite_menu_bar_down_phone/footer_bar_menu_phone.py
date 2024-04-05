@@ -1,5 +1,5 @@
-from extra_utils.lite_menu_bar_down_phone.selected_widget import SelectedWidget
-from extra_utils.settings_var.settings_widget import global_var, get_global_var
+from .selected_widget import SelectedWidget
+from ..settings_var.settings_widget import global_var, get_global_var
 
 import flet as ft
 

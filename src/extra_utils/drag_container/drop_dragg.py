@@ -1,5 +1,5 @@
-from extra_utils.settings_var.settings_widget import global_var, get_global_var
-from extra_utils.drag_container.infinity_box_layer_one import InfinityBoxLayerOne
+from ..settings_var.settings_widget import global_var, get_global_var
+from .infinity_box_layer_one import InfinityBoxLayerOne
 
 import flet as ft
 

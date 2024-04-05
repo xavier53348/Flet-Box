@@ -1,6 +1,6 @@
-from extra_utils.settings_var.settings_widget import global_var, get_global_var
-from extra_utils.config_container.widget_editor import Build_Editor
-from extra_utils.lite_menu_bar_down_phone.selected_widget import SelectedWidget
+from ..settings_var.settings_widget import global_var, get_global_var
+from ..config_container.widget_editor import Build_Editor
+from ..lite_menu_bar_down_phone.selected_widget import SelectedWidget
 
 #####################
 import flet as ft

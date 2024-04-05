@@ -6,20 +6,45 @@
 # >>> make wheel
 # >>> python3 setup.py sdist bdist_wheel
 
+# --name              print package name
+# --version (-V)      print package version
+# --fullname          print <package name>-<version>
+# --author            print the author's name
+# --author-email      print the author's email address
+# --maintainer        print the maintainer's name
+# --maintainer-email  print the maintainer's email address
+# --contact           print the maintainer's name if known, else the author's
+# --contact-email     print the maintainer's email address if known, else the
+#                     author's
+# --url               print the URL for this package
+# --license           print the license of the package
+# --licence           alias for --license
+# --description       print the package description
+# --long-description  print the long package description
+# --platforms         print the list of platforms
+# --classifiers       print the list of classifiers
+# --keywords          print the list of keywords
+# --provides          print the list of packages/modules provided
+# --requires          print the list of packages/modules required
+# --obsoletes         print the list of packages/modules made obsolete
+
 import io
 import os
 import sys
 from shutil import rmtree
-
-from setuptools import find_packages, setup, Command
+from distutils.core import setup
+from setuptools import find_packages,  Command
 
 # Package meta-data.
 NAME            = 'flet-box'
-DESCRIPTION     = 'flet-box is a package created as a Flet add-on, designed to be Box to use with a cleaner order in the code, having many customizable features.'
+DESCRIPTION     = "Flet-Box it's a GUI Dragg dropp BUILDER."
 URL             = 'https://github.com/xavier53348/Flet-Box'
-EMAIL           = 'javier53348@gmail.com'
-AUTHOR          = 'javier53348'
+AUTHOR          = 'xavier53348'
+EMAIL           = 'xavier53348@gmail.com'
+MANTAINER       = 'xavier53348'
+MANTAINER_EMAIL = 'xavier53348@gmail.com'
 REQUIRES_PYTHON = '>=3.8'
+PLATAFORM       = 'Multy platforms'
 VERSION         = '0.0.2'
 DATA_FILES      = [ 'src']
 # What packages are required for this module to be executed?
@@ -105,20 +130,30 @@ setup(
     author                           = AUTHOR,
     author_email                     = EMAIL,
     python_requires                  = REQUIRES_PYTHON,
+    maintainer                       = MANTAINER,
+    maintainer_email                 = MANTAINER_EMAIL,
     url                              = URL,
-    packages                         = find_packages(),
     # If your package is a single module, use this instead of 'packages':
     # py_modules                     =['mypackage'],
 
     # entry_points                   ={
     #     'console_scripts': ['mycli =mymodule:cli'],
     # },
+    platforms                        = PLATAFORM,
     install_requires                 = REQUIRED,
     extras_require                   = EXTRAS,
     data_files                       = DATA_FILES,
     include_package_data             = True,
-    package_data                     = {'assets': ['src/assets/*']},
+    # packages                         = ['src'],
+    # data_files                       = [('share/doc/foo', ['happy_birthday-art.txt'])],
+    packages                         = find_packages(),
+     # packages                        = ["flet_box",],
+    # package_data                     ={'flet_box': ['flet_box/*'],},
+    # exclude_package_data             = {'src': ['src'],},
     license                          = 'apache-2.0',
+    keywords                         = ["flet-Box", "flet",'flet-gui','flet-builder','flet-sdk'],
+    requires                         = ["flet"],
+    obsoletes                        = [],
     classifiers                      = [
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -138,3 +173,5 @@ setup(
         'upload': UploadCommand,
     },
 )
+
+

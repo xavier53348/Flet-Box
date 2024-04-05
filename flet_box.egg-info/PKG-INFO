@@ -1,16 +1,32 @@
 Metadata-Version: 2.1
 Name: flet-box
 Version: 0.0.2
-Summary: flet-box is a package created as a Flet add-on, designed to be Box to use with a cleaner order in the code, having many customizable features.
+Summary: Flet-Box it's a GUI Dragg dropp BUILDER.
 Home-page: https://github.com/xavier53348/Flet-Box
-Author: javier53348
-Author-email: javier53348@gmail.com
+Author: xavier53348
+Author-email: xavier53348@gmail.com
+Maintainer: xavier53348
+Maintainer-email: xavier53348@gmail.com
 License: apache-2.0
 Description: 
+        <!-- <img src="docs/gallery/full_screen.png" alt="Imagen Flet-Box"> -->
+        <!-- markdownserver http://localhost:8009/README.md -->
+        
         ## Flet-Box:
         ### It's a Python GUI Framework for Multi-Platform Apps
         
-        ![Flet-Box Preview](https://i.ibb.co/PwMYJH0/Flet-box.png)
+        [![Gallery Preview FLET-BOX](docs/gallery/youtube.png)](https://www.youtube.com/watch?v=15DDAACb0Hw)
+        
+        <details>
+            <summary>Gallery Preview FLET-BOX</summary>
+            <img src="docs/gallery/full_screen.png"         alt="Imagen Flet-Box">
+            <img src="docs/gallery/icons.png"               alt="Icons Flet-Box">
+            <img src="docs/gallery/colors.png"              alt="Colors Flet-Box">
+            <img src="docs/gallery/pc_mode.png"             alt="Colors Flet-Box">
+            <img src="docs/gallery/pc_mode_config.png"      alt="Colors Flet-Box">
+        </details>
+        
+        
         
         **Certainly!** Let's create a documentation for **Flet-Box**, a GUI framework that simplifies building multi-platform apps using drag-and-drop widgets in the Python language.
         
@@ -31,7 +47,8 @@ Description:
         ```bash
         
         >>> source .venv/bin/activate
-        >>> pip install flet-box flet
+        >>> pip install flet
+        >>> pip install https://github.com/xavier53348/Flet-Box.git
         
         ```
         ## Easy run Flet-Box
@@ -103,30 +120,63 @@ Description:
         | ft.alertdialog           | ✘ |
         | ft.rangeslider           | ✘ |
         
-        ### Path Flet-Box Modules
+        <!-- make tree -->
+        <!-- tree -I '__pycache__|__init__.py|test|drag_drop_proyect|flet_box.egg-info|docs|.|build|dist|LICENSE|MANIFEST.in|requeriments.txt|README.md|pyproject.toml|setup.py' > full_path.txt-->
         
+        ### Path Flet-Box Modules
         ```bash
-                ├── extra_utils
-                │   ├── config_container
-                │   │   ├── bool_entry.py
-                │   │   ├── color_entry.py
-                │   │   ├── double_entry.py
-                │   │   ├── four_entry.py
-                │   │   ├── gradient_entry.py
-                │   │   ├── selection_entry.py
-                │   │   ├── single_entry.py
-                │   │   └── widget_editor.py          <====== [BUILDER] RIGHT TAB BOX == CONFIG CONTAINER ATRIBUTES
-                │   ├── drag_container
-                │   │   ├── dragg_widget.py           <====== [BUILDER] DRAGG BOX     == LEFT LITE BOXES
-                │   │   ├── drop_dragg.py             <====== PHONE
-                │   │   ├── infinity_box_layer_one.py <====== [BUILDER] LOOP DRAGG CONTAINER TAKE IT FROM [DRAGG BOX]
-                │   │   └── widget_drag_editor.py     <====== [BUILDER] ALL DROP CONTAINER
-                │   ├── phone_container
-                │   └── settings_var
-                │       └── settings_widget.py        <====== [BUILDER] GLOBAL VARIABLES
-                ├── help_git.md
-                ├── main.py
-                └── README.md
+        .
+        ├── full_path.txt
+        ├── make_path.sh
+        ├── src
+        │   ├── assets
+        │   │   ├── dragg_container3.jpg
+        │   │   ├── dragg_container.jpg
+        │   │   ├── image.jpg
+        │   │   ├── img.jpg
+        │   │   ├── iphone.png
+        │   │   ├── logo.jpg
+        │   │   ├── logo_mark.png
+        │   │   ├── no_imagen.jpg
+        │   │   └── splash.jpg
+        │   ├── extra_utils
+        │   │   ├── color_browser
+        │   │   │   └── color_browser.py
+        │   │   ├── config_container
+        │   │   │   ├── bool_entry.py
+        │   │   │   ├── color_entry.py
+        │   │   │   ├── double_entry.py
+        │   │   │   ├── four_entry.py
+        │   │   │   ├── gradient_entry.py
+        │   │   │   ├── selection_entry.py
+        │   │   │   ├── single_entry.py
+        │   │   │   └── widget_editor.py
+        │   │   ├── drag_container
+        │   │   │   ├── dragg_widget.py
+        │   │   │   ├── drop_dragg.py
+        │   │   │   ├── infinity_box_layer_one.py
+        │   │   │   └── widget_drag_editor.py
+        │   │   ├── icon_browser
+        │   │   │   └── icon_browser.py
+        │   │   ├── lite_menu_bar_down_phone
+        │   │   │   ├── footer_bar_menu_phone.py
+        │   │   │   └── selected_widget.py
+        │   │   ├── lite_menu_bar_up_phone
+        │   │   │   └── head_bar_menu_phone.py
+        │   │   ├── menu_tab_left_phone
+        │   │   │   └── widget_menu_left_editor.py
+        │   │   ├── menu_tab_up_phone
+        │   │   │   ├── basic_menu_tab_up.py
+        │   │   │   └── widget_menu_tab_editor.py
+        │   │   ├── phone_container
+        │   │   │   └── widget_phone_editor.py
+        │   │   └── settings_var
+        │   │       └── settings_widget.py
+        │   └── flet_box.py
+        └── WIDGET.md
+        
+        13 directories, 35 files
+        
         ```
         
         ### Certainly!
@@ -231,7 +281,8 @@ Description:
         
         ```
         
-Platform: UNKNOWN
+Keywords: flet-Box,flet,flet-gui,flet-builder,flet-sdk
+Platform: Multy platforms
 Classifier: Development Status :: 5 - Production/Untable
 Classifier: Topic :: Software Development :: Build Tools
 Classifier: Intended Audience :: Developers
@@ -242,5 +293,6 @@ Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires: flet
 Requires-Python: >=3.8
 Description-Content-Type: WIDGET.md
