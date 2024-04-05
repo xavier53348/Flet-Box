@@ -7,11 +7,12 @@ import flet as ft
 class SelectedWidget(ft.UserControl):
     # globalVar='Erase this test'
 
-     def __init__(self,widget_selected=GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')):
+     def __init__(self,widget_selected ,type_widget, icon_widget):
           super().__init__()
           # self.title='widget_selected'
-          self.widget_selected = widget_selected
-
+          self.widget_selected = GLOBAL_VAR(get_global_var=widget_selected)
+          self.type_widget     = type_widget
+          self.icon_widget     = icon_widget
      def build(self):
           Drop_SelectedWidget = ft.Container( ##################### SELECTED WIDGET
                                         ink           = False,                                           # click effect ripple
@@ -31,11 +32,11 @@ class SelectedWidget(ft.UserControl):
                                                   ft.Container(
                                                        margin=ft.margin.only (left=8, top=0, right=0, bottom=0),
                                                        # expand=True,
-                                                       content=ft.Icon(name=ft.icons.SELECT_ALL_ROUNDED),
+                                                       content=ft.Icon(name=self.icon_widget),
                                                        ),
                                                   ft.Text(
                                                        ##################### PROPERTY
-                                                       value           = "Selected:\n", # content = ft.Text(value="Compound button", size=12,),
+                                                       value           = f"{self.type_widget}:\n", # content = ft.Text(value="Compound button", size=12,),
                                                        text_align      = ft.TextAlign.LEFT,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
                                                        weight          = ft.FontWeight.BOLD,                                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
                                                        font_family     = "Consolas", #"Consolas ,RobotoSlab
@@ -43,7 +44,7 @@ class SelectedWidget(ft.UserControl):
                                                        # width         = 120,
                                                        size=10,
                                                        #####################
-                                                       spans=[ft.TextSpan( self.widget_selected, ft.TextStyle( size=20, color=ft.colors.BLUE,weight=ft.FontWeight.BOLD),),],
+                                                       spans=[ft.TextSpan( self.widget_selected, ft.TextStyle( size=20, color=ft.colors.CYAN,weight=ft.FontWeight.BOLD),),],
                                         ),]),
                                         ##################### EVENTS
                                         # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),

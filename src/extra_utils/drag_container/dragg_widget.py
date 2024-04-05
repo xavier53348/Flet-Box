@@ -98,6 +98,14 @@ class DraggWidget(ft.UserControl): # <======= dragg widget
           ####################################################################################
           # if selected_widget_clicked is true each time that we press dragg box widget set border none
           # each witdget inside drop_dragg.py or Phone container will be a dragg_widget.py
+          TEXT_PHONE_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_PHONE_WIDGET')
+          TEXT_PHONE_WIDGET.controls[0].content.controls[1].spans[0].text = 'None'
+          TEXT_PHONE_WIDGET.controls[0].bgcolor = ft.colors.BLACK12
+          TEXT_PHONE_WIDGET.controls[0].update()
+          TEXT_DRAGG_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_DRAGG_WIDGET')
+          TEXT_DRAGG_WIDGET.controls[0].content.controls[1].spans[0].text = data
+          TEXT_DRAGG_WIDGET.controls[0].bgcolor = ft.colors.BLUE_GREY_900
+          TEXT_DRAGG_WIDGET.controls[0].update()
 
           if selected_widget_clicked:
                selected_widget_clicked.border = None

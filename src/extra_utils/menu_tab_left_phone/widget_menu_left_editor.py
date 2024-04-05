@@ -12,7 +12,7 @@ class MenuLeftContainer(ft.UserControl):
           # self.title='data'
           self.main_page=main_page
           self.icon_browser  = GLOBAL_VAR(get_global_var='ICON_BROWSER_CONTAINER')
-          self.color_browser = GLOBAL_VAR(get_global_var='COLOR_BROWSE_CONTAINER')
+          self.color_browser = GLOBAL_VAR(get_global_var='COLOR_BROWSER_CONTAINER')
 
      def build(self):
 

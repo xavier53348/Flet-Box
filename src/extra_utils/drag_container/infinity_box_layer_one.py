@@ -203,10 +203,10 @@ class InfinityBoxLayerOne(ft.UserControl):
 
           print('============')
           print(f"""
-     selected_widget: {self.dataPassed},
-     ID_widget: {numWidget},
-     ID tooltip: {self.infinityDropWidget[0].tooltip}
-     Content: {self.infinityDropWidget}""")
+                    selected_widget: {self.dataPassed},
+                    ID_widget: {numWidget},
+                    ID tooltip: {self.infinityDropWidget[0].tooltip}
+                    Content: {self.infinityDropWidget}""")
           print('============')
 
           self.drag_boxs =ft.DragTarget(
@@ -265,9 +265,15 @@ class InfinityBoxLayerOne(ft.UserControl):
                # time.sleep(0.1)
 
                ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
-               data_widget = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_WIDGET')
-               data_widget.controls[0].content.controls[1].spans[0].text = listWidget[0].tooltip
-               data_widget.controls[0].update()
+               TEXT_PHONE_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_PHONE_WIDGET')
+               TEXT_PHONE_WIDGET.controls[0].content.controls[1].spans[0].text = listWidget[0].tooltip
+               TEXT_PHONE_WIDGET.controls[0].bgcolor = ft.colors.BLUE_GREY_900
+               TEXT_PHONE_WIDGET.controls[0].update()
+               ######################################
+               TEXT_DRAGG_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_DRAGG_WIDGET')
+               TEXT_DRAGG_WIDGET.controls[0].content.controls[1].spans[0].text = "None"
+               TEXT_DRAGG_WIDGET.controls[0].bgcolor = ft.colors.BLACK12
+               TEXT_DRAGG_WIDGET.controls[0].update()
                ################################## SET GLOBAL VAR // SELECTED_WIDGET // IN PHONE_CONTAINER AND PHONE CONTENT
                GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER':listWidget[0]})
                GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER_CONTENT':listWidget[0].content})

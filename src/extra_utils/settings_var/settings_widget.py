@@ -7,18 +7,18 @@ DATA_GLOBAL = {
         'NUM_WIDGETS_DROPPED'             : 1,      #<== COUNT DRAGG_WIDGET BOX THAT WILL BE NEW ASSIGNED BY _ID NUMBER
                ########################
                  'PAGE'                   : None,
-                 'SELECT_DRAGG'           : None,   #<==  LITE BOX DRAGG_DROP BOX
+                 'SELECT_DRAGG'           : None,   #<== LITE BOX DRAGG_DROP BOX
                ########################
-               'SHOW_TEXT_SELECTED_WIDGET': None,   #<== LITE CONTAINER THAT SHOW SELECTED WIDGET TO CONFIG
+         'SHOW_TEXT_SELECTED_PHONE_WIDGET': 'None',   #<== LITE CONTAINER THAT SHOW SELECTED PHONE WIDGET TO CONFIG
+         'SHOW_TEXT_SELECTED_DRAGG_WIDGET': 'None',   #<== LITE CONTAINER THAT SHOW SELECTED DRAGG WIDGET TO CONFIG
+                        'PHONE_CONTAINER' : None,   #<== PHONE
+                'PHONE_CONTAINER_CONTENT' : None,   #<== PHONE CONTENT
 
-                        'PHONE_CONTAINER' : None,
-                'PHONE_CONTAINER_CONTENT' : None,
-
-        'SELECT_DROPP_WIDGET_CONTAINER'   : None,
-'SELECT_DROPP_WIDGET_CONTAINER_CONTENT'   : None,
+        'SELECT_DROPP_WIDGET_CONTAINER'   : None,   #<== SELECTED WIDGET IN PHONE
+'SELECT_DROPP_WIDGET_CONTAINER_CONTENT'   : None,   #<== SELECTED WIDGET IN PHONE CONTENT
                ########################
-               'ICON_BROWSER_CONTAINER'   : None,
-              'COLOR_BROWSER_CONTAINER'   : None,
+               'ICON_BROWSER_CONTAINER'   : None,   #<== BOX CONTAINER WITH SEARCH ICON
+              'COLOR_BROWSER_CONTAINER'   : None,   #<== BOX CONTAINER WITH SEARCH COLORS
                 }
 
 def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name'):

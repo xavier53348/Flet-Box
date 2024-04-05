@@ -17,8 +17,10 @@ class LiteMenuDownContainer(ft.UserControl):
         main_page = main_page
     def build(self):
 
-        Selected_Widget = SelectedWidget()
-        GLOBAL_VAR(set_global_var={'SHOW_TEXT_SELECTED_WIDGET':Selected_Widget})
+        Selected_Widget_in_dragg_container = SelectedWidget(widget_selected='SHOW_TEXT_SELECTED_DRAGG_WIDGET',type_widget = 'DRAGG BOX',icon_widget='drag_indicator')
+        Selected_Widget_in_phone_container = SelectedWidget(widget_selected='SHOW_TEXT_SELECTED_PHONE_WIDGET',type_widget = 'PHONE BOX',icon_widget='phone_iphone')
+        GLOBAL_VAR(set_global_var={'SHOW_TEXT_SELECTED_DRAGG_WIDGET':Selected_Widget_in_dragg_container})
+        GLOBAL_VAR(set_global_var={'SHOW_TEXT_SELECTED_PHONE_WIDGET':Selected_Widget_in_phone_container})
 
         Drop_LiteMenuDownContainer = ft.Container(
                                         # expand=True,
@@ -125,7 +127,8 @@ class LiteMenuDownContainer(ft.UserControl):
 
                                                             #############################################################
                                                             # widget selected text that change each time that we selected
-                                                            Selected_Widget,
+                                                            Selected_Widget_in_dragg_container,
+                                                            Selected_Widget_in_phone_container,
                                                             #############################################################
 
                                                             ft.Container( ############ NAME SCREEN
