@@ -27,7 +27,7 @@
 >>> extra_utils / color_browser / color_browser       metod ColorBrowser
 ```
 
-##### [Parh more datail to make own modules ](https://github.com/xavier53348/Flet-Box/blob/main/WIDGET.md)
+##### [Parh more datail to make own modules ](https://github.com/xavier53348/Flet-Box/blob/features/new_features/full_path.txt)
 
 ## Widgets Flet-Box:
 **All widget** in flet-box are Stack() container that have inside a container with the selected widget
