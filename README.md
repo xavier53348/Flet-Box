@@ -16,6 +16,8 @@
 </details>
 
 
+[More info documentation](https://github.com/xavier53348/Flet-Box/blob/main/WIDGET.md)
+
 
 **Certainly!** Let's create a documentation for **Flet-Box**, a GUI framework that simplifies building multi-platform apps using drag-and-drop widgets in the Python language.
 
@@ -37,7 +39,7 @@
 
 >>> source .venv/bin/activate
 >>> pip install flet
->>> pip install https://github.com/xavier53348/Flet-Box.git
+>>> git clone https://github.com/xavier53348/Flet-Box.git
 
 ```
 ## Easy run Flet-Box

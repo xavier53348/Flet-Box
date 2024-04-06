@@ -107,6 +107,7 @@ class Build_Editor(ft.UserControl):
 'column_phone_horizontal_alignment' :SelectionEntry( config_widget = 'horizontal_alignment'  ,widget = self.main_phone_conainer_conent),  # <=== this take width and hight in same time
                #########################
                    'phone_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.main_phone_conainer),
+                  'phone_blur'      :DoubleEntry(    config_widget = 'blur'                  ,widget = self.main_phone_conainer),
 
                ######################### ESPECIAL WIDGETS ONLY FOR CONTAINERS #########################
                #########################
@@ -233,6 +234,8 @@ class Build_Editor(ft.UserControl):
                                                             controls=[
                                                                       widgets_dict.get('phone_bgcolor'),
                                                                       widgets_dict.get('phone_gradient'),
+                                                                      widgets_dict.get('phone_blur'),
+
                                                                  ],),
                                                        ##########################################
                                                        BoxConfigContainer(
@@ -259,7 +262,7 @@ class Build_Editor(ft.UserControl):
                                              )
           self.widget_container = ft.Container( ########################################## TAB 2
                                    padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-                                   # visible=False,
+                                   visible=False, ###### <============ set visible or not
                               content = ft.Column(
                                              scroll="HIDDEN",
                                              controls = [ ##################### CONTROLS IN PHONE BOX
