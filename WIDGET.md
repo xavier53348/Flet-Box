@@ -27,7 +27,8 @@
 >>> extra_utils / color_browser / color_browser       metod ColorBrowser
 ```
 
-#####
+##### [Parh more datail to make own modules ](https://github.com/xavier53348/Flet-Box/blob/main/WIDGET.md)
+
 ## Widgets Flet-Box:
 **All widget** in flet-box are Stack() container that have inside a container with the selected widget
 we may manipulate attributes we find the selected widget by ID and make a CRUD create read use and delete.
