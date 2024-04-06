@@ -161,7 +161,6 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
         if  self.attribute_widget   == "bgcolor":
             value.content.controls[1].content.controls[1].bgcolor = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
             value.content.controls[1].update()
-
         if  self.attribute_widget   == "focused_bgcolor":
             value.content.controls[1].content.controls[1].bgcolor = value.content.controls[1].content.controls[0].content.value # <=== Atribute 0 ['width']
             value.content.controls[1].update()

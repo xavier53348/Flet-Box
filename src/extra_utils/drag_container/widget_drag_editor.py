@@ -96,13 +96,13 @@ class Build_Drag_Editor(ft.UserControl):
           self.FillDragg = DraggWidget( widget='Filled'         ,color='CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_ROUNDED)
           self.TonaDragg = DraggWidget( widget='Tonal'          ,color='CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_ROUNDED)
           self.OutlDragg = DraggWidget( widget='Outline'        ,color='CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_OUTLINED)
+          self.ChipDragg = DraggWidget( widget='Chip'           ,color='CYAN'   ,icons= ft.icons.LINK)
 
           ####################### SELECTIONS WIDGET
           self.ChecDragg = DraggWidget( widget='Checkbox'       ,color='CYAN'   ,icons= ft.icons.CHECK_ROUNDED)
           self.CupeDragg = DraggWidget( widget='Cupertino'      ,color='CYAN'   ,icons= ft.icons.CHECK_BOX_ROUNDED)
           self.ChiSDragg = DraggWidget( widget='Slider'         ,color='CYAN'   ,icons= ft.icons.COMMIT_OUTLINED)
           self.CupSDragg = DraggWidget( widget='Switch'         ,color='CYAN'   ,icons= ft.icons.SWIPE_RIGHT_ALT_ROUNDED)
-          self.ChipDragg = DraggWidget( widget='Chip'           ,color='CYAN'   ,icons= ft.icons.CLEAR_ALL)
 
           self.RadiDragg = DraggWidget( widget='Radio'          ,color='CYAN'   ,icons= ft.icons.RADIO_BUTTON_OFF)
           self.CupRDragg = DraggWidget( widget='Cup Radio'      ,color='CYAN'   ,icons= ft.icons.RADIO_BUTTON_ON)
@@ -181,13 +181,12 @@ class Build_Drag_Editor(ft.UserControl):
                                                            ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
                                                   ft.Container( ##################### CONTAINERS LAYOUTS
                                                            ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                           # expand = True,
-                                                           ink       = False,                                       # click effect ripple
-                                                           bgcolor   = ft.colors.BLACK26,                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                           padding   = ft.padding.all(2),    # inside box           # padding.only(left=8, top=8, right=8, bottom=8),
-                                                           margin    = ft.margin.all(2),     # outside box          # margin.only (left=8, top=8, right=8, bottom=8),
-                                                           alignment = ft.alignment.center,                         # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                           border_radius= ft.border_radius.all(16),                 # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                           ink             = False,                                       # click effect ripple
+                                                           bgcolor         = ft.colors.BLACK26,                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
+                                                           padding         = ft.padding.all(2),    # inside box           # padding.only(left=8, top=8, right=8, bottom=8),
+                                                           margin          = ft.margin.all(2),     # outside box          # margin.only (left=8, top=8, right=8, bottom=8),
+                                                           alignment       = ft.alignment.center,                         # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                                                           border_radius   = ft.border_radius.all(16),                 # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                                            # border        = ft.border.all(2, ft.colors.BLACK),     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                                            ######################
                                                            # image_src     = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
@@ -495,6 +494,7 @@ class Build_Drag_Editor(ft.UserControl):
                                                                            self.FillDragg,
                                                                            self.TonaDragg,
                                                                            self.OutlDragg,
+                                                                           self.ChipDragg,
                                                                         ],
                                                    ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
                                                            ##################### EVENTS
@@ -564,7 +564,6 @@ class Build_Drag_Editor(ft.UserControl):
                                                                            self.CupRDragg,
                                                                            self.CupSDragg,
                                                                            self.ChiSDragg,
-                                                                           self.ChipDragg,
                                                                            self.RadiDragg,
                                                                         ],
                                                            ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))

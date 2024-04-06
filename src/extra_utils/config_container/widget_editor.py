@@ -91,7 +91,7 @@ class Build_Editor(ft.UserControl):
 
                ######################### ESPECIAL WIDGETS ONLY FOR PHONE
                     'phone_bgcolor' :ColorEntry(     config_widget = 'bgcolor'               ,widget = self.main_phone_conainer),
-#                    'phone_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.main_phone_conainer),
+                   'phone_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.main_phone_conainer),
                   'phone_image_src' :SingleEntry(    config_widget = 'image_src'             ,widget = self.main_phone_conainer),
                   'phone_image_fit' :SelectionEntry( config_widget = 'image_fit'             ,widget = self.main_phone_conainer),
               'phone_image_opacity' :SingleEntry(    config_widget = 'image_opacity'         ,widget = self.main_phone_conainer),
@@ -222,7 +222,7 @@ class Build_Editor(ft.UserControl):
                                                                                                               title='Color Phone Container',
                                                                                                          controls=[
                                                                                                                    widgets_dict.get('phone_bgcolor'),
-                                                                                                                   # widgets_dict.get('phone_gradient'),
+                                                                                                                   widgets_dict.get('phone_gradient'),
                                                                                                               ],),
                                                                                                     ##########################################
                                                                                                     BoxConfigContainer(

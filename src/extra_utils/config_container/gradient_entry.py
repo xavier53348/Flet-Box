@@ -22,24 +22,24 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
     effects_gradients = {
                             # " Linear ": ft.LinearGradient,
                             # " Radial ": ft.RadialGradient,
-                            " top_left": ft.alignment.top_left,
-                            " top_center": ft.alignment.top_center,
-                            " top_right": ft.alignment.top_right,
-                            " center_left": ft.alignment.center_left,
-                            " center": ft.alignment.center,
-                            " center_right": ft.alignment.center_right,
-                            " bottom_left": ft.alignment.bottom_left,
-                            " bottom_center": ft.alignment.bottom_center,
-                            " bottom_right": ft.alignment.bottom_right,
-                            " top_left ": ft.alignment.top_left,
-                            " top_center ": ft.alignment.top_center,
-                            " top_right ": ft.alignment.top_right,
-                            " center_left ": ft.alignment.center_left,
-                            " center ": ft.alignment.center,
-                            " center_right ": ft.alignment.center_right,
-                            " bottom_left ": ft.alignment.bottom_left,
+                            " top_left"      : ft.alignment.top_left,
+                            " top_center"    : ft.alignment.top_center,
+                            " top_right"     : ft.alignment.top_right,
+                            " center_left"   : ft.alignment.center_left,
+                            " center"        : ft.alignment.center,
+                            " center_right"  : ft.alignment.center_right,
+                            " bottom_left"   : ft.alignment.bottom_left,
+                            " bottom_center" : ft.alignment.bottom_center,
+                            " bottom_right"  : ft.alignment.bottom_right,
+                            " top_left "     : ft.alignment.top_left,
+                            " top_center "   : ft.alignment.top_center,
+                            " top_right "    : ft.alignment.top_right,
+                            " center_left "  : ft.alignment.center_left,
+                            " center "       : ft.alignment.center,
+                            " center_right " : ft.alignment.center_right,
+                            " bottom_left "  : ft.alignment.bottom_left,
                             " bottom_center ": ft.alignment.bottom_center,
-                            " bottom_right ": ft.alignment.bottom_right,
+                            " bottom_right " : ft.alignment.bottom_right,
                                 }
     def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget=''):
         super().__init__()
@@ -47,7 +47,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
         self.attribute_widget = config_widget # <=== widget attribute
 
         ################# CONTAINER STR
-        if self.attribute_widget == "gradient ":
+        if self.attribute_widget == "gradient":
             """top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right"""
             # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
 
@@ -374,7 +374,6 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
 
         if self.main_gradient == ' Linear ':
             if self.color_1 and self.color_2:
-
                 if self.color_1 and self.color_2 and self.color_3 and self.color_4:
                     self.data_color = [self.color_1, self.color_2, self.color_3,self.color_4]
                 elif self.color_1 and self.color_2 and self.color_3:
@@ -430,6 +429,8 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
         # print(self.main_gradient_widget.content.value,'asdasd')
         # widget.content.controls[1].disabled = False
         # widget.content.controls[1].content.update()
+        # print(self.widget)
+        # self.widget.bgcolor = 'Red'
         if config_widget == ' None ':
             widget.content.controls[1].disabled = True
             widget.content.controls[2].disabled = True
@@ -451,7 +452,7 @@ class GradientEntry(ft.UserControl): ##################### PROPERTY
             widget.content.controls[2].content.controls[3].content.disabled = True
             widget.content.update()
 
-        if self.attribute_widget == 'gradient ':
+        if self.attribute_widget == 'gradient':
             if value == "color_1" :
                 self.color_1 = widget.content.controls[1].content.controls[0].content.value
             if value == "color_2" :

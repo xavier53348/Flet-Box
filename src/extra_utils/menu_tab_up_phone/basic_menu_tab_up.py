@@ -64,7 +64,7 @@ class BasicMenuUp(ft.UserControl):
                                                     ##################### WIDGETS
                                                     content=ft.TextButton(
                                                             text='File',
-                                                            icon='dataset_outlined',
+                                                            icon='rule_folder_rounded',
 
                                                             # bgcolor=ft.colors.BLACK54,
                                                 ),

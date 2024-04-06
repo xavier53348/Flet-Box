@@ -29,7 +29,7 @@ class Build_Phone_Editor(ft.UserControl):
                                         border_radius = ft.border_radius.all(40),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
                                         border        = ft.border.all(2, ft.colors.WHITE),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
                                         width         = 260,
-                                        height        = 525,
+                                        height        = 550,
                                         # bgcolor       = ft.colors.BLACK,
                                         bgcolor       = '#070707',
                                         # image_src               = f"iphone.png",
