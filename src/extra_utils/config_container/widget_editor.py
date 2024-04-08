@@ -95,6 +95,8 @@ class Build_Editor(ft.UserControl):
           widgets_dict = {
 
                ######################### ESPECIAL WIDGETS ONLY FOR PHONE    #########################
+                  'phone_margin'   :FourEntry(      config_widget = 'padding'                ,widget = self.main_phone_conainer),
+               #########################
               'phone_image_src'     :SingleEntry(    config_widget = 'image_src'             ,widget = self.main_phone_conainer),
               'phone_image_opacity' :SingleEntry(    config_widget = 'image_opacity'         ,widget = self.main_phone_conainer),
               'column_phone_spacing':SingleEntry(    config_widget = 'spacing'               ,widget = self.main_phone_conainer_conent),  # <=== this take width and hight in same time
@@ -111,6 +113,7 @@ class Build_Editor(ft.UserControl):
                #########################
                    'phone_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.main_phone_conainer),
                   'phone_blur'      :DoubleEntry(    config_widget = 'blur'                  ,widget = self.main_phone_conainer),
+               #########################
 
                ######################### ESPECIAL WIDGETS ONLY FOR CONTAINERS #########################
                #########################
@@ -255,6 +258,7 @@ class Build_Editor(ft.UserControl):
                                                        BoxConfigContainer(
                                                                  title='Column Phone Property',
                                                             controls=[
+                                                                      widgets_dict.get('phone_margin'),
                                                                       widgets_dict.get('column_phone_tight'),
                                                                       widgets_dict.get('column_phone_wrap'),
                                                                       widgets_dict.get('column_phone_scroll'),

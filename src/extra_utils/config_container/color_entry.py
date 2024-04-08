@@ -112,6 +112,8 @@ class ColorEntry(ft.UserControl): ##################### PROPERTY
         """will activate main widget color when press right Conteiner color box"""
         # print(data)
         ################ ONLY FOR CONTAINER
+        print(f'"{data}" <<==== ')
+
         if  data   == "bgcolor":
             self.widget.bgcolor        = value.content.controls[1].content.controls[1].bgcolor # <=== Atribute 0 ['width']
         if  data   == "focused_bgcolor":

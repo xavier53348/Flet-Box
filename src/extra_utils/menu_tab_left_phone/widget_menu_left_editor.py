@@ -10,9 +10,10 @@ class MenuLeftContainer(ft.UserControl):
      def __init__(self,main_page='Erase this test'):
           super().__init__()
           # self.title='data'
-          self.main_page=main_page
+          self.main_page     = main_page
           self.icon_browser  = GLOBAL_VAR(get_global_var='ICON_BROWSER_CONTAINER')
           self.color_browser = GLOBAL_VAR(get_global_var='COLOR_BROWSER_CONTAINER')
+          self.gpt_browser   = GLOBAL_VAR(get_global_var='GPT_BROWSER_CONTAINER')
 
      def build(self):
 
@@ -112,7 +113,7 @@ class MenuLeftContainer(ft.UserControl):
                                                                                                         width         = 45,
                                                                                                         border_radius = ft.border_radius.all(16)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='CHAT-GPT' ,content=ft.IconButton(icon=ft.icons.SMART_TOY , on_click=lambda _:self.on_developing('Chat-Gpt')),
+                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='CHAT-GPT' ,content=ft.IconButton(icon=ft.icons.SMART_TOY ,  on_click=lambda _:self.show_widgets(show_widget='gpt_browser')),
                                                                                                         bgcolor       = ft.colors.BLACK45,
                                                                                                         height        = 45,
                                                                                                         width         = 45,
@@ -141,6 +142,10 @@ class MenuLeftContainer(ft.UserControl):
           if show_widget == "color_browser":
                self.color_browser.visible  = True if not self.color_browser.visible else False
                self.color_browser.update()
+
+          if show_widget == "gpt_browser":
+               self.gpt_browser.visible  = True if not self.gpt_browser.visible else False
+               self.gpt_browser.update()
 
      def on_developing(self,name_seccion):
           page        = GLOBAL_VAR(get_global_var='PAGE')

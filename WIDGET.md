@@ -131,3 +131,53 @@ unique_object = InfinityObjects()
 >>>    )
 
 ```
+
+#### MAKE A PIP PACKAGE
+
+Sure, creating a simple pip package involves a few steps. Here's a basic example to create a pip package in Python 3:
+
+1. **Project Structure:** Create a directory for your project with the following structure:
+    ```shell
+>>>    your_project_name/
+>>>    ├── your_project_name/
+>>>    │   └── __init__.py
+>>>    ├── README.md
+>>>    ├── LICENSE
+>>>    └── setup.py
+    ```
+
+2. **Code File:** Inside the inner `your_project_name` directory, create a Python file, for example, `your_module.py`, with your code.
+
+3. **setup.py:** Create or edit the `setup.py` file like so:
+
+   ```python
+>>>   from setuptools import setup, find_packages
+>>>   setup(
+>>>       name='your_project_name',
+>>>       version='0.1',
+>>>       packages=find_packages(),
+>>>       install_requires=[
+>>>           # Add any dependencies here
+>>>       ],
+>>>   )
+   ```
+
+4. **Package File:** Inside the inner `your_project_name` directory, create an empty `__init__.py` file. If your package has modules, you can include them here.
+
+5. **README and LICENSE:** Create a `README.md` and a `LICENSE` file, including appropriate content.
+
+6. **Build the Package:** In the terminal, navigate to the outer directory (`your_project_name`) and run:
+   ```shell
+>>>   python setup.py sdist bdist_wheel
+   ```
+
+7. **Publishing:** You can distribute your package to the Python Package Index (PyPI) by using `twine`:
+   ```shell
+>>>   pip install twine
+>>>   twine upload dist/*
+   ```
+
+This will upload your package to PyPI, making it accessible to others using `pip install your_project_name`.
+
+Remember to replace `your_project_name` with your actual package name and adjust the version as needed.
+

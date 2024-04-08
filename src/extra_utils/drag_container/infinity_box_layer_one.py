@@ -269,93 +269,95 @@ class InfinityBoxLayerOne(ft.UserControl):
 
           """
           start_thread_time = time.perf_counter()
-
           global numClick
 
           CHECK_DATA = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
           CHECK_CURRENT_TIME_DOBLE_CLICKS = CHECK_DATA = GLOBAL_VAR(get_global_var='CHECK_CURRENT_TIME_DOBLE_CLICKS')
+
           ####################################################################################
           # CHECK IF SCAPE DOBLE CLICKS PEASE DON'T EDIT THIS LINE IF NO HAVE SOLUTION IMPLEMENTED
-          #
           end_thread_time = time.perf_counter()
           current_time_performance_clicks = CHECK_CURRENT_TIME_DOBLE_CLICKS - end_thread_time
 
-          print('<==============> START')
-          # IF CURRENT TIME IT GRADER THAN 0.1 SEGUND ITS OK LESS IS DETECTED AS DOUBLE CLIKS
-          print(current_time_performance_clicks,' :SECONDS')
-          print('<==============> END')
-          ####################################################################################
-
-          if CHECK_DATA:
-               #################################################################################### HIDE TAB 2
-               # HIDE TABS IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
-               #
-               CONFIG_TABS_CONTAINERS                 = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS')
-               CONFIG_TABS_CONTAINERS.visible         = False
-               CONFIG_TABS_CONTAINERS.update()
-               #################################################################################### HIDE TAB 3
-               # HIDE TABS IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
-
-               CONFIG_TABS_CONTAINERS_CONTENT         = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
-               CONFIG_TABS_CONTAINERS_CONTENT.visible = False
-               CONFIG_TABS_CONTAINERS_CONTENT.update()
-               #################################################################################### HIDE TAB 3
-
-
-          if numClick == 1:
-               tmp_list         = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
-               listWidgetUpdate = listWidget
-
-               if tmp_list:
-                    if not tmp_list.tooltip == listWidgetUpdate[0].tooltip:
-                         tmp_list.border = ft.border.all(0, ft.colors.TRANSPARENT)
-                         tmp_list.update()
-
-               #############################################################################
-               # WE HAVE TO FIX THIS PROBLEM MULTY TOUCH IS INVOKET EVERY TIME THAT MAKE ONE CLICK OVER A BOX
-               widgetConfig = listWidgetUpdate
-               # print(widgetConfig)
-
-               # print('separate <=============',e.__dir__())
-               # print('separate <=============',e.__dir__())
-
-               #############################################################################
-               """
-               THIS MODULE CALL TO BUILD EDITOR TO CHANGE ATTRIBUTES
-               """
-               # Build_Editor.update_widget_attributes(widget_cliked=self.infinityDropWidget[0])
-               ############################################################################
-
-               # time.sleep(0.1)
-
-               ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
-               TEXT_PHONE_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_PHONE_WIDGET')
-               TEXT_PHONE_WIDGET.controls[0].content.controls[1].spans[0].text = listWidget[0].tooltip
-               TEXT_PHONE_WIDGET.controls[0].bgcolor = ft.colors.BLUE_GREY_900
-               TEXT_PHONE_WIDGET.controls[0].update()
-               ######################################
-               TEXT_DRAGG_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_DRAGG_WIDGET')
-               TEXT_DRAGG_WIDGET.controls[0].content.controls[1].spans[0].text = "None"
-               TEXT_DRAGG_WIDGET.controls[0].bgcolor = ft.colors.BLACK12
-               TEXT_DRAGG_WIDGET.controls[0].update()
-               ################################## SET GLOBAL VAR // SELECTED_WIDGET // IN PHONE_CONTAINER AND PHONE CONTENT
-               GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER':listWidget[0]})
-               GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER_CONTENT':listWidget[0].content})
+          if float(current_time_performance_clicks) > -1.2:
                ####################################################################################
-
-               GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':listWidget[0]})
-               GLOBAL_VAR(set_global_var={'BOOL_SHOW_SELECTED':True})
-
-               widgetConfig[0].border = ft.border.all(2, ft.colors.YELLOW_900)
-               widgetConfig[0].update()
-
+               # IF CURRENT TIME IT GRADER THAN 0.1 SEGUND ITS OK LESS IS DETECTED AS DOUBLE CLIKS
+               # print('<==============> START')
+               # print(current_time_performance_clicks,' :SECONDS')
+               # print('<==============> END')
                ####################################################################################
-               # WILL BE A DEATH LINE IF MAKE THE SOLUTION TO:
-               # DOUBLE CLICK IN CONTAINER ON_CLIK EVENT THAT PASS THROUG IT SELF 2 CLICKS IN SAME TIME
-               end_thread_time = time.perf_counter()
-               GLOBAL_VAR(set_global_var={'CHECK_CURRENT_TIME_DOBLE_CLICKS':end_thread_time}) # <==== TO CHECK CLICKS SCAPED IN CONTAINERS
+               print(f'ESCAPE DOUBLE CLICK: TIME: {current_time_performance_clicks}')
 
-          numClick+=1
+          else:
+               if CHECK_DATA:
+                    #################################################################################### HIDE TAB 2
+                    # HIDE TABS 2 and 3 IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
+                    #
+                    CONFIG_TABS_CONTAINERS                 = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS')
+                    CONFIG_TABS_CONTAINERS.visible         = False
+                    CONFIG_TABS_CONTAINERS.update()
+                    #################################################################################### HIDE TAB 3
+                    # HIDE TABS 2 and 3 IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
+
+                    CONFIG_TABS_CONTAINERS_CONTENT         = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
+                    CONFIG_TABS_CONTAINERS_CONTENT.visible = False
+                    CONFIG_TABS_CONTAINERS_CONTENT.update()
+                    #################################################################################### HIDE TAB 3
+
+               if numClick == 1:
+                    tmp_list         = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
+                    listWidgetUpdate = listWidget
+
+                    if tmp_list:
+                         if not tmp_list.tooltip == listWidgetUpdate[0].tooltip:
+                              tmp_list.border = ft.border.all(0, ft.colors.TRANSPARENT)
+                              tmp_list.update()
+
+                    #############################################################################
+                    # WE HAVE TO FIX THIS PROBLEM MULTY TOUCH IS INVOKET EVERY TIME THAT MAKE ONE CLICK OVER A BOX
+                    widgetConfig = listWidgetUpdate
+
+                    # print(widgetConfig)
+                    # print('separate <=============',e.__dir__())
+                    # print('separate <=============',e.__dir__())
+
+                    #############################################################################
+                    """
+                    THIS MODULE CALL TO BUILD EDITOR TO CHANGE ATTRIBUTES
+                    """
+                    # Build_Editor.update_widget_attributes(widget_cliked=self.infinityDropWidget[0])
+                    ############################################################################
+
+                    # time.sleep(0.1)
+
+                    ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+                    TEXT_PHONE_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_PHONE_WIDGET')
+                    TEXT_PHONE_WIDGET.controls[0].content.controls[1].spans[0].text = listWidget[0].tooltip
+                    TEXT_PHONE_WIDGET.controls[0].bgcolor = ft.colors.BLUE_GREY_900
+                    TEXT_PHONE_WIDGET.controls[0].update()
+                    ######################################
+                    TEXT_DRAGG_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_DRAGG_WIDGET')
+                    TEXT_DRAGG_WIDGET.controls[0].content.controls[1].spans[0].text = "None"
+                    TEXT_DRAGG_WIDGET.controls[0].bgcolor = ft.colors.BLACK12
+                    TEXT_DRAGG_WIDGET.controls[0].update()
+                    ################################## SET GLOBAL VAR // SELECTED_WIDGET // IN PHONE_CONTAINER AND PHONE CONTENT
+                    GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER':listWidget[0]})
+                    GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER_CONTENT':listWidget[0].content})
+                    ####################################################################################
+
+                    GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':listWidget[0]})
+                    GLOBAL_VAR(set_global_var={'BOOL_SHOW_SELECTED':True})
+
+                    widgetConfig[0].border = ft.border.all(2, ft.colors.YELLOW_900)
+                    widgetConfig[0].update()
+
+                    ####################################################################################
+                    # WILL BE A DEATH LINE IF MAKE THE SOLUTION TO:
+                    # DOUBLE CLICK IN CONTAINER ON_CLIK EVENT THAT PASS THROUG IT SELF 2 CLICKS IN SAME TIME
+                    end_thread_time = time.perf_counter()
+                    GLOBAL_VAR(set_global_var={'CHECK_CURRENT_TIME_DOBLE_CLICKS':end_thread_time}) # <==== TO CHECK CLICKS SCAPED IN CONTAINERS
+
+               numClick+=1
 
      def drag_accept(self,widgetDropBox):
           """

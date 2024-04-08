@@ -13,6 +13,7 @@ from extra_utils.lite_menu_bar_down_phone.selected_widget        import Selected
 ################################################################################### ICON AND COLOR BROWSER CONTAINER
 from extra_utils.icon_browser.icon_browser                       import IconBrowser
 from extra_utils.color_browser.color_browser                     import ColorBrowser
+from extra_utils.chat_gpt_browser.gpt_browser                    import GptBrowser
 ###################### CALL GLOBAL VAR ############################################ GLOBAL VARS
 from extra_utils.settings_var.settings_widget                    import GLOBAL_VAR
 ###################################################################################
@@ -90,8 +91,20 @@ def main(page: ft.Page):
                bottom = 80,
           content=Color_Browser,
           )
-     ############################################ COLOR BROWSER
      GLOBAL_VAR(set_global_var={'COLOR_BROWSER_CONTAINER':ColorBrowserContainer})
+
+     ############################################ GPT BROWSER
+     Gpt_Browser = GptBrowser(blur_effect=True)
+
+     GptBrowserContainer = ft.Container(
+               visible= False,
+               right  = 240,
+               left   = 240,
+               top    = 80,
+               bottom = 80,
+          content=Gpt_Browser,
+          )
+     GLOBAL_VAR(set_global_var={'GPT_BROWSER_CONTAINER':GptBrowserContainer})
 
      ############################################
      right_config_container = ft.Container( ###################### RIGHT CONFIG CONTAINER
@@ -418,6 +431,7 @@ def main(page: ft.Page):
                          screen_1,      # <=== main page
                          IconBrowserContainer,
                          ColorBrowserContainer,
+                         GptBrowserContainer,
                          ]
           )
 
