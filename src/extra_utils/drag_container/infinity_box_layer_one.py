@@ -249,8 +249,16 @@ class InfinityBoxLayerOne(ft.UserControl):
 
      def resetClick(self):
           global numClick
-
           numClick=1
+
+          ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+          # SELECT_DROPP_WIDGET_CONTAINER = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER')
+          # if not SELECT_DROPP_WIDGET_CONTAINER == None:  # <<===== YOU SELECTED ONE WIDGET IN PHONE
+          #      # IF LEAVE THIS BOX WILL RESET BORDER PHONE
+          #      SELECT_DROPP_WIDGET_CONTAINER.border = None
+          #      SELECT_DROPP_WIDGET_CONTAINER.update()
+          ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+
 
      def touchWidgetIndex(self,listWidget):
      # def touchWidgetIndex(self,listWidget,e: ft.ContainerTapEvent):
@@ -268,25 +276,26 @@ class InfinityBoxLayerOne(ft.UserControl):
           Build_Editor.update_widget_attributes(widget_cliked=ft.Container(content=ft.Text()))
 
           """
-          start_thread_time = time.perf_counter()
           global numClick
 
+
           CHECK_DATA = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
-          CHECK_CURRENT_TIME_DOBLE_CLICKS = CHECK_DATA = GLOBAL_VAR(get_global_var='CHECK_CURRENT_TIME_DOBLE_CLICKS')
+
+          click_time      = time.time()
+          last_click_time = GLOBAL_VAR(get_global_var='CHECK_CURRENT_TIME_DOBLE_CLICKS')  #< == DEFAULD 0
 
           ####################################################################################
           # CHECK IF SCAPE DOBLE CLICKS PEASE DON'T EDIT THIS LINE IF NO HAVE SOLUTION IMPLEMENTED
-          end_thread_time = time.perf_counter()
-          current_time_performance_clicks = CHECK_CURRENT_TIME_DOBLE_CLICKS - end_thread_time
+          # end_thread_time = time.time()
 
-          if float(current_time_performance_clicks) > -1.2:
+          if (click_time - last_click_time) < 0.3:
                ####################################################################################
                # IF CURRENT TIME IT GRADER THAN 0.1 SEGUND ITS OK LESS IS DETECTED AS DOUBLE CLIKS
                # print('<==============> START')
                # print(current_time_performance_clicks,' :SECONDS')
                # print('<==============> END')
                ####################################################################################
-               print(f'ESCAPE DOUBLE CLICK: TIME: {current_time_performance_clicks}')
+               print(f'ESCAPE DOUBLE CLICK: TIME: {click_time - last_click_time}')
 
           else:
                if CHECK_DATA:
@@ -316,10 +325,6 @@ class InfinityBoxLayerOne(ft.UserControl):
                     #############################################################################
                     # WE HAVE TO FIX THIS PROBLEM MULTY TOUCH IS INVOKET EVERY TIME THAT MAKE ONE CLICK OVER A BOX
                     widgetConfig = listWidgetUpdate
-
-                    # print(widgetConfig)
-                    # print('separate <=============',e.__dir__())
-                    # print('separate <=============',e.__dir__())
 
                     #############################################################################
                     """
@@ -354,8 +359,7 @@ class InfinityBoxLayerOne(ft.UserControl):
                     ####################################################################################
                     # WILL BE A DEATH LINE IF MAKE THE SOLUTION TO:
                     # DOUBLE CLICK IN CONTAINER ON_CLIK EVENT THAT PASS THROUG IT SELF 2 CLICKS IN SAME TIME
-                    end_thread_time = time.perf_counter()
-                    GLOBAL_VAR(set_global_var={'CHECK_CURRENT_TIME_DOBLE_CLICKS':end_thread_time}) # <==== TO CHECK CLICKS SCAPED IN CONTAINERS
+                    GLOBAL_VAR(set_global_var={'CHECK_CURRENT_TIME_DOBLE_CLICKS':click_time}) # <==== TO CHECK CLICKS SCAPED IN CONTAINERS
 
                numClick+=1
 
