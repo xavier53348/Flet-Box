@@ -21,10 +21,17 @@ class WrapWidgetNode():
         BUILDER TREE WITH ALL WIDGET INSIDE CALLING ONE BY ONE
         TO MAKE A TREE WITH ALL WIDGETS OREDERER
 
+
+        container_string_node = ''                  # CONTAIN MAIN CONTAINER WIDGET
+        contents__string_node = ''                  # CONTENT OF MAIN CONTAINER
+        tmp_controls_all_node = []                  # LIST WITH ALL WIDGET TO SHOW IN TREVIEW
+
+        self.data = '\n'.join(self.all_data_list)   # WILL TRANSFOR FROM LIST TO STRING
+
         """
         self.all_widgets = widget_show
 
-        list_controls  = ['row','column','stack',]
+        list_controls  = ['row','column','stack','gridview']
         # ##################### >>> 0
         # self.container_string_node = self.main_node
         # self.contents__string_node = self.container_string_node.content

@@ -7,7 +7,7 @@ from .. tree_view.tree_view import TreeView
 import flet as ft
 ####################################################
 
-class MenuLeftContainer(ft.UserControl):
+class MenuLeftContainer(ft.Stack):
     # globalVar='Erase this test'
 
      def __init__(self,main_page='Erase this test'):

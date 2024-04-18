@@ -6,7 +6,7 @@ import flet as ft
 from ..settings_var.settings_widget import GLOBAL_VAR
 ####################################################
 
-class Build_Phone_Editor(ft.UserControl):
+class Build_Phone_Editor(ft.Stack):
      """
      NOTE:
 

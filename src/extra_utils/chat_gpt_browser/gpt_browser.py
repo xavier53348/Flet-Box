@@ -9,7 +9,7 @@ from .library_chatgpt import ChatGpt
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 ####################################################
 
-class Gpt_text(ft.UserControl):
+class Gpt_text(ft.Stack):
     # globalVar='Erase this test'
 
     def __init__(self,input_text='Erase this test',color_chat="#0a1618",ask=False):
@@ -149,7 +149,7 @@ class Gpt_text(ft.UserControl):
     #     ##########################
 
 ######## Gpt_text = Gpt_text(),# <======= Comma
-class GptBrowser(ft.UserControl):
+class GptBrowser(ft.Stack):
     """
     lite module to find colors by name
     """

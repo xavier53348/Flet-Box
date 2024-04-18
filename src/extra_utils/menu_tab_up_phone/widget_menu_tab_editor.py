@@ -4,7 +4,7 @@ from ..menu_tab_up_phone.basic_menu_tab_up import BasicMenuUp
 import flet as ft
 ####################################################
 
-class MenuUpContainer(ft.UserControl):
+class MenuUpContainer(ft.Stack):
      # globalVar='Erase this test'
 
      def __init__(self,main_page='Erase this test'):

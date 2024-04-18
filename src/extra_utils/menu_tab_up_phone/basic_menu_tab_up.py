@@ -2,7 +2,7 @@
 import flet as ft
 ####################################################
 
-class BasicMenuUp(ft.UserControl):
+class BasicMenuUp(ft.Stack):
     # globalVar='Erase this test'
 
     def __init__(self,data='Erase this test'):

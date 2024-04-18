@@ -6,7 +6,7 @@ from ..settings_var.settings_widget import GLOBAL_VAR
 import flet as ft
 ####################################################
 
-class Build_Drag_Editor(ft.UserControl):
+class Build_Drag_Editor(ft.Stack):
      """
     Center Box that contain the phone to add Widget
 

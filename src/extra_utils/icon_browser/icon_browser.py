@@ -7,7 +7,7 @@ import time
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 ####################################################
 
-class Icon_text(ft.UserControl):
+class Icon_text(ft.Stack):
     # globalVar='Erase this test'
 
     def __init__(self,data='Erase this test'):
@@ -65,7 +65,7 @@ class Icon_text(ft.UserControl):
         ##########################
 
 ######## Icon_text = Icon_text(),# <======= Comma
-class IconBrowser(ft.UserControl):
+class IconBrowser(ft.Stack):
     """
     lite module to find icons by name
     """

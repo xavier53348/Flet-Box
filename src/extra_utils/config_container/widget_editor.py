@@ -12,7 +12,7 @@ import flet as ft
 from ..settings_var.settings_widget import GLOBAL_VAR
 ####################################################
 
-class BoxConfigContainer(ft.UserControl):
+class BoxConfigContainer(ft.Stack):
     # globalVar='Erase this test'
 
     def __init__(self,title=str(),controls=list()):
@@ -61,7 +61,7 @@ class BoxConfigContainer(ft.UserControl):
         return Drop_BoxConfigContainer
 ######## BoxConfigContainer = BoxConfigContainer(),# <======= Comma
 
-class Build_Editor(ft.UserControl):
+class Build_Editor(ft.Stack):
      """
      Builder editor is a Row Container that will content all widgets editors inside
 

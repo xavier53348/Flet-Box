@@ -8,7 +8,7 @@ import flet as ft
 
 visible = False
 
-class TreeView(ft.UserControl):
+class TreeView(ft.Stack):
     # globalVar='Erase this test'
 
     def __init__(self,tree_view='  CLICK OVER TO UPDATE TREEVIEW'):

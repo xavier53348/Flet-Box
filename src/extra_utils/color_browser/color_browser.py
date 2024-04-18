@@ -7,7 +7,7 @@ import time
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 ####################################################
 
-class Color_text(ft.UserControl):
+class Color_text(ft.Stack):
     # globalVar='Erase this test'
 
     def __init__(self,data='Erase this test'):
@@ -76,7 +76,7 @@ class Color_text(ft.UserControl):
         ##########################
 
 ######## Color_text = Color_text(),# <======= Comma
-class ColorBrowser(ft.UserControl):
+class ColorBrowser(ft.Stack):
     """
     lite module to find colors by name
     """

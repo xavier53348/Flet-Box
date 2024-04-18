@@ -6,7 +6,7 @@ from ..settings_var.settings_widget import GLOBAL_VAR
 import flet as ft
 ####################################################
 
-class LiteMenuDownContainer(ft.UserControl):
+class LiteMenuDownContainer(ft.Stack):
     # globalVar='Erase this test'
 
     def __init__(self,main_page='Erase this test'):

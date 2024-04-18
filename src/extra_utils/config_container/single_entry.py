@@ -2,7 +2,7 @@
 import flet as ft
 ####################################################
 
-class SingleEntry(ft.UserControl): ##################### PROPERTY
+class SingleEntry(ft.Stack): ##################### PROPERTY
     """
     box_layout = ft.Container(content=ft.Text())
 

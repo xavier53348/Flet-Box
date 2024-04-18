@@ -4,7 +4,7 @@ import flet as ft
 from ..settings_var.settings_widget import GLOBAL_VAR
 ####################################################
 
-class DraggWidget(ft.UserControl): # <======= dragg widget
+class DraggWidget(ft.Stack): # <======= dragg widget
      """
      NOTE:
 

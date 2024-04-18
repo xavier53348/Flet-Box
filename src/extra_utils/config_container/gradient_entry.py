@@ -2,7 +2,7 @@
 import flet as ft
 ####################################################
 
-class GradientEntry(ft.UserControl): ##################### PROPERTY
+class GradientEntry(ft.Stack): ##################### PROPERTY
     """
     box_layout = ft.Container(content=ft.Text())
 

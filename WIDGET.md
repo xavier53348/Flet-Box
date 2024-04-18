@@ -208,6 +208,21 @@ Remember to replace `your_project_name` with your actual package name and adjust
 >>> tmp_data = screen_1.__repr__()
 ```
 
+#### GET SPECIFIC ATTRIBUTES
+- GET SPECIFIC
+```shell
+>>> tmp_data.__getattribute__('text')
+>>> tmp_data._get_attr('text')
+```
+
+#### DEL SPECIFIC ATTRIBUTES
+- DEL SPECIFIC
+```shell
+>>> tmp_data.__delattr__('text')
+```
+
+
+
 #### ATTRIBUTES ID
 - GET ID
 ```shell

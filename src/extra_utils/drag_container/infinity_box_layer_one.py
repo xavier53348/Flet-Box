@@ -12,7 +12,7 @@ numClick         = GLOBAL_VAR(get_global_var='NUM_CLICKS')
 listWidgetUpdate = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
 #####################
 
-class InfinityBoxLayerOne(ft.UserControl):
+class InfinityBoxLayerOne(ft.Stack):
      """
      NOTE:
 

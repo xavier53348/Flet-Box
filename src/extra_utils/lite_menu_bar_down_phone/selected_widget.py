@@ -4,7 +4,7 @@ from ..settings_var.settings_widget import GLOBAL_VAR
 import flet as ft
 ####################################################
 
-class SelectedWidget(ft.UserControl):
+class SelectedWidget(ft.Stack):
     # globalVar='Erase this test'
 
      def __init__(self,widget_selected ,type_widget, icon_widget):

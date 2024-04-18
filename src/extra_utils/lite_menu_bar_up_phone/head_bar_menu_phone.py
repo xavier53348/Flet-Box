@@ -4,7 +4,7 @@ from ..settings_var.settings_widget import GLOBAL_VAR
 import flet as ft
 ####################################################
 
-class LiteMenuUpContainer(ft.UserControl):
+class LiteMenuUpContainer(ft.Stack):
     # globalVar='Erase this test'
      def __init__(self,main_page= None , phone_widget_container= None,menu_left_container= None , menu_right_container= None, space_widget = None):
           super().__init__()
