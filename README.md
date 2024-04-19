@@ -1,5 +1,7 @@
 <!-- <img src="docs/gallery/full_screen.png" alt="Imagen Flet-Box"> -->
 <!-- markdownserver http://localhost:8009/README.md -->
+<!-- http://localhost:8080/Desktop/git_hub/flet_box/docs/Roadmap#flet-box-framework-roadmap -->
+
 
 ## Flet-Box:
 ### It's a Python GUI Framework for Multi-Platform Apps
@@ -18,6 +20,7 @@
 
 [More info documentation](https://github.com/xavier53348/Flet-Box/blob/main/WIDGET.md)
 
+[Our goals and Roadmap](https://github.com/xavier53348/Flet-Box/blob/main/docs/Roadmap.md)
 
 **Certainly!** Let's create a documentation for **Flet-Box**, a GUI framework that simplifies building multi-platform apps using drag-and-drop widgets in the Python language.
 

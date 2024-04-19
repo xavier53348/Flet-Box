@@ -221,8 +221,6 @@ Remember to replace `your_project_name` with your actual package name and adjust
 >>> tmp_data.__delattr__('text')
 ```
 
-
-
 #### ATTRIBUTES ID
 - GET ID
 ```shell
@@ -253,6 +251,12 @@ Remember to replace `your_project_name` with your actual package name and adjust
 - GET NAME OF THE WIDGET
 ```shell
 >>> tmp_data = screen_1._get_control_name()
+```
+
+#### DELETE WIDGET FROM APP
+```
+>>> tmp_data._index                                             ####<=== very important DICT OF ALL WWIDGETS
+>>> del tmp_data._index[widget._Control__uid]                   ####<=== delete from index page very important
 ```
 
 #### KWON INFO ABOUT PAGE FROM EVERY WHERE

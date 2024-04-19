@@ -32,6 +32,9 @@ DATA_GLOBAL =  {
                  'ICON_BROWSER_CONTAINER' : None,   # <== BOX CONTAINER WITH SEARCH ICON
                 'COLOR_BROWSER_CONTAINER' : None,   # <== BOX CONTAINER WITH SEARCH COLORS
                   'GPT_BROWSER_CONTAINER' : None,   # <== BOX CONTAINER WITH SEARCH GPT
+               ########################
+                        'ABOUT_CONTAINER' : None,   # <== BOX CONTAINER WITH ABOUT PAGE
+
                }
 
 def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name',remove_global_var = 'var_remove'):
