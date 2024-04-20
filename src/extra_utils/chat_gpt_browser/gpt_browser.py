@@ -346,84 +346,19 @@ Join me and let's embark on a journey of discovery together!...
         )#<=== NOTE COMA
 
     def build(self):
-
         return self.Drop_GptBrowser
-
-    # def preparing_list_colors(self):
-    #     #########################################################
-    #     # WE CALL ALL ICONS TO SAVE IN ICON_LIST TO MAKE ALOOP OVERIT
-    #     # AND EXTRACT EXATCLY THE ICO THAT WE ARE FINDING
-    #     colors_list   = list()
-    #     list_started = False
-
-    #     for key, value in vars(ft.colors).items():
-    #         # print(key)
-    #         # time.sleep(0.2)
-    #         if key == "PRIMARY":
-    #             list_started = True
-    #         if list_started:
-    #             colors_list.append(value)
-
-    #     return colors_list
 
     def search_gpt_question(self,e):
         # ALL DATA THAT WE PASE BY TEXT_INPUT WILL BE IN LOWER CASE
         search_term = e.value.lower()
 
-        # def run_upload_colors():
-        #     global num_count
-        #     num_count = 0
-
-        #     for _ in self.list_colors:
-        #         if _.startswith(search_term) and num_count < len(self.Search_Gridwiew.controls):
-        #             #########################################################
-        #             # ONLY SHOW IN SCREEN THE AMOUNT THAT WE FIND BY OUR SEARCH
-        #             # THE REST WILL NOW SHOW IN THE NEXT CODE
-        #             self.color_widget = self.Search_Gridwiew.controls[num_count].controls[0]
-
-        #             # CHANGE ICO AND NAME ICO PROPERTY
-        #             self.color_widget.content.content.controls[0].bgcolor = _
-        #             self.color_widget.content.content.controls[1].value   = _
-
-        #             # CHANGE PROPERTY VISIBLE
-        #             self.color_widget.visible                             = True
-        #             self.Search_Gridwiew.visible                        = True
-        #             self.Search_Gridwiew.controls[num_count].visible    = True
-        #             self.color_widget.content.content.controls[0].visible = True
-        #             self.color_widget.content.content.controls[1].visible = True
-
-        #             # NUMBER OF COUNT WIDGET WILL INCREASE TO HAVE CONTROL OF ALL DRAW WIDGETS
-        #             num_count+= 1
-
-        #     #########################################################
-        #     # THIS CODE IS IF THE WIDET THAT WE CALL HAVE LESS THAN ALL AMOUNT OF WIDGET IN BOX
-        #     # EXEMPLE 50 IF WE CALL 20 THE REST OF 30 WILL BE VISIBLE = OFF
-        #     # WE DON'T WANT SHOW INECCESARY WIDGET IN SCREEN
-
-        #     for _ in range(num_count,self.numb_widget_to_show):
-        #         # will take all widget that no exist in search icon in mode invisible
-        #         self.color_widget = self.Search_Gridwiew.controls[_].controls[0]
-
-        #         self.color_widget.visible = False
-        #         self.Search_Gridwiew.controls[_].visible = False
-        #         self.color_widget.content.content.controls[0].visible = False
-        #         self.color_widget.content.content.controls[1].visible = False
-
-        #     #########################################################
-        #     # UPDATE ALL WIDGETS INSIDE BOX JUST ONE TIME
-        #     for _ in self.Search_Gridwiew.controls:
-        #         _.update()
-        #     self.Search_Gridwiew.update()
-        #     #########################################################
-
-        # run_upload_colors()
         self.user_question_container = Gpt_text(input_text=search_term,ask=True)
         self.Search_Gridwiew.controls.append(self.user_question_container)
         self.Search_Gridwiew.update()
         e.value =''
         e.update()
         message_returned = ChatGpt(question=f"""{search_term}""".rstrip(' '))
-        # message = question#.get(MESSAGE)
+
         print(message_returned)
 
         if message_returned:

@@ -1,3 +1,5 @@
+###################### CALL GLOBAL VAR #############
+from ..settings_var.settings_widget import GLOBAL_VAR
 ####################################################
 import flet as ft
 ####################################################
@@ -5,62 +7,39 @@ import flet as ft
 class BasicMenuUp(ft.Stack):
     # globalVar='Erase this test'
 
-    def __init__(self,data='Erase this test'):
+    def __init__(self):
         super().__init__()
-        # self.title='data'
-        self.title=data
+        self.about_page  = GLOBAL_VAR(get_global_var='ABOUT_CONTAINER')
 
     def build(self):
         Drop_BasicMenuUp=ft.Container(
                     ##################### PROPERTY
                     ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
                     # expand=True,
-                    ink=False,                                                # click effect ripple
-                    bgcolor=ft.colors.BLACK26,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
-                    padding= ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                    margin = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
-                    alignment=ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                    border_radius= ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                    border=ft.border.all(2, ft.colors.BLACK12),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                    # ===================
-                    # image_src = f"/home/mjay/Pictures/3d_neon_pink-2560x1440.jpg",
-                    # image_opacity=0.1,
-                    # image_fit='COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                    # ===================
-                    # width=150,
-                    height=40,
-                    # tooltip='Container',
-                    ##################### EFFECTS
-                    # gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.YELLOW],),
-                    # gradient=ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.TEAL],),
+                    ink           = False,                                                # click effect ripple
+                    bgcolor       =ft.colors.BLACK26,                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
+                    padding       = ft.padding.all(0),    # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
+                    margin        = ft.margin.all(0),    #outside box                # margin.only (left=8, top=8, right=8, bottom=8),
+                    alignment     =ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
+                    border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                    border        =ft.border.all(2, ft.colors.BLACK12),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                    height        =40,
                     ##################### WIDGETS
-                content=ft.Row(
+            content=ft.Row(
                                 ##################### PROPERTY BOX
-                                # expand=True,
-                                # alignment=ft.MainAxisAlignment.SPACE_AROUND,              # horizontal <=> START,CENTER,END SPACE_BETWEEN SPACE_AROUND SPACE_EVENLY
                                 vertical_alignment=ft.CrossAxisAlignment.CENTER,          # vertical       START,CENTER END
-                                ##################### LET MAKE SCROLL IN LONG QUANTITY
-                                # scroll=True,                                              # center widget
                                 tight=True,
-                                ##################### ADAPT TO SCREEN
-                                # wrap=True,                                                  # justify in all screen
                                 spacing=1,                                                # space widget left right
-                                # run_spacing=8,                                            # space widget up down
                                 ##################### WIDGETS
                             controls=[
                                         ft.Container( #####################
-                                                    #####################  PROPERTY
-                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                    # expand=True,
-                                                    ink=False,                                                      # click effect ripple
-                                                    # bgcolor=ft.colors.TEAL_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
-                                                    padding= ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                    margin = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                                    alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                    border_radius= ft.border_radius.only(top_left=30, top_right=0, bottom_left=30, bottom_right=0),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                    border=ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                    # width=80,
-                                                    gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
+                                                    ink           = False,                                                      # click effect ripple
+                                                    padding       = ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                    margin        = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                    alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                    border_radius = ft.border_radius.only(top_left=30, top_right=0, bottom_left=30, bottom_right=0),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                    border        = ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                    gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
                                                     ##################### WIDGETS
                                                     content=ft.TextButton(
                                                             text='File',
@@ -72,19 +51,18 @@ class BasicMenuUp(ft.Stack):
                                             # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                         ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
 
-                                        ft.Container( #####################
+                                        ft.Container(
                                                     #####################  PROPERTY
-                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                    # expand=True,
-                                                    ink=False,                                                      # click effect ripple
-                                                    # bgcolor=ft.colors.TEAL_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
-                                                    padding= ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                    margin = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                                    alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                    # border_radius= ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                    border=ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                    # width=80,
-                                                    gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
+                                                    # expand        = True,
+                                                    ink             = False,                                                      # click effect ripple
+                                                    # bgcolor       = ft.colors.TEAL_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
+                                                    padding         = ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                    margin          = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                    alignment       = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                    # border_radius = ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                    border          = ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                    # width         = 80,
+                                                    gradient        = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
                                                     ##################### WIDGETS
                                                     content=ft.TextButton(
                                                             text='Themes',
@@ -92,45 +70,37 @@ class BasicMenuUp(ft.Stack):
 
                                                             # bgcolor=ft.colors.BLACK54,
                                                 ),
-                                                    ##################### EVENTS
-                                            # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                         ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-                                        ft.Container( #####################
+                                        ft.Container(
                                                     #####################  PROPERTY
-                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                    # expand=True,
-                                                    ink=False,                                                      # click effect ripple
-                                                    # bgcolor=ft.colors.TEAL_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
-                                                    padding= ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                    margin = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                                    alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                    # border_radius= ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                    border=ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                    # width=80,
-                                                    gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
+                                                    # expand        = True,
+                                                    ink             = False,                                                      # click effect ripple
+                                                    # bgcolor       = ft.colors.TEAL_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
+                                                    padding         = ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                    margin          = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                    alignment       = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                    # border_radius = ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                    border          = ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                    # width         = 80,
+                                                    gradient        = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
                                                     ##################### WIDGETS
                                                     content=ft.TextButton(
-                                                            text='Sponsor',
-                                                            icon='data_thresholding',
+                                                            text = 'Sponsor',
+                                                            icon = 'data_thresholding',
 
                                                             # bgcolor=ft.colors.BLACK54,
                                                 ),
                                                     ##################### EVENTS
                                             # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                         ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-                                        ft.Container( #####################
+                                        ft.Container(
                                                     #####################  PROPERTY
-                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                    # expand=True,
-                                                    ink=False,                                                      # click effect ripple
-                                                    # bgcolor=ft.colors.TEAL_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
-                                                    padding= ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                    margin = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                                    alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                    # border_radius= ft.border_radius.all(30),                  # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                    border=ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                    # width=80,
-                                                    gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
+                                                    ink             = False,                                                      # click effect ripple
+                                                    padding         = ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                    margin          = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                    alignment       = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                    border          = ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                    gradient        = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
                                                     ##################### WIDGETS
                                                     content=ft.TextButton(
                                                             text='Help',
@@ -141,26 +111,21 @@ class BasicMenuUp(ft.Stack):
                                                     ##################### EVENTS
                                             # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                         ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-                                        ft.Container( #####################
+                                        ft.Container(
                                                     #####################  PROPERTY
-                                                    ##################### [rotate,offset] , [scale,aspect_ratio] , [visible,disabled]
-                                                    # expand=True,
-                                                    ink=False,                                                      # click effect ripple
-                                                    # bgcolor=ft.colors.TEAL_900,                                            # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,TEAL,CYAN,GREY,PINK,TEAL
-                                                    padding= ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                    margin = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
-                                                    alignment=ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                    border_radius= ft.border_radius.only(top_left=0, top_right=30, bottom_left=0, bottom_right=30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                    border=ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                    # width=80,
-                                                    gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
+                                                    ink           = False,                                                      # click effect ripple
+                                                    padding       = ft.padding.all(0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
+                                                    margin        = ft.margin.all(0),  # outside box                       # margin.only (left=8, top=8, right=8, bottom=8),
+                                                    alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
+                                                    border_radius = ft.border_radius.only(top_left=0, top_right=30, bottom_left=0, bottom_right=30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                    border        = ft.border.all(2, ft.colors.BLACK12),                     # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                    gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.TEAL_900],),
                                                     ##################### WIDGETS
                                                     content=ft.TextButton(
-                                                            text='About',
-                                                            icon='person_search',
-
-                                                            # bgcolor=ft.colors.BLACK54,
-                                                ),
+                                                                            text = 'About',
+                                                                            icon = 'person_search',
+                                                                        on_click  = lambda _:self.show_widgets(show_widget='about_page'),
+                                                                        ),
                                                     ##################### EVENTS
                                             # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
                                         ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
@@ -171,6 +136,12 @@ class BasicMenuUp(ft.Stack):
         )#<=== NOTE COMA
         return Drop_BasicMenuUp
 
+
+    def show_widgets(self,show_widget):
+        """SHOW PAGES"""
+        if show_widget == "about_page":
+            self.about_page.visible  = True if not self.about_page.visible else False
+            self.about_page.update()
 
 
 ######## BasicMenuUp = BasicMenuUp(),# <======= Comma
