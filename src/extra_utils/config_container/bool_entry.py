@@ -1,8 +1,8 @@
-####################################################
-import flet as ft
-####################################################
 
-class BoolEntry(ft.Stack): ##################### PROPERTY
+import flet as ft
+
+
+class BoolEntry(ft.Stack):
     """
     box_layout = ft.Container(content=ft.Text())
 
@@ -12,117 +12,89 @@ class BoolEntry(ft.Stack): ##################### PROPERTY
     """
     def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget='',id_name_widget_dict=None):
         super().__init__()
-        self.widget           = widget        # <=== widget
-        self.attribute_widget = config_widget # <=== widget attribute
+        self.widget              = widget
+        self.attribute_widget    = config_widget
         self.id_name_widget_dict = id_name_widget_dict
-        # will change name of entry points
+        #: will change name of entry points
 
     def build(self):
         Drop_BoolEntry =  ft.Container(
-                    ##################### PROPERTY COLUMN
-                    ink           = False,                                                # click effect ripple
-                    bgcolor       = '#0c0d0e',                                    # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                    padding       = ft.padding.only(left=4, top=4, right=4, bottom=4),    # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                    margin        = ft.margin.all(0),    # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
-                    alignment     = ft.alignment.center,                                  # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                    border_radius = ft.border_radius.all(16),                             # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                    border        = ft.border.all(2, ft.colors.BLACK),                    # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                    ink           = False,
+                    bgcolor       = '#0c0d0e',
+                    padding       = ft.padding.only(left=4, top=4, right=4, bottom=4),
+                    margin        = ft.margin.all(0),
+                    border_radius = ft.border_radius.all(16),
+                    border        = ft.border.all(2, ft.colors.BLACK),
                     width         = 165,
                     height        = 80,
-                    ##################### WIDGETS
-                    content=ft.Column(
-                                wrap=True,                                          # justify in all screen
-                                ##################### WIDGETS
-                                controls=[
-                                        ft.Container( ##################### Text label
-                                            ink           = False,                                               # click effect ripple
-                                            bgcolor       = "#0e0f11",                                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                            padding       = ft.padding.only(left=12, top=0, right=12, bottom=0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                            alignment     = ft.alignment.center,                                 # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                            border_radius = ft.border_radius.all(30),                            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                            height        = 20,
-                                            content = ft.Text(
-                                                        ##################### PROPERTY
-                                                        value       = self.attribute_widget.capitalize().replace("_"," "), # content = ft.Text(value="Compound button", size=12,),
-                                                        font_family = "Consolas", #"Consolas ,RobotoSlab
-                                            ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-                                        ft.Container( ##################### Container Bool
-                                                ##################### PROPERTY
-                                                ink           = False,                                           # click effect ripple
-                                                bgcolor       = ft.colors.BLACK38,                               # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                padding       = ft.padding.all(2),    # inside box               # padding.only(left=8, top=8, right=8, bottom=8),
-                                                alignment     = ft.alignment.center,                             # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                border_radius = ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                # border        = ft.border.all(0.1, ft.colors.BLACK38),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                width         = 152,
-                                                height        = 36,
-                                                ##################### WIDGETS
-                                                content=ft.Row(
-                                                                ##################### PROPERTY BOX
-                                                                controls=[
-                                                                           ft.Container(
-                                                                                    ##################### PROPERTY
-                                                                                    ink           = False,                                              # click effect ripple
-                                                                                    # bgcolor       = ft.colors.BLACK87,                                  # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                                                    padding       = ft.padding.only(left=2, top=0, right=8, bottom=0),  # inside box                # padding.only(left=8, top=8, right=8, bottom=8),
-                                                                                    alignment     = ft.alignment.center,                                # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                                                    border_radius = ft.border_radius.all(30),                           # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                    border        = ft.border.all(0.1, ft.colors.BLACK38),                # ft.border.only(Left=8, top=8, right=8, bottom=8),
-                                                                                    width         = 150,
-                                                                                    height        = 36,
-                                                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
-                                                                                    content=ft.Row(
-                                                                                                    ##################### PROPERTY BOX
-                                                                                                    spacing=6,                                          # space widget left right
-                                                                                                    controls=[
-                                                                                                                ft.Container(
-                                                                                                                            ##################### PROPERTY
-                                                                                                                            ink           = False,                               # click effect ripple
-                                                                                                                            width         = 88,
-                                                                                                                            height        = 30,
-                                                                                                                            border_radius = ft.border_radius.all(30),            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                                                                                            content = ft.TextField(
-                                                                                                                                            disabled  = True,
-                                                                                                                                            hint_text = self.attribute_widget,
-                                                                                                                                            border    = ft.InputBorder.NONE,     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                                                            bgcolor   = '#0e0f11',                  # inside box
-                                                                                                                                            color     = 'YELLOW',
-                                                                                                                                            text_size = 15,
-                                                                                                                                            #======================= EVENTS ===========================
-                                                                                                                                        # on_change = lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                                                        # on_submit = lambda x:print('Pressed [< Enter > ]'),
-                                                                                                                                        # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                                                        # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
-                                                                                                                                            ),
-                                                                                                                            ##################### EVENTS
-                                                                                                                            # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                                                                ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-                                                                                                                ft.Container(
-                                                                                                                            ##################### PROPERTY
-                                                                                                                            ink    = False,                                     # click effect ripple
-                                                                                                                            width  = 42,
-                                                                                                                            height = 30,
-                                                                                                                            content = ft.CupertinoSwitch(
-                                                                                                                                    value        = True if self.attribute_widget == "visible " or  self.attribute_widget == "visible" else False,
-                                                                                                                                    track_color  = 'Black',
-                                                                                                                                    active_color = 'yellow',
-                                                                                                                                    on_change    = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = Drop_BoolEntry),
+            content=ft.Column(
+                        wrap=True,
+                        controls=[
+                            ft.Container(
+                                ink           = False,
+                                bgcolor       = "#0e0f11",
+                                padding       = ft.padding.only(left=12, top=0, right=12, bottom=0),
+                                alignment     = ft.alignment.center,
+                                border_radius = ft.border_radius.all(30),
+                                height        = 20,
+                                content = ft.Text(
+                                            value       = self.attribute_widget.capitalize().replace("_"," "),
+                                            font_family = "Consolas",
+                                ),),
+                            ft.Container(
+                                    ink           = False,
+                                    bgcolor       = ft.colors.BLACK38,
+                                    padding       = ft.padding.all(2),
+                                    alignment     = ft.alignment.center,
+                                    border_radius = ft.border_radius.all(30),
+                                    width         = 152,
+                                    height        = 36,
+                                    content=ft.Row(
+                                                controls=[
+                                                   ft.Container(
+                                                            ink           = False,
+                                                            padding       = ft.padding.only(left=2, top=0, right=8, bottom=0),
+                                                            alignment     = ft.alignment.center,
+                                                            border_radius = ft.border_radius.all(30),
+                                                            border        = ft.border.all(0.1, ft.colors.BLACK38),
+                                                            width         = 150,
+                                                            height        = 36,
+                                                        gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
+                                                            content=ft.Row(
+                                                                            spacing=6,
+                                                                            controls=[
+                                                                                        ft.Container(
+                                                                                            ink           = False,
+                                                                                            width         = 88,
+                                                                                            height        = 30,
+                                                                                            border_radius = ft.border_radius.all(30),
+                                                                                            content = ft.TextField(
+                                                                                                            disabled  = True,
+                                                                                                            hint_text = self.attribute_widget,
+                                                                                                            border    = ft.InputBorder.NONE,
+                                                                                                            bgcolor   = '#0e0f11',
+                                                                                                            color     = 'YELLOW',
+                                                                                                            text_size = 15,
                                                                                                                     ),
-                                                                                                                            # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                                                                ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-                                                                                                             ],),
-                                                                        ##################### EVENTS
-                                                                        # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                       )#<=== NOTE COMA,
-                                                                     ],),
-                                            ##################### EVENTS
-                                            # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
-                                       )#<=== NOTE COMA,
-                                 ],
-                    ),#<=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
-                    ##################### EVENTS
-                    # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
-        )#<=== NOTE COMA
+                                                                                        ),
+                                                                                        ft.Container(
+                                                                                            ink    = False,
+                                                                                            width  = 42,
+                                                                                            height = 30,
+                                                                                            content = ft.CupertinoSwitch(
+                                                                                                    value        = True if self.attribute_widget == "visible " or  self.attribute_widget == "visible" else False,
+                                                                                                    track_color  = 'Black',
+                                                                                                    active_color = 'yellow',
+                                                                                                    on_change    = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = Drop_BoolEntry),
+                                                                                            ),
+                                                                                        ),
+                                                                                     ],),
+                                                           )
+                                                         ],),
+                               )
+                         ],
+            ),
+        )
 
         return Drop_BoolEntry
 
@@ -141,62 +113,64 @@ class BoolEntry(ft.Stack): ##################### PROPERTY
         bgcolor:    value
         value:      value
         """
-        # self.widget.content.value = value if config_widget  == "value" else None
-        # will modify attributes of the widget class in real time
+        #: self.widget.content.value = value if config_widget  == "value" else None
+        #: will modify attributes of the widget class in real time
 
-        # use
-        # self.widget.expand <=========== CONTAINER
-        # self.widget.cotntent.expand <=========== CONTAINER.content
+        #: use
+        #: self.widget.expand <=========== CONTAINER
+        #: self.widget.cotntent.expand <=========== CONTAINER.content
 
-        ############################################################################### ONLY FOR CONTAINER
-        # print(value.content.controls[1].content.controls[0].content.controls[1].content.value)
+        #: ONLY FOR CONTAINER
+        #: print(value.content.controls[1].content.controls[0].content.controls[1].content.value)
+
         if  config_widget   == "expand ":
-            self.widget.expand = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.expand = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "ink ":
-            self.widget.ink =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.ink =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "visible ":
-            self.widget.visible =bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.visible =bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
 
-        ############################################################################### CONTAINER.content = WIDGET
+        #: CONTAINER.content = WIDGET
         if  config_widget   == "expand":
-            self.widget.expand = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.expand = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "ink":
-            self.widget.ink =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.ink =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "visible":
-            self.widget.visible =bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.visible =bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "scroll":
-            self.widget.scroll = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.scroll = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "wrap":
-            self.widget.wrap =   bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.wrap =   bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "tight":
-            self.widget.tight =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.tight =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "multiline":
-            self.widget.multiline = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['multiline']
+            self.widget.multiline = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "disabled":
-            self.widget.disabled  = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['disabled']
+            self.widget.disabled  = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "read_only":
-            self.widget.read_only = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['read_only']
+            self.widget.read_only = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "password":
-            self.widget.password  = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.password  = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "filled":
-            self.widget.filled =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.filled =    bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "adaptive":
-            self.widget.adaptive =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.adaptive =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "tristate":
-            self.widget.tristate =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.tristate =  bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "autofocus":
-            self.widget.autofocus = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.autofocus = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "horizontal":
-            self.widget.horizontal = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.horizontal = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "can_reveal_password":
-            self.widget.can_reveal_password = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.can_reveal_password = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "capitalization":
-            self.widget.capitalization = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.capitalization = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
         if  config_widget   == "gapless_playback":
-            self.widget.gapless_playback = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value) # <=== Atribute 0 ['width']
+            self.widget.gapless_playback = bool(value.content.controls[1].content.controls[0].content.controls[1].content.value)
 
-        # print(self.widget.uid)
-        # print(data_usage)
+        #: only in production
+        #: print(self.widget.uid)
+        #: print(data_usage)
         self.widget.update()
 
-######## Double_Widget = BoolEntry(),# <======= Comma
+#######

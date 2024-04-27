@@ -1,8 +1,7 @@
-####################################################
-import flet as ft
-####################################################
 
-class FourEntry(ft.Stack): ##################### PROPERTY
+import flet as ft
+
+class FourEntry(ft.Stack):
     """
     box_layout = ft.Container(content=ft.Text())
 
@@ -12,13 +11,13 @@ class FourEntry(ft.Stack): ##################### PROPERTY
     def __init__(self,config_widget='exemple [value,bgcolor,width,height] ....',widget='',id_name_widget_dict=None):
         super().__init__()
         """ Is neccesary make a filter that will contain name of the widget to use"""
-        self.widget              = widget        # <=== widget
-        self.attribute_widget    = config_widget # <=== widget attribute
+        self.widget              = widget
+        self.attribute_widget    = config_widget
         self.id_name_widget_dict = id_name_widget_dict
 
-        # print(self.attribute_widget)
-        # will change name of entry points
-        ##################### ONLY FOR CONTAINER
+        #: print(self.attribute_widget)
+        #: will change name of entry points
+
         if  self.attribute_widget == "padding" or self.attribute_widget == "margin":
             self.attribute_widget_name_1 = 'Left'
             self.attribute_widget_name_2 = 'Top'
@@ -33,161 +32,118 @@ class FourEntry(ft.Stack): ##################### PROPERTY
 
     def build(self):
         packet_data = ft.Container(
-                            ##################### PROPERTY COLUMN
-                            ink           = False,                                         # click effect ripple
-                            bgcolor       = '#0c0d0e',                             # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                            padding       = ft.padding.all(4),    # inside box             # padding.only(left=8, top=8, right=8, bottom=8),
-                            margin        = ft.margin.all(0),     # outside box            # margin.only (left=8, top=8, right=8, bottom=8),
-                            alignment     = ft.alignment.center,                           # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                            border_radius = ft.border_radius.all(16),                      # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                            border        = ft.border.all(2, ft.colors.BLACK),             # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                            ink           = False,
+                            bgcolor       = '#0c0d0e',
+                            padding       = ft.padding.all(4),
+                            margin        = ft.margin.all(0),
+                            alignment     = ft.alignment.center,
+                            border_radius = ft.border_radius.all(16),
+                            border        = ft.border.all(2, ft.colors.BLACK),
                             width         = 162,
                             height        = 128,
-                            ##################### WIDGETS
                             content = ft.Column(
-                                        ##################### PROPERTY BOX
-                                        wrap = True,                                                                 # justify in all screen
-                                        ##################### WIDGETS
+                                        wrap = True,
                                         controls=[
-                                            ft.Container( ##################### Text label
-                                                ink           = False,                                               # click effect ripple
-                                                bgcolor       = "#0e0f11",                                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                padding       = ft.padding.only(left=12, top=0, right=12, bottom=0), # inside box                        # padding.only(left=8, top=8, right=8, bottom=8),
-                                                alignment     = ft.alignment.center,                                 # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right. posicionamiento adentro widget
-                                                border_radius = ft.border_radius.all(30),                            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                            ft.Container(
+                                                ink           = False,
+                                                bgcolor       = "#0e0f11",
+                                                padding       = ft.padding.only(left=12, top=0, right=12, bottom=0),
+                                                alignment     = ft.alignment.center,
+                                                border_radius = ft.border_radius.all(30),
                                                 height        = 20,
-                                                ##################### WIDGETS
                                                 content=ft.Text(
-                                                            ##################### PROPERTY
-                                                            value       = self.attribute_widget.capitalize().replace('_',' '), # content = ft.Text(value="Compound button", size=12,),
+
+                                                            value       = self.attribute_widget.capitalize().replace('_',' '),
                                                             font_family = "Consolas", #"Consolas ,RobotoSlab
-                                                ),),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
-                                            ft.Container( ##################### First Dual Entry
-                                                ink           = False,                                               # click effect ripple
-                                                bgcolor       = "#0e0f11",                                           # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                padding       = ft.padding.all(2),    # inside box                   # padding.only(left=8, top=8, right=8, bottom=8),
-                                                alignment     = ft.alignment.center,                                 # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                border_radius = ft.border_radius.all(30),                            # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                border        = ft.border.all(0.1, ft.colors.BLACK38),                 # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                ),),
+                                            ft.Container(
+                                                ink           = False,
+                                                bgcolor       = "#0e0f11",
+                                                padding       = ft.padding.all(2),
+                                                alignment     = ft.alignment.center,
+                                                border_radius = ft.border_radius.all(30),
+                                                border        = ft.border.all(0.1, ft.colors.BLACK38),
                                                 height        = 36,
-                                                gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
-                                                ##################### WIDGETS
-                                                content = ft.Row(
-                                                                ##################### PROPERTY BOX
-                                                                spacing=8.7,                                         # space widget left right
-                                                                ##################### WIDGETS
+                                                gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
+                                                content       = ft.Row(
+                                                                spacing=8.7,
                                                                 controls=[
                                                                             ft.Container(
-                                                                                        ##################### PROPERTY
-                                                                                        ink           = False,                                          # click effect ripple
+                                                                                        ink           = False,
                                                                                         width         = 68,
                                                                                         height        = 30,
-                                                                                        border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                        border_radius = ft.border_radius.all(30),
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_1,
-                                                                                                        border    = ft.InputBorder.NONE,                # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = '#0e0f11',                             # inside box
+                                                                                                        border    = ft.InputBorder.NONE,
+                                                                                                        bgcolor   = '#0e0f11',
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
-                                                                                                        ##################### EVENTS #####################
                                                                                                 on_change = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = packet_data),
-                                                                                                # on_change = lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                # on_submit = lambda x:print('Pressed [< Enter > ]'),
-                                                                                                # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                         ),
-                                                                                        ##################### EVENTS
-                                                                                        # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                            ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
+                                                                            ),
                                                                             ft.Container(
-                                                                                        ##################### PROPERTY
-                                                                                        ink           = False,                                                      # click effect ripple
+                                                                                        ink           = False,
                                                                                         width         = 68,
                                                                                         height        = 30,
-                                                                                        border_radius = ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                        border_radius = ft.border_radius.all(30),
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_2,
-                                                                                                        border    = ft.InputBorder.NONE,                     # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = '#0e0f11',                                 # inside box
+                                                                                                        border    = ft.InputBorder.NONE,
+                                                                                                        bgcolor   = '#0e0f11',
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
-                                                                                                        ##################### EVENTS #####################
                                                                                                 on_change = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = packet_data),
-                                                                                                # on_change = lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                # on_submit = lambda x:print('Pressed [< Enter > ]'),
-                                                                                                # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                         ),
-                                                                                        ##################### EVENTS
-                                                                                        # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                            ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
+                                                                            ),
                                                                          ],),
-                                                                    ##################### EVENTS
-                                                                    # on_click=lambda _:print(_),                            # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                    ),#<=== NOTE COMA,
-                                            ft.Container( ##################### Secon Dual Entry
-                                                ##################### PROPERTY
-                                                ink           = False,                                          # click effect ripple
-                                                # bgcolor       = "#0e0f11",                                      # ft.colors.YELLOW,RED,GREEN,BLACK,WHITE,BLUE,CYAN,GREY,PINK,TEAL
-                                                padding       = ft.padding.all(2),    # inside box              # padding.only(left=8, top=8, right=8, bottom=8),
-                                                alignment     = ft.alignment.center,                            # top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right.    posicionamiento adentro widget
-                                                border_radius = ft.border_radius.all(30),                       # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                                border        = ft.border.all(1, ft.colors.BLACK38),            # ft.border.only(Left=8, top=8, right=8, bottom=8),
+                                                                    ),
+                                            ft.Container(
+                                                ink           = False,
+                                                padding       = ft.padding.all(2),
+                                                alignment     = ft.alignment.center,
+                                                border_radius = ft.border_radius.all(30),
+                                                border        = ft.border.all(1, ft.colors.BLACK38),
                                                 height        = 36,
                                                 gradient=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.CYAN_800, ft.colors.BLACK38],),
-                                                ##################### WIDGETS
                                                 content = ft.Row(
-                                                                ##################### PROPERTY BOX
-                                                                spacing  = 8.7,                                 # space widget left right
-                                                                ##################### WIDGETS
+                                                                spacing  = 8.7,
                                                                 controls = [
                                                                             ft.Container(
-                                                                                        ##################### PROPERTY
-                                                                                        ink           = False,                                           # click effect ripple
+                                                                                        ink           = False,
                                                                                         width         = 68,
                                                                                         height        = 30,
-                                                                                        border_radius = ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                        border_radius = ft.border_radius.all(30),
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_3,
-                                                                                                        border    = ft.InputBorder.NONE,                 # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = '#0e0f11',                              # inside box
+                                                                                                        border    = ft.InputBorder.NONE,
+                                                                                                        bgcolor   = '#0e0f11',
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
-                                                                                                        ##################### EVENTS #####################
                                                                                                 on_change = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = packet_data),
-                                                                                                # on_change = lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                # on_submit = lambda x:print('Pressed [< Enter > ]'),
-                                                                                                # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                         ),
-                                                                                        ##################### EVENTS
-                                                                                        # on_click=lambda _:print(_),   # on_hover=print('on click over'), on_long_press=print('long press'),
-                                                                            ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
+                                                                            ),
                                                                             ft.Container(
-                                                                                        ##################### PROPERTY
-                                                                                        ink           = False,                                           # click effect ripple
+
+                                                                                        ink           = False,
                                                                                         width         = 68,
                                                                                         height        = 30,
-                                                                                        border_radius = ft.border_radius.all(30),                        # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                                                        border_radius = ft.border_radius.all(30),
                                                                                         content = ft.TextField(
                                                                                                         hint_text = self.attribute_widget_name_4,
-                                                                                                        border    = ft.InputBorder.NONE,                 # border=ft.InputBorder.[NONE ,OUTLINE ,UNDERLINE]
-                                                                                                        bgcolor   = '#0e0f11',                              # inside box
+                                                                                                        border    = ft.InputBorder.NONE,
+                                                                                                        bgcolor   = '#0e0f11',
                                                                                                         color     = 'YELLOW',
                                                                                                         text_size = 15,
                                                                                                         #======================= EVENTS ===========================
                                                                                                 on_change= lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = packet_data),
-                                                                                                # on_change = lambda x:print('Pressed [< Write inside > ]'),
-                                                                                                # on_submit = lambda x:print('Pressed [< Enter > ]'),
-                                                                                                # on_focus  = lambda x:print('Pressed [< Click inside > ]'),
-                                                                                                # on_blur   = lambda x:print('Pressed [< click click and outside > ]'),
                                                                                                         ),
-                                                                            ),#<=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR
+                                                                            ),
                                                                          ],),
-                                                                ),#<=== NOTE COMA,
+                                                                ),
                                             ],
-                                ),#<=== NOTE COMA [NOTE]                     # for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
-                        )#<=== NOTE COMA
+                                ),
+                        )
 
         return packet_data
 
@@ -206,12 +162,12 @@ class FourEntry(ft.Stack): ##################### PROPERTY
         bgcolor:    value
         value:      value
         """
-        # print(config_widget)
-        # print(value)
+        #: print(config_widget)
+        #: print(value)
 
-        # self.widget.content.value = value if config_widget  == "value" else None
-        # will modify attributes of the widget class in real time
-        ########################################## ONLY FOR CONTENT
+        #: self.widget.content.value = value if config_widget  == "value" else None
+        #: will modify attributes of the widget class in real time
+        #: ONLY FOR CONTENT
         if  config_widget   == "padding":
             """ all values in Box Container """
             left   = value.content.controls[1].content.controls[0].content.value if value.content.controls[1].content.controls[0].content.value else 0
@@ -255,4 +211,4 @@ class FourEntry(ft.Stack): ##################### PROPERTY
                                                     )
         self.widget.update()
 
-######## Double_Widget = FourEntry(),# <======= Comma
+#######

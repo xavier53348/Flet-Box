@@ -19,9 +19,6 @@ def ChatGpt(question="What's chat gpt"):
                     g4f.Provider.Liaobots,             # books
                     # g4f.Provider.ChatgptAi,            # books
                     # g4f.Provider.ChatBase,             #*
-
-
-
                  ]
     # _providers = [
 
@@ -125,7 +122,6 @@ def ChatGpt(question="What's chat gpt"):
             )
 
             if provider:
-                # print(f"=================>>> {provider.__name__}:", response)
                 check_check = True
 
         except Exception as e:
@@ -149,16 +145,10 @@ def ChatGpt(question="What's chat gpt"):
             # time.sleep(4)
             if check_check:
                 calls =[]
-
-
-
-
-
             # print(check_check)
         # await asyncio.gather(*calls)
-    # =========================================
+
     data_tmp = asyncio.run(run_all(question))
-    # =========================================
     time.sleep(0.1)
     # tmp_response = {question:response}
 

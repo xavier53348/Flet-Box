@@ -1,4 +1,4 @@
-####################################################
+
 from .double_entry    import DoubleEntry
 from .color_entry     import ColorEntry
 from .bool_entry      import BoolEntry
@@ -6,60 +6,53 @@ from .four_entry      import FourEntry
 from .single_entry    import SingleEntry
 from .selection_entry import SelectionEntry
 from .gradient_entry  import GradientEntry
-####################################################
+
 import flet as ft
-###################### CALL GLOBAL VAR #############
+
 from ..settings_var.settings_widget import GLOBAL_VAR
-####################################################
+
 
 class BoxConfigContainer(ft.Stack):
-    # globalVar='Erase this test'
 
     def __init__(self,title=str(),controls=list()):
         super().__init__()
         self.title    = title
         self.controls = controls
 
-
     def build(self):
         Drop_BoxConfigContainer = ft.Container(
                               padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
                          content = ft.Column(
-                                   controls = [ ##################### CONTROLS INSIDE THE BOX
+                                   controls = [
 
-                                             ##########################################
+
                                              ft.Container(
-                                                       border_radius = ft.border_radius.all(20),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
+                                                       border_radius = ft.border_radius.all(20),
                                                        bgcolor       = ft.colors.BLACK26,
                                                        padding       = ft.padding.only(left=8, top=2, right=8, bottom=2),
                                                        margin       = ft.margin.only(left=8, top=2, right=20, bottom=2),
                                                        gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK38],),
                                                   content=ft.Text(
                                                                  value       = self.title,
-                                                                 text_align  = ft.TextAlign.CENTER,                   # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
-                                                                 # weight      = ft.FontWeight.BOLD,                    # NORMAL (default), BOLD, W_100, W_200,  W_300, W_400, W_500, W_600, W_700, W_800,W_900
+                                                                 text_align  = ft.TextAlign.CENTER,
+
                                                                  font_family = "Consolas", #"Consolas ,RobotoSlab
                                                                  color       = ft.colors.WHITE,
                                                        ),
                                                   ),
                                              ft.Container(
-                                                       # bgcolor       = ft.colors.RED,
                                                        bgcolor       = ft.colors.BLACK38,
                                                        width=425,
                                                        padding       = ft.padding.only(left=6, top=6, right=6, bottom=6),
-                                                       border_radius = ft.border_radius.all(20),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-
+                                                       border_radius = ft.border_radius.all(20),
                                                   content=ft.Row(
                                                                  wrap= True,
-
                                                             controls = self.controls
                                                        ,),),
-                                             ##########################################
-                                                  ], # <<<< controls
-                                             ),      # <<<< column
-                                        )            # <<<< container
+                                                  ], #: <<<< controls
+                                             ),      #: <<<< column
+                                        )            #: <<<< container
         return Drop_BoxConfigContainer
-######## BoxConfigContainer = BoxConfigContainer(),# <======= Comma
 
 class Build_Editor(ft.Stack):
      """
@@ -92,41 +85,40 @@ class Build_Editor(ft.Stack):
 
           self.container_widget           = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER')
           self.container_widget_content   = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER_CONTENT')
-          # print(self.main_phone_conainer)
+
           widgets_dict = {
 
-               ######################### ESPECIAL WIDGETS ONLY FOR PHONE    #########################
+               #: ESPECIAL WIDGETS ONLY FOR PHONE
                   'phone_margin'   :FourEntry(      config_widget = 'padding'                ,widget = self.main_phone_conainer),
-               #########################
+
               'phone_image_src'     :SingleEntry(    config_widget = 'image_src'             ,widget = self.main_phone_conainer),
               'phone_image_opacity' :SingleEntry(    config_widget = 'image_opacity'         ,widget = self.main_phone_conainer),
-              'column_phone_spacing':SingleEntry(    config_widget = 'spacing'               ,widget = self.main_phone_conainer_conent),  # <=== this take width and hight in same time
-               #########################
+              'column_phone_spacing':SingleEntry(    config_widget = 'spacing'               ,widget = self.main_phone_conainer_conent),
+
               'phone_bgcolor'       :ColorEntry(     config_widget = 'bgcolor'               ,widget = self.main_phone_conainer),
-               #########################
+
               'column_phone_wrap'   :BoolEntry(      config_widget = 'wrap'                  ,widget = self.main_phone_conainer_conent),
               'column_phone_tight'  :BoolEntry(      config_widget = 'tight'                 ,widget = self.main_phone_conainer_conent),
               'column_phone_scroll' :BoolEntry(      config_widget = 'scroll'                ,widget = self.main_phone_conainer_conent),
-               #########################
+
               'phone_image_fit'     :SelectionEntry( config_widget = 'image_fit'             ,widget = self.main_phone_conainer),
-           'column_phone_alignment' :SelectionEntry( config_widget = 'alignment'             ,widget = self.main_phone_conainer_conent),  # <=== this take width and hight in same time
-'column_phone_horizontal_alignment' :SelectionEntry( config_widget = 'horizontal_alignment'  ,widget = self.main_phone_conainer_conent),  # <=== this take width and hight in same time
-               #########################
+           'column_phone_alignment' :SelectionEntry( config_widget = 'alignment'             ,widget = self.main_phone_conainer_conent),
+'column_phone_horizontal_alignment' :SelectionEntry( config_widget = 'horizontal_alignment'  ,widget = self.main_phone_conainer_conent),
+
                    'phone_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.main_phone_conainer),
                   'phone_blur'      :DoubleEntry(    config_widget = 'blur'                  ,widget = self.main_phone_conainer),
-               #########################
 
-               ######################### ESPECIAL WIDGETS ONLY FOR CONTAINERS #########################
-               #########################
-               'container_rotate'   :SingleEntry(    config_widget = 'rotate'                ,widget = self.container_widget),  # <=== this take width and hight in same time
-               'container_scale'    :SingleEntry(    config_widget = 'scale'                 ,widget = self.container_widget),  # <=== this take width and hight in same time
+               #: ESPECIAL WIDGETS ONLY FOR CONTAINERS
+
+               'container_rotate'   :SingleEntry(    config_widget = 'rotate'                ,widget = self.container_widget),
+               'container_scale'    :SingleEntry(    config_widget = 'scale'                 ,widget = self.container_widget),
                'container_padding'  :FourEntry(      config_widget = 'padding'               ,widget = self.container_widget),
                'container_margin'   :FourEntry(      config_widget = 'margin'                ,widget = self.container_widget),
                'container_offset'   :DoubleEntry(    config_widget = 'offset'                ,widget = self.container_widget),
                'container_alignment':SelectionEntry( config_widget = 'alignment '            ,widget = self.container_widget),
-               #########################
-               'container_width'    :DoubleEntry(    config_widget = 'width'                 ,widget = self.container_widget),  # <=== this take width and hight in same time
-               'container_scale'    :SingleEntry(    config_widget = 'scale'                 ,widget = self.container_widget),  # <=== this take width and hight in same time
+
+               'container_width'    :DoubleEntry(    config_widget = 'width'                 ,widget = self.container_widget),
+               'container_scale'    :SingleEntry(    config_widget = 'scale'                 ,widget = self.container_widget),
                'container_border'   :DoubleEntry(    config_widget = 'border'                ,widget = self.container_widget),
                'container_expand'   :BoolEntry(      config_widget = 'expand'                ,widget = self.container_widget),
                'container_ink'      :BoolEntry(      config_widget = 'ink'                   ,widget = self.container_widget),
@@ -137,57 +129,63 @@ class Build_Editor(ft.Stack):
                'container_bgcolor'  :ColorEntry(     config_widget = 'bgcolor'               ,widget = self.container_widget),
                'container_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.container_widget),
 
-           'container_image_src'    :SingleEntry(    config_widget = 'image_src'             ,widget = self.container_widget),  # <=== this take width and hight in same time
-           'container_image_opacity':SingleEntry(    config_widget = 'image_opacity'         ,widget = self.container_widget),  # <=== this take width and hight in same time
+           'container_image_src'    :SingleEntry(    config_widget = 'image_src'             ,widget = self.container_widget),
+           'container_image_opacity':SingleEntry(    config_widget = 'image_opacity'         ,widget = self.container_widget),
            'container_image_fit'    :SelectionEntry( config_widget = 'image_fit'             ,widget = self.container_widget),
 
+               #: ESPECIAL WIDGETS ONLY FOR WIDGET
 
-               ######################### ESPECIAL WIDGETS ONLY FOR WIDGET #########################
-               'text'                :SingleEntry(config_widget = 'text'             ,widget = self.container_widget_content , id_name_widget_dict='text'),  # <=== this take width and hight in same time
-               'name'                :SingleEntry(config_widget = 'name'             ,widget = self.container_widget_content , id_name_widget_dict='name'),  # <=== this take width and hight in same time
-               'size'                :SingleEntry(config_widget = 'size'             ,widget = self.container_widget_content , id_name_widget_dict='size'),  # <=== this take width and hight in same time
-               'label'               :SingleEntry(config_widget = 'label'            ,widget = self.container_widget_content , id_name_widget_dict='label'),  # <=== this take width and hight in same time
-               'value'               :SingleEntry(config_widget = 'value'            ,widget = self.container_widget_content , id_name_widget_dict='value'),  # <=== this take width and hight in same time
-               # 'key'                 :SingleEntry(config_widget = 'key'              ,widget = self.container_widget_content , id_name_widget_dict='key'),  # <=== this take width and hight in same time
-               'hint_text'           :SingleEntry(config_widget = 'hint_text'        ,widget = self.container_widget_content , id_name_widget_dict='hint_text'),  # <=== this take width and hight in same time
-               'counter_text'        :SingleEntry(config_widget = 'counter_text'     ,widget = self.container_widget_content , id_name_widget_dict='counter_text'),  # <=== this take width and hight in same time
-               'suffix_text'         :SingleEntry(config_widget = 'suffix_text'      ,widget = self.container_widget_content , id_name_widget_dict='suffix_text'),  # <=== this take width and hight in same time
-               'url'                 :SingleEntry(config_widget = 'url'              ,widget = self.container_widget_content , id_name_widget_dict='url'),  # <=== this take width and hight in same time
-               'url_target'          :SingleEntry(config_widget = 'url_target'       ,widget = self.container_widget_content , id_name_widget_dict='url_target'),  # <=== this take width and hight in same time
-               'icon'                :SingleEntry(config_widget = 'icon'             ,widget = self.container_widget_content , id_name_widget_dict='icon'),  # <=== this take width and hight in same time
-               'tooltip'             :SingleEntry(config_widget = 'tooltip'          ,widget = self.container_widget_content , id_name_widget_dict='tooltip'),  # <=== this take width and hight in same time
-               'src'                 :SingleEntry(config_widget = 'src'              ,widget = self.container_widget_content , id_name_widget_dict='src'),  # <=== this take width and hight in same time
-               'data'                :SingleEntry(config_widget = 'data'             ,widget = self.container_widget_content , id_name_widget_dict='data'),  # <=== this take width and hight in same time
-               'semantics_label'     :SingleEntry(config_widget = 'semantics_label'  ,widget = self.container_widget_content , id_name_widget_dict='semantics_label'),  # <=== this take width and hight in same time
-               'src_base64'          :SingleEntry(config_widget = 'src_base64'       ,widget = self.container_widget_content , id_name_widget_dict='src_base64'),  # <=== this take width and hight in same time
-               'image_src'           :SingleEntry(config_widget = 'image_src'        ,widget = self.container_widget_content , id_name_widget_dict='image_src'),  # <=== this take width and hight in same time
-               'blur_radius'         :SingleEntry(config_widget = 'blur_radius'      ,widget = self.container_widget_content , id_name_widget_dict='blur_radius'),  # <=== this take width and hight in same time
-               'spread_radius'       :SingleEntry(config_widget = 'spread_radius'    ,widget = self.container_widget_content , id_name_widget_dict='spread_radius'),  # <=== this take width and hight in same time
-               'elevation'           :SingleEntry(config_widget = 'elevation'        ,widget = self.container_widget_content , id_name_widget_dict='elevation'),  # <=== this take width and hight in same time
-               'rotate'              :SingleEntry(config_widget = 'rotate'           ,widget = self.container_widget_content , id_name_widget_dict='rotate'),  # <=== this take width and hight in same time
-               'scale'               :SingleEntry(config_widget = 'scale'            ,widget = self.container_widget_content , id_name_widget_dict='scale'),  # <=== this take width and hight in same time
-               'aspect_ratio'        :SingleEntry(config_widget = 'aspect_ratio'     ,widget = self.container_widget_content , id_name_widget_dict='aspect_ratio'),  # <=== this take width and hight in same time
-               'runs_count'          :SingleEntry(config_widget = 'runs_count'       ,widget = self.container_widget_content , id_name_widget_dict='runs_count'),  # <=== this take width and hight in same time
-               'run_spacing'         :SingleEntry(config_widget = 'run_spacing'      ,widget = self.container_widget_content , id_name_widget_dict='run_spacing'),  # <=== this take width and hight in same time
-               'spacing'             :SingleEntry(config_widget = 'spacing'          ,widget = self.container_widget_content , id_name_widget_dict='spacing'),  # <=== this take width and hight in same time
-               'child_aspect_ratio'  :SingleEntry(config_widget ='child_aspect_ratio',widget = self.container_widget_content , id_name_widget_dict='child_aspect_ratio'), # <=== this take width and hight in same time
-               'max_extent'          :SingleEntry(config_widget = 'max_extent'       ,widget = self.container_widget_content , id_name_widget_dict='max_extent'),  # <=== this take width and hight in same time
-               'min_lines'           :SingleEntry(config_widget = 'min_lines'        ,widget = self.container_widget_content , id_name_widget_dict='min_lines'),  # <=== this take width and hight in same time
-               'max_lines'           :SingleEntry(config_widget = 'max_lines'        ,widget = self.container_widget_content , id_name_widget_dict='max_lines'),  # <=== this take width and hight in same time
-               'border_width'        :SingleEntry(config_widget = 'border_width'     ,widget = self.container_widget_content , id_name_widget_dict='border_width'),  # <=== this take width and hight in same time
-               'text_size'           :SingleEntry(config_widget = 'text_size'        ,widget = self.container_widget_content , id_name_widget_dict='text_size'),  # <=== this take width and hight in same time
-               'image_opacity'       :SingleEntry(config_widget = 'image_opacity'    ,widget = self.container_widget_content , id_name_widget_dict='image_opacity'),  # <=== this take width and hight in same time
-               'opacity'             :SingleEntry(config_widget = 'opacity'          ,widget = self.container_widget_content , id_name_widget_dict='opacity'),  # <=== this take width and hight in same time
-               ######################### DOUBLE SELECTION ENTRY
-               'width'               :DoubleEntry(config_widget = 'width'            ,widget = self.container_widget_content , id_name_widget_dict='width'),  # <=== this take width and hight in same time
+               'text'                :SingleEntry(config_widget = 'text'             ,widget = self.container_widget_content , id_name_widget_dict='text'),
+               'name'                :SingleEntry(config_widget = 'name'             ,widget = self.container_widget_content , id_name_widget_dict='name'),
+               'size'                :SingleEntry(config_widget = 'size'             ,widget = self.container_widget_content , id_name_widget_dict='size'),
+               'label'               :SingleEntry(config_widget = 'label'            ,widget = self.container_widget_content , id_name_widget_dict='label'),
+               'value'               :SingleEntry(config_widget = 'value'            ,widget = self.container_widget_content , id_name_widget_dict='value'),
+
+               'hint_text'           :SingleEntry(config_widget = 'hint_text'        ,widget = self.container_widget_content , id_name_widget_dict='hint_text'),
+               'counter_text'        :SingleEntry(config_widget = 'counter_text'     ,widget = self.container_widget_content , id_name_widget_dict='counter_text'),
+               'suffix_text'         :SingleEntry(config_widget = 'suffix_text'      ,widget = self.container_widget_content , id_name_widget_dict='suffix_text'),
+               'url'                 :SingleEntry(config_widget = 'url'              ,widget = self.container_widget_content , id_name_widget_dict='url'),
+               'url_target'          :SingleEntry(config_widget = 'url_target'       ,widget = self.container_widget_content , id_name_widget_dict='url_target'),
+               'icon'                :SingleEntry(config_widget = 'icon'             ,widget = self.container_widget_content , id_name_widget_dict='icon'),
+               'tooltip'             :SingleEntry(config_widget = 'tooltip'          ,widget = self.container_widget_content , id_name_widget_dict='tooltip'),
+               'src'                 :SingleEntry(config_widget = 'src'              ,widget = self.container_widget_content , id_name_widget_dict='src'),
+               'data'                :SingleEntry(config_widget = 'data'             ,widget = self.container_widget_content , id_name_widget_dict='data'),
+               'semantics_label'     :SingleEntry(config_widget = 'semantics_label'  ,widget = self.container_widget_content , id_name_widget_dict='semantics_label'),
+               'src_base64'          :SingleEntry(config_widget = 'src_base64'       ,widget = self.container_widget_content , id_name_widget_dict='src_base64'),
+               'image_src'           :SingleEntry(config_widget = 'image_src'        ,widget = self.container_widget_content , id_name_widget_dict='image_src'),
+               'blur_radius'         :SingleEntry(config_widget = 'blur_radius'      ,widget = self.container_widget_content , id_name_widget_dict='blur_radius'),
+               'spread_radius'       :SingleEntry(config_widget = 'spread_radius'    ,widget = self.container_widget_content , id_name_widget_dict='spread_radius'),
+               'elevation'           :SingleEntry(config_widget = 'elevation'        ,widget = self.container_widget_content , id_name_widget_dict='elevation'),
+               'rotate'              :SingleEntry(config_widget = 'rotate'           ,widget = self.container_widget_content , id_name_widget_dict='rotate'),
+               'scale'               :SingleEntry(config_widget = 'scale'            ,widget = self.container_widget_content , id_name_widget_dict='scale'),
+               'aspect_ratio'        :SingleEntry(config_widget = 'aspect_ratio'     ,widget = self.container_widget_content , id_name_widget_dict='aspect_ratio'),
+               'runs_count'          :SingleEntry(config_widget = 'runs_count'       ,widget = self.container_widget_content , id_name_widget_dict='runs_count'),
+               'run_spacing'         :SingleEntry(config_widget = 'run_spacing'      ,widget = self.container_widget_content , id_name_widget_dict='run_spacing'),
+               'spacing'             :SingleEntry(config_widget = 'spacing'          ,widget = self.container_widget_content , id_name_widget_dict='spacing'),
+               'child_aspect_ratio'  :SingleEntry(config_widget ='child_aspect_ratio',widget = self.container_widget_content , id_name_widget_dict='child_aspect_ratio'),
+               'max_extent'          :SingleEntry(config_widget = 'max_extent'       ,widget = self.container_widget_content , id_name_widget_dict='max_extent'),
+               'min_lines'           :SingleEntry(config_widget = 'min_lines'        ,widget = self.container_widget_content , id_name_widget_dict='min_lines'),
+               'max_lines'           :SingleEntry(config_widget = 'max_lines'        ,widget = self.container_widget_content , id_name_widget_dict='max_lines'),
+               'border_width'        :SingleEntry(config_widget = 'border_width'     ,widget = self.container_widget_content , id_name_widget_dict='border_width'),
+               'text_size'           :SingleEntry(config_widget = 'text_size'        ,widget = self.container_widget_content , id_name_widget_dict='text_size'),
+               'image_opacity'       :SingleEntry(config_widget = 'image_opacity'    ,widget = self.container_widget_content , id_name_widget_dict='image_opacity'),
+               'opacity'             :SingleEntry(config_widget = 'opacity'          ,widget = self.container_widget_content , id_name_widget_dict='opacity'),
+
+               #: DOUBLE SELECTION ENTRY
+
+               'width'               :DoubleEntry(config_widget = 'width'            ,widget = self.container_widget_content , id_name_widget_dict='width'),
                'border'              :DoubleEntry(config_widget = 'border'           ,widget = self.container_widget_content , id_name_widget_dict='border'),
                'offset'              :DoubleEntry(config_widget = 'offset'           ,widget = self.container_widget_content , id_name_widget_dict='offset'),
                'blur'                :DoubleEntry(config_widget = 'blur'             ,widget = self.container_widget_content , id_name_widget_dict='blur'),
-               ######################### 4 SELECTION ENTRIE S
+
+               #: 4 SELECTION ENTRIE S
+
                'padding'             :FourEntry(config_widget = 'padding'            ,widget = self.container_widget_content , id_name_widget_dict='padding'),
                'margin'              :FourEntry(config_widget = 'margin'             ,widget = self.container_widget_content , id_name_widget_dict='margin'),
                'border_radius'       :FourEntry(config_widget = 'border_radius'      ,widget = self.container_widget_content , id_name_widget_dict='border_radius'),
-               ######################### COLOR ENTRY ['RED' ...]
+
+               #: COLOR ENTRY ['RED' ...]
+
                'bgcolor'             :ColorEntry(config_widget= 'bgcolor'            ,widget = self.container_widget_content , id_name_widget_dict='bgcolor'),
                'color'               :ColorEntry(config_widget= 'color'              ,widget = self.container_widget_content , id_name_widget_dict='color'),
                'shadow_color'        :ColorEntry(config_widget= 'shadow_color'       ,widget = self.container_widget_content , id_name_widget_dict='shadow_color'),
@@ -197,7 +195,9 @@ class Build_Editor(ft.Stack):
                'border_color'        :ColorEntry(config_widget= 'border_color'       ,widget = self.container_widget_content , id_name_widget_dict='border_color'),
                'focused_bgcolor'     :ColorEntry(config_widget= 'focused_bgcolor'    ,widget = self.container_widget_content , id_name_widget_dict='focused_bgcolor'),
                'focused_border_color':ColorEntry(config_widget= 'focused_border_color',widget = self.container_widget_content , id_name_widget_dict='focused_border_color'),
-               ######################### BOOL ENTRY [TRUE FALSE]
+
+               #: BOOL ENTRY [TRUE FALSE]
+
                'expand':             BoolEntry(config_widget = 'expand'              ,widget = self.container_widget_content , id_name_widget_dict='expand'),
                'ink':                BoolEntry(config_widget = 'ink'                 ,widget = self.container_widget_content , id_name_widget_dict='ink'),
                'scroll':             BoolEntry(config_widget = 'scroll'              ,widget = self.container_widget_content , id_name_widget_dict='scroll'),
@@ -216,7 +216,9 @@ class Build_Editor(ft.Stack):
                'can_reveal_password':BoolEntry(config_widget = 'can_reveal_password' ,widget = self.container_widget_content , id_name_widget_dict='can_reveal_password'),
                'capitalization':     BoolEntry(config_widget = 'capitalization'      ,widget = self.container_widget_content , id_name_widget_dict='capitalization'),
                'gapless_playback':   BoolEntry(config_widget = 'gapless_playback'    ,widget = self.container_widget_content , id_name_widget_dict='gapless_playback'),
-               ######################### SELECTION ENTRY
+
+               #: SELECTION ENTRY
+
                'image_fit':          SelectionEntry(config_widget = 'image_fit'           ,widget = self.container_widget_content , id_name_widget_dict='image_fit'),
                'weight':             SelectionEntry(config_widget = 'weight'              ,widget = self.container_widget_content , id_name_widget_dict='weight'),
                'keyboard_type':      SelectionEntry(config_widget = 'keyboard_type'       ,widget = self.container_widget_content , id_name_widget_dict='keyboard_type'),
@@ -225,29 +227,25 @@ class Build_Editor(ft.Stack):
                'content_alignment':  SelectionEntry(config_widget = 'content_alignment'   ,widget = self.container_widget_content , id_name_widget_dict='content_alignment'),
                'vertical_alignment' :SelectionEntry(config_widget = 'vertical_alignment'  ,widget = self.container_widget_content , id_name_widget_dict='vertical_alignment'),
               'horizontal_alignment':SelectionEntry(config_widget = 'horizontal_alignment',widget = self.container_widget_content , id_name_widget_dict='horizontal_alignment'),
-               ######################### GRADIEN ENTRY
-               'gradient':           GradientEntry(config_widget  = 'gradient'            ,widget = self.container_widget_content , id_name_widget_dict='gradient'),
-               #############################################################################################
 
+               #: GRADIEN ENTRY
+
+               'gradient':           GradientEntry(config_widget  = 'gradient'            ,widget = self.container_widget_content , id_name_widget_dict='gradient'),
           }
 
-          self.main_phone =ft.Container( ########################################## TAB 1
+          self.main_phone =ft.Container(
                                    padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-                                   # COLOR BOX IN TAB 1
-                                   # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
                               content = ft.Column(
                                              scroll="HIDDEN",
-                                             controls = [ ##################### CONTROLS IN PHONE BOX
-                                                       ##########################################
+                                             controls = [
                                                        BoxConfigContainer(
                                                                  title='Color Phone Container',
                                                             controls=[
                                                                       widgets_dict.get('phone_blur'),
                                                                       widgets_dict.get('phone_bgcolor'),
                                                                       widgets_dict.get('phone_gradient'),
-
                                                                  ],),
-                                                       ##########################################
+
                                                        BoxConfigContainer(
                                                                  title='Image Phone Container',
                                                             controls=[
@@ -255,7 +253,7 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('phone_image_fit'),
                                                                       widgets_dict.get('phone_image_opacity'),
                                                                  ],),
-                                                       ##########################################
+
                                                        BoxConfigContainer(
                                                                  title='Column Phone Property',
                                                             controls=[
@@ -267,19 +265,15 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('column_phone_alignment'),
                                                                       widgets_dict.get('column_phone_horizontal_alignment'),
                                                                  ],),
-                                                       ##########################################
-                                                       ], # <<<< controls
-                                                  ),      # <<<< column
+                                                       ],
+                                                  ),
                                              )
-          self.widget_container = ft.Container( ########################################## TAB 2
+          self.widget_container = ft.Container(
                                    padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-                                   visible=False, ###### <============ set visible or not
-                                   # COLOR BOX IN TAB 2
-                                   # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                   visible=False,
                               content = ft.Column(
                                              scroll="HIDDEN",
-                                             controls = [ ##################### CONTROLS IN PHONE BOX
-                                                       ##########################################
+                                             controls = [
                                                        BoxConfigContainer(
                                                                  title='Position Container',
                                                             controls=[
@@ -289,10 +283,8 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('container_scale'),
                                                                       widgets_dict.get('container_offset'),
                                                                       widgets_dict.get('container_alignment'),
-
                                                                  ],),
 
-                                                       ##########################################
                                                        BoxConfigContainer(
                                                                  title='Modification Container',
                                                             controls=[
@@ -304,7 +296,7 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('container_visible'),
                                                                       widgets_dict.get('container_border_radius'),
                                                                  ],),
-                                                       ##########################################
+
                                                        BoxConfigContainer(
                                                                  title='Color Container',
                                                             controls=[
@@ -312,7 +304,7 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('container_blur'),
                                                                       widgets_dict.get('container_gradient'),
                                                                  ],),
-                                                       ##########################################
+
                                                        BoxConfigContainer(
                                                                  title='Image Container',
                                                             controls=[
@@ -320,20 +312,16 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('container_image_src'),
                                                                       widgets_dict.get('container_image_opacity'),
                                                                  ],),
-                                                       ##########################################
-                                                       ], # <<<< controls
-                                                  ),      # <<<< column
+                                                       ],
+                                                  ),
                                              )
 
-          self.widget_container_content  =ft.Container( ########################################## TAB 3
+          self.widget_container_content  =ft.Container(
                                    padding = ft.padding.only(left=4, top=4, right=4, bottom=4),
-                                   visible=False, ###### <============ set visible or not
-                                   # COLOR BOX IN TAB 3
-                                   # gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+                                   visible = False,
                               content = ft.Column(
                                              scroll="HIDDEN",
-                                             controls = [ ##################### CONTROLS IN PHONE BOX
-                                                       ##########################################
+                                             controls = [
 
                                                        BoxConfigContainer(
                                                                  title='Modification Widget',
@@ -348,8 +336,6 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('gapless_playback'),
                                                                  ],),
 
-                                                       ##########################################
-
                                                        BoxConfigContainer(
                                                                  title='Input Text Data',
                                                             controls=[
@@ -361,8 +347,6 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('url'),
                                                                       widgets_dict.get('url_target'),
                                                                  ],),
-
-                                                       ##########################################
 
                                                        BoxConfigContainer(
                                                                  title='Modification Text Data',
@@ -382,8 +366,6 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('can_reveal_password'),
                                                                  ],),
 
-                                                       ##########################################
-
                                                        BoxConfigContainer(
                                                                  title='Position Widget in Box',
                                                             controls=[
@@ -397,14 +379,11 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('elevation'),
                                                                       widgets_dict.get('keyboard_type'),
                                                                       widgets_dict.get('alignment'),
-                                                                      # widgets_dict.get('content_alignment'), # <==== ERROR CHECK
                                                                       widgets_dict.get('vertical_alignment'),
                                                                       widgets_dict.get('horizontal_alignment'),
                                                                       widgets_dict.get('horizontal'),
                                                                       widgets_dict.get('filled'),
                                                                  ],),
-
-                                                       ##########################################
 
                                                        BoxConfigContainer(
                                                                  title='Modification Size Widget',
@@ -420,7 +399,6 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('expand'),
                                                                       widgets_dict.get('tight'),
                                                                  ],),
-                                                       ##########################################
 
                                                        BoxConfigContainer(
                                                                  title='Modification Border Widget Box',
@@ -430,8 +408,6 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('spread_radius'),
                                                                       widgets_dict.get('border_width'),
                                                                  ],),
-
-                                                       ##########################################                                                                                                    BoxConfigContainer(
 
                                                        BoxConfigContainer(
                                                                  title='Colors Widget in Box',
@@ -446,7 +422,6 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('border_color'),
                                                                       widgets_dict.get('focused_border_color'),
                                                                  ],),
-                                                       ##########################################
 
                                                        BoxConfigContainer(
                                                                  title='Icon or Image in Box',
@@ -461,41 +436,29 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('opacity'),
                                                                       widgets_dict.get('image_opacity'),
                                                                  ],),
-                                                       ##########################################
-                                                       ], # <<<< controls
-                                                  ),      # <<<< column
-                                             )           # <<<< container
+                                                       ],
+                                                  ),
+                                             )
           Drop_Build_Editor=ft.Container(
-                                   ##################### PROPERTY ROW
-                                   padding       = ft.padding.all(0),    # inside box                     # padding.only(left=8, top=8, right=8, bottom=8),
-                                   margin        = ft.margin.all(0),     # outside box                    # margin.only (left=8, top=8, right=8, bottom=8),
-                                   border_radius = ft.border_radius.all(28),                              # ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
-                                   ############################
-                                   # image_src     = f"dragg_container3.jpg",
-                                   # image_opacity = 0.03,
-                                   # image_fit     ='COVER',                                                # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                   ############################
-                                   # blur        = 18,
+                                   padding       = ft.padding.all(0),
+                                   margin        = ft.margin.all(0),
+                                   border_radius = ft.border_radius.all(28),
                                    width         = 372,
-                                   # height        = 580,
                                    height        = 670,
-                                   # expand=True,
-                                   ############################
-                              # on_hover = lambda _:print(f'ID of the Config Container: {Drop_Build_Editor._Control__uid}'),
                               content  = ft.Tabs(
                                              label_color             = 'BLUE',
                                              indicator_border_radius = ft.border_radius.all(20),
                                         tabs = [
-                                                       ft.Tab(   ########################################## MAIN LAYOUT
+                                                       ft.Tab(
                                                                  text    = "Box Phone",
 
-                                                            content = self.main_phone          # <<<< container
+                                                            content = self.main_phone
                                                        ),
-                                                       ft.Tab(   ########################################## CONTAINER SELECTED LAYOUT
+                                                       ft.Tab(
                                                                  text    = "Box Container",
-                                                            content = self.widget_container          # <<<< container
+                                                            content = self.widget_container
                                                        ),
-                                                       ft.Tab(   ########################################## CONTENT SELECTED WIDGET
+                                                       ft.Tab(
                                                                  text    = "Box Widget",
                                                             content = self.widget_container_content,
                                                          ),
@@ -503,27 +466,23 @@ class Build_Editor(ft.Stack):
                                             ),
                               )
 
-          ##########################################
           GLOBAL_VAR(set_global_var={
                                         'CONFIG_TABS_PHONE':self.main_phone,
                                    'CONFIG_TABS_CONTAINERS':self.widget_container,
                            'CONFIG_TABS_CONTAINERS_CONTENT':self.widget_container_content,
                                       'LIST_KEYS_DICT_USED':widgets_dict.keys(),
                                    } )
-          ##########################################
 
           return Drop_Build_Editor
 
 if __name__ == '__main__':
     def main(page: ft.Page):
-        ######################
+
         page.scroll                    = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
         page.vertical_alignment        = ft.MainAxisAlignment.CENTER
         page.horizontal_alignment      = ft.CrossAxisAlignment.CENTER
-        ######################  COLOR
         page.theme_mode                = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
         page.window_bgcolor            = ft.colors.RED_100
-        ###################### POSITION OF SC
         page.window_left               = 3
         page.window_top                = 3
         page.window_height             = 680
@@ -531,5 +490,5 @@ if __name__ == '__main__':
         page.padding                   = 0
         page.spacing                   = 0
         page.add(Build_Editor(widget=ft.Container()))
-        ######################
+
     ft.app(target=main)

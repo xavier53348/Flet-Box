@@ -20,9 +20,7 @@ class InfinityBoxLayerOne(ft.Stack):
         IS A LOOP DRAGGTARGET THAT WILL CONTAIN ALL WIDGET INSIDE.
 
      AND IT SELF WILL ADD WIDGETS DEPENDIND
-
      ROW , COLUMN , GRIDVIEW ... USE CONTROLS=[ WIDGETS, WIDGETS... ]
-
      REST WIDGETS USE CONTENT = WIDGET()
 
      2. Make widget need
@@ -30,20 +28,19 @@ class InfinityBoxLayerOne(ft.Stack):
 
      def __init__(self,dataPassed=''):
           super().__init__()
-          # assd=''
-          self.dataPassed = dataPassed
+
+          self.dataPassed    = dataPassed
           self.clip_behavior = ft.ClipBehavior.NONE
 
      def build(self):
           global numWidget
-          # self.tmp=ft.Container()
-          """
-          check <========== CircleAvatar, VerticalDivider
 
+          """
+          check CircleAvatar, VerticalDivider
           """
           self.widgets={
 
-               ####################### CONTAINERS LAYOUTS
+               #: CONTAINERS LAYOUTS
 
                        "Row": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Row',
                                    ink=True,
@@ -78,7 +75,8 @@ class InfinityBoxLayerOne(ft.Stack):
                                         controls= [
                                                        ],),),
                               ],
-               ####################### SPACE LAYOUTS
+               #: SPACE LAYOUTS
+
                    "Divider": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Divider',
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
@@ -93,7 +91,8 @@ class InfinityBoxLayerOne(ft.Stack):
                                    content=ft.VerticalDivider(width=1, color="white"),),
                               ],
 
-               ####################### IMAGE WIDGET
+               #: IMAGE WIDGET
+
                      "Image": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Image',
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
@@ -112,7 +111,8 @@ class InfinityBoxLayerOne(ft.Stack):
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
                                    content=ft.Icon(name=ft.icons.ADD_REACTION_OUTLINED,tooltip='Icon'),),
                               ],
-               ####################### TEXT  WIDGET
+               #: TEXT  WIDGET
+
                      "Text":  [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Text',
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
@@ -129,7 +129,7 @@ class InfinityBoxLayerOne(ft.Stack):
                                         ),),
                               ],
 
-               ####################### BUTTONS WIDGET
+               #: BUTTONS WIDGET
 
            "Elevated Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='ElevatedButton',
                                    ink=True,
@@ -168,7 +168,8 @@ class InfinityBoxLayerOne(ft.Stack):
                                    content=ft.OutlinedButton("Accept",tooltip='OutlinedButton',height=28),),
                               ],
 
-               ####################### SELECTIONS WIDGET
+               #: SELECTIONS WIDGET
+
                  "Checkbox":  [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Checkbox',
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
@@ -202,7 +203,8 @@ class InfinityBoxLayerOne(ft.Stack):
                                    content=ft.CupertinoSlider(value=50,tooltip='CupertinoSlider',max=100,height=28,),),
                               ],
 
-                 # RadioGroup <==== need solve that issue
+                 #: RadioGroup <==== need solve that issue
+
                  "Cup Radio": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='CupertinoRadio',
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
@@ -218,26 +220,26 @@ class InfinityBoxLayerOne(ft.Stack):
                               ],
                }
 
-          ####################### ALERTS STATUS
+          #: ALERTS STATUS
 
-          ####################### WIDGETS STATUS
+          #: WIDGETS STATUS
 
-          ####################### ESPECIAL WIDGET
+          #: ESPECIAL WIDGET
 
-          ####################### CHARTS LAYOUTS
+          #: CHARTS LAYOUTS
+
           selectWidgetBox                    = GLOBAL_VAR(get_global_var='SELECT_DRAGG')
           self.infinityDropWidget            = self.widgets.get(selectWidgetBox)
           self.infinityDropWidget[0].id      = f"{self.dataPassed}: {numWidget}"              # OUR ID
           self.infinityDropWidget[0].tooltip = f"{self.dataPassed}: {numWidget}"              # TOOLTIP ID
 
+          #: run only production
+          #: print(self.infinityDropWidget[0].id)
+          #: print(self.infinityDropWidget[0]._Control__uid)
 
-          # print(self.infinityDropWidget[0].id)
-          # print(self.infinityDropWidget[0]._Control__uid)
 
-
-          ####################### SET WIDGET DROPPED TO DICT DATABASE TO EXPORT PROYECT
-          # GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':{self.infinityDropWidget[0].id:self.infinityDropWidget[0]}})
-          #######################
+          #: SET WIDGET DROPPED TO DICT DATABASE TO EXPORT PROYECT
+          #: GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':{self.infinityDropWidget[0].id:self.infinityDropWidget[0]}})
 
           print('============')
           print(f"""
@@ -258,20 +260,22 @@ class InfinityBoxLayerOne(ft.Stack):
                                         )
 
           numWidget+=1
-          # return self.infinityDropWidget
+          #: return self.infinityDropWidget
           return self.drag_boxs
 
      def resetClick(self):
           global numClick
           numClick=1
 
-          ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
-          # SELECT_DROPP_WIDGET_CONTAINER = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER')
-          # if not SELECT_DROPP_WIDGET_CONTAINER == None:  # <<===== YOU SELECTED ONE WIDGET IN PHONE
-          #      # IF LEAVE THIS BOX WILL RESET BORDER PHONE
-          #      SELECT_DROPP_WIDGET_CONTAINER.border = None
-          #      SELECT_DROPP_WIDGET_CONTAINER.update()
-          ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+          #: SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+          #: SELECT_DROPP_WIDGET_CONTAINER = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER')
+
+          #: if not SELECT_DROPP_WIDGET_CONTAINER == None:  #: <<===== YOU SELECTED ONE WIDGET IN PHONE
+          #:      #: IF LEAVE THIS BOX WILL RESET BORDER PHONE
+          #:      SELECT_DROPP_WIDGET_CONTAINER.border = None
+          #:      SELECT_DROPP_WIDGET_CONTAINER.update()
+
+          #: SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
 
 
      def touchWidgetIndex(self,listWidget):
@@ -298,34 +302,35 @@ class InfinityBoxLayerOne(ft.Stack):
           click_time      = time.time()
           last_click_time = GLOBAL_VAR(get_global_var='CHECK_CURRENT_TIME_DOBLE_CLICKS')  #< == DEFAULD 0
 
-          ####################################################################################
-          # CHECK IF SCAPE DOBLE CLICKS PEASE DON'T EDIT THIS LINE IF NO HAVE SOLUTION IMPLEMENTED
-          # end_thread_time = time.time()
+
+          #: CHECK IF SCAPE DOBLE CLICKS PEASE DON'T EDIT THIS LINE IF NO HAVE SOLUTION IMPLEMENTED
+          #: end_thread_time = time.time()
 
           if (click_time - last_click_time) < 0.3:
-               ####################################################################################
-               # IF CURRENT TIME IT GRADER THAN 0.1 SEGUND ITS OK LESS IS DETECTED AS DOUBLE CLIKS
-               # print('<==============> START')
-               # print(current_time_performance_clicks,' :SECONDS')
-               # print('<==============> END')
-               ####################################################################################
+
+               #: IF CURRENT TIME IT GRADER THAN 0.1 SEGUND ITS OK LESS IS DETECTED AS DOUBLE CLIKS
+               #: print('<==============> START')
+               #: print(current_time_performance_clicks,' :SECONDS')
+               #: print('<==============> END')
+
                print(f'ESCAPE DOUBLE CLICK: TIME: {click_time - last_click_time}')
 
           else:
                if CHECK_DATA:
-                    #################################################################################### HIDE TAB 2
-                    # HIDE TABS 2 and 3 IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
-                    #
+                    #: HIDE TAB 2
+                    #: HIDE TABS 2 and 3 IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
+
                     CONFIG_TABS_CONTAINERS                 = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS')
                     CONFIG_TABS_CONTAINERS.visible         = False
                     CONFIG_TABS_CONTAINERS.update()
-                    #################################################################################### HIDE TAB 3
-                    # HIDE TABS 2 and 3 IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
+
+                    #: HIDE TAB 3
+                    #: HIDE TABS 2 and 3 IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
 
                     CONFIG_TABS_CONTAINERS_CONTENT         = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
                     CONFIG_TABS_CONTAINERS_CONTENT.visible = False
                     CONFIG_TABS_CONTAINERS_CONTENT.update()
-                    #################################################################################### HIDE TAB 3
+                    #: HIDE TAB 3
 
                if numClick == 1:
                     tmp_list         = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
@@ -336,34 +341,36 @@ class InfinityBoxLayerOne(ft.Stack):
                               tmp_list.border = ft.border.all(0, ft.colors.TRANSPARENT)
                               tmp_list.update()
 
-                    #############################################################################
-                    # WE HAVE TO FIX THIS PROBLEM MULTY TOUCH IS INVOKET EVERY TIME THAT MAKE ONE CLICK OVER A BOX
+                    #: WE HAVE TO FIX THIS PROBLEM MULTY TOUCH IS INVOKET EVERY TIME THAT MAKE ONE CLICK OVER A BOX
+
                     widgetConfig = listWidgetUpdate
 
-                    #############################################################################
                     """
                     THIS MODULE CALL TO BUILD EDITOR TO CHANGE ATTRIBUTES
                     """
-                    # Build_Editor.update_widget_attributes(widget_cliked=self.infinityDropWidget[0])
-                    ############################################################################ SET SELECTED WIDGET IN DICT TO ERASE IF PRESS REMOVE
+                    #: Build_Editor.update_widget_attributes(widget_cliked=self.infinityDropWidget[0])
+                    #: SET SELECTED WIDGET IN DICT TO ERASE IF PRESS REMOVE
                     GLOBAL_VAR(set_global_var={'SELECT_DATA_ERASE_PHONE':listWidget[0].id})
 
                     # time.sleep(0.1)
 
-                    ############################################################################ SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+                    #: SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+
                     TEXT_PHONE_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_PHONE_WIDGET')
                     TEXT_PHONE_WIDGET.controls[0].content.controls[1].spans[0].text = listWidget[0].tooltip
                     TEXT_PHONE_WIDGET.controls[0].bgcolor = ft.colors.BLUE_GREY_900
                     TEXT_PHONE_WIDGET.controls[0].update()
-                    ######################################
+
                     TEXT_DRAGG_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_DRAGG_WIDGET')
                     TEXT_DRAGG_WIDGET.controls[0].content.controls[1].spans[0].text = "None"
                     TEXT_DRAGG_WIDGET.controls[0].bgcolor = ft.colors.BLACK12
                     TEXT_DRAGG_WIDGET.controls[0].update()
-                    ################################## SET GLOBAL VAR // SELECTED_WIDGET // IN PHONE_CONTAINER AND PHONE CONTENT
+
+                    #: SET GLOBAL VAR // SELECTED_WIDGET // IN PHONE_CONTAINER AND PHONE CONTENT
+
                     GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER':listWidget[0]})
                     GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER_CONTENT':listWidget[0].content})
-                    ####################################################################################
+
 
                     GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':listWidget[0]})
                     GLOBAL_VAR(set_global_var={'BOOL_SHOW_SELECTED':True})
@@ -371,9 +378,10 @@ class InfinityBoxLayerOne(ft.Stack):
                     widgetConfig[0].border = ft.border.all(2, ft.colors.YELLOW_900)
                     widgetConfig[0].update()
 
-                    ####################################################################################
-                    # WILL BE A DEATH LINE IF MAKE THE SOLUTION TO:
-                    # DOUBLE CLICK IN CONTAINER ON_CLIK EVENT THAT PASS THROUG IT SELF 2 CLICKS IN SAME TIME
+
+                    #: WILL BE A DEATH LINE IF MAKE THE SOLUTION TO:
+                    #: DOUBLE CLICK IN CONTAINER ON_CLIK EVENT THAT PASS THROUG IT SELF 2 CLICKS IN SAME TIME
+
                     GLOBAL_VAR(set_global_var={'CHECK_CURRENT_TIME_DOBLE_CLICKS':click_time}) # <==== TO CHECK CLICKS SCAPED IN CONTAINERS
 
                numClick+=1
@@ -385,8 +393,8 @@ class InfinityBoxLayerOne(ft.Stack):
           THIS PART IS VERY IMPORTANT BECAUSE IS THE LOOP OF THE DROP WIDGET THAT WE NEED APPEND OR PASS
           IN DEPENDENCY IF IS A CONTROLS USE APPEND AND IF IS A CONTENT WE PASS
           """
-          ############################################################################
-          ################################# widget to add
+
+          #: widget to add
           self.widgetFilter      = ['Row',"GridView","Column","Stack",]
           self.widget_Filter     = ['row',"gridview","column","stack",]
 
@@ -396,9 +404,9 @@ class InfinityBoxLayerOne(ft.Stack):
           right_content          = widgetDropBox.control.content.content._get_control_name()
 
           if selectWidgetBox in self.widgetFilter:
-               ############################################################################
+
                #
-               # IF DROPPED WIDGET HAS CONTENT ROW , GRIDVIEW,COLUMN,STACK WILL APPEND TO CONTROLS
+               #: IF DROPPED WIDGET HAS CONTENT ROW , GRIDVIEW,COLUMN,STACK WILL APPEND TO CONTROLS
                #
                if right_content in self.widget_Filter:
                     # AVOID COLLIDE CONTROLS WITH CONTENT
@@ -412,7 +420,7 @@ class InfinityBoxLayerOne(ft.Stack):
                     """
                          IF WIDGET TO DROP_WIDGET IS A CONTROLS APPEND 'Row',"GridView","Column","Stack"
                     """
-                    ############################################################################
+
                     #
                     # IF DROPPED WIDGET HAS CONTENT ROW , GRIDVIEW,COLUMN,STACK WILL APPEND TO CONTROLS
                     #
@@ -426,25 +434,25 @@ class InfinityBoxLayerOne(ft.Stack):
                #      # widgetDropBox.control.content.content.content=self.InstanceNewWidget
                #      pass
 
-          ################################## UPDATE COLOR WIDGET #####################
+          #: UPDATE COLOR WIDGET
           widgetDropBox.control.content.border = True
           widgetDropBox.control.content.border = ft.border.all(0, ft.colors.TRANSPARENT)
           widgetDropBox.control.update()
           self.page.update()
-          ############################################################################
+
 
      def drag_will_accept(self,widgetDropBox):
-          ################################## UPDATE COLOR WIDGET #####################
+          #: UPDATE COLOR WIDGET
           widgetDropBox.control.content.border = None
           widgetDropBox.control.content.border = ft.border.all(4, ft.colors.CYAN_900)
-          ############################################################################
+
           widgetDropBox.control.update()
           self.page.update()
 
      def drag_leave(self,widgetDropBox):
-          ################################## UPDATE COLOR WIDGET #####################
+          #: UPDATE COLOR WIDGET
           widgetDropBox.control.content.border = True
           widgetDropBox.control.content.border = ft.border.all(0, ft.colors.TRANSPARENT)
           widgetDropBox.control.update()
-          ############################################################################
+
           self.page.update()
