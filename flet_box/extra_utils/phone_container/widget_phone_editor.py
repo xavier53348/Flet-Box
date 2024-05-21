@@ -75,7 +75,6 @@ class Build_Phone_Editor(ft.Stack):
 
           GLOBAL_VAR(set_global_var={'PHONE_MAIN':self.phone_main})
           GLOBAL_VAR(set_global_var={'PHONE_CONTAINER':self.phone_container})
-          GLOBAL_VAR(set_global_var={'PHONE_CONTAINER':self.phone_container})
           GLOBAL_VAR(set_global_var={'PHONE_CONTAINER_CONTENT':self.phone_container_content})
 
           return self.phone

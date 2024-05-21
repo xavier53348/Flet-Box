@@ -1,4 +1,5 @@
 from ..settings_var.settings_widget import GLOBAL_VAR
+from ..tree_view.tree_view import TreeView
 import flet as ft
 
 class LiteMenuUpContainer(ft.Stack):
@@ -304,10 +305,24 @@ class LiteMenuUpContainer(ft.Stack):
                    #: BACK 2 ID BEFORE TO GET DRAGGTARGET AND CORRECTLY DELETE
                    get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}"                    #: <===== ID Stack() - 2
                    page_control   = self.main_page.get_control(get_control_id)                      #: <===== GET EXACTLY DRAG TARGET
+
+                   # RUN ONLY IN PRODUCTION
+                   # print(page_control,get_control_id,'simple erase')
+
                    page_control.controls.pop()                                                      #: <===== ERASE CONTROL WIDGET
                    touch_widget_in_phone = GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':None})#: <===== RESET SELECTED WIDGET TO NONE
                    del main_page._index[get_control_id]                                             #: <===== DELETE INDEX IN MAIN PAGE
                    page_control.update()                                                            #: <===== UPDATE PAGE
+
+          if action == 'clear':
+               #: ERASE ALL WIDGETS FROM CRONTROLS
+               main_phone = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
+               GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':dict()})                              #: <=====
+               main_phone.content.controls.clear()
+               main_phone.update()                                                                  #: <===== UPDATE PAGE
+
+          if action == 'TREE':
+               TreeView.visible_view()
 
 
           if action == 'rotation':
@@ -395,18 +410,18 @@ if __name__ == '__main__':
 
      def main(page: ft.Page):
 
-          page.scroll                    = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
-          page.vertical_alignment        = ft.MainAxisAlignment.CENTER
-          page.horizontal_alignment      = ft.CrossAxisAlignment.CENTER
-          page.theme_mode                = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
-          page.window_bgcolor            = ft.colors.RED_100
-          page.window_left               = 20
-          page.window_top                = 20
-          page.window_height           = 400
-          page.window_width            = 600
-          page.padding                   = 0
-          page.spacing                   = 0
-          page.expand                    = True
+          page.scroll               = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
+          page.vertical_alignment   = ft.MainAxisAlignment.CENTER
+          page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+          page.theme_mode           = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
+          page.window_bgcolor       = ft.colors.RED_100
+          page.window_left          = 20
+          page.window_top           = 20
+          page.window_height        = 400
+          page.window_width         = 600
+          page.padding              = 0
+          page.spacing              = 0
+          page.expand               = True
           Lite_MenuUpContainer = LiteMenuUpContainer()
           page.add(Lite_MenuUpContainer)
           page.update()

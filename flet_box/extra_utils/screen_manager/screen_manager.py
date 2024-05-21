@@ -363,7 +363,6 @@ class ScreenContainer(ft.Container):
         # GET INDEX NUMBER FROM LIST TO DELETE IN CONTROLS
         my_list = SCREEN_GLOBAL_VAR(get_index_list=id_name)
 
-
         if id_name == 'main_screen': # EVOIT ERASE MAIN SCREEN
             return
 
@@ -433,11 +432,11 @@ class ScreenManager(ft.Stack):
                                 border_radius = ft.border_radius.all(30),
                                 border        = ft.border.all(2, ft.colors.WHITE24),
                                 padding       = ft.padding.only(
-                                                                    left   = 12,
-                                                                    right  = 12,
-                                                                    top    = 0,
-                                                                    bottom = 0,
-                                                                    ),
+                                                                left   = 12,
+                                                                right  = 12,
+                                                                top    = 0,
+                                                                bottom = 0,
+                                                                ),
 
                                 content= ft.Row(
                                         wrap        = True,

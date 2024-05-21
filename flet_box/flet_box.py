@@ -1,7 +1,6 @@
 #: LEFT DRAGG CONTAINER
 from extra_utils.config_container.widget_editor                  import Build_Editor
 from extra_utils.drag_container.widget_drag_editor               import Build_Drag_Editor
-from extra_utils.drag_container.drag_handler_container           import HandlerDraggBox
 #: TREEVIEW CONTAINER
 from extra_utils.tree_view.tree_view                             import TreeView
 from extra_utils.tree_view.tree_view_text_editor                 import TreeViewTextEditor
@@ -11,7 +10,7 @@ from extra_utils.phone_container.widget_phone_editor             import Build_Ph
 from extra_utils.menu_tab_up_phone.widget_menu_tab_editor        import MenuUpContainer
 from extra_utils.menu_tab_left_phone.widget_menu_left_editor     import MenuLeftContainer
 #: LITE MENU RIGHT PHONE AND DOWN
-from extra_utils.lite_menu_bar_up_phone.head_bar_menu_phone      import LiteMenuUpContainer
+from extra_utils.lite_menu_bar_right_phone.right_bar_menu_phone  import LiteMenuUpContainer
 from extra_utils.lite_menu_bar_down_phone.footer_bar_menu_phone  import LiteMenuDownContainer
 from extra_utils.lite_menu_bar_down_phone.selected_widget        import SelectedWidget
 #: ICON AND COLOR BROWSER CONTAINER
@@ -35,22 +34,22 @@ def main(page: ft.Page):
      page.window_title_bar_hidden         = True
      page.window_title_bar_buttons_hidden = True
      page.window_focused                  = True
-     page.scroll                    = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
-     page.vertical_alignment        = ft.MainAxisAlignment.CENTER
-     page.horizontal_alignment      = ft.CrossAxisAlignment.CENTER
+     page.scroll                          = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
+     page.vertical_alignment              = ft.MainAxisAlignment.CENTER
+     page.horizontal_alignment            = ft.CrossAxisAlignment.CENTER
      #:  COLOR
-     page.theme_mode                = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
-     page.window_bgcolor            = ft.colors.RED_100
+     page.theme_mode                      = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
+     page.window_bgcolor                  = ft.colors.RED_100
 
      #: POSITION OF SC
-     page.window_left               = 3
-     page.window_top                = 3
+     page.window_left                     = 3
+     page.window_top                      = 3
 
      #: SIZE
-     page.window_height             = 768
-     page.window_width              = 1360
-     page.padding                   = 0
-     page.spacing                   = 0
+     page.window_height                   = 768
+     page.window_width                    = 1360
+     page.padding                         = 0
+     page.spacing                         = 0
 
      #: GLOBAL_VAR PAGE
      GLOBAL_VAR(set_global_var={'PAGE':page})
@@ -154,7 +153,6 @@ def main(page: ft.Page):
           content=Screen_Manager,
           )
      GLOBAL_VAR(set_global_var={'SCREEN_CONTAINER':ScreenContainer})
-
 
      screen_1 = ft.Container(
                     ink             = False,

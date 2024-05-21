@@ -1,7 +1,7 @@
 from ..settings_var.settings_widget import GLOBAL_VAR
 
-from .. settings_var.save_export import WrapWidgetNode
-from .. tree_view.tree_view import TreeView
+from ..settings_var.save_export import WrapWidgetNode
+from ..tree_view.tree_view import TreeView
 
 import flet as ft
 
@@ -106,6 +106,7 @@ class MenuLeftContainer(ft.Stack):
                self.gpt_browser.update()
 
           if show_widget == "tree_view":
+               #: THIS METOD visible_view() WILL return
                #: INPUT DATA IN TREEVIEW
                #: tree_view_data = self.data_view.show_tree_nodews(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
                #: TreeView.update_data(data=tree_view_data)
