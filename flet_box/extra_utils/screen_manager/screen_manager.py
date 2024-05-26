@@ -119,9 +119,6 @@ class NameScreen(ft.Container):
                     ),
         )#<=== NOTE COMA
 
-    def colored(self):
-        self.ink_color = 'Red'
-
     def escape_data_in_sqlite(self):
         name_screen.visible = False
         name_screen.update()
@@ -335,13 +332,19 @@ class ScreenContainer(ft.Container):
         self.show_screen_manager.visible = False
         self.show_screen_manager.update()
 
+        screen_name: str = self.screen_selected.content.controls[1].content.value
+
+        change_text_screen = GLOBAL_VAR(get_global_var='change_text_screen')
+        change_text_screen.value = screen_name
+        change_text_screen.update()
+
+        #: RUN ONLY IN PRODUCTION
+        print(f'selected screen name: {screen_name} <====')
+
     def show_screen_name(self):
         # ONLY FUNCTIONALITY IS SHOW BOX INPUT DIALOG
         name_screen.visible = True
         name_screen.update()
-
-    def colored(self):
-        self.ink_color = 'Red'
 
     def remove_all(self):
         with open(CURRENT_PATH,'w') as f:

@@ -21,7 +21,7 @@ class SelectedWidget(ft.Stack):
                                         alignment     = ft.alignment.center_left,
                                         border_radius = ft.border_radius.all(30),
                                         border        = ft.border.all(2, ft.colors.BLACK38),
-                                        width         = 160,
+                                        width         = 208,
                                    content = ft.Row(
                                              controls = [
                                                   ft.Container(

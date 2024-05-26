@@ -1,5 +1,6 @@
 from flet_core.embed_json_encoder import EmbedJsonEncoder
 from ..settings_var.settings_widget import GLOBAL_VAR
+from ..menu_tab_up_phone.skeleton_class_screens import get_skeleton
 
 import flet as ft
 import json
@@ -312,55 +313,69 @@ class MakeJasonFile():
             """ if is a normal widget
 
             self.all_code_list.append(f"{tab_*tab_one}ft.{self._name_box}(")
-            self.all_code_list.append(f"{tab_*tab_two}self.json_style('{self._uid_box}'),")
+            self.all_code_list.append(f"{tab_*tab_two}self.self.dict_style('{self._uid_box}'),")
             self.all_code_list.append(f"{tab_*tab_two}content = ft.{self._name_con}(")
-            self.all_code_list.append(f"{tab_*tab_tree}self.json_style('{self._uid_con}'),")
+            self.all_code_list.append(f"{tab_*tab_tree}self.self.dict_style('{self._uid_con}'),")
             self.all_code_list.append(f"{tab_*(tab_tree-2)}),),")
 
             """
-            self.all_code_list.append(f"{tab_*tab_one}ft.{self._name_box}( # {self._name_con}")                             #: CONTAINER WIDGET
-            self.all_code_list.append(f"{tab_*tab_two}**json_style('{self._uid_box}'),")                                    #: CONTAINER STYLE
-            self.all_code_list.append(f"{tab_*tab_two}# on_click=lambda _: event{self._uid_con}(data='{self._uid_con}'),")  #: ALL CALL EVENTS IN ONE LIST
-            self.all_code_list.append(f"{tab_*tab_two}content = ft.{self._name_con}(")                                      #: SELECTED WIDGET
-            self.all_code_list.append(f"{tab_*tab_tree}**json_style('{self._uid_con}'),")                                   #: CONTENT STYLE
-            self.all_code_list.append(f"{tab_*tab_tree}# on_click=lambda _: event{self._uid_con}(data='{self._uid_con}'),") #: ALL CALL EVENTS IN ONE LIST
+            self.all_code_list.append(f"{tab_*tab_one}ft.{self._name_box}( # {self._name_con}")                               #: CONTAINER WIDGET
+            self.all_code_list.append(f"{tab_*tab_two}**self.dict_style('{self._uid_box}'),")                                 #: CONTAINER STYLE
+
+            #: CONDITION
+            list_condition: list = ['Image','Circleavatar',"Icon","Textfield"]
+            no_press_condition: list = ["Column","Stack","Container",'Row',"Textfield","Divider",
+                                        "Verticaldivider","Checkbox","Cupertinocheckbox","Radiogroup",
+                                        "Switch","Cupertinoslider","Text"]
+
+            print(self._name_con)
+
+            if self._name_con in list_condition and not self._name_con in no_press_condition:
+                self.all_code_list.append(f"{tab_*tab_two}on_click= lambda _: event{self._uid_con}(data='{self._uid_con}'),")     #: ALL CALL EVENTS IN ONE LIST
+            else:
+                self.all_code_list.append(f"{tab_*tab_two}# on_click= lambda _: event{self._uid_con}(data='{self._uid_con}'),")     #: ALL CALL EVENTS IN ONE LIST
+
+            self.all_code_list.append(f"{tab_*tab_two}content= ft.{self._name_con}(")                                         #: SELECTED WIDGET
+            self.all_code_list.append(f"{tab_*tab_tree}**self.dict_style('{self._uid_con}'),")                                #: CONTENT STYLE
+
+            if self._name_con in list_condition:
+                self.all_code_list.append(f"{tab_*tab_tree}# on_click= lambda _: event{self._uid_con}(data='{self._uid_con}'),")  #: ALL CALL EVENTS IN ONE LIST
+            else:
+                if not self._name_con in no_press_condition:
+                    self.all_code_list.append(f"{tab_*tab_tree}on_click= lambda _: event{self._uid_con}(data='{self._uid_con}'),")  #: ALL CALL EVENTS IN ONE LIST
+                else:
+                    self.all_code_list.append(f"{tab_*tab_tree}# on_click= lambda _: event{self._uid_con}(data='{self._uid_con}'),")  #: ALL CALL EVENTS IN ONE LIST
 
             #: SOME WIDGETS
             if self._name_con == 'Chip':
-                self.all_code_list.append(f"{tab_*(tab_tree+2)}label=ft.Text(**json_style('{self.main_node.content.label.uid}')),")   #: ALL CALL EVENTS IN ONE LIST
-                self.all_code_list.append(f"{tab_*(tab_tree+2)}leading=ft.Icon(**json_style('{self.main_node.content.leading.uid}')),")   #: ALL CALL EVENTS IN ONE LIST
+                self.all_code_list.append(f"{tab_*(tab_tree+2)}label= ft.Text(**self.dict_style('{self.main_node.content.label.uid}')),")   #: ALL CALL EVENTS IN ONE LIST
+                self.all_code_list.append(f"{tab_*(tab_tree+2)}leading= ft.Icon(**self.dict_style('{self.main_node.content.leading.uid}')),")   #: ALL CALL EVENTS IN ONE LIST
 
-
-            #: CONTINUE EXPESIAL ATTRIBUTES
+            #: VERY IMPORTANT THIS CODE BECOUSE MANAGE ALL EVENT CODE IN THIS SECTION
+            #: CONTINUE EXPECIAL ATTRIBUTES
             self.all_code_list.append(f"{tab_*(tab_tree-2)}),),\n")
 
-            #: ALL EVENTS IN ONE LIST
-            self.all_events_list.append(f"def event{self._uid_con}(data):\n    # got_to_screen(to_screen='screen_name' ,style='ring' ,time_style=0.8 )\n    # print('demo',data)\n    ...\n")
+            #:RECODING  ALL EVENTS IN ONE LIST FROM SKELETON CLASS SCREEN
+            event_manager = get_skeleton(name="event_skeleton")
+            event_manager = event_manager.replace('RENAME', self._uid_con)    #: EVENT ID NUMBER
+            event_manager = event_manager.replace('NAME_ID',self._name_con)   #: EVENT ID NAME
+
+            self.all_events_list.append(event_manager)
 
         else:
             if check:
                 """
                 self.all_code_list.append(f"{tab_*tab_one}ft.{self._name_box}(")
-                self.all_code_list.append(f"{tab_*tab_two}self.json_style('{self._uid_box}'),")
+                self.all_code_list.append(f"{tab_*tab_two}self.self.dict_style('{self._uid_box}'),")
                 self.all_code_list.append(f"{tab_*tab_two}content = ft.{self._name_con}(")
-                self.all_code_list.append(f"{tab_*tab_tree}self.json_style('{self._uid_con}'),")
+                self.all_code_list.append(f"{tab_*tab_tree}self.self.dict_style('{self._uid_con}'),")
                 self.all_code_list.append(f"{tab_*tab_tree}controls = [")
                 """
                 self.all_code_list.append(f"{tab_*tab_one}ft.{self._name_box}(  # {self._name_box}_{self._name_con}")
-                self.all_code_list.append(f"{tab_*tab_two}**json_style('{self._uid_box}'),")
-                self.all_code_list.append(f"{tab_*tab_two}content = ft.{self._name_con}( # {self._name_con}")
-                self.all_code_list.append(f"{tab_*tab_tree}**json_style('{self._uid_con}'),")
-                self.all_code_list.append(f"{tab_*tab_tree}controls = [\n")
-
-            #: else:
-            #:     """NO WORK"""
-            #:     self.all_code_list.append(f"{tab_*tab_one}ft.{self._name_box}(")
-            #:     self.all_code_list.append(f"{tab_*tab_two}self.json_style('{self._uid_box}'),")
-            #:     self.all_code_list.append(f"{tab_*tab_two}content = ft.{self._name_con}(")
-            #:     self.all_code_list.append(f"{tab_*tab_tree}self.json_style('{self._uid_con}'),")
-            #:     self.all_code_list.append(f"{tab_*tab_tree}controls = [] # PLEASE FILL THIS CONTROL")
-
-
+                self.all_code_list.append(f"{tab_*tab_two}**self.dict_style('{self._uid_box}'),")
+                self.all_code_list.append(f"{tab_*tab_two}content= ft.{self._name_con}( # {self._name_con}")
+                self.all_code_list.append(f"{tab_*tab_tree}**self.dict_style('{self._uid_con}'),")
+                self.all_code_list.append(f"{tab_*tab_tree}controls= [\n")
 
     def build_json_file(self,widget_show):
 
@@ -390,46 +405,37 @@ class MakeJasonFile():
         PHONE_CONTAINER = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
         PHONE_COLUMN    = PHONE_CONTAINER.content
 
+        # #: THIS CODE IS ONE EXTRACT OF PHONE NECCESARY TO HAVE PHONE ATTRIBUES BY DEFAULD
+        # tmp_data_1 = dict()                                       #: TMP DICT()
+        # tmp_data_2 = dict()                                       #: TMP DICT()
+        # tmp_data_3 = dict()                                       #: TMP DICT()
 
-        #: THIS CODE IS ONE EXTRACT OF PHONE NECCESARY TO HAVE PHONE ATTRIBUES BY DEFAULD
-        tmp_data_1 = dict()                                       #: TMP DICT()
-        tmp_data_2 = dict()                                       #: TMP DICT()
-        tmp_data_3 = dict()                                       #: TMP DICT()
+        # tmp_data_1.update({'WIDGET_NAME':'PHONE_BOX'})
+        # PHONE_MAIN.copy_attrs(dest=tmp_data_1)                    #: NEW COPY ATTRIBUTES
+        # if tmp_data_1.get('n'):            del tmp_data_1['n']                                #: DELETE 'n':'content' MAKE ERROR
+        # if tmp_data_1.get('border'):       del tmp_data_1['border']                           #: DELETE 'n':'content' MAKE ERROR
+        # if tmp_data_1.get('style'):        del tmp_data_1['style']                            #: DELETE 'n':'content' MAKE ERROR
+        # if tmp_data_1.get('borderradius'): del tmp_data_1['borderradius']                     #: DELETE 'n':'content' MAKE ERROR
 
-        tmp_data_1.update({'WIDGET_NAME':'PHONE_BOX'})
-        PHONE_MAIN.copy_attrs(dest=tmp_data_1)                    #: NEW COPY ATTRIBUTES
-        if tmp_data_1.get('n'):                                   #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_1['n']
-        if tmp_data_1.get('border'):                              #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_1['border']
-        if tmp_data_1.get('style'):                               #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_1['style']
-        if tmp_data_1.get('borderradius'):                        #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_1['borderradius']
+        # self.dict_all_attribute[PHONE_MAIN.uid] = tmp_data_1      #: UPDATE DATA
 
-        self.dict_all_attribute[PHONE_MAIN.uid] = tmp_data_1      #: UPDATE DATA
+        # tmp_data_2.update({'WIDGET_NAME':'PHONE_BOX LAYER 2 '})
+        # PHONE_CONTAINER.copy_attrs(dest=tmp_data_2)               #: NEW COPY ATTRIBUTES
+        # if tmp_data_2.get('n'):            del tmp_data_2['n']                                #: DELETE 'n':'content' MAKE ERROR
+        # if tmp_data_2.get('border'):       del tmp_data_2['border']                           #: DELETE 'n':'content' MAKE ERROR
+        # if tmp_data_2.get('style'):        del tmp_data_2['style']                            #: DELETE 'n':'content' MAKE ERROR
+        # if tmp_data_2.get('borderradius'): del tmp_data_2['borderradius']                     #: DELETE 'n':'content' MAKE ERROR
 
-        tmp_data_2.update({'WIDGET_NAME':'PHONE_BOX LAYER 2 '})
-        PHONE_CONTAINER.copy_attrs(dest=tmp_data_2)               #: NEW COPY ATTRIBUTES
-        if tmp_data_2.get('n'):                                   #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_2['n']
-        if tmp_data_2.get('border'):                              #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_2['border']
-        if tmp_data_2.get('style'):                               #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_2['style']
-        if tmp_data_2.get('borderradius'):                        #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_2['borderradius']
+        # self.dict_all_attribute[PHONE_CONTAINER.uid]=tmp_data_2   #: UPDATE DATA
 
-        self.dict_all_attribute[PHONE_CONTAINER.uid]=tmp_data_2   #: UPDATE DATA
+        # tmp_data_3.update({'WIDGET_NAME':f'PHONE_BOX_{PHONE_CONTAINER.content._get_control_name().upper()}'})
+        # PHONE_COLUMN.copy_attrs(dest=tmp_data_3)                  #: NEW COPY ATTRIBUTES
+        # if tmp_data_3.get('n'):            del tmp_data_3['n']                               #: DELETE 'n':'content' MAKE ERROR
+        # if tmp_data_3.get('style'):        del tmp_data_3['style']                           #: DELETE 'n':'content' MAKE ERROR
 
-        tmp_data_3.update({'WIDGET_NAME':f'PHONE_BOX_{PHONE_CONTAINER.content._get_control_name().upper()}'})
-        PHONE_COLUMN.copy_attrs(dest=tmp_data_3)                  #: NEW COPY ATTRIBUTES
-        if tmp_data_3.get('n'):                                   #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_3['n']
-        if tmp_data_3.get('style'):                               #: DELETE 'n':'content' MAKE ERROR
-            del tmp_data_3['style']
+        # self.dict_all_attribute[PHONE_COLUMN.uid]=tmp_data_3   #: UPDATE DATA
+        # print( self.dict_all_attribute)
 
-        self.dict_all_attribute[PHONE_COLUMN.uid]=tmp_data_3   #: UPDATE DATA
 
         #:
         for _ in self.all_widgets:
@@ -439,7 +445,7 @@ class MakeJasonFile():
             self.main_node                        = self.all_widgets.get(_)         #:get main widget
             self.return_view(main_node            = self.main_node)                 #:get main name
             self.return_attributes_code(main_node = self.main_node)                 #:get widget attributes
-            self.return_full_code(main_node       = self.main_node ,tab_one=0,tab_two=2,tab_tree=4) # get widget attributes
+            self.return_full_code(main_node       = self.main_node ,tab_one=2,tab_two=3,tab_tree=5) # get widget attributes
 
             # print(self.main_node)
             #: LEVEL 1
@@ -772,7 +778,7 @@ class MakeJasonFile():
 
         #: This line of code is delete in build_json_file
         # new_code = new_code.replace('"n":', '# "n":').replace('"on_hover": "true",','# "on_hover": "false",').replace('"on_click": "true"','# "on_click": "false"').replace('"style"','# "style"')
-
+        new_code = new_code.replace('"onclick":','# "onclick"')
         new_code = new_code.replace('"WIDGET_NAME','# "WIDGET_NAME').replace('"on', '"on_').replace('inkcolor', 'ink_color').replace('"style"','# "style"')
         new_code = new_code.replace('horizontalalignment', 'horizontal_alignment').replace('verticalalignment', 'vertical_alignment')
         new_code = new_code.replace('bordercolor','border_color').replace('borderradius','border_radius').replace('contentpadding','content_padding')
@@ -783,5 +789,4 @@ class MakeJasonFile():
         new_code = new_code.replace('urltarget','url_target').replace('semanticslabel','semantics_label').replace('srcbase64','src_base64')
         new_code = new_code.replace('blurradius','blur_radius').replace('spreadradius','spread_radius').replace('childaspect_ratio','child_aspect_ratio')
         new_code = new_code.replace('maxextent','max_extent').replace('minlines','min_lines').replace('maxlines','max_lines').replace('borderwidth','border_width')
-
         return new_code

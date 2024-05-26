@@ -1,16 +1,18 @@
-####################################################
-from ..config_container.widget_editor import Build_Editor
-from ..lite_menu_bar_down_phone.selected_widget import SelectedWidget
-####################################################
 import flet as ft
 import time
-###################### CALL GLOBAL VAR #############
+
+from ..config_container.widget_editor import Build_Editor
+from ..lite_menu_bar_down_phone.selected_widget import SelectedWidget
 from ..settings_var.settings_widget import GLOBAL_VAR
-####################################################
+
 numWidget        = GLOBAL_VAR(get_global_var='NUM_WIDGETS_DROPPED')
 numClick         = GLOBAL_VAR(get_global_var='NUM_CLICKS')
 listWidgetUpdate = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
-#####################
+
+PRESENTATION_TEXT: str = """
+Ready to make your first app!!
+Begin your journey...
+"""
 
 class InfinityBoxLayerOne(ft.Stack):
      """
@@ -38,6 +40,7 @@ class InfinityBoxLayerOne(ft.Stack):
           """
           check CircleAvatar, VerticalDivider
           """
+
           self.widgets={
 
                #: CONTAINERS LAYOUTS
@@ -117,7 +120,7 @@ class InfinityBoxLayerOne(ft.Stack):
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.Text(value="Ready to make your first app!!\nBegin your journey...",tooltip='Text',size=10),),
+                                   content=ft.Text(value=PRESENTATION_TEXT,tooltip='Text',size=10),),
                               ],
                 "Text Field": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='TextField',
                                    ink=True,

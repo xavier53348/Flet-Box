@@ -159,7 +159,7 @@ class AboutPage(ft.Stack):
                                                 height        = 150,
                                                 bgcolor       = ft.colors.BLACK45,
                                                 content=ft.Image(
-                                                            src                = os.path.join('src/assets','my_avatar.png'),
+                                                            src                = os.path.join('flet_box/assets','my_avatar.png'),
                                                             fit                = ft.ImageFit.COVER,
                                                             repeat             = ft.ImageRepeat.NO_REPEAT,
                                                             border_radius      = ft.border_radius.all(80),

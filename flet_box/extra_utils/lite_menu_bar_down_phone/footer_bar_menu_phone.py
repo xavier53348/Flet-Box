@@ -17,6 +17,9 @@ class LiteMenuDownContainer(ft.Stack):
         GLOBAL_VAR(set_global_var={'SHOW_TEXT_SELECTED_DRAGG_WIDGET':Selected_Widget_in_dragg_container})
         GLOBAL_VAR(set_global_var={'SHOW_TEXT_SELECTED_PHONE_WIDGET':Selected_Widget_in_phone_container})
 
+        self.change_text_screen = ft.Text(value="main_screen")
+        GLOBAL_VAR(set_global_var={'change_text_screen':self.change_text_screen})
+
         Drop_LiteMenuDownContainer = ft.Container(
                                         ink             = False,
                                         bgcolor         = ft.colors.BLACK26,
@@ -43,38 +46,28 @@ class LiteMenuDownContainer(ft.Stack):
                                                                                 spacing=8,
                                                                            controls=[
                                                                                      ft.Container(
-                                                                                               ink           = False,
+                                                                                               ink           = True,
+                                                                                               ink_color     = ft.colors.RED_900,
                                                                                                padding       = ft.padding.all(0),
                                                                                                alignment     = ft.alignment.center,
                                                                                                border_radius = ft.border_radius.all(30),
                                                                                                border        = ft.border.all(2, ft.colors.TEAL_900),
                                                                                                height        = 38,
-                                                                                           content = ft.Dropdown(
-                                                                                                               hint_text       = '   Screen 1',
-                                                                                                               width           = 140,
-                                                                                                               content_padding = ft.padding.only(left=0, top=0, right=8, bottom=14),
-                                                                                                               alignment       = ft.alignment.center_left,
-                                                                                                               border_radius   = ft.border_radius.all(15),
-                                                                                                               border          = ft.InputBorder.NONE,
-                                                                                                               options         = [
-                                                                                                                                  ft.dropdown.Option("   Screen 1"),
-                                                                                                                                  ft.dropdown.Option("   Screen 2"),
-                                                                                                                                  ft.dropdown.Option("   Screen 3"),
-                                                                                                                                  ft.dropdown.Option("   Screen 4"),
-                                                                                                                                  ft.dropdown.Option("   Screen 5"),
-                                                                                                               ],
-                                                                                                   ),
+                                                                                               width         = 130,
+                                                                                               bgcolor       = ft.colors.WHITE10,
+                                                                                               on_click      = lambda _: self.action_buttons(action='show'),
+                                                                                           content = self.change_text_screen,
                                                                                      ),
                                                                                     ft.Container(
                                                                                         padding = ft.padding.only(left=4, top=0, right=2, bottom=0),
                                                                                         content = ft.IconButton(
-                                                                                                     icon          = ft.icons.PLUS_ONE,
-                                                                                                     selected_icon = ft.icons.BATTERY_FULL,
-                                                                                                     highlight_color='Red',
-                                                                                                     icon_color    = ft.colors.BLACK,
-                                                                                                     selected      = False,
-                                                                                                     bgcolor       = ft.colors.TEAL,
-                                                                                                     on_click=lambda _: self.action_buttons(action='show'),
+                                                                                                     icon            = ft.icons.ADD_CIRCLE,
+                                                                                                     selected_icon   = ft.icons.BATTERY_FULL,
+                                                                                                     highlight_color = 'Red',
+                                                                                                     icon_color      = ft.colors.TEAL_900,
+                                                                                                     selected        = False,
+                                                                                                     # bgcolor         = ft.colors.TEAL,
+                                                                                                     on_click        = lambda _: self.action_buttons(action='show'),
                                                                                                  ),
                                                                                         ),
                                                                                     ],

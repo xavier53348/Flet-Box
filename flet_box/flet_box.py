@@ -146,10 +146,10 @@ def main(page: ft.Page):
 
      ScreenContainer = ft.Container(
                visible= False,
-               right  = 0,
-               left   = 0,
-               top    = 0,
-               bottom = 0,
+               right  = 8,
+               left   = 8,
+               top    = 8,
+               bottom = 8,
           content=Screen_Manager,
           )
      GLOBAL_VAR(set_global_var={'SCREEN_CONTAINER':ScreenContainer})

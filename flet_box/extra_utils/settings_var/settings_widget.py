@@ -40,8 +40,8 @@ DATA_GLOBAL =  {
 
                           'ALERT_WIDGET ' : None,   # <== GREEN ALERT SELECTED WIDGET
 
-                      'SCREEN_CONTAINER ' : None,   # <== SCREEN_MANAGER BOX CONTAINER
-                             'TREE_VIEW ' : None,   # <== TREE_VIEW BOX CONTAINER
+                       'SCREEN_CONTAINER' : None,   # <== SCREEN_MANAGER BOX CONTAINER
+                              'TREE_VIEW' : None,   # <== TREE_VIEW BOX CONTAINER
                }
 
 def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name',remove_global_var = 'var_remove'):

@@ -129,6 +129,7 @@ class Build_Editor(ft.Stack):
 
                'container_blur'     :DoubleEntry(    config_widget = 'blur'                  ,widget = self.container_widget),
                'container_bgcolor'  :ColorEntry(     config_widget = 'bgcolor'               ,widget = self.container_widget),
+               'shadow_color'       :ColorEntry(     config_widget = 'shadow_color'          ,widget = self.container_widget),
                'container_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.container_widget),
 
            'container_image_src'    :SingleEntry(    config_widget = 'image_src'             ,widget = self.container_widget),
@@ -190,13 +191,13 @@ class Build_Editor(ft.Stack):
 
                'bgcolor'             :ColorEntry(config_widget= 'bgcolor'            ,widget = self.container_widget_content , id_name_widget_dict='bgcolor'),
                'color'               :ColorEntry(config_widget= 'color'              ,widget = self.container_widget_content , id_name_widget_dict='color'),
-               'shadow_color'        :ColorEntry(config_widget= 'shadow_color'       ,widget = self.container_widget_content , id_name_widget_dict='shadow_color'),
                'icon_color'          :ColorEntry(config_widget= 'icon_color'         ,widget = self.container_widget_content , id_name_widget_dict='icon_color'),
                'check_color'         :ColorEntry(config_widget= 'check_color'        ,widget = self.container_widget_content , id_name_widget_dict='check_color'),
                'fill_color'          :ColorEntry(config_widget= 'fill_color'         ,widget = self.container_widget_content , id_name_widget_dict='fill_color'),
                'border_color'        :ColorEntry(config_widget= 'border_color'       ,widget = self.container_widget_content , id_name_widget_dict='border_color'),
                'focused_bgcolor'     :ColorEntry(config_widget= 'focused_bgcolor'    ,widget = self.container_widget_content , id_name_widget_dict='focused_bgcolor'),
-               'focused_border_color':ColorEntry(config_widget= 'focused_border_color',widget = self.container_widget_content , id_name_widget_dict='focused_border_color'),
+               'focused_border_color':ColorEntry(config_widget= 'focused_border_color',widget = self.container_widget_content, id_name_widget_dict='focused_border_color'),
+               'box_shadow'          :ColorEntry(config_widget= 'box_shadow',         widget = self.container_widget_content , id_name_widget_dict='box_shadow'),
 
                #: BOOL ENTRY [TRUE FALSE]
 
@@ -279,8 +280,9 @@ class Build_Editor(ft.Stack):
                                                        BoxConfigContainer(
                                                                  title='Position Container',
                                                             controls=[
-                                                                      widgets_dict.get('container_margin'),
                                                                       widgets_dict.get('container_padding'),
+                                                                      widgets_dict.get('container_margin'),
+                                                                      widgets_dict.get('container_border_radius'),
                                                                       widgets_dict.get('container_rotate'),
                                                                       widgets_dict.get('container_scale'),
                                                                       widgets_dict.get('container_offset'),
@@ -293,17 +295,16 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('container_width'),
                                                                       widgets_dict.get('container_border'),
                                                                       widgets_dict.get('container_expand'),
-                                                                      widgets_dict.get('container_scale'),
-                                                                      widgets_dict.get('container_ink'),
                                                                       widgets_dict.get('container_visible'),
-                                                                      widgets_dict.get('container_border_radius'),
                                                                  ],),
 
                                                        BoxConfigContainer(
                                                                  title='Color Container',
                                                             controls=[
+                                                                      widgets_dict.get('container_ink'),
                                                                       widgets_dict.get('container_bgcolor'),
                                                                       widgets_dict.get('container_blur'),
+                                                                      widgets_dict.get('shadow_color'),
                                                                       widgets_dict.get('container_gradient'),
                                                                  ],),
 
@@ -373,6 +374,7 @@ class Build_Editor(ft.Stack):
                                                             controls=[
                                                                       widgets_dict.get('padding'),
                                                                       widgets_dict.get('margin'),
+                                                                      widgets_dict.get('border_radius'),
                                                                       widgets_dict.get('spacing'),
                                                                       widgets_dict.get('offset'),
                                                                       widgets_dict.get('rotate'),
@@ -406,7 +408,6 @@ class Build_Editor(ft.Stack):
                                                                  title='Modification Border Widget Box',
                                                             controls=[
                                                                       widgets_dict.get('border'),
-                                                                      widgets_dict.get('border_radius'),
                                                                       widgets_dict.get('spread_radius'),
                                                                       widgets_dict.get('border_width'),
                                                                  ],),
@@ -419,7 +420,7 @@ class Build_Editor(ft.Stack):
                                                                       widgets_dict.get('icon_color'),
                                                                       widgets_dict.get('check_color'),
                                                                       widgets_dict.get('fill_color'),
-                                                                      widgets_dict.get('shadow_color'),
+                                                                      # widgets_dict.get('shadow_color'),
                                                                       widgets_dict.get('focused_bgcolor'),
                                                                       widgets_dict.get('border_color'),
                                                                       widgets_dict.get('focused_border_color'),

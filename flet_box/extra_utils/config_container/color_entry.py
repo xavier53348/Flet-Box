@@ -103,8 +103,6 @@ class ColorEntry(ft.Stack):
             self.widget.bgcolor        = value.content.controls[1].content.controls[1].bgcolor
         if  data   == "focused_bgcolor":
             self.widget.focused_bgcolor= value.content.controls[1].content.controls[1].bgcolor
-        if  data   == "shadow_color":
-            self.widget.shadow_color = value.content.controls[1].content.controls[1].bgcolor
         if  data   == "color":
             self.widget.color        = value.content.controls[1].content.controls[1].bgcolor
         if  data   == "fill_color":
@@ -117,7 +115,15 @@ class ColorEntry(ft.Stack):
             self.widget.focused_border_color = value.content.controls[1].content.controls[1].bgcolor
         if  data   == "border_color":
             self.widget.border_color   = value.content.controls[1].content.controls[1].bgcolor
-
+        if  data   == "shadow_color":
+            self.widget.shadow= ft.BoxShadow(
+                                            spread_radius = 0,
+                                            blur_radius   = 24,
+                                            color         = value.content.controls[1].content.controls[1].bgcolor,
+                                            offset        = ft.Offset(0, 0),
+                                            blur_style    = ft.ShadowBlurStyle.OUTER, # NORMAL # SOLID # OUTER # INNER
+                                        )
+            # print(self.widget,'data')
         self.widget.update()
 
     def modify_widget_attributes(self,config_widget,value,):
@@ -173,7 +179,9 @@ class ColorEntry(ft.Stack):
         if  self.attribute_widget   == "fill_color":
             value.content.controls[1].content.controls[1].bgcolor = value.content.controls[1].content.controls[0].content.value
             value.content.controls[1].update()
-
+        if  self.attribute_widget   == "shadow_color":
+            value.content.controls[1].content.controls[1].bgcolor = value.content.controls[1].content.controls[0].content.value
+            value.content.controls[1].update()
         #: only in production
         #: print(self.widget.uid)
         #: self.ColorEntry.content.update()
