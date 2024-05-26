@@ -18,7 +18,7 @@
 </details>
 
 
-[More info documentation](https://github.com/xavier53348/Flet-Box/blob/main/WIDGET.md)
+[More info documentation](https://github.com/xavier53348/Flet-Box/blob/main/docs/WIDGET.md)
 
 [Our goals and Roadmap](https://github.com/xavier53348/Flet-Box/blob/main/docs/Roadmap.md)
 
@@ -116,15 +116,16 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 | ft.rangeslider           | ✘ |
 
 <!-- make tree -->
-<!-- tree -I '__pycache__|__init__.py|test|drag_drop_proyect|flet_box.egg-info|docs|.|build|dist|LICENSE|MANIFEST.in|requeriments.txt|README.md|pyproject.toml|setup.py' > full_path.txt-->
+ <!-- tree -I '__pycache__|__init__.py|test|drag_drop_proyect|flet_box.egg-info|docs|.|build|dist|LICENSE|MANIFEST.in|requeriments.txt|README.md|pyproject.toml|setup.py' > full_path.txt -->
 
 ### Path Flet-Box Modules
 ```bash
 .
-├── LICENSE
-├── README.md
+├── full_path.txt
 ├── src
 │   ├── assets
+│   │   ├── avatar.jpg
+│   │   ├── avatar.png
 │   │   ├── dragg_container3.jpg
 │   │   ├── dragg_container.jpg
 │   │   ├── image.jpg
@@ -132,9 +133,19 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   ├── iphone.png
 │   │   ├── logo.jpg
 │   │   ├── logo_mark.png
+│   │   ├── my_avatar.png
 │   │   ├── no_imagen.jpg
 │   │   └── splash.jpg
+│   ├── bump-version.sh
+│   ├── CHANGELOG.md
 │   ├── extra_utils
+│   │   ├── about
+│   │   │   └── about.py
+│   │   ├── alert
+│   │   │   └── alert_selected.py
+│   │   ├── chat_gpt_browser
+│   │   │   ├── gpt_browser.py
+│   │   │   └── library_chatgpt.py
 │   │   ├── color_browser
 │   │   │   └── color_browser.py
 │   │   ├── config_container
@@ -148,6 +159,7 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   │   └── widget_editor.py
 │   │   ├── drag_container
 │   │   │   ├── dragg_widget.py
+│   │   │   ├── drag_handler_container.py
 │   │   │   ├── infinity_box_layer_one.py
 │   │   │   └── widget_drag_editor.py
 │   │   ├── icon_browser
@@ -164,11 +176,18 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   │   └── widget_menu_tab_editor.py
 │   │   ├── phone_container
 │   │   │   └── widget_phone_editor.py
-│   │   └── settings_var
-│   │       └── settings_widget.py
-│   └── flet_box.py
-├── WIDGET.md
+│   │   ├── settings_var
+│   │   │   ├── save_export.py
+│   │   │   └── settings_widget.py
+│   │   └── tree_view
+│   │       ├── tree_view.py
+│   │       └── tree_view_text_editor.py
+│   ├── flet_box.py
+│   ├── __main__.py
+│   └── VERSION
 └── workflows
+
+18 directories, 47 files
 
 ```
 

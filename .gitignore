@@ -1,7 +1,11 @@
 *.pyc
 .venv/
 .git/
+<<<<<<< HEAD
 
+=======
+bump-version.sh
+>>>>>>> features/new_features
 __pycache__/
 help_git.md
 drag_drop_proyect/
