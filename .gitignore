@@ -1,6 +1,7 @@
 *.pyc
 test_app/
 .venv/
+bump-version.sh
 .git/
 bump-version.sh
 __pycache__/
