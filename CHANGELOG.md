@@ -1,5 +1,8 @@
 ## 0.1.1 (May 26, 2024)
-
+  - Merge branch 'features/new_features'
+  - addig file to git-ignore
+  - refactoring code
+  - delete files
 
 ## 0.1.0 (May 02, 2024)
   - rafactory to code production
