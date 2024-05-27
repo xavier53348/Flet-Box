@@ -774,7 +774,7 @@ class MakeJasonFile():
 
         #: new_code = new_code.replace('','')
 
-        new_code = code.replace('\\', '').replace('"{', '{').replace('}"', '}')
+        new_code = code.replace('\\', '').replace('"{', '{').replace('}"', '}').replace('"[', '[').replace(']"', ']')
 
         #: This line of code is delete in build_json_file
         # new_code = new_code.replace('"n":', '# "n":').replace('"on_hover": "true",','# "on_hover": "false",').replace('"on_click": "true"','# "on_click": "false"').replace('"style"','# "style"')

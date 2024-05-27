@@ -6,7 +6,7 @@ from .four_entry      import FourEntry
 from .single_entry    import SingleEntry
 from .selection_entry import SelectionEntry
 from .gradient_entry  import GradientEntry
-
+from .blur_color_entry import BlurColorEntry
 import flet as ft
 
 from ..settings_var.settings_widget import GLOBAL_VAR
@@ -127,8 +127,10 @@ class Build_Editor(ft.Stack):
                'container_visible'  :BoolEntry(      config_widget = 'visible'               ,widget = self.container_widget),
            'container_border_radius':FourEntry(      config_widget = 'border_radius'         ,widget = self.container_widget),
 
-               'container_blur'     :DoubleEntry(    config_widget = 'blur'                  ,widget = self.container_widget),
+               # 'container_blur'     :DoubleEntry(    config_widget = 'blur'                  ,widget = self.container_widget),
                'container_bgcolor'  :ColorEntry(     config_widget = 'bgcolor'               ,widget = self.container_widget),
+               'BlurColorEntry'     :BlurColorEntry( config_widget = 'blur'                  ,widget = self.container_widget),
+
                'shadow_color'       :ColorEntry(     config_widget = 'shadow_color'          ,widget = self.container_widget),
                'container_gradient' :GradientEntry(  config_widget = 'gradient'              ,widget = self.container_widget),
 
@@ -278,11 +280,30 @@ class Build_Editor(ft.Stack):
                                              scroll="HIDDEN",
                                              controls = [
                                                        BoxConfigContainer(
+                                                                 title='Color Container',
+                                                            controls=[
+                                                                      widgets_dict.get('BlurColorEntry'),
+                                                                      widgets_dict.get('container_gradient'),
+                                                                      widgets_dict.get('container_ink'),
+                                                                      widgets_dict.get('container_bgcolor'),
+                                                                      widgets_dict.get('shadow_color'),
+                                                                 ],),
+
+                                                       BoxConfigContainer(
+                                                                 title='Image Container',
+                                                            controls=[
+                                                                      widgets_dict.get('container_image_fit'),
+                                                                      widgets_dict.get('container_image_src'),
+                                                                      widgets_dict.get('container_image_opacity'),
+                                                                 ],),
+
+                                                       BoxConfigContainer(
                                                                  title='Position Container',
                                                             controls=[
                                                                       widgets_dict.get('container_padding'),
                                                                       widgets_dict.get('container_margin'),
                                                                       widgets_dict.get('container_border_radius'),
+                                                                      widgets_dict.get('container_border'),
                                                                       widgets_dict.get('container_rotate'),
                                                                       widgets_dict.get('container_scale'),
                                                                       widgets_dict.get('container_offset'),
@@ -293,28 +314,10 @@ class Build_Editor(ft.Stack):
                                                                  title='Modification Container',
                                                             controls=[
                                                                       widgets_dict.get('container_width'),
-                                                                      widgets_dict.get('container_border'),
                                                                       widgets_dict.get('container_expand'),
                                                                       widgets_dict.get('container_visible'),
                                                                  ],),
 
-                                                       BoxConfigContainer(
-                                                                 title='Color Container',
-                                                            controls=[
-                                                                      widgets_dict.get('container_ink'),
-                                                                      widgets_dict.get('container_bgcolor'),
-                                                                      widgets_dict.get('container_blur'),
-                                                                      widgets_dict.get('shadow_color'),
-                                                                      widgets_dict.get('container_gradient'),
-                                                                 ],),
-
-                                                       BoxConfigContainer(
-                                                                 title='Image Container',
-                                                            controls=[
-                                                                      widgets_dict.get('container_image_fit'),
-                                                                      widgets_dict.get('container_image_src'),
-                                                                      widgets_dict.get('container_image_opacity'),
-                                                                 ],),
                                                        ],
                                                   ),
                                              )

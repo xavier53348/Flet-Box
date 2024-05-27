@@ -1,0 +1,1 @@
+from proyect_name import run_app

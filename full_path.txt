@@ -1,0 +1,54 @@
+.
+├── activate_venv.sh
+├── LICENSE
+├── README.md
+├── src
+│   ├── assets
+│   │   ├── avatar.jpg
+│   │   ├── avatar.png
+│   │   ├── dragg_container3.jpg
+│   │   ├── dragg_container.jpg
+│   │   ├── image.jpg
+│   │   ├── img.jpg
+│   │   ├── iphone.png
+│   │   ├── logo.jpg
+│   │   ├── logo_mark.png
+│   │   ├── no_imagen.jpg
+│   │   └── splash.jpg
+│   ├── extra_utils
+│   │   ├── color_browser
+│   │   │   └── color_browser.py
+│   │   ├── config_container
+│   │   │   ├── bool_entry.py
+│   │   │   ├── color_entry.py
+│   │   │   ├── double_entry.py
+│   │   │   ├── four_entry.py
+│   │   │   ├── gradient_entry.py
+│   │   │   ├── selection_entry.py
+│   │   │   ├── single_entry.py
+│   │   │   └── widget_editor.py
+│   │   ├── drag_container
+│   │   │   ├── dragg_widget.py
+│   │   │   ├── infinity_box_layer_one.py
+│   │   │   └── widget_drag_editor.py
+│   │   ├── icon_browser
+│   │   │   └── icon_browser.py
+│   │   ├── lite_menu_bar_down_phone
+│   │   │   ├── footer_bar_menu_phone.py
+│   │   │   └── selected_widget.py
+│   │   ├── lite_menu_bar_up_phone
+│   │   │   └── head_bar_menu_phone.py
+│   │   ├── menu_tab_left_phone
+│   │   │   └── widget_menu_left_editor.py
+│   │   ├── menu_tab_up_phone
+│   │   │   ├── basic_menu_tab_up.py
+│   │   │   └── widget_menu_tab_editor.py
+│   │   ├── phone_container
+│   │   │   └── widget_phone_editor.py
+│   │   └── settings_var
+│   │       └── settings_widget.py
+│   └── flet_box.py
+├── WIDGET.md
+└── workflows
+
+14 directories, 37 files

@@ -25,8 +25,8 @@ class Color_text(ft.Stack):
                             content=ft.Column(
                                     controls = [
                                         ft.Container(
-                                                height=120,
-                                                width=120,
+                                                height        = 120,
+                                                width         = 120,
                                                 ink           = False,
                                                 bgcolor       = ft.colors.BLACK38,
                                                 padding       = ft.padding.all(8),
