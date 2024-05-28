@@ -1,16 +1,19 @@
 from setuptools import setup , find_packages
 import os
+import pypandoc
 
 #: MAKE A SETUP INSTALL
 # python3 setup.py sdist bdist_wheel
 # python3 setup.py bdist_wheel
+# python3 setup.py register -r pypi
+# python3 setup.py sdist upload -r pypi
 
-# pip install twine
+# pip install twine ,pypandoc
 # twine upload dist/*
 # PACKAGE META-DATA
 
-NAME            = 'flet_box'
-DESCRIPTION     = "Flet-Box it's a GUI Dragg dropp BUILDER."
+NAME            = 'flet-box-gui'
+DESCRIPTION     = "flet-box-gui it's a GUI Dragg and drop BUILDER."
 PLATAFORM       = 'Multy platforms'
 REQUIRES_PYTHON = '>=3.8'
 
@@ -36,17 +39,26 @@ RUN_IN_CONSOLE ={
 ],
 }
 
-PYPY_KEYWORDS_TO_FIND = ["flet-Box", "flet", "fletbox",'flet-gui','flet-builder','flet-sdk']
+PYPY_KEYWORDS_TO_FIND = ["flet-box-gui", "flet",'flet-gui','flet-builder','flet-sdk']
 
 here = os.path.abspath(os.path.dirname(__file__))
 
 #: MANAGE README
-try:
-    with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-        long_description = '\n' + f.read()
+# try:
+#     # with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+#     with open('README.md', "r") as f:
+#         long_description = '\n' + f.read()
+#         print(long_description)
 
-except FileNotFoundError:
-    long_description = DESCRIPTION
+# except FileNotFoundError:
+#     long_description = DESCRIPTION
+
+try:
+    long_description = pypandoc.convert_file('README.md', 'rst')
+except(IOError, ImportError):
+    long_description = open('README.md').read()
+
+print(long_description)
 
 #: MANAGE VERSION
 try:
@@ -74,7 +86,8 @@ setup(
 
     #: PROJECT DESCRIOPTION
     description          = DESCRIPTION,
-    long_description     = long_description,
+    # long_description     = "README.md",
+    long_description=long_description,
     url                  = URL,
     project_urls         = PROJECT_DOCUMENTATION,
 
@@ -114,7 +127,7 @@ setup(
         # 'License :: OSI Approved :: Apache License',
 
         # "License :: OSI Approved :: GNU General Public License (GPL)"
-        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        # "License :: OSI Approved :: GNU General Public License v2 (GPLv2)"
         # "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
         # "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
         # "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"

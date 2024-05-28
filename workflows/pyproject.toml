@@ -2,7 +2,7 @@
 requires = ["flet"]  # REQUIRED if [build-system] table is used
 
 [project]
-name = "flet-box"
+name = "flet-box-gui"
 version = "0.1.1"
 description = "Flet-Box it's a GUI Dragg dropp BUILDER."
 readme = { file="README.md" , content-type= 'text/markdown'}

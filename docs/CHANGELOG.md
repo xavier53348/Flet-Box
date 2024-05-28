@@ -1,0 +1,95 @@
+## 0.1.2 (May 27, 2024)
+  - start dev screens
+  - Bump version to 0.1.1.
+  - Merge branch 'features/new_features'
+  - addig file to git-ignore
+  - refactoring code
+  - delete files
+
+## 0.1.1 (May 26, 2024)
+  - Merge branch 'features/new_features'
+  - addig file to git-ignore
+  - refactoring code
+  - delete files
+
+## 0.1.0 (May 02, 2024)
+  - rafactory to code production
+  - update code to real production
+  - Implemented treeview and sources code with about
+  - integrate about page
+  - working on about
+  - fixed erase data correcty
+  - fix stack control error in config widgets
+  - fix ft.Control warning
+  - Add treeView but still have issue to erase correctly widget
+  - add save buttons
+  - fix gradient ui widget
+  - update minor bugs
+  - Update widget visible True False correctrly implemented the hard part of this is end now run dev of app quick
+  - fix minor bug
+  - update requeriments
+  - start merge to stable branch
+  - add full_path to git
+  - add full_path
+  - add full_path
+  - add widget.md
+  - mixing +container +widget container
+  - fixing size of phone
+  - recoding config widget new format
+  - updated widget config
+  - Added colors to select widget
+  - fixing errors
+  - realocating path
+  - link youtube
+  - add video demo App fixing resolution
+  - add video demo App
+  - reajusting screen config width
+  - recoding to minimize memory size
+  - start reduce memory size in confic select_widget and add new imagen
+  - updating Readme and adding screenshots
+  - updating Readme
+  - addin tab menu to flet-box and updating Readme
+  - addin tab menu to flet-box and updating Readme
+  - add color_browser done and full aviable
+  - fixed increase memory in ico_browser
+  - fixing drop error in list
+  - delete feature branch to create new
+  - add main install to github
+  - Merge branch 'features/lite_menu_up_phone'
+  - minor fix
+  - icons browser full implemented
+  - implementing icon browser
+  - Merge branch 'features/lite_menu_up_phone'
+  - Merge branch 'features/lite_menu_up_phone'
+  - buttoms up lite menu phone  aviables
+  - delete help_git.md
+  - change README
+  - realocating dir
+  - Delete help_git.md
+  - Update LICENSE
+  - fixing doc
+  - fixing doc
+  - fixing doc
+  - fixing doc
+  - fixing doc
+  - start dev in rotation and delete widget
+  - deleted:    help_git.md
+  - was Created desing low menu phone container
+  - ADD alert dialog and start dev Icon Pages
+  - fixed id tab container
+  - Implemented widgets Icons buttons rotation ,screens divices
+  - Add left menu Icons buttons
+  - add buttons in WindowDragArea and add logo desing
+  - add licence
+  - Dragg drop working and realocating code
+  - Implemented Selected widget text and border color selected with border and color modification
+  - regorganize widgets
+  - working in screen buttons and relocating place
+  - ending dragg drop cnfinguration
+  - realocating data and buiding dragg container
+  - add new gradient widget config , some corrections code
+  - some corrections of Containers and Container.content and add new widget selection_entry
+  - start dev config fusion app
+  - add line doc
+  - info git
+
