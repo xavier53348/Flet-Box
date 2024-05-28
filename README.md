@@ -43,7 +43,18 @@
 >>> source .venv/bin/activate
 >>> pip install flet
 >>> pip install -r requirements.txt
+
+```
+## Install manually
+
+```
 >>> git clone https://github.com/xavier53348/Flet-Box.git
+
+```
+## By pypi repo
+
+```
+>>> pip install flet-box-gui
 
 ```
 ## Easy run Flet-Box
