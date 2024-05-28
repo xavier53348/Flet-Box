@@ -1,6 +1,7 @@
 from setuptools import setup , find_packages
 import os
 import pypandoc
+import sys
 
 #: MAKE A SETUP INSTALL
 # python3 setup.py sdist bdist_wheel
@@ -8,9 +9,23 @@ import pypandoc
 # python3 setup.py register -r pypi
 # python3 setup.py sdist upload -r pypi
 
+# $ python setup.py sdist
+# $ twine upload dist/* -r pypi
+# $ twine upload dist/* -r flet_box_gui
+
+# $ python setup.py sdist bdist_wheel --universal
+# $ twine upload dist/* -r pypi
+
 # pip install twine ,pypandoc
 # twine upload dist/*
 # PACKAGE META-DATA
+
+# pip install pypandoc
+# pip install pypandoc_binary
+
+# errors pip
+# sudo apt install libgpgme-dev swig
+# pip install --upgrade gpg
 
 NAME            = 'flet-box-gui'
 DESCRIPTION     = "flet-box-gui it's a GUI Dragg and drop BUILDER."
@@ -43,22 +58,12 @@ PYPY_KEYWORDS_TO_FIND = ["flet-box-gui", "flet",'flet-gui','flet-builder','flet-
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-#: MANAGE README
-# try:
-#     # with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-#     with open('README.md', "r") as f:
-#         long_description = '\n' + f.read()
-#         print(long_description)
-
-# except FileNotFoundError:
-#     long_description = DESCRIPTION
-
 try:
     long_description = pypandoc.convert_file('README.md', 'rst')
 except(IOError, ImportError):
     long_description = open('README.md').read()
-
-print(long_description)
+    data = "\n\tpip install pypandoc\n\tpip install pypandoc_binary"
+    print(f'Please install {data}')
 
 #: MANAGE VERSION
 try:
@@ -78,18 +83,18 @@ PROJECT_DOCUMENTATION = {
 
 setup(
     #: PERSONAL DATA
-    name                 = NAME,
-    author               = AUTHOR,
-    author_email         = EMAIL,
-    maintainer           = MANTAINER,
-    maintainer_email     = MANTAINER_EMAIL,
+    name                          = NAME,
+    author                        = AUTHOR,
+    author_email                  = EMAIL,
+    maintainer                    = MANTAINER,
+    maintainer_email              = MANTAINER_EMAIL,
 
     #: PROJECT DESCRIOPTION
-    description          = DESCRIPTION,
-    # long_description     = "README.md",
-    long_description=long_description,
-    url                  = URL,
-    project_urls         = PROJECT_DOCUMENTATION,
+    description                   =  DESCRIPTION,
+    long_description              = long_description,
+    long_description_content_type = 'text/markdown',
+    url                           = URL,
+    project_urls                  = PROJECT_DOCUMENTATION,
 
     #: DISTRIBUTION
     platforms            = PLATAFORM,
@@ -128,9 +133,12 @@ setup(
 
         # "License :: OSI Approved :: GNU General Public License (GPL)"
         # "License :: OSI Approved :: GNU General Public License v2 (GPLv2)"
-        # "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
+        "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
         # "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
         # "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: Microsoft :: Windows',
+        'Operating System :: POSIX',
 
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',

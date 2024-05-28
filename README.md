@@ -125,6 +125,7 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 | ft.segmentedbutton       | ✘ | ft.timepicker            | ✘ |
 | ft.floatingactionbutton  | ✘ | ft.filepicker            | ✘ |
 |                          |   | ft.radio                 | ✘ |
+|                          |   |                          |   |                          |   |
 | **WIDGETS STATUS**       |   |
 | ft.slider                | ✘ |
 | ft.progressbar           | ✘ |
