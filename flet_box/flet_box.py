@@ -24,7 +24,7 @@ from extra_utils.settings_var.settings_widget                    import GLOBAL_V
 #: ALERT DIALOG
 from extra_utils.alert.alert_selected                            import AlertSelected
 #: SCREEN MANAGER
-from extra_utils.screen_manager.screen_manager                   import ScreenManager
+from extra_utils.screen_manager.screen_manager                   import ScreenManager ,screen_manager
 
 import flet as ft
 
@@ -56,9 +56,13 @@ def main(page: ft.Page):
      #: GLOBAL_VAR PAGE
 
      drag_container_to_phone = Build_Drag_Editor()
-     phone_testing           = Build_Phone_Editor(page)
-     right_config_container  = Build_Editor(widget=phone_testing.build())
 
+     phone_testing           = Build_Phone_Editor(color_data="Red")
+     screen_manager(set_screen=phone_testing)
+     GLOBAL_VAR(set_global_var={'main_screen':phone_testing})
+
+     right_config_container  = Build_Editor(widget=screen_manager(get_screen='main_screen').build())
+     # right_config_container  = Build_Editor(widget=phone_testing.build())
      space_widget_1 = ft.Container( expand = True)
      space_widget_2 = ft.Container( expand = True)
 
@@ -154,6 +158,23 @@ def main(page: ft.Page):
           )
      GLOBAL_VAR(set_global_var={'SCREEN_CONTAINER':ScreenContainer})
 
+     row_phone = ft.Row(
+                  spacing     = 0,
+                  run_spacing = 0,
+                 controls = [
+                            space_widget_1,
+                            TreeView(),
+                            screen_manager(get_screen='main_screen'),
+                            space_widget_1,
+                            LiteMenuUpContainer(
+                                     menu_left_container    = drag_container_to_phone,
+                                     phone_widget_container = screen_manager(get_screen='main_screen'),
+                                     menu_right_container   = screen_manager(get_screen='main_screen').build(),
+                                     main_page              = page,
+                                     space_widget           = [space_widget_1,space_widget_2],
+                                     ),
+                           ],)
+     GLOBAL_VAR(set_global_var={"row_phone":row_phone})
      screen_1 = ft.Container(
                     ink             = False,
                     bgcolor         = ft.colors.BLACK54,
@@ -202,22 +223,23 @@ def main(page: ft.Page):
                                                                                                     padding = ft.padding.all(0),
                                                                                                     margin  = ft.margin.all(0),
                                                                                                     height  = 620,
-                                                                                              content = ft.Row(
-                                                                                                              spacing     = 0,
-                                                                                                              run_spacing = 0,
-                                                                                                             controls = [
-                                                                                                                        space_widget_1,
-                                                                                                                        TreeView(),
-                                                                                                                        phone_testing,
-                                                                                                                        space_widget_1,
-                                                                                                                        LiteMenuUpContainer(
-                                                                                                                                 menu_left_container    = drag_container_to_phone,
-                                                                                                                                 phone_widget_container = phone_testing,
-                                                                                                                                 menu_right_container   = right_config_container,
-                                                                                                                                 main_page              = page,
-                                                                                                                                 space_widget           = [space_widget_1,space_widget_2],
-                                                                                                                                 ),
-                                                                                                                       ],),
+                                                                                              # content = ft.Row(
+                                                                                              #                 spacing     = 0,
+                                                                                              #                 run_spacing = 0,
+                                                                                              #                controls = [
+                                                                                              #                           space_widget_1,
+                                                                                              #                           TreeView(),
+                                                                                              #                           screen_manager(get_screen='main_screen'),
+                                                                                              #                           space_widget_1,
+                                                                                              #                           LiteMenuUpContainer(
+                                                                                              #                                    menu_left_container    = drag_container_to_phone,
+                                                                                              #                                    phone_widget_container = screen_manager(get_screen='main_screen'),
+                                                                                              #                                    menu_right_container   = screen_manager(get_screen='main_screen').build(),
+                                                                                              #                                    main_page              = page,
+                                                                                              #                                    space_widget           = [space_widget_1,space_widget_2],
+                                                                                              #                                    ),
+                                                                                              #                          ],),
+                                                                                                    content=row_phone,
                                                                                                              ),
                                                                                          LiteMenuDownContainer(),
                                                                                                 ],
@@ -250,6 +272,10 @@ def main(page: ft.Page):
 
 
      page.add(data_stack)
+
+     # AFTER ADD TAKE ID
+     GLOBAL_VAR(set_global_var={'phone_testing':phone_testing})
+     print(phone_testing.uid,'<<<<<')
      page.update()
 
 def run_app():

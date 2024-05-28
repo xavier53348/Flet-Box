@@ -1,12 +1,76 @@
-from .settings_screens import SCREEN_GLOBAL_VAR
-from ..settings_var.settings_widget import GLOBAL_VAR
-
 import flet as ft
 import os
 import json
 
-CURRENT_PATH = os.path.join('./flet_box/extra_utils/screen_manager','screens.js')
-main_screen_dict = dict()
+from .settings_screens import SCREEN_GLOBAL_VAR
+from ..settings_var.settings_widget import GLOBAL_VAR
+
+#: VERY IMPORTANT IT'S MAIN PHONE THAT WILL CONTENT ALL SCREENS
+from extra_utils.phone_container.widget_phone_editor import Build_Phone_Editor
+
+all_screens_in_app: dict = {
+
+                            }
+
+def screen_manager(
+                   add_screen:    str = "",
+                   delete_screen: str = "" ,
+                   update_screen: str = "" ,
+                   load_screen:   str = "",
+                   clear_screen: bool = False,
+                   set_screen:    str = "",
+                   get_screen:    str = "",
+
+                   ):
+    global all_screens_in_app
+    if add_screen:
+        #: ADD SCREEN PHONE IN DICT SCREENS
+        all_screens_in_app[add_screen] = Build_Phone_Editor(color_data='Blue')
+        GLOBAL_VAR(set_global_var={add_screen:Build_Phone_Editor(color_data='Blue')})
+
+    elif delete_screen:
+        #: DELETE SCREEN PHONE IN DICT SCREENS
+        del all_screens_in_app[delete_screen]
+
+    elif update_screen:
+        #: UPDATE SCREEN PHONE IN DICT SCREENS
+        # GLOBAL_VAR(set_global_var={'main_screen':all_screens_in_app.get(update_screen)})
+
+        # data = GLOBAL_VAR(get_global_var='phone_testing')
+        # data.controls[0].bgcolor = 'Blue'
+        # data.update()
+        # print(data.controls[0])
+        # print(GLOBAL_VAR(get_global_var='phone_testing'))
+
+        row_phone = GLOBAL_VAR(get_global_var='row_phone')
+
+        # current_screen = all_screens_in_app.get(update_screen)
+        current_screen = GLOBAL_VAR(get_global_var=update_screen)
+
+        row_phone.controls[2]= current_screen
+        row_phone.update()
+
+        print(current_screen.controls[0].content.content.content.content.controls)
+
+        GLOBAL_VAR(set_global_var={'row_phone':row_phone})
+
+        # print(all_screens_in_app.get(update_screen))
+
+    elif clear_screen:
+        #: CLEAR ALL SCREENS PHONES IN DICT SCREENS
+        tmp_main_screen = all_screens_in_app.pop("main_screen")
+        all_screens_in_app = {"main_screen":tmp_main_screen}
+
+    elif set_screen:
+        all_screens_in_app["main_screen"]=set_screen
+
+    elif get_screen:
+        return all_screens_in_app.get(get_screen)
+
+    # print(all_screens_in_app)
+
+CURRENT_PATH: str = os.path.join('./flet_box/extra_utils/screen_manager','screens.js')
+main_screen_dict: dict = {}
 
 class NameScreen(ft.Container):
     def __init__(self, id_name: str='0'):
@@ -79,7 +143,7 @@ class NameScreen(ft.Container):
                                                     border_radius        = 18,
                                                     text_align           = ft.TextAlign.LEFT,
 
-                                                on_change                = lambda _:self.save_data_in_sqlite(screen_name = self.content.content.content.controls[1].content)
+                                                on_change                = lambda _:self.add_screen_widget(screen_name = self.content.content.content.controls[1].content)
                                                 ),),
                                         ft.Container(
                                             content = ft.TextField(
@@ -93,7 +157,7 @@ class NameScreen(ft.Container):
                                                     focused_border_color = ft.colors.YELLOW_900 ,
                                                     border_radius        = 18,
                                                     text_align           = ft.TextAlign.LEFT,
-                                                on_change                = lambda _:self.save_data_in_sqlite(description= self.content.content.content.controls[2].content)
+                                                on_change                = lambda _:self.add_screen_widget(description= self.content.content.content.controls[2].content)
 
                                                     ),),
 
@@ -106,7 +170,7 @@ class NameScreen(ft.Container):
                                                                                                 icon       = ft.icons.SAVE_OUTLINED,
                                                                                                 # icon_color = ft.colors.YELLOW_900,
                                                                                                 bgcolor    = ft.colors.GREEN_900,
-                                                                                                on_click   = lambda _:self.save_data_in_sqlite(check_data=True),
+                                                                                                on_click   = lambda _:self.add_screen_widget(check_data=True),
                                                                                                 )),
                                                         ft.Container(
                                                                     content = ft.ElevatedButton("Cancel" ,
@@ -124,7 +188,7 @@ class NameScreen(ft.Container):
         name_screen.update()
 
 
-    def save_data_in_sqlite(self,check_data = False ,screen_name: str=''  ,description: str=''):
+    def add_screen_widget(self,check_data = False ,screen_name: str=''  ,description: str=''):
 
         if screen_name:
             # IF NOT EMPTY INPUT SCREEN NAME
@@ -182,7 +246,11 @@ class NameScreen(ft.Container):
 
                             #: RUN ONLY IN PRODUCTION
                             # print(load_data.update(dict(type_file)))
-                            # print(type_file)
+                            #:===================================================
+                            #: ADDING REAL SCREEN TO DICT WITH ALL REAL SCREENS
+                            print(f"ADD Widget {self.data_name} <====")
+                            screen_manager(add_screen=self.data_name)
+                            #:===================================================
 
                 crud_data(type_file=main_screen_dict)
 
@@ -338,8 +406,12 @@ class ScreenContainer(ft.Container):
         change_text_screen.value = screen_name
         change_text_screen.update()
 
-        #: RUN ONLY IN PRODUCTION
-        print(f'selected screen name: {screen_name} <====')
+        #:===================================================
+        #: UPDATE SELECTED WIDGET DICT
+        print(f"UPDATE Widget {screen_name} <====")
+        screen_manager(update_screen=screen_name)
+        #:===================================================
+
 
     def show_screen_name(self):
         # ONLY FUNCTIONALITY IS SHOW BOX INPUT DIALOG
@@ -361,6 +433,12 @@ class ScreenContainer(ft.Container):
         SCREEN_GLOBAL_VAR(set_global_var = {'widget_selected':defauld_color})
         defauld_color.bgcolor     = ft.colors.RED_900
         defauld_color.update()
+
+        #:===================================================
+        #: REMOVE ALL REAL SCREEN TO DICT WITH ALL REAL SCREENS
+        screen_manager(clear_screen=True)
+        #:===================================================
+
 
     def delete_id_name(self,id_name):
         # GET INDEX NUMBER FROM LIST TO DELETE IN CONTROLS
@@ -389,6 +467,13 @@ class ScreenContainer(ft.Container):
                 with open(CURRENT_PATH,'w') as new:
                     data = json.dumps(load_data, indent= 4 )
                     new.write(data)
+
+            #:===================================================
+            #: ADDING REAL SCREEN TO DICT WITH ALL REAL SCREENS
+            self.data_name: str=id_name
+            print(f"DELETE Widget {self.data_name} <====")
+            screen_manager(delete_screen=self.data_name)
+            #:===================================================
 
         def reset_main_screen():
             #: RESET MAIN SCREEN COLOR
@@ -456,35 +541,26 @@ class ScreenManager(ft.Stack):
                         ))
 
         #: LOAD JSON FILE
-        def load_json(controls_list: list=[]):
+        self.load_json(controls_list= self.gird_view.content)
 
-            with open(CURRENT_PATH,'r+') as f:
-                load_data = json.loads(f.read())
-                controls_list.controls += [ ScreenContainer(id_name=_ ) for _ in load_data]
+        # self.footer_bar = ft.Container( #: FOOTER BAR
+        #                     ink           = False,
+        #                     bgcolor       = ft.colors.BLUE_900,
+        #                     padding       = ft.padding.all(8),
+        #                     margin        = ft.margin.all(8),    #outside box
+        #                     alignment     = ft.alignment.center,
+        #                     border_radius = ft.border_radius.all(30),
+        #                     border        = ft.border.all(4, ft.colors.BLACK),
 
-                for _ in load_data:
-                    SCREEN_GLOBAL_VAR(add_list=_)
+        #                 content=ft.Row(
 
-        load_json(controls_list= self.gird_view.content)
+        #                         controls=[
+        #                                     ft.ElevatedButton("Delete",   tooltip='buttom'),
+        #                                     ft.ElevatedButton("press row",tooltip='buttom'),
+        #                                     ft.ElevatedButton("press row",tooltip='buttom'),
+        #                                  ],),
 
-        self.footer_bar = ft.Container( #: FOOTER BAR
-                            ink           = False,
-                            bgcolor       = ft.colors.BLUE_900,
-                            padding       = ft.padding.all(8),
-                            margin        = ft.margin.all(8),    #outside box
-                            alignment     = ft.alignment.center,
-                            border_radius = ft.border_radius.all(30),
-                            border        = ft.border.all(4, ft.colors.BLACK),
-
-                        content=ft.Row(
-
-                                controls=[
-                                            ft.ElevatedButton("Delete",   tooltip='buttom'),
-                                            ft.ElevatedButton("press row",tooltip='buttom'),
-                                            ft.ElevatedButton("press row",tooltip='buttom'),
-                                         ],),
-
-        )#<=== NOTE COMA
+        # )#<=== NOTE COMA
         self.controls = [
 
                     ft.Container(
@@ -510,6 +586,16 @@ class ScreenManager(ft.Stack):
                                     'javier':{
                                             'GridView':self.gird_view.content
                                   }})
+
+    #: LOAD JSON FILE
+    def load_json(self,controls_list: list=[]):
+        """ LOAD JSON FILE TO INSERT SCREEN IN INIT"""
+        with open(CURRENT_PATH,'r+') as f:
+            load_data = json.loads(f.read())
+            controls_list.controls += [ ScreenContainer(id_name=_ ) for _ in load_data]
+
+            for _ in load_data:
+                SCREEN_GLOBAL_VAR(add_list=_)
 
 if __name__ == '__main__':
     def main(page: ft.Page):

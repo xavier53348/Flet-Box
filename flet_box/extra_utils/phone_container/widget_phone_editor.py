@@ -9,10 +9,10 @@ class Build_Phone_Editor(ft.Stack):
      ONLY FUNCTION OF THIS MODULE
      - ADD TO PHONE_SCREEN A DRAGABLE WIDGET THAT WILL BE A DRAGABLE_LOOP
      """
-     def __init__(self,data='Erase this test'):
+     def __init__(self,color_data=ft.colors.TRANSPARENT):
           super().__init__()
 
-          self.title=data
+          self.colored_widget=color_data
 
      def build(self):
 
@@ -39,10 +39,12 @@ class Build_Phone_Editor(ft.Stack):
                                                                       border        = ft.border.all(7.5, ft.colors.BLACK),
                                                                       padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
                                                                       alignment     = ft.alignment.center,
-                                                                      bgcolor       = ft.colors.BLACK38, #07070   7
+                                                                      # bgcolor       = ft.colors.BLACK38, #07070   7
+                                                                      bgcolor=self.colored_widget,
                                                                       # blur          = (8,8),
                                                                       # image_src     = 'logo.jpg',
                                                                       # image_fit     = "COVER",
+
                                                                  content = ft.Column(
                                                                                 scroll   = 'HIDDEN',
                                                                                 spacing  = 2,

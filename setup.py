@@ -5,6 +5,8 @@ import os
 # python3 setup.py sdist bdist_wheel
 # python3 setup.py bdist_wheel
 
+# pip install twine
+# twine upload dist/*
 # PACKAGE META-DATA
 
 NAME            = 'flet_box'
@@ -97,11 +99,26 @@ setup(
     classifiers          = [
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
-        'Development Status :: 5 - Production/Untable',
+        # Development Status :: 1 - Planning
+        # Development Status :: 2 - Pre-Alpha
+        # Development Status :: 3 - Alpha
+        # Development Status :: 4 - Beta
+        # Development Status :: 5 - Production/Stable
+        # Development Status :: 6 - Mature
+        # Development Status :: 7 - Inactive
+
+        'Development Status :: 1 - Planning',
         "Topic :: Software Development :: Build Tools",
         'Intended Audience :: Developers',
         'Natural Language :: English',
-        'License :: OSI Approved :: apache-2.0',
+        # 'License :: OSI Approved :: Apache License',
+
+        # "License :: OSI Approved :: GNU General Public License (GPL)"
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        # "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
+        # "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
+        # "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',

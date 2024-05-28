@@ -1,14 +1,14 @@
 [build-system]
-requires        = ["flet"]  # REQUIRED if [build-system] table is used
+requires = ["flet"]  # REQUIRED if [build-system] table is used
 
 [project]
-name            = "flet-box"
-version         = "0.0.1"
-description     = "Flet-Box it's a GUI Dragg dropp BUILDER."
-readme          = { file="README.md" , content-type= 'text/markdown'}
+name = "flet-box"
+version = "0.1.1"
+description = "Flet-Box it's a GUI Dragg dropp BUILDER."
+readme = { file="README.md" , content-type= 'text/markdown'}
 requires-python = ">=3.8"
-license         = {file = "LICENSE.txt"}
-keywords        = ["flet-Box", "flet",'flet-gui','flet-builder','flet-sdk']
+license = {file = "LICENSE.txt"}
+keywords = ["flet-Box", "flet",'flet-gui','flet-builder','flet-sdk']
 
 dependencies    = [
                     "flet"
@@ -54,7 +54,7 @@ flet-box = 'flet-box:main'
 [project.urls]
 "Homepage"      = "https://github.com/xavier53348"
 "Repository"    = "https://github.com/xavier53348/Flet-Box.git"
-"Source"        = "https://github.com/xavier53348/Flet-Box/src"
+"Source"        = "https://github.com/xavier53348/Flet-Box/flet_box"
 "Documentation" = "https://github.com/xavier53348/Flet-Box/blob/main/README.md"
 
 # "Changelog"     = "https://github.com/xavier53348/Flet-Box/blob/main/README.md"
