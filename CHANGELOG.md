@@ -1,3 +1,8 @@
+## 0.1.2.1 (May 28, 2024)
+  - fix readme
+  - pypi aviable
+  - first test app release
+
 ## 0.1.2 (May 27, 2024)
   - start dev screens
   - Bump version to 0.1.1.
