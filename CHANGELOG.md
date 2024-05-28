@@ -1,3 +1,11 @@
+## 0.1.2 (May 27, 2024)
+  - start dev screens
+  - Bump version to 0.1.1.
+  - Merge branch 'features/new_features'
+  - addig file to git-ignore
+  - refactoring code
+  - delete files
+
 ## 0.1.1 (May 26, 2024)
   - Merge branch 'features/new_features'
   - addig file to git-ignore
