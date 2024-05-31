@@ -14,6 +14,7 @@ class SingleEntry(ft.Stack):
         super().__init__()
 
         self.widget              = widget
+        # print(self.widget)
         self.widget_content      = self.widget_content
         self.id_name_widget_dict = id_name_widget_dict
 

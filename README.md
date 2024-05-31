@@ -122,9 +122,9 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 | ft.outlinedbutton        | ✔ | ft.submenubutton         | ✘ | ft.appbar                | ✘ |
 | ft.bottomappbar          | ✘ | ft.dropdown              | ✘ | ft.cupertinonavigationbar| ✘ |
 | ft.bottomsheet           | ✘ | ft.datepicker            | ✘ | ft.searchbar             | ✘ |
-| ft.segmentedbutton       | ✘ | ft.timepicker            | ✘ |
-| ft.floatingactionbutton  | ✘ | ft.filepicker            | ✘ |
-|                          |   | ft.radio                 | ✘ |
+| ft.segmentedbutton       | ✘ | ft.timepicker            | ✘ |                          |   |
+| ft.floatingactionbutton  | ✘ | ft.filepicker            | ✘ |                          |   |
+|                          |   | ft.radio                 | ✘ |                          |   |
 |                          |   |                          |   |                          |   |
 | **WIDGETS STATUS**       |   |
 | ft.slider                | ✘ |

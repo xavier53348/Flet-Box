@@ -43,11 +43,29 @@ class TreeView(ft.Stack):
         #: INPUT DATA IN TREEVIEW
         Drop_TreeView.alignment = ft.alignment.top_left
         Drop_TreeView.update()
-        tree_view_data = widget.show_tree_nodews(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
+
+        # current_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
+
+        # data_phone = GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE').get(current_screen)
+        # tree_view_data = widget.show_tree_nodews(widget_show=data_phone)
+
+        # tree_view_data = widget.show_tree_nodews(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
+        # print(GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'),'EXPORT_DATA_PHONE')
+
+        # ========================================================================================
+        #: CREATE NEW SCREEN IN ALL SCREENS DICT VERY IMPORTATN CONTAIN ALL SCREENS IN
+        current_screen_id = GLOBAL_VAR(get_global_var ='SELECTED_SCREEN').uid
+        data_to_treview   = GLOBAL_VAR(get_global_var ='ALL_SCREEN_IN_DICT').get(current_screen_id)
+        if not data_to_treview: data_to_treview = dict()
+        tree_view_data    = widget.show_tree_nodews(widget_show = data_to_treview)
+        # ========================================================================================
+
         Drop_TreeView.content.controls[0].value      = tree_view_data
         Drop_TreeView.content.controls[0].size       = 11
         Drop_TreeView.content.controls[0].text_align = ft.TextAlign.LEFT
         Drop_TreeView.content.update()
+
+        # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'),'ALL SCREENS')
 
     def visible_view():
 

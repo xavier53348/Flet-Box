@@ -12,57 +12,165 @@ all_screens_in_app: dict = {
 
                             }
 
+
+# tmp_screen = Build_Phone_Editor(color_data='Blue')
+
+# row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
+# tmp_new_phone = Build_Phone_Editor(color_data=ft.colors.TRANSPARENT).build()        #: ADD SCREEN PHONE IN DICT all_screens_in_app
+# row_box_content_phone.controls.append(tmp_new_phone)                    #: ADD PHONE inside row_box_content_phone
+# GLOBAL_VAR(set_global_var= {'main_screen':row_box_content_phone.controls[0]})
+
+# print(row_box_content_phone)
+
+
 def screen_manager(
                    add_screen:    str = "",
                    delete_screen: str = "" ,
-                   update_screen: str = "" ,
+                   selected_screen: str = "" ,
                    load_screen:   str = "",
-                   clear_screen: bool = False,
                    set_screen:    str = "",
                    get_screen:    str = "",
-
+                   clear_screen: bool = False,
                    ):
+
+    #: THIS METOD WILL MANAGE ALL SCREENS INSIDE LET'US MODIFY EXACLTY SELECTED SCREEN
     global all_screens_in_app
     if add_screen:
-        #: ADD SCREEN PHONE IN DICT SCREENS
-        all_screens_in_app[add_screen] = Build_Phone_Editor(color_data='Blue')
-        GLOBAL_VAR(set_global_var={add_screen:Build_Phone_Editor(color_data='Blue')})
+        """
+        add_screen var is sleceted widget name in screen manager buton on menu fotter bar
+
+        1. take name snew screen
+        2. add new screen inside row_box_content_phone
+        3. row_box_content_phone update
+        3. add to global var dict
+        """
+        tmp_new_screen_name   = add_screen                                      #: take only name of new screen
+        row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
+
+        # ============================== SCREEN PHONE IN DICT ====================================
+        #: ADD SCREEN PHONE IN DICT all_screens_in_app
+        tree_view_new_phone = Build_Phone_Editor(
+                                                 color_data     = ft.colors.TRANSPARENT,
+                                                 )
+
+        tmp_new_phone = tree_view_new_phone.build()          #: ADD SCREEN PHONE IN DICT all_screens_in_app
+        row_box_content_phone.controls.append(tmp_new_phone) #: ADD PHONE inside row_box_content_phone
+        row_box_content_phone.update()
+        # ========================================================================================
+
+        #: ADD SCREEN PHONE IN DICT DATA_GLOBAL
+        #: PATH extra_utils/settings_var/settings_widget.py
+        #: WIDGET AFTER PASS TO ROW GET ID
+        GLOBAL_VAR( set_global_var= {tmp_new_screen_name:tmp_new_phone})
+
+
+        #: HIDE NEW SCREEN CONTAINER BOX
+        tmp_new_phone.visible = False
+        tmp_new_phone.update()
+
+        #: HIDE SCREEN MANAGER CONTAINER BOX
+        show_screen_manager = GLOBAL_VAR(get_global_var='SCREEN_CONTAINER')
+        show_screen_manager.visible = False
+        show_screen_manager.update()
+
+        # ========================================================================================
+        #: CREATE NEW SCREEN IN ALL SCREENS DICT VERY IMPORTATN CONTAIN ALL SCREENS IN
+        current_screen_id = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
+        GLOBAL_VAR(set_global_var = {'ALL_SCREEN_IN_DICT':{current_screen_id: dict() }})
+        # ========================================================================================
 
     elif delete_screen:
         #: DELETE SCREEN PHONE IN DICT SCREENS
         del all_screens_in_app[delete_screen]
 
-    elif update_screen:
-        #: UPDATE SCREEN PHONE IN DICT SCREENS
-        # GLOBAL_VAR(set_global_var={'main_screen':all_screens_in_app.get(update_screen)})
+    elif selected_screen:
+        #: ROW_PHONE IT'S MAIN ROW THAT HAVE PHONE WIDGET INSIDE WILL BE HOT RELOAD EVERY TIME WE CALL
+        #: THAT'S WHY I WILL PAS TO A GLOVAL VAR NAME "SCREEN_CONTAINER"
 
-        # data = GLOBAL_VAR(get_global_var='phone_testing')
-        # data.controls[0].bgcolor = 'Blue'
-        # data.update()
-        # print(data.controls[0])
-        # print(GLOBAL_VAR(get_global_var='phone_testing'))
+        #: ROW_PHONE IT'S MAIN ROW THAT HAVE PHONE WIDGET INSIDE WILL BE HOT RELOAD EVERY TIME WE CALL
+        #: THAT'S WHY I WILL PAS TO A G
+        # GLOVAL VAR NAME "SCREEN_CONTAINER"
 
-        row_phone = GLOBAL_VAR(get_global_var='row_phone')
+        row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
+        tmp_new_screen_name = selected_screen
 
-        # current_screen = all_screens_in_app.get(update_screen)
-        current_screen = GLOBAL_VAR(get_global_var=update_screen)
 
-        row_phone.controls[2]= current_screen
-        row_phone.update()
 
-        print(current_screen.controls[0].content.content.content.content.controls)
 
-        GLOBAL_VAR(set_global_var={'row_phone':row_phone})
+        #: HIDE OLD SCREEN CONTAINER BOX
+        old_selected_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
+        new_selected_screen = GLOBAL_VAR(get_global_var=tmp_new_screen_name)
 
-        # print(all_screens_in_app.get(update_screen))
+        #: SWITCH VISIBLE ON OFF BETEWNS SCREENS
+        old_selected_screen.visible, new_selected_screen.visible = new_selected_screen.visible ,old_selected_screen.visible
+        # old_selected_screen.visible = True
+        # new_selected_screen.visible = True
+
+        tab_one_confic_container = GLOBAL_VAR(get_global_var='CONFIG_TABS_PHONE')
+        tab_one = tab_one_confic_container.content.controls
+        #: TAB 0 NAME COLOR PHONE
+        color_phone           = tab_one[0]
+        color_phone_controls  = color_phone.controls[0].content.controls[1].content
+        #: TAB 0 NAME IMAGE PHONE
+        image_phone           = tab_one[1]
+        image_phone_controls  = image_phone.controls[0].content.controls[1].content
+        #: TAB 0 NAME COLUMN PHONE
+        column_phone          = tab_one[2]
+        column_phone_controls = column_phone.controls[0].content.controls[1].content
+
+        def update_widget_config_container(widget_update,widget_to_edit):
+            """WIL UPDATE WIDGET TO CONFIG STRAMING IN SCREEN MANAGER BOX"""
+
+            for _ in widget_update:
+
+                if _.id_name_widget_dict == "main_phone":
+                    _.widget = widget_to_edit
+
+                if _.id_name_widget_dict == "main_phone_conainer":
+                    _.widget = widget_to_edit.content.content.content
+
+                if _.id_name_widget_dict == "main_phone_conainer_conent":
+                    _.widget = widget_to_edit.content.content.content.content
+
+
+        update_widget_config_container(
+                                       widget_update  = color_phone_controls.controls,
+                                       widget_to_edit = new_selected_screen
+                                       )
+
+        update_widget_config_container(
+                                       widget_update  = image_phone_controls.controls,
+                                       widget_to_edit = new_selected_screen
+                                       )
+        update_widget_config_container(
+                                       widget_update  = column_phone_controls.controls,
+                                       widget_to_edit = new_selected_screen
+                                       )
+        old_selected_screen.update()
+        new_selected_screen.update()
+        row_box_content_phone.update()
+
+        GLOBAL_VAR(set_global_var={'SELECTED_SCREEN':new_selected_screen})
+        # GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':new_selected_screen})
+
+        # print(new_selected_screen._get_children())
+
+        # GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':{'INAMGE':new_selected_screen}})
+        # ========================================================================================
+        #: CREATE NEW SCREEN IN ALL SCREENS DICT VERY IMPORTATN CONTAIN ALL SCREENS IN
+        current_screen_id = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
+        get_curent_id = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT').get(current_screen_id)
+        # ========================================================================================
 
     elif clear_screen:
         #: CLEAR ALL SCREENS PHONES IN DICT SCREENS
+
         tmp_main_screen = all_screens_in_app.pop("main_screen")
         all_screens_in_app = {"main_screen":tmp_main_screen}
 
+
     elif set_screen:
-        all_screens_in_app["main_screen"]=set_screen
+        all_screens_in_app["main_screen"]= GLOBAL_VAR(get_global_var="main_screen")
 
     elif get_screen:
         return all_screens_in_app.get(get_screen)
@@ -89,6 +197,9 @@ class NameScreen(ft.Container):
         self.left   = 0
         self.top    = 0
         self.bottom = 0
+
+
+
 
     def build(self):
 
@@ -301,8 +412,8 @@ class ScreenContainer(ft.Container):
                                 padding   = ft.padding.all(8),
                                 content   = ft.Column(
                                         # scroll="HIDDEN",
-                                        alignment= ft.MainAxisAlignment.SPACE_BETWEEN,
-                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                        alignment            = ft.MainAxisAlignment.SPACE_BETWEEN,
+                                        horizontal_alignment = ft.CrossAxisAlignment.CENTER,
                                         controls= [
                                                     ft.Container(height=24),
                                                     ft.Icon(
@@ -314,7 +425,7 @@ class ScreenContainer(ft.Container):
                                                     ft.ElevatedButton(
                                                                     text='CLEAN',
                                                                     bgcolor=ft.colors.RED_900,
-                                                                    on_click=lambda _:self.remove_all(),
+                                                                    on_click=lambda _:self.remove_all(id_name= self.id_name),
                                                                     ),
                                                     ],
                                         ),
@@ -406,19 +517,25 @@ class ScreenContainer(ft.Container):
         change_text_screen.value = screen_name
         change_text_screen.update()
 
-        #:===================================================
-        #: UPDATE SELECTED WIDGET DICT
-        print(f"UPDATE Widget {screen_name} <====")
-        screen_manager(update_screen=screen_name)
+        # #:===================================================
+        # #: UPDATE SELECTED WIDGET DICT
+        # print(f"UPDATE Widget {screen_name} <====")
+        # print(screen_name,'<<< this is <<<<<<<<<<<<<<<<<<')
+        # screen_now = GLOBAL_VAR(get_global_var=screen_name)
+        screen_manager(selected_screen=screen_name)
+        # screen_manager(selected_screen=screen_now)
+
+        # print(screen_name)
         #:===================================================
 
+        # print(screen_now,'<<< this is <<<<<<<<<<<<<<<<<<')
 
     def show_screen_name(self):
         # ONLY FUNCTIONALITY IS SHOW BOX INPUT DIALOG
         name_screen.visible = True
         name_screen.update()
 
-    def remove_all(self):
+    def remove_all(self,id_name):
         with open(CURRENT_PATH,'w') as f:
             f.write('{}')
 
@@ -437,6 +554,7 @@ class ScreenContainer(ft.Container):
         #:===================================================
         #: REMOVE ALL REAL SCREEN TO DICT WITH ALL REAL SCREENS
         screen_manager(clear_screen=True)
+        # print(id_name,'idname')
         #:===================================================
 
 

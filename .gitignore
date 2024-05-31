@@ -1,6 +1,7 @@
 *.pyc
 test_readme_pypi.py
 .pypirc
+bump_upgrade_pypi.sh
 test_app/
 .venv/
 bump-version.sh

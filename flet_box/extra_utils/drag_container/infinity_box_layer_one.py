@@ -246,11 +246,11 @@ class InfinityBoxLayerOne(ft.Stack):
 
           print('============')
           print(f"""
-[+]             selected_widget: {self.dataPassed},
-[+]             ID_widget: {numWidget},
-[+]             UID: {self.infinityDropWidget[0].uid}
-[+]             ID tooltip: {self.infinityDropWidget[0].tooltip}
-[+]  Content: {self.infinityDropWidget}""")
+                [+]             selected_widget: {self.dataPassed},
+                [+]             ID_widget: {numWidget},
+                [+]             UID: {self.infinityDropWidget[0].uid}
+                [+]             ID tooltip: {self.infinityDropWidget[0].tooltip}
+                [+]  Content: {self.infinityDropWidget}""")
           print('============')
 
           self.drag_boxs =ft.DragTarget(
@@ -298,7 +298,6 @@ class InfinityBoxLayerOne(ft.Stack):
 
           """
           global numClick
-
 
           CHECK_DATA = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
 

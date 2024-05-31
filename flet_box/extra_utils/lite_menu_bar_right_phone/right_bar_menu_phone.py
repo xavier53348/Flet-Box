@@ -6,10 +6,19 @@ class LiteMenuUpContainer(ft.Stack):
 
      def __init__(self,main_page= None , phone_widget_container= None,menu_left_container= None , menu_right_container= None, space_widget = None):
           super().__init__()
-          self.main_page              = main_page
+          # self.main_page              = main_page
+          # self.menu_left_container    = menu_left_container
+          # self.phone_widget_container = phone_widget_container
+          # self.menu_right_container   = menu_right_container
+
+          self.main_page              = GLOBAL_VAR(get_global_var='PAGE')
           self.menu_left_container    = menu_left_container
-          self.phone_widget_container = phone_widget_container
-          self.menu_right_container   = menu_right_container
+
+          #: SET IN MAIN_SCREEN WIDGET TO EDIT STREAMING
+          self.widget_to_edit         = GLOBAL_VAR(get_global_var='main_screen')
+
+          self.phone_widget_container = self.widget_to_edit
+          self.menu_right_container   = self.widget_to_edit.build()
 
           # HEIGHT
           self.height                 = 500
@@ -75,7 +84,6 @@ class LiteMenuUpContainer(ft.Stack):
           return self.Drop_LiteMenuUpContainer
 
      def modify_widget_in_phone_container(self):
-          print('Im modificating....')
 
           """
           GLOBAL VARS:
@@ -108,15 +116,16 @@ class LiteMenuUpContainer(ft.Stack):
 
           #: 'Position','Modification','Color','Image',
           control_tab_2 = CONFIG_TABS_CONTAINERS.content.controls
-
           control_tab_3 = CONFIG_TABS_CONTAINERS_CONTENT.content.controls
+
+          print(F'Im modificating....{CONFIG_TABS_CONTAINERS}')
 
           def insert_data_in_box_container(column_tab):
                """
                THIS METOD WALK IN TABS number #2 EACH COLUMN WITH WIDGETS INSIDE 4 COLUMNS
 
                """
-
+               print('tab {control_tab_2}')
                #: TAB 2
 
                if column_tab == '2_0':
@@ -314,12 +323,30 @@ class LiteMenuUpContainer(ft.Stack):
                    del main_page._index[get_control_id]                                             #: <===== DELETE INDEX IN MAIN PAGE
                    page_control.update()                                                            #: <===== UPDATE PAGE
 
+                   # self.current_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
+                   # self.edit_dict = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT').get(self.current_screen)
+                   # print(self.edit_dict,'ALLLL <<<<<<<<<')
+
           if action == 'clear':
                #: ERASE ALL WIDGETS FROM CRONTROLS
-               main_phone = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
+               main_phone     = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
+               self.edit_dict = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')
+               # xxxdict = GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE')
+
+               print(self.edit_dict)
+               print(main_phone.uid,'selected')
+               # print(xxxdict)
+
                GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':dict()})                              #: <=====
-               main_phone.content.controls.clear()
+               main_phone.content.content.content.content.controls.clear()
                main_phone.update()                                                                  #: <===== UPDATE PAGE
+
+               if self.edit_dict:
+                    #: RESET ALL_SCREEN_IN_DICT DICT
+                    self.current_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
+                    GLOBAL_VAR(set_global_var={'ALL_SCREEN_IN_DICT':{self.current_screen: dict()}})
+
+                    # print(self.edit_dict)
 
           if action == 'TREE':
                TreeView.visible_view()
