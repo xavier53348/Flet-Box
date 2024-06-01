@@ -1,3 +1,4 @@
+from pathlib import Path
 from setuptools import setup , find_packages
 import os
 import pypandoc
@@ -18,8 +19,10 @@ import sys
 
 # pip install twine ,pypandoc
 # twine upload dist/*
+# twine check dist/*
 # PACKAGE META-DATA
 
+# python3 -m pip install --upgrade pip
 # pip install pypandoc
 # pip install pypandoc_binary
 
@@ -56,16 +59,22 @@ RUN_IN_CONSOLE ={
 
 PYPY_KEYWORDS_TO_FIND = ["flet-box-gui", "flet",'flet-gui','flet-builder','flet-sdk']
 
-here = os.path.abspath(os.path.dirname(__file__))
+# read the contents of your README file
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
-try:
-    long_description = pypandoc.convert_file('README.md', 'rst')
-except(IOError, ImportError):
-    long_description = open('README.md').read()
-    data = "\n\tpip install pypandoc\n\tpip install pypandoc_binary"
-    print(f'Please install {data}')
+
+
+# try:
+#     long_description = pypandoc.convert_file('README.md', 'rst')
+# except(IOError, ImportError):
+#     long_description = open('README.md').read()
+#     data = "\n\tpip install pypandoc\n\tpip install pypandoc_binary"
+#     print(f'Please install {data}')
 
 #: MANAGE VERSION
+here = os.path.abspath(os.path.dirname(__file__))
+
 try:
     with open(os.path.join(here, 'VERSION'), encoding='utf-8') as f:
         VERSION = f.read()
@@ -131,9 +140,10 @@ setup(
         'Natural Language :: English',
         # 'License :: OSI Approved :: Apache License',
 
+        "License :: OSI Approved :: MIT License",
         # "License :: OSI Approved :: GNU General Public License (GPL)"
         # "License :: OSI Approved :: GNU General Public License v2 (GPLv2)"
-        "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
+        # "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)"
         # "License :: OSI Approved :: GNU General Public License v3 (GPLv3)"
         # "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
         'Operating System :: MacOS :: MacOS X',

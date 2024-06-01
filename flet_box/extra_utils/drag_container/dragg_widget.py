@@ -91,7 +91,10 @@ class DraggWidget(ft.Stack):
           2. RESET THE LIST listWidgetUpdate
 
           """
+
           CHECK_DATA = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
+          GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':[]})
+
 
           if CHECK_DATA:
 
@@ -132,7 +135,7 @@ class DraggWidget(ft.Stack):
                selected_widget_clicked.update()
 
           #: run  only in production
-          print(data,'<=== selected DRAGG widget')
+          print(data,'<=== SELECTED DRAG WIDGET: file drag_widget.py')
 
           #: NEED ACTIVATE ALER OF SELECTED WIDGET
           selected_widget         = GLOBAL_VAR( get_global_var='ALERT_WIDGET')

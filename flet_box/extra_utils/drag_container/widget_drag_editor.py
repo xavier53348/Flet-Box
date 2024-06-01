@@ -1,10 +1,7 @@
-
-from .dragg_widget import DraggWidget
-
-from ..settings_var.settings_widget import GLOBAL_VAR
-
 import flet as ft
 
+from .dragg_widget import DraggWidget
+from ..settings_var.settings_widget import GLOBAL_VAR
 
 class Build_Drag_Editor(ft.Stack):
      """
@@ -57,9 +54,7 @@ class Build_Drag_Editor(ft.Stack):
 
      def __init__(self,data='Erase this test'):
           super().__init__()
-
           self.title=data
-
 
      def build(self):
 

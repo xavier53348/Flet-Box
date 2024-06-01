@@ -14,7 +14,9 @@ class WrapWidgetNode():
     def __init__(self,):
         super().__init__()
 
+        # data = GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE')
         self.show_tree_nodews(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
+        # print(data)
 
     def show_tree_nodews(self,widget_show):
         """
@@ -30,6 +32,7 @@ class WrapWidgetNode():
 
         """
         self.all_widgets = widget_show
+        print(self.all_widgets,'hello')
 
         list_controls  = ['row','column','stack','gridview']
 
@@ -401,10 +404,11 @@ class MakeJasonFile():
         check_second_8 = True
 
         #: testing data
-        PHONE_MAIN      = GLOBAL_VAR(get_global_var='PHONE_MAIN')
-        PHONE_CONTAINER = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
-        PHONE_COLUMN    = PHONE_CONTAINER.content
+        # PHONE_MAIN      = GLOBAL_VAR(get_global_var='PHONE_MAIN')
+        # PHONE_CONTAINER = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
+        # PHONE_COLUMN    = PHONE_CONTAINER.content
 
+        # print(PHONE_MAIN)
         # #: THIS CODE IS ONE EXTRACT OF PHONE NECCESARY TO HAVE PHONE ATTRIBUES BY DEFAULD
         # tmp_data_1 = dict()                                       #: TMP DICT()
         # tmp_data_2 = dict()                                       #: TMP DICT()
