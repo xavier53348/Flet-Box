@@ -1,8 +1,17 @@
 from pathlib import Path
 from setuptools import setup , find_packages
 import os
-import pypandoc
+# import pypandoc
 import sys
+
+# NECESARY TO CREATE PACKAGES
+# pip install pathlib
+# pip install pypandoc
+# pip install twine
+# pip install wheel
+
+# sudo apt-get install python3-dev
+# sudo apt-get install python3-pip
 
 #: MAKE A SETUP INSTALL
 # python3 setup.py sdist bdist_wheel
@@ -10,12 +19,12 @@ import sys
 # python3 setup.py register -r pypi
 # python3 setup.py sdist upload -r pypi
 
-# $ python setup.py sdist
-# $ twine upload dist/* -r pypi
-# $ twine upload dist/* -r flet_box_gui
+# python setup.py sdist
+# twine upload dist/* -r pypi
+# twine upload dist/* -r flet_box_gui
 
-# $ python setup.py sdist bdist_wheel --universal
-# $ twine upload dist/* -r pypi
+# python setup.py sdist bdist_wheel --universal
+# twine upload dist/* -r pypi
 
 # pip install twine ,pypandoc
 # twine upload dist/*
