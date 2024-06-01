@@ -45,6 +45,14 @@
 >>> pip install -r requirements.txt
 
 ```
+
+## Error with libmpv1
+
+```
+>>> sudo apt install libmpv1
+
+```
+
 ## Install manually
 
 ```
