@@ -1,3 +1,5 @@
+import flet as ft
+
 from extra_utils import Build_Editor         #: LEFT DRAGG CONTAINER
 from extra_utils import Build_Drag_Editor
 from extra_utils import TreeView             #: TREEVIEW CONTAINER
@@ -7,7 +9,6 @@ from extra_utils import MenuUpContainer      #: TAB MENU CONTAINER
 from extra_utils import MenuLeftContainer
 from extra_utils import LiteMenuUpContainer  #: LITE MENU RIGHT PHONE AND DOWN
 from extra_utils import LiteMenuDownContainer
-from extra_utils import SelectedWidget
 from extra_utils import IconBrowser          #: ICON AND COLOR BROWSER CONTAINER
 from extra_utils import ColorBrowser
 from extra_utils import GptBrowser
@@ -16,8 +17,6 @@ from extra_utils import GLOBAL_VAR           #: CALL GLOBAL VAR  GLOBAL VARS
 from extra_utils import AlertSelected        #: ALERT DIALOG
 
 from extra_utils import ScreenManager ,screen_manager  #: SCREEN MANAGER
-
-import flet as ft
 
 def main(page: ft.Page):
      #: CONFIGURATION
@@ -166,8 +165,6 @@ def main(page: ft.Page):
      #: ROW_PHONE IT'S MAIN ROW THAT HAVE PHONE WIDGET INSIDE WILL BE HOT RELOAD EVERY TIME WE CALL
      #: THAT'S WHY I WILL PAS TO A GLOVAL VAR NAME "SCREEN_CONTAINER"
 
-
-
      row_phone = ft.Row(
                         scroll=True,
                controls= [
@@ -175,6 +172,7 @@ def main(page: ft.Page):
                     phone_testing,
                     ],
                   )
+     
      container_phone = ft.Container(
                                     # bgcolor="red",
                                     width=295,
@@ -304,5 +302,5 @@ def run_app():
 
 if __name__ == '__main__':
      ft.app(
-               target         = main,
+               target = main,
           )

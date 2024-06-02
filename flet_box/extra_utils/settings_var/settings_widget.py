@@ -40,9 +40,18 @@ DATA_GLOBAL =  {
 
                        'SCREEN_CONTAINER' : None,   # <== SCREEN_MANAGER BOX CONTAINER
                               'TREE_VIEW' : None,   # <== TREE_VIEW BOX CONTAINER
+                     
+
+                     'ALL_SCREEN_IN_DICT' : dict(),   # <== SLL SCREENSIN SCREEN MANAGER
                }
 
-def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_name',remove_global_var = 'var_remove'):
+def GLOBAL_VAR(
+               set_global_var:     dict = {'var_name':'value_in'}, 
+               get_global_var:     str  = 'var_name',
+               remove_global_var:  str  = 'var_remove',
+               remove_screen_var:  str  = 'var_screen_remove',
+               remove_all_screen_var:  bool  = True,
+               ):
      """
      #### GLOBAL_VAR IS A DICT THAT COINTEN ALL DATA THAT WE WANT CALL IN ALL FLET-BOX
      #### WE MAY CALL IN ALL MOMENT IMPORTING LITE CONFIG
@@ -76,3 +85,7 @@ def GLOBAL_VAR(set_global_var = {'var_name':'value_in'}, get_global_var= 'var_na
      elif not remove_global_var == 'var_remove':
           """ REMOVE SPECIFIC WIDGET FROM SELECTED WIDGET PHONE"""
           DATA_GLOBAL.get('EXPORT_DATA_PHONE').pop(remove_global_var)
+
+     elif remove_all_screen_var:
+          """ REMOVE SPECIFIC WIDGET FROM SELECTED SCREEN PHONE"""
+          DATA_GLOBAL['ALL_SCREEN_IN_DICT']=dict()

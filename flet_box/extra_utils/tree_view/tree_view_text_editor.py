@@ -195,9 +195,18 @@ class TreeViewTextEditor(ft.Stack):
 
         #: build_json_file
         #: INPUT DATA IN TEXT EDITOR
-        build_json_file = widget.build_json_file(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
+        # build_json_file = widget.build_json_file(widget_show=GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
         #: print(Drop_TextEditor.content.controls[1].content.controls[0].data_stream)
 
+        # 
+        # print(build_json_file,'<=== data',GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
+        current_screen_id = GLOBAL_VAR(get_global_var ='SELECTED_SCREEN').uid
+        data_to_treview   = GLOBAL_VAR(get_global_var ='ALL_SCREEN_IN_DICT').get(current_screen_id)
+        print(data_to_treview)
+        build_json_file = widget.build_json_file(widget_show=data_to_treview)
+
+
+        # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'),'<==== ALL_SCREEN_IN_DICT')
         #: FIRST CODE
         # Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('main_code')
         # Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls[0].update()

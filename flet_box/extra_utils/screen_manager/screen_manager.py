@@ -2,22 +2,22 @@ import flet as ft
 import os
 import json
 
-from screen_manager.settings_screens import SCREEN_GLOBAL_VAR
-from settings_var.settings_widget import GLOBAL_VAR
+from ..screen_manager.settings_screens import SCREEN_GLOBAL_VAR
+from ..settings_var.settings_widget import GLOBAL_VAR
 
 #: VERY IMPORTANT IT'S MAIN PHONE THAT WILL CONTENT ALL SCREENS
-from phone_container.widget_phone_editor import Build_Phone_Editor
+from ..phone_container.widget_phone_editor import Build_Phone_Editor
 
 all_screens_in_app: dict = {}
 
 def screen_manager(
-                   add_screen:    str = "",
-                   delete_screen: str = "" ,
+                   add_screen:      str = "",
+                   delete_screen:   str = "" ,
                    selected_screen: str = "" ,
-                   load_screen:   str = "",
-                   set_screen:    str = "",
-                   get_screen:    str = "",
-                   clear_screen: bool = False,
+                   load_screen:     str = "",
+                   set_screen:      str = "",
+                   get_screen:      str = "",
+                   clear_screen:   bool = False,
                    ):
 
     #: THIS METOD WILL MANAGE ALL SCREENS INSIDE LET'US MODIFY EXACLTY SELECTED SCREEN
@@ -31,13 +31,13 @@ def screen_manager(
         3. row_box_content_phone update
         3. add to global var dict
         """
-        tmp_new_screen_name   = add_screen                                      #: take only name of new screen
+        tmp_new_screen_name   = add_screen                            #: take only name of new screen
         row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
 
         # ============================== SCREEN PHONE IN DICT ====================================
         #: ADD SCREEN PHONE IN DICT all_screens_in_app
         tree_view_new_phone = Build_Phone_Editor(
-                                                 color_data     = ft.colors.TRANSPARENT,
+                                                 color_data = ft.colors.TRANSPARENT,
                                                  )
 
         tmp_new_phone = tree_view_new_phone.build()          #: ADD SCREEN PHONE IN DICT all_screens_in_app
@@ -48,8 +48,9 @@ def screen_manager(
         #: ADD SCREEN PHONE IN DICT DATA_GLOBAL
         #: PATH extra_utils/settings_var/settings_widget.py
         #: WIDGET AFTER PASS TO ROW GET ID
-        GLOBAL_VAR( set_global_var= {tmp_new_screen_name:tmp_new_phone})
-
+        #                              screen_name       
+        GLOBAL_VAR( set_global_var= {tmp_new_screen_name:tmp_new_phone}) # NECESARY TO VISIBLE ON OFF
+        # print(tmp_new_screen_name,'tmp_new_screen_name')
 
         #: HIDE NEW SCREEN CONTAINER BOX
         tmp_new_phone.visible = False
@@ -62,13 +63,24 @@ def screen_manager(
 
         # ========================================================================================
         #: CREATE NEW SCREEN IN ALL SCREENS DICT VERY IMPORTATN CONTAIN ALL SCREENS IN
-        current_screen_id = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
-        GLOBAL_VAR(set_global_var = {'ALL_SCREEN_IN_DICT':{current_screen_id: dict() }})
-        # ========================================================================================
+        current_main_screen_id = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
+        # GLOBAL_VAR(set_global_var = {'ALL_SCREEN_IN_DICT':{current_main_screen_id: dict() }})
+        # # ========================================================================================
+
+        # print(f"Name current   screen: 'main' id: {current_main_screen_id}")
+        # print(f"Name new added screen: '{tmp_new_screen_name}' id: {tmp_new_phone.uid}")
+
+        # SET NAME TO ID TO ERASE IN ALL DICT SCREENS
+        all_screens_in_app[tmp_new_screen_name]=tmp_new_phone.uid
 
     elif delete_screen:
         #: DELETE SCREEN PHONE IN DICT SCREENS
-        del all_screens_in_app[delete_screen]
+        screen_to_delete = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')
+        select_name_to_get_id = all_screens_in_app.pop(delete_screen)
+
+        #: REMOVE SPECIFIC SCREEN FROM PHONE
+        if screen_to_delete.get(select_name_to_get_id):
+            GLOBAL_VAR(remove_screen_var=select_name_to_get_id)
 
     elif selected_screen:
         #: ROW_PHONE IT'S MAIN ROW THAT HAVE PHONE WIDGET INSIDE WILL BE HOT RELOAD EVERY TIME WE CALL
@@ -80,9 +92,6 @@ def screen_manager(
 
         row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
         tmp_new_screen_name = selected_screen
-
-
-
 
         #: HIDE OLD SCREEN CONTAINER BOX
         old_selected_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
@@ -151,10 +160,36 @@ def screen_manager(
 
     elif clear_screen:
         #: CLEAR ALL SCREENS PHONES IN DICT SCREENS
+        GLOBAL_VAR(remove_all_screen_var=True)
+        row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
+        data = row_box_content_phone.controls.pop(0)
+        row_box_content_phone.controls=[data]
+        row_box_content_phone.controls[0].visible = True
+        
+        #: GET ID AND  CONTROLS FROM MAIN SCREEN
+        id_main_screen = data.uid
+        content_of_main_screen = data.content.content.content.content.controls
 
-        tmp_main_screen = all_screens_in_app.pop("main_screen")
-        all_screens_in_app = {"main_screen":tmp_main_screen}
+        #: IS NECCESARY CREATE A NESTED DICT WITH ALL CONTENT
+        # {'_421': {'Avatar: 1': Container(tooltip='Avatar: 1', bgcolor='transparent', ink=True, inkcolor='red', onclick=True, onhover=True, n='content', border='{"l":{"w":0,"c":"transparent"},"t":{"w":0,"c":"transparent"},"r":{"w":0,"c":"transparent"},"b":{"w":0,"c":"transparent"}}', margin='{"l":0,"t":0,"r":0,"b":0}', padding='{"l":6,"t":6,"r":6,"b":6}', alignment='{"x":0,"y":0}')}}
+        
+        update_all_screen: dict = {}
+        secundary_update:  dict = {
+                    id_main_screen:{}
+        }
 
+        #: WALK THROUGHT MAIN SCREEN TO GET ALL WIDGET ADDED IN TREVIEW
+        for _ in  content_of_main_screen:
+            content = _.controls[0].content
+            name_id = content.tooltip
+            update_all_screen.update({name_id:content})
+
+        #: UPDATE CONTROLS AND NESTED DICTIONARY 
+        secundary_update.update({id_main_screen:update_all_screen})
+        row_box_content_phone.update()
+
+        GLOBAL_VAR(set_global_var={'ALL_SCREEN_IN_DICT':secundary_update})
+        GLOBAL_VAR(set_global_var={'SELECTED_SCREEN':data})
 
     elif set_screen:
         all_screens_in_app["main_screen"]= GLOBAL_VAR(get_global_var="main_screen")
@@ -179,7 +214,9 @@ class NameScreen(ft.Container):
         self.alignment     = ft.alignment.center
         self.border        = ft.border.all(2, ft.colors.BLACK)
         self.blur          = (12,12)
+
         # self.on_click    = lambda _:self.escape_data_in_sqlite()
+        
         self.right  = 0
         self.left   = 0
         self.top    = 0
@@ -609,8 +646,16 @@ class ScreenManager(ft.Stack):
 
         # REMEMBER SAVE IN DATABASE
         global name_screen
-
+        
+        #ERASE IF MAKE SAVE SCREENS DATA
+        self.remove_json_file()
+        
         name_screen = NameScreen()
+
+    def remove_json_file(self):
+        with open(CURRENT_PATH,'w') as new:
+            new.write("{}")
+
     def build(self):
         self.gird_view = ft.Container( #: GRID VIEW
                                 bgcolor       = ft.colors.WHITE10,
@@ -643,7 +688,8 @@ class ScreenManager(ft.Stack):
                         ))
 
         #: LOAD JSON FILE __INIT__
-        # self.load_json(controls_list= self.gird_view.content)
+
+        self.load_json(controls_list= self.gird_view.content)
 
         #: EXTRA FOOTER BAR NO IMPLEMENTED
         # self.footer_bar = ft.Container( #: FOOTER BAR

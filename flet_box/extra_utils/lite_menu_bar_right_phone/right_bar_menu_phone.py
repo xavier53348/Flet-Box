@@ -333,8 +333,8 @@ class LiteMenuUpContainer(ft.Stack):
                self.edit_dict = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')
                # xxxdict = GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE')
 
-               print(self.edit_dict)
-               print(main_phone.uid,'selected')
+               # print(self.edit_dict,'before remove')
+               # print(main_phone.uid,'selected')
                # print(xxxdict)
 
                GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':dict()})                              #: <=====
@@ -347,6 +347,7 @@ class LiteMenuUpContainer(ft.Stack):
                     GLOBAL_VAR(set_global_var={'ALL_SCREEN_IN_DICT':{self.current_screen: dict()}})
 
                     # print(self.edit_dict)
+               # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'),'after remove')
 
           if action == 'TREE':
                TreeView.visible_view()

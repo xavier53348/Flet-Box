@@ -32,7 +32,7 @@ class WrapWidgetNode():
 
         """
         self.all_widgets = widget_show
-        print(self.all_widgets,'hello')
+        # print(self.all_widgets,'hello')
 
         list_controls  = ['row','column','stack','gridview']
 
@@ -189,22 +189,18 @@ class MakeJasonFile():
         """ return {'_1':'Container','_2':'Image'}"""
 
         #: ID
-
         self._uid_box  = self.main_node.uid
         self._uid_con  = self.main_node.content.uid
 
         #: NAME
-
         self._name_box  = self.main_node._get_control_name().capitalize()                   #: change _get_control_name() by attributes
         self._name_con  = self.main_node.content._get_control_name().capitalize()           #: change _get_control_name() by attributes
 
         #: NAME
-
         self._box_tag  = self.main_node.tooltip                                             #: change _get_control_name() by attributes
         self._con_tag  = self.main_node.content.tooltip                                     #: change _get_control_name() by attributes #: UPDATE DICT
 
         #: TOOLTIP
-
         self.dict_all_names[self._box_tag] = {self._uid_box : self._name_box }
         self.dict_all_names[self._box_tag].update({self._uid_con : self._name_con })
 
@@ -268,8 +264,6 @@ class MakeJasonFile():
             del self.attributes_content['onclick']
             del self.attributes_content['onhover']
 
-
-
         #: UPDATE DICT
 
         self.dict_all_attribute[self._uid_box] = self.attributes
@@ -286,17 +280,14 @@ class MakeJasonFile():
         """ return {'_1':'Attributes','_2':'Attributes'}"""
 
         #: Create a copy
-
         self.attributes = {}
         self.attributes_content = {}
 
         #: ID
-
         self._uid_box  = self.main_node.uid
         self._uid_con  = self.main_node.content.uid
 
         #: NAME
-
         self._name_box  = self.main_node._get_control_name().capitalize()                 #: change _get_control_name() by attributes
         self._name_con  = self.main_node.content._get_control_name().capitalize()         #: change _get_control_name() by attributes
 
@@ -305,7 +296,6 @@ class MakeJasonFile():
         self.main_node.content.copy_attrs(dest=self.attributes_content)
 
         #: single content
-
         tab_ = '\t'
         list_controls      = ['Row','Column','Stack','Gridview']
 
@@ -331,7 +321,7 @@ class MakeJasonFile():
                                         "Verticaldivider","Checkbox","Cupertinocheckbox","Radiogroup",
                                         "Switch","Cupertinoslider","Text"]
 
-            print(self._name_con)
+            # print(self._name_con)
 
             if self._name_con in list_condition and not self._name_con in no_press_condition:
                 self.all_code_list.append(f"{tab_*tab_two}on_click= lambda _: event{self._uid_con}(data='{self._uid_con}'),")     #: ALL CALL EVENTS IN ONE LIST
@@ -403,6 +393,8 @@ class MakeJasonFile():
         check_second_7 = True
         check_second_8 = True
 
+
+        #: MODIFICTION MAIN CONTAINER PHONE
         #: testing data
         # PHONE_MAIN      = GLOBAL_VAR(get_global_var='PHONE_MAIN')
         # PHONE_CONTAINER = GLOBAL_VAR(get_global_var='PHONE_CONTAINER')
@@ -441,7 +433,10 @@ class MakeJasonFile():
         # print( self.dict_all_attribute)
 
 
-        #:
+        #: IF ALL_SCREEN_IN_DICT IN GLOBAL VAR IS NONE 
+        # RETURN ERROR ITERABLE MOSTBE A DICT WILL CHANGE NONE TO DICT()
+        if self.all_widgets == None: self.all_widgets: dict ={}
+
         for _ in self.all_widgets:
             #:LEVEL 0
             tmp = {}

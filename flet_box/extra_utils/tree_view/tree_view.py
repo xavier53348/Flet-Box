@@ -65,7 +65,13 @@ class TreeView(ft.Stack):
     def new_treview_screen(self, widget):
         current_screen_id = GLOBAL_VAR(get_global_var ='SELECTED_SCREEN').uid
         data_to_treview   = GLOBAL_VAR(get_global_var ='ALL_SCREEN_IN_DICT').get(current_screen_id)
+        
+
+        # print(f'current id: {data_to_treview}')
+        print(f'ALL SCREENS: { GLOBAL_VAR(get_global_var ="ALL_SCREEN_IN_DICT") }')
+
         if not data_to_treview: data_to_treview = dict()
+
         tree_view_data    = widget.show_tree_nodews(widget_show = data_to_treview)
         return tree_view_data
 
