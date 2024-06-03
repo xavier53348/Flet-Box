@@ -68,7 +68,17 @@ class TreeView(ft.Stack):
         
 
         # print(f'current id: {data_to_treview}')
-        print(f'ALL SCREENS: { GLOBAL_VAR(get_global_var ="ALL_SCREEN_IN_DICT") }')
+        # print(f'ALL SCREENS: { GLOBAL_VAR(get_global_var ="ALL_SCREEN_IN_DICT") }')
+
+        # testing
+        # SHOW ALL SCREENS
+        all_screnn = GLOBAL_VAR(get_global_var ="row_phone")
+        for _ in all_screnn.controls:
+            print(_.uid,_.content)
+        # print(all_screnn.controls)
+
+
+
 
         if not data_to_treview: data_to_treview = dict()
 

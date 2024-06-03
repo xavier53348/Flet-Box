@@ -71,11 +71,27 @@ def screen_manager(
         # print(f"Name new added screen: '{tmp_new_screen_name}' id: {tmp_new_phone.uid}")
 
         # SET NAME TO ID TO ERASE IN ALL DICT SCREENS
+        # return {'main_screen': '_421', 'datadaa': '_3006'}
+
+        all_screens_in_app['main_screen']=current_main_screen_id
         all_screens_in_app[tmp_new_screen_name]=tmp_new_phone.uid
+
 
     elif delete_screen:
         #: DELETE SCREEN PHONE IN DICT SCREENS
         screen_to_delete = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')
+        all_screen = GLOBAL_VAR(get_global_var ="row_phone")
+
+        # print(all_screens_in_app)
+        # print(f"name: {delete_screen} {all_screens_in_app.get(delete_screen)}")
+
+        #: REMOVE ALL CONTROLS IN row_phone CONTROLS
+        for index,_ in enumerate(all_screen.controls):
+            if _.uid == all_screens_in_app.get(delete_screen):
+                del all_screen.controls[index]
+        
+
+        #: REMOVE FROM INTERNAL DICT
         select_name_to_get_id = all_screens_in_app.pop(delete_screen)
 
         #: REMOVE SPECIFIC SCREEN FROM PHONE
@@ -89,6 +105,7 @@ def screen_manager(
         #: ROW_PHONE IT'S MAIN ROW THAT HAVE PHONE WIDGET INSIDE WILL BE HOT RELOAD EVERY TIME WE CALL
         #: THAT'S WHY I WILL PAS TO A G
         # GLOVAL VAR NAME "SCREEN_CONTAINER"
+        print(all_screens_in_app)
 
         row_box_content_phone = GLOBAL_VAR(get_global_var='row_phone')
         tmp_new_screen_name = selected_screen
@@ -150,7 +167,6 @@ def screen_manager(
         # GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':new_selected_screen})
 
         # print(new_selected_screen._get_children())
-
         # GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':{'INAMGE':new_selected_screen}})
         # ========================================================================================
         #: CREATE NEW SCREEN IN ALL SCREENS DICT VERY IMPORTATN CONTAIN ALL SCREENS IN

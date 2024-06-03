@@ -328,30 +328,22 @@ class LiteMenuUpContainer(ft.Stack):
                    # print(self.edit_dict,'ALLLL <<<<<<<<<')
 
           if action == 'clear':
+               #: GET BLOVAL VAR
+               main_phone = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
+               edit_dict  = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')
+
                #: ERASE ALL WIDGETS FROM CRONTROLS
-               main_phone     = GLOBAL_VAR(get_global_var='SELECTED_SCREEN')
-               self.edit_dict = GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT')
-               # xxxdict = GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE')
-
-               # print(self.edit_dict,'before remove')
-               # print(main_phone.uid,'selected')
-               # print(xxxdict)
-
-               GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':dict()})                              #: <=====
                main_phone.content.content.content.content.controls.clear()
                main_phone.update()                                                                  #: <===== UPDATE PAGE
 
-               if self.edit_dict:
-                    #: RESET ALL_SCREEN_IN_DICT DICT
-                    self.current_screen = GLOBAL_VAR(get_global_var='SELECTED_SCREEN').uid
-                    GLOBAL_VAR(set_global_var={'ALL_SCREEN_IN_DICT':{self.current_screen: dict()}})
+               #: SET DEFAULD EMPTY PHONE 
+               edit_dict[main_phone.uid]=dict()
 
-                    # print(self.edit_dict)
-               # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'),'after remove')
+               #: RUN ONLY IN PRODUCTION
+               # print(self.edit_dict )
 
           if action == 'TREE':
                TreeView.visible_view()
-
 
           if action == 'rotation':
                self.phone_widget_container.controls[0].width , self.phone_widget_container.controls[0].height = self.phone_widget_container.controls[0].height , self.phone_widget_container.controls[0].width
