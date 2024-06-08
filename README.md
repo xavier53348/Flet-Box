@@ -59,12 +59,12 @@
 >>> git clone https://github.com/xavier53348/Flet-Box.git
 
 ```
-## By pypi repo
+<!-- ## By pypi repo
 
 ```
 >>> pip install flet-box-gui
 
-```
+``` -->
 ## Easy run Flet-Box
 ```bash
 
@@ -147,23 +147,12 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 ### Path Flet-Box Modules
 ```bash
 .
-├── full_path.txt
-├── src
+├── bump_upgrade_pypi.sh
+├── bump-version.sh
+├── CHANGELOG.md
+├── flet_box
 │   ├── assets
-│   │   ├── avatar.jpg
-│   │   ├── avatar.png
-│   │   ├── dragg_container3.jpg
-│   │   ├── dragg_container.jpg
-│   │   ├── image.jpg
-│   │   ├── img.jpg
-│   │   ├── iphone.png
-│   │   ├── logo.jpg
-│   │   ├── logo_mark.png
-│   │   ├── my_avatar.png
-│   │   ├── no_imagen.jpg
-│   │   └── splash.jpg
-│   ├── bump-version.sh
-│   ├── CHANGELOG.md
+│   │   ├
 │   ├── extra_utils
 │   │   ├── about
 │   │   │   └── about.py
@@ -173,19 +162,22 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   │   ├── gpt_browser.py
 │   │   │   └── library_chatgpt.py
 │   │   ├── color_browser
-│   │   │   └── color_browser.py
+│   │   │   ├── color_browser.py
+│   │   │   └── small_palette_color.py
 │   │   ├── config_container
+│   │   │   ├── blur_color_entry.py
 │   │   │   ├── bool_entry.py
 │   │   │   ├── color_entry.py
 │   │   │   ├── double_entry.py
 │   │   │   ├── four_entry.py
 │   │   │   ├── gradient_entry.py
+│   │   │   ├── photo_selection.py
+│   │   │   ├── selection_button_entry.py
 │   │   │   ├── selection_entry.py
 │   │   │   ├── single_entry.py
 │   │   │   └── widget_editor.py
 │   │   ├── drag_container
 │   │   │   ├── dragg_widget.py
-│   │   │   ├── drag_handler_container.py
 │   │   │   ├── infinity_box_layer_one.py
 │   │   │   └── widget_drag_editor.py
 │   │   ├── icon_browser
@@ -193,27 +185,30 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   ├── lite_menu_bar_down_phone
 │   │   │   ├── footer_bar_menu_phone.py
 │   │   │   └── selected_widget.py
-│   │   ├── lite_menu_bar_up_phone
-│   │   │   └── head_bar_menu_phone.py
+│   │   ├── lite_menu_bar_right_phone
+│   │   │   └── right_bar_menu_phone.py
 │   │   ├── menu_tab_left_phone
 │   │   │   └── widget_menu_left_editor.py
 │   │   ├── menu_tab_up_phone
 │   │   │   ├── basic_menu_tab_up.py
+│   │   │   ├── skeleton_class_screens.py
 │   │   │   └── widget_menu_tab_editor.py
 │   │   ├── phone_container
+│   │   │   ├── nested_dict.py
 │   │   │   └── widget_phone_editor.py
+│   │   ├── screen_manager
+│   │   │   ├── screen_manager.py
+│   │   │   ├── screens.js
+│   │   │   ├── settings_screens.py
+│   │   │   └── write_file_proyect.py
 │   │   ├── settings_var
 │   │   │   ├── save_export.py
 │   │   │   └── settings_widget.py
 │   │   └── tree_view
+│   │       ├── color_hight_light_editor.py
 │   │       ├── tree_view.py
 │   │       └── tree_view_text_editor.py
-│   ├── flet_box.py
-│   ├── __main__.py
-│   └── VERSION
-└── workflows
-
-18 directories, 47 files
+│   └── flet_box.py
 
 ```
 

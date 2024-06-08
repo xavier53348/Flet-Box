@@ -1,8 +1,8 @@
 .
-├── activate_venv.sh
-├── LICENSE
-├── README.md
-├── src
+├── bump_upgrade_pypi.sh
+├── bump-version.sh
+├── CHANGELOG.md
+├── flet_box
 │   ├── assets
 │   │   ├── avatar.jpg
 │   │   ├── avatar.png
@@ -10,20 +10,32 @@
 │   │   ├── dragg_container.jpg
 │   │   ├── image.jpg
 │   │   ├── img.jpg
-│   │   ├── iphone.png
 │   │   ├── logo.jpg
 │   │   ├── logo_mark.png
+│   │   ├── my_avatar.png
 │   │   ├── no_imagen.jpg
-│   │   └── splash.jpg
+│   │   ├── splash.jpg
+│   │   └── wallpaper.jpg
 │   ├── extra_utils
+│   │   ├── about
+│   │   │   └── about.py
+│   │   ├── alert
+│   │   │   └── alert_selected.py
+│   │   ├── chat_gpt_browser
+│   │   │   ├── gpt_browser.py
+│   │   │   └── library_chatgpt.py
 │   │   ├── color_browser
-│   │   │   └── color_browser.py
+│   │   │   ├── color_browser.py
+│   │   │   └── small_palette_color.py
 │   │   ├── config_container
+│   │   │   ├── blur_color_entry.py
 │   │   │   ├── bool_entry.py
 │   │   │   ├── color_entry.py
 │   │   │   ├── double_entry.py
 │   │   │   ├── four_entry.py
 │   │   │   ├── gradient_entry.py
+│   │   │   ├── photo_selection.py
+│   │   │   ├── selection_button_entry.py
 │   │   │   ├── selection_entry.py
 │   │   │   ├── single_entry.py
 │   │   │   └── widget_editor.py
@@ -36,19 +48,66 @@
 │   │   ├── lite_menu_bar_down_phone
 │   │   │   ├── footer_bar_menu_phone.py
 │   │   │   └── selected_widget.py
-│   │   ├── lite_menu_bar_up_phone
-│   │   │   └── head_bar_menu_phone.py
+│   │   ├── lite_menu_bar_right_phone
+│   │   │   └── right_bar_menu_phone.py
 │   │   ├── menu_tab_left_phone
 │   │   │   └── widget_menu_left_editor.py
 │   │   ├── menu_tab_up_phone
 │   │   │   ├── basic_menu_tab_up.py
+│   │   │   ├── skeleton_class_screens.py
 │   │   │   └── widget_menu_tab_editor.py
 │   │   ├── phone_container
+│   │   │   ├── nested_dict.py
 │   │   │   └── widget_phone_editor.py
-│   │   └── settings_var
-│   │       └── settings_widget.py
+│   │   ├── screen_manager
+│   │   │   ├── screen_manager.py
+│   │   │   ├── screens.js
+│   │   │   ├── settings_screens.py
+│   │   │   └── write_file_proyect.py
+│   │   ├── settings_var
+│   │   │   ├── save_export.py
+│   │   │   └── settings_widget.py
+│   │   └── tree_view
+│   │       ├── color_hight_light_editor.py
+│   │       ├── tree_view.py
+│   │       └── tree_view_text_editor.py
 │   └── flet_box.py
-├── WIDGET.md
+├── flet_box_gui.egg-info
+│   ├── dependency_links.txt
+│   ├── entry_points.txt
+│   ├── PKG-INFO
+│   ├── requires.txt
+│   ├── SOURCES.txt
+│   └── top_level.txt
+├── full_path.txt
+├── test_app
+│   ├── help_rope_sublime.py
+│   ├── mark_down
+│   │   ├── mark_down.py
+│   │   ├── test_mark_down_theme.zip
+│   │   └── test.md
+│   ├── NEW_proyect_name.zip
+│   ├── proyect_name.zip
+│   ├── read_database_.py
+│   ├── taket_line_ident
+│   │   ├── ft_list_view
+│   │   │   ├── drop.py
+│   │   │   └── navbar.py
+│   │   ├── loading_animation2.py
+│   │   └── loading_animation.py
+│   ├── test_editor
+│   │   ├── flet_code.py
+│   │   └── my_editor.py
+│   ├── testing_code.py
+│   ├── testing_code.py.zip
+│   ├── test.py
+│   └── views
+│       ├── builder_screens.py
+│       ├── building_code_traslator.py
+│       ├── FLET_TRASLATED_SCREEN_DB.py
+│       └── SCREENS_DB.py
+├── test_readme_pypi.py
+├── VERSION
 └── workflows
 
-14 directories, 37 files
+26 directories, 84 files
