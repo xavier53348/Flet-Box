@@ -68,47 +68,41 @@ class Build_Drag_Editor(ft.Stack):
           #: icons.FORMAT_COLOR_FILL_ROUNDED <== color
 
           #: CONTAINERS LAYOUTS
-
-          self.RowDragg  = DraggWidget( widget='Row'            ,color='BLUE'   ,icons= ft.icons.BURST_MODE_ROUNDED)
-          self.ColDragg  = DraggWidget( widget='Column'         ,color='RED'    ,icons= ft.icons.WRAP_TEXT_ROUNDED)
-          self.GriDragg  = DraggWidget( widget='GridView'       ,color='PURPLE' ,icons= ft.icons.WIDGETS_ROUNDED )
-          self.StaDragg  = DraggWidget( widget='Stack'          ,color='YELLOW' ,icons= ft.icons.JOIN_RIGHT_SHARP)
+          self.RowDragg  = DraggWidget( widget= 'Row'            ,color= 'BLUE'   ,icons= ft.icons.BURST_MODE_ROUNDED)
+          self.ColDragg  = DraggWidget( widget= 'Column'         ,color= 'RED'    ,icons= ft.icons.WRAP_TEXT_ROUNDED)
+          self.GriDragg  = DraggWidget( widget= 'GridView'       ,color= 'PURPLE' ,icons= ft.icons.WIDGETS_ROUNDED )
+          self.StaDragg  = DraggWidget( widget= 'Stack'          ,color= 'YELLOW' ,icons= ft.icons.JOIN_RIGHT_SHARP)
 
           #: SPACE LAYOUTS
-
-          self.DivDragg  = DraggWidget( widget='Divider'        ,color='CYAN'   ,icons= ft.icons.HORIZONTAL_RULE)
-          self.VerDragg  = DraggWidget( widget='Vertical'       ,color='CYAN'   ,icons= ft.icons.SAFETY_DIVIDER_ROUNDED)
+          self.DivDragg  = DraggWidget( widget= 'Divider'        ,color= 'CYAN'   ,icons= ft.icons.HORIZONTAL_RULE)
+          self.VerDragg  = DraggWidget( widget= 'Vertical'       ,color= 'CYAN'   ,icons= ft.icons.SAFETY_DIVIDER_ROUNDED)
 
           #: IMAGE WIDGET
-
-          self.ImagDragg = DraggWidget( widget='Image'          ,color='CYAN'   ,icons= ft.icons.IMAGE)
-          self.CircDragg = DraggWidget( widget='Avatar'         ,color='CYAN'   ,icons= ft.icons.ACCOUNT_CIRCLE_ROUNDED)
-          self.Ico_Dragg = DraggWidget( widget='Icon'           ,color='CYAN'   ,icons= ft.icons.ADD_REACTION_OUTLINED)
+          self.ImagDragg = DraggWidget( widget= 'Image'          ,color= 'CYAN'   ,icons= ft.icons.IMAGE)
+          self.CircDragg = DraggWidget( widget= 'Avatar'         ,color= 'CYAN'   ,icons= ft.icons.ACCOUNT_CIRCLE_ROUNDED)
+          self.Ico_Dragg = DraggWidget( widget= 'Icon'           ,color= 'CYAN'   ,icons= ft.icons.ADD_REACTION_OUTLINED)
 
           #: TEXT  WIDGET
-
-          self.TexsDragg = DraggWidget( widget='Text'           ,color='CYAN'   ,icons= ft.icons.TEXT_FIELDS)
-          self.TexfDragg = DraggWidget( widget='Text Field'     ,color='CYAN'   ,icons= ft.icons.INPUT)
+          self.TexsDragg = DraggWidget( widget= 'Text'           ,color= 'CYAN'   ,icons= ft.icons.TEXT_FIELDS)
+          self.TexfDragg = DraggWidget( widget= 'Text Field'     ,color= 'CYAN'   ,icons= ft.icons.INPUT)
 
           #: BUTTONS WIDGET
-
-          self.ElevDragg = DraggWidget( widget='Elevated Button',color='CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_ROUNDED)
-          self.TextDragg = DraggWidget( widget='Text Button'    ,color='CYAN'   ,icons= ft.icons.ABC_ROUNDED)
-          self.IconDragg = DraggWidget( widget='Icon Button'    ,color='CYAN'   ,icons= ft.icons.ADD_LINK_SHARP)
-          self.FillDragg = DraggWidget( widget='Filled'         ,color='CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_ROUNDED)
-          self.TonaDragg = DraggWidget( widget='Tonal'          ,color='CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_ROUNDED)
-          self.OutlDragg = DraggWidget( widget='Outline'        ,color='CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_OUTLINED)
-          self.ChipDragg = DraggWidget( widget='Chip'           ,color='CYAN'   ,icons= ft.icons.LINK)
+          self.ElevDragg = DraggWidget( widget= 'Elevated Button',color= 'CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_ROUNDED)
+          self.TextDragg = DraggWidget( widget= 'Text Button'    ,color= 'CYAN'   ,icons= ft.icons.ABC_ROUNDED)
+          self.IconDragg = DraggWidget( widget= 'Icon Button'    ,color= 'CYAN'   ,icons= ft.icons.ADD_LINK_SHARP)
+          self.FillDragg = DraggWidget( widget= 'Filled'         ,color= 'CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_ROUNDED)
+          self.TonaDragg = DraggWidget( widget= 'Tonal'          ,color= 'CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_ROUNDED)
+          self.OutlDragg = DraggWidget( widget= 'Outline'        ,color= 'CYAN'   ,icons= ft.icons.EDIT_ATTRIBUTES_OUTLINED)
+          self.ChipDragg = DraggWidget( widget= 'Chip'           ,color= 'CYAN'   ,icons= ft.icons.LINK)
 
           #: SELECTIONS WIDGET
+          self.ChecDragg = DraggWidget( widget= 'Checkbox'       ,color= 'CYAN'   ,icons= ft.icons.CHECK_ROUNDED)
+          self.CupeDragg = DraggWidget( widget= 'Cupertino'      ,color= 'CYAN'   ,icons= ft.icons.CHECK_BOX_ROUNDED)
+          self.ChiSDragg = DraggWidget( widget= 'Slider'         ,color= 'CYAN'   ,icons= ft.icons.COMMIT_OUTLINED)
+          self.CupSDragg = DraggWidget( widget= 'Switch'         ,color= 'CYAN'   ,icons= ft.icons.SWIPE_RIGHT_ALT_ROUNDED)
 
-          self.ChecDragg = DraggWidget( widget='Checkbox'       ,color='CYAN'   ,icons= ft.icons.CHECK_ROUNDED)
-          self.CupeDragg = DraggWidget( widget='Cupertino'      ,color='CYAN'   ,icons= ft.icons.CHECK_BOX_ROUNDED)
-          self.ChiSDragg = DraggWidget( widget='Slider'         ,color='CYAN'   ,icons= ft.icons.COMMIT_OUTLINED)
-          self.CupSDragg = DraggWidget( widget='Switch'         ,color='CYAN'   ,icons= ft.icons.SWIPE_RIGHT_ALT_ROUNDED)
-
-          self.RadiDragg = DraggWidget( widget='Radio'          ,color='CYAN'   ,icons= ft.icons.RADIO_BUTTON_OFF)
-          self.CupRDragg = DraggWidget( widget='Cup Radio'      ,color='CYAN'   ,icons= ft.icons.RADIO_BUTTON_ON)
+          self.RadiDragg = DraggWidget( widget= 'Radio'          ,color= 'CYAN'   ,icons= ft.icons.RADIO_BUTTON_OFF)
+          self.CupRDragg = DraggWidget( widget= 'Cup Radio'      ,color= 'CYAN'   ,icons= ft.icons.RADIO_BUTTON_ON)
 
           #: ALERTS STATUS
           #: WIDGETS STATUS

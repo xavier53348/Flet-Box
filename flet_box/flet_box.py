@@ -227,8 +227,8 @@ def main(page: ft.Page):
                                     alignment = ft.alignment.center,
                                     shadow = ft.BoxShadow(
                                            spread_radius=1,
-                                           blur_radius=18,
-                                           color=ft.colors.with_opacity(0.4,ft.colors.BLUE_900),
+                                           blur_radius=24,
+                                           color=ft.colors.with_opacity(0.8,ft.colors.BLUE_900),
                                            offset=ft.Offset(0, 0),
                                            blur_style=ft.ShadowBlurStyle.OUTER,
                                      ),

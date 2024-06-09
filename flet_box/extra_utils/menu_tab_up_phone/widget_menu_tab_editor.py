@@ -28,7 +28,7 @@ class MenuUpContainer(ft.Stack):
                                    padding         = ft.padding.all(0),
                                    margin          = ft.margin.all(0),
                                    alignment       = ft.alignment.center,
-                                   border_radius   = ft.border_radius.all(30),
+                                   border_radius   = ft.border_radius.only(30),
                                    height          = 50,
                                    border=ft.border.all(0.6, ft.colors.with_opacity(0.1,ft.colors.CYAN_800),),
                                    shadow = ft.BoxShadow(
@@ -45,17 +45,17 @@ class MenuUpContainer(ft.Stack):
                                                             run_spacing=0,
                                                             controls = [
                                                                 ft.Container(
-                                                                      border_radius   = ft.border_radius.all(42),
+                                                                      border_radius   =ft.border_radius.only(top_left=28,top_right=14,bottom_left=14,bottom_right=28),
                                                                       border=ft.border.all(0.1, ft.colors.with_opacity(0.4,ft.colors.CYAN_800),),
                                                                       margin=2,
                                                                       # bgcolor=ft.colors.with_opacity(0.4,ft.colors.CYAN_800),
                                                                       gradient=ft.LinearGradient(   begin = ft.alignment.top_center,
                                                                                                     end   = ft.alignment.center_right,
                                                                                                     colors= [
-                                                                                                              ft.colors.CYAN,
-                                                                                                              ft.colors.PURPLE_600,
+                                                                                                              # ft.colors.CYAN,
+                                                                                                              ft.colors.BLUE_500,
                                                                                                               ft.colors.PURPLE_200,
-                                                                                                              ft.colors.RED_900,
+                                                                                                              ft.colors.YELLOW_800,
                                                                                                     ],
                                                                                               ),
                                                                       shadow = ft.BoxShadow(
@@ -69,16 +69,22 @@ class MenuUpContainer(ft.Stack):
                                                                                 controls=[
 
                                                                                 ft.Container(
-                                                                                          margin =  ft.padding.only(left=12, top=1, right=0, bottom=1),
+                                                                                          margin =  ft.padding.only(left=18, top=1, right=0, bottom=1),
                                                                                           padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
                                                                                           # height  = 40 ,
                                                                                           image_src='logo.jpg',
-                                                                                          border=ft.border.all(1, ft.colors.with_opacity(0.8,ft.colors.CYAN),),
+                                                                                          border=ft.border.all(2, ft.colors.with_opacity(0.8,ft.colors.WHITE),),
 
                                                                                           image_fit = 'COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
                                                                                           width     = 60,
-                                                                                          border_radius   = ft.border_radius.all(2),
-                                                                                           ),
+                                                                                          border_radius   = ft.border_radius.all(12),
+                                                                                          shadow = ft.BoxShadow(
+                                                                                                spread_radius=1,
+                                                                                                blur_radius=8,
+                                                                                                color=ft.colors.BLACK,
+                                                                                                offset=ft.Offset(0, 0),
+                                                                                                blur_style=ft.ShadowBlurStyle.OUTER,
+                                                                                           ),                                                                                           ),
                                                                                 ft.Container(
                                                                                           ink           = False,
                                                                                           padding       = ft.padding.only(left=0, top=0, right=16, bottom=0),
@@ -95,7 +101,7 @@ class MenuUpContainer(ft.Stack):
                                                                                                                      border_radius   = ft.border_radius.all(8),
                                                                                                                      content=ft.Text(
                                                                                                                              weight = ft.FontWeight.BOLD,
-                                                                                                                             value  = 'FLET BOX',
+                                                                                                                             value  = 'FLET - BOX',
                                                                                                                              size   = 17,
                                                                                                                              color  = ft.colors.WHITE,
                                                                                                                             ),
@@ -109,22 +115,21 @@ class MenuUpContainer(ft.Stack):
                                                                                                                      gradient=ft.LinearGradient(   begin = ft.alignment.top_center,
                                                                                                                              end   = ft.alignment.center_right,
                                                                                                                              colors= [
-                                                                                                                                       # ft.colors.BLUE_600,
-                                                                                                                                       # ft.colors.PURPLE_200,
-                                                                                                                                       ft.colors.CYAN,
-                                                                                                                                       ft.colors.PURPLE_600,
+                                                                                                                                      ft.colors.BLUE_500,
+                                                                                                                                      ft.colors.PURPLE_200,
+                                                                                                                                      ft.colors.YELLOW_800,
                                                                                                                              ],
                                                                                                                        ),
                                                                                                                      # blur=(15,15),
                                                                                                                      shadow = ft.BoxShadow(
                                                                                                                             spread_radius=1,
-                                                                                                                            blur_radius=16,
+                                                                                                                            blur_radius=22,
                                                                                                                             color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
                                                                                                                             offset=ft.Offset(0, 0),
                                                                                                                             blur_style=ft.ShadowBlurStyle.OUTER,
                                                                                                                        ),
                                                                                                                      content=ft.Text(
-                                                                                                                             value='Powered by Flet Framework',
+                                                                                                                             value='Based on FLet framework',
                                                                                                                              weight      = ft.FontWeight.BOLD,
                                                                                                                              size=12,
                                                                                                                              ),
@@ -144,9 +149,17 @@ class MenuUpContainer(ft.Stack):
                                                                  ),#<=== NOTE COMA
 
                                                                  ft.Container(
-                                                                      border_radius = ft.border_radius.all(30),
+
                                                                       bgcolor       = ft.colors.BLACK38,
-                                                                      gradient      = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.TEAL, ft.colors.BLACK12],),
+                                                                      gradient      = ft.LinearGradient(
+                                                                                                        begin = ft.alignment.top_center,
+                                                                                                        end   = ft.alignment.bottom_center,
+                                                                                                        colors= [ft.colors.TEAL, ft.colors.BLACK12],
+                                                                                                        ),
+                                                                      border_radius = ft.border_radius.only(top_left    = 32,
+                                                                                                            top_right   = 18,
+                                                                                                            bottom_left = 18,
+                                                                                                            bottom_right= 32),
                                                                       content = ft.Row(
                                                                                      spacing=0,
                                                                                      controls=[
@@ -156,8 +169,13 @@ class MenuUpContainer(ft.Stack):
                                                                                                       ink_color     = ft.colors.RED,
                                                                                                       bgcolor       = ft.colors.RED_900,
                                                                                                       margin        = ft.margin.only(left=2, top=2, right=8, bottom=2),
+                                                                                                      border_radius  =ft.border_radius.only(top_left=32,
+                                                                                                                                            top_right=18,
+                                                                                                                                            bottom_left=18,
+                                                                                                                                            bottom_right=32),
+
                                                                                                       alignment     = ft.alignment.center,
-                                                                                                      border_radius = ft.border_radius.all(30),
+                                                                                                      # border_radius = ft.border_radius.all(30),
                                                                                                       border        = ft.border.all(2, ft.colors.BLACK12),
                                                                                                       width         = 60,
                                                                                                on_click=lambda _: self.save_proyect_app(),

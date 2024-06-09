@@ -47,7 +47,7 @@ class SelectionEntry(ft.Stack):
                                 ]
         #: ONLY FOR CONTENT <<<=========== *********
         #: image_fit
-        if self.attribute_widget == "image_fit":
+        if self.attribute_widget == "image_fit" or self.attribute_widget == 'image_fit_src':
             self.alignment_tmp_name =" Contain"
             self.alignment_tmp = [
                                     ft.dropdown.Option(" Contain"),
@@ -218,7 +218,6 @@ class SelectionEntry(ft.Stack):
         #: ONLY FOR CONTAINER
         #: IMAGE_FIT CONTAINER
         #: CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-
         if config_widget == " Top Left ":
             self.widget.alignment      = ft.alignment.top_left
         if config_widget == " Top Center ":
@@ -241,19 +240,33 @@ class SelectionEntry(ft.Stack):
         #: ONLY FOR CONTENT
         #: IMAGE FIT
         #: CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+        if self.attribute_widget == "image_fit_src":
+            if config_widget == " Contain":
+                self.widget.fit              = ft.ImageFit.CONTAIN
+            if config_widget == " Cover"  :
+                self.widget.fit              = ft.ImageFit.COVER
+            if config_widget == " Fill"   :
+                self.widget.fit              = ft.ImageFit.FILL
+            if config_widget == " Fit Height":
+                self.widget.fit              = ft.ImageFit.FIT_HEIGHT
+            if config_widget == " Fit Width":
+                self.widget.fit              = ft.ImageFit.FIT_WIDTH
+            if config_widget == " Scale Down":
+                self.widget.fit              = ft.ImageFit.SCALE_DOWN
 
-        if config_widget == " Contain":
-            self.widget.image_fit              = ft.ImageFit.CONTAIN
-        if config_widget == " Cover"  :
-            self.widget.image_fit              = ft.ImageFit.COVER
-        if config_widget == " Fill"   :
-            self.widget.image_fit              = ft.ImageFit.FILL
-        if config_widget == " Fit Height":
-            self.widget.image_fit              = ft.ImageFit.FIT_HEIGHT
-        if config_widget == " Fit Width":
-            self.widget.image_fit              = ft.ImageFit.FIT_WIDTH
-        if config_widget == " Scale Down":
-            self.widget.image_fit              = ft.ImageFit.SCALE_DOWN
+        else:
+            if config_widget == " Contain":
+                self.widget.image_fit              = ft.ImageFit.CONTAIN
+            if config_widget == " Cover"  :
+                self.widget.image_fit              = ft.ImageFit.COVER
+            if config_widget == " Fill"   :
+                self.widget.image_fit              = ft.ImageFit.FILL
+            if config_widget == " Fit Height":
+                self.widget.image_fit              = ft.ImageFit.FIT_HEIGHT
+            if config_widget == " Fit Width":
+                self.widget.image_fit              = ft.ImageFit.FIT_WIDTH
+            if config_widget == " Scale Down":
+                self.widget.image_fit              = ft.ImageFit.SCALE_DOWN
 
         #: CONTAINER.content = ft.Widget()
         #: VERTICAL ALIGMENT

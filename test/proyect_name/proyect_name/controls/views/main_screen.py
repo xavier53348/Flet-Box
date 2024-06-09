@@ -11,11 +11,14 @@ phone_style_widget = {
         "height": "566",
         "margin": {"l":0,"t":0,"r":0,"b":0},
         "padding": {"l":0,"t":0,"r":0,"b":0},
-        "width": "295"
+        "width": "295",
+        "image_src": "test/proyect_name/proyect_name/assets/dragg_container3 (copy 1).jpg",
+        "image_fit": "cover"
     },
     "MAIN_EFFECTS_CONTAINER": {
         "alignment": {"x":0,"y":0},
         "bgcolor": "transparent",
+        "blur": {"sigma_x":8,"sigma_y":8,"tile_mode":"mirror"},
         "padding": {"l":0,"t":0,"r":0,"b":0}
     },
     "COLUMN_CONTAINER": {
@@ -36,22 +39,29 @@ class main_screen(ft.Container):
         #: MAIN PHONE CONTAINER
         self.content_box = [ 
 
-		ft.Container( # Image
-			**self.dict_style('_2944'),
-			on_click= lambda _: event_2945(data='_2945'),
-			content= ft.Image(
-					**self.dict_style('_2945'),
-					# on_click= lambda _: event_2945(data='_2945'),
-			),),
+		ft.Container(  # Container_Column
+			**self.dict_style('_3702'),
+			content= ft.Column( # Column
+					**self.dict_style('_3703'),
+					controls= [
 
-		ft.Container( # CircleAvatar
-			**self.dict_style('_3308'),
-			on_click= lambda _: event_3309(data='_3309'),
-			content= ft.CircleAvatar(
-					**self.dict_style('_3309'),
-					# on_click= lambda _: event_3309(data='_3309'),
-			),),
+						ft.Container( # Image
+								**self.dict_style('_3706'),
+								on_click= lambda _: event_3707(data='_3707'),
+								content= ft.Image(
+										**self.dict_style('_3707'),
+										# on_click= lambda _: event_3707(data='_3707'),
+								),),
 
+						ft.Container( # Text
+								**self.dict_style('_3710'),
+								# on_click= lambda _: event_3711(data='_3711'),
+								content= ft.Text(
+										**self.dict_style('_3711'),
+										# on_click= lambda _: event_3711(data='_3711'),
+								),),
+
+		],),),  
         ]
 
         #: MAIN PHONE CONTAINER

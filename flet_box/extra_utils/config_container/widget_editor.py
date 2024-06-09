@@ -261,6 +261,7 @@ class Build_Editor(ft.Stack):
                #: SELECTION ENTRY
 
                'image_fit':          SelectionEntry(config_widget='image_fit'           ,widget=self.container_widget_content , id_name_widget_dict='image_fit'),
+               'image_fit_src':      SelectionEntry(config_widget='image_fit_src'       ,widget=self.container_widget_content , id_name_widget_dict='src'),
                'weight':             SelectionEntry(config_widget='weight'              ,widget=self.container_widget_content , id_name_widget_dict='weight'),
                'keyboard_type':      SelectionEntry(config_widget='keyboard_type'       ,widget=self.container_widget_content , id_name_widget_dict='keyboard_type'),
                'text_align':         SelectionEntry(config_widget='text_align'          ,widget=self.container_widget_content , id_name_widget_dict='text_align'),
@@ -372,6 +373,7 @@ class Build_Editor(ft.Stack):
                                                             controls=[
 
                                                                       widgets_dict.get('src'),
+                                                                      widgets_dict.get('image_fit_src'),
                                                                       widgets_dict.get('opacity'),
                                                                       widgets_dict.get('image_src'),
                                                                       widgets_dict.get('image_fit'),
