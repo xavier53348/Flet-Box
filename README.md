@@ -33,7 +33,7 @@
 ```
 ## Run one time
 ```bash
-
+>>> sudo apt-get install python3-full
 >>> python3 -m venv .venv
 
 ```

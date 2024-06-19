@@ -245,7 +245,7 @@ def main(page: ft.Page):
                     margin          = ft.margin.all(0),    #outside box
                     alignment       = ft.alignment.center,
                     border          = ft.border.all(6, ft.colors.BLACK12),
-                    height          = 768,
+                    height          = 768, #768
                content=ft.Row(
                          controls=[
                               MenuLeftContainer(),

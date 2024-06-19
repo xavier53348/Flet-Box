@@ -23,11 +23,11 @@ class SingleNumeberEntry(ft.Stack):
         self.personal_configuration: dict = {
                                             "image_opacity"     : {"minimum"  : 0, "maximum"  : 1,   "division" : 100, "value" : 0 },
                                             "opacity"           : {"minimum"  : 0, "maximum"  : 1,   "division" : 100, "value" : 0 },
-                                            "child_aspect_ratio": {"minimum"  : -1, "maximum"  : 1,   "division" : 100*4, "value" : 0 },
-                                            "aspect_ratio"      : {"minimum"  : -1, "maximum"  : 1,   "division" : 100*4, "value" : 0 },
-                                            "scale"             : {"minimum"  : -1, "maximum"  : 1,   "division" : 100*4, "value" : 0 },
+                                            "child_aspect_ratio": {"minimum"  : -1, "maximum"  : 1,   "division" : 1000, "value" : 0 },
+                                            "aspect_ratio"      : {"minimum"  : -1, "maximum"  : 1,   "division" : 1000, "value" : 0 },
+                                            "scale"             : {"minimum"  : -1, "maximum"  : 1,   "division" : 1000, "value" : 0 },
 
-                                            "rotate"            : {"minimum"  : -3.14, "maximum"  : 3.14,   "division" : 314*4 ,"value" : 0 },
+                                            "rotate"            : {"minimum"  : -3.14, "maximum"  : 3.14,   "division" : 3140 ,"value" : 0 },
 
                                             "size"              : {"minimum"  : 0, "maximum"  : 320, "division" : 1, "value"   : 0 },
                                             "text_size"         : {"minimum"  : 0, "maximum"  : 100, "division" : 25, "value"  : 0 },
@@ -100,12 +100,12 @@ class SingleNumeberEntry(ft.Stack):
                                             padding       = ft.padding.all(2),
                                             alignment     = ft.alignment.center,
                                             border_radius = ft.border_radius.all(30),
-                                            border        = ft.border.all(1, ft.colors.BLACK),
+                                            border        = ft.border.all(2, ft.colors.CYAN_900),
                                             width         = 152,
                                             height        = 36,
 
                                         gradient=ft.LinearGradient( begin = ft.alignment.top_center,
-                                                                    end   = ft.alignment.bottom_center,
+                                                                    end   = ft.alignment.center_right,
                                                                     colors=[
                                                                             ft.colors.CYAN_800,
                                                                             ft.colors.BLACK38

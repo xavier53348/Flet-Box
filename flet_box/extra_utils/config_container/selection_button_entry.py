@@ -78,7 +78,8 @@ class SelectionButtonEntry(ft.Stack):
                                                                                                         ft.colors.BLACK12,
                                                                                                         ft.colors.CYAN_900,
                                                                                                         ft.colors.BLACK38,
-                                                                                                        ],),
+                                                                                                        ],
+                                                                                              ),
 
                                                                 content = ft.ElevatedButton(
                                                                                     text           = self.tmp_widget_name,

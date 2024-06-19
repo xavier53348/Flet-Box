@@ -39,6 +39,12 @@ import sys
 # sudo apt install libgpgme-dev swig
 # pip install --upgrade gpg
 
+# sudo apt-get install python3-full
+# whereis python
+# export
+# export PATH='/home/pi/python_env/.venv/bin'
+# export VIRTUAL_ENV='/home/pi/python_env/.venv/bin'
+
 NAME            = 'flet-box-gui'
 DESCRIPTION     = "flet-box-gui it's a GUI Dragg and drop BUILDER."
 PLATAFORM       = 'Multy platforms'

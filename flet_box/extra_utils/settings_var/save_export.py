@@ -758,7 +758,7 @@ class MakeJasonFile():
 
         #: BUILDING ALL TO EXPORT DATA
 
-        print(self.dict_all_attribute)
+        # print(self.dict_all_attribute)
 
         self.main_code  = '\n'.join(self.all_code_list)                      #: MAIN CODE
         self.main_code  = self.replace_main_code(code=self.main_code)
