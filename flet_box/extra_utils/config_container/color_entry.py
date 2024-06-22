@@ -81,7 +81,7 @@ class ColorEntry(ft.Stack):
                                                                                     content = ft.ElevatedButton(
                                                                                                     text = self.tmp_widget_name,
                                                                                                     bgcolor=ft.colors.TRANSPARENT,
-                                                                                                    #======================= EVENTS ===========================
+                                                                                                #======================= EVENTS ===========================
                                                                                                 # on_hover = lambda x:self.modify_attributes(config_widget =self.widget_name ,value = ColorEntry),
                                                                                                 on_click = lambda _: self.validate_click(
                                                                                                                                          widget_name        = self.widget_name,
@@ -155,7 +155,7 @@ class ColorEntry(ft.Stack):
 
         # self.selected_button = value
         # print(self.selected_button,'self.selected_button')
-        ...
+        # ...
         #: SET ATTRIBUTES
         if  self.widget_name   == "bgcolor":             self.widget.bgcolor              = self.selected_button
         if  self.widget_name   == "focused_bgcolor":     self.widget.focused_bgcolor      = self.selected_button
@@ -175,7 +175,7 @@ class ColorEntry(ft.Stack):
                                             blur_style    = ft.ShadowBlurStyle.OUTER, # NORMAL # SOLID # OUTER # INNER
                                         )
 
-        # value.content.controls[1].update()
+        value.content.controls[1].update()
 
         self.widget.update()
 

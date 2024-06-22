@@ -1,3 +1,1 @@
-{
-    "fsys": "description"
-}
+{}

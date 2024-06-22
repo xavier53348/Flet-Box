@@ -11,7 +11,9 @@ phone_style_widget = {
         "height": "566",
         "margin": {"l":0,"t":0,"r":0,"b":0},
         "padding": {"l":0,"t":0,"r":0,"b":0},
-        "width": "295"
+        "width": "295",
+        "image_src": "test/proyect_name/proyect_name/assets/23.jpg",
+        "image_fit": "cover"
     },
     "MAIN_EFFECTS_CONTAINER": {
         "alignment": {"x":0,"y":0},
@@ -36,14 +38,44 @@ class main_screen(ft.Container):
         #: MAIN PHONE CONTAINER
         self.content_box = [ 
 
-		ft.Container( # Image
+		ft.Container(  # Container_Row
 			**self.dict_style('_3871'),
-			on_click= lambda _: event_3872(data='_3872'),
-			content= ft.Image(
+			content= ft.Row( # Row
 					**self.dict_style('_3872'),
-					# on_click= lambda _: event_3872(data='_3872'),
-			),),
+					controls= [
 
+						ft.Container(  # Container_Column
+								**self.dict_style('_3875'),
+								content= ft.Column( # Column
+										**self.dict_style('_3876'),
+										controls= [
+
+												ft.Container( # Text
+														**self.dict_style('_3879'),
+														# on_click= lambda _: event_3880(data='_3880'),
+														content= ft.Text(
+																**self.dict_style('_3880'),
+																# on_click= lambda _: event_3880(data='_3880'),
+														),),
+
+												ft.Container( # Text
+														**self.dict_style('_3883'),
+														# on_click= lambda _: event_3884(data='_3884'),
+														content= ft.Text(
+																**self.dict_style('_3884'),
+																# on_click= lambda _: event_3884(data='_3884'),
+														),),
+
+												ft.Container( # ElevatedButton
+														**self.dict_style('_3887'),
+														# on_click= lambda _: event_3888(data='_3888'),
+														content= ft.ElevatedButton(
+																**self.dict_style('_3888'),
+																on_click= lambda _: event_3888(data='_3888'),
+														),),
+
+								],),), #// LAYER 1 END
+		],),),  
         ]
 
         #: MAIN PHONE CONTAINER

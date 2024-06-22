@@ -199,18 +199,18 @@ class config_number_widget(ft.Stack):
 
         tmp_value_configuration = personal_configuration.get(configuration).get('value')
 
-        if configuration == "padding":  self.widget_to_modify.padding       = tmp_value_configuration
-        if configuration == "margin":   self.widget_to_modify.margin        = tmp_value_configuration
-        if configuration == "radius":   self.widget_to_modify.border_radius = tmp_value_configuration
+        if configuration == "padding":  self.widget_to_modify.padding       = ft.padding.all(tmp_value_configuration)
+        if configuration == "margin":   self.widget_to_modify.margin        = ft.margin.all(tmp_value_configuration)
+        if configuration == "radius":   self.widget_to_modify.border_radius = ft.border_radius.all(tmp_value_configuration)
 
         if configuration == "size":
-            self.widget_to_modify.width  = tmp_value_configuration
-            self.widget_to_modify.height = tmp_value_configuration
+            self.widget_to_modify.width  = int(tmp_value_configuration)
+            self.widget_to_modify.height = int(tmp_value_configuration)
 
         if configuration == "offset_x" or configuration == "offset_y":
             tmp_x = personal_configuration.get("offset_x").get('value')
             tmp_y = personal_configuration.get("offset_y").get('value')
-            self.widget_to_modify.offset = (tmp_x,tmp_y)
+            self.widget_to_modify.offset = (int(tmp_x),int(tmp_y))
 
         # print(tmp_value_configuration)
         # print(self.widget_to_modify , "widget_to_edit <<<<<")

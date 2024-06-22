@@ -40,7 +40,7 @@ class SmallPaleteColor(ft.Container):
     def modify_widget(self):
         tmp_widget_selected = GLOBAL_VAR(get_global_var="WIDGET_SELECTION_EDITOR_CONTAINER")
         self.widget_tag_name = tmp_widget_selected.get("widget_name")
-        self.widget           = tmp_widget_selected.get("attribute_to_change")
+        self.widget          = tmp_widget_selected.get("attribute_to_change")
 
         #: SET ATTRIBUTES
         if  self.widget_tag_name   == "bgcolor":               self.widget.bgcolor              = self.pallete_color
@@ -53,23 +53,25 @@ class SmallPaleteColor(ft.Container):
         if  self.widget_tag_name   == "fill_color":            self.widget.fill_color           = self.pallete_color
 
         if  self.widget_tag_name   == "shadow_color":
-            self.widget.shadow= ft.BoxShadow(
+            # print(self.widget_tag_name,'bgcolor',self.pallete_color)
+            # print(self.widget.parent)
+            self.widget.parent.shadow= ft.BoxShadow(
                                             spread_radius = 0,
                                             blur_radius   = 24,
                                             color         = self.pallete_color,
                                             offset        = ft.Offset(0, 0),
                                             blur_style    = ft.ShadowBlurStyle.OUTER, # NORMAL # SOLID # OUTER # INNER
                                         )
-
+            self.widget.parent.update()
         self.widget.update()
 
     def modify_right_container_attributes(self,data,value): #: RIGHT BUTTON
         #: ONLY FOR CONTAINER
         if  data   == "bgcolor":                self.widget.bgcolor = ft.colors.TRANSPARENT
         if  data   == "focused_bgcolor":        self.widget.focused_bgcolor= ft.colors.TRANSPARENT
-        if  data   == "color":                  self.widget.color= ft.colors.TRANSPARENT
-        if  data   == "fill_color":             self.widget.fill_color= ft.colors.TRANSPARENT
-        if  data   == "icon_color":             self.widget.icon_color= ft.colors.TRANSPARENT
+        if  data   == "color":                  self.widget.color      = ft.colors.TRANSPARENT
+        if  data   == "fill_color":             self.widget.fill_color = ft.colors.TRANSPARENT
+        if  data   == "icon_color":             self.widget.icon_color = ft.colors.TRANSPARENT
         if  data   == "check_color":            self.widget.check_color= ft.colors.TRANSPARENT
         if  data   == "focused_border_color":   self.widget.focused_border_color= ft.colors.TRANSPARENT
         if  data   == "border_color":           self.widget.border_color= ft.colors.TRANSPARENT

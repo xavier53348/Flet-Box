@@ -231,15 +231,17 @@ Remember to replace `your_project_name` with your actual package name and adjust
 >>> tmp_data = screen_1.uid
 ```
 
-#### CHILDRENS
+#### CHILDRENS PARENT
 - GET ONE WIDGET BEFORE
 ```shell
 >>>  tmp_data = screen_1._Control__previous_children
 ```
 - GET ONE WIDGET BEFORE LIST
 ```shell
+>>> tmp_data = screen_1.parent
 >>> tmp_data = screen_1._get_children()
 >>> tmp_data = screen_1._previous_children
+
 ```
 
 #### WRAP LIKE A DICT

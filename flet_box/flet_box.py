@@ -24,23 +24,23 @@ from extra_utils import ScreenManager ,screen_manager  #: SCREEN MANAGER
 def main(page: ft.Page):
      #: CONFIGURATION
      #: page.title                   = "Containers - clickable and not"
-     page.window_title_bar_hidden         = True
-     page.window_title_bar_buttons_hidden = True
-     page.window_focused                  = True
+     page.window.title_bar_hidden         = True
+     page.window.title_bar_buttons_hidden = True
+     page.window.focused                  = True
      page.scroll                          = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
      page.vertical_alignment              = ft.MainAxisAlignment.CENTER
      page.horizontal_alignment            = ft.CrossAxisAlignment.CENTER
      #:  COLOR
      page.theme_mode                      = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
-     page.window_bgcolor                  = ft.colors.RED_100
+     page.window.bgcolor                  = ft.colors.RED_100
 
      #: POSITION OF SC
-     page.window_left                     = 3
-     page.window_top                      = 3
+     page.window.left                     = 3
+     page.window.top                      = 3
 
      #: SIZE
-     page.window_height                   = 768
-     page.window_width                    = 1360
+     page.window.height                   = 768
+     page.window.width                    = 1360
      page.padding                         = 0
      page.spacing                         = 0
 
@@ -367,9 +367,13 @@ def run_app():
           )
 
 if __name__ == '__main__':
-     warnings.simplefilter('ignore',DeprecationWarning)
+     # warnings.simplefilter('ignore',DeprecationWarning)
 
      ft.app(
-               target = main,
+            target=main,
+            port=8080,
+            # view=ft.AppView.WEB_BROWSER, #view=ft.WEB_BROWSER,
+            # web_renderer=ft.WebRenderer.HTML
           )
 
+f

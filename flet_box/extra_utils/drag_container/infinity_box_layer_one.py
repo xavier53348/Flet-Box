@@ -200,7 +200,7 @@ class InfinityBoxLayerOne(ft.Stack):
                                    ink=True,
                                    ink_color='red',                                   on_hover=lambda _:self.resetClick(),
                                    on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.CupertinoSlider(value=50,tooltip='CupertinoSlider',max=100,height=28,),),
+                                   content=ft.CupertinoSlider(tooltip='CupertinoSlider',max=100,height=28,),),
                               ],
 
                  #: RadioGroup <==== need solve that issue

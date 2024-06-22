@@ -816,6 +816,6 @@ class MakeJasonFile():
         new_code = new_code.replace('urltarget','url_target').replace('semanticslabel','semantics_label').replace('srcbase64','src_base64')
         new_code = new_code.replace('blurradius','blur_radius').replace('spreadradius','spread_radius').replace('childaspect_ratio','child_aspect_ratio')
         new_code = new_code.replace('maxextent','max_extent').replace('minlines','min_lines').replace('maxlines','max_lines').replace('borderwidth','border_width')
-        new_code = new_code.replace('aspectratio','aspect_ratio')
+        new_code = new_code.replace('aspectratio','aspect_ratio').replace('textalign','text_align')
 
         return new_code
