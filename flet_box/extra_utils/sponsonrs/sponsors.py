@@ -1,7 +1,7 @@
 import os
 import time
 import flet as ft
-#: from ..settings_var.settings_widget import GLOBAL_VAR
+from ..settings_var.settings_widget import GLOBAL_VAR
 import pyperclip # type: ignore
 
 click_avalidation: bool = False
@@ -28,23 +28,23 @@ Together, we can ensure that Flet-Box remains a vital resource for the future of
 "crypto":{
        "Matic":{
                 "address":"0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA",
-                "path_image":"/home/mjay/Desktop/testing_create_package/flet_box/assets/.wallet_matic.jpg",
+                "path_image":".wallet_matic.jpg",
                 "red":"ERC-20",
             },
 
         "Tron":{
                 "address":"THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ",
-                "path_image":"/home/mjay/Desktop/testing_create_package/flet_box/assets/.wallet_tron.jpg",
+                "path_image":".wallet_tron.jpg",
                 "red":"TRC-10",
             },
         "Bnb":{
                 "address":"bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr",
-                "path_image":"/home/mjay/Desktop/testing_create_package/flet_box/assets/.wallet_bnb.jpg",
+                "path_image":".wallet_bnb.jpg",
                 "red":"BEP-20",
             },
      "Solana":{
                 "address":"6jsNmgn4ad9D7LzNxaabvjZ1WsBGMDYFHiDCESCHCoSv",
-                "path_image":"/home/mjay/Desktop/testing_create_package/flet_box/assets/.wallet_solana.jpg",
+                "path_image":".wallet_solana.jpg",
                 "red":"",
             },
             }
@@ -189,10 +189,10 @@ class InfoPrices(ft.Container):
 
     def build(self):
         self.content=ft.Container(
-                                expand   = True,
+                                # expand   = True,
                                 ink      = False,
                                 bgcolor  = ft.colors.BLACK26,
-                                padding  = ft.padding.all(0),
+                                padding  = ft.padding.only(left=8,right=8,bottom=1,top=1 ),
                                 margin   = ft.margin.all(0),
                                 alignment= ft.alignment.center,
                                 border_radius= ft.border_radius.all(36),
@@ -414,7 +414,7 @@ class SponsorPage(ft.Stack):
                     border        = ft.border.all(1, ft.colors.TEAL_900),
                     expand        = True,
                     blur=(60,60),
-                #: on_hover= lambda _: self.validate_click(),
+                on_hover= lambda _: self.validate_click(),
                 content=ft.Row(
                                     controls=[
                                                 ft.Container(
