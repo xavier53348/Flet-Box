@@ -10,11 +10,10 @@
 
 <details>
     <summary>Gallery Preview FLET-BOX</summary>
-    <img src="docs/gallery/full_screen.png"         alt="Imagen Flet-Box">
-    <img src="docs/gallery/icons.png"               alt="Icons Flet-Box">
-    <img src="docs/gallery/colors.png"              alt="Colors Flet-Box">
-    <img src="docs/gallery/pc_mode.png"             alt="Colors Flet-Box">
-    <img src="docs/gallery/pc_mode_config.png"      alt="Colors Flet-Box">
+    <img src="flet_box/assets/screens_1.png"    alt="Imagen Flet-Box">
+    <img src="flet_box/assets/screens_2.png"    alt="Colors Flet-Box">
+    <img src="flet_box/assets/screens_3.png"    alt="Code Flet-Box">
+    <img src="flet_box/assets/screens_4.png"    alt="Icons Flet-Box">
 </details>
 
 
@@ -240,9 +239,10 @@ If you're passionate about shaping the future of frameworks and contributing to 
 
 | **SPACE LAYOUTS**                                                                         |    **ADDRESS**                                            |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| <img src="docs/assets/matics_wallet.jpeg" style="width:60px" align="Center">              | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
-| <img src="docs/assets/trx_wallet.jpeg" style="width:60px" align="Center">                 | THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ                        |
-| <img src="docs/assets/bnb_wallet.jpeg" style="width:60px" align="Center">                 | bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr                |
+| <img src="docs/assets/.wallet_matic.jpg"  style="width:60px" align="Center">              | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
+| <img src="docs/assets/.wallet_tron.jpg"   style="width:60px" align="Center">              | THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ                        |
+| <img src="docs/assets/.wallet_bnb.jpg"    style="width:60px" align="Center">              | bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr                |
+| <img src="docs/assets/.wallet_solana.jpg" style="width:60px" align="Center">              | 6jsNmgn4ad9D7LzNxaabvjZ1WsBGMDYFHiDCESCHCoSv                |
 
     - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 
