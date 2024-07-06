@@ -204,8 +204,8 @@ class config_number_widget(ft.Stack):
         if configuration == "radius":   self.widget_to_modify.border_radius = ft.border_radius.all(tmp_value_configuration)
 
         if configuration == "size":
-            self.widget_to_modify.width  = int(tmp_value_configuration)
-            self.widget_to_modify.height = int(tmp_value_configuration)
+            self.widget_to_modify.width  = float(tmp_value_configuration)
+            self.widget_to_modify.height = float(tmp_value_configuration)
 
         if configuration == "offset_x" or configuration == "offset_y":
             tmp_x = personal_configuration.get("offset_x").get('value')

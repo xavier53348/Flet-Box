@@ -29,7 +29,7 @@ class SingleNumeberEntry(ft.Stack):
 
                                             "rotate"            : {"minimum"  : -3.14, "maximum"  : 3.14,   "division" : 3140 ,"value" : 0 },
 
-                                            "size"              : {"minimum"  : 0, "maximum"  : 320, "division" : 1, "value"   : 0 },
+                                            "size"              : {"minimum"  : 0, "maximum"  : 320, "division" : 320, "value"   : 0 },
                                             "text_size"         : {"minimum"  : 0, "maximum"  : 100, "division" : 25, "value"  : 0 },
 
                                             "min_lines"         : {"minimum"  : 0, "maximum"  : 300, "division" : 300, "value" : 0 },

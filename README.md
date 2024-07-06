@@ -142,7 +142,7 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 | ft.rangeslider           | ✘ |
 
 <!-- make tree -->
- <!-- tree -I '__pycache__|__init__.py|test|drag_drop_proyect|flet_box.egg-info|docs|.|build|dist|LICENSE|MANIFEST.in|requeriments.txt|README.md|pyproject.toml|setup.py' > full_path.txt -->
+<!-- tree -I '__pycache__|__init__.py|test|drag_drop_proyect|flet_box.egg-info|docs|.|build|dist|LICENSE|MANIFEST.in|requeriments.txt|README.md|pyproject.toml|setup.py' > full_path.txt -->
 
 ### Path Flet-Box Modules
 ```bash
@@ -218,24 +218,24 @@ If you're passionate about shaping the future of frameworks and contributing to 
 
 1. **Documentation and Modules**:
 
-   - **Documentation**: We're actively working on creating comprehensive documentation for our Flet-Box framework. Your contributions can help make it more accessible, accurate, and user-friendly. Whether you're an expert or a beginner, your insights matter!
+- **Documentation**: We're actively working on creating comprehensive documentation for our Flet-Box framework. Your contributions can help make it more accessible, accurate, and user-friendly. Whether you're an expert or a beginner, your insights matter!
 
-   - **Modules**: Our framework consists of various modules that handle different aspects of Flet activities. If you have expertise in any specific area (such as Documentation, Modules, or consensus algorithms ), consider contributing by improving existing modules or proposing new ones.
+- **Modules**: Our framework consists of various modules that handle different aspects of Flet activities. If you have expertise in any specific area (such as Documentation, Modules, or consensus algorithms ), consider contributing by improving existing modules or proposing new ones.
 
 2. **Financial Considerations**:
 
-    - If you're passionate about supporting open-source projects and want to contribute to the **Flet-box Framework**, here's a simple invitation for you:
+- If you're passionate about supporting open-source projects and want to contribute to the **Flet-box Framework**, here's a simple invitation for you:
 
-    **You may contribute Donating tokens to give suppor to the proyect in  MATIC , BINANCE or TRX Tokens**
+**You may contribute Donating tokens to give suppor to the proyect in  MATIC , BINANCE or TRX Tokens**
 
-    - **Low Fees**: In transactions have extremely low fees, making it ideal for micro-donations.
-    - Invite me a **COFFE** or a **BEER** ..
+- **Low Fees**: In transactions have extremely low fees, making it ideal for micro-donations.
+- Invite me a **COFFE** or a **BEER** ..
 
-    **How to Donate Tokens:**
-    - **Get Token**: Purchase MATIC , BINANCE or TRX on platforms like Binance, Coinbase, or Uniswap.
-    - **Donate**: Visit the Flet-box page and contribute directly. **Every donation counts!**
+**How to Donate Tokens:**
+- **Get Token**: Purchase MATIC , BINANCE or TRX on platforms like Binance, Coinbase, or Uniswap.
+- **Donate**: Visit the Flet-box page and contribute directly. **Every donation counts!**
 
-    **MATIC WALLET**
+**MATIC WALLET**
 
 | **SPACE LAYOUTS**                                                                         |    **ADDRESS**                                            |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------|
@@ -244,10 +244,10 @@ If you're passionate about shaping the future of frameworks and contributing to 
 | <img src="docs/assets/.wallet_bnb.jpg"    style="width:60px" align="Center">              | bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr                |
 | <img src="docs/assets/.wallet_solana.jpg" style="width:60px" align="Center">              | 6jsNmgn4ad9D7LzNxaabvjZ1WsBGMDYFHiDCESCHCoSv                |
 
-    - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
+- **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 
 3. **Collaboration and Feedback**:
-   - We value diverse perspectives. Engage in discussions, attend working groups, and provide feedback during public consultations.
+- We value diverse perspectives. Engage in discussions, attend working groups, and provide feedback during public consultations.
 
 ###  How to Get Started:
 
@@ -265,52 +265,52 @@ If you're passionate about shaping the future of frameworks and contributing to 
 self.RowDragg  = DraggWidget( widget='Row' ,color='BLUE' ,icons= ft.icons.BURST_MODE_ROUNDED)
 
 ```
-    **Properties:**
+**Properties:**
 
-        * widget <== 'Widget name'
-        * color  <== 'Color of the box Dragg'
-        * icons  <== 'icons of the box Dragg'
+* widget <== 'Widget name'
+* color  <== 'Color of the box Dragg'
+* icons  <== 'icons of the box Dragg'
 
-    * **we create a Object named self.RowDragg that we will add inside drag_container_to_phone object.**
+* **we create a Object named self.RowDragg that we will add inside drag_container_to_phone object.**
 
-    #### After we need add manual inside [ drag_container_to_phone ]
+#### After we need add manual inside [ drag_container_to_phone ]
 
 2.  Exemple build left take dragg selection widgets inside drag_container_to_phone.
 
 ```python
 
 ft.Container(
-        content=ft.GridView(
-                            runs_count=3,
-                            run_spacing=8,
-                            padding=4,
-                            spacing=8,
-                            expand=1,
-                        controls=[
-                                    self.RowDragg, # <============= add inside
-                                 ],
+    content=ft.GridView(
+        runs_count=3,
+        run_spacing=8,
+        padding=4,
+        spacing=8,
+        expand=1,
+        controls=[
+        self.RowDragg, # <============= add inside
+        ],
 
-```
+        ```
 
-3.  Go to infinity_box_layer_one.py and add Manually.
+        3.  Go to infinity_box_layer_one.py and add Manually.
 
-**Location:**
+        **Location:**
 
-- ***'extra_utils/drag_container/infinity_box_layer_one.py'***
+        - ***'extra_utils/drag_container/infinity_box_layer_one.py'***
 
-- we need build the Container that will have the drop Widget inside
+        - we need build the Container that will have the drop Widget inside
 
-**Exemple how will be**
+        **Exemple how will be**
 
-```python
+        ```python
 
-"Row": [
-            ft.Container(bgcolor='blue',alignment=ft.alignment.center,padding=ft.padding.all(4),border=ft.border.all(0.8, ft.colors.BLACK),tooltip='Row',
+        "Row": [
+        ft.Container(bgcolor='blue',alignment=ft.alignment.center,padding=ft.padding.all(4),border=ft.border.all(0.8, ft.colors.BLACK),tooltip='Row',
         on_hover=lambda _:self.resetClick(),
         on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
         content=ft.Row( scroll="ALWAYS",
-            controls= [
-                           ],),),
-  ],
+        controls= [
+        ],),),
+        ],
 
-```
+        ```
