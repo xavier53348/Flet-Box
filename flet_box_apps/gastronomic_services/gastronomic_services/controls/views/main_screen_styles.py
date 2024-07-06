@@ -36,7 +36,7 @@ styles={
         "height": "237.0",
         "offset": [-0.040000000000000036,0],
         "opacity": 1.0,
-        "src": "test/proyect_name/proyect_name/assets/RestauranteTemantico.png",
+        "src": "RestauranteTemantico.png",
         "width": "237.0"
     },
     "_4028": {
@@ -56,7 +56,7 @@ styles={
         "fit": "cover",
         "height": "237",
         "offset": [-0.3700000000000001,0],
-        "src": "test/proyect_name/proyect_name/assets/otros_servicios.jpg",
+        "src": "otros_servicios.jpg",
         "width": "237"
     },
     "_4032": {
@@ -73,7 +73,7 @@ styles={
         # "WIDGET_NAME": "CONTENT_TEXT",
         "size": 36.0,
         "text_align": "left",
-        "value": "Hagamos tu sueno Realidad",
+        "value": "Hagamos tu sueño Realidad",
         "weight": "bold"
     },
     "_4036": {

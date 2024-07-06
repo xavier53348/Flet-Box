@@ -12,7 +12,7 @@ phone_style_widget = {
         "margin": {"l":0,"t":0,"r":0,"b":0},
         "padding": {"l":0,"t":0,"r":0,"b":0},
         "width": "460",
-        "image_src": "test/proyect_name/proyect_name/assets/ServicioBanquetes.png",
+        "image_src": "ServicioBanquetes.png",
         "image_fit": "cover"
     },
     "MAIN_EFFECTS_CONTAINER": {

@@ -9,8 +9,8 @@ from .views.documentation_screen import documentation_screen
 from .views.documentation_screen_events import *
 
 screens: dict={
-                'main_screen': class_menu_screen(),
-				# 'main_screen': main_screen(),
+                # 'main_screen': class_menu_screen(),
+				'main_screen': main_screen(),
 				'class_menu_screen': class_menu_screen(),
 				'documentation_screen': documentation_screen(),
 				}
