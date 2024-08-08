@@ -15,7 +15,7 @@ from .lite_menu_bar_down_phone.selected_widget        import SelectedWidget
 #: ICON AND COLOR BROWSER CONTAINER
 from .icon_browser.icon_browser                       import IconBrowser
 from .color_browser.color_browser                     import ColorBrowser
-from .chat_gpt_browser.gpt_browser                    import GptBrowser
+# from .chat_gpt_browser.gpt_browser                    import GptBrowser
 #: ABOUT CONTAINER
 from .about.about                                     import AboutPage
 #: CALL GLOBAL VAR  GLOBAL VARS

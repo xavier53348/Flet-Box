@@ -1,0 +1,3 @@
+[console_scripts]
+pyrefactor = pyrefactor.main:main_entry_point
+

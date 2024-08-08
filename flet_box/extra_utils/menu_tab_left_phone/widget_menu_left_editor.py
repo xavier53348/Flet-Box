@@ -13,7 +13,7 @@ class MenuLeftContainer(ft.Stack):
           self.main_page     = main_page
           self.icon_browser  = GLOBAL_VAR(get_global_var='ICON_BROWSER_CONTAINER')
           self.color_browser = GLOBAL_VAR(get_global_var='COLOR_BROWSER_CONTAINER')
-          self.gpt_browser   = GLOBAL_VAR(get_global_var='GPT_BROWSER_CONTAINER')
+          # self.gpt_browser   = GLOBAL_VAR(get_global_var='GPT_BROWSER_CONTAINER')
           self.text_editor   = GLOBAL_VAR(get_global_var='TEXT_EDITOR_CONTAINER')
 
           self.data_view = WrapWidgetNode()
@@ -95,13 +95,13 @@ class MenuLeftContainer(ft.Stack):
                                                                                                         width         = 52,
                                                                                                         border_radius = ft.border_radius.all(42)
                                                                                                         ),
-                                                                                                    ft.Container(alignment=ft.alignment.center,tooltip='CHAT-GPT' ,content=ft.IconButton(icon=ft.icons.DATA_OBJECT_OUTLINED ,  on_click=lambda _:self.show_widgets(show_widget='gpt_browser')),
-                                                                                                        border        = ft.border.all(1, ft.colors.CYAN_800 ),
-                                                                                                        bgcolor       = ft.colors.BLACK45,
-                                                                                                        height        = 52,
-                                                                                                        width         = 52,
-                                                                                                        border_radius = ft.border_radius.all(42)
-                                                                                                        ),
+                                                                                                    # ft.Container(alignment=ft.alignment.center,tooltip='CHAT-GPT' ,content=ft.IconButton(icon=ft.icons.DATA_OBJECT_OUTLINED ,  on_click=lambda _:self.show_widgets(show_widget='gpt_browser')),
+                                                                                                    #     border        = ft.border.all(1, ft.colors.CYAN_800 ),
+                                                                                                    #     bgcolor       = ft.colors.BLACK45,
+                                                                                                    #     height        = 52,
+                                                                                                    #     width         = 52,
+                                                                                                    #     border_radius = ft.border_radius.all(42)
+                                                                                                    #     ),
                                                                                                  ],
                                                                                     ),
                                                                         ),
@@ -115,11 +115,11 @@ class MenuLeftContainer(ft.Stack):
           if show_widget == "icon_browser":
                self.icon_browser.visible  = True if not self.icon_browser.visible else False
 
-               self.gpt_browser.visible   = False
+               # self.gpt_browser.visible   = False
                self.color_browser.visible = False
                self.text_editor.visible   = False
 
-               self.gpt_browser.update()
+               # self.gpt_browser.update()
                self.color_browser.update()
                self.text_editor.update()
 
@@ -130,12 +130,12 @@ class MenuLeftContainer(ft.Stack):
 
                self.icon_browser.visible  = False
                self.text_editor.visible   = False
-               self.gpt_browser.visible   = False
+               # self.gpt_browser.visible   = False
 
 
                self.icon_browser.update()
                self.text_editor.update()
-               self.gpt_browser.update()
+               # self.gpt_browser.update()
 
                self.color_browser.update()
 
@@ -150,7 +150,7 @@ class MenuLeftContainer(ft.Stack):
                self.color_browser.update()
                self.text_editor.update()
 
-               self.gpt_browser.update()
+               # self.gpt_browser.update()
 
           if show_widget == "tree_view":
                #: THIS METOD visible_view() WILL return
@@ -163,11 +163,11 @@ class MenuLeftContainer(ft.Stack):
                self.text_editor.visible = True if not self.text_editor.visible else False
 
                self.icon_browser.visible  = False
-               self.gpt_browser.visible   = False
+               # self.gpt_browser.visible   = False
                self.color_browser.visible = False
 
                self.icon_browser.update()
-               self.gpt_browser.update()
+               # self.gpt_browser.update()
                self.color_browser.update()
 
                self.text_editor.update()

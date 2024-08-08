@@ -12,7 +12,7 @@ from extra_utils import LiteMenuUpContainer  #: LITE MENU RIGHT PHONE AND DOWN
 from extra_utils import LiteMenuDownContainer
 from extra_utils import IconBrowser          #: ICON AND COLOR BROWSER CONTAINER
 from extra_utils import ColorBrowser
-from extra_utils import GptBrowser
+# from extra_utils import GptBrowser
 from extra_utils import SponsorPage          #: ABOUT DONATIONS CONTAINER
 from extra_utils import AboutPage            #: ABOUT CONTAINER
 from extra_utils import GLOBAL_VAR           #: CALL GLOBAL VAR  GLOBAL VARS
@@ -25,23 +25,23 @@ from extra_utils import ScreenManager ,screen_manager  #: SCREEN MANAGER
 def main(page: ft.Page):
      #: CONFIGURATION
      #: page.title                   = "Containers - clickable and not"
-     page.window_title_bar_hidden         = True
-     page.window_title_bar_buttons_hidden = True
-     page.window_focused                  = True
+     page.window.title_bar_hidden         = True
+     page.window.title_bar_buttons_hidden = True
+     page.window.focused                  = True
      page.scroll                          = "HIDDEN" #AUTO ADAPTIVE ALWAYS HIDDEN
      page.vertical_alignment              = ft.MainAxisAlignment.CENTER
      page.horizontal_alignment            = ft.CrossAxisAlignment.CENTER
      #:  COLOR
      page.theme_mode                      = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
-     page.window_bgcolor                  = ft.colors.RED_100
+     page.window.bgcolor                  = ft.colors.RED_100
 
      #: POSITION OF SC
-     page.window_left                     = 3
-     page.window_top                      = 3
+     page.window.left                     = 3
+     page.window.top                      = 3
 
      #: SIZE
-     page.window_height                   = 768
-     page.window_width                    = 1360
+     page.window.height                   = 768
+     page.window.width                    = 1360
      page.padding                         = 0
      page.spacing                         = 0
 
@@ -106,17 +106,17 @@ def main(page: ft.Page):
      GLOBAL_VAR(set_global_var={'COLOR_BROWSER_CONTAINER':ColorBrowserContainer})
 
      #: GPT BROWSER
-     Gpt_Browser = GptBrowser(blur_effect=True)
+     # Gpt_Browser = GptBrowser(blur_effect=True)
 
-     GptBrowserContainer = ft.Container(
-               visible= False,
-               right  = 240,
-               left   = 240,
-               top    = 80,
-               bottom = 80,
-          content=Gpt_Browser,
-          )
-     GLOBAL_VAR(set_global_var={'GPT_BROWSER_CONTAINER':GptBrowserContainer})
+     # GptBrowserContainer = ft.Container(
+     #           visible= False,
+     #           right  = 240,
+     #           left   = 240,
+     #           top    = 80,
+     #           bottom = 80,
+     #      content=Gpt_Browser,
+     #      )
+     # GLOBAL_VAR(set_global_var={'GPT_BROWSER_CONTAINER':GptBrowserContainer})
 
      #: ABOUT
      About_Page = AboutPage()
@@ -346,7 +346,7 @@ def main(page: ft.Page):
                                    SponsorBrowserContainer,
                                    IconBrowserContainer,
                                    ColorBrowserContainer,
-                                   GptBrowserContainer,
+                                   # GptBrowserContainer,
                                    AboutContainer,
                                    TextEditorContainer,
                                    ScreenContainer,
@@ -387,5 +387,3 @@ if __name__ == '__main__':
             # view=ft.WEB_BROWSER,
             # web_renderer=ft.WebRenderer.HTML
           )
-
-f

@@ -1,0 +1,31 @@
+ping raspberrypi.local
+ssh raspberrypi.local -l pi
+
+python -m pip install
+
+python3 -m pip cache purge
+sudo pip install --no-cache-dir flask
+
+
+This can be achieved by doing the following:
+
+Enable Hash-checking Mode, by passing
+
+--require-hashes
+
+Disallow source distributions, by passing
+
+--only-binary :all:  <===== this
+
+
+sudo raspi-config
+
+
+cd ~/.vim/
+scp -r /home/mjay/.vim pi@10.42.0.138:/home/pi/.vim
+
+10.42.0.138
+
+10.42.0.138
+
+contrasema "xavier007"
