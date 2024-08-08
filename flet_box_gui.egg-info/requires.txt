@@ -1,0 +1,5 @@
+flet
+flet-core
+flet-runtime
+g4f
+pyperclip
