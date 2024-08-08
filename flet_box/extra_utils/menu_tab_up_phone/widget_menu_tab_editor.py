@@ -217,7 +217,7 @@ class MenuUpContainer(ft.Stack):
 
      def yes_click(self,data,alert):
           if data == 'yes':
-               self.main_page.window_close()
+               self.main_page.window.close()
           elif data == 'close':
                alert.open = False
                self.main_page.update()
@@ -236,14 +236,14 @@ class MenuUpContainer(ft.Stack):
                                         ],
                                         actions_alignment="end",
                                         )
-               self.main_page.dialog = confirm_dialog
+               self.main_page.overlay.append(confirm_dialog)
                confirm_dialog.open = True
 
           elif action == 'Minimize':
-               self.main_page.window_minimized   = True
+               self.main_page.window.minimized   = True
 
           elif action == 'Resize':
-               self.main_page.window_maximizable = True
+               self.main_page.window.maximizable = True
 
           self.main_page.update()
 
