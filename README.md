@@ -379,10 +379,10 @@ If you're passionate about shaping the future of frameworks and contributing to 
 
 | **SPACE LAYOUTS**                                                                         |    **ADDRESS**                                            |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| <img src="docs/assets/.wallet_matic.jpg"  style="width:60px" align="Center">              | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
-| <img src="docs/assets/.wallet_tron.jpg"   style="width:60px" align="Center">              | THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ                        |
-| <img src="docs/assets/.wallet_bnb.jpg"    style="width:60px" align="Center">              | bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr                |
-| <img src="docs/assets/.wallet_solana.jpg" style="width:60px" align="Center">              | 6jsNmgn4ad9D7LzNxaabvjZ1WsBGMDYFHiDCESCHCoSv                |
+| <img src="flet_box/assets/.wallet_matic.jpg"  style="width:80px" align="Center">          | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
+| <img src="flet_box/assets/.wallet_tron.jpg"   style="width:80px" align="Center">          | THi2UTY8SrUYNrzqKek8U3pvLuEF5y4fDQ                        |
+| <img src="flet_box/assets/.wallet_bnb.jpg"    style="width:80px" align="Center">          | bnb1vhe8q5zf2fr6s0ga8dnm5nzaz9uapky6w2xcnr                |
+| <img src="flet_box/assets/.wallet_solana.jpg" style="width:80px" align="Center">          | 6jsNmgn4ad9D7LzNxaabvjZ1WsBGMDYFHiDCESCHCoSv              |
 
 - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 
