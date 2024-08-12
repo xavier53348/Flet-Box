@@ -28,13 +28,12 @@
 
 >>> mkdir My_app
 >>> cd My_app
-
 ```
 ## Run one time
 ```bash
+
 >>> sudo apt-get install python3-full
 >>> python3 -m venv .venv
-
 ```
 ## Activate virtual env
 ```bash
@@ -43,40 +42,42 @@
 >>> pip install --upgrade pip
 >>> pip install flet
 >>> pip install -r requirements.txt
-
 ```
 
 ## Error with libmpv1
 
 ```
 >>> sudo apt install libmpv1
-
 ```
 
-## Install manually
+## Error libmpv1.so no found "UBUNTU 24.04"
+```
+# install dependencies
+sudo apt-get install libmpv-dev libmpv2
 
+locate libmpv.so # will return
+# /usr/lib/x86_64-linux-gnu/libmpv.so
+# /usr/lib/x86_64-linux-gnu/libmpv.so.2
+# /usr/lib/x86_64-linux-gnu/libmpv.so.2.2.0
+
+sudo cp /usr/lib/x86_64-linux-gnu/libmpv.so.2 /usr/lib/x86_64-linux-gnu/libmpv.so.1
+```
+## Install manually
 ```
 >>> git clone https://github.com/xavier53348/Flet-Box.git
-
 ```
-<!-- ## By pypi repo
 
-```
->>> pip install flet-box-gui
-
-``` -->
 ## Easy run Flet-Box
 ```bash
 
 >>> flet flet_box/flet_box.py
-
 ```
-## Easy way run a save APP
 
+## Easy way run a save APP
 ```
 >>> flet test/proyect_name/proyect_name/main.py
-
 ```
+
 ### Introduction
 **Flet-Box** is a powerful framework that enables developers to create interactive multi-user web, desktop, and mobile applications. Whether you're a seasoned developer or just starting out, **Flet-Box** makes frontend development accessible without prior experience. Here are the key features:
 
@@ -152,7 +153,15 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 ├── CHANGELOG.md
 ├── flet_box
 │   ├── assets
-│   │   ├
+│   │   ├── avatar.png
+│   │   ├── dragg_container3.jpg
+│   │   ├── dragg_container.jpg
+│   │   ├── image.jpg
+│   │   ├── img.jpg
+│   │   ├── logo.jpg
+│   │   ├── logo_mark.png
+│   │   ├── splash.jpg
+│   │   └── wallpaper.jpg
 │   ├── extra_utils
 │   │   ├── about
 │   │   │   └── about.py
@@ -169,12 +178,14 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   │   ├── bool_entry.py
 │   │   │   ├── color_entry.py
 │   │   │   ├── double_entry.py
+│   │   │   ├── dual_number_entry.py
 │   │   │   ├── four_entry.py
 │   │   │   ├── gradient_entry.py
 │   │   │   ├── photo_selection.py
 │   │   │   ├── selection_button_entry.py
 │   │   │   ├── selection_entry.py
 │   │   │   ├── single_entry.py
+│   │   │   ├── single_number_entry.py
 │   │   │   └── widget_editor.py
 │   │   ├── drag_container
 │   │   │   ├── dragg_widget.py
@@ -204,11 +215,140 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 │   │   ├── settings_var
 │   │   │   ├── save_export.py
 │   │   │   └── settings_widget.py
+│   │   ├── sponsonrs
+│   │   │   └── sponsors.py
 │   │   └── tree_view
 │   │       ├── color_hight_light_editor.py
 │   │       ├── tree_view.py
 │   │       └── tree_view_text_editor.py
 │   └── flet_box.py
+├── flet_box_gui.egg-info
+│   ├── dependency_links.txt
+│   ├── entry_points.txt
+│   ├── PKG-INFO
+│   ├── requires.txt
+│   ├── SOURCES.txt
+│   └── top_level.txt
+├── full_path.txt
+├── made
+│   └── gastronomic_services
+│       ├── gastronomic_services
+│       │   ├── assets
+│       │   │   ├── ClasificacionVinos.png
+│       │   │   ├── DecantacionVino.png
+│       │   │   ├── ElaboracionVino.png
+│       │   │   ├── ElavoracionCafe.png
+│       │   │   ├── fondo.png
+│       │   │   ├── FormasServirVino.png
+│       │   │   ├── HistoriaLLegadaCuba.png
+│       │   │   ├── HistoriaTe.png
+│       │   │   ├── HistoriaVino.jpg
+│       │   │   ├── Infusiones.png
+│       │   │   ├── instalaciones_gastronomicas.png
+│       │   │   ├── MaridajeVinos.jpg
+│       │   │   ├── modalidades_servicio.png
+│       │   │   ├── otros_servicios.jpg
+│       │   │   ├── PresentaciónTe.jpg
+│       │   │   ├── Prologo.jpg
+│       │   │   ├── RestauranteALaCarta.png
+│       │   │   ├── RestauranteBuffet.png
+│       │   │   ├── RestauranteEspecializado.png
+│       │   │   ├── RestauranteGourmet.png
+│       │   │   ├── RestauranteInternacional.png
+│       │   │   ├── Restaurante.png
+│       │   │   ├── RestauranteTemantico.png
+│       │   │   ├── ServicioAbordo.png
+│       │   │   ├── ServicioAgua.jpg
+│       │   │   ├── ServicioAmericana.png
+│       │   │   ├── ServicioAperitivos.png
+│       │   │   ├── ServicioAsado.png
+│       │   │   ├── ServicioAutoservico.png
+│       │   │   ├── ServicioBanquetes.png
+│       │   │   ├── ServicioBuffet.jpg
+│       │   │   ├── ServiciocafeInformal.png
+│       │   │   ├── ServicioCafeRestauranteLujo.png
+│       │   │   ├── ServicioCaldos.png
+│       │   │   ├── ServicioCarta.png
+│       │   │   ├── ServicioCenicero.png
+│       │   │   ├── ServicioCerveza.png
+│       │   │   ├── ServicioConsume.png
+│       │   │   ├── ServicioCremas.jpg
+│       │   │   ├── ServicioCriolla.png
+│       │   │   ├── ServicioEnsaladas.png
+│       │   │   ├── ServicioEntremeses.jpg
+│       │   │   ├── ServicioEstofado.png
+│       │   │   ├── ServicioFingersBold.png
+│       │   │   ├── ServicioFrancesa.png
+│       │   │   ├── ServicioGuarnicionesjpg
+│       │   │   ├── ServicioHabitaciones.jpg
+│       │   │   ├── ServicioHielo.jpg
+│       │   │   ├── ServicioInfusiones.jpg
+│       │   │   ├── ServicioInglesa.png
+│       │   │   ├── ServicioJugos.jpg
+│       │   │   ├── ServicioJugos.png
+│       │   │   ├── servicioPalillos.png
+│       │   │   ├── ServicioPanMantequilla.png
+│       │   │   ├── ServicioPastas.png
+│       │   │   ├── ServicioPotages.jpg
+│       │   │   ├── ServicioRusa.png
+│       │   │   ├── ServicioServilletas.jpg
+│       │   │   ├── ServicioSopas.png
+│       │   │   ├── servicios.png
+│       │   │   ├── TiposCafe.jpg
+│       │   │   ├── tipos_servicios.jpg
+│       │   │   ├── VariedadesInfuciones.jpg
+│       │   │   └── Vino.png
+│       │   ├── builder
+│       │   │   ├── app_manager.py
+│       │   │   └── loading_animation.py
+│       │   ├── controls
+│       │   │   ├── app_screen_db.py
+│       │   │   ├── app_screen_manager.py
+│       │   │   └── views
+│       │   │       ├── class_menu_screen_events.py
+│       │   │       ├── class_menu_screen.py
+│       │   │       ├── class_menu_screen_styles.py
+│       │   │       ├── documentation_screen_events.py
+│       │   │       ├── documentation_screen.py
+│       │   │       ├── documentation_screen_styles.py
+│       │   │       ├── keys_all_data_db.py
+│       │   │       ├── keys_db.py
+│       │   │       ├── main_screen_events.py
+│       │   │       ├── main_screen.py
+│       │   │       └── main_screen_styles.py
+│       │   ├── full_path.txt
+│       │   └── main.py
+│       └── requirements.txt
+├── test_app
+│   ├── help_rope_sublime.py
+│   ├── mark_down
+│   │   ├── mark_down.py
+│   │   ├── test_mark_down_theme.zip
+│   │   └── test.md
+│   ├── NEW_proyect_name.zip
+│   ├── proyect_name.zip
+│   ├── raspberry
+│   │   ├── help_rasberripi.txt
+│   │   ├── ssh
+│   │   └── wpa_supplicant.conf
+│   ├── read_database_.py
+│   ├── taket_line_ident
+│   │   ├── ft_list_view
+│   │   │   ├── drop.py
+│   │   │   └── navbar.py
+│   │   ├── loading_animation2.py
+│   │   └── loading_animation.py
+│   ├── test_editor
+│   │   ├── flet_code.py
+│   │   └── my_editor.py
+│   ├── testing_code.py
+│   ├── testing_code.py.zip
+│   ├── test.py
+│   └── views
+│       ├── builder_screens.py
+│       ├── building_code_traslator.py
+│       ├── FLET_TRASLATED_SCREEN_DB.py
+│       └── SCREENS_DB.py
 
 ```
 
