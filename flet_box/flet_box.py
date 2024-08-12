@@ -34,7 +34,7 @@ def main(page: ft.Page):
      #:  COLOR
      page.theme_mode                      = ft.ThemeMode.DARK         #ft.ThemeMode.LIGHT
      page.window.bgcolor                  = ft.colors.RED_100
-
+     page.window.maximizable              = True
      #: POSITION OF SC
      page.window.left                     = 3
      page.window.top                      = 3

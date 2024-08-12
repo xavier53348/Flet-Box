@@ -26,13 +26,13 @@ def main(page: ft.Page):
     # page.window_bgcolor       = ft.colors.TRANSPARENT
 
     #: POSITION OF SCREENS
-    page.window_left          = 0
-    page.window_top           = 0
+    page.window.left          = 0
+    page.window.top           = 0
     # page.window_center()
 
     #: SIZE
-    page.window_height        = 740  # 566 620
-    page.window_width         = 1050  # 295 320
+    page.window.height        = 740  # 566 620
+    page.window.width         = 1050  # 295 320
     page.padding              = 0
     page.spacing              = 0
     page.expand               = True
@@ -44,9 +44,9 @@ def main(page: ft.Page):
 
 
     #: UPDATE SIZE OF MAIN PHGONE SCREEN
-    show_screen.height = page.window_height
-    show_screen.width  = page.window_width
-    page.on_resize     = lambda _: change_size(page_width=page.window_width, page_height=page.window_height)
+    show_screen.height = page.window.height
+    show_screen.width  = page.window.width
+    page.on_resize     = lambda _: change_size(page_width=page.window.width, page_height=page.window.height)
 
     #: SET FROM CONTAINER BGCOLOR
     # page.bgcolor = styles['_2921']['bgcolor']
@@ -108,6 +108,3 @@ if __name__ == '__main__':
             web_renderer = ft.WebRenderer.HTML,
             port=21109,
             )
-
-
-f

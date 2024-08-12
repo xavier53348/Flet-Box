@@ -1,6 +1,10 @@
+.venv
+.venv/
 *.pyc
 test_readme_pypi.py
 .pypirc
+*.pypirc
+*.pyc
 bump_upgrade_pypi.sh
 test_app/
 test/
@@ -8,11 +12,8 @@ test
 .venv/
 bump-version.sh
 .git/
-<<<<<<< HEAD
-
-=======
 bump-version.sh
->>>>>>> features/new_features
+features/new_features
 __pycache__/
 help_git.md
 drag_drop_proyect/
