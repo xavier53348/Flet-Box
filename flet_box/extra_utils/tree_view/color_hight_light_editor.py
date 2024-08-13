@@ -1,25 +1,30 @@
 import flet as ft
 import re
-
 from dataclasses import dataclass
+
 
 @dataclass
 class GitHubDark:
-    editor_bg:       str = "#001000"
-    keyword:         str = "#ff007f"  # bright red for keywords
-    function:        str = "#001000"  # soft purple for function definitions
-    function_call:   str = "#00ff51"  # function calls match function definitions
-    string:          str = "#fff261"  # light blue for strings
-    comment:         str = "#8b949e"  # muted gray for comments
-    parameter:       str = "#ffa657"  # orange for parameters
-    type_annotation: str = "#ff007f"  # bright red for type annotations, matching keywords
-    class_name:      str = "#00aeff"  # soft purple for class names
-    exception:       str = ft.colors.PURPLE_ACCENT_200  # bright red for exceptions controls content
-    builtin:         str = "#00ff48"  # bright red for built-in constants and functions
-    number:          str = "#ffa657"  # blue for numbers
-    docstring:       str = "#4b4b4b"  # muted gray for docstrings, matching comments
-    decorator:       str = "#ffa657"  # orange for decorators
-    instance:        str = "#79c0ff"  # blue for instance references
+    editor_bg: str = "#001000"
+    keyword: str = "#ff007f"  # bright red for keywords
+    function: str = "#001000"  # soft purple for function definitions
+    function_call: str = "#00ff51"  # function calls match function definitions
+    string: str = "#fff261"  # light blue for strings
+    comment: str = "#8b949e"  # muted gray for comments
+    parameter: str = "#ffa657"  # orange for parameters
+    type_annotation: str = (
+        "#ff007f"  # bright red for type annotations, matching keywords
+    )
+    class_name: str = "#00aeff"  # soft purple for class names
+    exception: str = (
+        ft.colors.PURPLE_ACCENT_200
+    )  # bright red for exceptions controls content
+    builtin: str = "#00ff48"  # bright red for built-in constants and functions
+    number: str = "#ffa657"  # blue for numbers
+    docstring: str = "#4b4b4b"  # muted gray for docstrings, matching comments
+    decorator: str = "#ffa657"  # orange for decorators
+    instance: str = "#79c0ff"  # blue for instance references
+
 
 theme = GitHubDark()
 
@@ -79,22 +84,20 @@ syntax_rules = {
 
 
 def apply_syntax_highlighting(
-                              text:      str = "",
-                              language:  str = "python" ,
-                              text_size: int = 11
-                              ):
+    text: str = "", language: str = "python", text_size: int = 11
+):
     """
     THANKS TO
     """
     rules = syntax_rules.get(language, {})
     formatted_lines: list = []
-    full_lines = ft.ListView(spacing=0 )
+    full_lines = ft.ListView(spacing=0)
 
     lines = text.split("\n")
     for idx, line in enumerate(lines):
-        parts:    list = []
-        last_idx: int  = 0
-        matches:  list = []
+        parts: list = []
+        last_idx: int = 0
+        matches: list = []
 
         for element, (pattern, color) in rules.items():
             for match in re.finditer(pattern, line):
@@ -108,57 +111,59 @@ def apply_syntax_highlighting(
                 if start > last_idx:
                     parts.append(
                         ft.Text(
-                                value       = line[last_idx:start],
-                                font_family = "Code",
-                                size        = text_size,
-                                color       = ft.colors.TEAL_900,
-                                weight      = ft.FontWeight.BOLD,
-
-                                ) # ATTRIBUTES
+                            value=line[last_idx:start],
+                            font_family="Code",
+                            size=text_size,
+                            color=ft.colors.TEAL_900,
+                            weight=ft.FontWeight.BOLD,
+                        )  # ATTRIBUTES
                     )
                 parts.append(
                     ft.Text(
-                        value       = matched_text,
-                        style       = ft.TextStyle(color=color),
-                        font_family = "Code",
-                        size        = text_size,
-                        weight      = ft.FontWeight.BOLD,
+                        value=matched_text,
+                        style=ft.TextStyle(color=color),
+                        font_family="Code",
+                        size=text_size,
+                        weight=ft.FontWeight.BOLD,
                     )
                 )
                 last_idx = end
 
         # Handle remaining text after last match
         if last_idx < len(line):
-            parts.append( ft.Text(
-                                    value       = line[last_idx:],
-                                    font_family = "Code",
-                                    size        = text_size,
-                                    color       = ft.colors.TEAL_ACCENT_700,
-                                    weight      = ft.FontWeight.BOLD,
-                                    ))
+            parts.append(
+                ft.Text(
+                    value=line[last_idx:],
+                    font_family="Code",
+                    size=text_size,
+                    color=ft.colors.TEAL_ACCENT_700,
+                    weight=ft.FontWeight.BOLD,
+                )
+            )
 
         # Create a Row and add all parts to it without introducing new spaces
         line_number = ft.Container(
-                                   padding=ft.padding.only(left=0,right=26,bottom=0,top=0),
-                                   content= ft.Text(
-                                            value      = f"{idx + 1}",
-                                            color      = "#60676f",
-                                            size       = text_size,
-                                            weight     = ft.FontWeight.BOLD,
-                                            width      = 20,
-                                            text_align = ft.TextAlign.RIGHT,                                    # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
+            padding=ft.padding.only(left=0, right=26, bottom=0, top=0),
+            content=ft.Text(
+                value=f"{idx + 1}",
+                color="#60676f",
+                size=text_size,
+                weight=ft.FontWeight.BOLD,
+                width=20,
+                text_align=ft.TextAlign.RIGHT,  # LEFT (default),RIGHT,CENTER,JUSTIFY,START,END
+            ),
+        )
 
-
-                                            ),)
-
-        formatted_lines.append(ft.Row(controls=[line_number] + parts, wrap=None, spacing=0))
+        formatted_lines.append(
+            ft.Row(controls=[line_number] + parts, wrap=None, spacing=0)
+        )
 
     full_lines.controls.extend(formatted_lines)
     return full_lines
 
 
-if __name__ == '__main__':
-    text_code_exemple = '''
+if __name__ == "__main__":
+    text_code_exemple = """
     from ..app_style_manager import styles
     from ..app_events_manager import *
 
@@ -194,7 +199,7 @@ if __name__ == '__main__':
 
         def dict_style(self,code):
             return styles.get(code)
-    '''
+    """
 
     def main(page: ft.Page):
         page.fonts = {

@@ -1,6 +1,5 @@
 skeleton_data: dict = {
-
-'class_flet_box':'''#: MAIN WIDGET SCREEN CLASS
+    "class_flet_box": """#: MAIN WIDGET SCREEN CLASS
 import flet as ft
 
 from .SYTLE_RENAME_styles import styles
@@ -39,25 +38,23 @@ class CustomPage(ft.Container):
         #: SET CONTENT STYLE WIDGET
         return styles.get(code)
 
-''',
-
-'event_manager':'''
+""",
+    "event_manager": '''
 """
 EVENT MANAGER WILL CONTENT ALL APP EVENT IN ONE PLACE TO MAKE A EASY USABILITY
 """
 
 from builder.app_manager import got_to_screen''',
-
-'event_skeleton':"""
+    "event_skeleton": """
 def eventRENAME(data): # event_NAME_ID
     # got_to_screen(to_screen= 'screen_name' ,style='ring' ,time_style=0.8 )
     print(f"Demo App: {data} event_NAME_ID")
     ...""",
-
 }
 
-def get_skeleton(name: str=""):
+
+def get_skeleton(name: str = ""):
     """
-        GET SKELETON OF THE CLASS WIDGET TO EACH SCREEN
+    GET SKELETON OF THE CLASS WIDGET TO EACH SCREEN
     """
     return skeleton_data.get(name)

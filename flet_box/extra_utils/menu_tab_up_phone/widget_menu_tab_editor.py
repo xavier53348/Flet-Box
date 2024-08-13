@@ -11,550 +11,610 @@ from ..screen_manager.write_file_proyect import write_file, file_saved
 
 
 class MenuUpContainer(ft.Stack):
+    def __init__(self, main_page="Erase this test"):
+        super().__init__()
 
-     def __init__(self,main_page='Erase this test'):
-          super().__init__()
+        self.main_page = main_page
+        self.widget = MakeJasonFile()
 
-          self.main_page=main_page
-          self.widget = MakeJasonFile()
+    def build(self):
+        Basic_MenuUp = BasicMenuUp()
 
-     def build(self):
+        Drop_MenuUpContainer = ft.Container(
+            ink=False,
+            bgcolor=ft.colors.BLACK38,
+            padding=ft.padding.all(0),
+            margin=ft.margin.all(0),
+            alignment=ft.alignment.center,
+            border_radius=ft.border_radius.only(30),
+            height=50,
+            border=ft.border.all(
+                0.6,
+                ft.colors.with_opacity(0.1, ft.colors.CYAN_800),
+            ),
+            shadow=ft.BoxShadow(
+                spread_radius=1,
+                blur_radius=8,
+                color=ft.colors.with_opacity(0.8, ft.colors.BLACK12),
+                offset=ft.Offset(0, 0),
+                blur_style=ft.ShadowBlurStyle.OUTER,
+            ),
+            content=ft.WindowDragArea(
+                content=ft.Row(
+                    expand=True,
+                    spacing=0,
+                    run_spacing=0,
+                    controls=[
+                        ft.Container(
+                            border_radius=ft.border_radius.only(
+                                top_left=28,
+                                top_right=14,
+                                bottom_left=14,
+                                bottom_right=28,
+                            ),
+                            border=ft.border.all(
+                                0.1,
+                                ft.colors.with_opacity(0.4, ft.colors.CYAN_800),
+                            ),
+                            margin=2,
+                            # bgcolor=ft.colors.with_opacity(0.4,ft.colors.CYAN_800),
+                            gradient=ft.LinearGradient(
+                                begin=ft.alignment.top_center,
+                                end=ft.alignment.center_right,
+                                colors=[
+                                    # ft.colors.CYAN,
+                                    ft.colors.BLUE_500,
+                                    ft.colors.PURPLE_200,
+                                    ft.colors.YELLOW_800,
+                                ],
+                            ),
+                            shadow=ft.BoxShadow(
+                                spread_radius=1,
+                                blur_radius=18,
+                                color=ft.colors.with_opacity(0.1, ft.colors.WHITE12),
+                                offset=ft.Offset(0, 0),
+                                blur_style=ft.ShadowBlurStyle.OUTER,
+                            ),
+                            content=ft.Row(
+                                controls=[
+                                    ft.Container(
+                                        margin=ft.padding.only(
+                                            left=18, top=1, right=0, bottom=1
+                                        ),
+                                        padding=ft.padding.only(
+                                            left=0, top=0, right=0, bottom=0
+                                        ),
+                                        # height  = 40 ,
+                                        image_src="logo.jpg",
+                                        border=ft.border.all(
+                                            2,
+                                            ft.colors.with_opacity(
+                                                0.8, ft.colors.WHITE
+                                            ),
+                                        ),
+                                        image_fit="COVER",  # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+                                        width=60,
+                                        border_radius=ft.border_radius.all(12),
+                                        shadow=ft.BoxShadow(
+                                            spread_radius=1,
+                                            blur_radius=8,
+                                            color=ft.colors.BLACK,
+                                            offset=ft.Offset(0, 0),
+                                            blur_style=ft.ShadowBlurStyle.OUTER,
+                                        ),
+                                    ),
+                                    ft.Container(
+                                        ink=False,
+                                        padding=ft.padding.only(
+                                            left=0, top=0, right=16, bottom=0
+                                        ),
+                                        alignment=ft.alignment.center_left,
+                                        content=ft.Column(
+                                            run_spacing=0,
+                                            spacing=0,
+                                            controls=[
+                                                ft.Container(
+                                                    # bgcolor=ft.colors.BLACK12,
+                                                    margin=ft.margin.only(
+                                                        left=0, top=0, right=0, bottom=0
+                                                    ),
+                                                    padding=ft.padding.only(
+                                                        left=8, top=0, right=8, bottom=0
+                                                    ),
+                                                    border_radius=ft.border_radius.all(
+                                                        8
+                                                    ),
+                                                    content=ft.Text(
+                                                        weight=ft.FontWeight.BOLD,
+                                                        value="FLET - BOX",
+                                                        size=17,
+                                                        color=ft.colors.WHITE,
+                                                    ),
+                                                ),
+                                                ft.Container(
+                                                    # bgcolor=ft.colors.BLACK38,
+                                                    margin=ft.margin.only(
+                                                        left=0, top=0, right=0, bottom=0
+                                                    ),
+                                                    padding=ft.padding.only(
+                                                        left=8, top=2, right=8, bottom=0
+                                                    ),
+                                                    border_radius=ft.border_radius.all(
+                                                        8
+                                                    ),
+                                                    border=ft.border.all(
+                                                        1,
+                                                        ft.colors.with_opacity(
+                                                            0.5, ft.colors.WHITE12
+                                                        ),
+                                                    ),
+                                                    gradient=ft.LinearGradient(
+                                                        begin=ft.alignment.top_center,
+                                                        end=ft.alignment.center_right,
+                                                        colors=[
+                                                            ft.colors.BLUE_500,
+                                                            ft.colors.PURPLE_200,
+                                                            ft.colors.YELLOW_800,
+                                                        ],
+                                                    ),
+                                                    # blur=(15,15),
+                                                    shadow=ft.BoxShadow(
+                                                        spread_radius=1,
+                                                        blur_radius=22,
+                                                        color=ft.colors.with_opacity(
+                                                            0.8, ft.colors.BLACK26
+                                                        ),
+                                                        offset=ft.Offset(0, 0),
+                                                        blur_style=ft.ShadowBlurStyle.OUTER,
+                                                    ),
+                                                    content=ft.Text(
+                                                        value="Based on FLet framework",
+                                                        weight=ft.FontWeight.BOLD,
+                                                        size=12,
+                                                    ),
+                                                ),
+                                            ],
+                                        ),
+                                    ),
+                                ],
+                            ),
+                        ),
+                        ft.Container(
+                            width=60,
+                        ),  # <=== NOTE COMA
+                        Basic_MenuUp,
+                        ft.Container(
+                            expand=True,
+                        ),  # <=== NOTE COMA
+                        ft.Container(
+                            bgcolor=ft.colors.BLACK38,
+                            gradient=ft.LinearGradient(
+                                begin=ft.alignment.top_center,
+                                end=ft.alignment.bottom_center,
+                                colors=[ft.colors.TEAL, ft.colors.BLACK12],
+                            ),
+                            border_radius=ft.border_radius.only(
+                                top_left=32,
+                                top_right=18,
+                                bottom_left=18,
+                                bottom_right=32,
+                            ),
+                            content=ft.Row(
+                                spacing=0,
+                                controls=[
+                                    ft.Container(
+                                        tooltip="SAVE PROYECT",
+                                        ink=True,
+                                        ink_color=ft.colors.RED,
+                                        bgcolor=ft.colors.RED_900,
+                                        margin=ft.margin.only(
+                                            left=2, top=2, right=8, bottom=2
+                                        ),
+                                        border_radius=ft.border_radius.only(
+                                            top_left=32,
+                                            top_right=18,
+                                            bottom_left=18,
+                                            bottom_right=32,
+                                        ),
+                                        alignment=ft.alignment.center,
+                                        # border_radius = ft.border_radius.all(30),
+                                        border=ft.border.all(2, ft.colors.BLACK12),
+                                        width=60,
+                                        on_click=lambda _: self.save_proyect_app(),
+                                        content=ft.Icon(
+                                            name=ft.icons.SAVE_AS_ROUNDED,
+                                        ),
+                                    ),
+                                    ft.IconButton(
+                                        ft.icons.CIRCLE,
+                                        icon_color="Yellow",
+                                        tooltip="Minimize",
+                                        on_click=lambda _: self.action_windows(
+                                            action="Minimize"
+                                        ),
+                                    ),
+                                    ft.IconButton(
+                                        ft.icons.CIRCLE,
+                                        icon_color="Green",
+                                        tooltip="Resize",
+                                        content=ft.Text(value="X", color="White"),
+                                        on_click=lambda _: self.action_windows(
+                                            action="Resize"
+                                        ),
+                                    ),
+                                    ft.IconButton(
+                                        ft.icons.CIRCLE,
+                                        icon_color="Red",
+                                        tooltip="Close",
+                                        on_click=lambda _: self.action_windows(
+                                            action="Close"
+                                        ),
+                                    ),
+                                ],
+                            ),
+                        ),
+                    ],
+                ),
+            ),
+        )
+        return Drop_MenuUpContainer
 
-          Basic_MenuUp = BasicMenuUp()
+    def yes_click(self, data, alert):
+        if data == "yes":
+            self.main_page.window.close()
+        elif data == "close":
+            alert.open = False
+            self.main_page.update()
 
-          Drop_MenuUpContainer = ft.Container(
-                                   ink             = False,
-                                   bgcolor         = ft.colors.BLACK38,
-                                   padding         = ft.padding.all(0),
-                                   margin          = ft.margin.all(0),
-                                   alignment       = ft.alignment.center,
-                                   border_radius   = ft.border_radius.only(30),
-                                   height          = 50,
-                                   border=ft.border.all(0.6, ft.colors.with_opacity(0.1,ft.colors.CYAN_800),),
-                                   shadow = ft.BoxShadow(
-                                                      spread_radius=1,
-                                                      blur_radius=8,
-                                                      color=ft.colors.with_opacity(0.8,ft.colors.BLACK12),
-                                                      offset=ft.Offset(0, 0),
-                                                      blur_style=ft.ShadowBlurStyle.OUTER,
-                                                 ),
-                              content = ft.WindowDragArea(
-                                             content  = ft.Row(
-                                                            expand   = True,
-                                                            spacing  = 0,
-                                                            run_spacing=0,
-                                                            controls = [
-                                                                ft.Container(
-                                                                      border_radius   =ft.border_radius.only(top_left=28,top_right=14,bottom_left=14,bottom_right=28),
-                                                                      border=ft.border.all(0.1, ft.colors.with_opacity(0.4,ft.colors.CYAN_800),),
-                                                                      margin=2,
-                                                                      # bgcolor=ft.colors.with_opacity(0.4,ft.colors.CYAN_800),
-                                                                      gradient=ft.LinearGradient(   begin = ft.alignment.top_center,
-                                                                                                    end   = ft.alignment.center_right,
-                                                                                                    colors= [
-                                                                                                              # ft.colors.CYAN,
-                                                                                                              ft.colors.BLUE_500,
-                                                                                                              ft.colors.PURPLE_200,
-                                                                                                              ft.colors.YELLOW_800,
-                                                                                                    ],
-                                                                                              ),
-                                                                      shadow = ft.BoxShadow(
-                                                                                         spread_radius=1,
-                                                                                         blur_radius=18,
-                                                                                         color=ft.colors.with_opacity(0.1,ft.colors.WHITE12),
-                                                                                         offset=ft.Offset(0, 0),
-                                                                                         blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                                    ),
-                                                                      content = ft.Row(
-                                                                                controls=[
+    def action_windows(self, action):
+        if action == "Close":
+            confirm_dialog = ft.AlertDialog(
+                modal=True,
+                title=ft.Text("Please confirm"),
+                content=ft.Text("Do you really want to exit this app?"),
+                actions=[
+                    ft.ElevatedButton(
+                        "Yes",
+                        on_click=lambda _: self.yes_click(
+                            data="yes", alert=confirm_dialog
+                        ),
+                        bgcolor=ft.colors.RED_900,
+                    ),
+                    ft.OutlinedButton(
+                        "No",
+                        on_click=lambda _: self.yes_click(
+                            data="close", alert=confirm_dialog
+                        ),
+                    ),
+                ],
+                actions_alignment="end",
+            )
+            self.main_page.overlay.append(confirm_dialog)
+            confirm_dialog.open = True
 
-                                                                                ft.Container(
-                                                                                          margin =  ft.padding.only(left=18, top=1, right=0, bottom=1),
-                                                                                          padding       = ft.padding.only(left=0, top=0, right=0, bottom=0),
-                                                                                          # height  = 40 ,
-                                                                                          image_src='logo.jpg',
-                                                                                          border=ft.border.all(2, ft.colors.with_opacity(0.8,ft.colors.WHITE),),
+        elif action == "Minimize":
+            self.main_page.window.minimized = True
 
-                                                                                          image_fit = 'COVER',                                            # CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
-                                                                                          width     = 60,
-                                                                                          border_radius   = ft.border_radius.all(12),
-                                                                                          shadow = ft.BoxShadow(
-                                                                                                spread_radius=1,
-                                                                                                blur_radius=8,
-                                                                                                color=ft.colors.BLACK,
-                                                                                                offset=ft.Offset(0, 0),
-                                                                                                blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                                           ),                                                                                           ),
-                                                                                ft.Container(
-                                                                                          ink           = False,
-                                                                                          padding       = ft.padding.only(left=0, top=0, right=16, bottom=0),
-                                                                                          alignment     = ft.alignment.center_left,
-                                                                                          content = ft.Column(
-                                                                                                    run_spacing=0,
-                                                                                                    spacing=0,
-                                                                                                         controls=[
+        elif action == "Resize":
+            self.main_page.window.maximizable = True
 
-                                                                                                         ft.Container(
-                                                                                                                     # bgcolor=ft.colors.BLACK12,
-                                                                                                                     margin       = ft.margin.only(left=0, top=0, right=0, bottom=0),
-                                                                                                                     padding       = ft.padding.only(left=8, top=0, right=8, bottom=0),
-                                                                                                                     border_radius   = ft.border_radius.all(8),
-                                                                                                                     content=ft.Text(
-                                                                                                                             weight = ft.FontWeight.BOLD,
-                                                                                                                             value  = 'FLET - BOX',
-                                                                                                                             size   = 17,
-                                                                                                                             color  = ft.colors.WHITE,
-                                                                                                                            ),
-                                                                                                                     ),
-                                                                                                         ft.Container(
-                                                                                                                     # bgcolor=ft.colors.BLACK38,
-                                                                                                                     margin       = ft.margin.only(left=0, top=0, right=0, bottom=0),
-                                                                                                                     padding       = ft.padding.only(left=8, top=2, right=8, bottom=0),
-                                                                                                                     border_radius   = ft.border_radius.all(8),
-                                                                                                                     border=ft.border.all(1, ft.colors.with_opacity(0.5,ft.colors.WHITE12),),
-                                                                                                                     gradient=ft.LinearGradient(   begin = ft.alignment.top_center,
-                                                                                                                             end   = ft.alignment.center_right,
-                                                                                                                             colors= [
-                                                                                                                                      ft.colors.BLUE_500,
-                                                                                                                                      ft.colors.PURPLE_200,
-                                                                                                                                      ft.colors.YELLOW_800,
-                                                                                                                             ],
-                                                                                                                       ),
-                                                                                                                     # blur=(15,15),
-                                                                                                                     shadow = ft.BoxShadow(
-                                                                                                                            spread_radius=1,
-                                                                                                                            blur_radius=22,
-                                                                                                                            color=ft.colors.with_opacity(0.8,ft.colors.BLACK26),
-                                                                                                                            offset=ft.Offset(0, 0),
-                                                                                                                            blur_style=ft.ShadowBlurStyle.OUTER,
-                                                                                                                       ),
-                                                                                                                     content=ft.Text(
-                                                                                                                             value='Based on FLet framework',
-                                                                                                                             weight      = ft.FontWeight.BOLD,
-                                                                                                                             size=12,
-                                                                                                                             ),
-                                                                                                                     ),
-                                                                                                                   ],
-                                                                                                                   ),
-                                                                                ),],
-                                                                          ),),
+        self.main_page.update()
 
-                                                                 ft.Container(
-                                                                      width=60,
-                                                                 ),#<=== NOTE COMA
+    def delete_attributes(self, list_atributes: list = [], dict_to_edit: dict = {}):
+        for _ in list_atributes:
+            #: IF EXIST DATA or DATA == ""
+            if dict_to_edit.get(_):
+                del dict_to_edit[_]
 
-                                                                 Basic_MenuUp,
-                                                                 ft.Container(
-                                                                             expand=True,
-                                                                 ),#<=== NOTE COMA
+        return dict_to_edit
 
-                                                                 ft.Container(
+    def rename_dict_key(
+        self,
+        list_atributes: list = "",
+        dict_to_edit: dict = {},
+        attributes_to_change: dict = {},
+    ):
+        #: RENAME KEYS FROM DICT EG:
+        #: imagesrc image_src
 
-                                                                      bgcolor       = ft.colors.BLACK38,
-                                                                      gradient      = ft.LinearGradient(
-                                                                                                        begin = ft.alignment.top_center,
-                                                                                                        end   = ft.alignment.bottom_center,
-                                                                                                        colors= [ft.colors.TEAL, ft.colors.BLACK12],
-                                                                                                        ),
-                                                                      border_radius = ft.border_radius.only(top_left    = 32,
-                                                                                                            top_right   = 18,
-                                                                                                            bottom_left = 18,
-                                                                                                            bottom_right= 32),
-                                                                      content = ft.Row(
-                                                                                     spacing=0,
-                                                                                     controls=[
-                                                                                          ft.Container(
-                                                                                                      tooltip       = 'SAVE PROYECT',
-                                                                                                      ink           = True,
-                                                                                                      ink_color     = ft.colors.RED,
-                                                                                                      bgcolor       = ft.colors.RED_900,
-                                                                                                      margin        = ft.margin.only(left=2, top=2, right=8, bottom=2),
-                                                                                                      border_radius  =ft.border_radius.only(top_left=32,
-                                                                                                                                            top_right=18,
-                                                                                                                                            bottom_left=18,
-                                                                                                                                            bottom_right=32),
+        attributes_to_change = {
+            "imagesrc": "image_src",
+            "imageopacity": "image_opacity",
+            "imagefit": "image_fit",
+            "borderradius": "border_radius",
+            "horizontalalignment": "horizontal_alignment",
+        }
 
-                                                                                                      alignment     = ft.alignment.center,
-                                                                                                      # border_radius = ft.border_radius.all(30),
-                                                                                                      border        = ft.border.all(2, ft.colors.BLACK12),
-                                                                                                      width         = 60,
-                                                                                               on_click=lambda _: self.save_proyect_app(),
-                                                                                               content=ft.Icon(name = ft.icons.SAVE_AS_ROUNDED,),
-                                                                                          ),
+        for _ in list_atributes:
+            if dict_to_edit.get(_):
+                #: GET NEW NAME
+                new_name = attributes_to_change.get(_)
+                # RENAME OLD BY NEW KEY
+                dict_to_edit[new_name] = dict_to_edit.get(_)
 
-                                                                                          ft.IconButton(
-                                                                                                        ft.icons.CIRCLE,
-                                                                                                        icon_color='Yellow',
-                                                                                                        tooltip="Minimize",
-                                                                                               on_click = lambda _: self.action_windows(action = "Minimize"),
-                                                                                                        ),
-                                                                                          ft.IconButton(
-                                                                                                        ft.icons.CIRCLE,
+                #: DELETE OLD KEY
+                del dict_to_edit[_]
 
-                                                                                                        icon_color='Green',
-                                                                                                        tooltip="Resize",
-
-                                                                                                        content=ft.Text(value='X',color='White'),
-                                                                                               on_click = lambda _: self.action_windows(action = "Resize"),
-                                                                                                        ),
-                                                                                          ft.IconButton(
-                                                                                                        ft.icons.CIRCLE,
-
-                                                                                                        icon_color='Red',
-
-                                                                                                        tooltip="Close",
-                                                                                               on_click = lambda _: self.action_windows(action = "Close"),
-
-                                                                                     ),])
-                                                                           ),
-
-
-                                                                      ]
-
-                                                                      ),
-                                                            ))
-          return Drop_MenuUpContainer
-
-     def yes_click(self,data,alert):
-          if data == 'yes':
-               self.main_page.window.close()
-          elif data == 'close':
-               alert.open = False
-               self.main_page.update()
-
-     def action_windows(self,action):
-
-          if   action == 'Close':
-               confirm_dialog = ft.AlertDialog(
-                                        modal   = True,
-                                        title   = ft.Text("Please confirm"),
-                                        content = ft.Text("Do you really want to exit this app?"),
-                                   actions=[
-                                              ft.ElevatedButton("Yes",on_click=lambda _:self.yes_click(data='yes',alert=confirm_dialog),bgcolor=ft.colors.RED_900),
-                                              ft.OutlinedButton("No", on_click=lambda _:self.yes_click(data='close',alert=confirm_dialog)
-                                             ),
-                                        ],
-                                        actions_alignment="end",
-                                        )
-               self.main_page.overlay.append(confirm_dialog)
-               confirm_dialog.open = True
-
-          elif action == 'Minimize':
-               self.main_page.window.minimized   = True
-
-          elif action == 'Resize':
-               self.main_page.window.maximizable = True
-
-          self.main_page.update()
-
-
-
-     def delete_attributes(self,list_atributes: list=[],dict_to_edit: dict={}):
-          for _ in list_atributes:
-               #: IF EXIST DATA or DATA == ""
-               if dict_to_edit.get(_):
+            else:
+                if dict_to_edit.get(_) == "":
                     del dict_to_edit[_]
 
-          return dict_to_edit
+        return dict_to_edit
 
+    def create_frame_app(
+        self,
+        main_node_phone: str = "OBJECT WIDGET",
+        main_node_phone_id: str = "ID OBJECT WIDGET",
+    ):
+        # tmp_data_dict_attributes: dict={}
 
-     def rename_dict_key(self,list_atributes: list="",dict_to_edit: dict={} , attributes_to_change: dict ={}):
-          #: RENAME KEYS FROM DICT EG:
-          #: imagesrc image_src
+        all_data: dict = {
+            "MAIN_CONTAINER": str(),
+            "MAIN_EFFECTS_CONTAINER": str(),
+            "COLUMN_CONTAINER": str(),
+        }
+        tmp_data: dict = {}
 
-          attributes_to_change = {
-                         "imagesrc":"image_src",
-                     "imageopacity":"image_opacity",
-                         "imagefit":"image_fit",
-                     "borderradius":"border_radius",
-              "horizontalalignment":"horizontal_alignment"
-          }
+        #: INSTANCE MAIN PHONE
+        self.main_phone = main_node_phone
 
-          for _ in list_atributes:
-               if dict_to_edit.get(_):
-                    #: GET NEW NAME
-                    new_name = attributes_to_change.get(_)
-                    # RENAME OLD BY NEW KEY
-                    dict_to_edit[new_name]=dict_to_edit.get(_)
+        #: BUILD FRAME PHONE
+        PHONE_MAIN = self.main_phone
+        PHONE_CONTAINER = self.main_phone.content.content.content
+        COLUMN_CONTAINER = self.main_phone.content.content.content.content
+        ALL_SCREEN_IN_DICT = self.main_phone.content.content.content.content.controls
 
-                    #: DELETE OLD KEY
-                    del dict_to_edit[_]
+        #: =========================================================================
+        #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [1]
+        PHONE_MAIN.copy_attrs(dest=tmp_data)
 
-               else:
-                    if dict_to_edit.get(_) == "":
-                         del dict_to_edit[_]
+        #: MAIN PHONE
+        atributes_to_delete = [
+            "borderradius",
+            "border",
+            "ink",
+            "n",
+            "onhover",
+            "visible",
+            "onclick",
+        ]
+        atributes_to_rename = [
+            "borderradius",
+            "imagesrc",
+            "imageopacity",
+            "imagefit",
+        ]
+        tmp_data = self.delete_attributes(
+            list_atributes=atributes_to_delete, dict_to_edit=tmp_data
+        )
+        tmp_data = self.rename_dict_key(
+            list_atributes=atributes_to_rename, dict_to_edit=tmp_data
+        )
+        #: =========================================================================
+        #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [1]
+        # print(tmp_data,' DATA PHONE: [1]')
+        if tmp_data.get("n"):
+            del tmp_data["n"]
 
-          return dict_to_edit
+        #: SET NEW DATA OF CONTAIER
+        all_data["MAIN_CONTAINER"] = tmp_data
+        tmp_data: dict = {}  #: RESET TO EMPTY
+        #: =========================================================================
+        #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [2]
+        PHONE_CONTAINER.copy_attrs(dest=tmp_data)
 
-     def create_frame_app(self,main_node_phone: str="OBJECT WIDGET",main_node_phone_id: str="ID OBJECT WIDGET"):
+        #: MAIN PHONE
+        atributes_to_delete = [
+            "borderradius",
+            "border",
+            "n" "onclick",
+            "onhover",
+        ]
+        # atributes_to_rename = [
+        #                     # "borderradius",
+        #                     # "imagesrc",
+        #                     # "imageopacity",
+        #                     # "imagefit",
+        #                     ]
+        tmp_data = self.delete_attributes(
+            list_atributes=atributes_to_delete, dict_to_edit=tmp_data
+        )
+        # tmp_data = self.rename_dict_key(
+        #                                      list_atributes= atributes_to_rename,
+        #                                      dict_to_edit  = tmp_data
+        #                                 )
 
-          # tmp_data_dict_attributes: dict={}
+        #: =========================================================================
+        #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [2]
+        # print(tmp_data,' DATA PHONE: [2]')
+        if tmp_data.get("n"):
+            del tmp_data["n"]
 
-          all_data: dict = {
+        #: SET NEW DATA OF CONTAIER
+        all_data["MAIN_EFFECTS_CONTAINER"] = tmp_data
+        tmp_data: dict = {}  #: RESET TO EMPTY
+        #: =========================================================================
+        #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [3]
+        COLUMN_CONTAINER.copy_attrs(dest=tmp_data)
 
-                         "MAIN_CONTAINER":str(),
-                 "MAIN_EFFECTS_CONTAINER":str(),
-                       "COLUMN_CONTAINER":str(),
+        #: MAIN PHONE
+        atributes_to_delete = [
+            "n" "onhover",
+            "onclick",
+        ]
+        atributes_to_rename = [
+            "horizontalalignment",
+        ]
+        tmp_data = self.delete_attributes(
+            list_atributes=atributes_to_delete, dict_to_edit=tmp_data
+        )
+        tmp_data = self.rename_dict_key(
+            list_atributes=atributes_to_rename, dict_to_edit=tmp_data
+        )
 
-                         }
-          tmp_data: dict = {}
+        #: =========================================================================
+        #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [3]
+        # print(tmp_data,' DATA PHONE: [2]')
+        if tmp_data.get("n"):
+            del tmp_data["n"]
 
-          #: INSTANCE MAIN PHONE
-          self.main_phone = main_node_phone
+        #: SET NEW DATA OF CONTAIER
+        all_data["COLUMN_CONTAINER"] = tmp_data
+        tmp_data: dict = {}  #: RESET TO EMPTY
+        #: =========================================================================
 
-          #: BUILD FRAME PHONE
-          PHONE_MAIN         = self.main_phone
-          PHONE_CONTAINER    = self.main_phone.content.content.content
-          COLUMN_CONTAINER   = self.main_phone.content.content.content.content
-          ALL_SCREEN_IN_DICT = self.main_phone.content.content.content.content.controls
+        #: BUILD ALL DATA TO EXPORT
+        main_pone_style = (
+            json.dumps(all_data, indent=4)
+            .replace("\\", "")
+            .replace("borderradius", "border_radius")
+            .replace("horizontalalignment", "horizontal_alignment")
+        )
+        main_screen_attributes: str = f"{main_pone_style}".replace('"{', "{").replace(
+            '}"', "}"
+        )
 
-          #: =========================================================================
-          #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [1]
-          PHONE_MAIN.copy_attrs(dest=tmp_data)
+        #: RECODING TO MAKE MAIN SCREEN FROM SKELETON CLASS SCREEN THIS IS MAIN_SCREEN_BUILDER
+        main_widget_form_skeleton: str = get_skeleton(name="class_flet_box")
+        main_widget_form_skeleton = main_widget_form_skeleton.replace(
+            "CHANGE_STYLE", main_screen_attributes
+        )  #: SET ATRIBUTES
 
-          #: MAIN PHONE
-          atributes_to_delete = [
-                              "borderradius",
-                              "border",
-                              "ink",
-                              "n",
-                              "onhover",
-                              "visible",
-                              "onclick",
-                              ]
-          atributes_to_rename = [
-                              "borderradius",
-                              "imagesrc",
-                              "imageopacity",
-                              "imagefit",
-                              ]
-          tmp_data = self.delete_attributes(
-                                             list_atributes  = atributes_to_delete,
-                                             dict_to_edit    = tmp_data
-                                             )
-          tmp_data = self.rename_dict_key(
-                                               list_atributes= atributes_to_rename,
-                                               dict_to_edit  = tmp_data
-                                          )
-          #: =========================================================================
-          #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [1]
-          # print(tmp_data,' DATA PHONE: [1]')
-          if tmp_data.get('n'): del tmp_data['n']
+        #: CONTENT OF THE PHONE WILL WALK THOUGH HONE TO GET ALL DATA
+        data_to_treview = GLOBAL_VAR(get_global_var="ALL_SCREEN_IN_DICT").get(
+            main_node_phone_id
+        )
+        build_json_file = self.widget.build_json_file(widget_show=data_to_treview)
 
-          #: SET NEW DATA OF CONTAIER
-          all_data["MAIN_CONTAINER"] = tmp_data
-          tmp_data: dict = {}          #: RESET TO EMPTY
-          #: =========================================================================
-          #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [2]
-          PHONE_CONTAINER.copy_attrs(dest=tmp_data)
+        #: WILL RELACE [ CHANGE_ATTRIBUTES ] BY NEW ATTRIBUTES
+        main_widget_form_skeleton = main_widget_form_skeleton.replace(
+            "CHANGE_ATTRIBUTES", build_json_file.get("main_code")
+        )  #: SET BOX CONTENT
 
-          #: MAIN PHONE
-          atributes_to_delete = [
-                              "borderradius",
-                              "border",
-                              'n'
-                              "onclick",
-                              "onhover",
-                              ]
-          # atributes_to_rename = [
-          #                     # "borderradius",
-          #                     # "imagesrc",
-          #                     # "imageopacity",
-          #                     # "imagefit",
-          #                     ]
-          tmp_data = self.delete_attributes(
-                                             list_atributes  = atributes_to_delete,
-                                             dict_to_edit    = tmp_data
-                                             )
-          # tmp_data = self.rename_dict_key(
-          #                                      list_atributes= atributes_to_rename,
-          #                                      dict_to_edit  = tmp_data
-          #                                 )
+        # #: RECODING TO MAKE STYLE SCREEN FROM SKELETON CLASS SCREEN
+        main_style_code = f"#: THIS IS NOT JSON FILE IT'S PYTHON DICTIONARY{build_json_file.get('style_code')}"
 
-          #: =========================================================================
-          #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [2]
-          # print(tmp_data,' DATA PHONE: [2]')
-          if tmp_data.get('n'): del tmp_data['n']
+        # #: RECODING TO MAKE EVENT MANAGER SCREEN FROM SKELETON CLASS SCREEN
+        event_manager: str = get_skeleton(name="event_manager")
+        main_event_code = f"{event_manager}{build_json_file.get('event_code')}"
 
-          #: SET NEW DATA OF CONTAIER
-          all_data["MAIN_EFFECTS_CONTAINER"] = tmp_data
-          tmp_data: dict = {}          #: RESET TO EMPTY
-          #: =========================================================================
-          #: // NEW COPY ATTRIBUTES PHONE_MAIN                             DATA PHONE: [3]
-          COLUMN_CONTAINER.copy_attrs(dest=tmp_data)
+        #: GET CURRENT NAME ID FOT EACH PROYECT
+        id_name = GLOBAL_VAR(get_global_var=main_node_phone_id)
+        # print(f"name id: {self.current_name}")
 
-          #: MAIN PHONE
-          atributes_to_delete = [
-                              'n'
-                              "onhover",
-                              "onclick",
-                              ]
-          atributes_to_rename = [
-                              "horizontalalignment",
-                              ]
-          tmp_data = self.delete_attributes(
-                                             list_atributes  = atributes_to_delete,
-                                             dict_to_edit    = tmp_data
-                                             )
-          tmp_data = self.rename_dict_key(
-                                               list_atributes= atributes_to_rename,
-                                               dict_to_edit  = tmp_data
-                                          )
+        #: RUN ONLY PRODUCTON
+        # print(all_data)
+        # print(f'ID: {self.main_phone.uid} PHONE_MAIN 1')
+        # print(f'ID: {self.main_phone.content.content.content.uid } PHONE_CONTAINER 2')
+        # print(f'ID: {self.main_phone.content.content.content.content.uid } PHONE_CONTAINER 4')
 
-          #: =========================================================================
-          #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [3]
-          # print(tmp_data,' DATA PHONE: [2]')
-          if tmp_data.get('n'): del tmp_data['n']
+        # print(build_json_file.get('main_code'))
+        # print(build_json_file.get('event_code'))
+        # print(build_json_file.get('style_code'))
+        # print(build_json_file)
 
-          #: SET NEW DATA OF CONTAIER
-          all_data["COLUMN_CONTAINER"] = tmp_data
-          tmp_data: dict = {}          #: RESET TO EMPTY
-          #: =========================================================================
+        return (
+            main_widget_form_skeleton,
+            main_style_code,
+            main_event_code,
+            id_name,
+        )
 
-          #: BUILD ALL DATA TO EXPORT
-          main_pone_style = json.dumps(all_data, indent=4 ).replace('\\', '').replace('borderradius', 'border_radius').replace('horizontalalignment', 'horizontal_alignment')
-          main_screen_attributes: str = f"{main_pone_style}".replace('"{',"{").replace('}"',"}")
+        #: RESET COLOR
+        # if selected_widget_clicked:
+        #      selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
+        #      selected_widget_clicked.update()
 
-          #: RECODING TO MAKE MAIN SCREEN FROM SKELETON CLASS SCREEN THIS IS MAIN_SCREEN_BUILDER
-          main_widget_form_skeleton: str = get_skeleton(name='class_flet_box')
-          main_widget_form_skeleton = main_widget_form_skeleton.replace('CHANGE_STYLE', main_screen_attributes)                 #: SET ATRIBUTES
+    def save_proyect_app(self):
+        # #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
+        # selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
 
-          #: CONTENT OF THE PHONE WILL WALK THOUGH HONE TO GET ALL DATA
-          data_to_treview   = GLOBAL_VAR(get_global_var ='ALL_SCREEN_IN_DICT').get(main_node_phone_id)
-          build_json_file   = self.widget.build_json_file(widget_show=data_to_treview)
+        # #: RESET COLOR
+        # if selected_widget_clicked.border:
+        #      selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
+        #      selected_widget_clicked.update()
 
-          #: WILL RELACE [ CHANGE_ATTRIBUTES ] BY NEW ATTRIBUTES
-          main_widget_form_skeleton  = main_widget_form_skeleton.replace('CHANGE_ATTRIBUTES',build_json_file.get('main_code'))    #: SET BOX CONTENT
+        #: GET LIST WITH ALL SCREENS
+        self.get_row_screens = GLOBAL_VAR(get_global_var="row_phone").controls
+        self.names_screens: list = []
 
-          # #: RECODING TO MAKE STYLE SCREEN FROM SKELETON CLASS SCREEN
-          main_style_code = f"#: THIS IS NOT JSON FILE IT'S PYTHON DICTIONARY{build_json_file.get('style_code')}"
+        #: WRITE APP IN REAL TIME
+        self.app_events_manager = f"test/proyect_name/proyect_name/controls/"
 
-          # #: RECODING TO MAKE EVENT MANAGER SCREEN FROM SKELETON CLASS SCREEN
-          event_manager: str = get_skeleton(name='event_manager')
-          main_event_code = f"{event_manager}{build_json_file.get('event_code')}"
+        #: LIST SCREENS
+        for tmp_widgets in self.get_row_screens:
+            #: ALL FRAME OF PHONE    ALL CODE     ALL EVENT         ID SCREEN
+            (
+                streaming_phone_data,
+                style_code,
+                main_event_code,
+                id_name,
+            ) = self.create_frame_app(
+                main_node_phone=tmp_widgets, main_node_phone_id=tmp_widgets.uid
+            )
 
+            #: IF NO EXITS [ CREATE ] IF EXIST    [ OVERWRITE]
+            write_file(
+                path_name=self.app_events_manager,
+                file_name=id_name,
+                main_code=streaming_phone_data,
+                style_code=style_code,
+                event_code=main_event_code,
+            )
 
-          #: GET CURRENT NAME ID FOT EACH PROYECT
-          id_name = GLOBAL_VAR(get_global_var=main_node_phone_id)
-          # print(f"name id: {self.current_name}")
+            self.names_screens.append(id_name)
+            #: RUN ONLY IN PRODUCTION
+            # print(streaming_phone_data)
+            # print(style_code)
+            # print(main_event_code)
+            # print(id_name)
 
+        #: NEED MAKE SCREEN BUILDER MANAGER APP
+        self.write_screen_managet_app(
+            screens_list_name=self.names_screens, path_to_write=self.app_events_manager
+        )
 
-          #: RUN ONLY PRODUCTON
-          # print(all_data)
-          # print(f'ID: {self.main_phone.uid} PHONE_MAIN 1')
-          # print(f'ID: {self.main_phone.content.content.content.uid } PHONE_CONTAINER 2')
-          # print(f'ID: {self.main_phone.content.content.content.content.uid } PHONE_CONTAINER 4')
+        #: NEED ACTIVATE ALER OF SELECTED WIDGET
+        self.show_info_complete()
 
-          # print(build_json_file.get('main_code'))
-          # print(build_json_file.get('event_code'))
-          # print(build_json_file.get('style_code'))
-          # print(build_json_file)
+    def write_screen_managet_app(
+        self, screens_list_name: list = [], path_to_write: list = []
+    ):
+        list_screens = screens_list_name
+        all_dict_imports = list()
+        all_data = "#: ALL SCREENS IN APP\n"
 
-          return    (
-                    main_widget_form_skeleton ,
-                    main_style_code ,
-                    main_event_code ,
-                    id_name,
-                    )
+        for _ in list_screens:
+            #: SAVE ALL IMPORT PATH
+            tmp_screen_data = f"from .views.{_} import {_}\n"
+            tmp_events_data = f"from .views.{_}_events import *\n\n"
 
-          #: RESET COLOR
-          # if selected_widget_clicked:
-          #      selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
-          #      selected_widget_clicked.update()
+            #: ADD STR TO MIX DATA
+            all_data += tmp_screen_data + tmp_events_data
 
+            #: SAVE ALL IMPORT SCREENS
+            tmp_data = f"'{_}': {_}(),\n"
+            all_dict_imports.append(tmp_data)
 
-     def save_proyect_app(self):
-          # #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED IN PHONE CONTAINER
-          # selected_widget_clicked = GLOBAL_VAR( get_global_var='LIST_SELECTED_WIDGETS')
+        #: ADD STR TO MIX DATA
+        tabulation = "\t" * 4
+        all_data += "screens: dict={\n"
+        for _ in all_dict_imports:
+            all_data += f"{tabulation}{_}"
+        all_data += tabulation + "}"
 
-          # #: RESET COLOR
-          # if selected_widget_clicked.border:
-          #      selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
-          #      selected_widget_clicked.update()
+        full_screen_path = os.path.join(path_to_write, "app_screen_manager.py")
 
-          #: GET LIST WITH ALL SCREENS
-          self.get_row_screens = GLOBAL_VAR(get_global_var='row_phone').controls
-          self.names_screens: list = []
+        file_saved(
+            full_path=full_screen_path,
+            data_code=all_data,
+        )
 
-          #: WRITE APP IN REAL TIME
-          self.app_events_manager  = f'test/proyect_name/proyect_name/controls/'
-
-          #: LIST SCREENS
-          for tmp_widgets in self.get_row_screens:
-               #: ALL FRAME OF PHONE    ALL CODE     ALL EVENT         ID SCREEN
-               ( streaming_phone_data , style_code , main_event_code , id_name )= self.create_frame_app(
-                                                                                           main_node_phone    = tmp_widgets,
-                                                                                           main_node_phone_id = tmp_widgets.uid
-                                                                                           )
-
-               #: IF NO EXITS [ CREATE ] IF EXIST    [ OVERWRITE]
-               write_file(
-                         path_name  = self.app_events_manager,
-                         file_name  = id_name,
-
-                         main_code  = streaming_phone_data,
-                         style_code = style_code,
-                         event_code = main_event_code,
-                          )
-
-               self.names_screens.append(id_name)
-               #: RUN ONLY IN PRODUCTION
-               # print(streaming_phone_data)
-               # print(style_code)
-               # print(main_event_code)
-               # print(id_name)
-
-
-
-
-          #: NEED MAKE SCREEN BUILDER MANAGER APP
-          self.write_screen_managet_app(screens_list_name=self.names_screens,
-                                        path_to_write    =self.app_events_manager)
-
-          #: NEED ACTIVATE ALER OF SELECTED WIDGET
-          self.show_info_complete()
-
-     def write_screen_managet_app(
-                                   self,
-                                   screens_list_name:  list=[],
-                                   path_to_write:      list=[]
-                                   ):
-
-         list_screens = screens_list_name
-         all_dict_imports = list()
-         all_data = "#: ALL SCREENS IN APP\n"
-
-         for _ in list_screens:
-              #: SAVE ALL IMPORT PATH
-             tmp_screen_data = f"from .views.{_} import {_}\n"
-             tmp_events_data = f"from .views.{_}_events import *\n\n"
-
-              #: ADD STR TO MIX DATA
-             all_data+=tmp_screen_data+tmp_events_data
-
-              #: SAVE ALL IMPORT SCREENS
-             tmp_data = f"'{_}': {_}(),\n"
-             all_dict_imports.append(tmp_data)
-
-          #: ADD STR TO MIX DATA
-         tabulation = "\t"*4
-         all_data += "screens: dict={\n"
-         for _ in all_dict_imports: all_data += f"{tabulation}{_}"
-         all_data += tabulation +"}"
-
-         full_screen_path = os.path.join(path_to_write,"app_screen_manager.py")
-
-         file_saved(
-                    full_path = full_screen_path,
-                    data_code = all_data,
-                    )
-
-
-     def show_info_complete(self):
-         selected_widget         = GLOBAL_VAR( get_global_var='ALERT_WIDGET')
-         selected_widget.offset  = (1.59,-7.5)
-         selected_widget.visible = True
-         selected_widget.update()
-         time.sleep(1)
-         selected_widget.visible = False
-         selected_widget.update()
+    def show_info_complete(self):
+        selected_widget = GLOBAL_VAR(get_global_var="ALERT_WIDGET")
+        selected_widget.offset = (1.59, -7.5)
+        selected_widget.visible = True
+        selected_widget.update()
+        time.sleep(1)
+        selected_widget.visible = False
+        selected_widget.update()
