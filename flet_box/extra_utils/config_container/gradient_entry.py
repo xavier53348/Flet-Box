@@ -2,6 +2,7 @@ import flet as ft
 from ..settings_var.settings_widget import GLOBAL_VAR
 
 
+
 class GradientEntry(ft.Stack):
     """
     box_layout = ft.Container(content=ft.Text())
@@ -58,6 +59,7 @@ class GradientEntry(ft.Stack):
         " bottom_center ": ft.alignment.bottom_center,
         " bottom_right ": ft.alignment.bottom_right,
     }
+<<<<<<< HEAD
 
     def __init__(
         self,
@@ -74,6 +76,19 @@ class GradientEntry(ft.Stack):
         self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
         self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
         self.content_padding = GLOBAL_VAR(get_global_var="content_padding")
+=======
+
+    def __init__(
+        self,
+        config_widget="exemple [value,bgcolor,width,height] ....",
+        widget="",
+        id_name_widget_dict=None,
+    ):
+        super().__init__()
+        self.widget = widget
+        self.attribute_widget = config_widget
+        self.id_name_widget_dict = id_name_widget_dict
+>>>>>>> 102af40 (fixed overlay append)
 
         if self.attribute_widget == "gradient":
             """top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right"""
@@ -123,7 +138,11 @@ class GradientEntry(ft.Stack):
             content=ft.Dropdown(
                 hint_text=" None ",
                 width=140,
+<<<<<<< HEAD
                 content_padding=self.content_padding,
+=======
+                content_padding=ft.padding.only(left=0, top=0, right=8, bottom=14),
+>>>>>>> 102af40 (fixed overlay append)
                 alignment=ft.alignment.center_left,
                 border_radius=ft.border_radius.all(15),
                 border=ft.InputBorder.NONE,
@@ -208,8 +227,12 @@ class GradientEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
+<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
+=======
+                                        text_size=15,
+>>>>>>> 102af40 (fixed overlay append)
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value="color_1",
@@ -227,8 +250,12 @@ class GradientEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
+<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
+=======
+                                        text_size=15,
+>>>>>>> 102af40 (fixed overlay append)
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value="color_2",
@@ -249,7 +276,13 @@ class GradientEntry(ft.Stack):
                                     content=ft.Dropdown(
                                         hint_text=" bottom_center ",
                                         width=140,
+<<<<<<< HEAD
                                         content_padding=self.content_padding,
+=======
+                                        content_padding=ft.padding.only(
+                                            left=0, top=0, right=8, bottom=14
+                                        ),
+>>>>>>> 102af40 (fixed overlay append)
                                         alignment=ft.alignment.center_left,
                                         border_radius=ft.border_radius.all(15),
                                         border=ft.InputBorder.NONE,
@@ -291,8 +324,12 @@ class GradientEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
+<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
+=======
+                                        text_size=15,
+>>>>>>> 102af40 (fixed overlay append)
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
@@ -311,8 +348,12 @@ class GradientEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
+<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
+=======
+                                        text_size=15,
+>>>>>>> 102af40 (fixed overlay append)
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
@@ -334,8 +375,15 @@ class GradientEntry(ft.Stack):
                                     content=ft.Dropdown(
                                         hint_text=" top_center ",
                                         width=140,
+<<<<<<< HEAD
                                         content_padding=self.content_padding,
                                         alignment=ft.alignment.top_center,
+=======
+                                        content_padding=ft.padding.only(
+                                            left=0, top=0, right=8, bottom=14
+                                        ),
+                                        alignment=ft.alignment.center_left,
+>>>>>>> 102af40 (fixed overlay append)
                                         border_radius=ft.border_radius.all(15),
                                         border=ft.InputBorder.NONE,
                                         options=self.options_tmp_2,

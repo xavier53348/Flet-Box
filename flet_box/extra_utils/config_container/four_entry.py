@@ -1,7 +1,10 @@
 import flet as ft
 
+<<<<<<< HEAD
 from ..settings_var.settings_widget import GLOBAL_VAR
 
+=======
+>>>>>>> 102af40 (fixed overlay append)
 
 class FourEntry(ft.Stack):
     """
@@ -94,8 +97,12 @@ class FourEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
+<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
+=======
+                                        text_size=15,
+>>>>>>> 102af40 (fixed overlay append)
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value=packet_data,
@@ -112,8 +119,12 @@ class FourEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
+<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
+=======
+                                        text_size=15,
+>>>>>>> 102af40 (fixed overlay append)
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value=packet_data,
@@ -148,8 +159,12 @@ class FourEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
+<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
+=======
+                                        text_size=15,
+>>>>>>> 102af40 (fixed overlay append)
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value=packet_data,
@@ -166,8 +181,12 @@ class FourEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
+<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
+=======
+                                        text_size=15,
+>>>>>>> 102af40 (fixed overlay append)
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,

@@ -199,6 +199,12 @@ if __name__ == "__main__":
             def dict_style(self, code):
                 return styles.get(code)
 
+<<<<<<< HEAD
+=======
+
+        def dict_style(self,code):
+            return styles.get(code)
+>>>>>>> 102af40 (fixed overlay append)
     """
 
     def main(page: ft.Page):

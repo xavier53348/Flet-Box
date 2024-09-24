@@ -38,6 +38,7 @@ DATA_GLOBAL = {
     "CONFI_SHOW": None,  # <== BOX CONFIG
     "ALL_SCREEN_IN_DICT": dict(),  # <== ALL SCREENS IN SCREEN MANAGER
     "row_phone": dict(),  # <== ALL SCREENS IN ROW TO SAVE DATA
+<<<<<<< HEAD
 
 
     "text_size_input": 16,  # <== ALL SCREENS IN ROW TO SAVE DATA
@@ -45,6 +46,8 @@ DATA_GLOBAL = {
 
     # selection widget
     "content_padding":ft.padding.only(left=0, top=0, right=0, bottom=18),
+=======
+>>>>>>> 102af40 (fixed overlay append)
 }
 
 

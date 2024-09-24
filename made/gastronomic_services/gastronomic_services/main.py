@@ -47,12 +47,15 @@ def main(page: ft.Page):
     show_screen.height = page.window.height
     show_screen.width  = page.window.width
     page.on_resize     = lambda _: change_size(page_width=page.window.width, page_height=page.window.height)
+<<<<<<< HEAD
 
     #: WALLPAPER
     # page.decoration   = ft.BoxDecoration(image=ft.DecorationImage(src="exemple.jpg",fit=ft.ImageFit.COVER,opacity=0.2,), #: CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
     #                    # gradient = ft.LinearGradient(begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
     #                    # gradient = ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
     #                                )
+=======
+>>>>>>> 102af40 (fixed overlay append)
 
     #: SET FROM CONTAINER BGCOLOR
     # page.bgcolor = styles['_2921']['bgcolor']
@@ -113,7 +116,13 @@ if __name__ == '__main__':
     ft.app(
             target=main,
             assets_dir="assets",
+<<<<<<< HEAD
             # view         = ft.AppView.WEB_BROWSER, #view=ft.WEB_BROWSER,
             # web_renderer = ft.WebRenderer.HTML,
             # port=21109,
+=======
+            view         = ft.AppView.WEB_BROWSER, #view=ft.WEB_BROWSER,
+            web_renderer = ft.WebRenderer.HTML,
+            port=21109,
+>>>>>>> 102af40 (fixed overlay append)
             )
