@@ -1,4 +1,5 @@
 import flet as ft
+from ..settings_var.settings_widget import GLOBAL_VAR
 
 
 class GradientEntry(ft.Stack):
@@ -69,6 +70,11 @@ class GradientEntry(ft.Stack):
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
 
+        # size textz
+        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
+        self.content_padding = GLOBAL_VAR(get_global_var="content_padding")
+
         if self.attribute_widget == "gradient":
             """top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right"""
 
@@ -117,7 +123,7 @@ class GradientEntry(ft.Stack):
             content=ft.Dropdown(
                 hint_text=" None ",
                 width=140,
-                content_padding=ft.padding.only(left=0, top=0, right=8, bottom=14),
+                content_padding=self.content_padding,
                 alignment=ft.alignment.center_left,
                 border_radius=ft.border_radius.all(15),
                 border=ft.InputBorder.NONE,
@@ -202,7 +208,8 @@ class GradientEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value="color_1",
@@ -220,7 +227,8 @@ class GradientEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value="color_2",
@@ -241,9 +249,7 @@ class GradientEntry(ft.Stack):
                                     content=ft.Dropdown(
                                         hint_text=" bottom_center ",
                                         width=140,
-                                        content_padding=ft.padding.only(
-                                            left=0, top=0, right=8, bottom=14
-                                        ),
+                                        content_padding=self.content_padding,
                                         alignment=ft.alignment.center_left,
                                         border_radius=ft.border_radius.all(15),
                                         border=ft.InputBorder.NONE,
@@ -285,7 +291,8 @@ class GradientEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
@@ -304,7 +311,8 @@ class GradientEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
@@ -326,10 +334,8 @@ class GradientEntry(ft.Stack):
                                     content=ft.Dropdown(
                                         hint_text=" top_center ",
                                         width=140,
-                                        content_padding=ft.padding.only(
-                                            left=0, top=0, right=8, bottom=14
-                                        ),
-                                        alignment=ft.alignment.center_left,
+                                        content_padding=self.content_padding,
+                                        alignment=ft.alignment.top_center,
                                         border_radius=ft.border_radius.all(15),
                                         border=ft.InputBorder.NONE,
                                         options=self.options_tmp_2,

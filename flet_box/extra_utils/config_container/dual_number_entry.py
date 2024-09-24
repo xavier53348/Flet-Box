@@ -88,7 +88,7 @@ class config_number_widget(ft.Stack):
         self.button_name = button_name
         self.widget_new = widget_to_modify
 
-        print(self.widget_new, "xxxxx")
+        # print(self.widget_new, "xxxxx")
 
     def build(self):
         self.show_info_bar = ft.Container(
@@ -254,7 +254,7 @@ class config_number_widget(ft.Stack):
 
         # print(name_id,'<<<<<<>>>>>>>>>',self.widget_to_modify)
         # #:
-        print(self.widget_name, slider_value, "<<<<<<>>>>>>>>>", self.widget_new)
+        # print(self.widget_name, slider_value, "<<<<<<>>>>>>>>>", self.widget_new)
 
         if self.widget_name == "padding":
             self.widget_to_modify.padding = ft.padding.all(slider_value)
@@ -326,7 +326,7 @@ class DualNumeberEntry(ft.Stack):
         self.widget_name = config_widget
         self.widget_content = self.widget_content
         self.id_name_widget_dict = id_name_widget_dict
-        print(self.widget_name, self.widget)
+        # print(self.widget_name, self.widget)
 
     def build(self):
         TmpDualNumeberEntry = ft.Container(

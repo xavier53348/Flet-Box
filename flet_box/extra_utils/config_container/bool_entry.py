@@ -1,5 +1,6 @@
 import flet as ft
 
+from ..settings_var.settings_widget import GLOBAL_VAR
 
 class BoolEntry(ft.Stack):
     """
@@ -21,6 +22,9 @@ class BoolEntry(ft.Stack):
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
         #: will change name of entry points
+        # size textz
+        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
 
     def build(self):
         Drop_BoolEntry = ft.Container(
@@ -86,7 +90,8 @@ class BoolEntry(ft.Stack):
                                                     border=ft.InputBorder.NONE,
                                                     bgcolor="#0e0f11",
                                                     color="YELLOW",
-                                                    text_size=15,
+                                                    text_size=self.text_size,
+                                                    content_padding=self.padding_only,
                                                 ),
                                             ),
                                             ft.Container(

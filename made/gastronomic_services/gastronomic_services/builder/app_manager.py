@@ -57,14 +57,17 @@ def builder_app(screen, main_page):
     # print(screen)
     return tmp_data
 
-def got_to_screen(to_screen: str, style: str='bar', time_style: float=10 ):
+def got_to_screen(to_screen: str, style: str='ring', time_style: float=10 ):
     """
     Clean the view and add and update new view
 
-    got_to_screen(to_screen='screen_1' , style='ring')
+    Attributes:
 
-    effects:
-    style = 'ring' , 'bar'
+    got_to_screen(to_screen='screen_1' , style='ring' , time_style=10)
+
+    Effects attributes to go to screen:
+    style = 'ring' ,
+    style = 'bar'
 
     """
     main_page:      dict = GLOBAL_VAR(get_global_var='main_page')

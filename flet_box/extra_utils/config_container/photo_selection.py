@@ -56,7 +56,7 @@ class PhotoSelection(ft.Container):
         self.widget_tag_name = tmp_widget_selected.get("widget_name")
         self.widget = tmp_widget_selected.get("attribute_to_change")
 
-        print(self.widget_tag_name)
+        # print(self.widget_tag_name)
         #: SET ATTRIBUTES
         if self.widget_tag_name == "image_src":
             self.widget.image_src = self.photo_selection

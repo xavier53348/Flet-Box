@@ -370,9 +370,7 @@ def main(page: ft.Page):
     GLOBAL_VAR(set_global_var={"ALL_SCREEN_IN_DICT": {phone_testing.uid: dict()}})
     # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'))
     # print(GLOBAL_VAR(get_global_var='main_screen').uid,'UID')
-    GLOBAL_VAR(
-        set_global_var={GLOBAL_VAR(get_global_var="main_screen").uid: "main_screen"}
-    )
+    GLOBAL_VAR(set_global_var={GLOBAL_VAR(get_global_var="main_screen").uid: "main_screen"})
     screen_manager(set_screen=row_phone.controls[0].uid)
     # print(GLOBAL_VAR(get_global_var='main_screen'))
 
@@ -387,7 +385,7 @@ def run_app():
 
 
 if __name__ == "__main__":
-    # warnings.simplefilter('ignore',DeprecationWarning)
+    warnings.simplefilter('ignore',DeprecationWarning)
 
     ft.app(
         target=main,

@@ -1,5 +1,7 @@
 import flet as ft
 
+from ..settings_var.settings_widget import GLOBAL_VAR
+
 
 class BlurColorEntry(ft.Stack):
     """
@@ -19,6 +21,11 @@ class BlurColorEntry(ft.Stack):
         self.widget = widget
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
+
+        # size textz
+        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
+
 
     def build(self):
         Drop_DoubleEntry = ft.Container(
@@ -71,7 +78,8 @@ class BlurColorEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_right_container_attributes(
                                             data="blur_effect", value=Drop_DoubleEntry
@@ -87,7 +95,8 @@ class BlurColorEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         on_change=lambda x: self.modify_right_container_attributes(
                                             data="blur_effect", value=Drop_DoubleEntry
                                         ),
@@ -151,7 +160,8 @@ class BlurColorEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,

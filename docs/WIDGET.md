@@ -212,6 +212,10 @@ Remember to replace `your_project_name` with your actual package name and adjust
 >>> tmp_data = screen_1.__repr__()
 ```
 
+- GET ATTRIBUTE LIKE A DICT [ get all values <====s]
+```shell
+>>> tmp_data = screen_1.__dict__
+```
 #### GET SPECIFIC ATTRIBUTES
 - GET SPECIFIC
 ```shell

@@ -1,5 +1,6 @@
 import flet as ft
 
+from ..settings_var.settings_widget import GLOBAL_VAR
 
 class DoubleEntry(ft.Stack):
     """
@@ -19,6 +20,9 @@ class DoubleEntry(ft.Stack):
         self.widget = widget
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
+        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
+
 
         #: print(self.attribute_widget)
         #: CONTAINER STR
@@ -68,32 +72,32 @@ class DoubleEntry(ft.Stack):
                 wrap=True,
                 controls=[
                     ft.Container(
-                        ink=False,
-                        bgcolor="#0e0f11",
-                        padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
-                        alignment=ft.alignment.center,
-                        border_radius=ft.border_radius.all(30),
-                        height=20,
-                        content=ft.Text(
-                            value="Width - Height"
-                            if self.attribute_widget == "width "
-                            else self.attribute_widget.capitalize().replace("_", " "),
-                            font_family="Consolas",  # "Consolas ,RobotoSlab
+                            ink=False,
+                            bgcolor="#0e0f11",
+                            padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
+                            alignment=ft.alignment.center,
+                            border_radius=ft.border_radius.all(30),
+                            height=20,
+                            content=ft.Text(
+                                value="Width - Height"
+                                if self.attribute_widget == "width "
+                                else self.attribute_widget.capitalize().replace("_", " "),
+                                font_family="Consolas",  # "Consolas ,RobotoSlab
                         ),
                     ),
                     ft.Container(
-                        ink=False,
-                        padding=ft.padding.all(2),
-                        alignment=ft.alignment.center,
-                        border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(0.1, ft.colors.BLACK38),
-                        width=154,
-                        height=36,
-                        tooltip="Double Entry",
-                        gradient=ft.LinearGradient(
-                            begin=ft.alignment.top_center,
-                            end=ft.alignment.bottom_center,
-                            colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                            ink=False,
+                            padding=ft.padding.all(2),
+                            alignment=ft.alignment.center,
+                            border_radius=ft.border_radius.all(30),
+                            border=ft.border.all(0.1, ft.colors.BLACK38),
+                            width=154,
+                            height=36,
+                            tooltip="Double Entry",
+                            gradient=ft.LinearGradient(
+                                begin=ft.alignment.top_center,
+                                end=ft.alignment.bottom_center,
+                                colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
                         ),
                         content=ft.Row(
                             controls=[
@@ -106,7 +110,8 @@ class DoubleEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
@@ -123,7 +128,8 @@ class DoubleEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value=Drop_DoubleEntry,

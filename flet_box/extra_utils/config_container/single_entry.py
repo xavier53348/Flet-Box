@@ -1,5 +1,6 @@
 import flet as ft
 
+from ..settings_var.settings_widget import GLOBAL_VAR
 
 class SingleEntry(ft.Stack):
     """
@@ -24,6 +25,10 @@ class SingleEntry(ft.Stack):
         # print(self.widget)
         self.widget_content = self.widget_content
         self.id_name_widget_dict = id_name_widget_dict
+
+        # size textz
+        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
 
         #: WE SET NEW NAME
         if config_widget == "width":
@@ -91,8 +96,8 @@ class SingleEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-                                        text_size=15,
-                                        # ======================= EVENTS ===========================
+                                        text_size=self.text_size,
+                                        content_padding=self.padding_only,
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value=SingleEntry,

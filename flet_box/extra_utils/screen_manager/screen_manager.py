@@ -157,18 +157,9 @@ def screen_manager(
                 if _.id_name_widget_dict == "main_phone_conainer_conent":
                     _.widget = widget_to_edit.content.content.content.content
 
-        update_widget_config_container(
-            widget_update=color_phone_controls.controls,
-            widget_to_edit=new_selected_screen,
-        )
-
-        update_widget_config_container(
-            widget_update=image_phone_controls.controls,
-            widget_to_edit=new_selected_screen,
-        )
-        update_widget_config_container(
-            widget_update=column_phone_controls.controls,
-            widget_to_edit=new_selected_screen,
+        update_widget_config_container(widget_update=color_phone_controls.controls,widget_to_edit=new_selected_screen,)
+        update_widget_config_container(widget_update=image_phone_controls.controls,widget_to_edit=new_selected_screen,)
+        update_widget_config_container(widget_update=column_phone_controls.controls,widget_to_edit=new_selected_screen,
         )
         try:
             #: IF NO WXITIN MAIN SCREEN PASS
@@ -188,9 +179,7 @@ def screen_manager(
         # ========================================================================================
         #: CREATE NEW SCREEN IN ALL SCREENS DICT VERY IMPORTATN CONTAIN ALL SCREENS IN
         current_screen_id = GLOBAL_VAR(get_global_var="SELECTED_SCREEN").uid
-        get_curent_id = GLOBAL_VAR(get_global_var="ALL_SCREEN_IN_DICT").get(
-            current_screen_id
-        )
+        get_curent_id = GLOBAL_VAR(get_global_var="ALL_SCREEN_IN_DICT").get(current_screen_id)
         # ========================================================================================
 
     elif clear_screen:
@@ -301,100 +290,100 @@ class NameScreen(ft.Container):
                 ],
             ),
             content=ft.Container(
-                padding=ft.padding.all(20),
-                margin=ft.margin.all(0),
-                bgcolor=ft.colors.BLACK26,
-                blur=(32, 32),
-                width=348,
-                height=348,
-                border_radius=ft.border_radius.all(32),
-                border=ft.border.all(0.2, ft.colors.BLUE_900),
-                content=ft.Column(
-                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                    spacing=8,
-                    run_spacing=8,
-                    controls=[
-                        ft.Container(
-                            padding=ft.padding.all(8),
-                            margin=ft.margin.all(8),  # outside box
-                            alignment=ft.alignment.center_left,
-                            content=ft.Text(
-                                value="Screen name\nwill be save in database",
-                                color=ft.colors.WHITE70,
-                                size=16,
-                                text_align=ft.TextAlign.LEFT,
-                                weight=ft.FontWeight.BOLD,
-                                font_family="Consolas",
-                            ),
-                        ),  # <=== NOTE COMA
-                        ft.Container(
-                            content=ft.TextField(
-                                smart_quotes_type=True,
-                                label="Name",
-                                counter_text="Please give short name like: main_1...\n",
-                                value="",
-                                autofocus=True,
-                                bgcolor=ft.colors.BLACK26,
-                                border=ft.InputBorder.OUTLINE,
-                                border_color=ft.colors.BLACK45,
-                                focused_border_color=ft.colors.YELLOW_900,
-                                border_radius=18,
-                                text_align=ft.TextAlign.LEFT,
-                                on_change=lambda _: self.add_screen_widget(
-                                    screen_name=self.content.content.content.controls[
-                                        1
-                                    ].content
-                                ),
-                            ),
-                        ),
-                        ft.Container(
-                            content=ft.TextField(
-                                smart_quotes_type=True,
-                                label="Description",
-                                counter_text="Small description..\n",
-                                value="",
-                                bgcolor=ft.colors.BLACK26,
-                                border=ft.InputBorder.OUTLINE,
-                                border_color=ft.colors.BLACK45,
-                                focused_border_color=ft.colors.YELLOW_900,
-                                border_radius=18,
-                                text_align=ft.TextAlign.LEFT,
-                                on_change=lambda _: self.add_screen_widget(
-                                    description=self.content.content.content.controls[
-                                        2
-                                    ].content
-                                ),
-                            ),
-                        ),
-                        ft.Row(
-                            vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                            alignment=ft.MainAxisAlignment.CENTER,
+                        padding=ft.padding.all(20),
+                        margin=ft.margin.all(0),
+                        bgcolor=ft.colors.BLACK26,
+                        blur=(32, 32),
+                        width=348,
+                        height=348,
+                        border_radius=ft.border_radius.all(32),
+                        border=ft.border.all(0.2, ft.colors.BLUE_900),
+                        content=ft.Column(
+                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                            spacing=8,
+                            run_spacing=8,
                             controls=[
                                 ft.Container(
-                                    content=ft.ElevatedButton(
-                                        "Accept",
-                                        icon=ft.icons.SAVE_OUTLINED,
-                                        # icon_color = ft.colors.YELLOW_900,
-                                        bgcolor=ft.colors.GREEN_900,
-                                        on_click=lambda _: self.add_screen_widget(
-                                            check_data=True
+                                    padding=ft.padding.all(8),
+                                    margin=ft.margin.all(8),  # outside box
+                                    alignment=ft.alignment.center_left,
+                                    content=ft.Text(
+                                        value="Screen name\nwill be save in database",
+                                        color=ft.colors.WHITE70,
+                                        size=16,
+                                        text_align=ft.TextAlign.LEFT,
+                                        weight=ft.FontWeight.BOLD,
+                                        font_family="Consolas",
+                                    ),
+                                ),  # <=== NOTE COMA
+                                ft.Container(
+                                    content=ft.TextField(
+                                        smart_quotes_type=True,
+                                        label="Name",
+                                        counter_text="Please give short name like: main_1...\n",
+                                        value="",
+                                        autofocus=True,
+                                        bgcolor=ft.colors.BLACK26,
+                                        border=ft.InputBorder.OUTLINE,
+                                        border_color=ft.colors.BLACK45,
+                                        focused_border_color=ft.colors.YELLOW_900,
+                                        border_radius=18,
+                                        text_align=ft.TextAlign.LEFT,
+                                        on_change=lambda _: self.add_screen_widget(
+                                            screen_name=self.content.content.content.controls[
+                                                1
+                                            ].content
                                         ),
-                                    )
+                                    ),
                                 ),
                                 ft.Container(
-                                    content=ft.ElevatedButton(
-                                        "Cancel",
-                                        icon=ft.icons.CANCEL,
-                                        bgcolor=ft.colors.RED_900,
-                                        # icon_color = ft.colors.YELLOW_900,
-                                        on_click=lambda _: self.escape_data_in_sqlite(),
-                                    )
+                                    content=ft.TextField(
+                                        smart_quotes_type=True,
+                                        label="Description",
+                                        counter_text="Small description..\n",
+                                        value="",
+                                        bgcolor=ft.colors.BLACK26,
+                                        border=ft.InputBorder.OUTLINE,
+                                        border_color=ft.colors.BLACK45,
+                                        focused_border_color=ft.colors.YELLOW_900,
+                                        border_radius=18,
+                                        text_align=ft.TextAlign.LEFT,
+                                        on_change=lambda _: self.add_screen_widget(
+                                            description=self.content.content.content.controls[
+                                                2
+                                            ].content
+                                        ),
+                                    ),
+                                ),
+                                ft.Row(
+                                    vertical_alignment=ft.CrossAxisAlignment.CENTER,
+                                    alignment=ft.MainAxisAlignment.CENTER,
+                                    controls=[
+                                        ft.Container(
+                                            content=ft.ElevatedButton(
+                                                "Accept",
+                                                icon=ft.icons.SAVE_OUTLINED,
+                                                # icon_color = ft.colors.YELLOW_900,
+                                                bgcolor=ft.colors.GREEN_900,
+                                                on_click=lambda _: self.add_screen_widget(
+                                                    check_data=True
+                                                ),
+                                            )
+                                        ),
+                                        ft.Container(
+                                            content=ft.ElevatedButton(
+                                                "Cancel",
+                                                icon=ft.icons.CANCEL,
+                                                bgcolor=ft.colors.RED_900,
+                                                # icon_color = ft.colors.YELLOW_900,
+                                                on_click=lambda _: self.escape_data_in_sqlite(),
+                                            )
+                                        ),
+                                    ],
                                 ),
                             ],
                         ),
-                    ],
-                ),
             ),
         )  # <=== NOTE COMA
 
@@ -407,20 +396,11 @@ class NameScreen(ft.Container):
     ):
         if screen_name:
             # IF NOT EMPTY INPUT SCREEN NAME
-            SCREEN_GLOBAL_VAR(
-                set_global_var={
-                    "screen_name": {"widget": screen_name, "value": screen_name.value}
-                }
-            )
+            SCREEN_GLOBAL_VAR(set_global_var={"screen_name": {"widget": screen_name, "value": screen_name.value}})
 
         if description:
             # IF NOT EMPTY INPUT SCREEN DESCRIPTION
-
-            SCREEN_GLOBAL_VAR(
-                set_global_var={
-                    "description": {"widget": description, "value": description.value}
-                }
-            )
+            SCREEN_GLOBAL_VAR(set_global_var={"description": {"widget": description, "value": description.value}})
 
         if check_data:
             #: WIDGET NAME
@@ -447,12 +427,7 @@ class NameScreen(ft.Container):
 
                 #: ADDING WIDGETS TO GRIDVIEW
                 data = SCREEN_GLOBAL_VAR(get_global_var="javier").get("GridView")
-                data.controls.append(
-                    ScreenContainer(
-                        id_name=self.data_name,
-                        id_description=description,
-                    )
-                )
+                data.controls.append(ScreenContainer(id_name=self.data_name,id_description=description,))
                 data.update()
 
                 #: ADD TO LIST TO GET INDEX OF SELECTED TO ERASE
@@ -610,9 +585,7 @@ class ScreenContainer(ft.Container):
             self.content = self.screen_selected
 
             if self.main_screen_color:
-                SCREEN_GLOBAL_VAR(
-                    set_global_var={"widget_selected": self.screen_selected}
-                )
+                SCREEN_GLOBAL_VAR(set_global_var={"widget_selected": self.screen_selected})
                 SCREEN_GLOBAL_VAR(set_global_var={"reset": self.screen_selected})
 
     def selected_widget_to_edit(self):
@@ -822,9 +795,7 @@ class ScreenManager(ft.Stack):
             name_screen,
         ]
 
-        SCREEN_GLOBAL_VAR(
-            set_global_var={"javier": {"GridView": self.gird_view.content}}
-        )
+        SCREEN_GLOBAL_VAR(set_global_var={"javier": {"GridView": self.gird_view.content}})
 
     #: LOAD JSON FILE
     def load_json(self, controls_list: list = []):

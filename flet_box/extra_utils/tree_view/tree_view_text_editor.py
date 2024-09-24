@@ -28,37 +28,37 @@ class TextEditorTextStream(ft.Stack):
         global Drop_TextEditorStream
 
         Drop_TextEditorStream = ft.Container(
-            expand=True,
-            expand_loose=True,
-            ink=False,
-            bgcolor=ft.colors.BACKGROUND,
-            padding=ft.padding.all(8),
-            margin=ft.margin.all(0),
-            alignment=ft.alignment.top_left,
-            border_radius=ft.border_radius.all(12),
-            border=ft.border.all(2, ft.colors.BLACK),
-            width=self.width_stream,
-            height=self.height_stream,
-            content=ft.Column(
-                expand=True,
-                expand_loose=True,
-                scroll="HIDDEN",
-                spacing=0,
-                run_spacing=0,
-                alignment=ft.MainAxisAlignment.CENTER,
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                controls=[
-                    # ft.TextField(
-                    #             label         = self.header_code,
-                    #             multiline     = True,
-                    #             read_only     = True,
-                    #             border        = ft.InputBorder.NONE,
-                    #             border_radius = 8,
-                    #             text_size     = self.text_size,
-                    #             value         = self.data_stream,
-                    #                 )
-                ],
-            ),
+                                    expand=True,
+                                    expand_loose=True,
+                                    ink=False,
+                                    bgcolor=ft.colors.BACKGROUND,
+                                    padding=ft.padding.all(8),
+                                    margin=ft.margin.all(0),
+                                    alignment=ft.alignment.top_left,
+                                    border_radius=ft.border_radius.all(12),
+                                    border=ft.border.all(2, ft.colors.BLACK),
+                                    width=self.width_stream,
+                                    height=self.height_stream,
+                                    content=ft.Column(
+                                                expand=True,
+                                                expand_loose=True,
+                                                scroll="HIDDEN",
+                                                spacing=0,
+                                                run_spacing=0,
+                                                alignment=ft.MainAxisAlignment.CENTER,
+                                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                                controls=[
+                                                    # ft.TextField(
+                                                    #             label         = self.header_code,
+                                                    #             multiline     = True,
+                                                    #             read_only     = True,
+                                                    #             border        = ft.InputBorder.NONE,
+                                                    #             border_radius = 8,
+                                                    #             text_size     = self.text_size,
+                                                    #             value         = self.data_stream,
+                                                    #                 )
+                                                ],
+                                    ),
         )
         return Drop_TextEditorStream
 
@@ -76,17 +76,17 @@ class TreeViewTextEditor(ft.Stack):
         self.data_stream = ""
 
         self.text_path = ft.Container(
-            expand=True,
-            ink=False,
-            bgcolor="#44CCCC00",
-            padding=ft.padding.all(0),
-            margin=ft.margin.only(left=8, top=0, right=0, bottom=0),
-            alignment=ft.alignment.center,
-            content=ft.Text(
-                value="simple text",
-                text_align=ft.TextAlign.CENTER,
-                font_family="Consolas",
-            ),
+                                expand=True,
+                                ink=False,
+                                bgcolor="#44CCCC00",
+                                padding=ft.padding.all(0),
+                                margin=ft.margin.only(left=8, top=0, right=0, bottom=0),
+                                alignment=ft.alignment.center,
+                                content=ft.Text(
+                                    value="simple text",
+                                    text_align=ft.TextAlign.CENTER,
+                                    font_family="Consolas",
+                                ),
         )
 
         Drop_TextEditor = ft.Container(
@@ -96,110 +96,110 @@ class TreeViewTextEditor(ft.Stack):
             margin=ft.margin.only(left=0, top=0, right=0, bottom=0),  # outside box
             alignment=ft.alignment.center,
             content=ft.Row(
-                expand=True,
-                alignment=ft.MainAxisAlignment.CENTER,
-                vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                scroll=True,
-                spacing=0,
-                run_spacing=0,
-                controls=[
-                    ft.Container(
-                        content=(
-                            ft.Column(
-                                alignment=ft.MainAxisAlignment.CENTER,
-                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                controls=[
-                                    ft.Container(
-                                        tooltip="UPDATE",
-                                        ink=False,
-                                        bgcolor=ft.colors.GREEN_700,
-                                        padding=ft.padding.all(0),
-                                        margin=ft.margin.all(0),  # outside box
-                                        alignment=ft.alignment.center,
-                                        border_radius=ft.border_radius.only(
-                                            top_left=8,
-                                            top_right=8,
-                                            bottom_left=8,
-                                            bottom_right=8,
-                                        ),
-                                        width=30,
-                                        height=30,
-                                        content=ft.Icon(name=ft.icons.UPDATE_OUTLINED),
-                                        on_click=lambda _: self.update_text_editor(
-                                            self.widget
-                                        ),
-                                    ),
-                                    ft.Container(
-                                        tooltip="EXIT",
-                                        ink=False,
-                                        bgcolor=ft.colors.RED_900,
-                                        padding=ft.padding.all(0),
-                                        margin=ft.margin.all(0),  # outside box
-                                        alignment=ft.alignment.center,
-                                        border_radius=ft.border_radius.only(
-                                            top_left=16,
-                                            top_right=0,
-                                            bottom_left=16,
-                                            bottom_right=0,
-                                        ),
-                                        width=30,
-                                        height=250,
-                                        content=ft.Icon(name=ft.icons.ARROW_LEFT),
-                                        on_click=lambda _: self.show_text_editor(),
-                                    ),
-                                ],
-                            )
-                        ),
-                    ),
-                    ft.Container(
-                        bgcolor=ft.colors.BLACK45,
-                        content=ft.Column(  # SOURCES CODE
-                            controls=[
-                                TextEditorTextStream(
-                                    header_code="\tCode Box",
-                                    data_stream=self.data_stream,
-                                    width_stream=820,
-                                    text_size=11,
-                                ),
-                            ],
-                        ),
-                    ),
-                    ft.Column(
+                        expand=True,
+                        alignment=ft.MainAxisAlignment.CENTER,
+                        vertical_alignment=ft.CrossAxisAlignment.CENTER,
                         scroll=True,
                         spacing=0,
                         run_spacing=0,
                         controls=[
-                            ft.Container(  # STYLE CODE
-                                bgcolor=ft.colors.BLACK45,
-                                content=ft.Column(
-                                    controls=[
-                                        TextEditorTextStream(
-                                            header_code="\tStyle Box",
-                                            data_stream=self.data_stream,
-                                            width_stream=500,
-                                            height_stream=360,
-                                            text_size=12,
-                                        ),
-                                    ],
+                            ft.Container(
+                                    content=(
+                                    ft.Column(
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                        controls=[
+                                            ft.Container(
+                                                tooltip="UPDATE",
+                                                ink=False,
+                                                bgcolor=ft.colors.GREEN_700,
+                                                padding=ft.padding.all(0),
+                                                margin=ft.margin.all(0),  # outside box
+                                                alignment=ft.alignment.center,
+                                                border_radius=ft.border_radius.only(
+                                                    top_left=8,
+                                                    top_right=8,
+                                                    bottom_left=8,
+                                                    bottom_right=8,
+                                                ),
+                                                width=30,
+                                                height=30,
+                                                content=ft.Icon(name=ft.icons.UPDATE_OUTLINED),
+                                                on_click=lambda _: self.update_text_editor(
+                                                    self.widget
+                                                ),
+                                            ),
+                                            ft.Container(
+                                                tooltip="EXIT",
+                                                ink=False,
+                                                bgcolor=ft.colors.RED_900,
+                                                padding=ft.padding.all(0),
+                                                margin=ft.margin.all(0),  # outside box
+                                                alignment=ft.alignment.center,
+                                                border_radius=ft.border_radius.only(
+                                                    top_left=16,
+                                                    top_right=0,
+                                                    bottom_left=16,
+                                                    bottom_right=0,
+                                                ),
+                                                width=30,
+                                                height=250,
+                                                content=ft.Icon(name=ft.icons.ARROW_LEFT),
+                                                on_click=lambda _: self.show_text_editor(),
+                                            ),
+                                        ],
+                                    )
                                 ),
                             ),
-                            ft.Container(  # EVENT CODE
+                            ft.Container(
                                 bgcolor=ft.colors.BLACK45,
-                                content=ft.Column(
+                                content=ft.Column(  # SOURCES CODE
                                     controls=[
                                         TextEditorTextStream(
-                                            header_code="\tEvents Box",
+                                            header_code="\tCode Box",
                                             data_stream=self.data_stream,
-                                            width_stream=500,
-                                            height_stream=360,
+                                            width_stream=820,
                                             text_size=11,
                                         ),
                                     ],
                                 ),
                             ),
+                            ft.Column(
+                                scroll=True,
+                                spacing=0,
+                                run_spacing=0,
+                                controls=[
+                                    ft.Container(  # STYLE CODE
+                                        bgcolor=ft.colors.BLACK45,
+                                        content=ft.Column(
+                                            controls=[
+                                                TextEditorTextStream(
+                                                    header_code="\tStyle Box",
+                                                    data_stream=self.data_stream,
+                                                    width_stream=500,
+                                                    height_stream=360,
+                                                    text_size=12,
+                                                ),
+                                            ],
+                                        ),
+                                    ),
+                                    ft.Container(  # EVENT CODE
+                                        bgcolor=ft.colors.BLACK45,
+                                        content=ft.Column(
+                                            controls=[
+                                                TextEditorTextStream(
+                                                    header_code="\tEvents Box",
+                                                    data_stream=self.data_stream,
+                                                    width_stream=500,
+                                                    height_stream=360,
+                                                    text_size=11,
+                                                ),
+                                            ],
+                                        ),
+                                    ),
+                                ],
+                            ),
                         ],
-                    ),
-                ],
             ),
         )
 
@@ -221,35 +221,29 @@ class TreeViewTextEditor(ft.Stack):
         #
         # print(build_json_file,'<=== data',GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
         current_screen_id = GLOBAL_VAR(get_global_var="SELECTED_SCREEN").uid
-        data_to_treview = GLOBAL_VAR(get_global_var="ALL_SCREEN_IN_DICT").get(
-            current_screen_id
-        )
+        data_to_treview = GLOBAL_VAR(get_global_var="ALL_SCREEN_IN_DICT").get(current_screen_id)
+
         print(data_to_treview)
+
         build_json_file = widget.build_json_file(widget_show=data_to_treview)
+
+        # print(data_to_treview,'<<<<<<<<<<<<<<<<<<')
 
         # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'),'<==== ALL_SCREEN_IN_DICT')
         #: FIRST CODE
         # Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('main_code')
         # Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls[0].update()
 
-        Drop_TextEditor.content.controls[1].content.controls[0].controls[
-            0
-        ].content.controls.clear()
+        Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls.clear()
         # print(GLOBAL_VAR(get_global_var='PAGE')._index)
-        main_page = GLOBAL_VAR(get_global_var="PAGE")._index
 
-        main_code = apply_syntax_highlighting(
-            text=f"Main Code\n{build_json_file.get('main_code')}", language="python"
-        )
+        main_page = GLOBAL_VAR(get_global_var="PAGE")._index
+        main_code = apply_syntax_highlighting(text=f"Main Code\n{build_json_file.get('main_code')}", language="python")
 
         # ADD
-        Drop_TextEditor.content.controls[1].content.controls[0].controls[
-            0
-        ].content.controls = [main_code]
+        Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls = [main_code]
         # Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls.append(main_code)
-        Drop_TextEditor.content.controls[1].content.controls[0].controls[
-            0
-        ].content.update()
+        Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.update()
         del main_page[main_code._Control__uid]
 
         # print(GLOBAL_VAR(get_global_var='PAGE')._index.get(main_code._Control__uid),'index')
@@ -259,35 +253,22 @@ class TreeViewTextEditor(ft.Stack):
         # Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('style_code').replace('styles=', '')
         # Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls[0].update()
 
-        style_code = apply_syntax_highlighting(
-            text=f"Style Code\n{build_json_file.get('style_code').replace('styles=', '')}",
-            language="python",
-        )
-        Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[
-            0
-        ].content.controls = [style_code]
+        style_code = apply_syntax_highlighting(text=f"Style Code\n{build_json_file.get('style_code').replace('styles=', '')}",language="python",)
+        Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls = [style_code]
         # Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls.append(style_code)
 
-        Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[
-            0
-        ].content.update()
+        Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.update()
         del main_page[style_code._Control__uid]
 
         #: THIRD CODE
         # Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('event_code')
         # Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls[0].update()
 
-        event_code = apply_syntax_highlighting(
-            text=f"Event Code\n{build_json_file.get('event_code')}", language="python"
-        )
-        Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[
-            0
-        ].content.controls = [event_code]
+        event_code = apply_syntax_highlighting(text=f"Event Code\n{build_json_file.get('event_code')}", language="python")
+        Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls = [event_code]
         # Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls.append(event_code)
 
-        Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[
-            0
-        ].content.update()
+        Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.update()
         # del main_page[event_code._Control__uid]
 
 

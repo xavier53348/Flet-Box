@@ -1,4 +1,6 @@
 #: DICT REFERENCE TO KNOW ALL WIDGET IN GLOVAL VAR
+import flet as ft
+
 DATA_GLOBAL = {
     "EXPORT_DATA_PHONE": dict(),  # <== DICT WITH ALL WIDGET IN PHONE TO EXPORT APP
     "SELECT_DATA_ERASE_PHONE": None,  # <== SELECTED ID WIDGET IN PHONE
@@ -36,6 +38,13 @@ DATA_GLOBAL = {
     "CONFI_SHOW": None,  # <== BOX CONFIG
     "ALL_SCREEN_IN_DICT": dict(),  # <== ALL SCREENS IN SCREEN MANAGER
     "row_phone": dict(),  # <== ALL SCREENS IN ROW TO SAVE DATA
+
+
+    "text_size_input": 16,  # <== ALL SCREENS IN ROW TO SAVE DATA
+    "padding_only": ft.padding.only(left=8, top=0, right=0, bottom=13),  # <== ALL SCREENS IN ROW TO SAVE DATA
+
+    # selection widget
+    "content_padding":ft.padding.only(left=0, top=0, right=0, bottom=18),
 }
 
 
