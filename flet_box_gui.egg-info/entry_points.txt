@@ -1,3 +1,0 @@
-[console_scripts]
-flet_box = flet_box:run_app
-

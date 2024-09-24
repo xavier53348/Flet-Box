@@ -1,31 +1,15 @@
 #: THIS IS NOT JSON FILE IT'S PYTHON DICTIONARY
 
 styles={
-    "_4020": {
-        # "WIDGET_NAME": "CONTAINER_ROW",
-        "alignment": {"x":0,"y":0},
-        "bgcolor": "transparent",
-        "border": {"l":{"w":0,"c":"transparent"},"t":{"w":0,"c":"transparent"},"r":{"w":0,"c":"transparent"},"b":{"w":0,"c":"transparent"}},
-        "expand": "",
-        "height": "",
-        "ink": "true",
-        "ink_color": "cyan",
-        "margin": {"l":0,"t":0,"r":0,"b":0},
-        "padding": {"l":8,"t":8,"r":8,"b":8},
-        "visible": "true",
-        "width": "450"
-    },
-    "_4021": {
-        # "WIDGET_NAME": "CONTENT_ROW",
-        # "scroll": "ALWAYS"
-    },
-    "_4024": {
+    "_3997": {
         # "WIDGET_NAME": "CONTAINER_IMAGE",
         "alignment": {"x":0,"y":0},
-        "border": {"l":{"w":0,"c":"transparent"},"t":{"w":0,"c":"transparent"},"r":{"w":0,"c":"transparent"},"b":{"w":0,"c":"transparent"}},
+        "border": {"l":{"w":2,"c":"yellow900","sa":"null"},"t":{"w":2,"c":"yellow900","sa":"null"},"r":{"w":2,"c":"yellow900","sa":"null"},"b":{"w":2,"c":"yellow900","sa":"null"}},
+        "height": "240",
         "ink": "true",
         "ink_color": "red",
         "margin": {"l":0,"t":0,"r":0,"b":0},
+<<<<<<< HEAD
         "padding": {"l":0,"t":0,"r":0,"b":0},
         "rotate": -0.2719999999999998,
     },
@@ -86,12 +70,18 @@ styles={
         "ink_color": "red",
         "margin": {"l":8,"t":8,"r":8,"b":8},
         "padding": {"l":8,"t":8,"r":8,"b":8},
+=======
+        "padding": {"l":6,"t":6,"r":6,"b":6},
+        # "tooltip": ""Image: 1"",
+>>>>>>> ec91347 (fixing lot minor-bugs to migrate flet==0.24.1)
         "width": ""
     },
-    "_4037": {
-        # "WIDGET_NAME": "CONTENT_ELEVATEDBUTTON",
-        "height": "",
-        "text": "Comencemos..",
-        "width": "320"
+    "_3998": {
+        # "WIDGET_NAME": "CONTENT_IMAGE",
+        "fit": "fill",
+        "height": "110",
+        "src": "test/proyect_name/proyect_name/assets/ClasificacionVinos.png",
+        # "tooltip": ""Image"",
+        "width": "110"
     }
 }

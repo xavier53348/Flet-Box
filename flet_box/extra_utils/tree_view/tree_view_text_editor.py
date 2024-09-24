@@ -28,7 +28,6 @@ class TextEditorTextStream(ft.Stack):
         global Drop_TextEditorStream
 
         Drop_TextEditorStream = ft.Container(
-<<<<<<< HEAD
                                     expand=True,
                                     expand_loose=True,
                                     ink=False,
@@ -60,39 +59,6 @@ class TextEditorTextStream(ft.Stack):
                                                     #                 )
                                                 ],
                                     ),
-=======
-            expand=True,
-            expand_loose=True,
-            ink=False,
-            bgcolor=ft.colors.BACKGROUND,
-            padding=ft.padding.all(8),
-            margin=ft.margin.all(0),
-            alignment=ft.alignment.top_left,
-            border_radius=ft.border_radius.all(12),
-            border=ft.border.all(2, ft.colors.BLACK),
-            width=self.width_stream,
-            height=self.height_stream,
-            content=ft.Column(
-                expand=True,
-                expand_loose=True,
-                scroll="HIDDEN",
-                spacing=0,
-                run_spacing=0,
-                alignment=ft.MainAxisAlignment.CENTER,
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                controls=[
-                    # ft.TextField(
-                    #             label         = self.header_code,
-                    #             multiline     = True,
-                    #             read_only     = True,
-                    #             border        = ft.InputBorder.NONE,
-                    #             border_radius = 8,
-                    #             text_size     = self.text_size,
-                    #             value         = self.data_stream,
-                    #                 )
-                ],
-            ),
->>>>>>> 102af40 (fixed overlay append)
         )
         return Drop_TextEditorStream
 
@@ -110,7 +76,6 @@ class TreeViewTextEditor(ft.Stack):
         self.data_stream = ""
 
         self.text_path = ft.Container(
-<<<<<<< HEAD
                                 expand=True,
                                 ink=False,
                                 bgcolor="#44CCCC00",
@@ -122,19 +87,6 @@ class TreeViewTextEditor(ft.Stack):
                                     text_align=ft.TextAlign.CENTER,
                                     font_family="Consolas",
                                 ),
-=======
-            expand=True,
-            ink=False,
-            bgcolor="#44CCCC00",
-            padding=ft.padding.all(0),
-            margin=ft.margin.only(left=8, top=0, right=0, bottom=0),
-            alignment=ft.alignment.center,
-            content=ft.Text(
-                value="simple text",
-                text_align=ft.TextAlign.CENTER,
-                font_family="Consolas",
-            ),
->>>>>>> 102af40 (fixed overlay append)
         )
 
         Drop_TextEditor = ft.Container(
@@ -144,86 +96,13 @@ class TreeViewTextEditor(ft.Stack):
             margin=ft.margin.only(left=0, top=0, right=0, bottom=0),  # outside box
             alignment=ft.alignment.center,
             content=ft.Row(
-<<<<<<< HEAD
                         expand=True,
                         alignment=ft.MainAxisAlignment.CENTER,
                         vertical_alignment=ft.CrossAxisAlignment.CENTER,
-=======
-                expand=True,
-                alignment=ft.MainAxisAlignment.CENTER,
-                vertical_alignment=ft.CrossAxisAlignment.CENTER,
-                scroll=True,
-                spacing=0,
-                run_spacing=0,
-                controls=[
-                    ft.Container(
-                        content=(
-                            ft.Column(
-                                alignment=ft.MainAxisAlignment.CENTER,
-                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                controls=[
-                                    ft.Container(
-                                        tooltip="UPDATE",
-                                        ink=False,
-                                        bgcolor=ft.colors.GREEN_700,
-                                        padding=ft.padding.all(0),
-                                        margin=ft.margin.all(0),  # outside box
-                                        alignment=ft.alignment.center,
-                                        border_radius=ft.border_radius.only(
-                                            top_left=8,
-                                            top_right=8,
-                                            bottom_left=8,
-                                            bottom_right=8,
-                                        ),
-                                        width=30,
-                                        height=30,
-                                        content=ft.Icon(name=ft.icons.UPDATE_OUTLINED),
-                                        on_click=lambda _: self.update_text_editor(
-                                            self.widget
-                                        ),
-                                    ),
-                                    ft.Container(
-                                        tooltip="EXIT",
-                                        ink=False,
-                                        bgcolor=ft.colors.RED_900,
-                                        padding=ft.padding.all(0),
-                                        margin=ft.margin.all(0),  # outside box
-                                        alignment=ft.alignment.center,
-                                        border_radius=ft.border_radius.only(
-                                            top_left=16,
-                                            top_right=0,
-                                            bottom_left=16,
-                                            bottom_right=0,
-                                        ),
-                                        width=30,
-                                        height=250,
-                                        content=ft.Icon(name=ft.icons.ARROW_LEFT),
-                                        on_click=lambda _: self.show_text_editor(),
-                                    ),
-                                ],
-                            )
-                        ),
-                    ),
-                    ft.Container(
-                        bgcolor=ft.colors.BLACK45,
-                        content=ft.Column(  # SOURCES CODE
-                            controls=[
-                                TextEditorTextStream(
-                                    header_code="\tCode Box",
-                                    data_stream=self.data_stream,
-                                    width_stream=820,
-                                    text_size=11,
-                                ),
-                            ],
-                        ),
-                    ),
-                    ft.Column(
->>>>>>> 102af40 (fixed overlay append)
                         scroll=True,
                         spacing=0,
                         run_spacing=0,
                         controls=[
-<<<<<<< HEAD
                             ft.Container(
                                     content=(
                                     ft.Column(
@@ -280,37 +159,11 @@ class TreeViewTextEditor(ft.Stack):
                                             header_code="\tCode Box",
                                             data_stream=self.data_stream,
                                             width_stream=820,
-=======
-                            ft.Container(  # STYLE CODE
-                                bgcolor=ft.colors.BLACK45,
-                                content=ft.Column(
-                                    controls=[
-                                        TextEditorTextStream(
-                                            header_code="\tStyle Box",
-                                            data_stream=self.data_stream,
-                                            width_stream=500,
-                                            height_stream=360,
-                                            text_size=12,
-                                        ),
-                                    ],
-                                ),
-                            ),
-                            ft.Container(  # EVENT CODE
-                                bgcolor=ft.colors.BLACK45,
-                                content=ft.Column(
-                                    controls=[
-                                        TextEditorTextStream(
-                                            header_code="\tEvents Box",
-                                            data_stream=self.data_stream,
-                                            width_stream=500,
-                                            height_stream=360,
->>>>>>> 102af40 (fixed overlay append)
                                             text_size=11,
                                         ),
                                     ],
                                 ),
                             ),
-<<<<<<< HEAD
                             ft.Column(
                                 scroll=True,
                                 spacing=0,
@@ -347,11 +200,6 @@ class TreeViewTextEditor(ft.Stack):
                                 ],
                             ),
                         ],
-=======
-                        ],
-                    ),
-                ],
->>>>>>> 102af40 (fixed overlay append)
             ),
         )
 
@@ -373,23 +221,13 @@ class TreeViewTextEditor(ft.Stack):
         #
         # print(build_json_file,'<=== data',GLOBAL_VAR(get_global_var='EXPORT_DATA_PHONE'))
         current_screen_id = GLOBAL_VAR(get_global_var="SELECTED_SCREEN").uid
-<<<<<<< HEAD
         data_to_treview = GLOBAL_VAR(get_global_var="ALL_SCREEN_IN_DICT").get(current_screen_id)
 
-=======
-        data_to_treview = GLOBAL_VAR(get_global_var="ALL_SCREEN_IN_DICT").get(
-            current_screen_id
-        )
->>>>>>> 102af40 (fixed overlay append)
         print(data_to_treview)
 
         build_json_file = widget.build_json_file(widget_show=data_to_treview)
 
-<<<<<<< HEAD
         # print(data_to_treview,'<<<<<<<<<<<<<<<<<<')
-
-=======
->>>>>>> 102af40 (fixed overlay append)
         # print(GLOBAL_VAR(get_global_var='ALL_SCREEN_IN_DICT'),'<==== ALL_SCREEN_IN_DICT')
         #: FIRST CODE
         # Drop_TextEditor.content.controls[1].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('main_code')
@@ -399,17 +237,10 @@ class TreeViewTextEditor(ft.Stack):
             0
         ].content.controls.clear()
         # print(GLOBAL_VAR(get_global_var='PAGE')._index)
-<<<<<<< HEAD
 
         main_page = GLOBAL_VAR(get_global_var="PAGE")._index
         main_code = apply_syntax_highlighting(text=f"Main Code\n{build_json_file.get('main_code')}", language="python")
-=======
-        main_page = GLOBAL_VAR(get_global_var="PAGE")._index
 
-        main_code = apply_syntax_highlighting(
-            text=f"Main Code\n{build_json_file.get('main_code')}", language="python"
-        )
->>>>>>> 102af40 (fixed overlay append)
 
         # ADD
         Drop_TextEditor.content.controls[1].content.controls[0].controls[
@@ -428,18 +259,8 @@ class TreeViewTextEditor(ft.Stack):
         # Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('style_code').replace('styles=', '')
         # Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls[0].update()
 
-<<<<<<< HEAD
         style_code = apply_syntax_highlighting(text=f"Style Code\n{build_json_file.get('style_code').replace('styles=', '')}",language="python",)
         Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls = [style_code]
-=======
-        style_code = apply_syntax_highlighting(
-            text=f"Style Code\n{build_json_file.get('style_code').replace('styles=', '')}",
-            language="python",
-        )
-        Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[
-            0
-        ].content.controls = [style_code]
->>>>>>> 102af40 (fixed overlay append)
         # Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[0].content.controls.append(style_code)
 
         Drop_TextEditor.content.controls[2].controls[0].content.controls[0].controls[
@@ -451,17 +272,9 @@ class TreeViewTextEditor(ft.Stack):
         # Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls[0].value=build_json_file.get('event_code')
         # Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls[0].update()
 
-<<<<<<< HEAD
         event_code = apply_syntax_highlighting(text=f"Event Code\n{build_json_file.get('event_code')}", language="python")
         Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls = [event_code]
-=======
-        event_code = apply_syntax_highlighting(
-            text=f"Event Code\n{build_json_file.get('event_code')}", language="python"
-        )
-        Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[
-            0
-        ].content.controls = [event_code]
->>>>>>> 102af40 (fixed overlay append)
+
         # Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[0].content.controls.append(event_code)
 
         Drop_TextEditor.content.controls[2].controls[1].content.controls[0].controls[

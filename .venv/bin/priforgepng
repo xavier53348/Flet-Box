@@ -1,4 +1,4 @@
-#!/home/mjay/Desktop/flet_core_app_2/.venv/bin/python3
+#!/home/mjay/Escritorio/testing_create_package/.venv/bin/python3
 # priforgepng
 
 """Forge PNG image from raw computation."""

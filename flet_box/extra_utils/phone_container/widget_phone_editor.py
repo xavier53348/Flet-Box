@@ -40,7 +40,6 @@ class Build_Phone_Editor(ft.Stack):
             content=ft.DragTarget(
                 group="GroupDragg",
                 content=ft.Container(
-<<<<<<< HEAD
                             border_radius=ft.border_radius.all(40),
                             border=ft.border.all(7.5, ft.colors.BLACK),
                             padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
@@ -54,21 +53,6 @@ class Build_Phone_Editor(ft.Stack):
                                 scroll="HIDDEN",
                                 spacing=2,
                                 controls=[],
-=======
-                    border_radius=ft.border_radius.all(40),
-                    border=ft.border.all(7.5, ft.colors.BLACK),
-                    padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
-                    alignment=ft.alignment.center,
-                    # bgcolor       = ft.colors.BLACK38, #07070   7
-                    bgcolor=self.colored_widget,
-                    # blur          = (8,8),
-                    # image_src     = 'logo.jpg',
-                    # image_fit     = "COVER",
-                    content=ft.Column(
-                        scroll="HIDDEN",
-                        spacing=2,
-                        controls=[],
->>>>>>> 102af40 (fixed overlay append)
                     ),
                 ),
                 on_will_accept=self.drag_will_accept,
@@ -78,7 +62,6 @@ class Build_Phone_Editor(ft.Stack):
         )
 
         self.phone = ft.Container(
-<<<<<<< HEAD
                         ink=False,
                         padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
                         margin=ft.margin.all(0),
@@ -88,17 +71,6 @@ class Build_Phone_Editor(ft.Stack):
                         width=295,
                         height=566,
                         content=self.Build_Phone_Editor,
-=======
-            ink=False,
-            padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
-            margin=ft.margin.all(0),
-            alignment=ft.alignment.center,
-            border_radius=ft.border_radius.all(42),
-            border=ft.border.all(2.5, ft.colors.WHITE),
-            width=295,
-            height=566,
-            content=self.Build_Phone_Editor,
->>>>>>> 102af40 (fixed overlay append)
         )
 
         # self.phone_main              = self.Build_Phone_Editor

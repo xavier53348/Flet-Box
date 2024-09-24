@@ -484,29 +484,10 @@ class MakeJasonFile:
             )  #: CONTAINER STYLE
 
             #: CONDITION
-<<<<<<< HEAD
             list_condition: list = ["Image","Circleavatar","Icon","Textfield"]
             no_press_condition: list = ["Column", "Stack", "Container", 'Row', "Textfield", "Divider",
                                         "Verticaldivider", "Checkbox", "Cupertinocheckbox", "Radiogroup",
                                         "Switch", "Cupertinoslider", "Text"]
-=======
-            list_condition: list = ["Image", "Circleavatar", "Icon", "Textfield"]
-            no_press_condition: list = [
-                "Column",
-                "Stack",
-                "Container",
-                "Row",
-                "Textfield",
-                "Divider",
-                "Verticaldivider",
-                "Checkbox",
-                "Cupertinocheckbox",
-                "Radiogroup",
-                "Switch",
-                "Cupertinoslider",
-                "Text",
-            ]
->>>>>>> 102af40 (fixed overlay append)
 
             # print(self._name_con)
 
@@ -945,10 +926,7 @@ class MakeJasonFile:
                                                                                             )  #: get widget attributes
                                                                                             check = True
                                                                                             check_second_6 = False
-<<<<<<< HEAD
-=======
 
->>>>>>> 102af40 (fixed overlay append)
                                                                                         #:
 
                                                                                         for _ in tmp_controls_all_node:
@@ -1049,8 +1027,6 @@ class MakeJasonFile:
                                                                                                                     check_second_8 = False
                                                                                                                 #:
 
-<<<<<<< HEAD
-
                                                                                                                 for _ in tmp_controls_all_node:
                                                                                                                     if _.controls:
                                                                                                                         self.main_node = _.controls[0].content
@@ -1122,8 +1098,6 @@ class MakeJasonFile:
                                                                                                                                 self.all_code_list.append(f"{tab_*18}],),), #// LAYER 9 END ")
 
 
-=======
->>>>>>> 102af40 (fixed overlay append)
                                                                                                                 #: LAYER 8
                                                                                                                 if (
                                                                                                                     check
@@ -1289,17 +1263,7 @@ class MakeJasonFile:
 
         # for _ in self.all_events_list:
         #     print(_)
-<<<<<<< HEAD
         return {'main_code': f"\n\n{self.main_code}",'index_code': f"\n\n{self.index_code}",'style_code':f"\n\nstyles={self.style_code}",'event_code':f"\n\n{self.event_code}"}
-=======
-
-        return {
-            "main_code": f"\n\n{self.main_code}",
-            "index_code": f"\n\n{self.index_code}",
-            "style_code": f"\n\nstyles={self.style_code}",
-            "event_code": f"\n\n{self.event_code}",
-        }
->>>>>>> 102af40 (fixed overlay append)
 
     def replace_main_code(self, code=""):
         #: new_code = new_code.replace('','')
@@ -1344,7 +1308,6 @@ class MakeJasonFile:
     def refactoring_attributes_code(self, new_code):
         # THIS SECTION IS VERY IMPORTANT BECOUSE REFARTORY ALL CODE IN REAL TIME
         # new_code = new_code.replace('"n":', '# "n":').replace('"on_hover": "true",','# "on_hover": "false",').replace('"on_click": "true"','# "on_click": "false"').replace('"style"','# "style"')
-<<<<<<< HEAD
         new_code = new_code.replace('"onclick":','# "onclick"')
         new_code = new_code.replace('"WIDGET_NAME','# "WIDGET_NAME').replace('"on', '"on_').replace('inkcolor', 'ink_color').replace('"style"','# "style"')
         new_code = new_code.replace('horizontalalignment', 'horizontal_alignment').replace('verticalalignment', 'vertical_alignment')
@@ -1357,61 +1320,5 @@ class MakeJasonFile:
         new_code = new_code.replace('blurradius','blur_radius').replace('spreadradius','spread_radius').replace('childaspect_ratio','child_aspect_ratio')
         new_code = new_code.replace('maxextent','max_extent').replace('minlines','min_lines').replace('maxlines','max_lines').replace('borderwidth','border_width')
         new_code = new_code.replace('aspectratio','aspect_ratio').replace('textalign','text_align').replace('"tooltip"','# "tooltip"').replace('null','"null"')
-=======
-        new_code = new_code.replace('"onclick":', '# "onclick"')
-        new_code = (
-            new_code.replace('"WIDGET_NAME', '# "WIDGET_NAME')
-            .replace('"on', '"on_')
-            .replace("inkcolor", "ink_color")
-            .replace('"style"', '# "style"')
-        )
-        new_code = new_code.replace(
-            "horizontalalignment", "horizontal_alignment"
-        ).replace("verticalalignment", "vertical_alignment")
-        new_code = (
-            new_code.replace("bordercolor", "border_color")
-            .replace("borderradius", "border_radius")
-            .replace("contentpadding", "content_padding")
-        )
-        new_code = (
-            new_code.replace("cursorheight", "cursor_height")
-            .replace("focusedborder_color", "focused_border_color")
-            .replace("textsize", "text_size")
-        )
-        new_code = (
-            new_code.replace("imagefit", "image_fit")
-            .replace("imageopacity", "image_opacity")
-            .replace("imagesrc", "image_src")
-        )
-        new_code = (
-            new_code.replace("runscount", "runs_count")
-            .replace("runspacing", "run_spacing")
-            .replace("backgroundimage_src", "background_image_src")
-        )
-        new_code = (
-            new_code.replace("hinttext", "hint_text")
-            .replace("countertext", "counter_text")
-            .replace("suffixtext", "suffix_text")
-        )
-        new_code = (
-            new_code.replace("urltarget", "url_target")
-            .replace("semanticslabel", "semantics_label")
-            .replace("srcbase64", "src_base64")
-        )
-        new_code = (
-            new_code.replace("blurradius", "blur_radius")
-            .replace("spreadradius", "spread_radius")
-            .replace("childaspect_ratio", "child_aspect_ratio")
-        )
-        new_code = (
-            new_code.replace("maxextent", "max_extent")
-            .replace("minlines", "min_lines")
-            .replace("maxlines", "max_lines")
-            .replace("borderwidth", "border_width")
-        )
-        new_code = new_code.replace("aspectratio", "aspect_ratio").replace(
-            "textalign", "text_align"
-        )
->>>>>>> 102af40 (fixed overlay append)
 
         return new_code

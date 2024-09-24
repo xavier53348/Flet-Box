@@ -1,9 +1,6 @@
 import flet as ft
 
-<<<<<<< HEAD
 from ..settings_var.settings_widget import GLOBAL_VAR
-=======
->>>>>>> 102af40 (fixed overlay append)
 
 class DoubleEntry(ft.Stack):
     """
@@ -75,34 +72,6 @@ class DoubleEntry(ft.Stack):
                 wrap=True,
                 controls=[
                     ft.Container(
-<<<<<<< HEAD
-                            ink=False,
-                            bgcolor="#0e0f11",
-                            padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
-                            alignment=ft.alignment.center,
-                            border_radius=ft.border_radius.all(30),
-                            height=20,
-                            content=ft.Text(
-                                value="Width - Height"
-                                if self.attribute_widget == "width "
-                                else self.attribute_widget.capitalize().replace("_", " "),
-                                font_family="Consolas",  # "Consolas ,RobotoSlab
-                        ),
-                    ),
-                    ft.Container(
-                            ink=False,
-                            padding=ft.padding.all(2),
-                            alignment=ft.alignment.center,
-                            border_radius=ft.border_radius.all(30),
-                            border=ft.border.all(0.1, ft.colors.BLACK38),
-                            width=154,
-                            height=36,
-                            tooltip="Double Entry",
-                            gradient=ft.LinearGradient(
-                                begin=ft.alignment.top_center,
-                                end=ft.alignment.bottom_center,
-                                colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
-=======
                         ink=False,
                         bgcolor="#0e0f11",
                         padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
@@ -129,7 +98,6 @@ class DoubleEntry(ft.Stack):
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
                             colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
->>>>>>> 102af40 (fixed overlay append)
                         ),
                         content=ft.Row(
                             controls=[
@@ -142,12 +110,9 @@ class DoubleEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
-=======
-                                        text_size=15,
->>>>>>> 102af40 (fixed overlay append)
+
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
@@ -164,12 +129,9 @@ class DoubleEntry(ft.Stack):
                                         border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
-<<<<<<< HEAD
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
-=======
-                                        text_size=15,
->>>>>>> 102af40 (fixed overlay append)
+
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value=Drop_DoubleEntry,
@@ -269,6 +231,3 @@ class DoubleEntry(ft.Stack):
         #: run only in production
         #: print(self.widget.uid)
         self.widget.update()
-
-
-#######

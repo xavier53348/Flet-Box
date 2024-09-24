@@ -200,11 +200,14 @@ if __name__ == "__main__":
                 return styles.get(code)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
         def dict_style(self,code):
             return styles.get(code)
 >>>>>>> 102af40 (fixed overlay append)
+=======
+>>>>>>> ec91347 (fixing lot minor-bugs to migrate flet==0.24.1)
     """
 
     def main(page: ft.Page):

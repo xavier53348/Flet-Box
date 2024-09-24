@@ -16,7 +16,7 @@ phone_style_widget = {
         "bgcolor": "black12",
 
         # "width": "295",
-        "image_src": "test/proyect_name/proyect_name/assets/Restaurante.png",
+        "image_src": "Restaurante.png",
         "image_fit": "cover"
     },
     "MAIN_EFFECTS_CONTAINER": {

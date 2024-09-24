@@ -18,7 +18,7 @@ styles={
     "_4028": {
         # "WIDGET_NAME": "CONTAINER_TEXT",
         "alignment": {"x":0,"y":0},
-        "bgcolor": "white,0.14",
+        "bgcolor": "white,0.23",
         "blur": {"sigma_x":40,"sigma_y":40,"tile_mode":"mirror"},
         "border": {"l":{"w":4,"c":"white12"},"t":{"w":4,"c":"white12"},"r":{"w":4,"c":"white12"},"b":{"w":4,"c":"white12"}},
         "border_radius": {"bl":44,"br":44,"tl":44,"tr":44},
@@ -30,7 +30,7 @@ styles={
     "_4029": {
         # "WIDGET_NAME": "CONTENT_TEXT",
         "size": 21,
-        "value": "Servicios Gastronomicos",
+        "value": "Servicios Gastronómicos",
         "weight": "bold"
     },
     "_4024": {
@@ -154,7 +154,7 @@ styles={
         "blur": {"sigma_x":40,"sigma_y":40,"tile_mode":"mirror"},
         "border": {"l":{"w":0,"c":"transparent"},"t":{"w":0,"c":"transparent"},"r":{"w":0,"c":"transparent"},"b":{"w":0,"c":"transparent"}},
         "border_radius": {"bl":20,"br":20,"tl":20,"tr":20},
-        "height": "240",
+        "height": "247",
         "ink": "true",
         "ink_color": "yellow",
         "padding": {"l":6,"t":6,"r":6,"b":6},
@@ -242,10 +242,10 @@ styles={
         "bgcolor": "white,0.23",
         "border": {"l":{"w":0,"c":"transparent"},"t":{"w":0,"c":"transparent"},"r":{"w":0,"c":"transparent"},"b":{"w":0,"c":"transparent"}},
         "border_radius": {"bl":20,"br":20,"tl":20,"tr":20},
-        "height": "200",
+        "height": "198",
         "ink": "true",
         "ink_color": "cyan",
-        "margin": {"l":8,"t":16,"r":8,"b":20},
+        "margin": {"l":8,"t":8,"r":8,"b":20},
         "padding": {"l":0,"t":0,"r":0,"b":0},
         "width": ""
     },

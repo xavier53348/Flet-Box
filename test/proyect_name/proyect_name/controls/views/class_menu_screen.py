@@ -18,7 +18,7 @@ phone_style_widget = {
         "width": "295",
         # "blur": {"sigma_x":20,"sigma_y":20,"tile_mode":"mirror"},
         "bgcolor":"white58",
-        "image_src": "test/proyect_name/proyect_name/assets/RestauranteBuffet.png",
+        "image_src": "RestauranteBuffet.png",
         "image_fit": "cover"
     },
     "MAIN_EFFECTS_CONTAINER": {

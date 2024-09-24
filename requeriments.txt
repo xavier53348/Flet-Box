@@ -1,3 +1,2 @@
-flet>=0.22.0
-g4f>=0.2.9.11
+flet
 pyperclip

@@ -26,7 +26,6 @@ class DraggWidget(ft.Stack):
         self.DropTakeDragg = ft.Draggable(
             group="GroupDragg",
             content=ft.Container(
-<<<<<<< HEAD
                         width=90,
                         height=90,
                         border_radius=16,
@@ -98,79 +97,6 @@ class DraggWidget(ft.Stack):
                                         ),
                                     ],
                                 ),
-=======
-                width=90,
-                height=90,
-                border_radius=16,
-                padding=ft.padding.all(4),
-                alignment=ft.alignment.center,
-                border=ft.border.all(1.5, "#0a1619"),
-                on_click=lambda _: self.SelectedWidget(self.widget),
-                gradient=ft.LinearGradient(
-                    begin=ft.alignment.top_center,
-                    end=ft.alignment.bottom_center,
-                    colors=[ft.colors.BLACK12, "#0c0d0e"],
-                ),
-                content=ft.Column(
-                    alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                    controls=[
-                        ft.Icon(
-                            name=self.icons,
-                            color=ft.colors.CYAN_700,
-                            size=50,
-                        ),
-                        ft.Text(
-                            value=self.widget,
-                            text_align=ft.TextAlign.CENTER,
-                            weight=ft.FontWeight.BOLD,
-                            color=ft.colors.CYAN_700,
-                        ),
-                    ],
-                ),
-            ),
-            content_when_dragging=ft.Container(
-                padding=2,
-                width=80,
-                height=80,
-                border_radius=13,
-            ),
-            content_feedback=ft.Container(
-                alignment=ft.alignment.bottom_center,
-                width=80,
-                height=80,
-                bgcolor="#0c0d0e",
-                border=ft.border.all(0.5, ft.colors.TEAL),
-                border_radius=13,
-                content=ft.Column(
-                    spacing=0,
-                    controls=[
-                        ft.Container(
-                            alignment=ft.alignment.center,
-                            padding=ft.padding.all(4),
-                            content=ft.Icon(
-                                name=self.icons, color=ft.colors.BLUE_300, size=50
-                            ),
-                        ),
-                        ft.Container(
-                            alignment=ft.alignment.center,
-                            padding=ft.padding.all(0),
-                            margin=ft.margin.all(0),
-                            content=ft.Text(
-                                color=ft.colors.BLUE_300,
-                                size=16,
-                                weight=ft.FontWeight.BOLD,
-                                spans=[
-                                    ft.TextSpan(
-                                        self.widget,
-                                        ft.TextStyle(size=16, color=ft.colors.BLUE_300),
-                                    ),
-                                ],
-                            ),
-                        ),
-                    ],
-                ),
->>>>>>> 102af40 (fixed overlay append)
             ),
         )
         return self.DropTakeDragg
@@ -196,27 +122,12 @@ class DraggWidget(ft.Stack):
             CONFIG_TABS_CONTAINERS.update()
 
             #: HIDE TABS IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
-<<<<<<< HEAD
             CONFIG_TABS_CONTAINERS_CONTENT = GLOBAL_VAR(get_global_var="CONFIG_TABS_CONTAINERS_CONTENT")
-=======
-            CONFIG_TABS_CONTAINERS_CONTENT = GLOBAL_VAR(
-                get_global_var="CONFIG_TABS_CONTAINERS_CONTENT"
-            )
->>>>>>> 102af40 (fixed overlay append)
             CONFIG_TABS_CONTAINERS_CONTENT.visible = False
             CONFIG_TABS_CONTAINERS_CONTENT.update()
 
         #: SET GLOBAL VAR // SELECTED_WIDGET // IN DRAGG_DROPP BOX
-<<<<<<< HEAD
         widget_selected = GLOBAL_VAR(set_global_var={"SELECT_DRAGG": data,"LIST_SELECTED_WIDGETS": [],})
-=======
-        widget_selected = GLOBAL_VAR(
-            set_global_var={
-                "SELECT_DRAGG": data,
-                "LIST_SELECTED_WIDGETS": [],
-            }
-        )
->>>>>>> 102af40 (fixed overlay append)
 
         #: SET FALSE BORDER SELECTED WIDGET IN PHONE
         GLOBAL_VAR(set_global_var={"BOOL_SHOW_SELECTED": False})
