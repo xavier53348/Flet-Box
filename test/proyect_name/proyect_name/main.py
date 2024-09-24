@@ -26,13 +26,13 @@ def main(page: ft.Page):
     # page.window_bgcolor       = ft.colors.TRANSPARENT
 
     #: POSITION OF SCREENS
-    page.window_left          = 8
-    page.window_top           = 8
+    page.window.left          = 0
+    page.window.top           = 0
     # page.window_center()
 
     #: SIZE
-    page.window_height        = 620  # 566 620
-    page.window_width         = 320  # 295 320
+    # page.window.height        = 740  # 566 620
+    # page.window.width         = 1050  # 295 320
     page.padding              = 0
     page.spacing              = 0
     page.expand               = True
@@ -44,9 +44,15 @@ def main(page: ft.Page):
 
 
     #: UPDATE SIZE OF MAIN PHGONE SCREEN
-    show_screen.height = page.window_height
-    show_screen.width  = page.window_width
-    page.on_resize     = lambda _: change_size(page_width=page.window_width, page_height=page.window_height)
+    show_screen.height = page.window.height
+    show_screen.width  = page.window.width
+    page.on_resize     = lambda _: change_size(page_width=page.window.width, page_height=page.window.height)
+
+    #: WALLPAPER
+    # page.decoration   = ft.BoxDecoration(image=ft.DecorationImage(src="exemple.jpg",fit=ft.ImageFit.COVER,opacity=0.2,), #: CONTAIN, COVER, FILL, FIT_HEIGHT, FIT_WIDTH, SCALE_DOWN
+    #                    # gradient = ft.LinearGradient(begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
+    #                    # gradient = ft.RadialGradient( colors=[ft.colors.YELLOW, ft.colors.BLUE],),
+    #                                )
 
     #: SET FROM CONTAINER BGCOLOR
     # page.bgcolor = styles['_2921']['bgcolor']
@@ -55,17 +61,21 @@ def main(page: ft.Page):
     # print(styles.get('_2921').get('bgcolor'))
     #: WE SET HOT SCOPE VAR
 
-
     page.appbar = ft.AppBar(
         # bgcolor=ft.colors.WHITE12,
         bgcolor=ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],),
 
         # bgcolor=ft.colors.WHITE12,
-        leading=ft.IconButton(icon=ft.icons.POLYMER,icon_size=14,on_click=lambda _:print('hello')),
+        leading=ft.IconButton(  icon=ft.icons.POLYMER,
+                                # icon_size=14,
+                                on_click=lambda _:print('hello')),
         leading_width=40,
-        title=ft.Text("Name app ",size=14),
+        title=ft.Text(
+                        value="Name app ",
+                        # size=14
+                        ),
         center_title=False,
-        toolbar_height=40,
+        # toolbar_height=40,
         # bgcolor=ft.colors.SURFACE_VARIANT,
         actions=[
 
@@ -100,8 +110,13 @@ def run_app():
             )
 
 if __name__ == '__main__':
+    import warnings
+    warnings.simplefilter('ignore',DeprecationWarning)
 
     ft.app(
             target=main,
-            assets_dir="assets"
+            assets_dir="assets",
+            # view         = ft.AppView.WEB_BROWSER, #view=ft.WEB_BROWSER,
+            # web_renderer = ft.WebRenderer.HTML,
+            # port=21109,
             )

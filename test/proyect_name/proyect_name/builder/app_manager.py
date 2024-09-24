@@ -57,14 +57,17 @@ def builder_app(screen, main_page):
     # print(screen)
     return tmp_data
 
-def got_to_screen(to_screen: str, style: str='bar', time_style: float=10 ):
+def got_to_screen(to_screen: str, style: str='ring', time_style: float=10 ):
     """
     Clean the view and add and update new view
 
-    got_to_screen(to_screen='screen_1' , style='ring')
+    Attributes:
 
-    effects:
-    style = 'ring' , 'bar'
+    got_to_screen(to_screen='screen_1' , style='ring' , time_style=10)
+
+    Effects attributes to go to screen:
+    style = 'ring' ,
+    style = 'bar'
 
     """
     main_page:      dict = GLOBAL_VAR(get_global_var='main_page')
@@ -73,25 +76,26 @@ def got_to_screen(to_screen: str, style: str='bar', time_style: float=10 ):
 
     from_screen: dict = all_screens.get(current_screen)
     next_screen: dict = all_screens.get(to_screen)
+
     if not time_style == 0.0 or time_style == 0:
         if style == "burble":
             animated = LoadingAnimation()
-            main_page.splash = ft.Container(
+            main_page.overlay.append(ft.Container(
                                             # content   = ft.ProgressRing(),
                                             content = animated,
                                             alignment = ft.alignment.center,
-                                           )
+                                           ))
 
             main_page.add(animated)
             animated.animate_loader(time_app=time_style)
         elif style == "ring":
-            main_page.splash = ft.Container(
+            main_page.overlay.append(ft.Container(
                                             content   = ft.ProgressRing(),
                                             alignment = ft.alignment.center,
-                                           )
+                                           ))
 
         elif style == "bar":
-            main_page.splash = ft.ProgressBar()
+            main_page.overlay.append(ft.ProgressBar())
 
     #: UPDATE COLOR STREAMING
     # ITS NECESSARY MARK MAIN WIDGET index 0 "BECAUSE MARK ALL COLOR BY DEFAULD"
@@ -110,7 +114,7 @@ def got_to_screen(to_screen: str, style: str='bar', time_style: float=10 ):
     next_screen.update()
 
     if not time_style == 0.0 or time_style == 0:
-        main_page.splash = None
+        main_page.overlay.clear()
         main_page.update()
 
     else:
