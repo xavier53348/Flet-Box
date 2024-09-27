@@ -9,7 +9,7 @@ click_avalidation: bool = False
 class PhotoSelection(ft.Container):
     def __init__(self, photo_selection: str = ""):
         super().__init__()
-
+        self.tooltip="PhotoSelection"
         self.photo_selection = photo_selection
         self.width = 86
         self.height = 86

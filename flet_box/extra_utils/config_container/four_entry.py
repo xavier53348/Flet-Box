@@ -18,6 +18,7 @@ class FourEntry(ft.Stack):
     ):
         super().__init__()
         """ Is neccesary make a filter that will contain name of the widget to use"""
+        self.tooltip="FourEntry"
         self.widget = widget
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict

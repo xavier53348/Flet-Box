@@ -23,6 +23,11 @@
 
 **Certainly!** Let's create a documentation for **Flet-Box**, a GUI framework that simplifies building multi-platform apps using drag-and-drop widgets in the Python language.
 
+## xclip
+```bash
+sudo apt-get install xselect
+
+```
 ## Instalation Flet-Box
 ```bash
 
@@ -34,6 +39,13 @@
 
 >>> sudo apt-get install python3-full
 >>> python3 -m venv .venv
+```
+
+## Installing lsp server
+``` bash
+
+>>> sudo apt-get install python3-pylsp
+>>> pip install "python-lsp-server[all]"
 ```
 ## Activate virtual env
 ```bash

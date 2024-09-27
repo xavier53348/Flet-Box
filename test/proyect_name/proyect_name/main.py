@@ -31,15 +31,16 @@ def main(page: ft.Page):
     # page.window_center()
 
     #: SIZE
-    # page.window.height        = 740  # 566 620
-    # page.window.width         = 1050  # 295 320
+    page.window.height        = 620  # 566 620
+    page.window.width         = 320  # 295 320
+
     page.padding              = 0
     page.spacing              = 0
     page.expand               = True
 
     #: SCREEN BUILDER
     tmp_screens = builder_app(screen=screens, main_page=page ) #: it's necessary to call all screens
-    all_screens = tmp_screens.get('show_all_screens')                           #: return one dict with all  screens inside
+    # all_screens = tmp_screens.get('show_all_screens')                           #: return one dict with all  screens inside
     show_screen = tmp_screens.get('builder_app')                                #: return exactly first screen
 
 
@@ -94,7 +95,46 @@ def main(page: ft.Page):
         ],
     )
 
+    # page.floating_action_button = ft.FloatingActionButton(icon=ft.icons.HOME,)
+    # page.floating_action_button_location = ft.FloatingActionButtonLocation.CENTER_DOCKED
+    # page.bottom_appbar = ft.BottomAppBar(
+    #                                 # height=72,
+    #                                 bgcolor=ft.colors.TRANSPARENT,
+    #                                 # shape=ft.NotchShape.CIRCULAR,
+    #                                 content=ft.Container(
+    #                                             # expand          = True,
+    #                                             ink=False,                #: click effect ripple
+    #                                             bgcolor="BLACK,0.8",
+    #                                             alignment=ft.alignment.center,
+    #                                             width         = 150,
+    #                                             border_radius=ft.border_radius.all(32),
+    #                                             padding=0,
+    #                                             margin=0,
+    #                                             # shadow = ft.BoxShadow(
+    #                                             #            spread_radius= 0,
+    #                                             #            blur_radius  = 15,
+    #                                             #            color        = ft.colors.CYAN,
+    #                                             #            offset       = ft.Offset(0, 0),
+    #                                             #            blur_style   = ft.ShadowBlurStyle.OUTER,
+    #                                             #      ),
+    #                                             blur=(18, 18),
 
+    #                                             content=ft.CupertinoSlidingSegmentedButton(
+    #                                                 selected_index=1,
+    #                                                 thumb_color="WHITE,0.06",
+    #                                                 bgcolor="TRANSPARENT",
+    #                                                 padding=ft.padding.symmetric(0, 10),
+
+    #                                                 controls=[
+    #                                                         ft.Text(value='BACK'),
+    #                                                         ft.Text(value='BACK'),
+    #                                                         ft.Text(value='BACK'),
+    #                                                 ],
+    #                                                 on_change=lambda e: print(f"selected_index: {e.data}"),
+    #                                             ),  # <=== NOTE COMA
+    #                                 ),
+
+    # )
     page.add(show_screen)
     page.update()
 

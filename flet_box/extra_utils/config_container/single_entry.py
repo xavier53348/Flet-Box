@@ -20,7 +20,7 @@ class SingleEntry(ft.Stack):
         id_name_widget_dict=None,
     ):
         super().__init__()
-
+        self.tooltip="SingleEntry"
         self.widget = widget
         # print(self.widget)
         self.widget_content = self.widget_content

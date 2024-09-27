@@ -8,21 +8,19 @@ from .main_screen_events import *
 phone_style_widget = {
     "MAIN_CONTAINER": {
         "alignment": {"x":0,"y":0},
-        "height": "566",
+        "height": "625",
         "margin": {"l":0,"t":0,"r":0,"b":0},
         "padding": {"l":0,"t":0,"r":0,"b":0},
-<<<<<<< HEAD
         "width": "460",
-        "image_src": "ServicioBanquetes.png",
+        "image_src": "test/proyect_name/proyect_name/assets/_77203d18-186d-40fa-acc7-982298584979.jpeg",
+        "image_opacity": "0.61",
         "image_fit": "cover"
-=======
-        "width": "295"
->>>>>>> ec91347 (fixing lot minor-bugs to migrate flet==0.24.1)
     },
     "MAIN_EFFECTS_CONTAINER": {
         "alignment": {"x":0,"y":0},
         "bgcolor": "transparent",
-        "padding": {"l":0,"t":0,"r":0,"b":0}
+        "blur": {"sigma_x":16,"sigma_y":16,"tile_mode":"mirror"},
+        "padding": {"l":16,"t":0,"r":16,"b":0}
     },
     "COLUMN_CONTAINER": {
         "scroll": "HIDDEN",
@@ -42,14 +40,77 @@ class main_screen(ft.Container):
         #: MAIN PHONE CONTAINER
         self.content_box = [ 
 
-		ft.Container( # Image
-			**self.dict_style('_3997'),
-			on_click= lambda _: event_3998(data='_3998'),
-			content= ft.Image(
-					**self.dict_style('_3998'),
-					# on_click= lambda _: event_3998(data='_3998'),
+		ft.Container( # Text
+			**self.dict_style('_3991'),
+			# on_click= lambda _: event_3992(data='_3992'),
+			content= ft.Text(
+					**self.dict_style('_3992'),
+					# on_click= lambda _: event_3992(data='_3992'),
 			),),
 
+		ft.Container(  # Container_Column
+			**self.dict_style('_3999'),
+			content= ft.Column( # Column
+					**self.dict_style('_4000'),
+					controls= [
+
+						ft.Container( # Text
+								**self.dict_style('_4015'),
+								# on_click= lambda _: event_4016(data='_4016'),
+								content= ft.Text(
+										**self.dict_style('_4016'),
+										# on_click= lambda _: event_4016(data='_4016'),
+								),),
+
+		],),),
+		ft.Container( # Text
+			**self.dict_style('_4003'),
+			# on_click= lambda _: event_4004(data='_4004'),
+			content= ft.Text(
+					**self.dict_style('_4004'),
+					# on_click= lambda _: event_4004(data='_4004'),
+			),),
+
+		ft.Container(  # Container_Row
+			**self.dict_style('_4007'),
+			content= ft.Row( # Row
+					**self.dict_style('_4008'),
+					controls= [
+
+				],
+		),), #// CLOSE LAYER 0
+		ft.Container(  # Container_Row
+			**self.dict_style('_4027'),
+			on_click= lambda _: event_4027(data='_4027'),
+			content= ft.Row( # Row
+					**self.dict_style('_4028'),
+					controls= [
+
+						ft.Container( # Icon
+								**self.dict_style('_4031'),
+								on_click= lambda _: event_4032(data='_4032'),
+								content= ft.Icon(
+										**self.dict_style('_4032'),
+										# on_click= lambda _: event_4032(data='_4032'),
+								),),
+
+						ft.Container( # Text
+								**self.dict_style('_4035'),
+								# on_click= lambda _: event_4036(data='_4036'),
+								content= ft.Text(
+										**self.dict_style('_4036'),
+										# on_click= lambda _: event_4036(data='_4036'),
+								),),
+
+		],),),
+		ft.Container(  # Container_Row
+			**self.dict_style('_4043'),
+			content= ft.Row( # Row
+					**self.dict_style('_4044'),
+					controls= [
+
+				],
+		),), #// CLOSE LAYER 0
         ]
 
         #: MAIN PHONE CONTAINER

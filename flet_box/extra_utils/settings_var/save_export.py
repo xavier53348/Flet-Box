@@ -1250,9 +1250,7 @@ class MakeJasonFile:
 
         #: JOIN MAIN PHONE CONTAINER AND MAIN CONTAINER CONTAINER WITH ALL STYLES IN PHONE
 
-        self.style_code = json.dumps(
-            self.dict_all_attribute, indent=4
-        )  #: STYLE ATTRIBUTES CODE
+        self.style_code = json.dumps(self.dict_all_attribute, indent=4)  #: STYLE ATTRIBUTES CODE
         self.style_code = self.recode_style_json(code=self.style_code)
 
         #: run only in production
@@ -1274,19 +1272,19 @@ class MakeJasonFile:
     def refactoring_widget_code(self, new_code):
         new_code = (
             new_code.replace("Elevatedbutton", "ElevatedButton")
-            .replace("Textbutton", "TextButton")
-            .replace("Iconbutton", "IconButton")
-            .replace("Gridview", "GridView")
+                    .replace("Textbutton", "TextButton")
+                    .replace("Iconbutton", "IconButton")
+                    .replace("Gridview", "GridView")
         )
         new_code = (
             new_code.replace("Cupertinocheckbox", "CupertinoCheckbox")
-            .replace("Cupertinoslider", "CupertinoSlider")
-            .replace("Cupertinoradio", "CupertinoRadio")
+                    .replace("Cupertinoslider", "CupertinoSlider")
+                    .replace("Cupertinoradio", "CupertinoRadio")
         )
         new_code = (
             new_code.replace("Circleavatar", "CircleAvatar")
-            .replace("Outlinedbutton", "OutlinedButton")
-            .replace("Verticaldivider", "VerticalDivider")
+                    .replace("Outlinedbutton", "OutlinedButton")
+                    .replace("Verticaldivider", "VerticalDivider")
         )
         new_code = new_code.replace("Radiogroup", "RadioGroup")
 
@@ -1296,10 +1294,10 @@ class MakeJasonFile:
         #: new_code = new_code.replace('','')
         new_code = (
             code.replace("\\", "")
-            .replace('"{', "{")
-            .replace('}"', "}")
-            .replace('"[', "[")
-            .replace(']"', "]")
+                .replace('"{', "{")
+                .replace('}"', "}")
+                .replace('"[', "[")
+                .replace(']"', "]")
         )
 
         #: This line of code is delete in build_json_file

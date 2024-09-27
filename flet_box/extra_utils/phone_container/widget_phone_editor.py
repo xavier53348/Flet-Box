@@ -52,8 +52,7 @@ class Build_Phone_Editor(ft.Stack):
                             content=ft.Column(
                                 scroll="HIDDEN",
                                 spacing=2,
-                                controls=[],
-                    ),
+                                controls=[],),
                 ),
                 on_will_accept=self.drag_will_accept,
                 on_leave=self.drag_leave,
@@ -105,9 +104,7 @@ class Build_Phone_Editor(ft.Stack):
         if not selectWidgetBox == None:
             ADD_WIDGET_SELECTED = self.InfinityBox(selectWidgetBox)
 
-            self.Build_Phone_Editor.content.content.content.controls.append(
-                ADD_WIDGET_SELECTED
-            )
+            self.Build_Phone_Editor.content.content.content.controls.append(ADD_WIDGET_SELECTED)
 
             widgetDropBox.control.content.border = True
             widgetDropBox.control.content.border = ft.border.all(7, ft.colors.BLACK)
@@ -118,9 +115,7 @@ class Build_Phone_Editor(ft.Stack):
             self.name_widget = ADD_WIDGET_SELECTED.controls[0].content
             #: self.name_widget = ADD_WIDGET_SELECTED.controls[0].content._get_control_name()
 
-            self.get_data_dict_to_update = GLOBAL_VAR(
-                get_global_var="EXPORT_DATA_PHONE"
-            )
+            self.get_data_dict_to_update = GLOBAL_VAR(get_global_var="EXPORT_DATA_PHONE")
             self.current_screen = GLOBAL_VAR(get_global_var="SELECTED_SCREEN").uid
 
             # self.get_data_dict_to_update.update({self.current_screen:{}})

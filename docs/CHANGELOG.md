@@ -1,3 +1,55 @@
+## 0.1.3 (septiembre 24, 2024)
+  - merge done
+  - preparing merge
+  - preparing export comde
+  - fixing lot minor-bugs to migrate flet==0.24.1
+  - fixed overlay append
+  - Refactoring code
+  - Merge branch 'features/new_features'
+  - update README
+  - update README file
+  - fix alert overlay.append(dialog) on exit App
+  - Merge branch 'features/new_features' removing chat-gpt and dependences gf4
+  - compatibility flet --version 0.23.2
+  - compatibility flet --version 0.23.2
+  - Merge branch 'features/new_features'
+  - rename demo app
+  - add first demo app in flet-box
+  - add youtuve image readme
+  - add youtuve image readme
+  - Update README.md
+  - update readme
+  - start merge to main branch
+  - implemented donate page status ok
+  - adding donation Page
+  - install with version stable flet>=0.22.0
+  - migrating to version flet-0.23.0 and fixing minor warnings
+  - add configuration betwen screens
+  - fixed size of phone in multyscreens manager
+  - fixed widget middlewhere in delete widget
+  - Add new config control
+  - made lite module to refactor code str numbers to float
+  - remove from ALL_SCREEN_IN_DICT implemented
+  - fix minor issue no presentation imagen fit its aviable now
+  - Update info path in Readme
+  - added new color_palete new image_selection and merge all data
+  - fix close gpt,color,icon container and start build image selection
+  - disable buttons table pc android minor bugs
+  - implemented better UI
+  - add unselect border button in palete
+  - implemented save code multy screen now aviable
+  - made builder export code multy screens
+  - add id in dict_screens
+  - full CRUD screen manager
+  - Tested screen manager add remove clear screens, moving between screens and minor issues inside
+  - relocating path
+  - Merge branch 'features/new_features'
+  - realease new version
+  - adding fix minor library to README
+  - errror
+  - Bump version to 0.1.2.1.
+  - Actualizar .pypirc
+
 ## 0.1.2.2 (June 01, 2024)
   - start stable screen manager still have minor issues need fix export code to new code
 

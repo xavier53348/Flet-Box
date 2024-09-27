@@ -1,2 +1,4 @@
 flet
 pyperclip
+python-lsp-servers
+

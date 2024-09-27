@@ -83,7 +83,7 @@ class config_number_widget(ft.Stack):
         widget_to_modify="",
     ):
         super().__init__()
-
+        self.tooltip="config_number_widget"
         self.config_widget = label_widget
         self.button_name = button_name
         self.widget_new = widget_to_modify

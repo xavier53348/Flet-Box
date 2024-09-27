@@ -24,6 +24,7 @@ class BoxConfigContainer(ft.Stack):
                  controls: list=[]
                  ):
         super().__init__()
+        self.tooltip="BoxConfigContainer"
         self.title    = title
         self.controls = controls
 
@@ -156,7 +157,6 @@ class Build_Editor(ft.Stack):
                'container_alignment':SelectionEntry( config_widget='alignment '            ,widget=self.container_widget),
 
                'container_width'    :DoubleEntry(    config_widget='width'                 ,widget=self.container_widget),
-               'container_scale'    :SingleNumeberEntry(    config_widget='scale'                 ,widget=self.container_widget),
                'container_border'   :DoubleEntry(    config_widget='border'                ,widget=self.container_widget),
                'container_expand'   :BoolEntry(      config_widget='expand'                ,widget=self.container_widget),
                'container_ink'      :BoolEntry(      config_widget='ink'                   ,widget=self.container_widget),

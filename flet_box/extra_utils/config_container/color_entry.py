@@ -17,6 +17,7 @@ class ColorEntry(ft.Stack):
         id_name_widget_dict=None,
     ):
         super().__init__()
+        self.tooltip="ColorEntry"
         self.widget = widget
         self.widget_name = config_widget
         self.id_name_widget_dict = id_name_widget_dict

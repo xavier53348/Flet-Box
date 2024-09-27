@@ -18,31 +18,32 @@ class Icon_text(ft.Stack):
     def build(self):
         Drop_Icon_text = ft.IconButton(
             visible=False,
-            content=ft.Container(
-                height=120,
-                width=120,
-                on_click=lambda _: self.copy_to_clipboard(
-                    Drop_Icon_text.content.content.controls[0].name
-                ),
-                visible=False,
-                content=ft.Column(
-                    controls=[
-                        ft.Icon(visible=False, name="home", size=30),
-                        ft.Text(
-                            visible=False,
-                            value="testing",
-                            size=12,
-                            width=100,
-                            no_wrap=True,
-                            text_align="center",
-                        ),
-                    ],
-                    spacing=5,
-                    alignment="center",
-                    horizontal_alignment="center",
-                ),
-                alignment=ft.alignment.center,
-            ),
+            icon_size=72,
+            on_click=lambda _: self.copy_to_clipboard(Drop_Icon_text.tooltip),
+
+            # content=ft.Container(
+            #     height=120,
+            #     width=120,
+            #     on_click=lambda _: self.copy_to_clipboard(Drop_Icon_text.content.content.controls[0].name),
+            #     visible=False,
+            #     content=ft.Column(
+            #         controls=[
+            #             ft.Icon(visible=False, name="home", size=30),
+            #             ft.Text(
+            #                 visible=False,
+            #                 value="testing",z
+            #                 size=12,
+            #                 width=100,
+            #                 no_wrap=True,
+            #                 text_align="center",
+            #             ),
+            #         ],
+            #         spacing=5,
+            #         alignment="center",
+            #         horizontal_alignment="center",
+            #     ),
+            #     alignment=ft.alignment.center,
+            # ),
         )
         return Drop_Icon_text
 
@@ -68,7 +69,7 @@ class IconBrowser(ft.Stack):
         global alert_dialog
 
         #: PREPARING THE LIST THAT WILL CONTENT ALL INCON INSIDE
-        self.list_icons = self.preparing_list_icons()
+        # self.list_icons = self.preparing_list_icons()
         self.numb_widget_to_show = numb_widget_to_show
 
         if blur_effect:
@@ -191,52 +192,53 @@ class IconBrowser(ft.Stack):
 
     def search_icons(self, e):
         search_term = e.control.value.lower()
+        # print(search_term,'<<<<<<<<<<<<<<')
+        self.list_icons = self.preparing_list_icons()
 
         def run_upload_icons():
             global num_count
             num_count = 0
-
+            # print(self.list_icons[-1])
+            self.list_icons = self.list_icons[:-1]
             for _ in self.list_icons:
-                if _.startswith(search_term) and num_count < len(
-                    self.Search_Gridwiew.controls
-                ):
-                    #: ONLY SHOW IN SCREEN THE AMOUNT THAT WE FIND BY OUR SEARCH
-                    #: THE REST WILL NOW SHOW IN THE NEXT CODE
-                    self.ico_widget = self.Search_Gridwiew.controls[num_count].controls[
-                        0
-                    ]
+                for x in _:
+                    if x.startswith(search_term) and num_count < len(self.Search_Gridwiew.controls):
+                        #: ONLY SHOW IN SCREEN THE AMOUNT THAT WE FIND BY OUR SEARCH
+                        #: THE REST WILL NOW SHOW IN THE NEXT CODE
+                        self.ico_widget = self.Search_Gridwiew.controls[num_count].controls[0]
 
-                    #: CHANGE ICO AND NAME ICO PROPERTY
-                    self.ico_widget.content.content.controls[0].name = _
-                    self.ico_widget.content.content.controls[1].value = _
+                        #: CHANGE ICO AND NAME ICO PROPERTY
+                        # self.ico_widget.content.content.controls[0].name = x
+                        # self.ico_widget.content.content.controls[1].value = x
+                        self.ico_widget.visible = True
+                        self.Search_Gridwiew.visible = True
+                        self.Search_Gridwiew.controls[num_count].visible = True
+                        # self.ico_widget.content.content.controls[0].visible = True
+                        # self.ico_widget.content.content.controls[1].visible = True
 
-                    #: CHANGE PROPERTY VISIBLE
-                    self.ico_widget.visible = True
-                    self.Search_Gridwiew.visible = True
-                    self.Search_Gridwiew.controls[num_count].visible = True
-                    self.ico_widget.content.content.controls[0].visible = True
-                    self.ico_widget.content.content.controls[1].visible = True
+                        #: NUMBER OF COUNT WIDGET WILL INCREASE TO HAVE CONTROL OF ALL DRAW WIDGETS
+                        num_count += 1
+                        #: CHANGE PROPERTY VISIBLE
+                        self.ico_widget.icon=x
+                        self.ico_widget.tooltip=x
 
-                    #: NUMBER OF COUNT WIDGET WILL INCREASE TO HAVE CONTROL OF ALL DRAW WIDGETS
-                    num_count += 1
-
+            # ======================================
             #: THIS CODE IS IF THE WIDET THAT WE CALL HAVE LESS THAN ALL AMOUNT OF WIDGET IN BOX
             #: EXEMPLE 50 IF WE CALL 20 THE REST OF 30 WILL BE VISIBLE = OFF
             #: WE DON'T WANT SHOW INECCESARY WIDGET IN SCREEN
 
             for _ in range(num_count, self.numb_widget_to_show):
                 self.ico_widget = self.Search_Gridwiew.controls[_].controls[0]
-
                 self.ico_widget.visible = False
                 self.Search_Gridwiew.controls[_].visible = False
-                self.ico_widget.content.content.controls[0].visible = False
-                self.ico_widget.content.content.controls[1].visible = False
+                # self.ico_widget.content.content.controls[0].visible = False
+                # self.ico_widget.content.content.controls[1].visible = False
+                # self.list_icons.clear()
 
             #: UPDATE ALL WIDGETS INSIDE BOX JUST ONE TIME
             for _ in self.Search_Gridwiew.controls:
                 _.update()
             self.Search_Gridwiew.update()
-
         run_upload_icons()
 
 

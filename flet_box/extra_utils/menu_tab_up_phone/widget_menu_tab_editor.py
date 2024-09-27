@@ -115,15 +115,9 @@ class MenuUpContainer(ft.Stack):
                                             controls=[
                                                 ft.Container(
                                                     # bgcolor=ft.colors.BLACK12,
-                                                    margin=ft.margin.only(
-                                                        left=0, top=0, right=0, bottom=0
-                                                    ),
-                                                    padding=ft.padding.only(
-                                                        left=8, top=0, right=8, bottom=0
-                                                    ),
-                                                    border_radius=ft.border_radius.all(
-                                                        8
-                                                    ),
+                                                    margin=ft.margin.only(left=0, top=0, right=0, bottom=0),
+                                                    padding=ft.padding.only(left=8, top=0, right=8, bottom=0),
+                                                    border_radius=ft.border_radius.all(8),
                                                     content=ft.Text(
                                                         weight=ft.FontWeight.BOLD,
                                                         value="FLET - BOX",
@@ -133,21 +127,10 @@ class MenuUpContainer(ft.Stack):
                                                 ),
                                                 ft.Container(
                                                     # bgcolor=ft.colors.BLACK38,
-                                                    margin=ft.margin.only(
-                                                        left=0, top=0, right=0, bottom=0
-                                                    ),
-                                                    padding=ft.padding.only(
-                                                        left=8, top=2, right=8, bottom=0
-                                                    ),
-                                                    border_radius=ft.border_radius.all(
-                                                        8
-                                                    ),
-                                                    border=ft.border.all(
-                                                        1,
-                                                        ft.colors.with_opacity(
-                                                            0.5, ft.colors.WHITE12
-                                                        ),
-                                                    ),
+                                                    margin=ft.margin.only(left=0, top=0, right=0, bottom=0),
+                                                    padding=ft.padding.only(left=8, top=2, right=8, bottom=0),
+                                                    border_radius=ft.border_radius.all(8),
+                                                    border=ft.border.all(1,ft.colors.with_opacity(0.5, ft.colors.WHITE12),),
                                                     gradient=ft.LinearGradient(
                                                         begin=ft.alignment.top_center,
                                                         end=ft.alignment.center_right,
@@ -161,9 +144,7 @@ class MenuUpContainer(ft.Stack):
                                                     shadow=ft.BoxShadow(
                                                         spread_radius=1,
                                                         blur_radius=22,
-                                                        color=ft.colors.with_opacity(
-                                                            0.8, ft.colors.BLACK26
-                                                        ),
+                                                        color=ft.colors.with_opacity(0.8, ft.colors.BLACK26),
                                                         offset=ft.Offset(0, 0),
                                                         blur_style=ft.ShadowBlurStyle.OUTER,
                                                     ),
@@ -274,17 +255,13 @@ class MenuUpContainer(ft.Stack):
                 content=ft.Text("Do you really want to exit this app?"),
                 actions=[
                     ft.ElevatedButton(
-                        "Yes",
-                        on_click=lambda _: self.yes_click(
-                            data="yes", alert=confirm_dialog
-                        ),
+                        text="Yes",
+                        on_click=lambda _: self.yes_click(data="yes", alert=confirm_dialog),
                         bgcolor=ft.colors.RED_900,
                     ),
                     ft.OutlinedButton(
-                        "No",
-                        on_click=lambda _: self.yes_click(
-                            data="close", alert=confirm_dialog
-                        ),
+                        text="No",
+                        on_click=lambda _: self.yes_click(data="close", alert=confirm_dialog),
                     ),
                 ],
                 actions_alignment="end",
@@ -384,12 +361,8 @@ class MenuUpContainer(ft.Stack):
             "imageopacity",
             "imagefit",
         ]
-        tmp_data = self.delete_attributes(
-            list_atributes=atributes_to_delete, dict_to_edit=tmp_data
-        )
-        tmp_data = self.rename_dict_key(
-            list_atributes=atributes_to_rename, dict_to_edit=tmp_data
-        )
+        tmp_data = self.delete_attributes(list_atributes=atributes_to_delete, dict_to_edit=tmp_data)
+        tmp_data = self.rename_dict_key(list_atributes=atributes_to_rename, dict_to_edit=tmp_data)
         #: =========================================================================
         #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [1]
         # print(tmp_data,' DATA PHONE: [1]')
@@ -416,9 +389,7 @@ class MenuUpContainer(ft.Stack):
         #                     # "imageopacity",
         #                     # "imagefit",
         #                     ]
-        tmp_data = self.delete_attributes(
-            list_atributes=atributes_to_delete, dict_to_edit=tmp_data
-        )
+        tmp_data = self.delete_attributes(list_atributes=atributes_to_delete, dict_to_edit=tmp_data)
         # tmp_data = self.rename_dict_key(
         #                                      list_atributes= atributes_to_rename,
         #                                      dict_to_edit  = tmp_data
@@ -445,12 +416,8 @@ class MenuUpContainer(ft.Stack):
         atributes_to_rename = [
             "horizontalalignment",
         ]
-        tmp_data = self.delete_attributes(
-            list_atributes=atributes_to_delete, dict_to_edit=tmp_data
-        )
-        tmp_data = self.rename_dict_key(
-            list_atributes=atributes_to_rename, dict_to_edit=tmp_data
-        )
+        tmp_data = self.delete_attributes(list_atributes=atributes_to_delete, dict_to_edit=tmp_data)
+        tmp_data = self.rename_dict_key(list_atributes=atributes_to_rename, dict_to_edit=tmp_data)
 
         #: =========================================================================
         #: RUN ONLY IN PRODUCTION                                        DATA PHONE: [3]

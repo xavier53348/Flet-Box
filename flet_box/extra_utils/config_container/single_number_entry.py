@@ -17,7 +17,7 @@ class SingleNumeberEntry(ft.Stack):
 
     def __init__(self, config_widget="max_lines", widget="", id_name_widget_dict=None):
         super().__init__()
-
+        self.tooltip="SingleNumeberEntry"
         self.widget = widget
         self.widget_name = config_widget
         self.widget_content = self.widget_content
