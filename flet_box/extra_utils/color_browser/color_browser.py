@@ -18,43 +18,48 @@ class Color_text(ft.Stack):
         self.TMP = data
 
     def build(self):
-        Drop_Color_text = ft.IconButton(
+        Drop_Color_text = ft.Container(
             visible=False,
-            content=ft.Container(
-                height=120,
-                width=120,
-                visible=False,
-                on_click=lambda _: self.copy_to_clipboard(
-                    Drop_Color_text.content.content.controls[0].bgcolor
-                ),
-                content=ft.Column(
-                    controls=[
-                        ft.Container(
-                            height=120,
-                            width=120,
-                            ink=False,
-                            bgcolor=ft.colors.BLACK38,
-                            padding=ft.padding.all(8),
-                            margin=ft.margin.all(0),
-                            alignment=ft.alignment.center,
-                            border_radius=ft.border_radius.all(30),
-                            border=ft.border.all(2, ft.colors.BLACK12),
-                        ),
-                        ft.Text(
-                            visible=False,
-                            value="testing",
-                            size=12,
-                            width=100,
-                            no_wrap=True,
-                            text_align="center",
-                        ),
-                    ],
-                    spacing=5,
-                    alignment="center",
-                    horizontal_alignment="center",
-                ),
-                alignment=ft.alignment.center,
-            ),
+            width=120,
+            height=120,
+            border_radius=ft.border_radius.all(30),
+            border=ft.border.all(2, ft.colors.BLACK12),
+            on_click=lambda _: self.copy_to_clipboard(Drop_Color_text.tooltip),
+
+            # content=ft.Container(
+            #     bgcolor='red',
+            #     visible=False,
+            #     on_click=lambda _: self.copy_to_clipboard(
+            #         Drop_Color_text.content.content.controls[0].bgcolor
+            #     ),
+                # content=ft.Column(
+                #     controls=[
+                #         ft.Container(
+                #             height=120,
+                #             width=120,
+                #             ink=False,
+                #             bgcolor=ft.colors.BLACK38,
+                #             padding=ft.padding.all(8),
+                #             margin=ft.margin.all(0),
+                #             alignment=ft.alignment.center,
+                #             border_radius=ft.border_radius.all(30),
+                #             border=ft.border.all(2, ft.colors.BLACK12),
+                #         ),
+                #         ft.Text(
+                #             visible=False,
+                #             value="testing",
+                #             size=12,
+                #             width=100,
+                #             no_wrap=True,
+                #             text_align="center",
+                #         ),
+                #     ],
+                #     spacing=5,
+                #     alignment="center",
+                #     horizontal_alignment="center",
+                # ),
+                # alignment=ft.alignment.center,
+            # ),
         )
         return Drop_Color_text
 
@@ -81,7 +86,7 @@ class ColorBrowser(ft.Stack):
         global alert_dialog
 
         # PREPARING THE LIST THAT WILL CONTENT ALL INCON INSIDE
-        self.list_colors = self.preparing_list_colors()
+        # self.list_colors = self.preparing_list_colors()
         self.numb_widget_to_show = numb_widget_to_show
 
         if blur_effect:
@@ -197,6 +202,7 @@ class ColorBrowser(ft.Stack):
     def search_icons(self, e):
         # ALL DATA THAT WE PASE BY TEXT_INPUT WILL BE IN LOWER CASE
         search_term = e.control.value.lower()
+        self.list_colors = self.preparing_list_colors()
 
         # only in production
         # print(search_term)
@@ -204,31 +210,33 @@ class ColorBrowser(ft.Stack):
         def run_upload_colors():
             global num_count
             num_count = 0
+            self.list_colors = self.list_colors[:-1]
 
             for _ in self.list_colors:
-                if str(_).startswith(search_term) and num_count < len(
-                    self.Search_Gridwiew.controls
-                ):
-                    # ONLY SHOW IN SCREEN THE AMOUNT THAT WE FIND BY OUR SEARCH
-                    # THE REST WILL NOW SHOW IN THE NEXT CODE
-                    self.color_widget = self.Search_Gridwiew.controls[
-                        num_count
-                    ].controls[0]
+                for x in _:
 
-                    # CHANGE ICO AND NAME ICO PROPERTY
-                    self.color_widget.content.content.controls[0].bgcolor = _
-                    self.color_widget.content.content.controls[1].value = _
+                    if str(x).startswith(search_term) and num_count < len(self.Search_Gridwiew.controls):
+                        # ONLY SHOW IN SCREEN THE AMOUNT THAT WE FIND BY OUR SEARCH
+                        # THE REST WILL NOW SHOW IN THE NEXT CODE
+                        self.color_widget = self.Search_Gridwiew.controls[num_count].controls[0]
 
-                    # CHANGE PROPERTY VISIBLE
-                    self.color_widget.visible = True
-                    self.Search_Gridwiew.visible = True
-                    self.Search_Gridwiew.controls[num_count].visible = True
-                    self.color_widget.content.content.controls[0].visible = True
-                    self.color_widget.content.content.controls[1].visible = True
+                        # CHANGE ICO AND NAME ICO PROPERTY
+                        # self.color_widget.content.content.controls[0].bgcolor = x
+                        # self.color_widget.content.content.controls[1].value = x
 
-                    # NUMBER OF COUNT WIDGET WILL INCREASE TO HAVE CONTROL OF ALL DRAW WIDGETS
-                    num_count += 1
+                        # CHANGE PROPERTY VISIBLE
+                        self.color_widget.visible = True
+                        self.Search_Gridwiew.visible = True
+                        self.Search_Gridwiew.controls[num_count].visible = True
+                        # self.color_widget.content.content.controls[0].visible = True
+                        # self.color_widget.content.content.controls[1].visible = True
 
+                        # NUMBER OF COUNT WIDGET WILL INCREASE TO HAVE CONTROL OF ALL DRAW WIDGETS
+                        num_count += 1
+                        self.color_widget.bgcolor=x
+                        self.color_widget.tooltip=x
+
+                        # print(self.color_widget)
             # THIS CODE IS IF THE WIDET THAT WE CALL HAVE LESS THAN ALL AMOUNT OF WIDGET IN BOX
             # EXEMPLE 50 IF WE CALL 20 THE REST OF 30 WILL BE VISIBLE = OFF
             # WE DON'T WANT SHOW INECCESARY WIDGET IN SCREEN
@@ -239,8 +247,8 @@ class ColorBrowser(ft.Stack):
 
                 self.color_widget.visible = False
                 self.Search_Gridwiew.controls[_].visible = False
-                self.color_widget.content.content.controls[0].visible = False
-                self.color_widget.content.content.controls[1].visible = False
+                # self.color_widget.content.content.controls[0].visible = False
+                # self.color_widget.content.content.controls[1].visible = False
 
             # UPDATE ALL WIDGETS INSIDE BOX JUST ONE TIME
             for _ in self.Search_Gridwiew.controls:
