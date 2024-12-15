@@ -1,0 +1,155 @@
+## 0.1.3 (septiembre 24, 2024)
+  - merge done
+  - preparing merge
+  - preparing export comde
+  - fixing lot minor-bugs to migrate flet==0.24.1
+  - fixed overlay append
+  - Refactoring code
+  - Merge branch 'features/new_features'
+  - update README
+  - update README file
+  - fix alert overlay.append(dialog) on exit App
+  - Merge branch 'features/new_features' removing chat-gpt and dependences gf4
+  - compatibility flet --version 0.23.2
+  - compatibility flet --version 0.23.2
+  - Merge branch 'features/new_features'
+  - rename demo app
+  - add first demo app in flet-box
+  - add youtuve image readme
+  - add youtuve image readme
+  - Update README.md
+  - update readme
+  - start merge to main branch
+  - implemented donate page status ok
+  - adding donation Page
+  - install with version stable flet>=0.22.0
+  - migrating to version flet-0.23.0 and fixing minor warnings
+  - add configuration betwen screens
+  - fixed size of phone in multyscreens manager
+  - fixed widget middlewhere in delete widget
+  - Add new config control
+  - made lite module to refactor code str numbers to float
+  - remove from ALL_SCREEN_IN_DICT implemented
+  - fix minor issue no presentation imagen fit its aviable now
+  - Update info path in Readme
+  - added new color_palete new image_selection and merge all data
+  - fix close gpt,color,icon container and start build image selection
+  - disable buttons table pc android minor bugs
+  - implemented better UI
+  - add unselect border button in palete
+  - implemented save code multy screen now aviable
+  - made builder export code multy screens
+  - add id in dict_screens
+  - full CRUD screen manager
+  - Tested screen manager add remove clear screens, moving between screens and minor issues inside
+  - relocating path
+  - Merge branch 'features/new_features'
+  - realease new version
+  - adding fix minor library to README
+  - errror
+  - Bump version to 0.1.2.1.
+  - Actualizar .pypirc
+
+## 0.1.2.2 (June 01, 2024)
+  - start stable screen manager still have minor issues need fix export code to new code
+
+## 0.1.2.1 (May 28, 2024)
+  - fix readme
+  - pypi aviable
+  - first test app release
+
+## 0.1.2 (May 27, 2024)
+  - start dev screens
+  - Bump version to 0.1.1.
+  - Merge branch 'features/new_features'
+  - addig file to git-ignore
+  - refactoring code
+  - delete files
+
+## 0.1.1 (May 26, 2024)
+  - Merge branch 'features/new_features'
+  - addig file to git-ignore
+  - refactoring code
+  - delete files
+
+## 0.1.0 (May 02, 2024)
+  - rafactory to code production
+  - update code to real production
+  - Implemented treeview and sources code with about
+  - integrate about page
+  - working on about
+  - fixed erase data correcty
+  - fix stack control error in config widgets
+  - fix ft.Control warning
+  - Add treeView but still have issue to erase correctly widget
+  - add save buttons
+  - fix gradient ui widget
+  - update minor bugs
+  - Update widget visible True False correctrly implemented the hard part of this is end now run dev of app quick
+  - fix minor bug
+  - update requeriments
+  - start merge to stable branch
+  - add full_path to git
+  - add full_path
+  - add full_path
+  - add widget.md
+  - mixing +container +widget container
+  - fixing size of phone
+  - recoding config widget new format
+  - updated widget config
+  - Added colors to select widget
+  - fixing errors
+  - realocating path
+  - link youtube
+  - add video demo App fixing resolution
+  - add video demo App
+  - reajusting screen config width
+  - recoding to minimize memory size
+  - start reduce memory size in confic select_widget and add new imagen
+  - updating Readme and adding screenshots
+  - updating Readme
+  - addin tab menu to flet-box and updating Readme
+  - addin tab menu to flet-box and updating Readme
+  - add color_browser done and full aviable
+  - fixed increase memory in ico_browser
+  - fixing drop error in list
+  - delete feature branch to create new
+  - add main install to github
+  - Merge branch 'features/lite_menu_up_phone'
+  - minor fix
+  - icons browser full implemented
+  - implementing icon browser
+  - Merge branch 'features/lite_menu_up_phone'
+  - Merge branch 'features/lite_menu_up_phone'
+  - buttoms up lite menu phone  aviables
+  - delete help_git.md
+  - change README
+  - realocating dir
+  - Delete help_git.md
+  - Update LICENSE
+  - fixing doc
+  - fixing doc
+  - fixing doc
+  - fixing doc
+  - fixing doc
+  - start dev in rotation and delete widget
+  - deleted:    help_git.md
+  - was Created desing low menu phone container
+  - ADD alert dialog and start dev Icon Pages
+  - fixed id tab container
+  - Implemented widgets Icons buttons rotation ,screens divices
+  - Add left menu Icons buttons
+  - add buttons in WindowDragArea and add logo desing
+  - add licence
+  - Dragg drop working and realocating code
+  - Implemented Selected widget text and border color selected with border and color modification
+  - regorganize widgets
+  - working in screen buttons and relocating place
+  - ending dragg drop cnfinguration
+  - realocating data and buiding dragg container
+  - add new gradient widget config , some corrections code
+  - some corrections of Containers and Container.content and add new widget selection_entry
+  - start dev config fusion app
+  - add line doc
+  - info git
+

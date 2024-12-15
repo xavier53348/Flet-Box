@@ -1,0 +1,12 @@
+bump_upgrade_pypi.sh
+env_python.py
+making_wheel.py
+/made
+/testing
+/temp
+.git
+.venv
+/.venv
+__pycache__
+/__pycache__
+/__pycache__*
