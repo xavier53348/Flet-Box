@@ -202,7 +202,7 @@ class column_container(ft.Container):
 
     def build(self):
         self.content = ft.Container(
-            # blur=(18, 18),
+            blur=(18, 18),
 
             content=ft.Column(
                 spacing=8,
