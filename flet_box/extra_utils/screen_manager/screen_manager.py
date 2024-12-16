@@ -21,11 +21,11 @@ class screen_phone(ft.Container):
 
     def build(self):
         self.content = ft.Container(
-            padding=ft.padding.all(8),
-            margin=ft.margin.all(8),
+            padding=ft.padding.all(0),
+            margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             width=320,
-            border_radius=ft.border_radius.all(30),
+            border_radius=ft.border_radius.all(2),
             shadow=ft.BoxShadow(
                 spread_radius=1,
                 blur_radius=15,
@@ -38,7 +38,7 @@ class screen_phone(ft.Container):
 
 class lite_screen_manager(ft.Container):
     selected_text: str = 0
-
+    old_payload = 0
     obtion_list = list()
 
     def __init__(self, selected_screen: object = None, page: object = None):
@@ -50,7 +50,6 @@ class lite_screen_manager(ft.Container):
         self.list_user_screen()
         # self.user_name = self.page.session.get('user_name')
         # self.user_name = 'kuko53348'
-
 
     def build(self):
         self.drop_down = ft.Dropdown(
@@ -107,8 +106,22 @@ class lite_screen_manager(ft.Container):
                         on_click=lambda _: self.delete_drop_items()
                     ),
 
+                    # UPDATE ITEMS
+                    ft.IconButton(
+                        icon="update",
+                        bgcolor=ft.Colors.with_opacity(
+                            opacity=0.6,
+                            color=ft.colors('blue')
+                        ),
+                        on_click=lambda _: self.update_drop_items()
+                    ),
                 ],),
         )
+
+    def update_drop_items(self):
+        self.list_user_screen()
+        self.drop_down.options=[ft.dropdown.Option(key=f"Screen number: {_}") for _ in self.obtion_list]
+        self.drop_down.update()
 
     def list_user_screen(self):
         self.obtion_list.clear()
@@ -131,7 +144,24 @@ class lite_screen_manager(ft.Container):
 
     def change_selected_input(self, payload):
         # self.selected_text = payload
-        # # print(f"event {payload}")
+
+        if self.old_payload == payload:
+            # ESCAPE ERROR MULTYPLES THREATHS
+            # ONLY NEW SUBMIT WILL BE AVIABLES
+            if self.old_payload:
+                self.old_payload = False
+                self.drop_down.options.clear()
+                self.drop_down.update()
+                return
+
+            self.old_payload = True
+            self.drop_down.options.clear()
+            self.drop_down.update()
+
+            return
+
+        self.old_payload = payload
+        print(f"changing {payload}")
 
         sqlite_obj = sqlite_db()
         data_returned = sqlite_obj.find_name(
@@ -145,20 +175,23 @@ class lite_screen_manager(ft.Container):
 
         # NECESSARY TAKE SELECTED SCREEN
         self.data_selected = data_returned[0][1]
-
+        # self.selected_screen.content.content = ft.Container(bgcolor="red",height=120,width=120)
         self.selected_screen.content.content = self.load_module_from_string(
             page=self.page,
             string_code=self.data_selected
         )
 
-        #  PHONE EDITOR
+        # WRITE IN  PHONE EDITOR
         self.Build_Phone_Editor = self.page.session.get('user_name_phone')
         self.Build_Phone_Editor.content = self.load_module_from_string(
             page=self.page,
             string_code=self.data_selected
         )
-
         self.Build_Phone_Editor.update()
+        #
+
+        self.drop_down.options.clear()
+
         self.page.update()
 
     def add_drop_items(self):

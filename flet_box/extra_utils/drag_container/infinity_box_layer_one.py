@@ -162,7 +162,7 @@ class InfinityBoxLayerOne(ft.DragTarget):
                                    blur=(8,8),
                                    width=240,
                                    on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
-                                   content=ft.TextField(label="what's your name ?",tooltip='TextField',border_radius= ft.border_radius.all(30),height=32, cursor_height=20,content_padding= ft.padding.all(16),border_color=ft.colors('white'),focused_border_color=ft.colors('red'),
+                                   content=ft.TextField(label="Tell me something ?",tooltip='TextField',border_radius= ft.border_radius.all(30),height=32, cursor_height=20,content_padding= ft.padding.all(16),border_color=ft.colors('white'),focused_border_color=ft.colors('red'),
                                         text_size=12,
                                         width=240,
                                         ),),
