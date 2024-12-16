@@ -7,6 +7,9 @@ from .refactory_flet_box import refactory_flet_box
 
 class MenuLeftContainer(ft.Stack):
     width_height = 42
+    color_minimum: float= 0.02
+    color_medium: float= 0.04
+    color_hight: float= 0.06
 
     def __init__(self,
                  page: object = None,
@@ -55,12 +58,23 @@ class MenuLeftContainer(ft.Stack):
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             width=45,
-            gradient=ft.LinearGradient(
+            gradient = ft.LinearGradient(
                 begin=ft.alignment.top_center,
                 end=ft.alignment.bottom_center,
-                colors=[ft.colors('black12'), ft.colors(
-                    'cyan'), ft.colors('black12')],
+                colors=[
+                    ft.Colors.with_opacity(self.color_minimum, 'cyan'),
+                    ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                    ft.Colors.with_opacity(self.color_hight, 'red'),
+                    ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                    ft.Colors.with_opacity(self.color_minimum, 'white'),
+                    ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                    ft.Colors.with_opacity(self.color_hight, 'red'),
+                    ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                    ft.Colors.with_opacity(self.color_minimum, 'black'),
+                    ],
             ),
+            blur = (32, 32),
+
             border=ft.border.all(
                 0.8,
                 ft.Colors.with_opacity(0.05, ft.colors('cyan')),

@@ -65,12 +65,13 @@ class DoubleEntry(ft.Stack):
     def build(self):
         Drop_DoubleEntry = ft.Container(
             ink=False,
-            bgcolor="#0c0d0e",
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur = (8,8),
             padding=ft.padding.only(left=4, top=4, right=4, bottom=4),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors('black')),
+            border=ft.border.all(1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
             width=165,
             height=80,
             content=ft.Column(
@@ -78,7 +79,7 @@ class DoubleEntry(ft.Stack):
                 controls=[
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
@@ -95,15 +96,19 @@ class DoubleEntry(ft.Stack):
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(0.1, ft.colors('black38')),
+                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         width=154,
                         height=36,
                         tooltip="Double Entry",
-                        gradient=ft.LinearGradient(
-                            begin=ft.alignment.top_center,
-                            end=ft.alignment.bottom_center,
-                            colors=[ft.colors('cyan800'), ft.colors('black38')],
-                        ),
+                        # gradient=ft.LinearGradient(
+                        #     begin=ft.alignment.top_center,
+                        #     end=ft.alignment.bottom_center,
+                        #    colors=[
+                        #         ft.Colors.with_opacity(0.04, ft.colors('white')),
+                        #         ft.Colors.with_opacity(0.24, ft.colors('white')),
+                        #         ft.colors('black38'),
+                        #     ],
+                        # ),
                         content=ft.Row(
                             controls=[
                                 ft.Container(
@@ -112,7 +117,7 @@ class DoubleEntry(ft.Stack):
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text=self.attribute_widget_name_1,
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -132,7 +137,7 @@ class DoubleEntry(ft.Stack):
                                     content=ft.TextField(
                                         # prefix_text=self.attribute_widget_name_2,
                                         hint_text=self.attribute_widget_name_2,
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,

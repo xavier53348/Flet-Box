@@ -2,6 +2,7 @@ import flet as ft
 
 # from ..settings_var.settings_widget import GLOBAL_VAR
 
+
 class SingleEntry(ft.Stack):
     """
     box_layout = ft.Container(content=ft.Text())
@@ -16,22 +17,22 @@ class SingleEntry(ft.Stack):
     def __init__(
         self,
         id_name_widget_dict=None,
-        config_widget: str="exemple [value,bgcolor,width,height] ....",
-        page: object=object(),
-        screen_phone: object=object(),
+        config_widget: str = "exemple [value,bgcolor,width,height] ....",
+        page: object = object(),
+        screen_phone: object = object(),
     ):
         super().__init__()
         self.page = page
         self.widget = screen_phone
 
-        self.tooltip="SingleEntry"
+        self.tooltip = "SingleEntry"
         # print(self.widget)
         self.widget_content = self.widget_content
         self.id_name_widget_dict = id_name_widget_dict
 
         # size textz
-        self.text_size = 12 #GLOBAL_VAR(get_global_var="text_size_input")
-        self.padding_only = 4 #GLOBAL_VAR(get_global_var="padding_only")
+        self.text_size = 12  # GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = 4  # GLOBAL_VAR(get_global_var="padding_only")
 
         #: WE SET NEW NAME
         if config_widget == "width":
@@ -49,12 +50,14 @@ class SingleEntry(ft.Stack):
     def build(self):
         SingleEntry = ft.Container(
             ink=False,
-            bgcolor="#0c0d0e",
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur=(8, 8),
             padding=ft.padding.only(left=4, top=4, right=4, bottom=4),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors('black')),
+            border=ft.border.all(
+                1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
             width=165,
             height=80,
             content=ft.Column(
@@ -62,8 +65,9 @@ class SingleEntry(ft.Stack):
                 controls=[
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
-                        padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
+                        padding=ft.padding.only(
+                            left=12, top=0, right=12, bottom=0),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
                         height=20,
@@ -74,31 +78,32 @@ class SingleEntry(ft.Stack):
                     ),  # <=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
                     ft.Container(
                         ink=False,
-                        bgcolor=ft.colors('black38'),
+                        # bgcolor=ft.colors('black38'),
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(1, ft.colors('black')),
+                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         width=152,
                         height=36,
-                        gradient=ft.LinearGradient(
-                            begin=ft.alignment.top_center,
-                            end=ft.alignment.bottom_center,
-                            colors=[ft.colors('cyan800'), ft.colors('black38')],
-                        ),
+                        # gradient=ft.LinearGradient(
+                        #     begin=ft.alignment.top_center,
+                        #     end=ft.alignment.bottom_center,
+                        #     colors=[ft.colors('cyan800'),
+                        #             ft.colors('black38')],
+                        # ),
                         content=ft.Row(
                             controls=[
                                 ft.Container(
                                     ink=False,
-                                    bgcolor="#44CCCC00",
+                                    # bgcolor="#44CCCC00",
                                     width=146,
                                     height=30,
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text=self.new_name,
                                         border_radius=ft.border_radius.all(15),
-                                        border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        border_color=ft.Colors('transparent'),
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -180,25 +185,29 @@ class SingleEntry(ft.Stack):
             )
         if config_widget == "blur_radius":
             self.widget.blur_radius = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 0
             )
         if config_widget == "image_opacity":
             self.widget.image_opacity = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "rotate":
             self.widget.rotate = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 0
             )
         if config_widget == "scale":
             self.widget.scale = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
@@ -251,85 +260,99 @@ class SingleEntry(ft.Stack):
 
         if config_widget == "spread_radius":
             self.widget.spread_radius = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "size":
             self.widget.size = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "elevation":
             self.widget.elevation = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "aspect_ratio":
             self.widget.aspect_ratio = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "runs_count":
             self.widget.runs_count = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "run_spacing":
             self.widget.run_spacing = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "spacing":
             self.widget.spacing = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "child_aspect_ratio":
             self.widget.child_aspect_ratio = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "max_extent":
             self.widget.max_extent = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "min_lines":
             self.widget.min_lines = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "max_lines":
             self.widget.max_lines = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "border_width":
             self.widget.border_width = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "text_size":
             self.widget.text_size = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )
         if config_widget == "opacity":
             self.widget.opacity = (
-                float(value.content.controls[1].content.controls[0].content.value)
+                float(
+                    value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 1
             )

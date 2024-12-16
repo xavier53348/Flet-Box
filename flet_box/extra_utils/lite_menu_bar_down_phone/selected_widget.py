@@ -5,13 +5,13 @@ import flet as ft
 class SelectedWidget(ft.Container):
     """ONLY FUNCTION IS SHOW SELECTED WIDGET IN PHONE"""
 
-    def __init__(self, widget_selected, type_widget, icon_widget):
+    def __init__(self, widget_selected, type_widget: str="None", icon_widget: str='Home'):
         super().__init__()
 
         # Drop_SelectedWidget = ft.Container(
         self.alignment=ft.alignment.center_left
-        self.bgcolor=ft.colors('black12')
-        self.border=ft.border.all(2, ft.colors('black38'))
+        self.bgcolor=ft.Colors.with_opacity(0.02, 'white'),
+        # self.border=ft.border.all(2, ft.Colors.with_opacity(0.02, 'red'))
         self.border_radius=ft.border_radius.all(30)
         self.icon_widget = icon_widget
         self.ink=False
@@ -19,8 +19,7 @@ class SelectedWidget(ft.Container):
         self.padding=ft.padding.all(0)
         self.type_widget = type_widget
 
-        # self.widget_selected = GLOBAL_VAR(get_global_var=widget_selected)
-        self.widget_selected = None
+        self.widget_selected = type_widget
         self.width=160
 
         # self.expand = True

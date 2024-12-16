@@ -57,6 +57,10 @@ class Build_Drag_Editor(ft.Container):
     drag_text_container_color = ft.colors('black26')
     drag_text_color = ft.colors('cyan')
 
+    color_minimum: float= 0.02
+    color_medium: float= 0.04
+    color_hight: float= 0.06
+
     def __init__(self, page: object = None,):
         super().__init__()
         self.drag_box = self
@@ -69,9 +73,24 @@ class Build_Drag_Editor(ft.Container):
         self.border_radius = ft.border_radius.all(45)
         self.width = 268
 
-        self.gradient = ft.LinearGradient(begin=ft.alignment.top_center, end=ft.alignment.bottom_center, colors=[
-                                          ft.colors('black38'), ft.Colors.with_opacity(0.2, 'cyan'), ft.colors('black38')],)
-        self.blur = (4, 8)
+
+        self.gradient = ft.LinearGradient(
+            begin=ft.alignment.top_center,
+            end=ft.alignment.bottom_center,
+            colors=[
+                ft.Colors.with_opacity(self.color_minimum, 'cyan'),
+                ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                ft.Colors.with_opacity(self.color_hight, 'red'),
+                ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                ft.Colors.with_opacity(self.color_minimum, 'white'),
+                ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                ft.Colors.with_opacity(self.color_hight, 'red'),
+                ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                ft.Colors.with_opacity(self.color_minimum, 'black'),
+                ],
+        )
+
+        self.blur = (32, 32)
 
         self.border = ft.border.all(0.2, self.drag_container_border_color)
         self.shadow = ft.BoxShadow(

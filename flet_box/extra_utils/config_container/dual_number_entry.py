@@ -18,18 +18,17 @@ GRADIENT_COLOR = ft.LinearGradient(
     begin=ft.alignment.top_left,
     end=ft.alignment.center_right,
     colors=[
-        ft.colors('cyan800'),
-        ft.colors('black38'),
+                                ft.Colors.with_opacity(0.04, ft.colors('white')),
+                                ft.Colors.with_opacity(0.24, ft.colors('white')),
     ],
 )
 GRADIENT_COLOR_BUTTON = ft.LinearGradient(
     begin=ft.alignment.top_center,
     end=ft.alignment.bottom_center,
-    colors=[
-        ft.colors('black12'),
-        ft.colors('cyan800'),
-        ft.colors('black12'),
-    ],
+                           colors=[
+                                ft.Colors.with_opacity(0.04, ft.colors('white')),
+                                ft.Colors.with_opacity(0.24, ft.colors('white')),
+                            ],
 )
 
 class config_number_widget(ft.Stack):
@@ -95,7 +94,8 @@ class config_number_widget(ft.Stack):
         )
         self.text_value = ft.Container(
             ink=True,
-            bgcolor="#0e0f11",
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur = (8,8),
             padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(30),
@@ -115,11 +115,11 @@ class config_number_widget(ft.Stack):
 
         self.Elevation_button = ft.Container(
             ink=False,
-            bgcolor=ft.colors('black38'),
+            # bgcolor=ft.colors('black38'),
             padding=ft.padding.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(30),
-            border=ft.border.all(2, ft.colors('cyan900')),
+            border=ft.border.all(1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
             # ink=True,
             ink_color=ft.colors('purple600'),
             # width         = 152,
@@ -139,11 +139,11 @@ class config_number_widget(ft.Stack):
                 self.text_value,
                 ft.Container(
                     ink=False,
-                    bgcolor=ft.colors('black38'),
+                    # bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                     padding=ft.padding.all(0),
                     alignment=ft.alignment.center,
                     border_radius=ft.border_radius.all(30),
-                    border=ft.border.all(2, ft.colors('cyan900')),
+                    border=ft.border.all(1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
                     width=130,
                     height=36,
                     gradient=GRADIENT_COLOR,
@@ -288,12 +288,13 @@ class DualNumeberEntry(ft.Stack):
         TmpDualNumeberEntry = ft.Container(
             ink=False,
             expand=True,
-            bgcolor="#0c0d0e",
+            border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+
             padding=ft.padding.only(left=2, top=8, right=2, bottom=2),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors('black')),
             # width         = 330,
             # height        = 240,
             content=ft.Column(
@@ -319,7 +320,9 @@ class DualNumeberEntry(ft.Stack):
             )
         )
         self.column_data = ft.Container(
-            border=ft.border.all(2, ft.colors('black')),
+            border=ft.border.all(1, ft.Colors.with_opacity(0.08, ft.colors('white'))),
+            bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
+
             width=360,
             border_radius=ft.border_radius.all(16),
             gradient=GRADIENT_COLOR_BUTTON,

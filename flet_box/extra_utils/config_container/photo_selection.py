@@ -71,23 +71,25 @@ class ScreenPhotoSelection(ft.Container):
         self.padding = ft.padding.only(left=0, top=2, bottom=2, right=0)
         self.margin = ft.margin.all(0)  # outside box
         self.alignment = ft.alignment.top_center
-        self.border = ft.border.all(1, ft.colors('white38'))
+        self.border=ft.border.all(1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
         self.border_radius = 32
-        self.gradient = ft.LinearGradient(
-            begin=ft.alignment.top_center,
-            end=ft.alignment.center_left,
-            colors=[
-                ft.Colors.with_opacity(0.7, ft.colors('teal400')),
-                ft.colors('black26'),
-            ],
-        )
-        self.shadow = ft.BoxShadow(
-            spread_radius=1,
-            blur_radius=18,
-            # color        = ft.Colors.with_opacity(0.3,ft.colors('teal400')),
-            offset=ft.Offset(0, 0),
-            blur_style=ft.ShadowBlurStyle.OUTER,
-        )
+        self.bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black'))
+        self.blur = (8,8)
+        # self.gradient = ft.LinearGradient(
+        #     begin=ft.alignment.top_center,
+        #     end=ft.alignment.center_left,
+        #     colors=[
+        #         ft.Colors.with_opacity(0.7, ft.colors('teal400')),
+        #         ft.colors('black26'),
+        #     ],
+        # )
+        # self.shadow = ft.BoxShadow(
+        #     spread_radius=1,
+        #     blur_radius=18,
+        #     # color        = ft.Colors.with_opacity(0.3,ft.colors('teal400')),
+        #     offset=ft.Offset(0, 0),
+        #     blur_style=ft.ShadowBlurStyle.OUTER,
+        # )
         # self.blur = (12,12)
 
     def build(self):

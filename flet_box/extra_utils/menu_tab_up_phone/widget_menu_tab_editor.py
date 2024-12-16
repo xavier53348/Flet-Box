@@ -17,7 +17,7 @@ class MenuUpContainer(ft.Container):
         self.ink = False
         self.border_radius = ft.border_radius.only(top_left=32, top_right=18, bottom_left=18, bottom_right=32)                #: ft.border_radius.only(topLeft=8, topRight=8, bottomLeft=8, bottomRight=8),
 
-        self.bgcolor = ft.colors('black38')
+        self.bgcolor = ft.Colors.with_opacity(0.1, ft.colors('white'))
         self.padding = ft.padding.all(0)
         self.margin = ft.margin.all(0)
         self.alignment = ft.alignment.center
@@ -25,15 +25,16 @@ class MenuUpContainer(ft.Container):
         self.height = 50
         self.border = ft.border.all(
             0.6,
-            ft.Colors.with_opacity(0.1, ft.colors('cyan800')),
+            ft.Colors.with_opacity(0.1, ft.colors('cyan')),
         )
-        self.shadow = ft.BoxShadow(
-            spread_radius=1,
-            blur_radius=8,
-            color=ft.Colors.with_opacity(0.8, ft.colors('black12')),
-            offset=ft.Offset(0, 0),
-            blur_style=ft.ShadowBlurStyle.OUTER,
-        )
+        # self.shadow = ft.BoxShadow(
+        #     spread_radius=1,
+        #     blur_radius=8,
+        #     color=ft.Colors.with_opacity(0.8, ft.colors('black12')),
+        #     offset=ft.Offset(0, 0),
+        #     blur_style=ft.ShadowBlurStyle.OUTER,
+        # )
+        self.blur = (16,16)
 
     def build(self):
         # Basic_MenuUp = BasicMenuUp()
@@ -111,7 +112,10 @@ class MenuUpContainer(ft.Container):
                                     ft.Container(
                                         ink=False,
                                         padding=ft.padding.only(
-                                            left=0, top=0, right=16, bottom=0
+                                            left=0,
+                                            top=0,
+                                            right=16,
+                                            bottom=0
                                         ),
                                         alignment=ft.alignment.center_left,
                                         content=ft.Column(

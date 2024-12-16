@@ -9,15 +9,19 @@ class DraggWidget(ft.Stack):
     2. SET IN VARIABLE GLOBAL THE SELECTED DRAGGABLE WIDGET
     3. CLEAN THE LIST listWidgetUpdate
     """
-    dragg_border_color = ft.colors('shadow')
-    dragg_shadow_color = ft.colors('background')
-    dragg_text_color = ft.colors('cyan700')
-    dragg_icon_color = ft.colors('cyan700')
+    dragg_border_color = ft.Colors.with_opacity(0.4, 'white')
+    dragg_shadow_color = ft.Colors.with_opacity(0.3, 'white')
+    dragg_text_color = ft.Colors.with_opacity(0.6, 'white')
+    dragg_icon_color = ft.Colors.with_opacity(0.6, 'white')
 
-    take_dragg_border_color = ft.colors('background')
-    take_dragg_bground_color = ft.colors('black54')
-    take_icon_border_color = ft.colors('blue300')
-    take_text_border_color = ft.colors('blue300')
+    take_dragg_border_color = ft.Colors.with_opacity(0.04, 'white')
+    take_dragg_bground_color = ft.Colors.with_opacity(0.01, 'cyan')
+    take_icon_border_color = ft.Colors.with_opacity(0.4, 'white')
+    take_text_border_color = ft.Colors.with_opacity(0.4, 'white')
+
+    color_minimum: float = 0.02
+    color_medium: float = 0.04
+    color_hight: float = 0.06
 
     def __init__(
         self,
@@ -48,16 +52,19 @@ class DraggWidget(ft.Stack):
                 border_radius=23,
                 padding=ft.padding.all(4),
                 alignment=ft.alignment.center,
-                border=ft.border.all(1.5, self.dragg_border_color),
+                border=ft.border.all(1, self.dragg_border_color),
                 # on_click=lambda _: self.SelectedWidget(selected_widget=self.widget),
                 # on_long_press = lambda _: self.SelectedWidget(selected_widget=self.widget),
                 gradient=ft.LinearGradient(
                     begin=ft.alignment.top_center,
                     end=ft.alignment.bottom_center,
                     colors=[
-                        ft.colors('black12'),
-                        self.dragg_shadow_color],
+                        ft.Colors.with_opacity(self.color_minimum, 'white'),
+                        ft.Colors.with_opacity(self.color_medium, 'black'),
+                        ft.Colors.with_opacity(self.color_minimum, 'black'),
+                    ],
                 ),
+                # blur=(16, 16),
                 content=ft.Column(
                     alignment=ft.MainAxisAlignment.SPACE_AROUND,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -90,6 +97,7 @@ class DraggWidget(ft.Stack):
                 border=ft.border.all(
                     0.5, self.take_dragg_border_color),
                 border_radius=23,
+                blur=(8, 8),
                 gradient=ft.LinearGradient(
                     begin=ft.alignment.top_center,
                     end=ft.alignment.bottom_center,

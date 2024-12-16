@@ -12,6 +12,9 @@ class Build_Phone_Editor(ft.Stack):
     ONLY FUNCTION OF THIS MODULE
     - ADD TO PHONE_SCREEN A DRAGABLE WIDGET THAT WILL BE A DRAGABLE_LOOP
     """
+    color_minimum: float = 0.04
+    color_medium: float = 0.08
+    color_hight: float = 0.16
 
     def __init__(self,
                  color_data=ft.colors("transparent"),
@@ -44,16 +47,31 @@ class Build_Phone_Editor(ft.Stack):
             alignment=ft.alignment.center,
 
             # content=self.data_selected,
-            content=self.load_module_from_string(page=self.page, string_code=self.data_selected)
+            content=self.load_module_from_string(
+                page=self.page,
+                string_code=self.data_selected
+            )
         )
 
         self.phone = ft.Container(
             alignment=ft.alignment.center,
-            bgcolor=ft.colors('black54'),
+            bgcolor=ft.Colors.with_opacity(0.60, 'black'),
+
+            # gradient=ft.LinearGradient(
+            #     begin=ft.alignment.top_center,
+            #     end=ft.alignment.bottom_center,
+            #     colors=[
+            #         ft.Colors.with_opacity(self.color_minimum, 'cyan'),
+            #         ft.Colors.with_opacity(self.color_medium, 'yellow'),
+            #         ft.Colors.with_opacity(self.color_hight, 'teal'),
+            #         ft.Colors.with_opacity(self.color_minimum, 'black'),
+            #     ],
+            # ),
+            # blur=(16, 16),
             border=ft.border.all(2.5, ft.colors("white")),
             border_radius=ft.border_radius.all(42),
             height=567,
-            # blur = (24,24),
+            blur=(24, 24),
             ink=False,
             margin=ft.margin.all(0),
             padding=ft.padding.only(left=0, top=0, right=0, bottom=0),

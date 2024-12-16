@@ -28,12 +28,13 @@ class ColorEntry(ft.Stack):
     def build(self):
         ColorEntry = ft.Container(
             ink=False,
-            bgcolor="#0c0d0e",
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur = (8,8),
             padding=ft.padding.only(left=4, top=4, right=4, bottom=4),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors('black')),
+            border=ft.border.all(1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
             width=165,
             height=80,
             content=ft.Column(
@@ -41,7 +42,7 @@ class ColorEntry(ft.Stack):
                 controls=[
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         padding=ft.padding.only(
                             left=8, top=0, right=8, bottom=0),
                         alignment=ft.alignment.center,
@@ -62,38 +63,37 @@ class ColorEntry(ft.Stack):
                         ),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(1, ft.colors('black38')),
+                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         width=152,
                         height=36,
-                        gradient=ft.LinearGradient(
-                            begin=ft.alignment.top_center,
-                            end=ft.alignment.bottom_center,
-                            colors=[
-                                ft.colors('cyan800'),
-                                ft.colors('black38'),
-                            ],
-                        ),
+                        # gradient=ft.LinearGradient(
+                        #     begin=ft.alignment.top_center,
+                        #     end=ft.alignment.bottom_center,
+                        #     colors=[
+                        #         ft.colors('cyan800'),
+                        #         ft.colors('black38'),
+                        #     ],
+                        # ),
                         content=ft.Row(
                             spacing=4.5,
                             controls=[
                                 ft.Container(
                                     ink=False,
-                                    bgcolor="#44CCCC00",
+                                    bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                     width=90,
                                     height=30,
                                     border_radius=ft.border_radius.all(30),
-                                    gradient=ft.LinearGradient(
-                                        begin=ft.alignment.top_center,
-                                        end=ft.alignment.center_right,
-                                        colors=[
-                                            ft.colors('black12'),
-                                            ft.colors('cyan900'),
-                                            ft.colors('black38'),
-                                        ],
-                                    ),
+                                #     gradient=ft.LinearGradient(
+                                #     begin=ft.alignment.top_center,
+                                #     end=ft.alignment.bottom_center,
+                                #     colors=[
+                                #         ft.colors('cyan800'),
+                                #         ft.Colors.with_opacity(0.04, ft.colors('white')),
+                                #     ],
+                                # ),
                                     content=ft.ElevatedButton(
                                         text=self.tmp_widget_name,
-                                        bgcolor=ft.colors('transparent'),
+                                        bgcolor=ft.Colors.with_opacity(0.08, ft.colors('white')),
                                         # ======================= EVENTS ===========================
                                         on_click=lambda _: self.validate_click(
                                                                 widget_name=self.widget_name,
@@ -106,10 +106,7 @@ class ColorEntry(ft.Stack):
                                     bgcolor=ft.colors('transparent'),
                                     width=50.5,
                                     height=30,
-                                    border=ft.border.all(
-                                                    1,
-                                                    ft.colors('cyan800')
-                                    ),
+                                    border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                                     border_radius=ft.border_radius.all(30),
                                     on_click=lambda x: self.modify_right_container_attributes(
                                                                 data=self.widget_name,

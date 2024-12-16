@@ -116,6 +116,9 @@ class Build_Editor(ft.Container):
     NOTE:
        Is necessary put class widget of the widget to edit Attributes
     """
+    color_minimum: float= 0.02
+    color_medium: float= 0.04
+    color_hight: float= 0.06
 
     def __init__(self,
                  widget: object = None,
@@ -138,9 +141,23 @@ class Build_Editor(ft.Container):
         self.show_tab = True
         # self.bgcolor = "grey"
         # self.bgcolor = "Black12"
-        self.gradient = ft.LinearGradient(begin=ft.alignment.top_center, end=ft.alignment.bottom_center, colors=[
-                                          ft.colors('black38'), ft.Colors.with_opacity(0.2, 'cyan'), ft.colors('black38')],)
-        self.blur = (4, 8)
+        self.gradient = ft.LinearGradient(
+            begin=ft.alignment.top_center,
+            end=ft.alignment.bottom_center,
+            colors=[
+                ft.Colors.with_opacity(self.color_minimum, 'cyan'),
+                ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                ft.Colors.with_opacity(self.color_hight, 'red'),
+                ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                ft.Colors.with_opacity(self.color_minimum, 'white'),
+                ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                ft.Colors.with_opacity(self.color_hight, 'red'),
+                ft.Colors.with_opacity(self.color_medium, 'yellow'),
+                ft.Colors.with_opacity(self.color_minimum, 'black'),
+                ],
+        )
+        self.blur = (32, 32)
+
 
         self.shadow = ft.BoxShadow(
             spread_radius=1,

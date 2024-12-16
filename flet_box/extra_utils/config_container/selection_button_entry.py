@@ -13,7 +13,7 @@ class SelectionButtonEntry(ft.Stack):
     def __init__(
         self,
         id_name_widget_dict=None,
-        config_widget: str="exemple [value,bgcolor,width,height] ....",
+        config_widget: str = "exemple [value,bgcolor,width,height] ....",
         page: object = None,
         screen_phone: object = None,
     ):
@@ -21,7 +21,7 @@ class SelectionButtonEntry(ft.Stack):
         self.page = page
         self.widget = screen_phone
 
-        self.tooltip="SelectionButtonEntry"
+        self.tooltip = "SelectionButtonEntry"
         self.widget_name = config_widget
         self.id_name_widget_dict = id_name_widget_dict
 
@@ -33,12 +33,14 @@ class SelectionButtonEntry(ft.Stack):
     def build(self):
         Drop_SelectionButtonEntry = ft.Container(
             ink=False,
-            bgcolor="#0c0d0e",
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur=(8, 8),
             padding=ft.padding.only(left=4, top=4, right=4, bottom=4),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors('black')),
+            border=ft.border.all(
+                1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
             width=165,
             height=80,
             content=ft.Column(
@@ -46,8 +48,9 @@ class SelectionButtonEntry(ft.Stack):
                 controls=[
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
-                        padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
+                        padding=ft.padding.only(
+                            left=12, top=0, right=12, bottom=0),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
                         height=20,
@@ -61,13 +64,15 @@ class SelectionButtonEntry(ft.Stack):
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(0.1, "#0e0f11"),
+                        # border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         width=152,
+                        # bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         height=36,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
-                            colors=[ft.colors('cyan600'), ft.colors('black38')],
+                            colors=[ft.Colors.with_opacity(0.12, ft.colors('white')),
+                                    ft.Colors.with_opacity(0.04, ft.colors('white'))],
                         ),
                         content=ft.Row(
                             controls=[
@@ -85,7 +90,7 @@ class SelectionButtonEntry(ft.Stack):
                                         end=ft.alignment.center_right,
                                         colors=[
                                             ft.colors('black12'),
-                                            ft.colors('cyan900'),
+                                            ft.Colors.with_opacity(0.24, ft.colors('white')),
                                             ft.colors('black38'),
                                         ],
                                     ),
@@ -108,18 +113,20 @@ class SelectionButtonEntry(ft.Stack):
 
         return Drop_SelectionButtonEntry
 
-    def modify_widget_attributes(self, widget_name: str= str(), attribute_to_change: object = None):
+    def modify_widget_attributes(self, widget_name: str = str(), attribute_to_change: object = None):
         print("[+] change content tab [ selection_button_entry.py ]")
         self.tab_container = self.page.session.get('PHOTO_SELECTION')
         # self.tab_container.update()
 
-        self.tab_container.controls[0].visible=False
-        self.tab_container.controls[1].visible=True
-        self.tab_container.controls[2].visible=False
+        self.tab_container.controls[0].visible = False
+        self.tab_container.controls[1].visible = True
+        self.tab_container.controls[2].visible = False
         self.tab_container.update()
 
-        self.page.session.set('set_attribute_image',widget_name) # <== SET (BGCOLOR, ...)
-        self.page.session.set('set_edit_widget_image',attribute_to_change)  # <== SET (ft.Container, Image)
+        # <== SET (BGCOLOR, ...)
+        self.page.session.set('set_attribute_image', widget_name)
+        # <== SET (ft.Container, Image)
+        self.page.session.set('set_edit_widget_image', attribute_to_change)
 
         # print(widget_name)
         # print(attribute_to_change)

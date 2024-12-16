@@ -134,12 +134,13 @@ class SelectionEntry(ft.Stack):
     def build(self):
         Drop_SelectionEntry = ft.Container(
             ink=False,
-            bgcolor="#0c0d0e",
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur = (8,8),
             padding=ft.padding.only(left=4, top=4, right=4, bottom=4),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors('black')),
+            border=ft.border.all(1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
             width=165,
             height=80,
             content=ft.Column(
@@ -147,7 +148,8 @@ class SelectionEntry(ft.Stack):
                 controls=[
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
+                        # border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
@@ -159,11 +161,11 @@ class SelectionEntry(ft.Stack):
                     ),
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(0.1, "#0e0f11"),
+                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         width=152,
                         height=36,
                         gradient=ft.LinearGradient(
@@ -175,7 +177,7 @@ class SelectionEntry(ft.Stack):
                             controls=[
                                 ft.Container(
                                     ink=False,
-                                    bgcolor="#0e0f11",
+                                    bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                     padding=ft.padding.all(0),
                                     alignment=ft.alignment.center,
                                     border_radius=ft.border_radius.all(30),

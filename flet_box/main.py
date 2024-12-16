@@ -11,6 +11,7 @@ from extra_utils import LiteMenuUpContainer  #: LITE MENU RIGHT PHONE AND DOWN
 from extra_utils import login_page  #: LOGIN PAGE
 from extra_utils import screen_manager  #: LOGIN PAGE
 
+
 class header_container(ft.Container):
 
     def __init__(self, page):
@@ -52,7 +53,7 @@ class row_middle_container(ft.Container):
         # PHONE CONTAINER
         self.phone_container = Build_Phone_Editor(
             page=self.page,
-            color_data=ft.colors("black12")
+            color_data=ft.Colors.with_opacity(0.12, ft.colors('black')),
         ).build()
 
         #  CONFIG PHONE CONTAINER
@@ -89,8 +90,9 @@ class row_middle_container(ft.Container):
                 ft.Container(
                     padding=ft.padding.all(0),
                     border_radius=ft.border_radius.all(30),
-                    bgcolor='cyan,0.08',
+                    bgcolor=ft.Colors.with_opacity(0.08, ft.colors('cyan')),
                     width=60,
+                    blur=(16, 16),
 
                     content=ft.Column(
                         alignment=ft.MainAxisAlignment.CENTER,
@@ -158,6 +160,7 @@ class footer_container(ft.Container):
         self.ink = False
         self.margin = ft.margin.all(0)
         self.padding = ft.padding.all(2)
+        self.blur = (4, 4)
 
     def build(self):
         self.content = ft.Row(
@@ -183,9 +186,9 @@ class column_container(ft.Container):
         self.page = page
         self.alignment = ft.alignment.center
         self.image = ft.DecorationImage(
-            src='designer_1.jpeg',
+            src='theme_2.jpeg',
             fit=ft.ImageFit.COVER,  #: CONTAIN, FILL, FIT_WIDTH, SCALE_DOWN, COVER, FIT_HEIGHT, NONE
-            opacity=0.08 if self.page.window.width <= 620 else 0.2,
+            # opacity=0.1 if self.page.window.width <= 620 else 0.1,
         )
         self.expand = True
         self.ink = False
@@ -199,7 +202,7 @@ class column_container(ft.Container):
 
     def build(self):
         self.content = ft.Container(
-            blur=(18, 18),
+            # blur=(18, 18),
 
             content=ft.Column(
                 spacing=8,
@@ -284,7 +287,7 @@ class flet_box:
                         route="/home",
                         controls=[
                             column_container(page=self.page),
-                            screen_manager(page=self.page,visible=False),
+                            screen_manager(page=self.page, visible=False),
                         ],
                     )
                 )
@@ -311,8 +314,7 @@ class flet_box:
 
         # JUMP TO DEV ACCOUNT
         self.page.go('/home')
-        self.page.session.set('user_name',{'user_name': 'kuko53348'})
-
+        self.page.session.set('user_name', {'user_name': 'kuko53348'})
 
     def setting_only_append_controls(self):
         self.widgetFilter = [_.lower()

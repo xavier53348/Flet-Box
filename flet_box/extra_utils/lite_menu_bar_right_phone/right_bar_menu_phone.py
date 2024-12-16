@@ -30,24 +30,25 @@ class LiteMenuUpContainer(ft.Container):
         self.alignment = ft.alignment.center
         self.border_radius = ft.border_radius.all(30)
         # # height        = 450,
-        self.gradient = ft.LinearGradient(
-            begin=ft.alignment.top_center,
-            end=ft.alignment.bottom_center,
-            colors=[
-                ft.colors("teal"),
-                ft.colors("black12")
-            ],
-        )
+        # self.gradient = ft.LinearGradient(
+        #     begin=ft.alignment.top_center,
+        #     end=ft.alignment.bottom_center,
+        #     colors=[
+        #         ft.colors("teal"),
+        #         ft.colors("black12")
+        #     ],
+        # )
+        self.blur = (16 ,16)
         # self.expand=True
         # self.bgcolor="Red"
         # self.border=ft.border.all(0.6, ft.colors.WHITE12)
-        self.shadow=ft.BoxShadow(
-            spread_radius=1,
-            blur_radius=18,
-            color=ft.Colors.with_opacity(0.8, ft.colors("black26")),
-            offset=ft.Offset(0, 0),
-            blur_style=ft.ShadowBlurStyle.OUTER,
-        )
+        # self.shadow=ft.BoxShadow(
+        #     spread_radius=1,
+        #     blur_radius=18,
+        #     color=ft.Colors.with_opacity(0.8, ft.colors("black26")),
+        #     offset=ft.Offset(0, 0),
+        #     blur_style=ft.ShadowBlurStyle.OUTER,
+        # )
 
     def build(self):
         self.phone_edition = ft.Container(
@@ -111,11 +112,13 @@ class LiteMenuUpContainer(ft.Container):
             controls=[
                 ft.Container(
                     ink=False,
-                    bgcolor=ft.colors("black26"),
-                    padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
+                    blur = (16,16),
+                    bgcolor = ft.Colors.with_opacity(0.12, 'white'),
+
+                    padding=ft.padding.only(left=4, top=0, right=4, bottom=0),
                     alignment=ft.alignment.center,
                     border_radius=ft.border_radius.all(30),
-                    border=ft.border.all(2, ft.colors("black12")),
+                    border = ft.border.all(2,ft.Colors.with_opacity(0.12, 'white')),
                     content=ft.Row(
                         spacing=8,
                         controls=[

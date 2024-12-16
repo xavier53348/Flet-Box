@@ -58,7 +58,9 @@ class lite_screen_manager(ft.Container):
             width=160,
             label='Select screen',
             options=[
-                ft.dropdown.Option(key=f"Screen number: {_}") for _ in self.obtion_list
+                ft.dropdown.Option(
+                    key=f"Screen number: {_}"
+                    ) for _ in self.obtion_list
             ],
             on_change=lambda _: self.change_selected_input(
                 payload=_.data)
@@ -120,7 +122,7 @@ class lite_screen_manager(ft.Container):
 
     def update_drop_items(self):
         self.list_user_screen()
-        self.drop_down.options=[ft.dropdown.Option(key=f"Screen number: {_}") for _ in self.obtion_list]
+        self.drop_down.options = [ft.dropdown.Option(key=f"Screen number: {_}") for _ in self.obtion_list]
         self.drop_down.update()
 
     def list_user_screen(self):
@@ -148,13 +150,14 @@ class lite_screen_manager(ft.Container):
         if self.old_payload == payload:
             # ESCAPE ERROR MULTYPLES THREATHS
             # ONLY NEW SUBMIT WILL BE AVIABLES
-            if self.old_payload:
-                self.old_payload = False
-                self.drop_down.options.clear()
-                self.drop_down.update()
-                return
+            # if self.old_payload:
+            #     # IF PRESS DOUBLE CLICK IN SAME PAGE WILL NO CONTINUE
+            #     self.old_payload = False
+            #     self.drop_down.options.clear()
+            #     self.drop_down.update()
+            #     return
 
-            self.old_payload = True
+            # self.old_payload = True
             self.drop_down.options.clear()
             self.drop_down.update()
 

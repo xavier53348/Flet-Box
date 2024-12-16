@@ -8,27 +8,31 @@ class LiteMenuDownContainer(ft.Container):
     This class describes a lite menu down container.
     """
 
-    def __init__(self, page="Erase this test"):
+    def __init__(self, page: object = None):
         super().__init__()
         self.page = page
 
         # Drop_LiteMenuDownContainer = ft.Container(
-        self.ink=False
-        self.bgcolor=ft.colors('black26')
-        self.padding=ft.padding.all(4)
-        self.margin=ft.margin.all(0)  # outside box
-        self.alignment=ft.alignment.center
-        self.border_radius=ft.border_radius.all(30)
-        self.border=ft.border.all(0.2, ft.colors('white12'))
-        # self.expand = True
+        self.ink = False
+        self.bgcolor = ft.Colors.with_opacity(0.12, 'white'),
 
-        self.shadow=ft.BoxShadow(
-                spread_radius=1,
-                blur_radius=4,
-                color=ft.Colors.with_opacity(0.8, ft.colors('black26')),
-                offset=ft.Offset(0, 0),
-                blur_style=ft.ShadowBlurStyle.OUTER,
-            )
+        self.padding = ft.padding.all(4)
+        self.margin = ft.margin.all(0)  # outside box
+        self.alignment = ft.alignment.center
+        self.border_radius = ft.border_radius.all(30)
+        self.border = ft.border.all(
+            0.2, ft.Colors.with_opacity(0.12, 'white'),)
+        # self.expand = True
+        self.blur = (32, 32)
+
+        # self.shadow = ft.BoxShadow(
+        #     spread_radius=1,
+        #     blur_radius=4,
+        #     color=ft.Colors.with_opacity(
+        #         0.8, ft.Colors.with_opacity(0.12, 'white'),),
+        #     offset=ft.Offset(0, 0),
+        #     blur_style=ft.ShadowBlurStyle.OUTER,
+        # )
         self.selected_dragg_container = SelectedWidget(
             widget_selected="SHOW_TEXT_SELECTED_DRAGG_WIDGET",
             type_widget="DRAGG BOX",
@@ -41,8 +45,14 @@ class LiteMenuDownContainer(ft.Container):
         )
 
     def build(self):
-        self.page.session.set("SHOW_TEXT_SELECTED_DRAGG_WIDGET",self.selected_dragg_container)
-        self.page.session.set("SHOW_TEXT_SELECTED_PHONE_WIDGET",self.selected_phone_container)
+        self.page.session.set(
+            "SHOW_TEXT_SELECTED_DRAGG_WIDGET",
+            self.selected_dragg_container
+        )
+        self.page.session.set(
+            "SHOW_TEXT_SELECTED_PHONE_WIDGET",
+            self.selected_phone_container
+        )
         # GLOBAL_VAR(
         #     set_global_var={
         #         "SHOW_TEXT_SELECTED_DRAGG_WIDGET": self.selected_dragg_container
@@ -56,7 +66,6 @@ class LiteMenuDownContainer(ft.Container):
 
         # self.change_text_screen = ft.Text(value="main_screen")
         # GLOBAL_VAR(set_global_var={"change_text_screen": self.change_text_screen})
-
 
         self.content = ft.Row(
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,

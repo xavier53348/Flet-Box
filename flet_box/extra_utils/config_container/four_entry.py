@@ -47,12 +47,13 @@ class FourEntry(ft.Stack):
     def build(self):
         packet_data = ft.Container(
             ink=False,
-            bgcolor="#0c0d0e",
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur = (8,8),
             padding=ft.padding.all(4),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors('black')),
+            border=ft.border.all(1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
             width=162,
             height=128,
             content=ft.Column(
@@ -60,9 +61,10 @@ class FourEntry(ft.Stack):
                 controls=[
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         padding=ft.padding.only(left=12, top=0, right=12, bottom=0),
                         alignment=ft.alignment.center,
+                        # border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         border_radius=ft.border_radius.all(30),
                         height=20,
                         content=ft.Text(
@@ -72,11 +74,11 @@ class FourEntry(ft.Stack):
                     ),
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(0.1, ft.colors('black38')),
+                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         height=36,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
@@ -95,7 +97,7 @@ class FourEntry(ft.Stack):
                                         hint_text=self.attribute_widget_name_1,
                                         border_radius =ft.border_radius.all(30),
                                         border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -115,7 +117,7 @@ class FourEntry(ft.Stack):
                                         hint_text=self.attribute_widget_name_2,
                                         border_radius =ft.border_radius.all(30),
                                         border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -134,7 +136,8 @@ class FourEntry(ft.Stack):
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(1, ft.colors('black38')),
+                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         height=36,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
@@ -153,7 +156,7 @@ class FourEntry(ft.Stack):
                                         hint_text=self.attribute_widget_name_3,
                                         border_radius =ft.border_radius.all(30),
                                         border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -173,7 +176,7 @@ class FourEntry(ft.Stack):
                                         hint_text=self.attribute_widget_name_4,
                                         border_radius =ft.border_radius.all(30),
                                         border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,

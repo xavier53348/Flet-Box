@@ -1,9 +1,5 @@
 import flet as ft
 
-from ..config_container.color_entry import ColorEntry
-
-click_avalidation: bool = False
-
 
 class SmallPaleteColor(ft.Container):
     def __init__(self, pallete_color: str = ""):
@@ -29,7 +25,8 @@ class SmallPaleteColor(ft.Container):
         )
         self.content = self.container
 
-        self.on_click = lambda _: self.change_color_widget(color=self.pallete_color)
+        self.on_click = lambda _: self.change_color_widget(
+            color=self.pallete_color)
 
     def change_color_widget(self, color: str = ""):
         self.attibute_color = self.page.session.get('set_attribute_color')
@@ -55,11 +52,11 @@ class SmallPaleteColor(ft.Container):
 
         if self.attibute_color == "shadow_color":
             self.widget_color.parent.shadow = ft.BoxShadow(
-                                           spread_radius= 1,
-                                           blur_radius  = 15,
-                                           color        = color,
-                                           offset       = ft.Offset(0, 0),
-                                           blur_style   = ft.ShadowBlurStyle.OUTER,
+                spread_radius=1,
+                blur_radius=15,
+                color=color,
+                offset=ft.Offset(0, 0),
+                blur_style=ft.ShadowBlurStyle.OUTER,
             )
 
         # print(self.widget_color)
@@ -104,15 +101,15 @@ class Screen_palette(ft.Container):
             spacing=0.08,
             run_spacing=0.08,
             controls=[
-                    ft.Container(
-                            width=320,
-                            padding=8,
-                            content=ft.ElevatedButton(
-                                text='Close Color List',
-                                icon="crisis_alert_rounded",
-                                on_click=lambda _:self.show_menu_tab_editor(),
-                                )
-                            ),
+                ft.Container(
+                    width=320,
+                    padding=8,
+                    content=ft.ElevatedButton(
+                        text='Close Color List',
+                        icon="crisis_alert_rounded",
+                        on_click=lambda _:self.show_menu_tab_editor(),
+                    )
+                ),
             ],
         )
         self.content = screen_1

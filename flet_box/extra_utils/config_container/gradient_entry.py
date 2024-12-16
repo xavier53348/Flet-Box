@@ -117,11 +117,12 @@ class GradientEntry(ft.Stack):
     def build(self):
         self.main_gradient_widget = ft.Container(
             ink=False,
-            bgcolor="#0e0f11",
+            # bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur = (8,8),
             padding=ft.padding.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(30),
-            border=ft.border.all(2, "#0e0f11"),
+            border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
             # width=150,
             # width=20
             expand=True,
@@ -143,12 +144,13 @@ class GradientEntry(ft.Stack):
         )
         Drop_GradientEntry = ft.Container(
             ink=False,
-            bgcolor="#0c0d0e",
+            bgcolor=ft.Colors.with_opacity(0.5, ft.colors('black')),
+            blur = (8,8),
             padding=ft.padding.all(4),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors('black')),
+            border=ft.border.all(1.5, ft.Colors.with_opacity(0.28, ft.colors('white'))),
             # width=360,
             expand=True,
             height=150,
@@ -157,7 +159,7 @@ class GradientEntry(ft.Stack):
                 controls=[
                     ft.Container(
                         ink=False,
-                        bgcolor=ft.colors('black38'),
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         padding=ft.padding.all(4),
                         margin=ft.margin.all(0),
                         alignment=ft.alignment.center,
@@ -173,12 +175,13 @@ class GradientEntry(ft.Stack):
                                     alignment=ft.alignment.center,
                                     disabled=True,
                                     border_radius=ft.border_radius.all(30),
-                                    gradient=ft.LinearGradient(
-                                        begin=ft.alignment.top_center,
-                                        end=ft.alignment.bottom_center,
-                                        colors=[ft.colors('cyan800'), ft.colors('black38')],
-                                    ),
+                                    # gradient=ft.LinearGradient(
+                                    #     begin=ft.alignment.top_center,
+                                    #     end=ft.alignment.bottom_center,
+                                    #     colors=[ft.colors('cyan800'), ft.colors('black38')],
+                                    # ),
                                     content=ft.ElevatedButton(
+                                        bgcolor=ft.Colors.with_opacity(0.16, ft.colors('white')),
                                         text=f"Apply {self.attribute_widget.capitalize()}".replace(
                                             "_", " "
                                         ),
@@ -191,19 +194,19 @@ class GradientEntry(ft.Stack):
                     ),
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
+                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
 
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(1, ft.colors('black38')),
                         height=36,
                         disabled=True,
-                        gradient=ft.LinearGradient(
-                            begin=ft.alignment.top_center,
-                            end=ft.alignment.bottom_center,
-                            colors=[ft.colors('cyan800'), ft.colors('black38')],
-                        ),
+                        # gradient=ft.LinearGradient(
+                        #     begin=ft.alignment.top_center,
+                        #     end=ft.alignment.bottom_center,
+                        #     colors=[ft.colors('cyan800'), ft.colors('black38')],
+                        # ),
                         content=ft.Row(
                             spacing=8.7,
                             controls=[
@@ -216,7 +219,7 @@ class GradientEntry(ft.Stack):
                                         hint_text=self.attribute_widget_name_1,
                                         border_radius =ft.border_radius.all(30),
                                         border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -237,7 +240,7 @@ class GradientEntry(ft.Stack):
                                         hint_text=self.attribute_widget_name_2,
                                         border_radius =ft.border_radius.all(30),
                                         border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -251,11 +254,11 @@ class GradientEntry(ft.Stack):
                                 # ft.Container(width=18),
                                 ft.Container(
                                     ink=False,
-                                    bgcolor="#0e0f11",
+                                    bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                     padding=ft.padding.all(0),
                                     alignment=ft.alignment.center,
                                     border_radius=ft.border_radius.all(30),
-                                    border=ft.border.all(2, "#0e0f11"),
+                                    border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                                     # width=150,
                                     expand=True,
                                     height=35,
@@ -279,18 +282,18 @@ class GradientEntry(ft.Stack):
                     ),
                     ft.Container(
                         ink=False,
-                        bgcolor="#0e0f11",
+                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
+                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(1, ft.colors('black38')),
                         height=36,
                         disabled=True,
-                        gradient=ft.LinearGradient(
-                            begin=ft.alignment.top_center,
-                            end=ft.alignment.bottom_center,
-                            colors=[ft.colors('cyan800'), ft.colors('black38')],
-                        ),
+                        # gradient=ft.LinearGradient(
+                        #     begin=ft.alignment.top_center,
+                        #     end=ft.alignment.bottom_center,
+                        #     colors=[ft.colors('cyan800'), ft.colors('black38')],
+                        # ),
                         content=ft.Row(
                             spacing=8.7,
                             controls=[
@@ -303,7 +306,7 @@ class GradientEntry(ft.Stack):
                                         hint_text=self.attribute_widget_name_3,
                                         border_radius =ft.border_radius.all(30),
                                         border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -325,7 +328,7 @@ class GradientEntry(ft.Stack):
                                         hint_text=self.attribute_widget_name_4,
                                         border_radius =ft.border_radius.all(30),
                                         border_color = ft.Colors('transparent'),
-                                        bgcolor="#0e0f11",
+                                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
@@ -339,11 +342,11 @@ class GradientEntry(ft.Stack):
                                 # ft.Container(width=18),
                                 ft.Container(
                                     ink=False,
-                                    bgcolor="#0e0f11",
+                                    bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
                                     padding=ft.padding.all(0),
                                     alignment=ft.alignment.center,
                                     border_radius=ft.border_radius.all(30),
-                                    border=ft.border.all(2, "#0e0f11"),
+                                    border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                                     # width=150,
                                     expand=True,
                                     height=35,
