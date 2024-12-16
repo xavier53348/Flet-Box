@@ -1,7 +1,4 @@
 import flet as ft
-from ..settings_var.settings_widget import GLOBAL_VAR
-
-click_avalidation: bool = False
 
 
 class SelectionButtonEntry(ft.Stack):
@@ -15,13 +12,16 @@ class SelectionButtonEntry(ft.Stack):
 
     def __init__(
         self,
-        config_widget="exemple [value,bgcolor,width,height] ....",
-        widget="",
         id_name_widget_dict=None,
+        config_widget: str="exemple [value,bgcolor,width,height] ....",
+        page: object = None,
+        screen_phone: object = None,
     ):
         super().__init__()
+        self.page = page
+        self.widget = screen_phone
+
         self.tooltip="SelectionButtonEntry"
-        self.widget = widget
         self.widget_name = config_widget
         self.id_name_widget_dict = id_name_widget_dict
 
@@ -38,7 +38,7 @@ class SelectionButtonEntry(ft.Stack):
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors.BLACK),
+            border=ft.border.all(2, ft.colors('black')),
             width=165,
             height=80,
             content=ft.Column(
@@ -67,7 +67,7 @@ class SelectionButtonEntry(ft.Stack):
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
-                            colors=[ft.colors.CYAN_600, ft.colors.BLACK38],
+                            colors=[ft.colors('cyan600'), ft.colors('black38')],
                         ),
                         content=ft.Row(
                             controls=[
@@ -84,15 +84,15 @@ class SelectionButtonEntry(ft.Stack):
                                         begin=ft.alignment.top_center,
                                         end=ft.alignment.center_right,
                                         colors=[
-                                            ft.colors.BLACK12,
-                                            ft.colors.CYAN_900,
-                                            ft.colors.BLACK38,
+                                            ft.colors('black12'),
+                                            ft.colors('cyan900'),
+                                            ft.colors('black38'),
                                         ],
                                     ),
                                     content=ft.ElevatedButton(
                                         text=self.tmp_widget_name,
                                         width=147,
-                                        bgcolor=ft.colors.TRANSPARENT,
+                                        bgcolor=ft.colors('transparent'),
                                         on_click=lambda _: self.modify_widget_attributes(
                                             widget_name=self.widget_name,
                                             attribute_to_change=self.widget,
@@ -108,17 +108,18 @@ class SelectionButtonEntry(ft.Stack):
 
         return Drop_SelectionButtonEntry
 
-    def modify_widget_attributes(self, widget_name, attribute_to_change):
-        self.imagen_editor = GLOBAL_VAR(get_global_var="IMAGEN_EDITOR_CONTAINER")
-        self.imagen_editor.visible = True
-        self.imagen_editor.update()
+    def modify_widget_attributes(self, widget_name: str= str(), attribute_to_change: object = None):
+        print("[+] change content tab [ selection_button_entry.py ]")
+        self.tab_container = self.page.session.get('PHOTO_SELECTION')
+        # self.tab_container.update()
 
-        #: SET WIDGET SELETED TO EDIT IN REAL TIME
-        GLOBAL_VAR(
-            set_global_var={
-                "WIDGET_SELECTION_EDITOR_CONTAINER": {
-                    "widget_name": widget_name,
-                    "attribute_to_change": attribute_to_change,
-                }
-            }
-        )
+        self.tab_container.controls[0].visible=False
+        self.tab_container.controls[1].visible=True
+        self.tab_container.controls[2].visible=False
+        self.tab_container.update()
+
+        self.page.session.set('set_attribute_image',widget_name) # <== SET (BGCOLOR, ...)
+        self.page.session.set('set_edit_widget_image',attribute_to_change)  # <== SET (ft.Container, Image)
+
+        # print(widget_name)
+        # print(attribute_to_change)

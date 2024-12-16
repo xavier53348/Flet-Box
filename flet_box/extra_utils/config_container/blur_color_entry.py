@@ -1,6 +1,6 @@
 import flet as ft
 
-from ..settings_var.settings_widget import GLOBAL_VAR
+# from ..settings_var.settings_widget import GLOBAL_VAR
 
 class BlurColorEntry(ft.Stack):
     """
@@ -12,20 +12,22 @@ class BlurColorEntry(ft.Stack):
 
     def __init__(
         self,
-        config_widget="exemple [value,bgcolor,width,height] ....",
-        widget="",
         id_name_widget_dict=None,
+        config_widget: str="exemple [value,bgcolor,width,height] ....",
+        page: object=None,
+        screen_phone: object=None,
     ):
         super().__init__()
+        self.page = page
+        self.widget = screen_phone
+
         self.tooltip='BlurColorEntry'
-        self.widget = widget
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
 
         # size textz
-        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
-        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
-
+        self.text_size = 12 #GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = 4 #GLOBAL_VAR(get_global_var="padding_only")
 
     def build(self):
         Drop_DoubleEntry = ft.Container(
@@ -34,8 +36,9 @@ class BlurColorEntry(ft.Stack):
             padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
-            border_radius=ft.border_radius.only(top_left=16, bottom_left=16),
-            # border        = ft.border.all(2, ft.colors.BLACK38),
+            border = ft.border.all(2, ft.colors('black38')),
+            border_radius=ft.border_radius.all(24),
+
             width=165,
             height=80,
             content=ft.Column(
@@ -58,14 +61,14 @@ class BlurColorEntry(ft.Stack):
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(0.1, ft.colors.BLACK38),
+                        border=ft.border.all(0.1, ft.colors('black38')),
                         width=154,
                         height=36,
                         tooltip="Double Entry",
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
-                            colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                            colors=[ft.colors('cyan800'), ft.colors('black38')],
                         ),
                         content=ft.Row(
                             controls=[
@@ -75,7 +78,8 @@ class BlurColorEntry(ft.Stack):
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text="Blur X",
-                                        border=ft.InputBorder.NONE,
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,
@@ -92,7 +96,8 @@ class BlurColorEntry(ft.Stack):
                                     width=68,
                                     content=ft.TextField(
                                         hint_text="Blur Y",
-                                        border=ft.InputBorder.NONE,
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,
@@ -114,8 +119,8 @@ class BlurColorEntry(ft.Stack):
             padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
-            border_radius=ft.border_radius.only(top_right=16, bottom_right=16),
-            # border        = ft.border.all(2, ft.colors.BLACK38),
+            border = ft.border.all(2, ft.colors('black38')),
+            border_radius=ft.border_radius.all(24),
             width=165,
             height=80,
             content=ft.Column(
@@ -138,13 +143,13 @@ class BlurColorEntry(ft.Stack):
                         padding=ft.padding.only(left=2, top=0, right=8, bottom=0),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(1, ft.colors.BLACK38),
+                        border=ft.border.all(1, ft.colors('black38')),
                         width=152,
                         height=36,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
-                            colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                            colors=[ft.colors('cyan800'), ft.colors('black38')],
                         ),
                         content=ft.Row(
                             spacing=4.5,
@@ -157,7 +162,8 @@ class BlurColorEntry(ft.Stack):
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text="Blur Color",
-                                        border=ft.InputBorder.NONE,
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,
@@ -175,10 +181,10 @@ class BlurColorEntry(ft.Stack):
                                 ),
                                 ft.Container(
                                     ink=False,
-                                    bgcolor=ft.colors.BLACK12,
+                                    bgcolor=ft.colors('black12'),
                                     width=50.5,
                                     height=30,
-                                    border=ft.border.all(1, ft.colors.CYAN_800),
+                                    border=ft.border.all(1, ft.colors('cyan800')),
                                     border_radius=ft.border_radius.all(30),
                                     on_click=lambda x: self.modify_right_container_attributes(
                                         data=self.attribute_widget,
@@ -196,10 +202,14 @@ class BlurColorEntry(ft.Stack):
             bgcolor="#0a0b0c",
             padding=ft.padding.only(left=4, top=4, right=4, bottom=4),
             margin=ft.margin.all(0),
-            alignment=ft.alignment.center,
+            alignment=ft.alignment.center_left,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors.BLACK),
-            content=ft.Row(spacing=0, controls=[Drop_DoubleEntry, Drop_BlurColorEntry]),
+            border=ft.border.all(2, ft.colors('black')),
+            content=ft.Row( spacing=1,
+                            wrap = True,
+                            controls=[
+                                Drop_DoubleEntry,
+                                Drop_BlurColorEntry]),
         )
 
     def modify_right_container_attributes(self, data, value):
@@ -212,7 +222,7 @@ class BlurColorEntry(ft.Stack):
 
         #: ONLY FOR CONTAINER
         if data == "blur":
-            self.widget.bgcolor = ft.colors.with_opacity(
+            self.widget.bgcolor = ft.Colors.with_opacity(
                 0.14, value.content.controls[1].content.controls[1].bgcolor
             )
 

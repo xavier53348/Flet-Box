@@ -1,6 +1,6 @@
 import flet as ft
 
-from ..settings_var.settings_widget import GLOBAL_VAR
+# from ..settings_var.settings_widget import GLOBAL_VAR
 
 class DoubleEntry(ft.Stack):
     """
@@ -12,17 +12,21 @@ class DoubleEntry(ft.Stack):
 
     def __init__(
         self,
-        config_widget="exemple [value,bgcolor,width,height] ....",
-        widget="",
         id_name_widget_dict=None,
+        config_widget: str="exemple [value,bgcolor,width,height] ....",
+        page: object=object(),
+        screen_phone: object=object(),
     ):
         super().__init__()
+        self.page = page
+        self.widget = screen_phone
+
         self.tooltip="DoubleEntry"
-        self.widget = widget
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
-        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
-        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
+
+        self.text_size = 12 # GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = 4 # GLOBAL_VAR(get_global_var="padding_only")
 
 
         #: print(self.attribute_widget)
@@ -66,7 +70,7 @@ class DoubleEntry(ft.Stack):
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors.BLACK),
+            border=ft.border.all(2, ft.colors('black')),
             width=165,
             height=80,
             content=ft.Column(
@@ -91,14 +95,14 @@ class DoubleEntry(ft.Stack):
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(0.1, ft.colors.BLACK38),
+                        border=ft.border.all(0.1, ft.colors('black38')),
                         width=154,
                         height=36,
                         tooltip="Double Entry",
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
-                            colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                            colors=[ft.colors('cyan800'), ft.colors('black38')],
                         ),
                         content=ft.Row(
                             controls=[
@@ -108,12 +112,12 @@ class DoubleEntry(ft.Stack):
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text=self.attribute_widget_name_1,
-                                        border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
-
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
                                         # ======================= EVENTS ===========================
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
@@ -126,13 +130,15 @@ class DoubleEntry(ft.Stack):
                                     ink=False,
                                     width=68,
                                     content=ft.TextField(
+                                        # prefix_text=self.attribute_widget_name_2,
                                         hint_text=self.attribute_widget_name_2,
-                                        border=ft.InputBorder.NONE,
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,
                                         content_padding=self.padding_only,
-
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
+                                        text_align          = ft.TextAlign.CENTER,        # [LEFT,RIGHT,CENTER,JUSTIFY,START,END]
                                         on_change=lambda x: self.modify_widget_attributes(
                                             config_widget=self.attribute_widget,
                                             value=Drop_DoubleEntry,

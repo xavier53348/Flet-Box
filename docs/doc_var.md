@@ -18,6 +18,8 @@ self.page.session.set('set_edit_widget_color',self.widget_color)  # <== SET (ft.
 self.page.session.set('set_attribute_image',self.attribute_image) # <== SET (BGCOLOR, ...)
 self.page.session.set('set_edit_widget_image',self.widget_image)  # <== SET (ft.Container, Image)
 
+self.page.session.set('user_name', {'user_name': user_name, 'pasword': pasword})   # <== SET MAIN USER
+self.page.session.set('user_name_phone', self.Build_Phone_Editor)  # <== SET MAIN PHONE
 
 ft.colors('blue300')
 ft.colors('cyan700')

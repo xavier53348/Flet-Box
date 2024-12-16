@@ -12,13 +12,16 @@ class SelectionEntry(ft.Stack):
 
     def __init__(
         self,
-        config_widget="exemple [value,bgcolor,width,height] ....",
-        widget="",
         id_name_widget_dict=None,
-    ):
+        config_widget: str="exemple [value,bgcolor,width,height] ....",
+        page: object=None,
+        screen_phone: object=None,
+        ):
         super().__init__()
-        self.tooltip="SelectionEntry"
-        self.widget = widget
+        self.page = page
+        self.widget = screen_phone
+
+        self.tooltip: str="SelectionEntry"
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
 
@@ -136,7 +139,7 @@ class SelectionEntry(ft.Stack):
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors.BLACK),
+            border=ft.border.all(2, ft.colors('black')),
             width=165,
             height=80,
             content=ft.Column(
@@ -166,7 +169,7 @@ class SelectionEntry(ft.Stack):
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
-                            colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                            colors=[ft.colors('cyan800'), ft.colors('black38')],
                         ),
                         content=ft.Row(
                             controls=[
@@ -179,14 +182,14 @@ class SelectionEntry(ft.Stack):
                                     width=147,
                                     height=35,
                                     content=ft.Dropdown(
-                                        hint_text=self.alignment_tmp_name,
+                                        value=self.alignment_tmp_name,
                                         width=140,
                                         content_padding=ft.padding.only(
                                             left=0, top=0, right=8, bottom=14
                                         ),
                                         alignment=ft.alignment.center_left,
                                         border_radius=ft.border_radius.all(15),
-                                        border=ft.InputBorder.NONE,
+                                        border_color = ft.Colors('transparent'),
                                         options=self.alignment_tmp,
                                         on_change=lambda _: self.modify_widget_attributes(
                                             config_widget=_.__dict__.get("data")
@@ -264,17 +267,18 @@ class SelectionEntry(ft.Stack):
 
         else:
             if config_widget == " Contain":
-                self.widget.image_fit = ft.ImageFit.CONTAIN
+                self.widget.image.fit = ft.ImageFit.CONTAIN
             if config_widget == " Cover":
-                self.widget.image_fit = ft.ImageFit.COVER
+                self.widget.image.fit = ft.ImageFit.COVER
             if config_widget == " Fill":
-                self.widget.image_fit = ft.ImageFit.FILL
+
+                self.widget.image.fit = ft.ImageFit.FILL
             if config_widget == " Fit Height":
-                self.widget.image_fit = ft.ImageFit.FIT_HEIGHT
+                self.widget.image.fit = ft.ImageFit.FIT_HEIGHT
             if config_widget == " Fit Width":
-                self.widget.image_fit = ft.ImageFit.FIT_WIDTH
+                self.widget.image.fit = ft.ImageFit.FIT_WIDTH
             if config_widget == " Scale Down":
-                self.widget.image_fit = ft.ImageFit.SCALE_DOWN
+                self.widget.image.fit = ft.ImageFit.SCALE_DOWN
 
         #: CONTAINER.content = ft.Widget()
         #: VERTICAL ALIGMENT
@@ -384,6 +388,3 @@ class SelectionEntry(ft.Stack):
         #: print(self.widget.uid)
 
         self.widget.update()
-
-
-#######

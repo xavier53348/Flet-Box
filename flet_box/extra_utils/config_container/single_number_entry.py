@@ -15,10 +15,18 @@ class SingleNumeberEntry(ft.Stack):
 
     widget_content = "data"
 
-    def __init__(self, config_widget="max_lines", widget="", id_name_widget_dict=None):
+    def __init__(
+        self,
+        id_name_widget_dict=None,
+        config_widget: str="exemple [value,bgcolor,width,height] ....",
+        page: object=object(),
+        screen_phone: object=object(),
+    ):
         super().__init__()
+        self.page = page
+        self.widget = screen_phone
+
         self.tooltip="SingleNumeberEntry"
-        self.widget = widget
         self.widget_name = config_widget
         self.widget_content = self.widget_content
         self.id_name_widget_dict = id_name_widget_dict
@@ -68,7 +76,7 @@ class SingleNumeberEntry(ft.Stack):
             max=self.maximum,
             divisions=self.division,
             value=self.value,
-            overlay_color=ft.colors.RED,
+            overlay_color=ft.colors('red'),
             # ======================= EVENTS ===========================
             # on_change   = lambda x:self.modify_widget_attributes(config_widget =self.attribute_widget ,value = SingleNumeberEntry),
             on_change=lambda x: self.modify_widget_attributes(
@@ -83,7 +91,7 @@ class SingleNumeberEntry(ft.Stack):
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors.BLACK),
+            border=ft.border.all(2, ft.colors('black')),
             width=165,
             height=80,
             content=ft.Column(
@@ -103,17 +111,17 @@ class SingleNumeberEntry(ft.Stack):
                     ),  # <=== NOTE COMA <==> ERASE COMA IF MAKE 1 ERROR,
                     ft.Container(
                         ink=False,
-                        bgcolor=ft.colors.BLACK38,
+                        bgcolor=ft.colors('black38'),
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(2, ft.colors.CYAN_900),
+                        border=ft.border.all(2, ft.colors('cyan900')),
                         width=152,
                         height=36,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.center_right,
-                            colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                            colors=[ft.colors('cyan800'), ft.colors('black38')],
                         ),
                         content=ft.Row(
                             controls=[
@@ -137,17 +145,19 @@ class SingleNumeberEntry(ft.Stack):
     def modify_widget_attributes(self, slider_value, slider_widget):
         slider_widget.label = f"{slider_value:.2f}"
         slider_widget.update()
-        print(self.widget, "single")
+        # print(self.widget, "single")
 
         #:
         if self.widget_name == "image_opacity":
-            self.widget.image_opacity = 1 - slider_value
+            self.widget.image.opacity =  1 - slider_value
+
         if self.widget_name == "scale":
             self.widget.scale = 1 - slider_value
         if self.widget_name == "aspect_ratio":
             self.widget.aspect_ratio = 1 - slider_value
         if self.widget_name == "opacity":
             self.widget.opacity = 1 - slider_value
+
         if self.widget_name == "child_aspect_ratio":
             self.widget.child_aspect_ratio = 1 - slider_value
 

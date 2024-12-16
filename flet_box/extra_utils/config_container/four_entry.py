@@ -1,6 +1,6 @@
 import flet as ft
 
-from ..settings_var.settings_widget import GLOBAL_VAR
+# from ..settings_var.settings_widget import GLOBAL_VAR
 
 class FourEntry(ft.Stack):
     """
@@ -12,20 +12,22 @@ class FourEntry(ft.Stack):
 
     def __init__(
         self,
-        config_widget="exemple [value,bgcolor,width,height] ....",
-        widget="",
         id_name_widget_dict=None,
+        config_widget: str="exemple [value,bgcolor,width,height] ....",
+        page: object=object(),
+        screen_phone: object=object(),
     ):
         super().__init__()
-        """ Is neccesary make a filter that will contain name of the widget to use"""
+        self.page = page
+        self.widget = screen_phone
+
         self.tooltip="FourEntry"
-        self.widget = widget
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
 
         # size textz
-        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
-        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
+        self.text_size = 12 #GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = 4 #GLOBAL_VAR(get_global_var="padding_only")
 
         #: print(self.attribute_widget)
         #: will change name of entry points
@@ -37,10 +39,10 @@ class FourEntry(ft.Stack):
             self.attribute_widget_name_4 = "Bottom"
 
         if self.attribute_widget == "border_radius":
-            self.attribute_widget_name_1 = "⌜ BL"
-            self.attribute_widget_name_2 = "  BR ⌝"
-            self.attribute_widget_name_3 = "⌞ TL"
-            self.attribute_widget_name_4 = "  TR ⌟"
+            self.attribute_widget_name_1 = " BL"
+            self.attribute_widget_name_2 = " BR"
+            self.attribute_widget_name_3 = " TL"
+            self.attribute_widget_name_4 = " TR"
 
     def build(self):
         packet_data = ft.Container(
@@ -50,7 +52,7 @@ class FourEntry(ft.Stack):
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors.BLACK),
+            border=ft.border.all(2, ft.colors('black')),
             width=162,
             height=128,
             content=ft.Column(
@@ -74,12 +76,12 @@ class FourEntry(ft.Stack):
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(0.1, ft.colors.BLACK38),
+                        border=ft.border.all(0.1, ft.colors('black38')),
                         height=36,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
-                            colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                            colors=[ft.colors('cyan800'), ft.colors('black38')],
                         ),
                         content=ft.Row(
                             spacing=8.7,
@@ -91,7 +93,8 @@ class FourEntry(ft.Stack):
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text=self.attribute_widget_name_1,
-                                        border=ft.InputBorder.NONE,
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,
@@ -110,7 +113,8 @@ class FourEntry(ft.Stack):
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text=self.attribute_widget_name_2,
-                                        border=ft.InputBorder.NONE,
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,
@@ -130,12 +134,12 @@ class FourEntry(ft.Stack):
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(1, ft.colors.BLACK38),
+                        border=ft.border.all(1, ft.colors('black38')),
                         height=36,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.bottom_center,
-                            colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                            colors=[ft.colors('cyan800'), ft.colors('black38')],
                         ),
                         content=ft.Row(
                             spacing=8.7,
@@ -147,7 +151,8 @@ class FourEntry(ft.Stack):
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text=self.attribute_widget_name_3,
-                                        border=ft.InputBorder.NONE,
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,
@@ -166,7 +171,8 @@ class FourEntry(ft.Stack):
                                     border_radius=ft.border_radius.all(30),
                                     content=ft.TextField(
                                         hint_text=self.attribute_widget_name_4,
-                                        border=ft.InputBorder.NONE,
+                                        border_radius =ft.border_radius.all(30),
+                                        border_color = ft.Colors('transparent'),
                                         bgcolor="#0e0f11",
                                         color="YELLOW",
                                         text_size=self.text_size,

@@ -1,17 +1,18 @@
 import flet as ft
-import time
+# import time
 
-from ..config_container.widget_editor import Build_Editor
-from ..lite_menu_bar_down_phone.selected_widget import SelectedWidget
-from ..settings_var.settings_widget import GLOBAL_VAR
+# from ..config_container.widget_editor import Build_Editor
+# from ..lite_menu_bar_down_phone.selected_widget import SelectedWidget
+# from ..settings_var.settings_widget import GLOBAL_VAR
 
-numWidget        = GLOBAL_VAR(get_global_var='NUM_WIDGETS_DROPPED')
-numClick         = GLOBAL_VAR(get_global_var='NUM_CLICKS')
-listWidgetUpdate = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
+# numWidget        = GLOBAL_VAR(get_global_var='NUM_WIDGETS_DROPPED')
+# numClick         = GLOBAL_VAR(get_global_var='NUM_CLICKS')
+# listWidgetUpdate = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
 
 PRESENTATION_TEXT: str = """Ready to make your first app!!"""
+numWidget: int = 1
 
-class InfinityBoxLayerOne(ft.Stack):
+class InfinityBoxLayerOne(ft.DragTarget):
      """
      NOTE:
 
@@ -24,116 +25,144 @@ class InfinityBoxLayerOne(ft.Stack):
 
      2. Make widget need
      """
-     md1 = """
-# Markdown Example
-Markdown allows you to easily include formatted text, images, and even formatted Dart code in your app.
+     md1 = """# Markdown Example Markdown allows you to easily include formatted text, images, and even formatted Dart code in your app.\n## Titles"""
 
-## Titles
-Setext-style
-
-This is an H1
-"""
-
-
-     def __init__(self,dataPassed=''):
-          super().__init__()
+     def __init__(self,dataPassed='',page: object=None):
+          super().__init__(content=ft.Container())
+          self.group     = "GroupDragg"
+          self.page = page
 
           self.dataPassed    = dataPassed
           self.clip_behavior = ft.ClipBehavior.NONE
-
-     def build(self):
-          global numWidget
-
-          """
-          check CircleAvatar, VerticalDivider
-          """
 
           self.widgets={
 
                #: CONTAINERS LAYOUTS
 
-                       "Row": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Row',
+                       "Row": [    ft.Container(bgcolor=ft.colors('black54'),alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors('cyan900')),tooltip='Row',
                                    ink=True,
                                    ink_color='cyan',
-                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Row( scroll="ALWAYS",
                                         controls= [
                                                        ],),),
                               ],
-                    "Column": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Column',
+            "ResponsiveRow": [    ft.Container(bgcolor=ft.colors('black54'),alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors('cyan900')),tooltip='ResponsiveRow',
                                    ink=True,
-                                   ink_color='yellow',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='cyan',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.ResponsiveRow(
+                                        controls= [
+                                                       ],),),
+                              ],
+                    "Column": [    ft.Container(bgcolor=ft.colors('black54'),alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors('cyan900')),tooltip='Column',
+                                   ink=True,
+                                   ink_color='yellow',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Column( scroll="ALWAYS",horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                         controls= [
                                                        ],),),
                               ],
-                     "Stack": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors.CYAN_900),tooltip='Stack',
+              "ListView": [    ft.Container(bgcolor=ft.colors('black54'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='purple',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.ListView(expand=1, spacing=10, auto_scroll=True,
+                                                       controls=[
+                                                                 ])
+
+                                   ),
+                          ],
+                     "Stack": [    ft.Container(bgcolor=ft.colors('black54'),alignment=ft.alignment.center,padding=ft.padding.all(6),border=ft.border.all(2, ft.colors('cyan900')),tooltip='Stack',
+                                   ink=True,
+                                   ink_color='purple',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Stack(
                                         controls= [
                                                        ],),),
                               ],
-                  "GridView": [    ft.Container(bgcolor=ft.colors.BLACK54,alignment=ft.alignment.center,border=ft.border.all(2, ft.colors.CYAN_900),tooltip='GridView',
+                  "GridView": [    ft.Container(bgcolor=ft.colors('black54'),alignment=ft.alignment.center,border=ft.border.all(2, ft.colors('cyan900')),tooltip='GridView',
                                    ink=True,
-                                   ink_color='green',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='green',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.GridView(runs_count=2,run_spacing=4,padding=ft.padding.all(6), spacing=4,
                                         controls= [
                                                        ],),),
                               ],
                #: SPACE LAYOUTS
 
-                   "Divider": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Divider',
+                   "Divider": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Divider',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Divider(),),
                               ],
                               # VerticalDivider most set propertie [container height ] becouse no work onVerticalDivider
-                  "Vertical": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),height=25,margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='VerticalDivider',
+                  "Vertical": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),height=25,margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='VerticalDivider',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.VerticalDivider(width=1, color="white"),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.VerticalDivider(color="white"),),
                               ],
 
                #: IMAGE WIDGET
 
-                     "Image": [    ft.Container(alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Image',
+                     "Image": [    ft.Container(alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Image',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.Image(src=f'.no_image.jpg',fit=ft.ImageFit.FILL,width=110,height=110,tooltip='Image'),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.Image(src=f'.no_image.jpg',fit=ft.ImageFit.FILL),
+                                   # image =ft.DecorationImage(
+                                   #                 src='.no_image.jpg',
+                                   #                 fit=ft.ImageFit.FILL,  #: CONTAIN, FILL, FIT_WIDTH, SCALE_DOWN, COVER, FIT_HEIGHT, NONE
+                                   #                 # opacity = 0.08 if self.page.window.width <= 620 else 0.2,
+                                   #             ),
+                                   # width=80,height=80,
+                                   # content=ft.Container()
+                                   # content=ft.Image(src=f'.no_image.jpg',fit=ft.ImageFit.FILL,width=110,height=110,tooltip='Image')
+                                   ),
                               ],
-                    "Avatar": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Avatar',
+                    "Avatar": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Avatar',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.CircleAvatar(background_image_src='.avatar.jpg'),),
                               ],
-                      "Icon": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Icon',
+                      "Icon": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Icon',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.Icon(name=ft.icons.ADD_REACTION_OUTLINED,tooltip='Icon'),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.Icon(name=ft.icons('add_reaction_outlined'),tooltip='Icon'),),
                               ],
                #: TEXT  WIDGET
 
-                     "Text":  [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Text',
+                     "Text":  [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Text',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Text(value=PRESENTATION_TEXT,tooltip='Text',size=10),),
                               ],
-                "Text Field": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='TextField',
+                "Text Field": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(4),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='TextField',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.TextField(label="what's your name ?",tooltip='TextField',border_radius= ft.border_radius.all(30),height=32, cursor_height=20,content_padding= ft.padding.all(16),border_color=ft.colors.WHITE,focused_border_color=ft.colors.RED,
+                                   border_radius = ft.border_radius.all(30),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   blur=(8,8),
+                                   width=240,
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.TextField(label="what's your name ?",tooltip='TextField',border_radius= ft.border_radius.all(30),height=32, cursor_height=20,content_padding= ft.padding.all(16),border_color=ft.colors('white'),focused_border_color=ft.colors('red'),
                                         text_size=12,
                                         width=240,
                                         ),),
@@ -141,97 +170,125 @@ This is an H1
 
                #: BUTTONS WIDGET
 
-           "Elevated Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='ElevatedButton',
+           "Elevated Button": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='ElevatedButton',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.ElevatedButton("Accept",tooltip='ElevatedButton',elevation=20,height=28),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.ElevatedButton(text="Accept",tooltip='ElevatedButton'),),
                               ],
-               "Text Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='TextButton',
+               "Text Button": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='TextButton',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.TextButton("Accept",tooltip='TextButton',height=28),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.TextButton(text="Accept",tooltip='TextButton',height=28),),
                               ],
-               "Icon Button": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='IconButton',
+               "Icon Button": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='IconButton',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.IconButton(tooltip='Accept',icon=ft.icons.ADD_LINK_SHARP),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.IconButton(tooltip='Accept',icon=ft.icons('add_link_sharp')),),
                               ],
-                    "Filled": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='FilledButton',
+                    "Filled": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='FilledButton',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.FilledButton("Accept",tooltip='FilledButton',height=28),),
                               ],
-                     "Tonal": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='FilledTonalButton',
+                     "Tonal": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='FilledTonalButton',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.FilledTonalButton("Accept",tooltip='FilledTonalButton',height=28),),
                               ],
-                   "Outline": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='OutlinedButton',
+                   "Outline": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='OutlinedButton',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.OutlinedButton("Accept",tooltip='OutlinedButton',height=28),),
                               ],
 
                #: SELECTIONS WIDGET
 
-                 "Checkbox":  [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Checkbox',
+                 "Checkbox":  [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Checkbox',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Checkbox(label="  Accept the target",tooltip='Checkbox',value=False,height=28),),
                               ],
-                 "Cupertino": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='CupertinoCheckbox',
+                 "Cupertino": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='CupertinoCheckbox',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.CupertinoCheckbox(label="  Accept the target",tooltip='CupertinoCheckbox',value=False,height=28),),
                               ],
-                    "Switch": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Switch',
+                    "Switch": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Switch',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Switch(label="  Accept the target",tooltip='Switch',value=False,height=28),),
                               ],
 
-                      "Chip": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Chip',
+                      "Chip": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Chip',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.Chip(label=ft.Text("  Accept the target"), leading=ft.Icon(ft.icons.CAMERA_ROUNDED),tooltip='Chip',on_click=lambda _:print('help')),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.Chip(
+                                                       label=ft.Text("  Accept the target"),
+                                                       leading=ft.Icon('camera_rounded'),
+                                                       tooltip='Chip',
+                                                       on_click=lambda _:print('help')),),
                               ],
 
-                    "Slider": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='CupertinoRadio',
+                    "Slider": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(6),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='CupertinoRadio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.CupertinoSlider(tooltip='CupertinoSlider',max=100,height=28,),),
                               ],
 
                  #: RadioGroup <==== need solve that issue
 
-                 "Cup Radio": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='CupertinoRadio',
+                 "Cup Radio": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='CupertinoRadio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.RadioGroup(content=ft.CupertinoRadio(label="  Accept the target",tooltip='CupertinoRadio',value=False,height=28),),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.RadioGroup(
+                                                       content = ft.DragTarget(
+                                                                 group="GroupDragg",
+                                                                 content=ft.Container(
+                                                                           content=ft.CupertinoRadio(
+                                                                                label="  Accept the target",
+                                                                                tooltip='CupertinoRadio',
+                                                                                value=False,
+                                                                                height=28,
+                                                       ))))
+                                                       ),
                               ],
 
-                     "Radio": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+                     "Radio": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.RadioGroup(content=ft.Radio(label="  Accept the target",tooltip='Radio',value='False',height=28),),),
                               ],
-                     "Space": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+                     "Space": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(), height=30, expand=True,
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(), height=30, expand=True,
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Container(expand=True),
                                    ),
                               ],
@@ -239,37 +296,39 @@ This is an H1
                ## { item_description }
                ##
                ##
-               # "": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+               # "": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                #                     ink=True,
-               #                     ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-               #                     on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   # ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+               #                     on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                #                     content=
                #                     ),),
                #         ],
 
-          "PieChart": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+          "PieChart": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.PieChart(
                                                   sections=[
                                                          ft.PieChartSection(
                                                              25,
-                                                             color=ft.colors.BLUE,
+                                                             color=ft.colors('blue'),
                                                              radius=80,
-                                                             border_side=ft.BorderSide(0, ft.colors.with_opacity(0, ft.colors.WHITE)),
+                                                             border_side=ft.BorderSide(0, ft.Colors.with_opacity(0, ft.colors('white'))),
                                                          ),
                                                          ft.PieChartSection(
                                                              25,
-                                                             color=ft.colors.YELLOW,
+                                                             color=ft.colors('yellow'),
                                                              radius=65,
-                                                             border_side=ft.BorderSide(0, ft.colors.with_opacity(0, ft.colors.WHITE)),
+                                                             border_side=ft.BorderSide(0, ft.Colors.with_opacity(0, ft.colors('white'))),
                                                          ),
                                                       ft.PieChartSection(
                                                              25,
-                                                             color=ft.colors.RED,
+                                                             color=ft.colors('red'),
                                                              radius=65,
-                                                             border_side=ft.BorderSide(0, ft.colors.with_opacity(0, ft.colors.WHITE)),
+                                                             border_side=ft.BorderSide(0, ft.Colors.with_opacity(0, ft.colors('white'))),
                                                          ),
                                                      ],
                                                      sections_space=1,
@@ -278,76 +337,83 @@ This is an H1
                                    ),),
                        ],
 
-             "Badge": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+             "Badge": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.Badge(content=ft.Icon(ft.icons.CAR_CRASH_ROUNDED),small_size=10,),),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.Badge(
+                                        ft.Icon(name=ft.icons('car_crash_rounded')),
+                                        # small_size=10,
+                                        ),
+                                   ),
                          ],
 
-             "Markdown": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+             "Markdown": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.Markdown(self.md1,selectable=True,extension_set=ft.MarkdownExtensionSet.GITHUB_WEB,)),
                          ],
-             "Ring": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+             "Ring": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.ProgressRing()),
                          ],
-     "CupAcIndicator": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+     "CupAcIndicator": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content= ft.CupertinoActivityIndicator(radius=50,color=ft.colors.RED,animating=True,)),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content= ft.CupertinoActivityIndicator(radius=50,color=ft.colors('red'),animating=True,)),
                          ],
-          "ProgressBar": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+          "ProgressBar": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.ProgressBar(width=400)),
                          ],
-             "WebView": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+             "WebView": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.WebView("https://flet.dev",expand=True,)),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content=ft.WebView(
+                                        url="http://127.0.0.1:8081",
+                                                expand=True,
+                                                on_page_started=lambda _: print("Page started"),
+                                                on_page_ended=lambda _: print("Page ended"),
+                                                on_web_resource_error=lambda e: print("Page error:", e.data),
+
+                                        )),
 
                          ],
-           "Placeholder": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+           "Placeholder": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content= ft.Placeholder(expand=True,color=ft.colors.random_color()  # random material color
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
+                                   content= ft.Placeholder(expand=True,color=ft.colors.random()  # random material color
                                    ),),
                          ],
-              "ListView": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
-                                   ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True,controls=[
-                                                                 ft.Text(f"Exemple list 1"),
-                                                                 ft.Text(f"Exemple list 2"),
-                                                                 ft.Text(f"Exemple list 3"),
-                                                                 ft.Text(f"Exemple list 4"),
-                                                                 ])
 
-                                   ),
-                          ],
-          "ExpPanelList": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+          "ExpPanelList": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.ExpansionPanelList(
-                                                     expand_icon_color=ft.colors.AMBER,
+                                                     expand_icon_color=ft.colors('amber'),
                                                      elevation=8,
-                                                     divider_color=ft.colors.AMBER,
+                                                     divider_color=ft.colors('amber'),
                                                      controls=[
                                                          ft.ExpansionPanel(
                                                              # has no header and content - placeholders will be used
-                                                             bgcolor=ft.colors.BLUE_400,
+                                                             bgcolor=ft.colors('blue400'),
                                                              expanded=True,
                                                          )
                                                      ]
@@ -355,42 +421,27 @@ This is an H1
 
                                    ),
                               ],
-             "ExpPanelTile": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
+             "ExpPanelTile": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='Radio',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.ExpansionTile(
                                           title=ft.Text("ExpansionTile 1"),
                                           subtitle=ft.Text("Trailing expansion arrow icon"),
                                           affinity=ft.TileAffinity.PLATFORM,
                                           maintain_state=True,
-                                          collapsed_text_color=ft.colors.RED,
-                                          text_color=ft.colors.RED,
+                                          # collapsed_text_color=ft.colors('red'),
+                                          text_color=ft.colors('red'),
                                           controls=[ft.ListTile(title=ft.Text("This is sub-tile number 1"))],
                                       ),),
                               ],
-              "Dismissible": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='Radio',
-                                   ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
-                                   content=ft.Dismissible(
-                                             content=ft.ListTile(
-                                                  title=ft.Text("Item 1"),
 
-                                                  ),
-                                             dismiss_direction=ft.DismissDirection.HORIZONTAL,
-                                             background=ft.Container(bgcolor=ft.colors.GREEN),
-                                             secondary_background=ft.Container(bgcolor=ft.colors.RED),
-                                             dismiss_thresholds={
-                                                 ft.DismissDirection.END_TO_START: 0.2,
-                                                 ft.DismissDirection.START_TO_END: 0.2,
-                                             },
-                                        ),),
-                              ],
-          "Table": [    ft.Container(bgcolor=ft.colors.TRANSPARENT,alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors.TRANSPARENT),tooltip='DataTable',
+          "Table": [    ft.Container(bgcolor=ft.colors('transparent'),alignment=ft.alignment.center,padding=ft.padding.all(12),margin=ft.margin.all(0),border=ft.border.all(0, ft.colors('transparent')),tooltip='DataTable',
                                    ink=True,
-                                   ink_color='red',                                   on_hover=lambda _:self.resetClick(),
-                                   on_click=lambda _:self.touchWidgetIndex(self.infinityDropWidget),
+                                   ink_color='red',
+                                   # on_hover=lambda _:self.resetClick(),
+                                   on_click=lambda _:self.touch_widget_in_phone(selected_widget=self.infinityDropWidget),
                                    content=ft.DataTable( columns=[
                                                              ft.DataColumn(ft.Text("First name")),
                                                              ft.DataColumn(ft.Text("Last name")),
@@ -416,6 +467,13 @@ This is an H1
                               ],
                }
 
+     def build(self):
+          global numWidget
+
+          """
+          check CircleAvatar, VerticalDivider
+          """
+
           #: ALERTS STATUS
 
           #: WIDGETS STATUS
@@ -424,58 +482,78 @@ This is an H1
 
           #: CHARTS LAYOUTS
 
-          selectWidgetBox                    = GLOBAL_VAR(get_global_var='SELECT_DRAGG')
-          self.infinityDropWidget            = self.widgets.get(selectWidgetBox)
-          self.infinityDropWidget[0].id      = f"{self.dataPassed}: {numWidget}"              # OUR ID
-          self.infinityDropWidget[0].tooltip = f"{self.dataPassed}: {numWidget}"              # TOOLTIP ID
+          # selectWidgetBox                    = GLOBAL_VAR(get_global_var='SELECT_DRAGG')
+          session_id = self.page._session_id
+          selectWidgetBox = self.page.session.get(session_id)
 
-          #: run only production
-          #: print(self.infinityDropWidget[0].id)
-          #: print(self.infinityDropWidget[0]._Control__uid)
+          self.infinityDropWidget = self.widgets.get(selectWidgetBox)
+          # self.infinityDropWidget[0].id      = f"{self.dataPassed}: {numWidget}"              # OUR ID
+          # self.infinityDropWidget[0].tooltip = f"{self.dataPassed}: {numWidget}"              # TOOLTIP ID
 
 
           #: SET WIDGET DROPPED TO DICT DATABASE TO EXPORT PROYECT
           #: GLOBAL_VAR(set_global_var={'EXPORT_DATA_PHONE':{self.infinityDropWidget[0].id:self.infinityDropWidget[0]}})
 
-          print('============')
-          print(f"""
-                [+]             selected_widget: {self.dataPassed},
-                [+]             ID_widget: {numWidget},
-                [+]             UID: {self.infinityDropWidget[0].uid}
-                [+]             ID tooltip: {self.infinityDropWidget[0].tooltip}
-                [+]  Content: {self.infinityDropWidget}""")
-          print('============')
-
-          self.drag_boxs =ft.DragTarget(
-                                             group     = "GroupDragg",
-                                             content   = self.infinityDropWidget[0],
-
-                                        on_will_accept = self.drag_will_accept,           # Traslate Drop
-                                        on_leave       = self.drag_leave,                 # Leafing Drop Line Border
-                                        on_accept      = lambda _:self.drag_accept(_),                # Accept Drop
-                                        )
-
-          numWidget+=1
-          #: return self.infinityDropWidget
-          return self.drag_boxs
-
-     def resetClick(self):
-          global numClick
-          numClick=1
-
-          #: SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
-          #: SELECT_DROPP_WIDGET_CONTAINER = GLOBAL_VAR(get_global_var='SELECT_DROPP_WIDGET_CONTAINER')
-
-          #: if not SELECT_DROPP_WIDGET_CONTAINER == None:  #: <<===== YOU SELECTED ONE WIDGET IN PHONE
-          #:      #: IF LEAVE THIS BOX WILL RESET BORDER PHONE
-          #:      SELECT_DROPP_WIDGET_CONTAINER.border = None
-          #:      SELECT_DROPP_WIDGET_CONTAINER.update()
-
-          #: SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
+          # print('============')
+          # print(f"""
+          #       [+]             selected_widget: {self.dataPassed},
+          #       [+]             ID_widget: {numWidget},
+          #       [+]             UID: {self.infinityDropWidget[0].uid}
+          #       [+]             ID tooltip: {self.infinityDropWidget[0].tooltip}
+          #       [+]  Content: {self.infinityDropWidget}""")
+          # print('============')
 
 
-     def touchWidgetIndex(self,listWidget):
-     # def touchWidgetIndex(self,listWidget,e: ft.ContainerTapEvent):
+          print(f"{self.dataPassed} ID: <<< drag_dropped: [infinity_box_layer_one.py]  number: {numWidget} ")
+
+          # MAIN WIDGET THAT WILL BE DROPPED EACH TIME THAT DRAG ACCEPT
+          self.content   = self.infinityDropWidget[0]
+
+          self.on_will_accept = self.drag_will_accept           # Traslate Drop
+          self.on_leave = self.drag_leave                 # Leafing Drop Line Border
+          self.on_accept = lambda widget_passed: self.drag_accept(DragTargetEvent = widget_passed)
+
+          # INDEX OF WIDGET ADDED
+          numWidget += 1
+
+          self.page.session.set("dict_widget",self.widgets)
+
+     def show_text_dragg_selected(self, name_selected: str="") -> None:
+          # session_id = self.page._session_id
+          # self.name_selected = self.page.session.get(session_id)
+          self.name_selected   = name_selected
+          self.widget_selected = self.page.session.get("SHOW_TEXT_SELECTED_DRAGG_WIDGET")
+          self.draggs_selected = self.page.session.get("SHOW_TEXT_SELECTED_PHONE_WIDGET")
+
+          self.widget_selected.content.controls[1].content.spans[0].text = "None"
+          self.draggs_selected.content.controls[1].content.spans[0].text = self.name_selected
+
+          self.widget_selected.bgcolor = ft.colors('black12')
+          self.draggs_selected.bgcolor = "cyan,0.1"
+
+          self.widget_selected.update()
+          self.draggs_selected.update()
+
+     def switch_border_selected(self,selected: object=None):
+          selected_widget = self.page.session.get("SELECTED_CONTAINER")
+
+          if not selected_widget == None:
+               selected_widget.border = ft.border.all(2, ft.colors('transparent'))
+               selected_widget.update()
+
+          selected.border = ft.border.all(2, ft.colors('yellow900'))
+          selected.update()
+
+          self.show_text_dragg_selected(name_selected=selected.content._get_control_name())
+
+     def set_selected_widget(self,selected):
+          self.page.session.set("SELECTED_CONTAINER",selected)
+
+     def set_selected_widget_id(self,selected):
+          self.page.session.set("SELECTED_CONTAINER_ID",selected.uid)
+
+     def touch_widget_in_phone(self,selected_widget: object=None):
+     # def touch_widget_in_phone(self,listWidget,e: ft.ContainerTapEvent):
           """
           NOTE:
 
@@ -490,164 +568,186 @@ This is an H1
           Build_Editor.update_widget_attributes(widget_cliked=ft.Container(content=ft.Text()))
 
           """
-          global numClick
 
-          CHECK_DATA = GLOBAL_VAR(get_global_var='BOOL_SHOW_SELECTED')
+          # SWITCH BORDER COLOR IN SELECTED CONTAINER PHONE
+          self.selected = selected_widget[0]
+          self.page.session.set("cover_widget",self.selected.parent.parent)
 
-          click_time      = time.time()
-          last_click_time = GLOBAL_VAR(get_global_var='CHECK_CURRENT_TIME_DOBLE_CLICKS')  #< == DEFAULD 0
+          self.switch_border_selected(selected=selected_widget[0])
+          self.set_selected_widget(selected=self.selected)
+          self.set_selected_widget_id(selected=self.selected)
 
+          print(f"[-] {self.selected.tooltip} ID: <<< touch_widget_in_phone: [infinity_box_layer_one.py]")
 
-          #: CHECK IF SCAPE DOBLE CLICKS PEASE DON'T EDIT THIS LINE IF NO HAVE SOLUTION IMPLEMENTED
-          #: end_thread_time = time.time()
+     def return_new_widget(self,selected_widget: str=str()) -> object:
+          """
+          return selected widget
 
-          if (click_time - last_click_time) < 0.3:
+          :param      selected_widget:  The selected widget
+          :type       selected_widget:  str
+          """
+          widget_selected = self.widgets.get(selected_widget)
+          self.page.update()
 
-               #: IF CURRENT TIME IT GRADER THAN 0.1 SEGUND ITS OK LESS IS DETECTED AS DOUBLE CLIKS
-               #: print('<==============> START')
-               #: print(current_time_performance_clicks,' :SECONDS')
-               #: print('<==============> END')
+          return widget_selected
 
-               print(f'ESCAPE DOUBLE CLICK: TIME: {click_time - last_click_time}')
-
-          else:
-               if CHECK_DATA:
-                    #: HIDE TAB 2
-                    #: HIDE TABS 2 and 3 IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
-
-                    CONFIG_TABS_CONTAINERS                 = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS')
-                    CONFIG_TABS_CONTAINERS.visible         = False
-                    CONFIG_TABS_CONTAINERS.update()
-
-                    #: HIDE TAB 3
-                    #: HIDE TABS 2 and 3 IF CLICK PRESS IS NO IN PHONE CONTAINER WIDGET
-
-                    CONFIG_TABS_CONTAINERS_CONTENT         = GLOBAL_VAR(get_global_var='CONFIG_TABS_CONTAINERS_CONTENT')
-                    CONFIG_TABS_CONTAINERS_CONTENT.visible = False
-                    CONFIG_TABS_CONTAINERS_CONTENT.update()
-                    #: HIDE TAB 3
-
-               if numClick == 1:
-                    tmp_list         = GLOBAL_VAR(get_global_var='LIST_SELECTED_WIDGETS')
-                    listWidgetUpdate = listWidget
-
-                    if tmp_list:
-                         if not tmp_list.tooltip == listWidgetUpdate[0].tooltip:
-                              tmp_list.border = ft.border.all(0, ft.colors.TRANSPARENT)
-                              tmp_list.update()
-
-                    #: WE HAVE TO FIX THIS PROBLEM MULTY TOUCH IS INVOKET EVERY TIME THAT MAKE ONE CLICK OVER A BOX
-
-                    widgetConfig = listWidgetUpdate
-
-                    """
-                    THIS MODULE CALL TO BUILD EDITOR TO CHANGE ATTRIBUTES
-                    """
-                    #: Build_Editor.update_widget_attributes(widget_cliked=self.infinityDropWidget[0])
-                    #: SET SELECTED WIDGET IN DICT TO ERASE IF PRESS REMOVE
-                    GLOBAL_VAR(set_global_var={'SELECT_DATA_ERASE_PHONE':listWidget[0].id})
-
-                    # time.sleep(0.1)
-
-                    #: SET TEXT IN FLOAT CONTAINER SELECTED WIDGET
-
-                    TEXT_PHONE_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_PHONE_WIDGET')
-                    TEXT_PHONE_WIDGET.controls[0].content.controls[1].spans[0].text = listWidget[0].tooltip
-                    TEXT_PHONE_WIDGET.controls[0].bgcolor = ft.colors.BLUE_GREY_900
-                    TEXT_PHONE_WIDGET.controls[0].update()
-
-                    TEXT_DRAGG_WIDGET = GLOBAL_VAR(get_global_var='SHOW_TEXT_SELECTED_DRAGG_WIDGET')
-                    TEXT_DRAGG_WIDGET.controls[0].content.controls[1].spans[0].text = "None"
-                    TEXT_DRAGG_WIDGET.controls[0].bgcolor = ft.colors.BLACK12
-                    TEXT_DRAGG_WIDGET.controls[0].update()
-
-                    #: SET GLOBAL VAR // SELECTED_WIDGET // IN PHONE_CONTAINER AND PHONE CONTENT
-
-                    GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER':listWidget[0]})
-                    GLOBAL_VAR(set_global_var={'SELECT_DROPP_WIDGET_CONTAINER_CONTENT':listWidget[0].content})
-
-
-                    GLOBAL_VAR(set_global_var={'LIST_SELECTED_WIDGETS':listWidget[0]})
-                    GLOBAL_VAR(set_global_var={'BOOL_SHOW_SELECTED':True})
-
-                    widgetConfig[0].border = ft.border.all(2, ft.colors.YELLOW_900)
-                    widgetConfig[0].update()
-
-
-                    #: WILL BE A DEATH LINE IF MAKE THE SOLUTION TO:
-                    #: DOUBLE CLICK IN CONTAINER ON_CLIK EVENT THAT PASS THROUG IT SELF 2 CLICKS IN SAME TIME
-
-                    GLOBAL_VAR(set_global_var={'CHECK_CURRENT_TIME_DOBLE_CLICKS':click_time}) # <==== TO CHECK CLICKS SCAPED IN CONTAINERS
-
-               numClick+=1
-
-     def drag_accept(self,widgetDropBox):
+     def drag_accept(self,DragTargetEvent: object=None) -> object:
           """
           NOTE:
 
           THIS PART IS VERY IMPORTANT BECAUSE IS THE LOOP OF THE DROP WIDGET THAT WE NEED APPEND OR PASS
           IN DEPENDENCY IF IS A CONTROLS USE APPEND AND IF IS A CONTENT WE PASS
+
+          DragTargetEvent.control.parent          << before belong [row , column , gridview]
+          DragTargetEvent.control                 << dragg_target
+          DragTargetEvent.control.content         << dragg_target content= Container
+          DragTargetEvent.control.content.content << content of Container = SelectedWidget
+
+          DragTargetEvent.control.content.content._get_control_name()
+
+          self.testing_wdiget = ft.DragTarget(
+                                   group="GroupDragg",
+                                   on_will_accept    = lambda dragg_item :self.dragg_on_will_accept(DragTargetEvent=dragg_item), # Traslate Drop
+                                   on_leave          = lambda dragg_item :self.dragg_on_leave(DragTargetEvent=dragg_item), # Leafing Drop Line Border
+                                   on_accept         = lambda dragg_item :self.dragg_on_accept(DragTargetEvent=dragg_item), # Leafing Drop Line Border
+                                   content=ft.Container(width=120,height=120,bgcolor="red")
+                                   )
+
+          def drag_will_accept(self,DragTargetEvent: object=None):
+               DragTargetEvent.control.content.border = None
+               DragTargetEvent.control.content.border = ft.border.all(4, ft.colors('cyan900'))
+
+               DragTargetEvent.control.update()
+               self.page.update()
+
+          def dragg_on_leave(self,dragg_item: object=None):
+               DragTargetEvent.control.content.border = True
+               DragTargetEvent.control.content.border = ft.border.all(0, ft.colors('transparent'))
+
+               DragTargetEvent.control.update()
+               self.page.update()
+
+          def dragg_on_accept(self,dragg_item: object=None):
+               self.widgetFilter =  self.page.session.get("ONLY_CONTROLS_ADDING_IN_APP")
+
+               session_id = self.page._session_id
+               selectWidgetBox = self.page.session.get(session_id)
+
+               self.InstanceNewWidget = InfinityBoxLayerOne(dataPassed=selectWidgetBox,page=self.page)
+               self.right_control     = DragTargetEvent.control.content.content._get_control_name()
+
+               if self.right_control in self.widgetFilter:
+                    # DragTargetEvent.control.content.content.controls.append(self.testing_wdiget)
+                    DragTargetEvent.control.content.content.controls.append(self.InstanceNewWidget)
+
+               else:
+                    if self.right_control in self.widgetFilter:
+                         DragTargetEvent.control.content.content.controls.append(self.InstanceNewWidget)
+
+                    else:
+                         # SWITCH IF IS CONTENT
+                         self.over_write_selected = self.return_new_widget(selected_widget=selectWidgetBox)
+                         DragTargetEvent.control.content.content = self.over_write_selected[0].content
+
+
+               # #: UPDATE COLOR WIDGET
+               DragTargetEvent.control.content.border = True
+               DragTargetEvent.control.content.border = ft.border.all(0, ft.colors('transparent'))
+               DragTargetEvent.control.update()
+
+               self.page.update()
+
+
           """
 
-          #: widget to add
-          self.widgetFilter      = ['Row',"GridView","Column","Stack",]
-          self.widget_Filter     = ['row',"gridview","column","stack",]
+          # ROW COLUMN GRIDVIEW
+          self.widgetFilter =  self.page.session.get("ONLY_CONTROLS_ADDING_IN_APP")
 
-          selectWidgetBox        = GLOBAL_VAR(get_global_var='SELECT_DRAGG')
+          session_id = self.page._session_id
+          selectWidgetBox = self.page.session.get(session_id)
 
-          self.InstanceNewWidget = InfinityBoxLayerOne(selectWidgetBox)
-          right_content          = widgetDropBox.control.content.content._get_control_name()
+          self.InstanceNewWidget = InfinityBoxLayerOne(dataPassed=selectWidgetBox, page=self.page)
+          self.right_control     = DragTargetEvent.control.content.content._get_control_name()
 
-          if selectWidgetBox in self.widgetFilter:
-
-               #
-               #: IF DROPPED WIDGET HAS CONTENT ROW , GRIDVIEW,COLUMN,STACK WILL APPEND TO CONTROLS
-               #
-               if right_content in self.widget_Filter:
-                    # AVOID COLLIDE CONTROLS WITH CONTENT
-                    # print(right_content,'---------',selectWidgetBox.lower())
-                    widgetDropBox.control.content.content.controls.append(self.InstanceNewWidget)
-               # else:
-               #      pass
+          if self.right_control in self.widgetFilter:
+               # DragTargetEvent.control.content.content.controls.append(self.testing_wdiget)
+               DragTargetEvent.control.content.content.controls.append(self.InstanceNewWidget)
 
           else:
-               if right_content in self.widget_Filter:
-                    """
-                         IF WIDGET TO DROP_WIDGET IS A CONTROLS APPEND 'Row',"GridView","Column","Stack"
-                    """
+               if self.right_control in self.widgetFilter:
+                    DragTargetEvent.control.content.content.controls.append(self.InstanceNewWidget)
 
-                    #
-                    # IF DROPPED WIDGET HAS CONTENT ROW , GRIDVIEW,COLUMN,STACK WILL APPEND TO CONTROLS
-                    #
-                    # print(widgetDropBox.control.content.content.uid,'-----------------')
-                    widgetDropBox.control.content.content.controls.append(self.InstanceNewWidget)
+               else:
+                    # SWITCH IF IS CONTENT
+                    self.over_write_selected = self.return_new_widget(selected_widget=selectWidgetBox)
+                    DragTargetEvent.control.content.content = self.over_write_selected[0].content
 
-               # else:
-               #      """
-               #           IF WIDGET TO DROP_WIDGET IS A CONTENT PASS
-               #      """
-               #      # widgetDropBox.control.content.content.content=self.InstanceNewWidget
-               #      pass
 
-          #: UPDATE COLOR WIDGET
-          widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border = ft.border.all(0, ft.colors.TRANSPARENT)
-          widgetDropBox.control.update()
+          # #: UPDATE COLOR WIDGET
+          DragTargetEvent.control.content.border = True
+          DragTargetEvent.control.content.border = ft.border.all(0, ft.colors('transparent'))
+          DragTargetEvent.control.update()
+
           self.page.update()
 
+          # RUN ONLY IN PRODUCTION
+          # print(selectWidgetBox,"==",self.right_control)
 
-     def drag_will_accept(self,widgetDropBox):
-          #: UPDATE COLOR WIDGET
-          widgetDropBox.control.content.border = None
-          widgetDropBox.control.content.border = ft.border.all(4, ft.colors.CYAN_900)
+     def drag_will_accept(self,DragTargetEvent: object=None):
+          """
+          : UPDATE COLOR WIDGET
+          NOTE:
 
-          widgetDropBox.control.update()
+          THIS PART IS VERY IMPORTANT BECAUSE IS THE LOOP OF THE DROP WIDGET THAT WE NEED APPEND OR PASS
+          IN DEPENDENCY IF IS A CONTROLS USE APPEND AND IF IS A CONTENT WE PASS
+
+          DragTargetEvent.control.parent          << before belong [row , column , gridview]
+          DragTargetEvent.control                 << dragg_target
+          DragTargetEvent.control.content         << dragg_target content= Container
+          DragTargetEvent.control.content.content << content of Container = SelectedWidget
+
+          DragTargetEvent.control.content.content._get_control_name()
+
+          self.testing_wdiget = ft.DragTarget(
+                                   group="GroupDragg",
+                                   on_will_accept    = lambda dragg_item :print(f"Traslate:  {dragg_item}"), # Traslate Drop
+                                   on_leave          = lambda dragg_item :print(f"Leaving:   {dragg_item}"), # Leafing Drop Line Border
+                                   on_accept         = lambda dragg_item :print(f"on_accept: {dragg_item}"), # Leafing Drop Line Border
+                                   content=ft.Container(width=120,height=120,bgcolor="red")
+                                   )
+          """
+          DragTargetEvent.control.content.border = None
+          DragTargetEvent.control.content.border = ft.border.all(4, ft.colors('cyan900'))
+
+          DragTargetEvent.control.update()
           self.page.update()
 
-     def drag_leave(self,widgetDropBox):
-          #: UPDATE COLOR WIDGET
-          widgetDropBox.control.content.border = True
-          widgetDropBox.control.content.border = ft.border.all(0, ft.colors.TRANSPARENT)
-          widgetDropBox.control.update()
+     def drag_leave(self,DragTargetEvent):
+          """
+          : UPDATE COLOR WIDGET
+          NOTE:
 
+          THIS PART IS VERY IMPORTANT BECAUSE IS THE LOOP OF THE DROP WIDGET THAT WE NEED APPEND OR PASS
+          IN DEPENDENCY IF IS A CONTROLS USE APPEND AND IF IS A CONTENT WE PASS
+
+          DragTargetEvent.control.parent          << before belong [row , column , gridview]
+          DragTargetEvent.control                 << dragg_target
+          DragTargetEvent.control.content         << dragg_target content= Container
+          DragTargetEvent.control.content.content << content of Container = SelectedWidget
+
+          DragTargetEvent.control.content.content._get_control_name()
+
+          self.testing_wdiget = ft.DragTarget(
+                                   group="GroupDragg",
+                                   on_will_accept    = lambda dragg_item :print(f"Traslate:  {dragg_item}"), # Traslate Drop
+                                   on_leave          = lambda dragg_item :print(f"Leaving:   {dragg_item}"), # Leafing Drop Line Border
+                                   on_accept         = lambda dragg_item :print(f"on_accept: {dragg_item}"), # Leafing Drop Line Border
+                                   content=ft.Container(width=120,height=120,bgcolor="red")
+                                   )
+          """
+
+          DragTargetEvent.control.content.border = True
+          DragTargetEvent.control.content.border = ft.border.all(0, ft.colors('transparent'))
+
+          DragTargetEvent.control.update()
           self.page.update()

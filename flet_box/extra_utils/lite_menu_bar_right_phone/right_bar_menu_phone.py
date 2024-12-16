@@ -1,534 +1,324 @@
-from ..settings_var.settings_widget import GLOBAL_VAR
-from ..tree_view.tree_view import TreeView
+# from ..tree_view.tree_view import TreeViewS
 import flet as ft
 
 
-class LiteMenuUpContainer(ft.Stack):
+class LiteMenuUpContainer(ft.Container):
     def __init__(
-                self,
-                main_page=None,
-                phone_widget_container=None,
-                menu_left_container=None,
-                menu_right_container=None,
-                space_widget=None,
-            ):
+        self,
+        page: object = None,
+        phone_widget_container: object = None,
+        menu_left_container: object = None,
+        menu_right_container: object = None,
+        # space_widget=None,
+    ):
         super().__init__()
-        # self.main_page              = main_page
-        # self.menu_left_container    = menu_left_container
-        # self.phone_widget_container = phone_widget_container
-        # self.menu_right_container   = menu_right_container
-
-        self.main_page = GLOBAL_VAR(get_global_var="PAGE")
+        self.page = page
         self.menu_left_container = menu_left_container
-
+        self.phone_widget_container = phone_widget_container
+        self.menu_right_container = menu_right_container
         # HEIGHT
-        self.height = 542
+        # self.height = 542
 
-        self.space_widget_1, self.space_widget_2 = space_widget
+        # self.space_widget_1, self.space_widget_2 = space_widget
 
         #: only in production
         #: print(self.space_widget_1)
+        # offset=(0.1,0),
+        self.ink = False
+        # self.padding=ft.padding.all(2)
+        # self.margin=ft.margin.only(left=2, top=2, right=2, bottom=2)
+        self.alignment = ft.alignment.center
+        self.border_radius = ft.border_radius.all(30)
+        # # height        = 450,
+        self.gradient = ft.LinearGradient(
+            begin=ft.alignment.top_center,
+            end=ft.alignment.bottom_center,
+            colors=[
+                ft.colors("teal"),
+                ft.colors("black12")
+            ],
+        )
+        # self.expand=True
+        # self.bgcolor="Red"
+        # self.border=ft.border.all(0.6, ft.colors.WHITE12)
+        self.shadow=ft.BoxShadow(
+            spread_radius=1,
+            blur_radius=18,
+            color=ft.Colors.with_opacity(0.8, ft.colors("black26")),
+            offset=ft.Offset(0, 0),
+            blur_style=ft.ShadowBlurStyle.OUTER,
+        )
 
     def build(self):
-        self.Drop_LiteMenuUpContainer = ft.Container(
-            # offset=(0.1,0),
-            ink=False,
+        self.phone_edition = ft.Container(
             padding=ft.padding.all(2),
-            margin=ft.margin.only(left=2, top=0, right=0, bottom=0),
+            bgcolor=ft.colors("black26"),
+            ink=False,
             alignment=ft.alignment.center,
             border_radius=ft.border_radius.all(30),
-            # height        = 450,
-            gradient=ft.LinearGradient(
-                begin=ft.alignment.top_center,
-                end=ft.alignment.bottom_center,
-                colors=[ft.colors.TEAL, ft.colors.BLACK12],
-            ),
-            bgcolor="Red",
-            border=ft.border.all(0.6, ft.colors.WHITE12),
-            shadow=ft.BoxShadow(
-                spread_radius=1,
-                blur_radius=18,
-                color=ft.colors.with_opacity(0.8, ft.colors.BLACK26),
-                offset=ft.Offset(0, 0),
-                blur_style=ft.ShadowBlurStyle.OUTER,
-            ),
-            content=ft.Column(
+            border=ft.border.all(2, ft.colors("black12")),
+            content=ft.Row(
+                spacing=8,
                 controls=[
-                    ft.Container(
-                        ink=False,
-                        bgcolor=ft.colors.BLACK26,
-                        padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
-                        alignment=ft.alignment.center,
-                        border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(2, ft.colors.BLACK12),
-                        content=ft.Column(
-                            spacing=8,
-                            controls=[
-                                ft.IconButton(
-                                    icon=ft.icons.EDIT_SQUARE,
-                                    tooltip="EDIT WIDGET",
-                                    on_click=lambda _: self.modify_widget_in_phone_container(),
-                                    bgcolor="Blue",
-                                    icon_color="White",
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.TOUCH_APP,
-                                    tooltip="UN SELECT\nBORDER WIDGET",
-                                    on_click=lambda _: self.action_button(
-                                        action="UNSELECT"
-                                    ),
-                                    bgcolor=ft.colors.WHITE24,
-                                    icon_color="White",
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.SMARTPHONE,
-                                    tooltip="SMARTPHONE",
-                                    on_click=lambda _: self.action_button(
-                                        action="SMARTPHONE"
-                                    ),
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.TABLET_ANDROID,
-                                    tooltip="TABLET",
-                                    on_click=lambda _: self.action_button(
-                                        action="TABLET"
-                                    ),
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.TV_OUTLINED,
-                                    tooltip="PC",
-                                    on_click=lambda _: self.action_button(action="PC"),
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.SCREENSHOT_MONITOR,
-                                    tooltip="FULL SCREEN",
-                                    on_click=lambda _: self.action_button(
-                                        action="SHOW PC"
-                                    ),
-                                ),
-                            ],
+                    ft.IconButton(
+                        icon=ft.icons('smartphone'),
+                        tooltip="SMARTPHONE",
+                        on_click=lambda _: self.action_button(
+                            action="SMARTPHONE"
                         ),
-                    ),  # <=== NOTE COMA
-                    ft.Container(
-                        padding=ft.padding.only(left=0, top=2, right=0, bottom=2),
-                        bgcolor=ft.colors.BLACK26,
-                        ink=False,
-                        alignment=ft.alignment.center,
-                        border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(2, ft.colors.BLACK12),
-                        content=ft.Column(
-                            spacing=8,
-                            controls=[
-                                ft.IconButton(
-                                    icon=ft.icons.SCREEN_ROTATION,
-                                    tooltip="ROTATE",
-                                    on_click=lambda _: self.action_button(
-                                        action="rotation"
-                                    ),
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.DEBLUR,
-                                    tooltip="LIGHT / DARK",
-                                    on_click=lambda _: self.action_button(
-                                        action="LIGHT / DARK"
-                                    ),
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.SCHEMA,
-                                    tooltip="TREE",
-                                    on_click=lambda _: self.action_button(
-                                        action="TREE"
-                                    ),
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.DELETE_SWEEP_OUTLINED,
-                                    tooltip="DELETE_",
-                                    on_click=lambda _: self.action_button(
-                                        action="delete"
-                                    ),
-                                ),
-                                ft.IconButton(
-                                    icon=ft.icons.RECYCLING,
-                                    tooltip="CLEAR",
-                                    on_click=lambda _: self.action_button(
-                                        action="clear"
-                                    ),
-                                    bgcolor=ft.colors.RED_900,
-                                ),
-                            ],
+                    ),
+                    ft.IconButton(
+                        icon=ft.icons('tablet_android'),
+                        tooltip="TABLET",
+                        on_click=lambda _: self.action_button(
+                            action="TABLET"
                         ),
-                    ),  # <===
+                    ),
+                    ft.IconButton(
+                        icon=ft.icons('tv_outlined'),
+                        tooltip="PC",
+                        on_click=lambda _: self.action_button(
+                            action="PC"),
+                    ),
+                    ft.IconButton(
+                        icon=ft.icons('screenshot_monitor'),
+                        tooltip="FULL SCREEN",
+                        on_click=lambda _: self.action_button(
+                            action="SHOW PC"
+                        ),
+                    ),
+                    ft.IconButton(
+                        icon=ft.icons('screen_rotation'),
+                        tooltip="ROTATE",
+                        on_click=lambda _: self.action_button(
+                            action="rotation"
+                        ),
+                    ),
+                    # ft.IconButton(
+                    #     icon=ft.icons.SCHEMA,
+                    #     tooltip="TREE",
+                    #     on_click=lambda _: self.action_button(
+                    #         action="TREE"
+                    #     ),
+                    # ),
                 ],
-            ),
-        )  # <=== NOTE COMA
+            ))
 
-        return self.Drop_LiteMenuUpContainer
+        self.content = ft.Row(
+            alignment=ft.MainAxisAlignment.CENTER,
+            vertical_alignment=ft.CrossAxisAlignment.CENTER,
+            scroll=True,
+            controls=[
+                ft.Container(
+                    ink=False,
+                    bgcolor=ft.colors("black26"),
+                    padding=ft.padding.only(left=0, top=0, right=0, bottom=0),
+                    alignment=ft.alignment.center,
+                    border_radius=ft.border_radius.all(30),
+                    border=ft.border.all(2, ft.colors("black12")),
+                    content=ft.Row(
+                        spacing=8,
+                        controls=[
+                            ft.IconButton(
+                                icon=ft.icons('edit_square'),
+                                tooltip="EDIT WIDGET",
+                                on_click=lambda _: self.modify_widget_in_phone_container(),
+                                bgcolor="Blue",
+                                icon_color="White",
+                            ),
+                            ft.IconButton(
+                                icon=ft.icons('touch_app'),
+                                tooltip="UN SELECT\nBORDER WIDGET",
+                                on_click=lambda _: self.action_button(
+                                    action="UNSELECT"
+                                ),
+                                bgcolor=ft.colors("white24"),
+                                icon_color="White",
+                            ),
+                            ft.IconButton(
+                                icon=ft.icons('deblur'),
+                                tooltip="LIGHT / DARK",
+                                on_click=lambda _: self.action_button(
+                                    action="LIGHT / DARK"
+                                ),
+                            ),
+                            ft.IconButton(
+                                icon=ft.icons('delete_sweep_outlined'),
+                                tooltip="DELETE_",
+                                on_click=lambda _: self.action_button(
+                                    action="delete"
+                                ),
+                            ),
+                            ft.IconButton(
+                                icon=ft.icons('recycling'),
+                                tooltip="CLEAR",
+                                on_click=lambda _: self.action_button(
+                                    action="clear"
+                                ),
+                                bgcolor=ft.colors("red900"),
+                            ),
+                            self.phone_edition,
+                        ],
+                    ),
+                ),  # <=== NOTE COMA
+                # self.phone_edition
+
+            ],
+        )
+
+        self.check_size_page()
+
+        # )  # <=== NOTE COMA
+        # return self.Drop_LiteMenuUpContainer
+
+    def check_size_page(self) -> bool:
+        """
+        :Return size of screen to addapt main screen to config container widget
+        """
+        page_width = self.page.width
+        # page_width = self.page.window.width
+
+        if page_width <= 690.0:
+            self.phone_edition.visible = False
+            # self.phone_edition.update()
 
     def modify_widget_in_phone_container(self):
         """
-        GLOBAL VARS:
-                       CONFIG_TABS_CONTAINERS
-                       CONFIG_TABS_CONTAINERS_CONTENT
+       GLOBAL VARS:
+            config_tab_container
+            self.config_tab_container_content
 
         NOTE:
-             IS NECESSARY ADD THIS 2 GLOVAL VAR TO CALL TAB MENU AND MAKE CHANGES IN STRAMING
+            IS NECESSARY ADD THIS 2 GLOVAL VAR TO CALL TAB MENU AND MAKE
+            CHANGES IN STRAMING
 
         GLOBAL VARS:
-                       SELECT_DROPP_WIDGET_CONTAINER
-                       SELECT_DROPP_WIDGET_CONTAINER_CONTENT
+            self.select_droped_widget
+            self.select_droped_widget_CONTENT
 
         NOTE:
-             EVERY TIME THAT IS SELECTED WIDGET INSIDE THE PHONE.
-             THIS 2 VAR ARE CHANGE EVERY TIME THAT DETECT ONE CLICK
-             AND AFTER PERES BUTTON EDIT WILL CALL THIS METOD TO
-             CHANGE PROPERTY
-
+            EVERY TIME THAT IS SELECTED WIDGET INSIDE THE PHONE.
+            THIS 2 VAR ARE CHANGE EVERY TIME THAT DETECT ONE CLICK
+            AND AFTER PERES BUTTON EDIT WILL CALL THIS METOD TO
+            CHANGE PROPERTY
         """
-        BOOL_SHOW_SELECTED = GLOBAL_VAR(get_global_var="BOOL_SHOW_SELECTED")
 
-        LIST_KEYS_DICT_USED = GLOBAL_VAR(get_global_var="LIST_KEYS_DICT_USED")
+        self.select_droped_widget = self.page.session.get("SELECTED_CONTAINER")
+        self.select_container_id = self.page.session.get("SELECTED_CONTAINER_ID")
 
-        CONFIG_TABS_CONTAINERS = GLOBAL_VAR(get_global_var="CONFIG_TABS_CONTAINERS")
-        CONFIG_TABS_CONTAINERS_CONTENT = GLOBAL_VAR(
-            get_global_var="CONFIG_TABS_CONTAINERS_CONTENT"
-        )
+        self.config_tab_container = self.page.session.get(
+            "CONFIG_TABS_CONTAINERS")
+        self.config_tab_container_content = self.page.session.get(
+            "CONFIG_TABS_CONTAINERS_CONTENT")
 
-        SELECT_DROPP_WIDGET_CONTAINER = GLOBAL_VAR(
-            get_global_var="SELECT_DROPP_WIDGET_CONTAINER"
-        )
-        SELECT_DROPP_WIDGET_CONTAINER_CONTENT = GLOBAL_VAR(
-            get_global_var="SELECT_DROPP_WIDGET_CONTAINER_CONTENT"
-        )
+        is_selected = False
 
-        #: 'Position','Modification','Color','Image',
-        control_tab_2 = CONFIG_TABS_CONTAINERS.content.controls
-        control_tab_3 = CONFIG_TABS_CONTAINERS_CONTENT.content.controls
+        if not self.select_droped_widget == None:
+            is_selected = True
+            self.select_droped_widget_CONTENT = self.select_droped_widget.content
 
-        print(f"Im modificating....{CONFIG_TABS_CONTAINERS}")
+            #: 'Position','Modification','Color','Image',
+            self.control_tab_2 = self.config_tab_container.content.controls
+            self.control_tab_3 = self.config_tab_container_content.content.controls
 
-        def insert_data_in_box_container(column_tab):
-            """
-            THIS METOD WALK IN TABS number #2 EACH COLUMN WITH WIDGETS INSIDE 4 COLUMNS
+            print(f"[Selected] to edit: [{self.select_droped_widget.tooltip}] ID: right_bar_menu_phone.py")
 
-            """
-            print("tab {control_tab_2}")
-            #: TAB 2
+            self.menu_right_container.visible = True
+            self.menu_right_container.update()
+            self.page.update()
 
-            if column_tab == "2_0":
-                control_2_inside = control_tab_2[0]  #
-                tmp_value = (
-                    control_2_inside.controls[0].content.controls[1].content.controls
-                )
+            #  'left', 'top', 'right', 'bottom', 'rotate', 'scale', 'offset'
+            self.list_wdiget_content_attribute: list = self.select_droped_widget_CONTENT.__dir__()
 
-            if column_tab == "2_1":
-                control_2_inside = control_tab_2[1]  #
-                tmp_value = (
-                    control_2_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "2_2":
-                control_2_inside = control_tab_2[2]  #
-                tmp_value = (
-                    control_2_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "2_3":
-                control_2_inside = control_tab_2[3]  #
-                tmp_value = (
-                    control_2_inside.controls[0].content.controls[1].content.controls
-                )
-
-            #: FINISH
-
-            for _ in tmp_value:
-                _.controls[0].visible = True
-                _.widget = SELECT_DROPP_WIDGET_CONTAINER
-                # print(_.widget)
-
-        def insert_data_in_box_container_content(column_tab, column=0):
-            """
-            THIS METOD WALK IN TABS number #3 EACH COLUMN WITH WIDGETS INSIDE 4 COLUMNS
-
-            """
-
-            #: TAB 3
-
-            if column_tab == "3_0":
-                control_3_inside = control_tab_3[0]  #
-                tmp_value_tab_widget = (
-                    control_3_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "3_1":
-                control_3_inside = control_tab_3[1]  #
-                tmp_value_tab_widget = (
-                    control_3_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "3_2":
-                control_3_inside = control_tab_3[2]  #
-                tmp_value_tab_widget = (
-                    control_3_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "3_3":
-                control_3_inside = control_tab_3[3]  #
-                tmp_value_tab_widget = (
-                    control_3_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "3_4":
-                control_3_inside = control_tab_3[4]  #
-                tmp_value_tab_widget = (
-                    control_3_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "3_5":
-                control_3_inside = control_tab_3[5]  #
-                tmp_value_tab_widget = (
-                    control_3_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "3_6":
-                control_3_inside = control_tab_3[6]  #
-                tmp_value_tab_widget = (
-                    control_3_inside.controls[0].content.controls[1].content.controls
-                )
-
-            if column_tab == "3_7":
-                control_3_inside = control_tab_3[7]  #
-                tmp_value_tab_widget = (
-                    control_3_inside.controls[0].content.controls[1].content.controls
-                )
-
-            #: FINISH
-
-            #: NEED CHECK IF THE WIDGET IT'S IN LIST_KEYS_DICT_USED
-            #: IF IS TRUE THE CONTAINER CONFIG
-            #:
-            #: WILL PUT          VISIBLE TRUE
-            #: IF NOT WILL PUT   VISIBLE OFF
-            #: print(LIST_KEYS_DICT_USED)
-
-            for _ in tmp_value_tab_widget:
-                #: WALK ALL TABS TO INSERT THE VALUE THAT WE
-
-                #: if _.id_name_widget_dict in LIST_KEYS_DICT_USED:
-                if (
-                    _.id_name_widget_dict
-                    in SELECT_DROPP_WIDGET_CONTAINER_CONTENT.__dir__()
-                ):
-                    data = (
-                        _.id_name_widget_dict
-                        in SELECT_DROPP_WIDGET_CONTAINER_CONTENT.__dir__()
-                    )
-
-                    #: print(_.id_name_widget_dict,data)
-                    #: print(SELECT_DROPP_WIDGET_CONTAINER_CONTENT._wrap_attr_dict('name')  )
-                    #: print(SELECT_DROPP_WIDGET_CONTAINER_CONTENT._Control__attrs  )
-                    #: FILTER THAT IS USE TO COMPARE WIDGET SELECTED
-                    #: if _.id_name_widget_dict in LIST_KEYS_DICT_USED or dict of all widget inside widget_editor.py
-
-                    _.visible = True
-                    #: _.controls[0].visible = True
-                    _.widget = SELECT_DROPP_WIDGET_CONTAINER_CONTENT
-                    #: _.update()  #:<==== update exactly widget <<<
-                else:
-                    _.visible = False
-                    #: _.controls[0].visible = False
-                    _.widget = SELECT_DROPP_WIDGET_CONTAINER_CONTENT
-                    #: _.update()  #:<==== update exactly widget <<<
-
-            #: WE GET A LIS WITH ALL WIDGET IN EACH BOX IN TAB 3
-            #: AFTER WE FILTER ALL DATA LIST TO A EVOID DUPLICATES FALSE OR TRUE
-            #: RETURNING { False } OR { False , True }
-            #: IF DATA SET RETURNING HAVE 2 CONTENT INSIDE THE SET
-            #: IS TRUE IS VISEBLE ALL CONTENT BOX
-            #: IF NOT NO APEAR IN BOX
-
-            is_visible = set()
-            make_visible_on_off = (
-                control_tab_3[column].controls[0].content.controls[1].content.controls
+            list_range: tuple = (
+                "2_0",
+                "2_1",
+                "2_2",
+                "2_3"
             )
 
-            visible = [is_visible.add(_.visible) for _ in make_visible_on_off]
-            if len(is_visible) == 2:
-                control_tab_3[column].visible = True
-                control_tab_3[column].update()
+            list_range_tab_3: tuple = (
+                "3_0",
+                "3_1",
+                "3_2",
+                "3_3",
+                "3_4",
+                "3_5",
+                "3_6",
+                "3_7"
+            )
 
-            else:
-                control_tab_3[column].visible = False
-                control_tab_3[column].update()
+        if is_selected:
+            self.config_tab_container.visible = True
+            self.config_tab_container.update()
 
-            for _ in make_visible_on_off:
-                _.update()
+            for index, tab_name in enumerate(list_range):
+                """
+                VERY IMPORTAN THIS LOOP WILL INSERT IN TABS CONFIG
+                SELECTED WIDGET TO EDIT DEPENDING [ CONTAINER ]
 
-        if BOOL_SHOW_SELECTED:
-            #: TAB 2 <== CALLING METHOD VISIBLE OR ONT VISIBLE
+                WILL SHOW VISIBLE IF IF IN ATTRIBUTES
+                """
 
-            CONFIG_TABS_CONTAINERS.visible = True
-            CONFIG_TABS_CONTAINERS.update()
+                self.insert_data_in_box_container(
+                    column_tab=tab_name,
+                    tab_control=self.control_tab_2[index],
+                    widget_name=self.select_droped_widget
+                )
 
-            insert_data_in_box_container(column_tab="2_0")
-            insert_data_in_box_container(column_tab="2_1")
-            insert_data_in_box_container(column_tab="2_2")
-            insert_data_in_box_container(column_tab="2_3")
+            # #: TAB 3 <== CALLING METHOD VISIBLE OR ONT VISIBLE
+            self.config_tab_container_content.visible = True
+            self.config_tab_container_content.update()
 
-            #: TAB 3 <== CALLING METHOD VISIBLE OR ONT VISIBLE
-            CONFIG_TABS_CONTAINERS_CONTENT.visible = True
-            CONFIG_TABS_CONTAINERS_CONTENT.update()
+            for index, tab_name in enumerate(list_range_tab_3):
+                """
+                VERY IMPORTAN THIS LOOP WILL INSERT IN TABS CONFIG
+                SELECTED WIDGET TO EDIT DEPENDING [ CONTENT ]
 
-            insert_data_in_box_container_content(column_tab="3_0", column=0)
-            insert_data_in_box_container_content(column_tab="3_1", column=1)
-            insert_data_in_box_container_content(column_tab="3_2", column=2)
-            insert_data_in_box_container_content(column_tab="3_3", column=3)
-            insert_data_in_box_container_content(column_tab="3_4", column=4)
-            insert_data_in_box_container_content(column_tab="3_5", column=5)
-            insert_data_in_box_container_content(column_tab="3_6", column=6)
-            insert_data_in_box_container_content(column_tab="3_7", column=7)
+                WILL SHOW VISIBLE IF IF IN ATTRIBUTES
+                """
+                self.insert_data_in_box_container_content(
+                    column_tab=tab_name,
+                    tab_control=self.control_tab_3[index],
+                    widget_name=self.select_droped_widget_CONTENT
+                )
 
         else:
             #: TAB 2
-            CONFIG_TABS_CONTAINERS.visible = False
-            CONFIG_TABS_CONTAINERS.update()
+            self.config_tab_container.visible = False
+            self.config_tab_container.update()
 
             #: TAB 3
-
-            CONFIG_TABS_CONTAINERS_CONTENT.visible = False
-            CONFIG_TABS_CONTAINERS_CONTENT.update()
+            self.config_tab_container_content.visible = False
+            self.config_tab_container_content.update()
 
     def action_button(self, action):
-        self.phone_widget_blur_cont = GLOBAL_VAR(
-            get_global_var="GENERIC_CONTAINER_PHONE"
-        )
-        self.phone_widget_container = GLOBAL_VAR(get_global_var="SELECTED_SCREEN")
+        # SETTING PHONE TO ROTATE AND EDIT
+        # self.phone_widget_container  = self.page.session.get('SELECTED_SCREEN')
+        self.select_droped_widget = self.page.session.get("SELECTED_CONTAINER")
+        self.select_container_id = self.page.session.get("SELECTED_CONTAINER_ID")
 
-        self.menu_left_container = GLOBAL_VAR(get_global_var="DRAGG_SHOW")
-        self.menu_right_container = GLOBAL_VAR(get_global_var="CONFI_SHOW")
+        self.phone_widget_blur_cont = self.phone_widget_container.content
 
         if action == "delete":
-            """
-            WE DELETE ALL WIDGETS IT'S NOT THE CORRECT WAY
-            """
-            touch_widget_in_phone = GLOBAL_VAR(get_global_var="LIST_SELECTED_WIDGETS")
-            main_page = GLOBAL_VAR(get_global_var="PAGE")
 
-            #: get the corret way to delete widget <===
-
-            if touch_widget_in_phone:
-                #: ERASE DICT SELECT WIDGET #
-                """
-                WE GO BACK 2 PATH TO GET MAIN WIDGET STACK() AND DELETE WIDGET FROM DICT
-
-                LIST_SELECTED_WIDGETS
-                EXPORT_DATA_PHONE
-
-                """
-                id_widget = self.main_page.get_control(touch_widget_in_phone.uid)
-
-                #: CHECK DATA TO ERASE PHONE WIDGET
-                #: CHECK IF WIDGET ID EXIST IN DATABASE [LIST_SELECTED_WIDGETS]
-                #: IF TRUE REMOVE CURRENT WIDGET FROM MAIN DATABASE
-                #: GLOBAL_VAR(remove_global_var=touch_widget_in_phone.id)
-
-                main_phone = GLOBAL_VAR(
-                    get_global_var="SELECTED_SCREEN"
-                )  #: <===== GET CURRENT SCREEN
-                edit_dict = GLOBAL_VAR(
-                    get_global_var="ALL_SCREEN_IN_DICT"
-                )  #: <===== GET ALL SCREENS GET FROM MAIN PAGE
-                selected_widget = GLOBAL_VAR(
-                    get_global_var="LIST_SELECTED_WIDGETS"
-                )  #: <===== GET CURRENT WIDGET SELECTED
-
-                SELECT_DROPP_WIDGET_CONTAINER = GLOBAL_VAR(
-                    get_global_var="SELECT_DROPP_WIDGET_CONTAINER"
-                )  #: <===== GET CURRENT WIDGET SELECTED
-
-                #: REMOVE FROM DICT ALL_SCREEN_IN_DICT
-                if edit_dict.get(main_phone.uid).get(selected_widget.tooltip):
-                    del edit_dict[main_phone.uid][selected_widget.tooltip]
-
-                else:
-                    for tmp_key in edit_dict[main_phone.uid]:
-                        """
-                        Fixed middle anywhere widget lost in middle of the screen phone Container
-                        """
-                        the_widget = edit_dict[main_phone.uid][tmp_key]
-                        selected_control_id = f"_{int(selected_widget.uid.replace('_','')) - 2}"  #: <===== ID Stack() - 2
-                        only_recursive = ["column", "row", "gridview", "stack"]
-
-                        def recursive_erase(data):
-                            #: PERSONALLY DONT LIKE RECURSIVE BECOUSE NEED LOT CPU AND MEMORY MORE THAN NORMAL NESTED LOOPS
-                            #: BUT NO LIKE MAKE LOT CODE NOW THIS ON FUTURE MAY CHANGE IF APP GET LOST HAVY
-
-                            for index, _ in enumerate(data):
-                                # data.pop()
-                                if _.uid == selected_control_id:
-                                    data.pop(index)
-                                    return
-
-                                if (
-                                    _.controls[0].content.content._get_control_name()
-                                    in only_recursive
-                                ):
-                                    recursive_erase(
-                                        data=_.controls[0].content.content.controls
-                                    )
-
-                        # print(the_widget.content.controls) #[InfinityBoxLayerOne(clipbehavior='none')]
-                        recursive_erase(data=the_widget.content.controls)
-                # ===================
-                del main_page._index[
-                    selected_widget.uid
-                ]  #: <===== DELETE INDEX IN MAIN PAGE
-
-                #: BACK 2 ID BEFORE TO GET DRAGGTARGET AND CORRECTLY DELETE
-                get_control_id = f"_{int(id_widget.uid.replace('_','')) - 2}"  #: <===== ID Stack() - 2
-                page_control = self.main_page.get_control(
-                    get_control_id
-                )  #: <===== GET EXACTLY DRAG TARGET
-
-                # RUN ONLY IN PRODUCTION
-                # print(page_control,get_control_id,'simple erase')
-
-                page_control.controls.pop()  #: <===== ERASE CONTROL WIDGET
-                touch_widget_in_phone = GLOBAL_VAR(
-                    set_global_var={"LIST_SELECTED_WIDGETS": None}
-                )  #: <===== RESET SELECTED WIDGET TO NONE
-                del main_page._index[
-                    get_control_id
-                ]  #: <===== DELETE INDEX IN MAIN PAGE
-                page_control.update()  #: <===== UPDATE PAGE
-
-                # print(edit_dict[main_phone.uid]['Column: 1'].content.controls)
-                for tmp_key in edit_dict[main_phone.uid]:
-                    edit_dict[main_phone.uid].get(tmp_key).update()
+            if not self.select_container_id == None:
+                self.delete_widget()
 
         if action == "UNSELECT":
             #: SET GLOBAL VAR // LIST_SELECTED_WIDGETS // TO RESET AFTER PRESS SELECTED BORDER IN PHONE CONTAINER
-            selected_widget_clicked = GLOBAL_VAR(get_global_var="LIST_SELECTED_WIDGETS")
-            if selected_widget_clicked:
-                selected_widget_clicked.border = ft.border.all(0, ft.colors.TRANSPARENT)
-                selected_widget_clicked.update()
+            # selected_widget_clicked = GLOBAL_VAR(get_global_var="LIST_SELECTED_WIDGETS")
+
+            if not self.select_droped_widget == None:
+                self.select_droped_widget.border = ft.border.all(
+                    2, ft.colors("transparent"))
+                self.select_droped_widget.update()
 
         if action == "clear":
-            #: GET BLOVAL VAR
-            main_phone = GLOBAL_VAR(get_global_var="SELECTED_SCREEN")
-            edit_dict = GLOBAL_VAR(get_global_var="ALL_SCREEN_IN_DICT")
-
-            #: ERASE ALL WIDGETS FROM CRONTROLS
-            main_phone.content.content.content.content.controls.clear()
-            main_phone.update()  #: <===== UPDATE PAGE
-
-            #: SET DEFAULD EMPTY PHONE
-            edit_dict[main_phone.uid] = dict()
-
-            #: RUN ONLY IN PRODUCTION
-            # print(self.edit_dict )
-
-            #: RESET SELECTED WIDGET
-            GLOBAL_VAR(set_global_var={"LIST_SELECTED_WIDGETS": []})
+            """
+            CLEAR ALL WIDGET FROM SCREEN PHONE
+            """
+            self.clear_all_phone_widgets()
 
         if action == "TREE":
             TreeView.visible_view()
@@ -547,20 +337,24 @@ class LiteMenuUpContainer(ft.Stack):
 
             if self.phone_widget_container.width >= 600:
                 self.menu_right_container.visible = (
-                    False if self.menu_right_container.visible else True
+                    False
+                    if self.menu_right_container.visible
+                    else True
                 )
                 self.menu_left_container.visible = (
-                    False if self.menu_right_container.visible else True
+                    False
+                    if self.menu_right_container.visible
+                    else True
                 )
                 self.menu_left_container.update()
                 self.menu_right_container.update()
 
-            else:
-                self.Drop_LiteMenuUpContainer.update()
+            # else:
+            #     self.Drop_LiteMenuUpContainer.update()
 
         if action == "LIGHT / DARK":
             self.phone_widget_container.bgcolor = (
-                ft.colors.WHITE
+                ft.colors('white')
                 if self.phone_widget_container.bgcolor == "#070707"
                 else "#070707"
             )
@@ -656,6 +450,118 @@ class LiteMenuUpContainer(ft.Stack):
             self.menu_left_container.update()
             self.menu_right_container.update()
 
+    def check_number_column(self, tab_control: object = object()):
+        """
+        { extract data for column to edid widget select }
+
+        :param      tab_control:  The tab control
+        :type       tab_control:  object
+        """
+        column_controls = tab_control  #
+        return column_controls.content.controls[1].content.controls
+
+    def insert_data_in_box_container(self,
+                                     column_tab: str = "",
+                                     tab_control: list = list(),
+                                     widget_name: object = object()):
+        """
+        THIS METOD WALK IN TABS number #2 EACH COLUMN WITH WIDGETS INSIDE 4 COLUMNS
+
+        """
+        #: TAB 2
+
+        if column_tab == "2_0":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "2_1":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "2_2":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "2_3":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        #: FINISH
+
+        for _ in tmp_value:
+            _.controls[0].visible = True
+            _.widget = widget_name
+            _.update()
+
+    def insert_data_in_box_container_content(self,
+                                             column_tab: str = "",
+                                             tab_control: list = list(),
+                                             widget_name: object = object()):
+        """
+
+        THIS METOD WALK IN TABS number #3 EACH COLUMN WITH WIDGETS INSIDE 4 COLUMNS
+
+        #: WE GET A LIS WITH ALL WIDGET IN EACH BOX IN TAB 3
+        #: AFTER WE FILTER ALL DATA LIST TO A EVOID DUPLICATES FALSE OR TRUE
+        #: RETURNING { False } OR { False , True }
+        #: IF DATA SET RETURNING HAVE 2 CONTENT INSIDE THE SET
+        #: IS TRUE IS VISIBLE ALL CONTENT BOX
+        #: IF NOT NO APEAR IN BOX
+
+        #: NEED CHECK IF THE WIDGET IT'S IN LIST_KEYS_DICT_USED
+        #: IF IS TRUE THE CONTAINER CONFIG
+        #:
+        #: WILL PUT          VISIBLE TRUE
+        #: IF NOT WILL PUT   VISIBLE OFF
+        """
+
+        #: TAB 3
+
+        if column_tab == "3_0":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "3_1":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "3_2":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "3_3":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "3_4":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "3_5":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "3_6":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        if column_tab == "3_7":
+            tmp_value = self.check_number_column(tab_control=tab_control)
+
+        #: FINISH
+
+        for _ in tmp_value:
+            #: WALK ALL TABS TO INSERT THE VALUE THAT WE
+            #: if _.id_name_widget_dict in LIST_KEYS_DICT_USED:
+            if (_.id_name_widget_dict in self.list_wdiget_content_attribute):
+                # is_in_widget_attribute = (_.id_name_widget_dict in self.list_wdiget_content_attribute)
+
+                _.widget = widget_name
+                _.update()  # :<==== update exactly widget <<<
+
+                # ONLY IN PRODUCTION
+                # _.controls[0].bgcolor="green"
+                # print(f"[True] Attribute: {_.id_name_widget_dict} in >>> [{self.select_droped_widget_CONTENT._get_control_name()}]")
+            else:
+                # is_not_in_widget_attribute = (if not _.id_name_widget_dict in self.list_wdiget_content_attribute)
+
+                _.visible = False
+                _.widget = widget_name
+                _.update()  # :<==== update exactly widget <<<
+
+                # ONLY IN PRODUCTION
+                # _.controls[0].bgcolor="red"
+                # print(f"[False] Attribute: {_.id_name_widget_dict} is not in >>> [{self.select_droped_widget_CONTENT._get_control_name()}]")
+
     def action_windows(self, action):
         self.phone_widget_container.width, self.phone_widget_container.height = (
             self.phone_widget_container.height,
@@ -663,9 +569,67 @@ class LiteMenuUpContainer(ft.Stack):
         )
         self.phone_widget_container.update()
 
+    def clear_all_phone_widgets(self):
+        main_phone = self.page.session.get('SELECTED_SCREEN')
+        # self.control_phone_page = main_phone.content.content.content.content.controls
+
+        self.controls_column = main_phone.content.content.content.content.content.content.content.controls
+        self.control_phone_page = self.controls_column
+
+        for _ in self.control_phone_page:
+            del self.page._index[_.uid]
+
+        self.controls_column.clear()
+        # APPLYE ALL CHANGES
+        main_phone.update()
+
+    def delete_widget(self):
+        """
+        DELETE SELECTED WIDGET
+
+        1. remove from controls
+        2. remove from index page
+        3. set SELECTED_CONTAINER None by defould
+        4. update to apply all
+        """
+        self.select_container = self.page.session.get("SELECTED_CONTAINER")
+        # print(self.page._index)
+        if not self.select_container == None:
+            # NECESSARY REMOVE PROM PREVIOUS PARAEN PARENT
+            cover_widget = self.page.session.get("cover_widget")
+
+            if cover_widget._get_control_name() == "dragtarget":
+                # print(cover_widget.content.content.content)
+                cover_widget = cover_widget.parent
+
+                for _ in cover_widget.controls:
+                    # print(_)
+                    if _.uid == self.select_container.parent.parent.uid:
+                        cover_widget.controls.remove(
+                            self.select_container.parent.parent)
+
+            else:
+                # print(cover_widget._get_control_name(),"<<<<< ======================")
+                if cover_widget._get_control_name() == "container":
+                    print(self.page.session.get_keys())
+                    self.show_warning  =self.page.session.get('on_dev')
+                    self.show_warning('You may not erase main dragg column..')
+                    return
+
+                cover_widget.controls.remove(self.select_container.parent)
+
+            # ERASE FROM INDEX PAGE
+            del self.page._index[self.select_container.parent.uid]
+
+            # SET SELECTED_CONTAINER IN NONE TO AVOID DOUBLE REMOVE AND NO RETURN ERROR
+            self.page.session.set("SELECTED_CONTAINER", None)
+
+            # UPDATE MAIN PAGE TO APPLY ALL
+            self.page.update()
+
 
 if __name__ == "__main__":
-
+    #
     def main(page: ft.Page):
         page.scroll = "HIDDEN"  # AUTO ADAPTIVE ALWAYS HIDDEN
         page.vertical_alignment = ft.MainAxisAlignment.CENTER

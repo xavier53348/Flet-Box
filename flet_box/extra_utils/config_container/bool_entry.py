@@ -1,6 +1,6 @@
 import flet as ft
 
-from ..settings_var.settings_widget import GLOBAL_VAR
+# from ..settings_var.settings_widget import GLOBAL_VAR
 
 class BoolEntry(ft.Stack):
     """
@@ -13,19 +13,22 @@ class BoolEntry(ft.Stack):
 
     def __init__(
         self,
-        config_widget="exemple [value,bgcolor,width,height] ....",
-        widget="",
         id_name_widget_dict=None,
+        config_widget: str="exemple [value,bgcolor,width,height] ....",
+        page: object=object(),
+        screen_phone: object=object(),
     ):
         super().__init__()
+        self.page = page
+        self.widget = screen_phone
+
         self.tooltip="BoolEntry"
-        self.widget = widget
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
         #: will change name of entry points
         # size textz
-        self.text_size = GLOBAL_VAR(get_global_var="text_size_input")
-        self.padding_only = GLOBAL_VAR(get_global_var="padding_only")
+        self.text_size =12 # GLOBAL_VAR(get_global_var="text_size_input")
+        self.padding_only = 4 #GLOBAL_VAR(get_global_var="padding_only")
 
     def build(self):
         Drop_BoolEntry = ft.Container(
@@ -34,7 +37,7 @@ class BoolEntry(ft.Stack):
             padding=ft.padding.only(left=4, top=4, right=4, bottom=4),
             margin=ft.margin.all(0),
             border_radius=ft.border_radius.all(16),
-            border=ft.border.all(2, ft.colors.BLACK),
+            border=ft.border.all(2, ft.colors('black')),
             width=165,
             height=80,
             content=ft.Column(
@@ -54,7 +57,7 @@ class BoolEntry(ft.Stack):
                     ),
                     ft.Container(
                         ink=False,
-                        bgcolor=ft.colors.BLACK38,
+                        bgcolor=ft.colors('black38'),
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
@@ -69,13 +72,13 @@ class BoolEntry(ft.Stack):
                                     ),
                                     alignment=ft.alignment.center,
                                     border_radius=ft.border_radius.all(30),
-                                    border=ft.border.all(0.1, ft.colors.BLACK38),
+                                    border=ft.border.all(0.1, ft.colors('black38')),
                                     width=150,
                                     height=36,
                                     gradient=ft.LinearGradient(
                                         begin=ft.alignment.top_center,
                                         end=ft.alignment.bottom_center,
-                                        colors=[ft.colors.CYAN_800, ft.colors.BLACK38],
+                                        colors=[ft.colors('cyan800'), ft.colors('black38')],
                                     ),
                                     content=ft.Row(
                                         spacing=6,
@@ -87,10 +90,11 @@ class BoolEntry(ft.Stack):
                                                 border_radius=ft.border_radius.all(30),
                                                 content=ft.TextField(
                                                     disabled=True,
-                                                    hint_text=self.attribute_widget,
-                                                    border=ft.InputBorder.NONE,
+                                                    value=self.attribute_widget,
+                                                    border_radius =ft.border_radius.all(30),
+                                                    border_color = ft.Colors('transparent'),
                                                     bgcolor="#0e0f11",
-                                                    color="YELLOW",
+                                                    color=ft.Colors('white'),
                                                     text_size=self.text_size,
                                                     content_padding=self.padding_only,
 

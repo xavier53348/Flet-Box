@@ -1,37 +1,34 @@
 import flet as ft
 import os
 
-from ..settings_var.settings_widget import GLOBAL_VAR
-
-click_avalidation: bool = False
-
 
 class PhotoSelection(ft.Container):
     def __init__(self, photo_selection: str = ""):
         super().__init__()
-        self.tooltip="PhotoSelection"
+        self.tooltip = "PhotoSelection"
         self.photo_selection = photo_selection
-        self.width = 86
-        self.height = 86
-        self.border_radius = ft.border_radius.all(24)
+        self.width = 50
+        self.height = 50
+        self.border_radius = ft.border_radius.all(12)
 
         self.shadow = ft.BoxShadow(
             spread_radius=1,
-            blur_radius=16,
-            color=ft.colors.with_opacity(1, ft.colors.BLACK12),
+            blur_radius=4,
+            color=ft.Colors.with_opacity(1, ft.colors('black12')),
             offset=ft.Offset(0, 0),
             blur_style=ft.ShadowBlurStyle.OUTER,
         )
 
     def build(self):
         self.container = ft.Container(
-            image_fit="COVER",
-            image_src=self.photo_selection,
+            image=ft.DecorationImage(
+                fit=ft.ImageFit.COVER,
+                src=self.photo_selection.split('/')[2],
+            ),
             padding=ft.padding.all(0),
             margin=ft.margin.all(0),
             alignment=ft.alignment.center,
-            border_radius=ft.border_radius.all(24),
-            # border    =    ft.border.all(2, ft.colors.BLACK38),
+            border_radius=ft.border_radius.all(12),
             on_hover=lambda _: self.active_border_color(
                 border_container=self.container
             ),
@@ -41,29 +38,30 @@ class PhotoSelection(ft.Container):
         # self.on_click = lambda _:print(self.photo_selection)
         self.on_click = lambda _: self.modify_widget()
 
-    def active_border_color(self, border_container):
+    def active_border_color(self, border_container: object = None):
         border_container.border = (
-            ft.border.all(2, ft.colors.TRANSPARENT)
-            if border_container.border == ft.border.all(2, ft.colors.WHITE54)
-            else ft.border.all(2, ft.colors.WHITE54)
+            ft.border.all(2, ft.colors('transparent'))
+            if border_container.border == ft.border.all(2, ft.colors('white54'))
+            else ft.border.all(2, ft.colors('white54'))
         )
         border_container.update()
 
     def modify_widget(self):
-        tmp_widget_selected = GLOBAL_VAR(
-            get_global_var="WIDGET_SELECTION_EDITOR_CONTAINER"
-        )
-        self.widget_tag_name = tmp_widget_selected.get("widget_name")
-        self.widget = tmp_widget_selected.get("attribute_to_change")
+        print("[+] change content tab [ photo_selection.py ]")
 
-        # print(self.widget_tag_name)
+        attribute_name_image = self.page.session.get(
+            'set_attribute_image')  # <== SET (BGCOLOR, ...)
+        edit_widget_image = self.page.session.get('set_edit_widget_image')  # <== SET (ft.Container, Image)
+
         #: SET ATTRIBUTES
-        if self.widget_tag_name == "image_src":
-            self.widget.image_src = self.photo_selection
-        if self.widget_tag_name == "src":
-            self.widget.src = self.photo_selection
+        if attribute_name_image == "image_src":
+            edit_widget_image.image = ft.DecorationImage(
+                src=self.photo_selection.split('/')[2],
+                fit=ft.ImageFit.COVER,  #: CONTAIN, FILL, FIT_WIDTH, SCALE_DOWN, COVER, FIT_HEIGHT, NONE
+                # opacity=0.06,
+            )
 
-        self.widget.update()
+        self.page.update()
 
 
 class ScreenPhotoSelection(ft.Container):
@@ -73,48 +71,55 @@ class ScreenPhotoSelection(ft.Container):
         self.padding = ft.padding.only(left=0, top=2, bottom=2, right=0)
         self.margin = ft.margin.all(0)  # outside box
         self.alignment = ft.alignment.top_center
-        self.width = 600
-        self.height = 300
-        self.border = ft.border.all(1, ft.colors.WHITE38)
-        self.border_radius = 30
+        self.border = ft.border.all(1, ft.colors('white38'))
+        self.border_radius = 32
         self.gradient = ft.LinearGradient(
             begin=ft.alignment.top_center,
             end=ft.alignment.center_left,
             colors=[
-                ft.colors.with_opacity(0.7, ft.colors.TEAL_400),
-                ft.colors.BLACK26,
+                ft.Colors.with_opacity(0.7, ft.colors('teal400')),
+                ft.colors('black26'),
             ],
         )
         self.shadow = ft.BoxShadow(
             spread_radius=1,
             blur_radius=18,
-            # color        = ft.colors.with_opacity(0.3,ft.colors.TEAL_400),
+            # color        = ft.Colors.with_opacity(0.3,ft.colors('teal400')),
             offset=ft.Offset(0, 0),
             blur_style=ft.ShadowBlurStyle.OUTER,
         )
         # self.blur = (12,12)
 
     def build(self):
-        list_started = False
         screen_1 = ft.Row(
             scroll=True,
             wrap=True,
-            spacing=4,
-            run_spacing=4,
-            controls=[],
+            spacing=2,
+            run_spacing=2,
+            controls=[
+                ft.Container(
+                    width=320,
+                    padding=8,
+                    content=ft.ElevatedButton(
+                        text='Close Image List',
+                        icon="crisis_alert_rounded",
+                        on_click=lambda _:self.show_menu_tab_editor(),
+                    )
+                ),
+
+            ],
         )
         self.content = ft.Container(
             # bgcolor  = ft.colors.RED,
-            border_radius=20,
+            border_radius=12,
             padding=ft.padding.all(0),
             margin=ft.margin.all(0),
-            on_hover=lambda _: self.validate_click(),
+            # on_click=lambda _: self.validate_click(),
             content=screen_1,
         )
-        # self.content=screen_1
-
         current_dir_path = os.path.relpath(
-            path="./test/proyect_name/proyect_name/assets"
+            # path="./test/proyect_name/proyect_name/assets"
+            path="flet_box/assets"
         )
         basename_dict = self.selection_photo_files(
             path_to_check_filename=current_dir_path
@@ -125,18 +130,15 @@ class ScreenPhotoSelection(ft.Container):
             full_path = os.path.join(current_dir_path, tmp_path)
             screen_1.controls.append(PhotoSelection(photo_selection=full_path))
 
-    def validate_click(self):
-        global click_avalidation
+    def show_menu_tab_editor(self):
+        "CLICK IN PHOTO SELECTION"
+        print("selection data [+] photo_selection.py")
+        self.tab_container = self.page.session.get('PHOTO_SELECTION')
 
-        self.photo_editor = GLOBAL_VAR(get_global_var="IMAGEN_EDITOR_CONTAINER")
-
-        if click_avalidation:
-            click_avalidation = False
-            self.photo_editor.visible = False
-            self.photo_editor.update()
-
-        else:
-            click_avalidation = True
+        self.tab_container.controls[0].visible = True
+        self.tab_container.controls[1].visible = False
+        self.tab_container.controls[2].visible = False
+        self.tab_container.update()
 
     def selection_photo_files(self, path_to_check_filename: str = ""):
         all_files_list = os.listdir(path_to_check_filename)
