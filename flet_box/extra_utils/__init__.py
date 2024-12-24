@@ -14,7 +14,7 @@ from .login_page.login_page  import login_page
 from .external_library.library_email import send_email
 
 # SCREEN MANAGER
-from .screen_manager.screen_manager import screen_manager
+from .screen_manager.project_manager import project_manager
 
 
 # from .lite_menu_bar_down_phone.selected_widget        import SelectedWidget

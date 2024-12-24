@@ -188,24 +188,23 @@ class Build_Editor(ft.Container):
         widgets_dict = {
 
             #: ESPECIAL WIDGETS ONLY FOR PHONE
-            'phone_image_src'    :SelectionButtonEntry(    config_widget='image_src'    ,page=self.page ,screen_phone=self.main_phone                  ,id_name_widget_dict='main_phone'),
+            'phone_image_src'    :SelectionButtonEntry(    config_widget='image_src '    ,page=self.page ,screen_phone=self.main_phone                  ,id_name_widget_dict='main_phone'),
+            'phone_image_fit'    :SelectionEntry( config_widget='image_fit '             ,page=self.page ,screen_phone=self.main_phone                   ,id_name_widget_dict='main_phone'),
+            'phone_image_opacity':SingleNumeberEntry( config_widget='image_opacity '     ,page=self.page ,screen_phone=self.main_phone                  ,id_name_widget_dict='main_phone'),
+            'phone_gradient'     :GradientEntry(  config_widget='gradient '              ,page=self.page ,screen_phone=self.main_phone                  ,id_name_widget_dict='main_phone'),
+            'phone_padding'      :FourEntry(      config_widget='padding '               ,page=self.page ,screen_phone=self.main_phone_container        ,id_name_widget_dict="main_phone_container"),
 
-            'phone_padding'      :FourEntry(      config_widget='padding'               ,page=self.page ,screen_phone=self.main_phone_container        ,id_name_widget_dict="main_phone_container"),
-
-            'phone_image_opacity':SingleNumeberEntry( config_widget='image_opacity'     ,page=self.page ,screen_phone=self.main_phone                  ,id_name_widget_dict='main_phone'),
            'column_phone_spacing':SingleNumeberEntry( config_widget='spacing'           ,page=self.page ,screen_phone=self.main_phone_container_content ,id_name_widget_dict="main_phone_container_content"),
 
-            'phone_bgcolor'      :ColorEntry(     config_widget='bgcolor'               ,page=self.page ,screen_phone=self.main_phone_container        ,id_name_widget_dict="main_phone_container"),
+            'phone_bgcolor'      :ColorEntry(     config_widget='bgcolor '               ,page=self.page ,screen_phone=self.main_phone_container        ,id_name_widget_dict="main_phone_container"),
 
             'column_phone_wrap'  :BoolEntry(      config_widget='wrap'                  ,page=self.page ,screen_phone=self.main_phone_container_content ,id_name_widget_dict="main_phone_container_content"),
             'column_phone_tight' :BoolEntry(      config_widget='tight'                 ,page=self.page ,screen_phone=self.main_phone_container_content ,id_name_widget_dict="main_phone_container_content"),
             'column_phone_scroll':BoolEntry(      config_widget='scroll'                ,page=self.page ,screen_phone=self.main_phone_container_content ,id_name_widget_dict="main_phone_container_content"),
 
-            'phone_image_fit'    :SelectionEntry( config_widget='image_fit'             ,page=self.page ,screen_phone=self.main_phone                   ,id_name_widget_dict='main_phone'),
         'column_phone_alignment' :SelectionEntry( config_widget='alignment'             ,page=self.page ,screen_phone=self.main_phone_container_content ,id_name_widget_dict="main_phone_container_content"),
    'column_horizontal_alignment' :SelectionEntry( config_widget='horizontal_alignment'  ,page=self.page ,screen_phone=self.main_phone_container_content ,id_name_widget_dict="main_phone_container_content"),
 
-            'phone_gradient'     :GradientEntry(  config_widget='gradient'              ,page=self.page ,screen_phone=self.main_phone                  ,id_name_widget_dict='main_phone'),
             'phone_blur'         :DoubleEntry(    config_widget='blur'                  ,page=self.page ,screen_phone=self.main_phone_container        ,id_name_widget_dict="main_phone_container"),
 
         #: ESPECIAL WIDGETS ONLY FOR CONTAINERS
@@ -362,7 +361,7 @@ class Build_Editor(ft.Container):
                             widgets_dict.get('phone_blur'),
                             widgets_dict.get('phone_bgcolor'),
                             widgets_dict.get('phone_gradient'),
-                            widgets_dict.get('phone_padding'),
+                            # widgets_dict.get('phone_padding'),
                         ],),
 
                     BoxConfigContainer(
@@ -379,11 +378,11 @@ class Build_Editor(ft.Container):
                     #     title='Column Phone Property',
                     #     controls=[
                     #         widgets_dict.get('column_phone_tight'),
-                    #         widgets_dict.get('column_phone_wrap'),
-                    #         widgets_dict.get('column_phone_scroll'),
+                            # widgets_dict.get('column_phone_wrap'),
+                            # widgets_dict.get('column_phone_scroll'),
                     #         widgets_dict.get('column_phone_spacing'),
-                    #         widgets_dict.get('column_phone_alignment'),
-                    #         widgets_dict.get('column_horizontal_alignment'),
+                            # widgets_dict.get('column_phone_alignment'),
+                            # widgets_dict.get('column_horizontal_alignment'),
                     #     ],),
                 ],
             ),
@@ -634,6 +633,7 @@ class Build_Editor(ft.Container):
             self.width = 260
 
         return 350
+
 
 if __name__ == '__main__':
     def main(page: ft.Page):

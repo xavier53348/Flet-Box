@@ -8,14 +8,12 @@ import flet as ft
 #: STYLE TO MAIN SCREEN WIDGET
 phone_style_widget: dict = {
     "main_container":  {
-        "image":  {"src": "designer_5.jpeg", "fit": "cover"},
-        "gradient":  {"colors": ["cyan,0.04", "yellow,0.08", "teal,0.16", "black,0.04"], "tile_mode": "clamp", "begin": {"x": 0, "y": -1},
-                    "end": {"x": 0, "y": 1},
-                    "type": "linear"}
+        "image":  {"src": "designer_6.jpeg", "fit": "cover"},
+        "gradient":  None
     },
     "second_container":  {
-        "padding":  {"l": 8, "t": 8, "r": 8, "b": 8},
-        "blur":  {"sigma_x": 8, "sigma_y": 8, "tile_mode": "mirror"},
+        "padding":  None,
+        "blur":  {"sigma_x": 20, "sigma_y": 20, "tile_mode": "mirror"},
         "bgcolor":  None
     },
     "column_attributes":  {
@@ -30,80 +28,22 @@ phone_style_widget: dict = {
 
 #: STYLES IN SCREEN_STYLE
 styles = {
-    "Container_2886":  {
-        "alignment":  {"x": 0, "y": 0},
-        "bgcolor":  "black54",
-        "blur":  [8, 8],
-        "border":  {"l": {"w": 0, "c": "transparent", "sa": None},
-                    "t": {"w": 0, "c": "transparent", "sa": None},
-                    "r": {"w": 0, "c": "transparent", "sa": None},
-                    "b": {"w": 0, "c": "transparent", "sa": None}
-                    },
-        "ink":  True,
-        "padding":  {"l": 8, "t": 8, "r": 8, "b": 8},
-        "border_radius":  {"bl": 12, "br": 12, "tl": 12, "tr": 12},
-        "ink_color":  "yellow"
-    },
-    "Column_2887":  {
-        "scroll":  "ALWAYS",
-        "horizontal_alignment":  "center"
-    },
-    "Container_2892":  {
+    "Container_2870":  {
         "alignment":  {"x": 0, "y": 0},
         "bgcolor":  "transparent",
-        "border":  {"l": {"w": 0, "c": "transparent", "sa": None},
-                    "t": {"w": 0, "c": "transparent", "sa": None},
-                    "r": {"w": 0, "c": "transparent", "sa": None},
-                    "b": {"w": 0, "c": "transparent", "sa": None}
+        "border":  {"l": {"w": 2, "c": "transparent"},
+                    "t": {"w": 2, "c": "transparent"},
+                    "r": {"w": 2, "c": "transparent"},
+                    "b": {"w": 2, "c": "transparent"}
                     },
         "ink":  True,
         "margin":  {"l": 0, "t": 0, "r": 0, "b": 0},
         "padding":  {"l": 6, "t": 6, "r": 6, "b": 6},
         "ink_color":  "red"
     },
-    "Text_2897":  {
-        "size":  10,
-        "value":  "Ready to make your first app!!"
-    },
-    "Container_2895":  {
-        "alignment":  {"x": 0, "y": 0},
-        "bgcolor":  "transparent",
-        "border":  {"l": {"w": 0, "c": "transparent", "sa": None},
-                    "t": {"w": 0, "c": "transparent", "sa": None},
-                    "r": {"w": 0, "c": "transparent", "sa": None},
-                    "b": {"w": 0, "c": "transparent", "sa": None}
-                    },
-        "ink":  True,
-        "margin":  {"l": 0, "t": 0, "r": 0, "b": 0},
-        "padding":  {"l": 6, "t": 6, "r": 6, "b": 6},
-        "ink_color":  "red"
-    },
-    "TextField_2898":  {
-        "height":  32,
-        "label":  "Tell me something ?",
-        "width":  240,
-        "border_color":  "white",
-        "border_radius":  {"bl": 30, "br": 30, "tl": 30, "tr": 30},
-        "content_padding":  {"l": 16, "t": 16, "r": 16, "b": 16},
-        "cursor_height":  20,
-        "text_size":  12,
-        "focused_border_color":  "red"
-    },
-    "Container_2900":  {
-        "alignment":  {"x": 0, "y": 0},
-        "bgcolor":  "transparent",
-        "border":  {"l": {"w": 0, "c": "transparent", "sa": None},
-                    "t": {"w": 0, "c": "transparent", "sa": None},
-                    "r": {"w": 0, "c": "transparent", "sa": None},
-                    "b": {"w": 0, "c": "transparent", "sa": None}
-                    },
-        "ink":  True,
-        "margin":  {"l": 0, "t": 0, "r": 0, "b": 0},
-        "padding":  {"l": 6, "t": 6, "r": 6, "b": 6},
-        "ink_color":  "red"
-    },
-    "ElevatedButton_2901":  {
-        "text":  "Accept"
+    "Text_2871":  {
+        "size":  25.0,
+        "value":  "Welcome to Flet-Box"
     }
 }
 
@@ -129,58 +69,18 @@ class main_screen(ft.DragTarget):
         #: DRAGG_CONTROLS
         list_controls: list = [
             
-            #: DRAG-BOX-CONTROLS [ID: 2885]
+            #: DRAG-BOX-CONTENT [ID: 2869]
             self.draggin_framework(
                 content=ft.Container(
-                    **self.dict_style("Container_2886"),
+                    **self.dict_style("Container_2870"),
                     on_click=lambda dragg_item: self.dragg_event(
-                                     selected_widget=dragg_item ),
+                                     selected_widget=dragg_item,),
 
-                    content=ft.Column(
-                        **self.dict_style("Column_2887"),
-                        controls=[
-                        #: DRAG-BOX-CONTENT [ID: 2891]
-                        self.draggin_framework(
-                            content=ft.Container(
-                                **self.dict_style("Container_2892"),
-                                on_click=lambda dragg_item: self.dragg_event(
-                                                 selected_widget=dragg_item,),
-
-                                content=ft.Text(
-                                    **self.dict_style("Text_2897"),
-                                    # on_click= lambda tmp_widget: event_2897(
-                                    #        payload="Text_2897",
-                                    #        page= self.page ),
-                                ),
-                            ),),
-                        #: DRAG-BOX-CONTENT [ID: 2894]
-                        self.draggin_framework(
-                            content=ft.Container(
-                                **self.dict_style("Container_2895"),
-                                on_click=lambda dragg_item: self.dragg_event(
-                                                 selected_widget=dragg_item,),
-
-                                content=ft.TextField(
-                                    **self.dict_style("TextField_2898"),
-                                    # on_click= lambda tmp_widget: event_2898(
-                                    #        payload="TextField_2898",
-                                    #        page= self.page ),
-                                ),
-                            ),),
-                        #: DRAG-BOX-CONTENT [ID: 2899]
-                        self.draggin_framework(
-                            content=ft.Container(
-                                **self.dict_style("Container_2900"),
-                                on_click=lambda dragg_item: self.dragg_event(
-                                                 selected_widget=dragg_item,),
-
-                                content=ft.ElevatedButton(
-                                    **self.dict_style("ElevatedButton_2901"),
-                                    # on_click= lambda tmp_widget: event_2901(
-                                    #        payload="ElevatedButton_2901",
-                                    #        page= self.page ),
-                                ),
-                            ),),]
+                    content=ft.Text(
+                        **self.dict_style("Text_2871"),
+                        # on_click= lambda tmp_widget: event_2871(
+                        #        payload="Text_2871",
+                        #        page= self.page ),
                     ),
                 ),),
         ]

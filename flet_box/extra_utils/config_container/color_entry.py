@@ -66,14 +66,6 @@ class ColorEntry(ft.Stack):
                         border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         width=152,
                         height=36,
-                        # gradient=ft.LinearGradient(
-                        #     begin=ft.alignment.top_center,
-                        #     end=ft.alignment.bottom_center,
-                        #     colors=[
-                        #         ft.colors('cyan800'),
-                        #         ft.colors('black38'),
-                        #     ],
-                        # ),
                         content=ft.Row(
                             spacing=4.5,
                             controls=[
@@ -83,14 +75,6 @@ class ColorEntry(ft.Stack):
                                     width=90,
                                     height=30,
                                     border_radius=ft.border_radius.all(30),
-                                #     gradient=ft.LinearGradient(
-                                #     begin=ft.alignment.top_center,
-                                #     end=ft.alignment.bottom_center,
-                                #     colors=[
-                                #         ft.colors('cyan800'),
-                                #         ft.Colors.with_opacity(0.04, ft.colors('white')),
-                                #     ],
-                                # ),
                                     content=ft.ElevatedButton(
                                         text=self.tmp_widget_name,
                                         bgcolor=ft.Colors.with_opacity(0.08, ft.colors('white')),
@@ -133,13 +117,18 @@ class ColorEntry(ft.Stack):
 
         self.page.session.set('set_attribute_color', widget_name)
         self.page.session.set('set_edit_widget_color', attribute_to_change)
-
         self.page.update()
 
     def modify_right_container_attributes(self, data: str=str()):  #: RIGHT BUTTON
         #: ONLY FOR CONTAINER
         if data == "bgcolor":
             self.widget.bgcolor = ft.colors('transparent')
+
+        if data == "bgcolor ":
+            self.tab_container = self.page.session.get('SELECTED_SCREEN')
+            # self.tab_container.bgcolor = ft.colors('transparent')
+            self.tab_container.content.content.content.bgcolor = ft.colors('transparent')
+            self.widget = self.tab_container
 
         if data == "focused_bgcolor":
             self.widget.focused_bgcolor = ft.colors('transparent')
@@ -170,4 +159,12 @@ class ColorEntry(ft.Stack):
                 offset=ft.Offset(0, 0),
                 blur_style=ft.ShadowBlurStyle.OUTER,  # NORMAL # SOLID # OUTER # INNER
             )
-        self.widget.update()
+        #: UPDATE DATA
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )

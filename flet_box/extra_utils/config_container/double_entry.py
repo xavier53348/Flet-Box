@@ -221,7 +221,8 @@ class DoubleEntry(ft.Stack):
             )
 
         if config_widget == "blur":
-            self.widget.blur = ft.Blur(
+            self.widget_tmp = self.page.session.get("SELECTED_SCREEN")  # <== SELECTED PHONE SCREEN
+            self.widget_tmp.content.content.content.blur = ft.Blur(
                 int(value.content.controls[1].content.controls[0].content.value)
                 if value.content.controls[1].content.controls[0].content.value
                 else 0,
@@ -230,6 +231,8 @@ class DoubleEntry(ft.Stack):
                 else 0,
                 ft.BlurTileMode.MIRROR,
             )
+            self.widget = self.widget_tmp
+
         if config_widget == "border":
             self.widget.border = ft.border.all(
                 value.content.controls[1].content.controls[0].content.value,
@@ -242,4 +245,15 @@ class DoubleEntry(ft.Stack):
             )
         #: run only in production
         #: print(self.widget.uid)
-        self.widget.update()
+        #: UPDATE DATA
+        try:
+            # self.widget.update()
+            # self.widget_tmp.update()
+            self.page.update()
+
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )

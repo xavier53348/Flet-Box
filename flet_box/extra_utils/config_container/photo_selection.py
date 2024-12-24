@@ -61,7 +61,24 @@ class PhotoSelection(ft.Container):
                 # opacity=0.06,
             )
 
-        self.page.update()
+        if attribute_name_image == "image_src ":
+            self.phone_image = self.page.session.get('SELECTED_SCREEN')
+
+            if self.phone_image.content.content.content.image:
+                self.phone_image.image = None
+                self.phone_image.content.content.content.image = None
+                self.phone_image.update()
+
+            else:
+                # self.phone_image.content.content.content.image = None
+
+                self.phone_image.image = ft.DecorationImage(
+                   src=self.photo_selection.split('/')[2],
+                    fit=ft.ImageFit.COVER,  #: CONTAIN, FILL, FIT_WIDTH, SCALE_DOWN, COVER, FIT_HEIGHT, NONE
+                    # opacity=0.06,
+                )
+            self.phone_image.update()
+        # self.page.update()
 
 
 class ScreenPhotoSelection(ft.Container):
@@ -139,6 +156,16 @@ class ScreenPhotoSelection(ft.Container):
         self.tab_container.controls[1].visible = False
         self.tab_container.controls[2].visible = False
         self.tab_container.update()
+
+        #: UPDATE DATA
+        try:
+            self.tab_container.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )
 
     def selection_photo_files(self, path_to_check_filename: str = ""):
         all_files_list = os.listdir(path_to_check_filename)

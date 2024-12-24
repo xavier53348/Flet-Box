@@ -422,7 +422,7 @@ if __name__ == '__main__':
     #                                             'None'
     #                                         )
     #                                      )
-    # print(data_input)
+    print(data_input)
     # # UPDATE DATA
     # data_returned = sqlite_db.update_data(table_name='register',
     #                                       change_data=('user_name', 'javier53348'),

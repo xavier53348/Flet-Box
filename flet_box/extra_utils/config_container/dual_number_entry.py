@@ -255,7 +255,15 @@ class config_number_widget(ft.Stack):
         info_tex.content.update()
         slider_widget.update()
 
-        self.widget_to_modify.update()
+        #: UPDATE DATA
+        try:
+            self.widget_to_modify.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )
 
 
 class DualNumeberEntry(ft.Stack):

@@ -1,4 +1,18 @@
 <!-- markdownserver http://localhost:8009/WIDGET.md -->
+### CAPTURE EVENT WIDGET DATA
+```python
+event_widget=ft.Container(
+               on_click = lambda tmp_widget: self.edit_widget(target=tmp_widget)
+            )
+
+
+def edit_widget(self,target: object=None):
+   self.tmp_widget = target.control
+   self.tmp_widget.bgcolor=ft.colore('red')
+   self.tmp_widget.parent.update()
+
+```
+
 ### STORAGE DATA
 ```python
 >>> page.session.set("key", "value")
@@ -8,75 +22,6 @@
 >>> page.session.remove("key")
 >>> page.session.clear()
 ```
-### ROUTES OF ALL MODULES
--**Route of builder**
-- flet_box/extra_utils/menu_tab_up_phone/widget_menu_tab_editor.py
-
-**Route of skeleton Class widget**
-
-- flet_box/extra_utils/menu_tab_up_phone/skeleton_class_screens.py
-
-**Route of builder Class widget**
-
-- flet_box/extra_utils/menu_tab_up_phone/saving_all_class_screens_in_file_view.py
-
-**Route of builder screen widget**
-``` bash
->>> 'WILL SAVE CODE WHEN SAVE FILE'
-- flet_box/extra_utils/render_view_app/saving_screens_in_file_view.py
->>> 'WILL EXPORT CODE WHEN OPEN BY EMULATOR'
-- flet_box/extra_utils/menu_tab_up_phone/saving_screens_in_file_view.py
-```
-
-##### COLORS OPACITY
-```bash
->>> ft.Colors.with_opacity(0.71, ft.colors("black"))
-```
-##### LEFT DRAGG CONTAINER
-```bash
->>> extra_utils/config_container/widget_editor       metod Build_Editor
->>> extra_utils/drag_container  /widget_drag_editor  metod Build_Drag_Editor
-```
-##### PHONE CONTAINER
-```bash
->>> extra_utils/phone_container/widget_phone_editor  metod Build_Phone_Editor
-```
-##### TAB MENU CONTAINER
-```bash
->>> extra_utils/menu_tab_up_phone/widget_menu_tab_editor       metod MenuUpContainer
->>> extra_utils/menu_tab_left_phone/widget_menu_left_editor    metod MenuLeftContainer
-```
-##### LITE MENU RIGHT PHONE AND DOWN
-```bash
->>> extra_utils/lite_menu_bar_up_phone/head_bar_menu_phone     metod LiteMenuUpContainer
->>> extra_utils/lite_menu_bar_down_phone/footer_bar_menu_phone metod LiteMenuDownContainer
->>> extra_utils/lite_menu_bar_down_phone/selected_widget       metod SelectedWidget
-```
-##### ICON AND COLOR BROWSER CONTAINER
-```bash
->>> extra_utils / icon_browser / icon_browser         metod IconBrowser
->>> extra_utils / color_browser / color_browser       metod ColorBrowser
-```
-##### MORE USED PATH
-
-**It's the widget that we dropp inside phone and on method on_accept itself drop a new widget inside it**
-
-- infitiy_box_layer_one.py
-
-**It's a box that content all widget to dropp and is necesary to make new widgets**
-
-- Build_Drag_Editor
-
-**It's a box builder that contain all widgets to modify selected widget's properties**
-
-- Build_Editor
-
-##### [Parh more datail to make own modules ](https://github.com/xavier53348/Flet-Box/blob/features/new_features/full_path.txt)
-
-## Widgets Flet-Box:
-**All widget** in flet-box are Stack() container that have inside a container with the selected widget
-we may manipulate attributes we find the selected widget by ID and make a CRUD create read use and delete.
-
 
 #### know your id widget
 
@@ -323,6 +268,8 @@ screen_1._set_attr('width',10)                      >>> 10
 screen_1.update()
 
 ```
+
+
 
 #### TYPE RETURNED CODE
 ```python

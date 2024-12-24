@@ -79,9 +79,8 @@ class GradientEntry(ft.Stack):
         self.padding_only = 4 #GLOBAL_VAR(get_global_var="padding_only")
         self.content_padding = 4  # LOBAL_VAR(get_global_var="content_padding")
 
-        if self.attribute_widget == "gradient":
+        if self.attribute_widget == "gradient" or self.attribute_widget == "gradient ":
             """top_left,top_center,top_right,center_left,center,center_right,bottom_left,bottom_center,bottom_right"""
-
             self.options_tmp = [
                 ft.dropdown.Option(" None "),
                 ft.dropdown.Option(" Linear "),
@@ -400,11 +399,28 @@ class GradientEntry(ft.Stack):
                 else:
                     self.data_color = [self.color_1, self.color_2]
 
-                self.widget.gradient = ft.LinearGradient(
-                    begin=self.effects_gradients.get(self.start_gradient),
-                    end=self.effects_gradients.get(self.end_gradient),
-                    colors=self.data_color,
-                )
+                # self.widget.gradient = ft.LinearGradient(
+                #     begin=self.effects_gradients.get(self.start_gradient),
+                #     end=self.effects_gradients.get(self.end_gradient),
+                #     colors=self.data_color,
+                # )
+                if self.attribute_widget == "gradient ":
+                    self.phone_image = self.page.session.get('SELECTED_SCREEN')
+                    self.widget_tmp = self.phone_image
+
+                    self.widget_tmp.gradient = ft.LinearGradient(
+                        begin=self.effects_gradients.get(self.start_gradient),
+                        end=self.effects_gradients.get(self.end_gradient),
+                        colors=self.data_color,
+                    )
+                else:
+                    self.widget.gradient = ft.LinearGradient(
+                        begin=self.effects_gradients.get(self.start_gradient),
+                        end=self.effects_gradients.get(self.end_gradient),
+                        colors=self.data_color,
+                    )
+                    print(self.widget)
+
         elif self.main_gradient == " Radial ":
             if self.color_1 and self.color_2:
                 if self.color_1 and self.color_2 and self.color_3 and self.color_4:
@@ -419,13 +435,28 @@ class GradientEntry(ft.Stack):
                 else:
                     self.data_color = [self.color_1, self.color_2]
 
+            if self.attribute_widget == "gradient ":
+                self.phone_image = self.page.session.get('SELECTED_SCREEN')
+                self.widget_tmp = self.phone_image
+                self.widget.gradient = ft.RadialGradient(
+                    colors=self.data_color,
+                )
+            else:
                 self.widget.gradient = ft.RadialGradient(
                     colors=self.data_color,
                 )
         elif self.main_gradient == " None ":
             self.widget.gradient = (ft.colors('transparent'),)
 
-        self.widget.update()
+        #: UPDATE DATA
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )
 
     def modify_widget_attributes(self, config_widget, value, widget):
         """
@@ -460,8 +491,12 @@ class GradientEntry(ft.Stack):
             widget.content.controls[1].disabled = True
             widget.content.controls[2].disabled = True
             widget.content.controls[0].content.controls[1].disabled = True
-            self.widget.gradient = None
+            # self.widget.gradient = None
             widget.content.update()
+
+            self.phone_image = self.page.session.get('SELECTED_SCREEN')
+            self.phone_image.gradient = ft.LinearGradient( begin=ft.alignment.top_center,end=ft.alignment.bottom_center,colors=[ft.colors.BLUE, ft.colors.YELLOW],)
+            self.phone_image.update()
 
         elif config_widget == " Linear ":
             widget.content.controls[1].disabled = False
@@ -481,22 +516,19 @@ class GradientEntry(ft.Stack):
             widget.content.update()
 
         if self.attribute_widget == "gradient":
+            color_1 = widget.content.controls[1].content.controls[0].content.value
+            color_2 = widget.content.controls[1].content.controls[1].content.value
+            color_3 = widget.content.controls[2].content.controls[0].content.value
+            color_4 = widget.content.controls[2].content.controls[1].content.value
+
             if value == "color_1":
-                self.color_1 = (
-                    widget.content.controls[1].content.controls[0].content.value
-                )
+                self.color_1 = color_1
             if value == "color_2":
-                self.color_2 = (
-                    widget.content.controls[1].content.controls[1].content.value
-                )
+                self.color_2 = color_2
             if value == "color_3":
-                self.color_3 = (
-                    widget.content.controls[2].content.controls[0].content.value
-                )
+                self.color_3 = color_3
             if value == "color_4":
-                self.color_4 = (
-                    widget.content.controls[2].content.controls[1].content.value
-                )
+                self.color_4 = color_4
 
             if config_widget == " Linear ":
                 self.main_gradient = config_widget
@@ -508,5 +540,30 @@ class GradientEntry(ft.Stack):
             if value == "end gradient":
                 self.end_gradient = config_widget
 
+        if self.attribute_widget == "gradient ":
+            color_1 = widget.content.controls[1].content.controls[0].content.value
+            color_2 = widget.content.controls[1].content.controls[1].content.value
+            color_3 = widget.content.controls[2].content.controls[0].content.value
+            color_4 = widget.content.controls[2].content.controls[1].content.value
+
+            if value == "color_1":
+                self.color_1 = color_1
+            if value == "color_2":
+                self.color_2 = color_2
+            if value == "color_3":
+                self.color_3 = color_3
+            if value == "color_4":
+                self.color_4 = color_4
+
+            if config_widget == " Linear ":
+                self.main_gradient = config_widget
+            if config_widget == " Radial ":
+                self.main_gradient = config_widget
+
+            if value == "begin gradient":
+                self.start_gradient = config_widget
+            if value == "end gradient":
+                self.end_gradient = config_widget
+            print('hello')
         # print(self.widget)
         # self.widget.update()

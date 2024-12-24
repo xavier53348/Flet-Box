@@ -314,7 +314,12 @@ class BoolEntry(ft.Stack):
         #: only in production
         #: print(self.widget.uid)
         #: print(data_usage)
-        self.widget.update()
-
-
-#######
+        #: UPDATE DATA
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )

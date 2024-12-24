@@ -27,8 +27,8 @@ class SelectionButtonEntry(ft.Stack):
 
         #: will change name of entry points
         #: ONLY FOR CONTAINER
-        if self.widget_name == "image_src" or self.widget_name == "src":
-            self.tmp_widget_name = " Open Image "
+
+        self.tmp_widget_name = " Open Image "
 
     def build(self):
         Drop_SelectionButtonEntry = ft.Container(
@@ -115,18 +115,46 @@ class SelectionButtonEntry(ft.Stack):
 
     def modify_widget_attributes(self, widget_name: str = str(), attribute_to_change: object = None):
         print("[+] change content tab [ selection_button_entry.py ]")
+        # print(widget_name,"<<<<<<<<<<<<<<")
+
+        if self.widget_name == "image_src" or self.widget_name == "src":
+            self.tmp_widget_name = " Open Image "
+        if self.widget_name == "image_src " or self.widget_name == "src":
+            self.tab_container = self.page.session.get('PHOTO_SELECTION')
+
+
+        print(f"{self.widget_name}<<<<<")
+
         self.tab_container = self.page.session.get('PHOTO_SELECTION')
-        # self.tab_container.update()
+        # # self.tab_container.update()
 
         self.tab_container.controls[0].visible = False
         self.tab_container.controls[1].visible = True
         self.tab_container.controls[2].visible = False
         self.tab_container.update()
 
-        # <== SET (BGCOLOR, ...)
-        self.page.session.set('set_attribute_image', widget_name)
-        # <== SET (ft.Container, Image)
+        # # <== SET (BGCOLOR, ...)
+        self.page.session.set('set_attribute_image', self.widget_name)
+        # # <== SET (ft.Container, Image)
         self.page.session.set('set_edit_widget_image', attribute_to_change)
 
-        # print(widget_name)
-        # print(attribute_to_change)
+        self.phone_image = self.page.session.get("SELECTED_SCREEN")  # <== SELECTED PHONE SCREEN
+        # # print('END')
+        if self.phone_image.content.content.content.image:
+            self.phone_image.image = self.phone_image.content.content.content.image
+
+            self.widget = self.phone_image
+
+        else:
+            self.phone_image.content.content.content.image = None
+            self.widget = self.phone_image
+
+        # #: UPDATE DATA
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )

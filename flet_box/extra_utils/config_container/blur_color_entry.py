@@ -234,7 +234,15 @@ class BlurColorEntry(ft.Stack):
                 value.content.controls[1].content.controls[0].content.value,
                 value.content.controls[1].content.controls[1].content.value,
             )
-        self.widget.update()
+        #: UPDATE DATA
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )
 
     def modify_widget_attributes(
         self,
@@ -276,7 +284,12 @@ class BlurColorEntry(ft.Stack):
         #: print(self.widget.uid)
         #: self.BlurColorEntry.content.update()
 
-        self.widget.update()
-
-
-#######
+        #: UPDATE DATA
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )

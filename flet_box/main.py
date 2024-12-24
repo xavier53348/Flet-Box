@@ -9,7 +9,7 @@ from extra_utils import MenuLeftContainer
 from extra_utils import LiteMenuDownContainer
 from extra_utils import LiteMenuUpContainer  #: LITE MENU RIGHT PHONE AND DOWN
 from extra_utils import login_page  #: LOGIN PAGE
-from extra_utils import screen_manager  #: LOGIN PAGE
+from extra_utils import project_manager  #: LOGIN PAGE
 
 
 class header_container(ft.Container):
@@ -287,7 +287,7 @@ class flet_box:
                         route="/home",
                         controls=[
                             column_container(page=self.page),
-                            screen_manager(page=self.page, visible=False),
+                            project_manager(page=self.page, visible=False),
                         ],
                     )
                 )
@@ -303,6 +303,7 @@ class flet_box:
             #             ],
             #         )
             #     )
+
             self.page.update()
 
         self.page.on_route_change = route_change

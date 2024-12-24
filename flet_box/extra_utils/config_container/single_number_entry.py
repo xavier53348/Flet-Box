@@ -30,6 +30,7 @@ class SingleNumeberEntry(ft.Stack):
 
         self.personal_configuration: dict = {
             "image_opacity": {"minimum": 0, "maximum": 1, "division": 100, "value": 0},
+            "image_opacity ": {"minimum": 0, "maximum": 1, "division": 100, "value": 0},
             "opacity": {"minimum": 0, "maximum": 1, "division": 100, "value": 0},
             "child_aspect_ratio": {
                 "minimum": -1,
@@ -98,7 +99,8 @@ class SingleNumeberEntry(ft.Stack):
                 controls=[
                     ft.Container(
                         ink=False,
-                        bgcolor=ft.Colors.with_opacity(0.04, ft.colors('white')),
+                        bgcolor=ft.Colors.with_opacity(
+                            0.04, ft.colors('white')),
                         padding=ft.padding.only(
                             left=12, top=0, right=12, bottom=0),
                         alignment=ft.alignment.center,
@@ -115,15 +117,18 @@ class SingleNumeberEntry(ft.Stack):
                         padding=ft.padding.all(2),
                         alignment=ft.alignment.center,
                         border_radius=ft.border_radius.all(30),
-                        border=ft.border.all(1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
+                        border=ft.border.all(
+                            1, ft.Colors.with_opacity(0.04, ft.colors('white'))),
                         width=152,
                         height=36,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.top_center,
                             end=ft.alignment.center_right,
                             colors=[
-                                ft.Colors.with_opacity(0.04, ft.colors('white')),
-                                ft.Colors.with_opacity(0.24, ft.colors('white')),
+                                ft.Colors.with_opacity(
+                                    0.04, ft.colors('white')),
+                                ft.Colors.with_opacity(
+                                    0.24, ft.colors('white')),
                                 ft.colors('black38'),
                             ],
                         ),
@@ -141,7 +146,7 @@ class SingleNumeberEntry(ft.Stack):
                         ),
                     ),  # <=== NOTE COMA,
                 ],
-            ),  # <=== NOTE COMA [NOTE]                     for x in range(1,50): widget.content.controls.append(ft.ElevatedButton("press buttom",tooltip='buttom'))
+            ),  # <=== NOTE COMA [NOTE]
         )  # <=== NOTE COMA
 
         return SingleNumeberEntry
@@ -154,6 +159,22 @@ class SingleNumeberEntry(ft.Stack):
         #:
         if self.widget_name == "image_opacity":
             self.widget.image.opacity = 1 - slider_value
+
+        if self.widget_name == "image_opacity ":
+            self.phone_image = self.page.session.get('SELECTED_SCREEN')
+            if self.phone_image.content.content.content.image:
+                # self.phone_image.image = None
+                self.widget = self.phone_image.content.content.content
+
+            else:
+                # self.phone_image.content.content.content.image = None
+                self.widget = self.phone_image
+
+            if not self.widget.image == None:
+                if type(self.widget.image) == type(dict()):
+                    self.widget.image['opacity'] = 1 - slider_value
+                else:
+                    self.widget.image.opacity = 1 - slider_value
 
         if self.widget_name == "scale":
             self.widget.scale = 1 - slider_value
@@ -191,7 +212,14 @@ class SingleNumeberEntry(ft.Stack):
             self.widget.rotate = slider_value
 
         #: UPDATE DATA
-        self.widget.update()
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )
 
 
 if __name__ == "__main__":

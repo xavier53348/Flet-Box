@@ -205,6 +205,30 @@ class DraggWidget(ft.Stack):
         # print(selected_widget)
         print(f"{self.page.session.get(session_id)} ID: <<< SELECTED: [drag_widget.py] : selected: >>> {selected_widget}")
         # CHECK SIZE OF PAGE IF LESS VISIBLE OFF
-        self.check_size_page()
-        self.reset_border_select_widget()
-        self.show_text_dragg_selected()
+        try:
+            self.check_size_page()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error dragg widget line 213',
+                body_string=error
+            )
+        try:
+            self.reset_border_select_widget()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error dragg widget line 221',
+                body_string=error
+            )
+        try:
+            self.show_text_dragg_selected()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error dragg widget line 229',
+                body_string=error
+            )
+        # self.check_size_page()
+        # self.reset_border_select_widget()
+        # self.show_text_dragg_selected()

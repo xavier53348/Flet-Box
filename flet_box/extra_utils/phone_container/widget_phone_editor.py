@@ -92,8 +92,9 @@ class Build_Phone_Editor(ft.Stack):
         exec(string_code, module.__dict__)
         # sys.modules['dynamic_module'] = module
         globals()['dynamic_module'] = module
+        tmp_module = dynamic_module.load_module_str()
 
-        return dynamic_module.load_module_str()
+        return tmp_module
 
     def drag_accept(self, widgetDropBox):
         #: IF SELECT_DRAGG WIDGET IS FAKE SELECTED WILL BE SET IN GLOVAL VAR NONE

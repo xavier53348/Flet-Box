@@ -38,6 +38,12 @@ class FourEntry(ft.Stack):
             self.attribute_widget_name_3 = "Right"
             self.attribute_widget_name_4 = "Bottom"
 
+        if self.attribute_widget == "padding " or self.attribute_widget == "margin ":
+            self.attribute_widget_name_1 = "Left"
+            self.attribute_widget_name_2 = "Top"
+            self.attribute_widget_name_3 = "Right"
+            self.attribute_widget_name_4 = "Bottom"
+
         if self.attribute_widget == "border_radius":
             self.attribute_widget_name_1 = " BL"
             self.attribute_widget_name_2 = " BR"
@@ -221,8 +227,9 @@ class FourEntry(ft.Stack):
 
         #: self.widget.content.value = value if config_widget  == "value" else None
         #: will modify attributes of the widget class in real time
+        print(f"{config_widget}<==")
         #: ONLY FOR CONTENT
-        if config_widget == "padding":
+        if config_widget == "padding" or config_widget == "padding ":
             """all values in Box Container"""
             left = (
                 value.content.controls[1].content.controls[0].content.value
@@ -244,13 +251,25 @@ class FourEntry(ft.Stack):
                 if value.content.controls[2].content.controls[1].content.value
                 else 0
             )
+            if self.attribute_widget == "padding ":
+                self.widget.padding=0
+                self.tab_container = self.page.session.get('SELECTED_SCREEN')
+                self.tab_container.content.content.content.padding = ft.padding.only(
+                    left=int(left),
+                    top=int(top),
+                    right=int(right),
+                    bottom=int(bottom),
+                )
+                self.widget = self.tab_container
+            else:
 
-            self.widget.padding = ft.padding.only(
-                left=int(left),
-                top=int(top),
-                right=int(right),
-                bottom=int(bottom),
-            )
+                self.widget.padding = ft.padding.only(
+                    left=int(left),
+                    top=int(top),
+                    right=int(right),
+                    bottom=int(bottom),
+                )
+            # print('paddinf')
         if config_widget == "margin":
             """all values in Box Container"""
 
@@ -311,7 +330,12 @@ class FourEntry(ft.Stack):
                 bottom_left=int(bottom_left),
                 bottom_right=int(bottom_right),
             )
-        self.widget.update()
 
-
-#######
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )

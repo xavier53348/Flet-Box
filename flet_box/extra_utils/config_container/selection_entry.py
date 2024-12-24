@@ -25,6 +25,7 @@ class SelectionEntry(ft.Stack):
         self.attribute_widget = config_widget
         self.id_name_widget_dict = id_name_widget_dict
 
+
         #: will change name of entry points
         #: ONLY FOR CONTAINER
         if self.attribute_widget == "alignment ":
@@ -55,6 +56,18 @@ class SelectionEntry(ft.Stack):
             ]
         #: ONLY FOR CONTENT <<<=========== *********
         #: image_fit
+        if (
+            self.attribute_widget == "image_fit "
+        ):
+            self.alignment_tmp_name = " Contain"
+            self.alignment_tmp = [
+                ft.dropdown.Option(" Contain"),
+                ft.dropdown.Option(" Cover"),
+                ft.dropdown.Option(" Fill"),
+                ft.dropdown.Option(" Fit Height"),
+                ft.dropdown.Option(" Fit Width"),
+                ft.dropdown.Option(" Scale Down"),
+            ]
         if (
             self.attribute_widget == "image_fit"
             or self.attribute_widget == "image_fit_src"
@@ -267,6 +280,56 @@ class SelectionEntry(ft.Stack):
             if config_widget == " Scale Down":
                 self.widget.fit = ft.ImageFit.SCALE_DOWN
 
+        elif self.attribute_widget == "image_fit ":
+            self.phone_image = self.page.session.get('SELECTED_SCREEN')
+
+            # self.widget = self.phone_image.content.content.content
+            # self.phone_image.content.content.content = None
+            if self.phone_image.content.content.content.image:
+                # self.phone_image.image = None
+                self.widget = self.phone_image.content.content.content
+                # self.phone_image.update()
+            else:
+                # self.phone_image.content.content.content.image = None
+                self.widget = self.phone_image
+                # self.phone_image.update()
+
+            if not self.widget.image == None:
+                if config_widget == " Contain":
+                    if type(self.widget.image) == type(dict()):
+                        self.widget.image['fit'] = ft.ImageFit.CONTAIN
+                    else:
+                        self.widget.image.fit = ft.ImageFit.CONTAIN
+                if config_widget == " Cover":
+                    if type(self.widget.image) == type(dict()):
+                        self.widget.image['fit'] = ft.ImageFit.COVER
+                    else:
+                        self.widget.image.fit = ft.ImageFit.COVER
+
+                if config_widget == " Fill":
+                    if type(self.widget.image) == type(dict()):
+                        self.widget.image['fit'] = ft.ImageFit.FILL
+                    else:
+                        self.widget.image.fit = ft.ImageFit.FILL
+
+                if config_widget == " Fit Height":
+                    if type(self.widget.image) == type(dict()):
+                        self.widget.image['fit'] = ft.ImageFit.FIT_HEIGHT
+                    else:
+                        self.widget.image.fit = ft.ImageFit.FIT_HEIGHT
+
+                if config_widget == " Fit Width":
+                    if type(self.widget.image) == type(dict()):
+                        self.widget.image['fit'] = ft.ImageFit.FIT_WIDTH
+                    else:
+                        self.widget.image.fit = ft.ImageFit.FIT_WIDTH
+
+                if config_widget == " Scale Down":
+                    if type(self.widget.image) == type(dict()):
+                        self.widget.image['fit'] = ft.ImageFit.SCALE_DOWN
+                    else:
+                        self.widget.image.fit = ft.ImageFit.SCALE_DOWN
+
         else:
             if config_widget == " Contain":
                 self.widget.image.fit = ft.ImageFit.CONTAIN
@@ -389,4 +452,12 @@ class SelectionEntry(ft.Stack):
         #: only in production
         #: print(self.widget.uid)
 
-        self.widget.update()
+        #: UPDATE DATA
+        try:
+            self.widget.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )

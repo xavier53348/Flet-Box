@@ -35,6 +35,11 @@ class SmallPaleteColor(ft.Container):
         # : SET ATTRIBUTES
         if self.attibute_color == "bgcolor":
             self.widget_color.bgcolor = color
+        if self.attibute_color == "bgcolor ":
+            self.widget = self.page.session.get("SELECTED_SCREEN")  # <== SELECTED PHONE SCREEN
+            self.widget.content.content.content.bgcolor = color
+            self.widget_color = self.widget
+
         if self.attibute_color == "focused_bgcolor":
             self.widget_color.focused_bgcolor = color
         if self.attibute_color == "border_color":
@@ -130,7 +135,15 @@ class Screen_palette(ft.Container):
         self.tab_container.controls[0].visible = True
         self.tab_container.controls[1].visible = False
         self.tab_container.controls[2].visible = False
-        self.tab_container.update()
+
+        try:
+            self.tab_container.update()
+        except Exception as error:
+            self.error_page = self.page.session.get('on_dev')
+            self.error_page(
+                name_seccion='Error by Dev',
+                body_string=error
+            )
 
 
 if __name__ == "__main__":
