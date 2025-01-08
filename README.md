@@ -55,7 +55,7 @@ If you're passionate about shaping the future of frameworks and contributing to 
 
 | **TOKEN POL/MATIC**                                                                         |    **ADDRESS**                                            |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| <img src="https://github.com/xavier53348/Flet-Box/blob/main/.wallet_matic.jpg"  style="width:460px" align="Center">          | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
+| <img src="https://github.com/xavier53348/Flet-Box/blob/main/assets/.wallet_matic.jpg"  style="width:460px" align="Center">          | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
 
 - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 
