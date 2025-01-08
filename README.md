@@ -11,10 +11,10 @@
 
 <details>
     <summary>Gallery Preview FLET-BOX</summary>
-    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/loging.png"    alt="Imagen Flet-Box">
-    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/lobby.png"    alt="Imagen Flet-Box">
-    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/signup.png"    alt="Imagen Flet-Box">
-    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/marketplace.png"    alt="Imagen Flet-Box">
+    <img src="https://github.com/xavier53348/Flet-Box/blob/main/assets/loging.png"    alt="Imagen Flet-Box">
+    <img src="https://github.com/xavier53348/Flet-Box/blob/main/assets/lobby.png"    alt="Imagen Flet-Box">
+    <img src="https://github.com/xavier53348/Flet-Box/blob/main/assets/signup.png"    alt="Imagen Flet-Box">
+    <img src="https://github.com/xavier53348/Flet-Box/blob/main/assets/marketplace.png"    alt="Imagen Flet-Box">
 </details>
 
 [FletBox Web](https://fletboxweb.onrender.com/)
