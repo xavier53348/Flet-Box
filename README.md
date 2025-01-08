@@ -7,16 +7,21 @@
 ## Flet-Box:
 ### It's a Python GUI Framework for Multi-Platform Apps
 
-[![Gallery Preview FLET-BOX](https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/.screen_1.png)](https://www.youtube.com/watch?v=15DDAACb0Hw)
+[![Gallery Preview FLET-BOX](https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/flet_box.png)](https://www.youtube.com/watch?v=15DDAACb0Hw)
 
 <details>
     <summary>Gallery Preview FLET-BOX</summary>
-    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/.screen_1.png"    alt="Imagen Flet-Box">
-    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/.screen_2.png"    alt="Imagen Flet-Box">
-    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/.screen_3.png"    alt="Imagen Flet-Box">
-    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/.screen_4.png"    alt="Imagen Flet-Box">
+    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/loging.png"    alt="Imagen Flet-Box">
+    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/lobby.png"    alt="Imagen Flet-Box">
+    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/signup.png"    alt="Imagen Flet-Box">
+    <img src="https://github.com/xavier53348/Flet-Box/blob/main/flet_box/assets/marketplace.png"    alt="Imagen Flet-Box">
 </details>
 
+[FletBox Web](https://fletboxweb.onrender.com/)
+
+[FletBox Web Api Server](https://kuko53348.pythonanywhere.com/docs#/)
+
+[Repository Testing before make it official](https://github.com/kuko53348/FletBoxWeb)
 
 [More info documentation](https://github.com/xavier53348/Flet-Box/blob/main/docs/WIDGET.md)
 
@@ -31,8 +36,6 @@ If you're passionate about shaping the future of frameworks and contributing to 
 1. **Documentation and Modules**:
 
 - **Documentation**: We're actively working on creating comprehensive documentation for our Flet-Box framework. Your contributions can help make it more accessible, accurate, and user-friendly. Whether you're an expert or a beginner, your insights matter!
-
-- **Modules**: Our framework consists of various modules that handle different aspects of Flet activities. If you have expertise in any specific area (such as Documentation, Modules, or consensus algorithms ), consider contributing by improving existing modules or proposing new ones.
 
 2. **Financial Considerations**:
 
@@ -51,65 +54,12 @@ If you're passionate about shaping the future of frameworks and contributing to 
 
 | **TOKEN POL/MATIC**                                                                         |    **ADDRESS**                                            |
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| <img src="flet_box/assets/.wallet_matic.jpg"  style="width:240px" align="Center">          | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
+| <img src="flet_box/assets/.wallet_matic.jpg"  style="width:460px" align="Center">          | 0x6d437bB66af8d2c44670eA18F059BE1417Dcd7bA                |
 
 - **Learn More**: Explore Flet-box's mission, roadmap, and community initiatives on their official website.
 
 3. **Collaboration and Feedback**:
 - We value diverse perspectives. Engage in discussions, attend working groups, and provide feedback during public consultations.
-
-## Instalation Flet-Box
-```bash
-
->>> mkdir My_app
->>> cd My_app
-```
-## Run one time
-```bash
-
->>> sudo apt-get install python3-full
->>> python3 -m venv .venv
-```
-
-## Activate virtual env
-```bash
-
->>> source .venv/bin/activate
->>> pip install --upgrade pip
->>> pip install -r requirements.txt
-```
-
-## Error with libmpv1
-
-```bash
->>> sudo apt install libmpv1
-```
-
-## Error libmpv1.so no found "UBUNTU 24.04"
-```bash
-# install dependencies
-sudo apt-get install libmpv-dev libmpv2
-
-# will return
-locate libmpv.so
-
-# /usr/lib/x86_64-linux-gnu/libmpv.so
-# /usr/lib/x86_64-linux-gnu/libmpv.so.2
-# /usr/lib/x86_64-linux-gnu/libmpv.so.2.2.0
-
-sudo cp /usr/lib/x86_64-linux-gnu/libmpv.so.2 /usr/lib/x86_64-linux-gnu/libmpv.so.1
-```
-## Install manually
-
-```bash
->>> git clone https://github.com/xavier53348/Flet-Box.git
-```
-
-## Easy run Flet-Box
-```bash
-
->>> flet flet_box/main.py -r -p 8081
-```
 
 ### Introduction
 **Flet-Box** is a powerful framework that enables developers to create interactive multi-user web, desktop, and mobile applications. Whether you're a seasoned developer or just starting out, **Flet-Box** makes frontend development accessible without prior experience. Here are the key features:
@@ -136,61 +86,6 @@ Certainly! In **Flet-Box**, you can create drag-and-drop interactions using the 
 
 <!-- make tree -->
 <!-- tree -I '__pycache__|__init__.py|test|drag_drop_proyect|flet_box.egg-info|docs|.|build|dist|LICENSE|MANIFEST.in|requeriments.txt|README.md|pyproject.toml|setup.py' > full_path.txt -->
-
-### Path Flet-Box Modules
-```bash
-.
-├── flet_box
-│   ├── assets
-│   ├── extra_utils
-│   │   ├── config_container
-│   │   │   ├── blur_color_entry.py
-│   │   │   ├── bool_entry.py
-│   │   │   ├── color_entry.py
-│   │   │   ├── double_entry.py
-│   │   │   ├── dual_number_entry.py
-│   │   │   ├── four_entry.py
-│   │   │   ├── gradient_entry.py
-│   │   │   ├── photo_selection.py
-│   │   │   ├── selection_button_entry.py
-│   │   │   ├── selection_entry.py
-│   │   │   ├── single_entry.py
-│   │   │   ├── single_number_entry.py
-│   │   │   ├── small_palette_color.py
-│   │   │   └── widget_editor.py
-│   │   ├── drag_container
-│   │   │   ├── dragg_widget.py
-│   │   │   ├── infinity_box_layer_one.py
-│   │   │   └── widget_drag_editor.py
-│   │   ├── external_library
-│   │   │   ├── create_skelenton.py
-│   │   │   ├── flet_box_database.db
-│   │   │   ├── library_email.py
-│   │   │   └── sqlite_db.py
-│   │   ├── lite_menu_bar_down_phone
-│   │   │   ├── footer_bar_menu_phone.py
-│   │   │   └── selected_widget.py
-│   │   ├── lite_menu_bar_right_phone
-│   │   │   └── right_bar_menu_phone.py
-│   │   ├── login_page
-│   │   │   └── login_page.py
-│   │   ├── menu_tab_left_phone
-│   │   │   ├── refactory_flet_box.py
-│   │   │   └── widget_menu_left_editor.py
-│   │   ├── menu_tab_up_phone
-│   │   │   ├── basic_menu_tab_up.py
-│   │   │   └── widget_menu_tab_editor.py
-│   │   └── phone_container
-│   │       ├── app_manager
-│   │       │   ├── app_screen_manager.py
-│   │       │   └── views
-│   │       │       ├── main_screen_events.py
-│   │       │       ├── main_screen.py
-│   │       │       └── main_screen_styles.py
-│   │       └── widget_phone_editor.py
-│   ├── main.py
-└── VERSION
-```
 
 ## Widgets will be Updating ...
 #### You mey use now the currents widgets that are marked

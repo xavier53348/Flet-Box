@@ -2,9 +2,8 @@
 ### CAPTURE EVENT WIDGET DATA
 ```python
 event_widget=ft.Container(
-               on_click = lambda tmp_widget: self.edit_widget(target=tmp_widget)
-            )
-
+         on_click = lambda tmp_widget: self.edit_widget(target=tmp_widget)
+      )
 
 def edit_widget(self,target: object=None):
    self.tmp_widget = target.control
@@ -24,22 +23,19 @@ def edit_widget(self,target: object=None):
 ```
 
 #### know your id widget
-
 ```python3
 >>> widget._Control__uid
 >>> '_6'
-
 ```
 
 #### DEFAULD attributes by ID
-
 ```python3
 >>> page.get_control(id='_5').controls[0]
 >>> ft.Stack()
 
 ```
-#### Get attributes by ID
 
+#### Get attributes by ID
 ```python3
 >>> page.get_control(id='_5').controls[0]
 >>> container {'width': 150,
@@ -54,7 +50,6 @@ def edit_widget(self,target: object=None):
 ```
 
 #### ERASE Controls by ID
-
 ```python3
 >>> id_widget = page.get_control(id='_5')
 >>> id_widget.controls = None
@@ -71,7 +66,6 @@ def edit_widget(self,target: object=None):
 ```
 
 #### REPLACE Controls by ID
-
 ```python3
 >>> id_widget = page.get_control(id='_5')
 >>> id_widget.controls = [ft.Widget(attributes)]
@@ -89,7 +83,6 @@ def edit_widget(self,target: object=None):
 ```
 
 #### UNIQ Class
-
 ```python
 
 class InfinityObjects(ft.Controls):
@@ -106,23 +99,24 @@ EXEMPLE = ft.Row(
 
 #### MAKE A PIP PACKAGE
 
-Sure, creating a simple pip package involves a few steps. Here's a basic example to create a pip package in Python 3:
+- Sure, creating a simple pip package involves a few steps. Here's a basic example to create a pip package in Python 3:
 
 1. **Project Structure:** Create a directory for your project with the following structure:
-    ```shell
+
+```bash
 >>>    your_project_name/
 >>>    ├── your_project_name/
 >>>    │   └── __init__.py
 >>>    ├── README.md
 >>>    ├── LICENSE
 >>>    └── setup.py
-    ```
+```
 
 2. **Code File:** Inside the inner `your_project_name` directory, create a Python file, for example, `your_module.py`, with your code.
 
 3. **setup.py:** Create or edit the `setup.py` file like so:
 
-   ```python
+```python
 >>>   from setuptools import setup, find_packages
 >>>   setup(
 >>>       name='your_project_name',
@@ -132,84 +126,85 @@ Sure, creating a simple pip package involves a few steps. Here's a basic example
 >>>           # Add any dependencies here
 >>>       ],
 >>>   )
-   ```
+```
 
 4. **Package File:** Inside the inner `your_project_name` directory, create an empty `__init__.py` file. If your package has modules, you can include them here.
 
 5. **README and LICENSE:** Create a `README.md` and a `LICENSE` file, including appropriate content.
 
 6. **Build the Package:** In the terminal, navigate to the outer directory (`your_project_name`) and run:
-   ```shell
+```python
 >>>   python setup.py sdist bdist_wheel
-   ```
+```
 
 7. **Publishing:** You can distribute your package to the Python Package Index (PyPI) by using `twine`:
-   ```shell
+```python
 >>>   pip install twine
 >>>   twine upload dist/*
-   ```
+```
 
-This will upload your package to PyPI, making it accessible to others using `pip install your_project_name`.
-
-Remember to replace `your_project_name` with your actual package name and adjust the version as needed.
-
-#### MAKE HACK TIPS
+- This will upload your package to PyPI, making it accessible to others using `pip install your_project_name`.
+- Remember to replace `your_project_name` with your actual package name and adjust the version as needed.
 
 #### ATTRIBUTES
 - GET SPECIFIC ATTRIBUTE PASSED
-```shell
+```python
 >>>  tmp_data = screen_1.__getattribute__('content')
 ```
+
 - GET ATTRIBUTE OF THE WIDGET
-```shell
+```python
 >>> tmp_data = screen_1._Control__attrs
 ```
 
 - GET ATTIBUTE IN DICT
-```shell
+```python
 >>> tmp_data = screen_1._wrap_attr_dict(self.data_share)
 ```
 
 - GET ATTIBUTE LIKE STR
-```shell
+```python
 >>> tmp_data = screen_1.__str__()
 ```
 
 - GET ATTRIBUTE LIKE A WIDGET
-```shell
+```python
 >>> tmp_data = screen_1.__repr__()
 ```
 
 - GET ATTRIBUTE LIKE A DICT [ get all values <====s]
-```shell
+```python
 >>> tmp_data = screen_1.__dict__
 ```
+
 #### GET SPECIFIC ATTRIBUTES
+
 - GET SPECIFIC
-```shell
+```python
 >>> tmp_data.__getattribute__('text')
 >>> tmp_data._get_attr('text')
 ```
 
 #### DEL SPECIFIC ATTRIBUTES
 - DEL SPECIFIC
-```shell
+```python
 >>> tmp_data.__delattr__('text')
 ```
 
 #### ATTRIBUTES ID
+
 - GET ID
-```shell
+```python
 >>> tmp_data = screen_1.uid
 ```
 
 #### CHILDRENS PARENT
 - GET ONE WIDGET BEFORE
-```shell
+```python
 >>>  tmp_data = screen_1._Control__previous_children
 ```
 - GET ONE WIDGET BEFORE LIST
-```shell
+```python
 >>> tmp_data = screen_1.parent
 >>> tmp_data = screen_1._get_children()
 >>> tmp_data = screen_1._previous_children
@@ -217,17 +212,19 @@ Remember to replace `your_project_name` with your actual package name and adjust
 ```
 
 #### WRAP LIKE A DICT
-```shell
+```python
 >>> print(Drop_Make_data._wrap_attr_dict({'new_value':Drop_Make_data}))
 >>> Drop_Make_data.invoke_method('on_click')
 ```
+
 #### GET WIDGET NAME
 - GET NAME MODULE
-```shell
+```python
 >>> tmp_data = screen_1.__module__
 ```
+
 - GET NAME OF THE WIDGET
-```shell
+```python
 >>> tmp_data = screen_1._get_control_name()
 ```
 
@@ -238,7 +235,7 @@ Remember to replace `your_project_name` with your actual package name and adjust
 ```
 
 #### KWON INFO ABOUT PAGE FROM EVERY WHERE
-```shell
+```python
 >>> tmp_data = Drop_Container_exemple.__dict__.get('_Control__page')    #  s.__dict__.get('_Control__page') ####<=== GET MAIN PAGE
 >>> tmp_data._Page__next_control_id                                     ####<=== very important
 >>> tmp_data._Page__views                                               ####<=== very important
@@ -258,9 +255,11 @@ print(screen_1._get_attr('width'))                  >>> 240
 print(screen_1._wrap_attr_dict({'hello':screen_1})) >>> {'hello': Container(width=240, height=120,
 print(screen_1.__str__())                           >>> container {'width': 240, 'height': 120, 'bgcolor': '#44CCCC00' <<< +++++
 print(screen_1.__repr__() )                         >>> Container(width=240, height=120, bgcolor='#44CCCC00',
+```
 
+#### ONLY WAY TO GET ATTRIBUTES CORRECTLY AND SET ATTRIBUTES
+```python
 
- # ONLY WAY TO GET ATTRIBUTES CORRECTLY AND SET ATTRIBUTES
 data = {}                                           >>> {'alignment': '{"x":0,"y":0}', 'bgcolor': ''}
 screen_1.copy_attrs(dest=data)                      >>> {'alignment': '{"x":0,"y":0}', 'bgcolor': ''}
 
@@ -268,8 +267,6 @@ screen_1._set_attr('width',10)                      >>> 10
 screen_1.update()
 
 ```
-
-
 
 #### TYPE RETURNED CODE
 ```python
